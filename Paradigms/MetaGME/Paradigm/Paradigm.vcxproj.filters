@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="icons">
+      <UniqueIdentifier>{14ac870f-afaa-47b1-bc81-015095c69129}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="icons\aspect.bmp">
+      <Filter>icons</Filter>
+    </None>
+    <None Include="icons\aspectproxy.bmp">
+      <Filter>icons</Filter>
+    </None>
+    <None Include="icons\atom.bmp">
+      <Filter>icons</Filter>
+    </None>
+    <None Include="icons\atomproxy.bmp">
+      <Filter>icons</Filter>
+    </None>
+    <None Include="icons\attribute.bmp">
+      <Filter>icons</Filter>
+    </None>
+    <None Include="icons\booleanattribute.bmp">
+      <Filter>icons</Filter>
+    </None>
+    <None Include="icons\connection.bmp">
+      <Filter>icons</Filter>
+    </None>
+    <None Include="icons\connectionproxy.bmp">
+      <Filter>icons</Filter>
+    </None>
+    <None Include="icons\connector.bmp">
+      <Filter>icons</Filter>
+    </None>
+    <None Include="icons\constraint.bmp">
+      <Filter>icons</Filter>
+    </None>
+    <None Include="icons\dynAttr.bmp">
+      <Filter>icons</Filter>
+    </None>
+    <None Include="icons\enumattribute.bmp">
+      <Filter>icons</Filter>
+    </None>
+    <None Include="icons\equiv.bmp">
+      <Filter>icons</Filter>
+    </None>
+    <None Include="icons\fco.bmp">
+      <Filter>icons</Filter>
+    </None>
+    <None Include="icons\fcoproxy.bmp">
+      <Filter>icons</Filter>
+    </None>
+    <None Include="icons\fieldattribute.bmp">
+      <Filter>icons</Filter>
+    </None>
+    <None Include="icons\folder.bmp">
+      <Filter>icons</Filter>
+    </None>
+    <None Include="icons\folderproxy.bmp">
+      <Filter>icons</Filter>
+    </None>
+    <None Include="icons\impinheritance.bmp">
+      <Filter>icons</Filter>
+    </None>
+    <None Include="icons\Inheritance.bmp">
+      <Filter>icons</Filter>
+    </None>
+    <None Include="icons\intinheritance.bmp">
+      <Filter>icons</Filter>
+    </None>
+    <None Include="icons\model.bmp">
+      <Filter>icons</Filter>
+    </None>
+    <None Include="icons\modelproxy.bmp">
+      <Filter>icons</Filter>
+    </None>
+    <None Include="icons\privinheritance.bmp">
+      <Filter>icons</Filter>
+    </None>
+    <None Include="icons\reference.bmp">
+      <Filter>icons</Filter>
+    </None>
+    <None Include="icons\referenceproxy.bmp">
+      <Filter>icons</Filter>
+    </None>
+    <None Include="icons\set.bmp">
+      <Filter>icons</Filter>
+    </None>
+    <None Include="icons\setproxy.bmp">
+      <Filter>icons</Filter>
+    </None>
+    <None Include="MetaGME-model.xme" />
+    <None Include="MetaGME.xmp" />
+    <None Include="OldMetaGME-model.xme" />
+    <None Include="OldMetaGME.xmp" />
+  </ItemGroup>
+</Project>

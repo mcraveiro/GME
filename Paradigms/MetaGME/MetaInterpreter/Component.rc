@@ -1,0 +1,256 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (United States) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "1 TYPELIB ""ComponentLib.tlb""\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,0,0,1
+ PRODUCTVERSION 1,0,0,1
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x2L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904B0"
+        BEGIN
+            VALUE "FileDescription", "MetaInterpreter"
+            VALUE "FileVersion", "1, 0, 0, 1"
+            VALUE "InternalName", "MetaInterpreter"
+            VALUE "LegalCopyright", "Copyright 2000-2011 ISIS, Vanderbilt University"
+            VALUE "OriginalFilename", "MetaInterpreter.DLL"
+            VALUE "ProductName", "MetaInterpreter"
+            VALUE "ProductVersion", "1, 0, 0, 1"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1200
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDI_ICONDN              ICON                    "iconDN.ico"
+IDI_COMPICON            ICON                    "compicon.ico"
+IDI_ICONUP              ICON                    "iconUP.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO
+BEGIN
+    IDD_ASPECT_PAGE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 300
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 232
+    END
+
+    IDD_ASPECTORDER_DLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 162
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 186
+    END
+
+    IDD_EQUIVDIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 324
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 219
+    END
+
+    IDD_OPTIONS, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 227
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 140
+    END
+
+    IDD_EVENTSDLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 295
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 151
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_ASPECT_PAGE DIALOG 0, 0, 307, 239
+STYLE DS_SETFONT | WS_CHILD | WS_DISABLED | WS_CAPTION
+FONT 8, "MS Sans Serif"
+BEGIN
+END
+
+IDD_ASPECTORDER_DLG DIALOGEX 0, 0, 169, 193
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Aspect Order"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,27,172,50,14
+    PUSHBUTTON      "Use metamodel defaults",IDCANCEL,81,172,82,14
+    LISTBOX         IDC_LIST3,6,18,124,148,LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_HSCROLL | WS_TABSTOP
+    PUSHBUTTON      "Move Up",IDC_BUTTON1,137,64,16,13,BS_ICON | BS_CENTER | BS_VCENTER,WS_EX_TRANSPARENT
+    PUSHBUTTON      "Move Down",IDC_BUTTON2,137,103,16,13,BS_ICON | BS_CENTER | BS_VCENTER,WS_EX_TRANSPARENT
+    LTEXT           "Global aspect order",IDC_STATIC,6,7,94,8
+END
+
+IDD_EQUIVDIALOG DIALOGEX 0, 0, 331, 226
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Name selection for equivalent objects"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,181,205,50,14
+    PUSHBUTTON      "Use metamodel defaults",IDCANCEL,235,205,89,14
+    CONTROL         "Select the desired names and displayed names by clicking in the first or second column",IDC_STATIC,
+                    "Static",SS_LEFTNOWORDWRAP | WS_GROUP,7,3,303,8
+END
+
+IDD_OPTIONS DIALOGEX 0, 0, 234, 147
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "MetaInterpreter - Options"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    GROUPBOX        "Options for constraints generated from cardinalities",IDC_STATIC,6,7,221,95
+    LTEXT           "Check Containment On:",IDC_STATIC,15,24,94,8
+    EDITTEXT        IDC_EDIT1,117,22,58,12,ES_AUTOHSCROLL
+    PUSHBUTTON      "Events...",IDC_BUTTON1,179,22,38,13
+    LTEXT           "Check Folder Containment On:",IDC_STATIC,15,45,98,8
+    EDITTEXT        IDC_EDIT2,117,43,58,12,ES_AUTOHSCROLL
+    PUSHBUTTON      "Events...",IDC_BUTTON2,179,43,37,13
+    LTEXT           "Check Connections On:",IDC_STATIC,15,66,94,8
+    EDITTEXT        IDC_EDIT3,117,64,58,12,ES_AUTOHSCROLL
+    PUSHBUTTON      "Events...",IDC_BUTTON3,179,64,38,13
+    LTEXT           "Priority",IDC_STATIC,15,86,91,11
+    EDITTEXT        IDC_EDIT4,117,84,30,12,ES_AUTOHSCROLL
+    CONTROL         "Spin1",IDC_SPIN1,"msctls_updown32",UDS_SETBUDDYINT | UDS_ALIGNRIGHT | UDS_AUTOBUDDY | UDS_ARROWKEYS,153,84,11,12
+    CONTROL         "Don't show these options again",IDC_CHECK1,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,108,111,10
+    DEFPUSHBUTTON   "OK",IDOK,123,126,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,177,126,50,14
+END
+
+IDD_EVENTSDLG DIALOGEX 0, 0, 302, 158
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Events"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    CONTROL         "On create",IDC_CHECK1,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,9,9,123,10
+    CONTROL         "On close model",IDC_CHECK15,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,168,9,123,10
+    CONTROL         "On new child",IDC_CHECK5,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,9,24,123,10
+    CONTROL         "On lost child",IDC_CHECK12,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,168,24,123,10
+    CONTROL         "On delete",IDC_CHECK2,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,9,39,123,10
+    CONTROL         "On move",IDC_CHECK11,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,168,39,123,10
+    CONTROL         "On refer",IDC_CHECK13,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,9,54,123,10
+    CONTROL         "On unreferred",IDC_CHECK18,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,168,54,123,10
+    CONTROL         "On include in set",IDC_CHECK16,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,9,69,123,10
+    CONTROL         "On exclude from set",IDC_CHECK19,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,168,69,123,10
+    CONTROL         "On connect",IDC_CHECK14,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,9,84,123,10
+    CONTROL         "On disconnect",IDC_CHECK17,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,168,84,123,10
+    CONTROL         "On derive",IDC_CHECK8,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,9,99,123,10
+    CONTROL         "On change association",IDC_CHECK6,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,168,99,123,10
+    CONTROL         "On change property",IDC_CHECK7,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,9,114,123,10
+    CONTROL         "On change attribute",IDC_CHECK3,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,168,114,123,10
+    DEFPUSHBUTTON   "OK",IDOK,191,137,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,245,137,50,14
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE
+BEGIN
+    IDS_PROJNAME            "Component"
+END
+
+#endif    // English (United States) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+1 TYPELIB "ComponentLib.tlb"
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

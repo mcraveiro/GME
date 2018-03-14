@@ -1,0 +1,286 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+#include "..\GME\GMEVersion.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "1 TYPELIB ""ObjectInspector.tlb""\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION GME_VERSION_RC
+ PRODUCTVERSION GME_VERSION_RC
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x2L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904B0"
+        BEGIN
+            VALUE "CompanyName", "ISIS, Vanderbilt University"
+            VALUE "FileDescription", "ObjectInspector ActiveX Control Module"
+            VALUE "FileVersion", GME_VERSION_STR
+            VALUE "InternalName", "ObjectInspector"
+            VALUE "LegalCopyright", "Copyright (C) 2001"
+            VALUE "OriginalFilename", "ObjectInspector.OCX"
+            VALUE "ProductName", "ObjectInspector ActiveX Control Module"
+            VALUE "ProductVersion", GME_VERSION_STR
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1200
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDI_ABOUTDLL            ICON                    "ObjectInspector.ico"
+IDI_ICON_REVERT         ICON                    "icon_rev.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDB_OBJECTINSPECTOR     BITMAP                  "ObjectInspectorCtl.bmp"
+IDB_COMPASS_OPT         BITMAP                  "res\\compass_opt.bmp"
+IDB_COMPASS_CHECK       BITMAP                  "res\\compass_check.bmp"
+IDB_BITMAP_EDITOR       BITMAP                  "res\\external_editor.bmp"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_ABOUTBOX_OBJECTINSPECTOR DIALOG  34, 22, 247, 31
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "About ObjectInspector Control"
+FONT 8, "MS Sans Serif"
+BEGIN
+    ICON            IDI_ABOUTDLL,IDC_STATIC,11,4,20,20
+    LTEXT           "ObjectInspector ActiveX Control",IDC_STATIC,40,5,170,8
+    LTEXT           "Copyright (C) 2001, ISIS Vanderbilt University",IDC_STATIC,40,15,170,8
+    DEFPUSHBUTTON   "OK",IDOK,210,5,32,14,WS_GROUP
+END
+
+IDD_PROPPAGE_OBJECTINSPECTOR DIALOG  0, 0, 250, 62
+STYLE DS_SETFONT | WS_CHILD
+FONT 8, "MS Sans Serif"
+BEGIN
+    LTEXT           "There is no properties for this control",IDC_STATIC,65,26,118,10
+END
+
+IDD_INSPECTOR_DIALOG DIALOGEX 0, 0, 142, 156
+STYLE DS_SETFONT | DS_MODALFRAME | DS_CONTROL | WS_CHILD | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_STATICEDGE
+CAPTION "Object Inspector"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    EDITTEXT        IDC_EDIT_NAME,2,1,93,14,ES_AUTOHSCROLL
+    LTEXT           "",IDC_STATIC_HELP,2,135,138,18,0,WS_EX_STATICEDGE
+    CONTROL         "Tab1",IDC_INSPECTOR_SHEET,"SysTabControl32",WS_TABSTOP,2,17,138,112
+    CONTROL         "for Kind",IDC_CHECK_KIND,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,100,3,40,10
+    LTEXT           "",IDC_HELP_TITLE,13,141,8,8,NOT WS_GROUP
+    LTEXT           "",IDC_HELP_TEXT,127,141,8,8
+END
+
+IDD_DIALOG_COMPASS DIALOGEX 0, 0, 61, 57
+STYLE DS_SETFONT | WS_POPUP | WS_BORDER
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    CONTROL         "",IDC_NORTH,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,26,12,8,8,WS_EX_TRANSPARENT
+    CONTROL         "",IDC_EAST,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,40,24,8,8,WS_EX_TRANSPARENT
+    CONTROL         "",IDC_WEST,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,13,24,8,8,WS_EX_TRANSPARENT
+    CONTROL         "",IDC_SOUTH,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,26,36,8,8,WS_EX_TRANSPARENT
+END
+
+IDD_COMPASS_OPTION DIALOGEX 0, 0, 87, 80
+STYLE DS_SETFONT | WS_POPUP | WS_BORDER
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    CONTROL         "Radio6",IDC_RADIO_CENTER,"Button",BS_AUTORADIOBUTTON | BS_FLAT | WS_GROUP,39,36,9,8,WS_EX_TRANSPARENT
+    CONTROL         "",IDC_RADIO_NORTH,"Button",BS_AUTORADIOBUTTON | BS_CENTER | BS_FLAT,39,13,9,8,WS_EX_TRANSPARENT
+    CONTROL         "",IDC_RADIO_NORTHEAST,"Button",BS_AUTORADIOBUTTON | BS_CENTER | BS_FLAT,52,24,9,8,WS_EX_TRANSPARENT
+    CONTROL         "",IDC_RADIO_EAST,"Button",BS_AUTORADIOBUTTON | BS_CENTER | BS_FLAT,64,36,9,8,WS_EX_TRANSPARENT
+    CONTROL         "",IDC_RADIO_SOUTHEAST,"Button",BS_AUTORADIOBUTTON | BS_FLAT,52,48,9,8,WS_EX_TRANSPARENT
+    CONTROL         "",IDC_RADIO_SOUTH,"Button",BS_AUTORADIOBUTTON | BS_FLAT,39,60,9,8,WS_EX_TRANSPARENT
+    CONTROL         "",IDC_RADIO_SOUTHWEST,"Button",BS_AUTORADIOBUTTON | BS_FLAT,27,48,9,8,WS_EX_TRANSPARENT
+    CONTROL         "",IDC_RADIO_WEST,"Button",BS_AUTORADIOBUTTON | BS_FLAT,14,36,9,8,WS_EX_TRANSPARENT
+    CONTROL         "",IDC_RADIO_NORTHWEST,"Button",BS_AUTORADIOBUTTON | BS_FLAT,27,24,10,8,WS_EX_TRANSPARENT
+END
+
+IDD_DIALOG_COMBOBOX DIALOG  0, 0, 179, 79
+STYLE DS_SETFONT | WS_POPUP | WS_BORDER
+FONT 8, "MS Sans Serif"
+BEGIN
+END
+
+IDD_COLORPICKER_DIALOG DIALOGEX 0, 0, 179, 79
+STYLE DS_SETFONT | WS_POPUP
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO 
+BEGIN
+    IDD_ABOUTBOX_OBJECTINSPECTOR, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 240
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 24
+    END
+
+    IDD_PROPPAGE_OBJECTINSPECTOR, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 243
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 55
+    END
+
+    IDD_INSPECTOR_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 135
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 149
+    END
+
+    IDD_DIALOG_COMPASS, DIALOG
+    BEGIN
+        HORZGUIDE, 49
+    END
+
+    IDD_DIALOG_COMBOBOX, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 172
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 72
+    END
+
+    IDD_COLORPICKER_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 172
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 72
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+IDR_LISTCNTX_MENU MENU 
+BEGIN
+    POPUP "ListContext"
+    BEGIN
+		MENUITEM "Reset Value to Default\tCtrl-D", ID_LISTCONTEXT_RESETTODEFAULT
+		MENUITEM "Copy Value", ID_LISTCONTEXT_COPY
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE 
+BEGIN
+    IDS_OBJECTINSPECTOR     "ObjectInspector Control"
+    IDS_OBJECTINSPECTOR_PPG "ObjectInspector Property Page"
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_OBJECTINSPECTOR_PPG_CAPTION "General"
+END
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+1 TYPELIB "ObjectInspector.tlb"
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

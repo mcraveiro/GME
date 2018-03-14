@@ -1,0 +1,11 @@
+HKCR
+{
+	NoRemove AppID
+	{
+		{AC6235B3-E689-4901-AB59-B3A4D51BC630} = s 'Console'
+		'Console.EXE'
+		{
+			val AppID = s {AC6235B3-E689-4901-AB59-B3A4D51BC630}
+		}
+	}
+}

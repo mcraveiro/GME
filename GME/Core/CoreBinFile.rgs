@@ -1,0 +1,26 @@
+HKCR
+{
+	Mga.CoreBinFile.1 = s 'CoreBinFile Class'
+	{
+		CLSID = s '{7281C07A-3E09-11D3-B2F7-005004D38590}'
+	}
+	Mga.CoreBinFile = s 'CoreBinFile Class'
+	{
+		CLSID = s '{7281C07A-3E09-11D3-B2F7-005004D38590}'
+		CurVer = s 'Mga.CoreBinFile.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {7281C07A-3E09-11D3-B2F7-005004D38590} = s 'CoreBinFile Class'
+		{
+			ProgID = s 'Mga.CoreBinFile.1'
+			VersionIndependentProgID = s 'Mga.CoreBinFile'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			'TypeLib' = s '{9E9AAACF-28B8-11D3-B36C-0060082DF884}'
+		}
+	}
+}

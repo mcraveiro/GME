@@ -1,0 +1,686 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE project SYSTEM "mga.dtd">
+
+<project guid="{06DE942A-F5B6-4FB6-854F-5D4CF7323255}" cdate="Wed Jun 24 08:42:36 2009" mdate="Wed Jun 24 08:42:36 2009" version="" metaguid="{D9F30F2A-C829-4B3F-A6FC-D91C24AEA3A8}" metaversion="" metaname="SF">
+	<name>SFDemo1</name>
+	<comment></comment>
+	<author></author>
+	<folder id="id-006a-00000001" relid="0x1" childrelidcntr="0x2" kind="RootFolder" guid="{113a2a9b-4466-4f1d-b364-6823f50af4d9}">
+		<name>SFDemo1</name>
+		<folder id="id-006a-00000002" relid="0x1" childrelidcntr="0x1" kind="Folder" guid="{4e70678d-47df-49f7-815f-2b61a20fe255}">
+			<name>Folder</name>
+			<model id="id-0065-00000001" kind="Compound" guid="{37032019-aca0-446d-be58-c30be6eacd26}" relid="0x1" childrelidcntr="0x6">
+				<name>System</name>
+				<regnode name="annotations" status="undefined">
+					<value></value>
+					<regnode name="Annotation0" isopaque="yes">
+						<value>The PreProcessing model connects to the Processing model</value>
+						<regnode name="aspects" isopaque="yes">
+							<value>144,318</value>
+							<regnode name="*" isopaque="yes">
+								<value>DefaultVisibility</value>
+							</regnode>
+							<regnode name="SignalFlowAspect" isopaque="yes">
+								<value>43,138</value>
+							</regnode>
+						</regnode>
+						<regnode name="castshadow" isopaque="yes">
+							<value>0</value>
+						</regnode>
+						<regnode name="gradientdirection" isopaque="yes">
+							<value>0</value>
+						</regnode>
+						<regnode name="gradientfill" isopaque="yes">
+							<value>0</value>
+						</regnode>
+						<regnode name="hidden" isopaque="yes">
+							<value>0</value>
+						</regnode>
+						<regnode name="inheritable" isopaque="yes">
+							<value>0</value>
+						</regnode>
+						<regnode name="roundrectcorner" isopaque="yes">
+							<value>0</value>
+						</regnode>
+						<regnode name="roundrectcornerradius" isopaque="yes">
+							<value>9</value>
+						</regnode>
+						<regnode name="shadowdepth" isopaque="yes">
+							<value>9</value>
+						</regnode>
+						<regnode name="shadowdirection" isopaque="yes">
+							<value>45</value>
+						</regnode>
+					</regnode>
+					<regnode name="Annotation1" isopaque="yes">
+						<value>This diagram contains the definition of the high-level signal flow.</value>
+						<regnode name="aspects" isopaque="yes">
+							<value>151,370</value>
+							<regnode name="*" isopaque="yes">
+								<value>DefaultVisibility</value>
+							</regnode>
+							<regnode name="SignalFlowAspect" isopaque="yes">
+								<value>29,5</value>
+							</regnode>
+						</regnode>
+						<regnode name="castshadow" isopaque="yes">
+							<value>0</value>
+						</regnode>
+						<regnode name="gradientdirection" isopaque="yes">
+							<value>0</value>
+						</regnode>
+						<regnode name="gradientfill" isopaque="yes">
+							<value>0</value>
+						</regnode>
+						<regnode name="hidden" isopaque="yes">
+							<value>0</value>
+						</regnode>
+						<regnode name="inheritable" isopaque="yes">
+							<value>0</value>
+						</regnode>
+						<regnode name="roundrectcorner" isopaque="yes">
+							<value>0</value>
+						</regnode>
+						<regnode name="roundrectcornerradius" isopaque="yes">
+							<value>9</value>
+						</regnode>
+						<regnode name="shadowdepth" isopaque="yes">
+							<value>9</value>
+						</regnode>
+						<regnode name="shadowdirection" isopaque="yes">
+							<value>45</value>
+						</regnode>
+					</regnode>
+				</regnode>
+				<model id="id-0065-00000002" kind="Compound" role="CompoundParts" guid="{bc4fd6c9-b88c-4391-96f3-2d85f0dc709c}" relid="0x3" childrelidcntr="0xb">
+					<name>Processing</name>
+					<regnode name="PartRegs" isopaque="yes">
+						<value></value>
+						<regnode name="ParameterAspect" isopaque="yes">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>211,51</value>
+							</regnode>
+						</regnode>
+						<regnode name="SignalFlowAspect" isopaque="yes">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>232,49</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<model id="id-0065-00000003" kind="Primitive" role="PrimitiveParts" guid="{3b81dd81-7945-487b-8ec7-41a08a56df42}" relid="0x4" childrelidcntr="0x2">
+						<name>Branch0</name>
+						<regnode name="PartRegs" isopaque="yes">
+							<value></value>
+							<regnode name="ParameterAspect" isopaque="yes">
+								<value></value>
+								<regnode name="Position" isopaque="yes">
+									<value>310,198</value>
+								</regnode>
+							</regnode>
+							<regnode name="SignalFlowAspect" isopaque="yes">
+								<value></value>
+								<regnode name="Position" isopaque="yes">
+									<value>169,14</value>
+								</regnode>
+							</regnode>
+						</regnode>
+						<attribute kind="Firing" status="meta">
+							<value>IFALL</value>
+						</attribute>
+						<attribute kind="Priority" status="meta">
+							<value>10</value>
+						</attribute>
+						<attribute kind="Script">
+							<value>ComputeTime</value>
+						</attribute>
+						<atom id="id-0066-00000001" kind="OutputSignal" role="OutputSignals" guid="{b93b35ca-e400-4010-88a0-9fdf008d11f6}" relid="0x2">
+							<name>Out</name>
+							<regnode name="PartRegs" isopaque="yes">
+								<value></value>
+								<regnode name="SignalFlowAspect" isopaque="yes">
+									<value></value>
+									<regnode name="Position" isopaque="yes">
+										<value>664,265</value>
+									</regnode>
+								</regnode>
+							</regnode>
+						</atom>
+						<atom id="id-0066-00000002" kind="InputSignal" role="InputSignals" guid="{d0728d10-426e-4b93-bcec-849b037892dc}" relid="0x1">
+							<name>In</name>
+							<regnode name="PartRegs" isopaque="yes">
+								<value></value>
+								<regnode name="SignalFlowAspect" isopaque="yes">
+									<value></value>
+									<regnode name="Position" isopaque="yes">
+										<value>97,265</value>
+									</regnode>
+								</regnode>
+							</regnode>
+						</atom>
+					</model>
+					<model id="id-0065-00000004" kind="Primitive" role="PrimitiveParts" guid="{68bab9f5-da35-4786-8c9e-8a1373d4bebf}" relid="0x5" childrelidcntr="0x3">
+						<name>Branch1</name>
+						<regnode name="PartRegs" isopaque="yes">
+							<value></value>
+							<regnode name="ParameterAspect" isopaque="yes">
+								<value></value>
+								<regnode name="Position" isopaque="yes">
+									<value>310,324</value>
+								</regnode>
+							</regnode>
+							<regnode name="SignalFlowAspect" isopaque="yes">
+								<value></value>
+								<regnode name="Position" isopaque="yes">
+									<value>169,140</value>
+								</regnode>
+							</regnode>
+						</regnode>
+						<attribute kind="Firing" status="meta">
+							<value>IFALL</value>
+						</attribute>
+						<attribute kind="Priority" status="meta">
+							<value>10</value>
+						</attribute>
+						<attribute kind="Script" status="meta">
+							<value></value>
+						</attribute>
+						<atom id="id-0066-00000006" kind="OutputSignal" role="OutputSignals" guid="{98bd893f-3fbd-44d8-86ce-59670ec75ef0}" relid="0x3">
+							<name>Out</name>
+							<regnode name="PartRegs" isopaque="yes">
+								<value></value>
+								<regnode name="SignalFlowAspect" isopaque="yes">
+									<value></value>
+									<regnode name="Position" isopaque="yes">
+										<value>618,303</value>
+									</regnode>
+								</regnode>
+							</regnode>
+						</atom>
+						<atom id="id-0066-00000007" kind="InputSignal" role="InputSignals" guid="{f239e02f-a294-4508-baec-f15cd58bd85f}" relid="0x2">
+							<name>In</name>
+							<regnode name="PartRegs" isopaque="yes">
+								<value></value>
+								<regnode name="SignalFlowAspect" isopaque="yes">
+									<value></value>
+									<regnode name="Position" isopaque="yes">
+										<value>104,300</value>
+									</regnode>
+								</regnode>
+							</regnode>
+						</atom>
+					</model>
+					<atom id="id-0066-00000003" kind="OutputSignal" role="OutputSignals" guid="{cc02cb87-9b0d-48cc-a505-eda1ce4afa90}" relid="0x3">
+						<name>Freq</name>
+						<regnode name="PartRegs" isopaque="yes">
+							<value></value>
+							<regnode name="SignalFlowAspect" isopaque="yes">
+								<value></value>
+								<regnode name="Position" isopaque="yes">
+									<value>370,167</value>
+								</regnode>
+							</regnode>
+						</regnode>
+					</atom>
+					<atom id="id-0066-00000004" kind="OutputSignal" role="OutputSignals" guid="{ad72c2ce-d5e9-49de-989c-6bbc62497294}" relid="0x2">
+						<name>Time</name>
+						<regnode name="PartRegs" isopaque="yes">
+							<value></value>
+							<regnode name="SignalFlowAspect" isopaque="yes">
+								<value></value>
+								<regnode name="Position" isopaque="yes">
+									<value>370,41</value>
+								</regnode>
+							</regnode>
+						</regnode>
+					</atom>
+					<atom id="id-0066-00000005" kind="InputSignal" role="InputSignals" guid="{3d082618-3e05-494c-8eb5-bfb8098eb194}" relid="0x1">
+						<name>In</name>
+						<regnode name="PartRegs" isopaque="yes">
+							<value></value>
+							<regnode name="SignalFlowAspect" isopaque="yes">
+								<value></value>
+								<regnode name="Position" isopaque="yes">
+									<value>34,104</value>
+								</regnode>
+							</regnode>
+						</regnode>
+					</atom>
+					<connection id="id-0068-00000001" kind="DataflowConn" role="DFC" guid="{f69ddd56-57f8-459a-9cf5-0bf6004b736c}" relid="0x9">
+						<name>DFC</name>
+						<regnode name="autorouterPref" isopaque="yes">
+							<value>w</value>
+						</regnode>
+						<connpoint role="dst" target="id-0066-00000003"/>
+						<connpoint role="src" target="id-0066-00000006"/>
+					</connection>
+					<connection id="id-0068-00000002" kind="DataflowConn" role="DFC" guid="{07ddf4e5-0316-4bc8-8eae-d6171a58f551}" relid="0x8">
+						<name>DFC</name>
+						<regnode name="autorouterPref" isopaque="yes">
+							<value>w</value>
+						</regnode>
+						<connpoint role="src" target="id-0066-00000001"/>
+						<connpoint role="dst" target="id-0066-00000004"/>
+					</connection>
+					<connection id="id-0068-00000003" kind="DataflowConn" role="DFC" guid="{1b8c5cd3-302b-418b-a527-5ba6e51bcb81}" relid="0x7">
+						<name>DFC</name>
+						<regnode name="autorouterPref" isopaque="yes">
+							<value>E</value>
+						</regnode>
+						<connpoint role="src" target="id-0066-00000005"/>
+						<connpoint role="dst" target="id-0066-00000007"/>
+					</connection>
+					<connection id="id-0068-00000004" kind="DataflowConn" role="DFC" guid="{6e946585-9b8d-4785-aaff-297987cbd475}" relid="0x6">
+						<name>DFC</name>
+						<regnode name="autorouterPref" isopaque="yes">
+							<value>E</value>
+						</regnode>
+						<connpoint role="dst" target="id-0066-00000002"/>
+						<connpoint role="src" target="id-0066-00000005"/>
+					</connection>
+				</model>
+				<model id="id-0065-00000005" kind="Compound" role="CompoundParts" guid="{9f33a416-c7e3-4031-b189-869d284f1019}" relid="0x2" childrelidcntr="0x5">
+					<name>PostProcessing</name>
+					<regnode name="PartRegs" isopaque="yes">
+						<value></value>
+						<regnode name="ParameterAspect" isopaque="yes">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>386,51</value>
+							</regnode>
+						</regnode>
+						<regnode name="SignalFlowAspect" isopaque="yes">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>421,49</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<model id="id-0065-00000009" kind="Primitive" role="PrimitiveParts" guid="{ca63a1da-df93-43b4-a9f5-2fdac15f6a52}" relid="0x3" childrelidcntr="0x4">
+						<name>SubGeneratorC</name>
+						<regnode name="PartRegs" status="undefined">
+							<value></value>
+							<regnode name="ParameterAspect" status="undefined">
+								<value></value>
+								<regnode name="Position" isopaque="yes">
+									<value>175,259</value>
+								</regnode>
+							</regnode>
+							<regnode name="SignalFlowAspect" status="undefined">
+								<value></value>
+								<regnode name="Position" isopaque="yes">
+									<value>182,231</value>
+								</regnode>
+							</regnode>
+						</regnode>
+						<attribute kind="Firing" status="meta">
+							<value>IFALL</value>
+						</attribute>
+						<attribute kind="Priority" status="meta">
+							<value>10</value>
+						</attribute>
+						<attribute kind="Script" status="meta">
+							<value></value>
+						</attribute>
+						<atom id="id-0066-0000000b" kind="InputSignal" role="InputSignals" guid="{9a7d885f-8b8d-48db-a04e-cad0131aa545}" relid="0x1">
+							<name>Size</name>
+							<regnode name="PartRegs" status="undefined">
+								<value></value>
+								<regnode name="SignalFlowAspect" status="undefined">
+									<value></value>
+									<regnode name="Position" isopaque="yes">
+										<value>41,20</value>
+									</regnode>
+								</regnode>
+							</regnode>
+						</atom>
+						<atom id="id-0066-0000000c" kind="OutputSignal" role="OutputSignals" guid="{f918de6d-19c7-4f8c-9f7d-874a725c4735}" relid="0x2">
+							<name>Output</name>
+							<regnode name="PartRegs" status="undefined">
+								<value></value>
+								<regnode name="SignalFlowAspect" status="undefined">
+									<value></value>
+									<regnode name="Position" isopaque="yes">
+										<value>111,69</value>
+									</regnode>
+								</regnode>
+							</regnode>
+						</atom>
+						<atom id="id-0066-0000000d" kind="InputSignal" role="InputSignals" guid="{111b5fa6-6d83-43d6-98e7-9571daba0679}" relid="0x3">
+							<name>Channel</name>
+							<regnode name="PartRegs" status="undefined">
+								<value></value>
+								<regnode name="SignalFlowAspect" status="undefined">
+									<value></value>
+									<regnode name="Position" isopaque="yes">
+										<value>41,69</value>
+									</regnode>
+								</regnode>
+							</regnode>
+						</atom>
+						<atom id="id-0066-0000000e" kind="InputSignal" role="InputSignals" guid="{b38f230f-0c69-49b0-9499-7cc8e3fb6fa8}" relid="0x4">
+							<name>Fequency</name>
+							<regnode name="PartRegs" status="undefined">
+								<value></value>
+								<regnode name="SignalFlowAspect" status="undefined">
+									<value></value>
+									<regnode name="Position" isopaque="yes">
+										<value>41,118</value>
+									</regnode>
+								</regnode>
+							</regnode>
+						</atom>
+					</model>
+					<model id="id-0065-0000000b" kind="Compound" role="CompoundParts" guid="{10852ba8-ee20-4617-a0e6-91b2dd87b46d}" relid="0x5" childrelidcntr="0xc">
+						<name>SuperGen</name>
+						<regnode name="PartRegs" status="undefined">
+							<value></value>
+							<regnode name="ParameterAspect" status="undefined">
+								<value></value>
+								<regnode name="Position" isopaque="yes">
+									<value>182,350</value>
+								</regnode>
+							</regnode>
+							<regnode name="SignalFlowAspect" status="undefined">
+								<value></value>
+								<regnode name="Position" isopaque="yes">
+									<value>182,350</value>
+								</regnode>
+							</regnode>
+						</regnode>
+						<model id="id-0065-0000000c" kind="Primitive" role="PrimitiveParts" guid="{5e96fe1f-a510-47f7-9b18-bfa89e5f1f08}" relid="0x3" childrelidcntr="0x2">
+							<name>GeneratorA</name>
+							<regnode name="PartRegs" status="undefined">
+								<value></value>
+								<regnode name="ParameterAspect" status="undefined">
+									<value></value>
+									<regnode name="Position" isopaque="yes">
+										<value>161,63</value>
+									</regnode>
+								</regnode>
+								<regnode name="SignalFlowAspect" status="undefined">
+									<value></value>
+									<regnode name="Position" isopaque="yes">
+										<value>224,84</value>
+									</regnode>
+								</regnode>
+							</regnode>
+							<attribute kind="Firing" status="meta">
+								<value>IFALL</value>
+							</attribute>
+							<attribute kind="Priority" status="meta">
+								<value>10</value>
+							</attribute>
+							<attribute kind="Script" status="meta">
+								<value></value>
+							</attribute>
+							<atom id="id-0066-00000011" kind="InputSignal" role="InputSignals" guid="{ff3f3ea6-f4a7-4dbf-b3ed-9d8157509ef7}" relid="0x1">
+								<name>In</name>
+								<regnode name="PartRegs" status="undefined">
+									<value></value>
+									<regnode name="SignalFlowAspect" status="undefined">
+										<value></value>
+										<regnode name="Position" isopaque="yes">
+											<value>104,153</value>
+										</regnode>
+									</regnode>
+								</regnode>
+							</atom>
+							<atom id="id-0066-00000012" kind="OutputSignal" role="OutputSignals" guid="{059a31e9-f5aa-4264-b183-c02c4214ed97}" relid="0x2">
+								<name>Out</name>
+								<regnode name="PartRegs" status="undefined">
+									<value></value>
+									<regnode name="SignalFlowAspect" status="undefined">
+										<value></value>
+										<regnode name="Position" isopaque="yes">
+											<value>286,153</value>
+										</regnode>
+									</regnode>
+								</regnode>
+							</atom>
+						</model>
+						<model id="id-0065-0000000d" kind="Primitive" role="PrimitiveParts" guid="{7716d384-ba30-4eb3-b6ee-2f2c32265bec}" relid="0x4" childrelidcntr="0x2">
+							<name>GeneratorC</name>
+							<regnode name="PartRegs" status="undefined">
+								<value></value>
+								<regnode name="ParameterAspect" status="undefined">
+									<value></value>
+									<regnode name="Position" isopaque="yes">
+										<value>161,63</value>
+									</regnode>
+								</regnode>
+								<regnode name="SignalFlowAspect" status="undefined">
+									<value></value>
+									<regnode name="Position" isopaque="yes">
+										<value>224,217</value>
+									</regnode>
+								</regnode>
+							</regnode>
+							<attribute kind="Firing" status="meta">
+								<value>IFALL</value>
+							</attribute>
+							<attribute kind="Priority" status="meta">
+								<value>10</value>
+							</attribute>
+							<attribute kind="Script" status="meta">
+								<value></value>
+							</attribute>
+							<atom id="id-0066-00000013" kind="OutputSignal" role="OutputSignals" guid="{3ab4aded-faf0-4a4f-910e-71373b08c7b8}" relid="0x2">
+								<name>Out</name>
+								<regnode name="PartRegs" status="undefined">
+									<value></value>
+									<regnode name="SignalFlowAspect" status="undefined">
+										<value></value>
+										<regnode name="Position" isopaque="yes">
+											<value>286,153</value>
+										</regnode>
+									</regnode>
+								</regnode>
+							</atom>
+							<atom id="id-0066-00000014" kind="InputSignal" role="InputSignals" guid="{88e436f0-f54d-4339-b5b3-d0862952b72b}" relid="0x1">
+								<name>In</name>
+								<regnode name="PartRegs" status="undefined">
+									<value></value>
+									<regnode name="SignalFlowAspect" status="undefined">
+										<value></value>
+										<regnode name="Position" isopaque="yes">
+											<value>104,153</value>
+										</regnode>
+									</regnode>
+								</regnode>
+							</atom>
+						</model>
+						<model id="id-0065-0000000e" kind="Primitive" role="PrimitiveParts" guid="{bc988a85-3bc7-4dfb-9d83-0e86afb90b46}" relid="0x5" childrelidcntr="0x2">
+							<name>GeneratorB</name>
+							<regnode name="PartRegs" status="undefined">
+								<value></value>
+								<regnode name="ParameterAspect" status="undefined">
+									<value></value>
+									<regnode name="Position" isopaque="yes">
+										<value>161,63</value>
+									</regnode>
+								</regnode>
+								<regnode name="SignalFlowAspect" status="undefined">
+									<value></value>
+									<regnode name="Position" isopaque="yes">
+										<value>427,154</value>
+									</regnode>
+								</regnode>
+							</regnode>
+							<attribute kind="Firing" status="meta">
+								<value>IFALL</value>
+							</attribute>
+							<attribute kind="Priority" status="meta">
+								<value>10</value>
+							</attribute>
+							<attribute kind="Script" status="meta">
+								<value></value>
+							</attribute>
+							<atom id="id-0066-00000015" kind="OutputSignal" role="OutputSignals" guid="{b145b4e2-9fc7-4cb1-8ba3-34a80ace8fe6}" relid="0x2">
+								<name>Out</name>
+								<regnode name="PartRegs" status="undefined">
+									<value></value>
+									<regnode name="SignalFlowAspect" status="undefined">
+										<value></value>
+										<regnode name="Position" isopaque="yes">
+											<value>286,153</value>
+										</regnode>
+									</regnode>
+								</regnode>
+							</atom>
+							<atom id="id-0066-00000016" kind="InputSignal" role="InputSignals" guid="{1a70f96a-2799-4afe-bab3-2c62ec3a8407}" relid="0x1">
+								<name>In</name>
+								<regnode name="PartRegs" status="undefined">
+									<value></value>
+									<regnode name="SignalFlowAspect" status="undefined">
+										<value></value>
+										<regnode name="Position" isopaque="yes">
+											<value>104,153</value>
+										</regnode>
+									</regnode>
+								</regnode>
+							</atom>
+						</model>
+						<atom id="id-0066-0000000f" kind="InputSignal" role="InputSignals" guid="{2889b524-0e99-4e57-9f40-10db8092a0c3}" relid="0x1">
+							<name>In</name>
+							<regnode name="PartRegs" status="undefined">
+								<value></value>
+								<regnode name="SignalFlowAspect" status="undefined">
+									<value></value>
+									<regnode name="Position" isopaque="yes">
+										<value>76,188</value>
+									</regnode>
+								</regnode>
+							</regnode>
+						</atom>
+						<atom id="id-0066-00000010" kind="OutputSignal" role="OutputSignals" guid="{17236ecd-8ff3-47ae-ae9e-297ffafc4461}" relid="0x2">
+							<name>Out</name>
+							<regnode name="PartRegs" status="undefined">
+								<value></value>
+								<regnode name="SignalFlowAspect" status="undefined">
+									<value></value>
+									<regnode name="Position" isopaque="yes">
+										<value>587,181</value>
+									</regnode>
+								</regnode>
+							</regnode>
+						</atom>
+						<connection id="id-0068-00000008" kind="DataflowConn" role="DFC" guid="{0a64d1c5-e0cb-4b6b-9914-034777521dd4}" relid="0x6">
+							<name>DFC</name>
+							<connpoint role="src" target="id-0066-0000000f"/>
+							<connpoint role="dst" target="id-0066-00000011"/>
+						</connection>
+						<connection id="id-0068-0000000a" kind="DataflowConn" role="DFC" guid="{df5258e8-c0f2-4eee-bf95-757f1c4bc506}" relid="0x8">
+							<name>DFC</name>
+							<connpoint role="src" target="id-0066-0000000f"/>
+							<connpoint role="dst" target="id-0066-00000014"/>
+						</connection>
+						<connection id="id-0068-0000000b" kind="DataflowConn" role="DFC" guid="{f5e4ee2f-a2e2-4f5b-a2ec-96f3d7c63f17}" relid="0x9">
+							<name>DFC</name>
+							<connpoint role="src" target="id-0066-00000013"/>
+							<connpoint role="dst" target="id-0066-00000016"/>
+						</connection>
+						<connection id="id-0068-0000000c" kind="DataflowConn" role="DFC" guid="{4e5c1b48-58e6-44af-a84d-0b856a31187d}" relid="0xa">
+							<name>DFC</name>
+							<connpoint role="src" target="id-0066-00000012"/>
+							<connpoint role="dst" target="id-0066-00000016"/>
+						</connection>
+						<connection id="id-0068-0000000d" kind="DataflowConn" role="DFC" guid="{5d8268d2-8629-4e39-bbf6-72428965b19a}" relid="0xb">
+							<name>DFC</name>
+							<connpoint role="dst" target="id-0066-00000010"/>
+							<connpoint role="src" target="id-0066-00000015"/>
+						</connection>
+					</model>
+					<atom id="id-0066-00000008" kind="InputSignal" role="InputSignals" guid="{d89a26f1-dec3-4e7a-bec2-55f60b38f353}" relid="0x2">
+						<name>r2</name>
+						<regnode name="PartRegs" isopaque="yes">
+							<value></value>
+							<regnode name="SignalFlowAspect" isopaque="yes">
+								<value></value>
+								<regnode name="Position" isopaque="yes">
+									<value>27,314</value>
+								</regnode>
+							</regnode>
+						</regnode>
+					</atom>
+					<atom id="id-0066-00000009" kind="InputSignal" role="InputSignals" guid="{3bf85f0a-9f9f-41a0-b943-adcc8765b5eb}" relid="0x1">
+						<name>r1</name>
+						<regnode name="PartRegs" isopaque="yes">
+							<value></value>
+							<regnode name="SignalFlowAspect" isopaque="yes">
+								<value></value>
+								<regnode name="Position" isopaque="yes">
+									<value>27,251</value>
+								</regnode>
+							</regnode>
+						</regnode>
+					</atom>
+				</model>
+				<model id="id-0065-00000006" kind="Compound" role="CompoundParts" guid="{4d2d8be9-7b35-4b8e-9795-f5710f06f948}" relid="0x1" childrelidcntr="0x1">
+					<name>PreProcessing</name>
+					<regnode name="PartRegs" isopaque="yes">
+						<value></value>
+						<regnode name="ParameterAspect" isopaque="yes">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>44,51</value>
+							</regnode>
+						</regnode>
+						<regnode name="SignalFlowAspect" isopaque="yes">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>44,51</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<atom id="id-0066-0000000a" kind="OutputSignal" role="OutputSignals" guid="{e86d30dc-d189-4df0-89c4-3e3f885613ad}" relid="0x1">
+						<name>Out</name>
+						<regnode name="PartRegs" isopaque="yes">
+							<value></value>
+							<regnode name="SignalFlowAspect" isopaque="yes">
+								<value></value>
+								<regnode name="Position" isopaque="yes">
+									<value>177,65</value>
+								</regnode>
+							</regnode>
+						</regnode>
+					</atom>
+				</model>
+				<connection id="id-0068-00000005" kind="DataflowConn" role="DFC" guid="{5b5fcc24-f10b-49b6-8e28-0cb63be6d0a9}" relid="0x6">
+					<name>DFC</name>
+					<connpoint role="src" target="id-0066-00000003"/>
+					<connpoint role="dst" target="id-0066-00000008"/>
+				</connection>
+				<connection id="id-0068-00000006" kind="DataflowConn" role="DFC" guid="{3b0e7a34-83e1-4945-b8b6-0950edda24c6}" relid="0x5">
+					<name>DFC</name>
+					<connpoint role="src" target="id-0066-00000004"/>
+					<connpoint role="dst" target="id-0066-00000009"/>
+				</connection>
+				<connection id="id-0068-00000007" kind="DataflowConn" role="DFC" guid="{8a69596c-bccd-4773-bb62-90bd56245242}" relid="0x4">
+					<name>DFC</name>
+					<connpoint role="dst" target="id-0066-00000005"/>
+					<connpoint role="src" target="id-0066-0000000a"/>
+				</connection>
+			</model>
+		</folder>
+		<folder id="id-006a-00000003" relid="0x2" childrelidcntr="0x1" kind="Folder" guid="{31fc4c1b-eeb3-415f-be0e-b522000d5e43}">
+			<name>BasicTypes</name>
+			<model id="id-0065-0000000f" kind="Compound" guid="{b6ea9bd1-c3aa-4e23-92a5-26a8ea61051b}" relid="0x1" childrelidcntr="0x1">
+				<name>GeneratorBase</name>
+				<model id="id-0065-00000010" kind="Compound" role="CompoundParts" guid="{2ceba64e-2d2c-4e0c-a886-345961c8bd38}" derivedfrom="id-0065-0000000f" isinstance="no" isprimary="yes" relid="0x1" childrelidcntr="0x0">
+					<name>SubGenBase</name>
+					<regnode name="PartRegs" status="undefined">
+						<value></value>
+						<regnode name="SignalFlowAspect" status="undefined">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>105,322</value>
+							</regnode>
+						</regnode>
+					</regnode>
+				</model>
+			</model>
+		</folder>
+	</folder>
+</project>

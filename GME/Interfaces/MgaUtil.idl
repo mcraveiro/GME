@@ -1,0 +1,734 @@
+import "oaidl.idl";
+import "ocidl.idl";
+
+#include "InterfaceColl.h"
+#include "InterfaceVersion.h"
+
+import "Meta.idl";
+import "Mga.idl";
+
+typedef enum mgautil_error {
+[helpstring("ComponentProxy was not initialized with a Dispatch based interpreter")]
+	E_MGAUTIL_COMPONENTPROXY_NOTINITIALIZED	=	0x80737001
+} mgautil_error;
+
+// --------------------------- MgaUtil IDL
+
+[
+	object,
+	uuid(461F30B0-3BF0-11D4-B3F0-005004D38590),
+	dual,
+	helpstring("IMgaResolver Interface"),
+	pointer_default(unique)
+]
+interface IMgaResolver : IDispatch
+{
+	// clear all accumulated knowledge
+	[helpstring("method Clear")]
+	HRESULT Clear();
+
+	[propput, helpstring("property IsInteractive")]
+	HRESULT IsInteractive([in] VARIANT_BOOL p);
+
+	[propget, helpstring("property IsInteractive")]
+	HRESULT IsInteractive([out, retval] VARIANT_BOOL *p);
+
+	[propput, helpstring("property IsStickyEnabled")]
+	HRESULT IsStickyEnabled([in] VARIANT_BOOL p);
+
+	[propget, helpstring("property IsStickyEnabled")]
+	HRESULT IsStickyEnabled([out, retval] VARIANT_BOOL *p);
+
+	[helpstring("getUserOptions")]
+	HRESULT getUserOptions();
+
+// --- resolve by names
+
+	[propget, helpstring("property FolderByStr")]
+	HRESULT FolderByStr([in] IMgaFolder *parent,
+		[in] BSTR kindname, [out, retval] IMgaMetaFolder **p);
+
+	[helpstring("getter for property FolderByStr")]
+	HRESULT GetFolderByStrDisp([in] IMgaFolder *parent,
+		[in] BSTR kindname, [out, retval] IMgaMetaFolder **p);
+
+	[propget, helpstring("property KindByStr")]
+	HRESULT KindByStr([in] IMgaFolder *parent, 
+		[in] BSTR kindname, [in] objtype_enum objtype,
+		[out, retval] IMgaMetaFCO **p);
+
+	[helpstring("getter for property KindByStr")]
+	HRESULT GetKindByStrDisp([in] IMgaFolder *parent, 
+		[in] BSTR kindname, [in] objtype_enum objtype,
+		[out, retval] IMgaMetaFCO **p);
+
+	[propget, helpstring("property RoleByStr")]
+	HRESULT RoleByStr([in] IMgaModel *parent,
+		[in] BSTR kindname, [in] objtype_enum objtype, 
+		[in] BSTR rolename, [in] BSTR aspect,
+		[out, retval] IMgaMetaRole **p);
+
+	[helpstring("getter for property RoleByStr")]
+	HRESULT GetRoleByStrDisp([in] IMgaModel *parent,
+		[in] BSTR kindname, [in] objtype_enum objtype, 
+		[in] BSTR rolename, [in] BSTR aspect,
+		[out, retval] IMgaMetaRole **p);
+
+	[propget, helpstring("property AttrByStr")]
+	HRESULT AttrByStr([in] IMgaFCO *parent,
+		[in] BSTR kindname, [out, retval] IMgaMetaAttribute **p);
+
+	[helpstring("getter for property AttrByStr")]
+	HRESULT GetAttrByStrDisp([in] IMgaFCO *parent,
+		[in] BSTR kindname, [out, retval] IMgaMetaAttribute **p);
+
+// --- resolve by meta objects
+
+	[propget, helpstring("property RoleByMeta")]
+	HRESULT RoleByMeta([in] IMgaModel *parent, 
+		[in] IMgaMetaFCO *p_kind, [in] objtype_enum objtype, 
+		[in] IMgaMetaRole *p_role, [in] IMgaMetaAspect *aspect,
+		[out, retval] IMgaMetaRole **p);
+
+	[helpstring("getter for property RoleByMeta")]
+	HRESULT GetRoleByMetaDisp([in] IMgaModel *parent, 
+		[in] IMgaMetaFCO *p_kind, [in] objtype_enum objtype, 
+		[in] IMgaMetaRole *p_role, [in] IMgaMetaAspect *aspect,
+		[out, retval] IMgaMetaRole **p);
+
+
+	[propget, helpstring("property ConnRoleByMeta")]
+	HRESULT ConnRoleByMeta([in] IMgaModel *parent, 
+		[in] IMgaMetaAspect *aspect, 
+		[in] IMgaFCO * src, [in] IMgaFCO * src_port,
+		[in] IMgaFCO * dst, [in] IMgaFCO * dst_port,
+		[out, retval] IMgaMetaRole **p);
+
+	[helpstring("getter for property ConnRoleByMeta")]
+	HRESULT GetConnRoleByMetaDisp([in] IMgaModel *parent, 
+		[in] IMgaMetaAspect *aspect, 
+		[in] IMgaFCO * src, [in] IMgaFCO * src_port,
+		[in] IMgaFCO * dst, [in] IMgaFCO * dst_port,
+		[out, retval] IMgaMetaRole **p);
+
+	[propget, helpstring("property RefRoleByMeta")]
+	HRESULT RefRoleByMeta([in] IMgaModel *parent, 
+		[in] IMgaMetaAspect *aspect, [in] IMgaFCO * src,
+		[out, retval] IMgaMetaRole **p);
+
+	[helpstring("getter for property RefRoleByMeta")]
+	HRESULT GetRefRoleByMetaDisp([in] IMgaModel *parent, 
+		[in] IMgaMetaAspect *aspect, [in] IMgaFCO * src,
+		[out, retval] IMgaMetaRole **p);
+
+// -- collection helper
+
+	[propget, helpstring("property RolesByMetas")]
+	HRESULT RolesByMetas([in] IMgaModel *dst_parent, 
+		[in] IMgaFCOs *Src, [in] IMgaMetaAspect * aspect, 
+		[in] BSTR sz_aspect, [out, retval] IMgaMetaRoles ** p);
+
+	[helpstring("property RolesByMetas")]
+	HRESULT GetRolesByMetasDisp([in] IMgaModel *dst_parent, 
+		[in] IMgaFCOs *Src, [in] IMgaMetaAspect * aspect, 
+		[in] BSTR sz_aspect, [out, retval] IMgaMetaRoles ** p);
+
+
+};
+
+
+typedef enum regaccessmode_enum {
+	REGACCESS_NONE = 0,			// only used as return value from RegistryStatus
+	REGACCESS_USER = 1,			// *
+	REGACCESS_SYSTEM = 2,		// *
+	REGACCESS_PRIORITY  = 5,   // valid only for read ops
+	REGACCESS_BOTH  = 3,	   // * valid only for write and list read ops
+	REGACCESS_TEST = 8,		   // valid only for write ops
+// * = valid argument for regsvr32 /i
+} regaccessmode_enum;
+
+
+typedef enum edgesmoothmode_enum {				// For clues see SetSmoothingMode SmoothingMode help in MSDN
+	EdgeSmooth_NoSmooth					= 0,	// This is the system default
+	EdgeSmooth_HighSpeedMode			= 1,	// Smoothing but better speed than high quality mode
+	EdgeSmooth_HighQualityMode			= 2		// The best quality
+} edgesmoothmode_enum;
+
+typedef enum fontsmoothmode_enum {				// For clues see SetTextRenderingHint TextRenderingHint help in MSDN
+	FontSmooth_SystemDefault			= 0,
+	FontSmooth_SingleBitPerPixelGridFit = 1,
+	FontSmooth_SingleBitPerPixel		= 2,
+	FontSmooth_AntiAliasGridFit			= 3,
+	FontSmooth_AntiAlias				= 4,
+	FontSmooth_ClearTypeGridFit			= 5
+} fontsmoothmode_enum;
+
+
+[
+	object,
+	uuid(F1D6BB05-42EE-11D4-B3F4-005004D38590),
+	dual,
+	helpstring("IMgaRegistrar Interface"),
+	pointer_default(unique)
+]
+interface IMgaRegistrar : IDispatch
+{
+	// --- IconPath GME settings
+	// path is a ";" separated list
+	[propget, helpstring("property IconPath")]
+	HRESULT IconPath([in] regaccessmode_enum mode, [out, retval] BSTR *path);
+
+	[propput, helpstring("property IconPath")]
+	HRESULT IconPath([in] regaccessmode_enum mode, [in] BSTR path);
+
+	[helpstring("getter for property IconPath")]
+	HRESULT GetIconPathDisp([in] regaccessmode_enum mode, [out, retval] BSTR *path);
+
+	[helpstring("setter for property IconPath")]
+	HRESULT SetIconPathDisp([in] regaccessmode_enum mode, [in] BSTR path);
+
+	// --- Multiview GME settings
+	[propget, helpstring("property ShowMultipleView")]
+	HRESULT ShowMultipleView([in] regaccessmode_enum mode, [out, retval] VARIANT_BOOL *enabled);
+
+	[propput, helpstring("property ShowMultipleView")]
+	HRESULT ShowMultipleView([in] regaccessmode_enum mode, [in] VARIANT_BOOL enabled);
+
+	[helpstring("getter for property ShowMultipleView")]
+	HRESULT GetShowMultipleViewDisp([in] regaccessmode_enum mode, [out, retval] VARIANT_BOOL *enabled);
+
+	[helpstring("setter for property ShowMultipleView")]
+	HRESULT SetShowMultipleViewDisp([in] regaccessmode_enum mode, [in] VARIANT_BOOL enabled);
+
+	// --- Logging GME settings
+	[propget, helpstring("property EventLoggingEnabled")]
+	HRESULT EventLoggingEnabled([in] regaccessmode_enum mode, [out, retval] VARIANT_BOOL *enabled);
+
+	[propput, helpstring("property EventLoggingEnabled")]
+	HRESULT EventLoggingEnabled([in] regaccessmode_enum mode, [in] VARIANT_BOOL enabled);
+
+	[helpstring("getter for property EventLoggingEnabled")]
+	HRESULT GetEventLoggingEnabledDisp([in] regaccessmode_enum mode, [out, retval] VARIANT_BOOL *enabled);
+
+	[helpstring("setter for property EventLoggingEnabled")]
+	HRESULT SetEventLoggingEnabledDisp([in] regaccessmode_enum mode, [in] VARIANT_BOOL enabled);
+
+	// --- Autosave GME settings
+	[propget, helpstring("property AutosaveEnabled")]
+	HRESULT AutosaveEnabled([in] regaccessmode_enum mode, [out, retval] VARIANT_BOOL *enabled);
+
+	[propput, helpstring("property AutosaveEnabled")]
+	HRESULT AutosaveEnabled([in] regaccessmode_enum mode, [in] VARIANT_BOOL enabled);
+
+	[helpstring("getter for property AutosaveEnabled")]
+	HRESULT GetAutosaveEnabledDisp([in] regaccessmode_enum mode, [out, retval] VARIANT_BOOL *enabled);
+
+	[helpstring("setter for property AutosaveEnabled")]
+	HRESULT SetAutosaveEnabledDisp([in] regaccessmode_enum mode, [in] VARIANT_BOOL enabled);
+
+	[propget, helpstring("property AutosaveFreq")]
+	HRESULT AutosaveFreq([in] regaccessmode_enum mode, [out, retval] long *secs);
+
+	[propput, helpstring("property AutosaveFreq")]
+	HRESULT AutosaveFreq([in] regaccessmode_enum mode, [in] long secs);
+
+	[helpstring("getter for property AutosaveFreq")]
+	HRESULT GetAutosaveFreqDisp([in] regaccessmode_enum mode, [out, retval] long *secs);
+
+	[helpstring("property AutosaveFreq")]
+	HRESULT SetAutosaveFreqDisp([in] regaccessmode_enum mode, [in] long secs);
+
+	[propget, helpstring("property AutosaveUseDir")]
+	HRESULT AutosaveUseDir([in] regaccessmode_enum mode, [out, retval] VARIANT_BOOL *use);
+
+	[propput, helpstring("property AutosaveUseDir")]
+	HRESULT AutosaveUseDir([in] regaccessmode_enum mode, [in] VARIANT_BOOL use);
+
+	[helpstring("getter for property AutosaveUseDir")]
+	HRESULT GetAutosaveUseDirDisp([in] regaccessmode_enum mode, [out, retval] VARIANT_BOOL *use);
+
+	[helpstring("setter for property AutosaveUseDir")]
+	HRESULT SetAutosaveUseDirDisp([in] regaccessmode_enum mode, [in] VARIANT_BOOL use);
+
+	[propget, helpstring("property AutosaveDir")]
+	HRESULT AutosaveDir([in] regaccessmode_enum mode, [out, retval] BSTR *dir);
+
+	[propput, helpstring("property AutosaveDir")]
+	HRESULT AutosaveDir([in] regaccessmode_enum mode, [in] BSTR dir);
+
+	[helpstring("getter for property AutosaveDir")]
+	HRESULT GetAutosaveDirDisp([in] regaccessmode_enum mode, [out, retval] BSTR *dir);
+
+	[helpstring("setter for property AutosaveDir")]
+	HRESULT SetAutosaveDirDisp([in] regaccessmode_enum mode, [in] BSTR dir);
+
+	// --- External Editor settings
+	[propget, helpstring("property ExternalEditorEnabled")]
+	HRESULT ExternalEditorEnabled([in] regaccessmode_enum mode, [out, retval] VARIANT_BOOL *enabled);
+
+	[propput, helpstring("property ExternalEditorEnabled")]
+	HRESULT ExternalEditorEnabled([in] regaccessmode_enum mode, [in] VARIANT_BOOL enabled);
+
+	[helpstring("getter for property ExternalEditorEnabled")]
+	HRESULT GetExternalEditorEnabledDisp([in] regaccessmode_enum mode, [out, retval] VARIANT_BOOL *enabled);
+
+	[helpstring("setter for property ExternalEditorEnabled")]
+	HRESULT SetExternalEditorEnabledDisp([in] regaccessmode_enum mode, [in] VARIANT_BOOL enabled);
+
+	[propget, helpstring("property ExternalEditor")]
+	HRESULT ExternalEditor([in] regaccessmode_enum mode, [out, retval] BSTR *path);
+
+	[propput, helpstring("property ExternalEditor")]
+	HRESULT ExternalEditor([in] regaccessmode_enum mode, [in] BSTR path);
+
+	[helpstring("getter for property ExternalEditor")]
+	HRESULT GetExternalEditorDisp([in] regaccessmode_enum mode, [out, retval] BSTR *path);
+
+	[helpstring("setter for property ExternalEditor")]
+	HRESULT SetExternalEditorDisp([in] regaccessmode_enum mode, [in] BSTR path);
+
+	// --- AutoRouter
+	[propget, helpstring("property UseAutoRouting")]
+	HRESULT UseAutoRouting([in] regaccessmode_enum mode, [out, retval] VARIANT_BOOL *enabled);
+
+	[propput, helpstring("property UseAutoRouting")]
+	HRESULT UseAutoRouting([in] regaccessmode_enum mode, [in] VARIANT_BOOL enabled);
+
+	[helpstring("getter for property UseAutoRouting")]
+	HRESULT GetUseAutoRoutingDisp([in] regaccessmode_enum mode, [out, retval] VARIANT_BOOL *enabled);
+
+	[helpstring("setter for property UseAutoRouting")]
+	HRESULT SetUseAutoRoutingDisp([in] regaccessmode_enum mode, [in] VARIANT_BOOL enabled);
+
+	[propget, helpstring("property LabelAvoidance")]
+	HRESULT LabelAvoidance([in] regaccessmode_enum mode, [out, retval] VARIANT_BOOL *enabled);
+
+	[propput, helpstring("property LabelAvoidance")]
+	HRESULT LabelAvoidance([in] regaccessmode_enum mode, [in] VARIANT_BOOL enabled);
+
+	[helpstring("getter for property LabelAvoidance")]
+	HRESULT GetLabelAvoidanceDisp([in] regaccessmode_enum mode, [out, retval] VARIANT_BOOL *enabled);
+
+	[helpstring("setter for property LabelAvoidance")]
+	HRESULT SetLabelAvoidanceDisp([in] regaccessmode_enum mode, [in] VARIANT_BOOL enabled);
+
+	// --- Scripting
+	[propget, helpstring("property ScriptEngine")]
+	HRESULT ScriptEngine([in] regaccessmode_enum mode, [out, retval] BSTR *path);
+
+	[propput, helpstring("property ScriptEngine")]
+	HRESULT ScriptEngine([in] regaccessmode_enum mode, [in] BSTR path);
+
+	[helpstring("getter for property ScriptEngine")]
+	HRESULT GetScriptEngineDisp([in] regaccessmode_enum mode, [out, retval] BSTR *path);
+
+	[helpstring("setter for property ScriptEngine")]
+	HRESULT SetScriptEngineDisp([in] regaccessmode_enum mode, [in] BSTR path);
+
+	[helpstring("get DefZoomLevel")]
+	HRESULT GetDefZoomLevel([in] regaccessmode_enum mode, [out, retval] BSTR *zlevel);
+
+	[helpstring("set DefZoomLevel")]
+	HRESULT SetDefZoomLevel([in] regaccessmode_enum mode, [in] BSTR zlevel);
+
+	// --- Send Mouse Over Object Notification
+	[helpstring("property MouseOverNotify")]
+	HRESULT GetMouseOverNotify([in] regaccessmode_enum mode, [out, retval] VARIANT_BOOL *enabled);
+
+	[helpstring("property SendMouseOverObjNotif")]
+	HRESULT SetMouseOverNotify([in] regaccessmode_enum mode, [in] VARIANT_BOOL enabled);
+
+	[helpstring("get real number format string")]
+	HRESULT GetRealNmbFmtStr([in] regaccessmode_enum mode, [out, retval] BSTR *fmtStr);
+
+	[helpstring("set real number format string")]
+	HRESULT SetRealNmbFmtStr([in] regaccessmode_enum mode, [in] BSTR fmtStr);
+
+	// --- TimeStamping Messages in Console Window
+	[helpstring("getter method for TimeStamping")]
+	HRESULT GetTimeStamping([in] regaccessmode_enum mode, [out, retval] VARIANT_BOOL *enabled);
+
+	[helpstring("setter method for TimeStamping")]
+	HRESULT SetTimeStamping([in] regaccessmode_enum mode, [in] VARIANT_BOOL enabled);
+
+	// --- ModelHistory Navigation enabled
+	[helpstring("is Navigation enabled")]
+	HRESULT GetNavigation([in] regaccessmode_enum mode, [out, retval] VARIANT_BOOL *enabled);
+
+	[helpstring("setter for Navigation")]
+	HRESULT SetNavigation([in] regaccessmode_enum mode, [in] VARIANT_BOOL enabled);
+
+	// --- UndoSize preference
+	[helpstring("getter for Undo size queue")]
+	HRESULT GetUndoQueueSize(regaccessmode_enum mode, BSTR *queuesz);
+
+	[helpstring("setter for Undo size queue. Valid if >=1. Affects GME performance. The smaller the faster.")]
+	HRESULT SetUndoQueueSize(regaccessmode_enum mode, BSTR queuesz);
+
+	// --- AntiAlias preferences
+	[propget, helpstring("property EdgeSmoothMode")]
+	HRESULT EdgeSmoothMode([in] regaccessmode_enum mode, [out, retval] edgesmoothmode_enum* smoothMode);
+
+	[propput, helpstring("property EdgeSmoothMode")]
+	HRESULT EdgeSmoothMode([in] regaccessmode_enum mode, [in] edgesmoothmode_enum smoothMode);
+
+	[helpstring("getter for Edge smooth mode (anti alias)")]
+	HRESULT GetEdgeSmoothModeDisp([in] regaccessmode_enum mode, [out, retval] edgesmoothmode_enum* smoothMode);
+
+	[helpstring("setter for Edge smooth mode (anti alias).")]
+	HRESULT SetEdgeSmoothModeDisp([in] regaccessmode_enum mode, [in] edgesmoothmode_enum smoothMode);
+
+	[propget, helpstring("property FontSmoothMode")]
+	HRESULT FontSmoothMode([in] regaccessmode_enum mode, [out, retval] fontsmoothmode_enum* smoothMode);
+
+	[propput, helpstring("property FontSmoothMode")]
+	HRESULT FontSmoothMode([in] regaccessmode_enum mode, [in] fontsmoothmode_enum smoothMode);
+
+	[helpstring("getter for Font smooth mode (anti alias)")]
+	HRESULT GetFontSmoothModeDisp([in] regaccessmode_enum mode, [out, retval] fontsmoothmode_enum* smoothMode);
+
+	[helpstring("setter for Font smooth mode (anti alias).")]
+	HRESULT SetFontSmoothModeDisp([in] regaccessmode_enum mode, [in] fontsmoothmode_enum smoothMode);
+
+	// --- Paradigms
+
+	// names() As String
+	// guid(0 To 15) As Byte
+	[propget, helpstring("property Paradigms")]
+	HRESULT Paradigms([in] regaccessmode_enum mode, [out, retval] VARIANT *names);
+
+	[helpstring("getter for property Paradigms")]
+	HRESULT GetParadigmsDisp([in] regaccessmode_enum mode, [out, retval] VARIANT *names);
+
+	[helpstring("method RegisterParadigmFromData")]
+	HRESULT RegisterParadigmFromData([in] BSTR ConnStr, [out] BSTR *newname, [in] regaccessmode_enum mode);
+
+	[helpstring("method RegisterParadigmFromData - Dispatch compatible signature")]
+	HRESULT RegisterParadigmFromDataDisp([in] BSTR ConnStr, [in] regaccessmode_enum mode, [out, retval] BSTR *newname);
+
+	[helpstring("method RegisterParadigm")]
+	HRESULT RegisterParadigm([in] BSTR name, [in] BSTR ConnStr, [in] BSTR ver, [in] VARIANT guid, [in] regaccessmode_enum mode);
+
+	[helpstring("method QueryParadigm")]
+	HRESULT QueryParadigm([in] BSTR name, [out] BSTR *ConnStr, [in,out] VARIANT *guid, [in] regaccessmode_enum mode);
+
+	[propget, helpstring("property QueryParadigmGUIDString")]
+	HRESULT ParadigmGUIDString([in] regaccessmode_enum mode, [in] BSTR name, [out, retval] BSTR *guidstr);
+
+	[helpstring("getter for property QueryParadigmGUIDString")]
+	HRESULT GetParadigmGUIDStringDisp([in] regaccessmode_enum mode, [in] BSTR name, [out, retval] BSTR *guidstr);
+
+	[helpstring("method QueryParadigmAllGUIDs - returns GUID strings")]
+	HRESULT QueryParadigmAllGUIDs([in] BSTR name, [out] VARIANT *names, [in] regaccessmode_enum mode);
+
+	[helpstring("method UnregisterParadigm")]
+	HRESULT UnregisterParadigm([in] BSTR name, [in] regaccessmode_enum mode);
+
+	[helpstring("method UnregisterParadigmGUID")]
+	HRESULT UnregisterParadigmGUID([in] BSTR name, [in] VARIANT guid, [in] regaccessmode_enum mode);
+
+	[helpstring("method VersionFromGUID")]
+	HRESULT VersionFromGUID([in] BSTR name, [in] VARIANT guid, [out] BSTR *ver, [in] regaccessmode_enum mode);
+
+	[helpstring("method GUIDFromVersion")]
+	HRESULT GUIDFromVersion([in] BSTR name, [in] BSTR ver, [out] VARIANT* guid, [in] regaccessmode_enum mode);
+
+	// --- Components
+
+	// progids() As String
+	[propget, helpstring("property Components")]
+	HRESULT Components([in] regaccessmode_enum mode, [out, retval] VARIANT *progids);
+
+	[helpstring("getter for property Components")]
+	HRESULT GetComponentsDisp([in] regaccessmode_enum mode, [out, retval] VARIANT *progids);
+
+	[helpstring("method RegisterComponent")]
+	HRESULT RegisterComponent([in] BSTR ProgID, [in] componenttype_enum type, [in] BSTR desc, [in] regaccessmode_enum mode);
+
+	[helpstring("method QueryComponent")]
+	HRESULT QueryComponent([in] BSTR ProgID, [out] componenttype_enum *type, [out] BSTR *desc, [in] regaccessmode_enum mode);
+
+	[helpstring("method UnregisterComponent")]
+	HRESULT UnregisterComponent([in] BSTR ProgID, [in] regaccessmode_enum mode);
+
+	[propput, helpstring("property ComponentExtraInfo")]
+	HRESULT ComponentExtraInfo([in] regaccessmode_enum mode, 
+				[in] BSTR ProgID, [in] BSTR name, 
+				[in] BSTR newVal);
+
+	[propget, helpstring("property ComponentExtraInfo")]
+	HRESULT ComponentExtraInfo([in] regaccessmode_enum mode, 
+				[in] BSTR ProgID, [in] BSTR name, 
+				[out, retval] BSTR *pVal);
+
+	[helpstring("setter for property ComponentExtraInfo")]
+	HRESULT SetComponentExtraInfoDisp([in] regaccessmode_enum mode, 
+				[in] BSTR ProgID, [in] BSTR name, 
+				[in] BSTR newVal);
+
+	[helpstring("getter for property ComponentExtraInfo")]
+	HRESULT GetComponentExtraInfoDisp([in] regaccessmode_enum mode, 
+				[in] BSTR ProgID, [in] BSTR name, 
+				[out, retval] BSTR *pVal);
+
+	[propget, helpstring("property LocalDllPath")]
+	HRESULT LocalDllPath([in] BSTR ProgID, [out, retval] BSTR *pVal);
+
+	[helpstring("getter for property LocalDllPath")]
+	HRESULT GetLocalDllPathDisp([in] BSTR ProgID, [out, retval] BSTR *pVal);
+
+	// --- Associate
+
+	// progids() As String
+	[propget, helpstring("method AssociatedComponents")]
+	HRESULT AssociatedComponents([in] BSTR Paradigm, 
+		[in] componenttype_enum type, [in] regaccessmode_enum mode, [out, retval] VARIANT *progids);
+
+	[helpstring("getter for method AssociatedComponents")]
+	HRESULT GetAssociatedComponentsDisp([in] BSTR Paradigm, 
+		[in] componenttype_enum type, [in] regaccessmode_enum mode, [out, retval] VARIANT *progids);
+
+	// paradigms() As String
+	[propget, helpstring("method AssociatedParadigms")]
+	HRESULT AssociatedParadigms([in] BSTR ProgID,
+		 [in] regaccessmode_enum mode, [out, retval] VARIANT *paradigms);
+
+	[helpstring("getter for property AssociatedParadigms")]
+	HRESULT GetAssociatedParadigmsDisp([in] BSTR ProgID,
+		 [in] regaccessmode_enum mode, [out, retval] VARIANT *paradigms);
+
+	[helpstring("method Associate")]
+	HRESULT Associate([in] BSTR ProgID, [in] BSTR Paradigm, [in] regaccessmode_enum mode);
+
+	[helpstring("method Disassociate")]
+	HRESULT Disassociate([in] BSTR ProgID, [in] BSTR Paradigm, [in] regaccessmode_enum mode);
+
+	[helpstring("method IsAssociated")]
+	HRESULT IsAssociated([in] BSTR ProgID, [in] BSTR Paradigm, 
+			[out] VARIANT_BOOL *is_ass, [out] VARIANT_BOOL *can_ass, [in] regaccessmode_enum mode);
+	// --- Actions
+
+	// registers each component in library
+	// do not call it from DLLRegisterServer
+	[helpstring("method RegisterComponentLibrary")]
+	HRESULT RegisterComponentLibrary([in] BSTR path, [in] regaccessmode_enum mode);
+
+	[helpstring("method UnregisterComponentLibrary")]
+	HRESULT UnregisterComponentLibrary([in] BSTR path, [in] regaccessmode_enum mode);
+};
+
+typedef enum metadlg_enum
+{
+	METADLG_NONE =		0x0000,
+	METADLG_NEWFILE =	0x0001,		// new file
+	METADLG_PARREG =	0x0002,		// register paradigms
+} metadlg_enum;
+
+typedef enum componentdlg_enum
+{
+	COMPONENTDLG_NONE =		0x0000,
+	COMPONENTDLG_INTERP =	0x0001,
+} componentdlg_enum;
+
+[
+	object,
+	uuid(D03EC326-447B-11D4-B3F6-005004D38590),
+	dual,
+	helpstring("IMgaLauncher Interface"),
+	pointer_default(unique)
+]
+interface IMgaLauncher : IDispatch
+{
+	// --- Properties
+
+	[propput, helpstring("property ParadigmName")]
+	HRESULT ParadigmName([in] BSTR p);
+
+	[propput, helpstring("property ComponentType")]
+	HRESULT ComponentType([in] componenttype_enum type);
+
+	[propput, helpstring("property Parameter")]
+	HRESULT Parameter([in] VARIANT p);
+
+	[propget, helpstring("property ParadigmName")]
+	HRESULT ParadigmName([out, retval] BSTR *p);
+
+	[propget, helpstring("property ConnStr")]
+	HRESULT ConnStr([out, retval] BSTR *p);
+
+	[propget, helpstring("property Paradigm")]
+	HRESULT Paradigm([out, retval] IMgaMetaProject **p);
+
+	[propget, helpstring("property ProgID")]
+	HRESULT ProgID([out, retval] BSTR *p);
+
+	// --- Dialogs
+
+	[helpstring("method MetaDlg")]
+	HRESULT MetaDlg(metadlg_enum flags);
+
+	[helpstring("method GmeDlg")]
+	HRESULT GmeDlg();
+
+	[helpstring("method ComponentDlg")]
+	HRESULT ComponentDlg(componentdlg_enum flags);
+
+	[helpstring("method PropDlg")]
+	HRESULT PropDlg([in] IMgaObject * obj);
+
+	[helpstring("method AttrDlg")]
+	HRESULT AttrDlg([in] IMgaObject * obj);
+
+	[helpstring("method ShowHelp")]
+	HRESULT ShowHelp([in] IMgaObject * obj);
+
+	[helpstring("method RegistryBrowser")]
+	HRESULT RegistryBrowser([in] IMgaObject * obj);
+
+	[helpstring("method AnnotationBrowser")]
+	HRESULT AnnotationBrowser([in] IMgaObject * obj, [in] IMgaRegNode * focus);
+
+	// --- Other stuff
+
+	[helpstring("method RunComponent")]   
+	HRESULT RunComponent([in] BSTR ProgID, [in] IMgaProject *p, 
+		[in] IMgaFCO *focusobj, [in] IMgaFCOs *selectedobjs, [in] long param);
+};
+
+[
+	object,
+	uuid(D0317326-447B-12D4-B3F6-005004D38590),
+	helpstring("IMgaProgressDlg Interface"),
+	pointer_default(unique)
+]
+interface IMgaProgressDlg : IUnknown
+{
+	[helpstring("method SetTitle")]
+	HRESULT SetTitle([in] BSTR title);
+
+	// lines: 0, 1
+	[helpstring("method SetLine")]
+	HRESULT SetLine([in] int line, [in] BSTR msg);
+
+	[helpstring("method StartProgressDialog")]
+	HRESULT StartProgressDialog([in] HWND hwndParent);
+
+	[helpstring("method HasUserCancelled")]
+	HRESULT HasUserCancelled([out, retval] VARIANT_BOOL *p);
+
+	[helpstring("method SetProgress")]
+	HRESULT SetProgress([in] long completed, [in] long total);
+
+	[helpstring("method StopProgressDialog")]
+	HRESULT StopProgressDialog();
+};
+
+[
+	object,
+	uuid(FF01497A-36EB-4EA7-BE44-2FA98BD703DB),
+
+	helpstring("IMgaComponentProxy Interface"),
+	pointer_default(unique)
+]
+interface IMgaComponentProxy : IUnknown
+{
+	[propput, helpstring("property DispatchComponent")]
+	HRESULT DispatchComponent([in] IDispatch *component);
+};
+
+[
+	object,
+	uuid(74348E5A-C76D-4c2e-88D5-D968C01CE432),
+	dual,
+	helpstring("IMgaClosure Interface"),
+	pointer_default(unique)
+]
+interface IMgaClosure : IDispatch
+{
+	[helpstring("method GetLastClosureId - returns the last closure id stored in the rootfolder's registry")]
+	HRESULT GetLastClosureId
+		( [in] IMgaProject* p
+		, [out, retval] long* p_pMarkWith);
+
+	[helpstring("method PutLastClosureId - saves the new last id")]
+	HRESULT PutLastClosureId
+		( [in] IMgaProject* p
+		, [in] long  p_iMarkWith);
+
+	[helpstring("method SelectiveClosure")]
+	HRESULT SelectiveClosureDlg
+		( [in]  VARIANT_BOOL folder_containment_needed
+		, [out] VARIANT_BOOL* refers_to,           [out] VARIANT_BOOL* referred_by
+		, [out] VARIANT_BOOL* connections,         [out] VARIANT_BOOL* conns_through_refport
+		, [out] VARIANT_BOOL* set_members,         [out] VARIANT_BOOL* member_of_sets
+		, [out] VARIANT_BOOL* model_containment,   [out] VARIANT_BOOL* part_of_models
+		, [out] VARIANT_BOOL* folder_containment,  [out] VARIANT_BOOL* part_of_folders
+		, [out] VARIANT_BOOL* base_type_of,        [out] VARIANT_BOOL* derived_types_of
+		, [out] long* library_element_handling     // 0: stubs, 1: stop, 2: continue
+		, [out] long* wrapping                     // 0: miniproject, 1: automatic, 2: as is
+		, [out] long* kind_filter                  // -1 = all, otherwise calculate the 0b000rsamf mask, where f = Folders, m = Models, a = Atoms, s = Sets, r = References
+		, [in, out] long* mark_value               // -1 = do not mark, otherwise mark objects' registry with marker value specified by the user
+		, [out] long* options                      // special value
+		, [out] VARIANT_BOOL* direction_down       // main direction to go in the hierarchy
+		, [out] VARIANT_BOOL* copy_to_file         // either file or clipboard
+		, [out] VARIANT_BOOL* ok_pressed           // how ended the dialog?
+		, [out] BSTR* file_name_selected         // the user provided filename
+		);
+
+	HRESULT SelectiveClosureCalc
+		( [in] IMgaFCOs *init_sel_fcos        , [in] IMgaFolders *init_sel_folders
+		, [in] VARIANT_BOOL refers_to         , [in] VARIANT_BOOL referred_by
+		, [in] VARIANT_BOOL connections       , [in] VARIANT_BOOL conns_through_refport
+		, [in] VARIANT_BOOL set_members       , [in] VARIANT_BOOL member_of_sets
+		, [in] VARIANT_BOOL model_containment , [in] VARIANT_BOOL part_of_models
+		, [in] VARIANT_BOOL folder_containment, [in] VARIANT_BOOL part_of_folders
+		, [in] VARIANT_BOOL base_type_of      , [in] VARIANT_BOOL derived_types_of
+		, [in] long library_element_handling      // 0: stubs, 1: stop, 2: continue
+		, [in] long wrapping                      // 0: miniproject, 1: automatic, 2: as is
+		, [in] long kind_filter                   // -1 = all, otherwise calculate the 0b000rsamf mask, where f = Folders, m = Models, a = Atoms, s = Sets, r = References
+		, [in] long mark_value                    // -1 = do not mark, otherwise mark objects' registry selected in the closure
+		, [in] VARIANT_BOOL direction_down
+		, [out] IMgaFCOs **sel_fcos            , [out] IMgaFolders **sel_folders
+		, [out] IMgaFCOs **top_fcos            , [out] IMgaFolders **top_folders
+		, [out] VARIANT_BOOL* top_collections_filled
+		, [out] BSTR* acc_kinds
+		);
+
+
+	[helpstring("method SmartCopy")]
+	HRESULT SmartCopy(
+		[in] IMgaFCOs *init_sel_fcos, [in] IMgaFolders *init_sel_folders,
+		[out] IMgaFCOs **sel_fcos,  [out] IMgaFolders **sel_folders,
+		[out] IMgaFCOs **top_fcos, [out] IMgaFolders **top_folders,
+		[in] int folder_containment,
+		[out] long * options,
+		[out] BSTR *acckinds,
+		[out] BSTR *path
+		);
+};
+
+[
+	object,
+	uuid(9D46C230-31A5-4248-B61E-4223FA6A7F7A),
+	dual,
+	helpstring("IMgaEventLogger Interface"),
+	pointer_default(unique)
+]
+interface IMgaEventLogger : IDispatch
+
+{
+
+	[helpstring("method LogEvent")]
+	HRESULT LogEvent([in] BSTR eventMsg);
+
+	[helpstring("method StartLogging")]
+	HRESULT StartLogging();
+
+	[helpstring("method StopLogging")]
+	HRESULT StopLogging();
+
+	[helpstring("method EmergencyEvent")]
+	HRESULT EmergencyEvent();
+
+}
+

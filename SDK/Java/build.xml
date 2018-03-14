@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+
+<project default="main" basedir=".">
+
+    <target name="main" depends="compile,package_jar">
+        <echo message="BUILD complete!"/>
+    </target>
+  
+    <target name="init" >
+        <path id="class.path">
+            <fileset dir="../lib" includes="*.jar"/>
+        </path>
+    	<tstamp>
+    		   <format property="RELEASE_DATE" pattern="y.M.dd"/>
+    	</tstamp>
+    </target>
+            
+
+    <target name="compile" depends="init">
+        <javac destdir="./bin" source="1.5" target="1.5" debug="true">
+            <src path="./java"/>
+        	<exclude name="org/isis/gme/attributeview/**"/>
+            <exclude name="org/isis/gme/modeleditor/**"/>
+            <exclude name="org/isis/gme/modelexplorer/**"/>
+        	<exclude name="org/isis/gme/multipageeditortest/**"/>
+        	<exclude name="org/isis/gme/partbrowser/**"/>
+        	<exclude name="org/isis/gme/plugin/**"/>
+        </javac>
+    </target>  
+
+
+	<target name="package_jar" depends="compile">
+		 <jar destfile="./gme.jar">
+		 	<fileset dir="./bin"/>
+		 	<fileset dir="./java">
+		 		<include name="**/*.java"/>
+		 		<exclude name="**/.nbattrs"/>
+		 	    <exclude name="org/isis/gme/attributeview/**"/>
+		 	    <exclude name="org/isis/gme/mgadecorator/**"/>
+		 	    <exclude name="org/isis/gme/mgautil/**"/>
+		 	    <exclude name="org/isis/gme/modeleditor/**"/>
+		 	    <exclude name="org/isis/gme/modelexplorer/**"/>
+		 	    <exclude name="org/isis/gme/multipageeditortest/**"/>
+		 	    <exclude name="org/isis/gme/partbrowser/**"/>
+		 	    <exclude name="org/isis/gme/plugin/**"/>
+		 	</fileset>
+		    <manifest>
+		        <!-- Who is building this jar? -->
+		        <attribute name="Built-By" value="${user.name}"/>
+		        <!-- Information about the program itself -->
+		        <attribute name="Implementation-Vendor" value="Vanderbilt Unversity, ISIS"/>
+		        <attribute name="Implementation-Title" value="GME java library"/>
+		        <attribute name="Implementation-Version" value="${RELEASE_DATE}"/>
+		    </manifest>
+		 </jar>
+	</target> 
+	
+</project>

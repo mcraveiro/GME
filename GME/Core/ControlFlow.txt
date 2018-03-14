@@ -1,0 +1,30 @@
+
+LOADING A CoreObject INTO MEMORY FROM REPOSITORY
+
+	We know the metaid, modelid and the locking (LOCK_READ or LOCK_WRITE).
+	A transaction must already be active.
+
+	We know the metaid and modelid. We want to get the corresponding 
+	RepositoryObject. From the MetaProject we get the MetaObejct 
+	(using the metaid). From the MetaObject we get the ObjID
+	(using the modelid), and the from the Repository we get the
+	RepositoryObject.
+
+	We create the CoreObject. From the MetaObject we get the list of 
+	GroupIDs. For each GroupID we create a CoreGroup object,
+	and set it up us unlocked, ready to be locked/filled with data.
+
+	Now we have to locate thoose CoreGroups that countain owned
+	pointers (from MetaObjects). We have to load these groups, using
+	LOCK_READ or LOCK_WRITE. At least one group will be locked, as
+	the AID_FATHER must be present.
+
+-	We can change this locking later. If we want to delete an object,
+	then we have to change the locking on the group of the AID_FATHER
+	to LOCK_WRITE. It is better to allow to lock with LOCK_WRITE in the
+	begining, since subsequent changes will require repository locks.
+
+LOCKING A CoreGroup AND LOADING/UNLOADING THE CoreAttributes
+
+	The CoreGroup must exists. A transaction must already be active.
+

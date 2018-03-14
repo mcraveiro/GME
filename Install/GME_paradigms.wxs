@@ -1,0 +1,103 @@
+<?xml version='1.0' encoding='windows-1252'?>
+
+<!-- this file should not be compiled x64 -->
+<Wix xmlns='http://schemas.microsoft.com/wix/2006/wi' RequiredVersion='3.0.4813.0'>
+
+  <?include GME_dyn.wxi ?>
+  <?include GME_inc.wxi ?>
+
+  <Fragment>
+
+    <PropertyRef Id="NETFRAMEWORK20"/>
+    <PropertyRef Id="NETFRAMEWORK40FULL"/>
+    <PropertyRef Id="NETFRAMEWORK40CLIENT"/>
+
+    <DirectoryRef Id="INSTALLDIR_PARADIGMSx86">
+      <Directory Id="PIApolicy" Name="PIApolicy"/>
+    </DirectoryRef>
+
+    <ComponentGroup Id="GME_paradigms$(sys.BUILDARCH)">
+      <Component Id="MetaGME.mta" Win64="no" Directory="INSTALLDIR_PARADIGMS_METAGME_PARADIGM">
+        <File Id="MetaGME.mta" Name="MetaGME.mta" Source="..\Paradigms\MetaGME\MetaGME.mta" />
+        <RegistryKey Root='HKLM' Key='Software\GME\Paradigms\MetaGME'>
+          <RegistryValue Name='CurrentVersion' Type='string' Value='$(var.GUIDSTRMETAGME)'/>
+          <RegistryKey Key='$(var.GUIDSTRMETAGME)'>
+            <RegistryValue Name='ConnStr' Type='string' Value='MGA=[#MetaGME.mta]'/>
+          </RegistryKey>
+        </RegistryKey>
+      </Component>
+      <Component Id="MetaGME_13.1.24.mta" Win64="no" Directory="INSTALLDIR_PARADIGMS_METAGME_PARADIGM">
+        <File Id="MetaGME_13.1.24.mta" Name="MetaGME_13.1.24.mta" Source="..\Paradigms\MetaGME\MetaGME_13.1.24.mta" />
+        <RegistryKey Root='HKLM' Key='Software\GME\Paradigms\MetaGME'>
+          <RegistryKey Key='{9D3F9884-FE60-409C-8FC1-45789193989B}'>
+            <RegistryValue Name='ConnStr' Type='string' Value='MGA=[#MetaGME_13.1.24.mta]'/>
+          </RegistryKey>
+        </RegistryKey>
+      </Component>
+      <Component Id="MetaGME_13.5.22.mta" Win64="no" Directory="INSTALLDIR_PARADIGMS_METAGME_PARADIGM">
+        <File Id="MetaGME_13.5.22.mta" Name="MetaGME_13.5.22.mta" Source="..\Paradigms\MetaGME\MetaGME_13.5.22.mta" />
+        <RegistryKey Root='HKLM' Key='Software\GME\Paradigms\MetaGME'>
+          <RegistryKey Key='{EA6A1DFA-B2A2-41D7-B08A-6F1203EB6F43}'>
+            <RegistryValue Name='ConnStr' Type='string' Value='MGA=[#MetaGME_13.5.22.mta]'/>
+          </RegistryKey>
+        </RegistryKey>
+      </Component>
+
+
+      <Component Id="UML.mta" Win64="no" Directory="INSTALLDIR_PARADIGMS_UML_PARADIGM">
+        <File Id="UML.mta" Name="UML.mta"  Source="..\Paradigms\UML\UML.mta" />
+        <RegistryKey Root='HKLM' Key='Software\GME\Paradigms\UML'>
+          <RegistryValue Name='CurrentVersion' Type='string' Value='$(var.GUIDSTRUML)'/>
+          <RegistryKey Key='$(var.GUIDSTRUML)'>
+            <RegistryValue Name='ConnStr' Type='string' Value='MGA=[#UML.mta]'/>
+          </RegistryKey>
+        </RegistryKey>
+      </Component>
+
+      <ComponentGroupRef Id='GME.1.0.1.0'/>
+      <ComponentGroupRef Id='GME.MGA.1.0.1.0'/>
+      <ComponentGroupRef Id='GME.MGA.Core.1.0.1.0'/>
+      <ComponentGroupRef Id='GME.MGA.Meta.1.0.1.0'/>
+      <ComponentGroupRef Id='GME.MGA.Parser.1.0.1.0'/>
+      <ComponentGroupRef Id='GME.MGA.Parser.1.1.0.0'/>
+      <ComponentGroupRef Id='GME.Util.1.0.1.0'/>
+      <ComponentGroupRef Id='GME'/>
+      <ComponentGroupRef Id='GME.MGA'/>
+      <ComponentGroupRef Id='GME.MGA.Core'/>
+      <ComponentGroupRef Id='GME.MGA.Meta'/>
+      <ComponentGroupRef Id='GME.MGA.Parser'/>
+      <ComponentGroupRef Id='GME.Util'/>
+
+      <Component Directory="PIApolicy" Guid="{E9E9C0FB-4B8D-4F27-90A4-7987A822B956}">
+        <Condition>NETFRAMEWORK</Condition>
+        <File Source="..\GME\DotNetPIAs_1.0.1.0\policy.1.0.GME.dll" Assembly=".net" KeyPath="yes"/>
+        <File Source="..\GME\DotNetPIAs_1.0.1.0\policy.1.0.GME.config"/>
+      </Component>
+      <Component Directory="PIApolicy" Guid="{877114E5-6F7D-41C7-9985-0E6B01044EF4}">
+        <Condition>NETFRAMEWORK</Condition>
+        <File Source="..\GME\DotNetPIAs_1.0.1.0\policy.1.0.GME.MGA.dll" Assembly=".net" KeyPath="yes"/>
+        <File Source="..\GME\DotNetPIAs_1.0.1.0\policy.1.0.GME.MGA.config"/>
+      </Component>
+      <Component Directory="PIApolicy" Guid="{F3995FC8-B839-4807-9363-079DEE3D9283}">
+        <Condition>NETFRAMEWORK</Condition>
+        <File Source="..\GME\DotNetPIAs_1.0.1.0\policy.1.0.GME.MGA.Core.dll" Assembly=".net" KeyPath="yes"/>
+        <File Source="..\GME\DotNetPIAs_1.0.1.0\policy.1.0.GME.MGA.Core.config"/>
+      </Component>
+      <Component Directory="PIApolicy" Guid="{54513982-DA3B-4165-AD08-A8989007DB88}">
+        <Condition>NETFRAMEWORK</Condition>
+        <File Source="..\GME\DotNetPIAs_1.0.1.0\policy.1.0.GME.MGA.Meta.dll" Assembly=".net" KeyPath="yes"/>
+        <File Source="..\GME\DotNetPIAs_1.0.1.0\policy.1.0.GME.MGA.Meta.config"/>
+      </Component>
+      <Component Directory="PIApolicy" Guid="{74AED912-FAA1-4604-A638-06CF214731FD}">
+        <Condition>NETFRAMEWORK</Condition>
+        <File Source="..\GME\DotNetPIAs_1.0.1.0\policy.1.0.GME.Util.dll" Assembly=".net" KeyPath="yes"/>
+        <File Source="..\GME\DotNetPIAs_1.0.1.0\policy.1.0.GME.Util.config"/>
+      </Component>
+      <Component Directory="PIApolicy" Guid="{CCF7A1A5-60BA-42C0-AB42-1637E11210EB}">
+        <Condition>NETFRAMEWORK</Condition>
+        <File Source="..\GME\DotNetPIAs_1.0.1.0\policy.1.0.GME.MGA.Parser.dll" Assembly=".net" KeyPath="yes"/>
+        <File Source="..\GME\DotNetPIAs_1.0.1.0\policy.1.0.GME.MGA.Parser.config"/>
+      </Component>
+    </ComponentGroup>
+  </Fragment>
+</Wix>

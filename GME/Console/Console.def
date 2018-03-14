@@ -1,0 +1,9 @@
+; Console.def : Declares the module parameters.
+
+LIBRARY      "CONSOLE.OCX"
+
+EXPORTS
+	DllCanUnloadNow     PRIVATE
+	DllGetClassObject   PRIVATE
+	DllRegisterServer   PRIVATE
+	DllUnregisterServer PRIVATE

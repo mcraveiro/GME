@@ -1,0 +1,17 @@
+//
+// MGAUTIL.RC2 - resources Microsoft Visual C++ does not edit directly
+//
+
+#ifdef APSTUDIO_INVOKED
+	#error this file is not editable by Microsoft Visual C++
+#endif //APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+// Add manually edited resources here...
+
+
+// 1 TYPELIB "MgaUtilLib.tlb" -- seems to have gotten in MgaUtil.rc by someautomatic means?? 6/14/00
+
+
+/////////////////////////////////////////////////////////////////////////////

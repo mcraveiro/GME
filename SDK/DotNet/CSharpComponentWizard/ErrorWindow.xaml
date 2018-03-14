@@ -1,0 +1,20 @@
+﻿<Window x:Class="CSharpComponentWizard.ErrorWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Error occured" Height="191" Width="421">
+    <Grid Background="#FFF2F2F2">
+        <Label>The following error(s) occured:</Label>
+        <ListBox Name="ErrorList" Height="89" HorizontalAlignment="Left" Margin="9,29,0,0" VerticalAlignment="Top" Width="387">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Height="27" Orientation="Horizontal">
+                        <Ellipse Margin="4,0,0,0" Height="6" Width="6" Fill="Red" />
+                        <Label Margin="4,0,0,0" Content="{Binding}" FontStyle="Italic" FontSize="12" FontWeight="Bold"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <Button Content="Ignore" Height="23" Foreground="#FF666666" HorizontalAlignment="Left" Margin="202,124,0,0" Name="btn_errorignore" VerticalAlignment="Top" Width="88" Click="btn_errorignore_Click" />
+        <Button Content="Exit" FontWeight="Bold" Height="23" HorizontalAlignment="Left" Margin="306,124,0,0" Name="btn_errorexit" VerticalAlignment="Top" Width="88" Click="btn_errorexit_Click" />
+    </Grid>
+</Window>

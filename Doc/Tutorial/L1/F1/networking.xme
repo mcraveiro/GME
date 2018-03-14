@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE project SYSTEM "mga.dtd">
+
+<project guid="{00000000-0000-0000-0000-000000000000}" cdate="Thu Mar 11 19:49:26 2004" mdate="Thu Mar 11 19:49:27 2004" metaguid="{66BBE690-DEAD-BEEF-FEED-DAD000000001}" metaname="MetaGME">
+	<name>networking</name>
+	<comment></comment>
+	<author></author>
+	<folder id="id-006a-00000001" relid="0x1" childrelidcntr="0x1" kind="RootFolder">
+		<name>networking</name>
+		<model id="id-0065-00000001" kind="ParadigmSheet" relid="0x1" childrelidcntr="0x0">
+			<name>ParadigmSheet</name>
+		</model>
+	</folder>
+</project>

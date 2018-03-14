@@ -1,0 +1,440 @@
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="Author" content="Arpad Bakay">
+   <meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+   <title>Lesson 5 -- Aspects, Folders, Subtypes, and Instances</title>
+</head>
+<body text="#000066" 
+      bgcolor="#FFFFCC" 
+      link="#0000EE" 
+      vlink="#551A8B" 
+      alink="#FF0000">
+
+<center>
+<b><u><font size=+2>Lesson 5
+<br>Other Modeling Concepts:
+<br>Aspects, Folders, Subtypes, and Instances
+</font></u></b>
+</center>
+<p>
+
+<br><a href="#intro">Introduction to Lesson 5</a>
+<br><a href="#5.1">5.1 Aspects</a>
+<br><a href="#5.2">5.2 Folders</a>
+<br><a href="#5.3">5.3 Using subtypes and instances</a>
+<p><br>
+
+
+<a name="intro"></a>
+<b><u><font size="+1">Introduction to Lesson 5</font></u></b>
+<p>
+
+This lesson introduces three new concepts that are all found exclusively in 
+GME (compared to other modeling tools). They are all used by the modeling 
+expert to handle complexities that arise when large-scale, real-world models are 
+built. In other words, these features make GME a truly scaleable, 
+industry-grade modeling environment.
+<p><br>
+
+
+<hr width="80%">
+<br><a name="5.1"></a>
+<b><u><font size=+1>5.1 Aspects</font></u></b>
+<p>
+
+It is a natural goal of any modeling project to be able to extend the paradigm 
+to add new functionality. However, a model's diagrams may become unacceptably 
+complex as a result of such extensions. We need a mechanism to maintain 
+readability by segmenting or filtering the diagrams.
+<p>
+
+<i><font color="#FF0000">
+In the previous lesson, the introduction of administrators to the networking 
+paradigm was a good example of the extension of a modeling project. It also 
+included the risk of making some diagrams incomprehensible. Wouldn't it be 
+helpful if the new, administrative aspect could be separated from the existing 
+one?
+</font></i>
+<p>
+
+<i>Aspects</i> in GME provide a possible solution for this problem. Aspects 
+are defined in the metamodel, and are associated with models. Models typically 
+have multiple aspects. Each aspect specifies what kinds of child objects are 
+visible and editable while the aspect is activated for an open model. 
+Furthermore, if a child of a model is opened, the aspect used in the child is 
+the same one that is used in the parent. If the child does not have a 
+corresponding aspect, <i>aspect mapping rules</i> must be specified in the 
+MetaInterpreter.
+<p>
+
+Aspects are not completely new to this tutorial, since they have been used 
+extensively in the metamodeling environment. ParadigmSheets have four aspects: 
+Class Diagram, Visualization, Attributes, and Constraints. Each aspect is used 
+to define different things. Of course, each aspect only shows relevant 
+information: for example, the Attributes aspect displays classes and 
+generalization relationships, but omits containment relationships and 
+associations.
+<p>
+
+<i><font color="#FF0000">
+In the networking example, we have been using only one aspect, Connectivity, 
+until now. Let us make NetDiagrams more readable by separating the original 
+contents, network connectivity diagrams, from the administrative information 
+that was added when Sets were introduced in <a href="Lesson4.html">Lesson 4</a>:
+</font></i>
+
+<ol>
+ <li>
+  Open the metamodel and its ParadigmSheet. Switch to the visualization aspect, 
+  and add a new <b>&lt;&lt;Aspect>></b> named "Admin".
+ <li>
+  This will be the second aspect in NetDiagram so connect the two with a 
+  containment relationship.
+ <li>
+  Now specify the member entities for the aspects. Switch to the set mode 
+  ( <img SRC="Icons/SetMode.png" align=top> ) and right-click the "Admin" 
+  aspect. The following metaentities need to belong to this aspect: 
+  Administrator, Router, Host, and WSGroup. (See Fig 5.1.) After that, switch 
+  to (i.e. right-click) the "Connectivity" aspect, and deselect Administrator, 
+  since that information is not needed on those diagrams.
+</ol>
+<p><br>
+
+
+<center>
+<img SRC="L5/F1/Fig5_1.png">
+<br><b>Fig 5.1 Specifying a new aspect in the <a href="L5/F1/networking.xme">metamodel</a>, and the objects visible 
+in it</b>
+</center>
+<p><br>
+
+
+<ol start="4">
+ <li>
+  Now run the interpreter. Since NetDiagram models have two aspects a
+  question need to be answered: which aspect of the Router model should be
+  used in the Admin aspect of the parent model NetDiagram. The answer is given
+  automatically by the interpreter (typically shown by the "N/A" value in the 2nd column).
+  The Router has only one aspect, so a NetDiagram viewed in its Admin 
+  aspect will show its Router child in its "Connectivity" aspect if opened.
+  (If the Router had two or more aspects then the user interaction is needed by
+  selecting the aspect of the child in the KindAspect column.)
+  If this question was answered by the interpreter automatically then why did the dialogue box appear?
+  Because you can specify which child may be added or 
+  deleted in a specific aspect of NetDiagram. Those children which have the 
+  Primary value (the 3rd column) set to "no" may not be added or deleted in 
+  the specific aspect of NetDiagram. You could specify that in the Admin
+  aspect only Admins can be added or deleted to NetDiagram. The Router, Host and
+  WSGroup are readonly. Switch to the "Admin" aspect, locate the NetDiagram:Router,
+  NetDiagram:Host and NetDiagram:WSGroup and set their "Primary" value to "no".
+  Though the "Admin" is a child of the NetDiagram, and is intended to be part of the
+  "Admin" aspect of NetDiagram, it is not shown in the dialogue because the interpreter
+  knew that it may be part of only one aspect (is not part of the "Connectivity") 
+  so it has to have the Primary value set to "yes".
+<br>
+  The "Configure Aspect Mapping" dialogue (Fig 5.2) appears only if the interpreter
+  can not give automatic answers to the questions which rise as the number of 
+  aspects grow. 
+  Finish interpreting and registering the metamodel.
+</ol>
+<p><br>
+
+
+<center>
+<img SRC="L5/F2/Fig5_2_new.jpg">
+<br><b>Fig 5.2 Working with the Aspect Mapping dialog</b>
+</center>
+<p><br>
+
+
+<ol start="5">
+ <li>
+  When the test model is opened, we see that Administrators are not visible in 
+  the "Connectivity" aspect. So far, so good. Switch to the "Admin" aspect. 
+  Every object included in this aspect is visible, but the positions of the 
+  icons on the screen are jumbled! This occurs because child-object positions 
+  are aspect-specific, and these objects have not yet been assigned a particular 
+  position in the new aspect. Don't worry, there is a way to fix this problem. 
+  Select "Edit/Sync Aspects..." from the menu or 
+  <img SRC="Icons/syncasp.jpg" align=top> icon on the toolbar. 
+  A dialog box allows you to set a requirement that the positions of selected 
+  objects are synchronized from one Aspect to selected other Aspects. Specify 
+  "Connectivity" in the "From" field, "Admin" in the "To:" list, and everything 
+  (at least all Hosts, Routers, and WSGroups) in the "Objects to be 
+  synchronized:" list. (If you make sure that no object is selected before the 
+  dialog is opened, the default settings are usually correct.)
+ <li>
+  Test the specification that was set in the Aspect Mapping dialog: Open a 
+  Router from the Admin aspect of a NetDiagram, and make sure that the Router is 
+  using the Connectivity aspect.
+</ol>
+
+Note that when working in a particular aspect, you can not see, add, or remove 
+objects that do not belong to that aspect (like a Network object in the "Admin" 
+aspect - Fig 5.3). You can, however, manipulate any object in the browser 
+window; aspects have no effect there.
+
+<p><br>
+
+
+<center>
+<img SRC="L5/F3/Fig5_3_1.png">
+<img SRC="L5/F3/Fig5_3_2.png">
+<br><b>Fig 5.3 <a href="L5/F3/mynetwork.xme"> One model</a>, two aspects</b>
+<br>(Set mode is activated in the Admin aspect)
+</center>
+<p><br>
+
+
+<hr width="80%">
+<br><a name="5.2"></a>
+<b><u><font size=+1>5.2 Folders</font></u></b>
+<p>
+
+Folders, like aspects, are not a completely new concept; we have been using one 
+since the very beginning of this tutorial. That was the <i>root folder</i>, the 
+topmost container of all objects in the modeling hierarchy. This section 
+discusses other folders and what they can be used for.
+<p>
+
+The top-level structure for most modeling projects does not consist of a single 
+object containing others; it involves several objects that are related to, but 
+not contained by, each other. For example, a school has classrooms, teachers, 
+and students; but only the classrooms are "contained" by the school, while 
+teachers and students exist independently (a teacher may work for several 
+schools simultaneously). A natural representation of this project may contain 
+several <i>root FCOs</i> (FCOs not contained by any upper level model): one for 
+the school, and one for each individual associated with it.
+<p>
+
+(The difference between a root FCO and the root folder lies in the number of 
+objects allowed; there can be multiple root FCOs, as in the example above, but 
+only a single root folder.)
+<p>
+
+If there are numerous root FCOs, it might be a good idea to organize them 
+somehow. For the school model, we could separate schools, teachers and students 
+from each other. <i>Folders</i> provide this organization, just like 
+directories in a file system. Depending on the specifications in the metamodel, 
+folders can contain certain FCOs (including root FCOs, obviously), and a number 
+of other folders. They cannot be contained by FCOs, however, because they are 
+merely the top-level organizers of a modeling project.
+<p>
+
+A significant difference between folders and directory systems is that folders 
+are typed, while directories are uniform. In other words, the metamodel 
+controls what kind of folders (and how many of them) will be available in the 
+modeling project. For example, if a separate folder is desired for each type of 
+object - schools, teachers and students - three subfolders must be specified, 
+each contained by the root folder with a cardinality of 1. Similarly, the kind 
+and number of root FCOs is also specified in the metamodel.
+<p>
+
+Please note that even though folders are part of a GME modeling project 
+hierarchy, they are not considered modeling objects (FCOs) like atoms, 
+references, etc. In good models, folders do not represent any real-world 
+objects or containers; they are merely organizers of the different kind of 
+things that are represented in a modeling project. Because of this, folders do 
+not have attributes or aspects (although they do have constraints).
+<p>
+
+The folder structure is usually limited in depth, which means it does not 
+contain recursion. However, if a folder specifies itself among its potential 
+children, the folder structure becomes recursive and unbounded, just like the 
+directory tree of modern file systems.
+<p><br>
+
+
+<b><u>5.2.1 Folder example</u></b>
+<p>
+
+Let us see how folders can be used in the networking paradigm. Ever since the 
+model LeasedLine1 was introduced, there has been nothing (except the name) that 
+distinguishes the Internet from this relatively unimportant leased-line network 
+in the root folder. It would be nice if LeasedLine1 and similar private 
+networks could be hidden from the casual viewer. Let's create a new folder, 
+"PrivateConnections" (Fig 5.4).
+
+<ol>
+ <li>
+  Open the metamodel and the paradigm sheet. Add a <b>&lt;&lt;Folder>></b> 
+  named "PrivateConnections" to the top level of the ParadigmSheet. One of the 
+  folder's attributes allows us to specify whether this object may be contained 
+  by the root folder; make sure this option is clicked (this is the default 
+  setting).
+ <li>
+  The PrivateConnections folder may contain NetDiagrams, so add a containment 
+  relationship between the two.
+ <li>
+  Folders have no aspects, so the metamodel is ready to be interpreted and 
+  registered. (Ideally, we would like to make sure that all leased-line 
+  networks are put into the new folder by adding constraints or multiplicities. 
+  For example, we could specify that the root folder can only contain one root 
+  FCO, and that there must be exactly one PrivateConnections folder. 
+  Unfortunately, GME does not currently support Constraints and Multiplicities 
+  for the root folder.)
+ <li>
+  Open the networking model. The only visible difference between this version 
+  and the no-folders version is seen in the browser window. Until now, only 
+  models could be inserted into the root folder; now we can also add 
+  PrivateConnections folders. We can drag/drop or cut/copy/paste objects 
+  between the folders as well.
+</ol>
+<p><br>
+
+
+<center>
+<img SRC="L5/F4/Fig5_4.png">
+<br><b>Fig 5.4 Folders in the <a href="L5/F4/networking.xme">networking</a> <a href="L5/F4/mynetwork.xme">model</a></b></center>
+<p><br>
+
+
+<hr width="80%">
+<br><a name="5.3"></a>
+<b><u><font size=+1>5.3 Using subtypes and instances</font></u></b>
+<p>
+
+<i><font color="#FF0000">
+Imagine that a company has several branches, and every branch has an identical 
+router (same type, model, etc.). The company IT policy requires maintaining 
+uniformity among the routers. Is it possible to express these similarities in a 
+model?
+</font></i>
+<p>
+
+<b><i>Subtypes and instances</i></b> are mechanisms in GME that define 
+similarities between objects. They are essentially deep copies of a master 
+object, and they do not break the relationship with the master: if the master 
+changes in any way (attributes, associations, contained objects, etc.), 
+subtypes and instances - also called <i>derived objects</i> - make the same 
+changes automatically. Also, the differences between a master and its derived 
+object are restricted as follows:
+
+<ul>
+ <li>
+  Instances must be exact structural copies (i.e. instance models must have the 
+  same internal structure as the master). Object positions and associations 
+  must also inherit their respective settings in the master. Uniqueness is only 
+  allowed for attributes and object names.
+ <li>
+  Subtypes have less rigid rules; containers that are subtypes may have new 
+  objects added to them (but objects derived from the master cannot be 
+  deleted). Attributes, relationships (such as the target of a reference), 
+  object names, and positions within subtype containers may be changed.
+</ul>
+
+There are many interesting applications for derived objects:
+
+<ul>
+ <li>
+  expressing type-instance relationships among real-world objects
+ <li>
+  efficiently maintaining an array of similar or identical objects
+ <li>
+  reusing components as libraries or in some other way
+</ul>
+
+Another important feature of derived objects is that they are always available
+in GME; they are not controlled by settings in the paradigm. Subtypes and 
+instances can be added anywhere that normal objects can, and any object may be 
+used as a base for derivation. (Note: some restrictions exist to avoid circular 
+dependencies. See the GME users manual for details.)
+<p>
+
+We will now use one of the previous test models to create several instances of 
+a router.
+
+<ol>
+ <li>
+  Choose a NetDiagram that contains a Router (e.g. CompanyA in Fig 5.3). This 
+  router will be used as the master.
+ <li>
+  Create a few other empty NetDiagrams and give them unique names (CompanyX, 
+  CompanyY, etc.).
+ <li>
+  Instances are created by <u>dragging an object to another location while 
+  pressing Alt</u>. (To create Subtypes, press Alt+Shift.) You can use either 
+  the opened NetDiagram models or the browser window as both the source and the 
+  destination of the dragging operation. Create instances of the master router 
+  in all of the new NetDiagrams.
+ <li>
+  Objects cannot be added, deleted, or moved in the instance models. However, 
+  attributes may be set and object names may be changed. Note that attributes, 
+  by default, inherit the settings in the master. You should assign unique 
+  values to the IPAddr attributes for each instance.
+</ol>
+
+The new routers are exact copies of the parent; however, there are some minor 
+differences. Instances are indicated by "I" in the browser and in the header of 
+an open model, while subtypes are represented by an &quot;S&quot;. Also, if you select an 
+instance in the browser and switch to the "Inheritance" pane, the inheritance 
+tree of the selected object is displayed (Fig 5.5).
+<p>&nbsp;
+<div align="center">
+  <center>
+  <table border="0" width="100" height="1">
+    <tr>
+      <td width="50%" rowspan="2" height="1">
+<img SRC="L5/F5/Fig5_5_1.png" hspace="20">
+      </td>
+      <td width="50%" height="1" valign="top">
+<img SRC="L5/F5/Fig5_5_2.png" hspace="20"></td>
+    </tr>
+    <tr>
+      <td width="50%" height="44">
+<img SRC="L5/F5/Fig5_5_3.png" hspace="20"></td>
+    </tr>
+  </table>
+  </center>
+</div>
+<p>
+
+
+<center>
+<b>Fig 5.5 Types and Instances in the Aggregate and Inheritance browsers for the
+<a href="L5/F5/mynetwork.xme">model</a></b>
+</center>
+<p><br>
+
+
+Instances are not references; they are real objects, deep copies of their 
+parents. Hence, ports of the master router and ports of the derived routers are 
+entirely separate objects. Each port may have different connections, just like 
+independently created objects.
+<p>
+
+Now let's see how instances have improved our model. Suppose the company 
+decides to update all routers at once: a new serial port is added, and the 
+speed of the existing interface is updated to 2 Mbps. All we need to do is add 
+the new port to the master router, and the instances immediately inherit it. 
+What happens to the "speed" attribute of an existing port when it is updated? 
+The change is also propagated to the children, unless the attribute is 
+explicitly set in a derived object. Since we have not touched the "Speed" 
+attribute in any of the instances, the new setting will be propagated to all of 
+them.
+<p>
+
+The master object of the inheritance - an existing router from an existing 
+branch - was selected rather randomly. It would have been much more elegant to 
+store the master in a different location, perhaps in a designated folder. This 
+would require changing the paradigm by adding a new folder that is allowed to 
+directly contain routers. Instead of doing all that work, we chose to 
+demonstrate the spontaneous way of using instances instead, through this 
+example.
+<p><br>
+
+
+<center>
+<hr width="80%">
+<table><tr><td>
+<a href="Lesson4.html">&lt;&lt; Previous Lesson</a>
+</td><td width=50></td><td>
+<a href="index.html#toc">Complete List</a> 
+</td><td width=50></td><td>
+<a href="Lesson6.html">Next Lesson >></a>
+</td></tr></table>
+</center>
+
+</body>
+</html>

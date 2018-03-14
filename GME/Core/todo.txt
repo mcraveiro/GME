@@ -1,0 +1,27 @@
+
+OLD ITEMS:
+
+-	OBDC storage medium withour the MSR
+-	optimizing the repository storage, hashtable
+-	"new features" in core like recursive loading/locking (for speed)
+-	XML dumper
+-	project management in repository / obdc
+
+NEW ITEMS:
+
+-	The CoreMetaProject was accessed through the COM interface, 
+	but this was slow (especially for AttrID), so now the Core uses
+	straight C++ pointers, which makes it faster but more fragile.
+	What about the Storage layer? It sill uses the COM interface.
+
+-	The CoreMetaObject::ClassIDs could be replaced by some
+	CreateAggregate objects functionality. Could that be faster?
+	Also, a list of ClassFactory pointers should be passed instead
+	of GUIDs
+
+-	Watch the collection in CCoreCollectionAttribute, if it is complete
+	(none of the pointers are unloaded) then there is no need to
+	talk to the Storage layer
+
+-	Incorporate the CCoreObject::attributes list into the CCoreAttribute
+	Move the most frequent attributes to the front of the list (?)

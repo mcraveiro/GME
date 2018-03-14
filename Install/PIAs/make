@@ -1,0 +1,13 @@
+name=GME.MGA.Core
+heat='/c/Program Files (x86)\Windows Installer XML v3.5\bin\heat'
+"$heat" file C:/Windows/assembly/GAC_MSIL/${name}/0.1.0.0__f240a760fe751c2e/${name}.dll -o ${name}.wxi -suid -gg -cg ${name} -srd -dr INSTALLDIR_BIN -var var.PIADir
+name=GME.MGA.Meta
+"$heat" file C:/Windows/assembly/GAC_MSIL/${name}/0.1.0.0__f240a760fe751c2e/${name}.dll -o ${name}.wxi -suid -gg -cg ${name} -srd -dr INSTALLDIR_BIN -var var.PIADir
+name=GME.MGA
+"$heat" file C:/Windows/assembly/GAC_MSIL/${name}/0.1.0.0__f240a760fe751c2e/${name}.dll -o ${name}.wxi -suid -gg -cg ${name} -srd -dr INSTALLDIR_BIN -var var.PIADir
+name=GME.MGA.Parser
+"$heat" file C:/Windows/assembly/GAC_MSIL/${name}/0.1.0.0__f240a760fe751c2e/${name}.dll -o ${name}.wxi -suid -gg -cg ${name} -srd -dr INSTALLDIR_BIN -var var.PIADir
+name=GME.Util
+"$heat" file C:/Windows/assembly/GAC_MSIL/${name}/0.1.0.0__f240a760fe751c2e/${name}.dll -o ${name}.wxi -suid -gg -cg ${name} -srd -dr INSTALLDIR_BIN -var var.PIADir
+name=GME
+"$heat" file C:/Windows/assembly/GAC_MSIL/${name}/0.1.0.0__f240a760fe751c2e/${name}.dll -o ${name}.wxi -suid -gg -cg ${name} -srd -dr INSTALLDIR_BIN -var var.PIADir

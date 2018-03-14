@@ -1,0 +1,5 @@
+
+The Microsoft Repository Enigne Version 2.1 is available at
+
+http://msdn.microsoft.com/repository/downloads/engine/download.asp
+

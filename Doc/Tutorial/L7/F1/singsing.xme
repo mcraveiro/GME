@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE project SYSTEM "mga.dtd">
+
+<project guid="{00000000-0000-0000-0000-000000000000}" cdate="Thu Mar 11 20:01:56 2004" mdate="Thu Mar 11 20:01:56 2004" metaguid="{EC0E3664-DEAD-BEEF-FEED-DAD000000000}" metaname="tmeta">
+	<name>SingSing</name>
+	<comment></comment>
+	<author></author>
+	<folder id="id-006a-00000001" relid="0x1" childrelidcntr="0x1" kind="RootFolder">
+		<name>SingSing</name>
+		<model id="id-0065-00000001" kind="Prison" relid="0x1" childrelidcntr="0x3">
+			<name>Prison</name>
+			<atom id="id-0066-00000001" kind="Prisoner" role="Prisoner" relid="0x2">
+				<name>#14325</name>
+				<regnode name="PartRegs" isopaque="yes">
+					<value></value>
+					<regnode name="Aspect" isopaque="yes">
+						<value></value>
+						<regnode name="Position" isopaque="yes">
+							<value>38,39</value>
+						</regnode>
+					</regnode>
+				</regnode>
+				<attribute kind="Age">
+					<value>55</value>
+				</attribute>
+				<attribute kind="Weight">
+					<value>171</value>
+				</attribute>
+			</atom>
+			<atom id="id-0066-00000002" kind="Prisoner" role="Prisoner" relid="0x3">
+				<name>#99325</name>
+				<regnode name="PartRegs" isopaque="yes">
+					<value></value>
+					<regnode name="Aspect" isopaque="yes">
+						<value></value>
+						<regnode name="Position" isopaque="yes">
+							<value>290,39</value>
+						</regnode>
+					</regnode>
+				</regnode>
+				<attribute kind="Age">
+					<value>15</value>
+				</attribute>
+				<attribute kind="Weight">
+					<value>155.5</value>
+				</attribute>
+			</atom>
+			<atom id="id-0066-00000003" kind="Prisoner" role="Prisoner" relid="0x1">
+				<name>#96514</name>
+				<regnode name="PartRegs" isopaque="yes">
+					<value></value>
+					<regnode name="Aspect" isopaque="yes">
+						<value></value>
+						<regnode name="Position" isopaque="yes">
+							<value>164,39</value>
+						</regnode>
+					</regnode>
+				</regnode>
+				<attribute kind="Age">
+					<value>30</value>
+				</attribute>
+				<attribute kind="Weight">
+					<value>190</value>
+				</attribute>
+			</atom>
+		</model>
+	</folder>
+</project>

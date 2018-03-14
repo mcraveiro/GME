@@ -1,0 +1,3528 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE project SYSTEM "mga.dtd">
+
+<project guid="{00000000-0000-0000-0000-000000000000}" cdate="Wed May 12 16:48:21 2004" mdate="Wed May 12 16:48:21 2004" metaguid="{694EB0C1-DEAD-BEEF-FEED-DAD000000001}" metaname="SF">
+	<name>SFDemo</name>
+	<comment></comment>
+	<author></author>
+	<folder id="id-006a-00000001" relid="0x1" childrelidcntr="0x1" kind="RootFolder">
+		<name>sf-demo</name>
+		<model id="id-0065-00000001" kind="Compound" relid="0x1" childrelidcntr="0x68">
+			<name>System</name>
+			<model id="id-0065-00000002" kind="Basic" role="BasicParts" relid="0x34" childrelidcntr="0x6">
+				<name>LPFilter2</name>
+				<regnode name="PartRegs" isopaque="yes">
+					<value></value>
+					<regnode name="ParameterAspect" isopaque="yes">
+						<value></value>
+						<regnode name="Position" isopaque="yes">
+							<value>441,343</value>
+						</regnode>
+					</regnode>
+					<regnode name="SignalFlowAspect" isopaque="yes">
+						<value></value>
+						<regnode name="Position" isopaque="yes">
+							<value>519,357</value>
+						</regnode>
+					</regnode>
+				</regnode>
+				<attribute kind="Firing" status="meta">
+					<value>IFALL</value>
+				</attribute>
+				<attribute kind="Priority">
+					<value>100</value>
+				</attribute>
+				<attribute kind="Script">
+					<value>lpfilter_script</value>
+				</attribute>
+				<atom id="id-0066-00000001" kind="Param" role="Parameters" relid="0x1">
+					<name>LastReset</name>
+					<regnode name="PartRegs" isopaque="yes">
+						<value></value>
+						<regnode name="ParameterAspect" isopaque="yes">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>317,37</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<regnode name="namePosition" isopaque="yes">
+						<value>4</value>
+					</regnode>
+					<attribute kind="DataType" status="meta">
+						<value>Integer</value>
+					</attribute>
+					<attribute kind="Global" status="meta">
+						<value>false</value>
+					</attribute>
+					<attribute kind="InitValue" status="meta">
+						<value>0</value>
+					</attribute>
+					<attribute kind="Size" status="meta">
+						<value>1</value>
+					</attribute>
+				</atom>
+				<atom id="id-0066-00000002" kind="InputSignal" role="InputSignals" relid="0x2">
+					<name>In</name>
+					<regnode name="PartRegs" isopaque="yes">
+						<value></value>
+						<regnode name="SignalFlowAspect" isopaque="yes">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>44,170</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<regnode name="namePosition" isopaque="yes">
+						<value></value>
+					</regnode>
+				</atom>
+				<atom id="id-0066-00000003" kind="Param" role="Parameters" relid="0x4">
+					<name>Buffer</name>
+					<regnode name="PartRegs" isopaque="yes">
+						<value></value>
+						<regnode name="ParameterAspect" isopaque="yes">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>317,107</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<regnode name="namePosition" isopaque="yes">
+						<value>4</value>
+					</regnode>
+					<attribute kind="DataType">
+						<value>Pointer</value>
+					</attribute>
+					<attribute kind="Global" status="meta">
+						<value>false</value>
+					</attribute>
+					<attribute kind="InitValue" status="meta">
+						<value>0</value>
+					</attribute>
+					<attribute kind="Size" status="meta">
+						<value>1</value>
+					</attribute>
+				</atom>
+				<atom id="id-0066-00000004" kind="Param" role="Parameters" relid="0x5">
+					<name>Factor</name>
+					<regnode name="PartRegs" isopaque="yes">
+						<value></value>
+						<regnode name="ParameterAspect" isopaque="yes">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>317,170</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<regnode name="namePosition" isopaque="yes">
+						<value>4</value>
+					</regnode>
+					<attribute kind="DataType">
+						<value>Double</value>
+					</attribute>
+					<attribute kind="Global" status="meta">
+						<value>false</value>
+					</attribute>
+					<attribute kind="InitValue">
+						<value>0.05</value>
+					</attribute>
+					<attribute kind="Size" status="meta">
+						<value>1</value>
+					</attribute>
+				</atom>
+				<atom id="id-0066-00000005" kind="InputParam" role="InputParameters" relid="0x3">
+					<name>Reset</name>
+					<regnode name="PartRegs" isopaque="yes">
+						<value></value>
+						<regnode name="ParameterAspect" isopaque="yes">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>79,79</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<regnode name="namePosition" isopaque="yes">
+						<value>4</value>
+					</regnode>
+					<attribute kind="DataType" status="meta">
+						<value>Integer</value>
+					</attribute>
+					<attribute kind="Size" status="meta">
+						<value>1</value>
+					</attribute>
+				</atom>
+				<atom id="id-0066-00000006" kind="OutputSignal" role="OutputSignals" relid="0x6">
+					<name>Out</name>
+					<regnode name="PartRegs" isopaque="yes">
+						<value></value>
+						<regnode name="SignalFlowAspect" isopaque="yes">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>625,177</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<regnode name="namePosition" isopaque="yes">
+						<value></value>
+					</regnode>
+				</atom>
+			</model>
+			<model id="id-0065-00000003" kind="Basic" role="BasicParts" relid="0x46" childrelidcntr="0x4">
+				<name>DBSetup2</name>
+				<regnode name="PartRegs" isopaque="yes">
+					<value></value>
+					<regnode name="ParameterAspect" isopaque="yes">
+						<value></value>
+						<regnode name="Position" isopaque="yes">
+							<value>140,497</value>
+						</regnode>
+					</regnode>
+					<regnode name="SignalFlowAspect" isopaque="yes">
+						<value></value>
+						<regnode name="Position" isopaque="yes">
+							<value>197,539</value>
+						</regnode>
+					</regnode>
+				</regnode>
+				<attribute kind="Firing" status="meta">
+					<value>IFALL</value>
+				</attribute>
+				<attribute kind="Priority">
+					<value>150</value>
+				</attribute>
+				<attribute kind="Script">
+					<value>dbsetup_script</value>
+				</attribute>
+				<atom id="id-0066-00000007" kind="InputParam" role="InputParameters" relid="0x3">
+					<name>Name</name>
+					<regnode name="PartRegs" isopaque="yes">
+						<value></value>
+						<regnode name="ParameterAspect" isopaque="yes">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>79,58</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<regnode name="namePosition" isopaque="yes">
+						<value>4</value>
+					</regnode>
+					<attribute kind="DataType">
+						<value>Character</value>
+					</attribute>
+					<attribute kind="Size">
+						<value>20</value>
+					</attribute>
+				</atom>
+				<atom id="id-0066-00000008" kind="InputParam" role="InputParameters" relid="0x4">
+					<name>IsFrequency</name>
+					<regnode name="PartRegs" isopaque="yes">
+						<value></value>
+						<regnode name="ParameterAspect" isopaque="yes">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>69,181</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<regnode name="namePosition" isopaque="yes">
+						<value>4</value>
+					</regnode>
+					<attribute kind="DataType" status="meta">
+						<value>Integer</value>
+					</attribute>
+					<attribute kind="Size" status="meta">
+						<value>1</value>
+					</attribute>
+				</atom>
+				<atom id="id-0066-00000009" kind="InputParam" role="InputParameters" relid="0x1">
+					<name>SampRate</name>
+					<regnode name="PartRegs" isopaque="yes">
+						<value></value>
+						<regnode name="ParameterAspect" isopaque="yes">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>72,254</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<regnode name="namePosition" isopaque="yes">
+						<value>4</value>
+					</regnode>
+					<attribute kind="DataType">
+						<value>Double</value>
+					</attribute>
+					<attribute kind="Size" status="meta">
+						<value>1</value>
+					</attribute>
+				</atom>
+				<atom id="id-0066-0000000a" kind="InputParam" role="InputParameters" relid="0x2">
+					<name>Size</name>
+					<regnode name="PartRegs" isopaque="yes">
+						<value></value>
+						<regnode name="ParameterAspect" isopaque="yes">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>86,121</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<regnode name="namePosition" isopaque="yes">
+						<value>4</value>
+					</regnode>
+					<attribute kind="DataType" status="meta">
+						<value>Integer</value>
+					</attribute>
+					<attribute kind="Size" status="meta">
+						<value>1</value>
+					</attribute>
+				</atom>
+			</model>
+			<model id="id-0065-00000004" kind="Basic" role="BasicParts" relid="0x56" childrelidcntr="0x3">
+				<name>Plotter3</name>
+				<regnode name="PartRegs" isopaque="yes">
+					<value></value>
+					<regnode name="ParameterAspect" isopaque="yes">
+						<value></value>
+						<regnode name="Position" isopaque="yes">
+							<value>756,238</value>
+						</regnode>
+					</regnode>
+					<regnode name="SignalFlowAspect" isopaque="yes">
+						<value></value>
+						<regnode name="Position" isopaque="yes">
+							<value>764,217</value>
+						</regnode>
+					</regnode>
+				</regnode>
+				<attribute kind="Firing" status="meta">
+					<value>IFALL</value>
+				</attribute>
+				<attribute kind="Priority">
+					<value>100</value>
+				</attribute>
+				<attribute kind="Script">
+					<value>plotter_script</value>
+				</attribute>
+				<atom id="id-0066-0000000b" kind="InputParam" role="InputParameters" relid="0x1">
+					<name>DBase</name>
+					<regnode name="PartRegs" isopaque="yes">
+						<value></value>
+						<regnode name="ParameterAspect" isopaque="yes">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>100,114</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<regnode name="namePosition" isopaque="yes">
+						<value>4</value>
+					</regnode>
+					<attribute kind="DataType">
+						<value>Character</value>
+					</attribute>
+					<attribute kind="Size">
+						<value>20</value>
+					</attribute>
+				</atom>
+				<atom id="id-0066-0000000c" kind="InputParam" role="InputParameters" relid="0x2">
+					<name>Channel</name>
+					<regnode name="PartRegs" isopaque="yes">
+						<value></value>
+						<regnode name="ParameterAspect" isopaque="yes">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>100,37</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<regnode name="namePosition" isopaque="yes">
+						<value>4</value>
+					</regnode>
+					<attribute kind="DataType" status="meta">
+						<value>Integer</value>
+					</attribute>
+					<attribute kind="Size" status="meta">
+						<value>1</value>
+					</attribute>
+				</atom>
+				<atom id="id-0066-0000000d" kind="InputSignal" role="InputSignals" relid="0x3">
+					<name>Data</name>
+					<regnode name="PartRegs" isopaque="yes">
+						<value></value>
+						<regnode name="SignalFlowAspect" isopaque="yes">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>58,135</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<regnode name="namePosition" isopaque="yes">
+						<value></value>
+					</regnode>
+				</atom>
+			</model>
+			<model id="id-0065-00000005" kind="Basic" role="BasicParts" relid="0x4f" childrelidcntr="0x3">
+				<name>Plotter10</name>
+				<regnode name="PartRegs" isopaque="yes">
+					<value></value>
+					<regnode name="ParameterAspect" isopaque="yes">
+						<value></value>
+						<regnode name="Position" isopaque="yes">
+							<value>756,924</value>
+						</regnode>
+					</regnode>
+					<regnode name="SignalFlowAspect" isopaque="yes">
+						<value></value>
+						<regnode name="Position" isopaque="yes">
+							<value>946,448</value>
+						</regnode>
+					</regnode>
+				</regnode>
+				<attribute kind="Firing" status="meta">
+					<value>IFALL</value>
+				</attribute>
+				<attribute kind="Priority">
+					<value>100</value>
+				</attribute>
+				<attribute kind="Script">
+					<value>plotter_script</value>
+				</attribute>
+				<atom id="id-0066-0000000e" kind="InputSignal" role="InputSignals" relid="0x1">
+					<name>Data</name>
+					<regnode name="PartRegs" isopaque="yes">
+						<value></value>
+						<regnode name="SignalFlowAspect" isopaque="yes">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>58,135</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<regnode name="namePosition" isopaque="yes">
+						<value></value>
+					</regnode>
+				</atom>
+				<atom id="id-0066-0000000f" kind="InputParam" role="InputParameters" relid="0x2">
+					<name>DBase</name>
+					<regnode name="PartRegs" isopaque="yes">
+						<value></value>
+						<regnode name="ParameterAspect" isopaque="yes">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>100,114</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<regnode name="namePosition" isopaque="yes">
+						<value>4</value>
+					</regnode>
+					<attribute kind="DataType">
+						<value>Character</value>
+					</attribute>
+					<attribute kind="Size">
+						<value>20</value>
+					</attribute>
+				</atom>
+				<atom id="id-0066-00000010" kind="InputParam" role="InputParameters" relid="0x3">
+					<name>Channel</name>
+					<regnode name="PartRegs" isopaque="yes">
+						<value></value>
+						<regnode name="ParameterAspect" isopaque="yes">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>100,37</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<regnode name="namePosition" isopaque="yes">
+						<value>4</value>
+					</regnode>
+					<attribute kind="DataType" status="meta">
+						<value>Integer</value>
+					</attribute>
+					<attribute kind="Size" status="meta">
+						<value>1</value>
+					</attribute>
+				</atom>
+			</model>
+			<model id="id-0065-00000006" kind="Basic" role="BasicParts" relid="0x52" childrelidcntr="0x2">
+				<name>GUISetup1</name>
+				<regnode name="PartRegs" isopaque="yes">
+					<value></value>
+					<regnode name="ParameterAspect" isopaque="yes">
+						<value></value>
+						<regnode name="Position" isopaque="yes">
+							<value>140,266</value>
+						</regnode>
+					</regnode>
+					<regnode name="SignalFlowAspect" isopaque="yes">
+						<value></value>
+						<regnode name="Position" isopaque="yes">
+							<value>50,539</value>
+						</regnode>
+					</regnode>
+				</regnode>
+				<attribute kind="Firing" status="meta">
+					<value>IFALL</value>
+				</attribute>
+				<attribute kind="Priority">
+					<value>250</value>
+				</attribute>
+				<attribute kind="Script">
+					<value>guisetup_script</value>
+				</attribute>
+				<atom id="id-0066-00000011" kind="InputParam" role="InputParameters" relid="0x1">
+					<name>SampRate</name>
+					<regnode name="PartRegs" isopaque="yes">
+						<value></value>
+						<regnode name="ParameterAspect" isopaque="yes">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>41,174</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<regnode name="namePosition" isopaque="yes">
+						<value>4</value>
+					</regnode>
+					<attribute kind="DataType">
+						<value>Double</value>
+					</attribute>
+					<attribute kind="Size" status="meta">
+						<value>1</value>
+					</attribute>
+				</atom>
+				<atom id="id-0066-00000012" kind="InputParam" role="InputParameters" relid="0x2">
+					<name>NumChannels</name>
+					<regnode name="PartRegs" isopaque="yes">
+						<value></value>
+						<regnode name="ParameterAspect" isopaque="yes">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>48,83</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<regnode name="namePosition" isopaque="yes">
+						<value>4</value>
+					</regnode>
+					<attribute kind="DataType" status="meta">
+						<value>Integer</value>
+					</attribute>
+					<attribute kind="Size" status="meta">
+						<value>1</value>
+					</attribute>
+				</atom>
+			</model>
+			<model id="id-0065-00000007" kind="Basic" role="BasicParts" relid="0x58" childrelidcntr="0x3">
+				<name>Plotter5</name>
+				<regnode name="PartRegs" isopaque="yes">
+					<value></value>
+					<regnode name="ParameterAspect" isopaque="yes">
+						<value></value>
+						<regnode name="Position" isopaque="yes">
+							<value>756,434</value>
+						</regnode>
+					</regnode>
+					<regnode name="SignalFlowAspect" isopaque="yes">
+						<value></value>
+						<regnode name="Position" isopaque="yes">
+							<value>764,399</value>
+						</regnode>
+					</regnode>
+				</regnode>
+				<attribute kind="Firing" status="meta">
+					<value>IFALL</value>
+				</attribute>
+				<attribute kind="Priority">
+					<value>100</value>
+				</attribute>
+				<attribute kind="Script">
+					<value>plotter_script</value>
+				</attribute>
+				<atom id="id-0066-00000013" kind="InputSignal" role="InputSignals" relid="0x1">
+					<name>Data</name>
+					<regnode name="PartRegs" isopaque="yes">
+						<value></value>
+						<regnode name="SignalFlowAspect" isopaque="yes">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>58,135</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<regnode name="namePosition" isopaque="yes">
+						<value></value>
+					</regnode>
+				</atom>
+				<atom id="id-0066-00000014" kind="InputParam" role="InputParameters" relid="0x2">
+					<name>Channel</name>
+					<regnode name="PartRegs" isopaque="yes">
+						<value></value>
+						<regnode name="ParameterAspect" isopaque="yes">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>100,37</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<regnode name="namePosition" isopaque="yes">
+						<value>4</value>
+					</regnode>
+					<attribute kind="DataType" status="meta">
+						<value>Integer</value>
+					</attribute>
+					<attribute kind="Size" status="meta">
+						<value>1</value>
+					</attribute>
+				</atom>
+				<atom id="id-0066-00000015" kind="InputParam" role="InputParameters" relid="0x3">
+					<name>DBase</name>
+					<regnode name="PartRegs" isopaque="yes">
+						<value></value>
+						<regnode name="ParameterAspect" isopaque="yes">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>100,114</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<regnode name="namePosition" isopaque="yes">
+						<value>4</value>
+					</regnode>
+					<attribute kind="DataType">
+						<value>Character</value>
+					</attribute>
+					<attribute kind="Size">
+						<value>20</value>
+					</attribute>
+				</atom>
+			</model>
+			<model id="id-0065-00000008" kind="Basic" role="BasicParts" relid="0x60" childrelidcntr="0x4">
+				<name>Generator2</name>
+				<regnode name="PartRegs" isopaque="yes">
+					<value></value>
+					<regnode name="ParameterAspect" isopaque="yes">
+						<value></value>
+						<regnode name="Position" isopaque="yes">
+							<value>140,154</value>
+						</regnode>
+					</regnode>
+					<regnode name="SignalFlowAspect" isopaque="yes">
+						<value></value>
+						<regnode name="Position" isopaque="yes">
+							<value>78,168</value>
+						</regnode>
+					</regnode>
+				</regnode>
+				<attribute kind="Firing" status="meta">
+					<value>IFALL</value>
+				</attribute>
+				<attribute kind="Priority" status="meta">
+					<value>10</value>
+				</attribute>
+				<attribute kind="Script">
+					<value>datagen_script</value>
+				</attribute>
+				<atom id="id-0066-00000016" kind="OutputSignal" role="OutputSignals" relid="0x1">
+					<name>Data</name>
+					<regnode name="PartRegs" isopaque="yes">
+						<value></value>
+						<regnode name="SignalFlowAspect" isopaque="yes">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>534,135</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<regnode name="namePosition" isopaque="yes">
+						<value>4</value>
+					</regnode>
+				</atom>
+				<atom id="id-0066-00000017" kind="InputParam" role="InputParameters" relid="0x2">
+					<name>Channel</name>
+					<regnode name="PartRegs" isopaque="yes">
+						<value></value>
+						<regnode name="ParameterAspect" isopaque="yes">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>27,83</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<regnode name="namePosition" isopaque="yes">
+						<value>4</value>
+					</regnode>
+					<attribute kind="DataType" status="meta">
+						<value>Integer</value>
+					</attribute>
+					<attribute kind="Size" status="meta">
+						<value>1</value>
+					</attribute>
+				</atom>
+				<atom id="id-0066-00000018" kind="InputParam" role="InputParameters" relid="0x3">
+					<name>Size</name>
+					<regnode name="PartRegs" isopaque="yes">
+						<value></value>
+						<regnode name="ParameterAspect" isopaque="yes">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>27,34</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<regnode name="namePosition" isopaque="yes">
+						<value>4</value>
+					</regnode>
+					<attribute kind="DataType" status="meta">
+						<value>Integer</value>
+					</attribute>
+					<attribute kind="Size" status="meta">
+						<value>1</value>
+					</attribute>
+				</atom>
+				<atom id="id-0066-00000019" kind="InputParam" role="InputParameters" relid="0x4">
+					<name>Frequency</name>
+					<regnode name="PartRegs" isopaque="yes">
+						<value></value>
+						<regnode name="ParameterAspect" isopaque="yes">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>27,139</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<regnode name="namePosition" isopaque="yes">
+						<value>4</value>
+					</regnode>
+					<attribute kind="DataType">
+						<value>Double</value>
+					</attribute>
+					<attribute kind="Size">
+						<value>1</value>
+					</attribute>
+				</atom>
+			</model>
+			<model id="id-0065-00000009" kind="Basic" role="BasicParts" relid="0x64" childrelidcntr="0x4">
+				<name>DBSetup3</name>
+				<regnode name="PartRegs" isopaque="yes">
+					<value></value>
+					<regnode name="ParameterAspect" isopaque="yes">
+						<value></value>
+						<regnode name="Position" isopaque="yes">
+							<value>140,602</value>
+						</regnode>
+					</regnode>
+					<regnode name="SignalFlowAspect" isopaque="yes">
+						<value></value>
+						<regnode name="Position" isopaque="yes">
+							<value>43,742</value>
+						</regnode>
+					</regnode>
+				</regnode>
+				<attribute kind="Firing" status="meta">
+					<value>IFALL</value>
+				</attribute>
+				<attribute kind="Priority">
+					<value>150</value>
+				</attribute>
+				<attribute kind="Script">
+					<value>dbsetup_script</value>
+				</attribute>
+				<atom id="id-0066-0000001a" kind="InputParam" role="InputParameters" relid="0x1">
+					<name>SampRate</name>
+					<regnode name="PartRegs" isopaque="yes">
+						<value></value>
+						<regnode name="ParameterAspect" isopaque="yes">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>72,254</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<regnode name="namePosition" isopaque="yes">
+						<value>4</value>
+					</regnode>
+					<attribute kind="DataType">
+						<value>Double</value>
+					</attribute>
+					<attribute kind="Size" status="meta">
+						<value>1</value>
+					</attribute>
+				</atom>
+				<atom id="id-0066-0000001b" kind="InputParam" role="InputParameters" relid="0x2">
+					<name>Size</name>
+					<regnode name="PartRegs" isopaque="yes">
+						<value></value>
+						<regnode name="ParameterAspect" isopaque="yes">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>86,121</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<regnode name="namePosition" isopaque="yes">
+						<value>4</value>
+					</regnode>
+					<attribute kind="DataType" status="meta">
+						<value>Integer</value>
+					</attribute>
+					<attribute kind="Size" status="meta">
+						<value>1</value>
+					</attribute>
+				</atom>
+				<atom id="id-0066-0000001c" kind="InputParam" role="InputParameters" relid="0x3">
+					<name>Name</name>
+					<regnode name="PartRegs" isopaque="yes">
+						<value></value>
+						<regnode name="ParameterAspect" isopaque="yes">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>79,58</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<regnode name="namePosition" isopaque="yes">
+						<value>4</value>
+					</regnode>
+					<attribute kind="DataType">
+						<value>Character</value>
+					</attribute>
+					<attribute kind="Size">
+						<value>20</value>
+					</attribute>
+				</atom>
+				<atom id="id-0066-0000001d" kind="InputParam" role="InputParameters" relid="0x4">
+					<name>IsFrequency</name>
+					<regnode name="PartRegs" isopaque="yes">
+						<value></value>
+						<regnode name="ParameterAspect" isopaque="yes">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>69,181</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<regnode name="namePosition" isopaque="yes">
+						<value>4</value>
+					</regnode>
+					<attribute kind="DataType" status="meta">
+						<value>Integer</value>
+					</attribute>
+					<attribute kind="Size" status="meta">
+						<value>1</value>
+					</attribute>
+				</atom>
+			</model>
+			<model id="id-0065-0000000a" kind="Basic" role="BasicParts" relid="0x65" childrelidcntr="0x3">
+				<name>Plotter8</name>
+				<regnode name="PartRegs" isopaque="yes">
+					<value></value>
+					<regnode name="ParameterAspect" isopaque="yes">
+						<value></value>
+						<regnode name="Position" isopaque="yes">
+							<value>756,728</value>
+						</regnode>
+					</regnode>
+					<regnode name="SignalFlowAspect" isopaque="yes">
+						<value></value>
+						<regnode name="Position" isopaque="yes">
+							<value>946,266</value>
+						</regnode>
+					</regnode>
+				</regnode>
+				<attribute kind="Firing" status="meta">
+					<value>IFALL</value>
+				</attribute>
+				<attribute kind="Priority">
+					<value>100</value>
+				</attribute>
+				<attribute kind="Script">
+					<value>plotter_script</value>
+				</attribute>
+				<atom id="id-0066-0000001e" kind="InputSignal" role="InputSignals" relid="0x1">
+					<name>Data</name>
+					<regnode name="PartRegs" isopaque="yes">
+						<value></value>
+						<regnode name="SignalFlowAspect" isopaque="yes">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>58,135</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<regnode name="namePosition" isopaque="yes">
+						<value></value>
+					</regnode>
+				</atom>
+				<atom id="id-0066-0000001f" kind="InputParam" role="InputParameters" relid="0x2">
+					<name>Channel</name>
+					<regnode name="PartRegs" isopaque="yes">
+						<value></value>
+						<regnode name="ParameterAspect" isopaque="yes">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>100,37</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<regnode name="namePosition" isopaque="yes">
+						<value>4</value>
+					</regnode>
+					<attribute kind="DataType" status="meta">
+						<value>Integer</value>
+					</attribute>
+					<attribute kind="Size" status="meta">
+						<value>1</value>
+					</attribute>
+				</atom>
+				<atom id="id-0066-00000020" kind="InputParam" role="InputParameters" relid="0x3">
+					<name>DBase</name>
+					<regnode name="PartRegs" isopaque="yes">
+						<value></value>
+						<regnode name="ParameterAspect" isopaque="yes">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>100,114</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<regnode name="namePosition" isopaque="yes">
+						<value>4</value>
+					</regnode>
+					<attribute kind="DataType">
+						<value>Character</value>
+					</attribute>
+					<attribute kind="Size">
+						<value>20</value>
+					</attribute>
+				</atom>
+			</model>
+			<model id="id-0065-0000000b" kind="Basic" role="BasicParts" relid="0x67" childrelidcntr="0x3">
+				<name>Plotter2</name>
+				<regnode name="PartRegs" isopaque="yes">
+					<value></value>
+					<regnode name="ParameterAspect" isopaque="yes">
+						<value></value>
+						<regnode name="Position" isopaque="yes">
+							<value>756,140</value>
+						</regnode>
+					</regnode>
+					<regnode name="SignalFlowAspect" isopaque="yes">
+						<value></value>
+						<regnode name="Position" isopaque="yes">
+							<value>764,126</value>
+						</regnode>
+					</regnode>
+				</regnode>
+				<attribute kind="Firing" status="meta">
+					<value>IFALL</value>
+				</attribute>
+				<attribute kind="Priority">
+					<value>100</value>
+				</attribute>
+				<attribute kind="Script">
+					<value>plotter_script</value>
+				</attribute>
+				<atom id="id-0066-00000021" kind="InputParam" role="InputParameters" relid="0x1">
+					<name>DBase</name>
+					<regnode name="PartRegs" isopaque="yes">
+						<value></value>
+						<regnode name="ParameterAspect" isopaque="yes">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>100,114</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<regnode name="namePosition" isopaque="yes">
+						<value>4</value>
+					</regnode>
+					<attribute kind="DataType">
+						<value>Character</value>
+					</attribute>
+					<attribute kind="Size">
+						<value>20</value>
+					</attribute>
+				</atom>
+				<atom id="id-0066-00000022" kind="InputParam" role="InputParameters" relid="0x2">
+					<name>Channel</name>
+					<regnode name="PartRegs" isopaque="yes">
+						<value></value>
+						<regnode name="ParameterAspect" isopaque="yes">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>100,37</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<regnode name="namePosition" isopaque="yes">
+						<value>4</value>
+					</regnode>
+					<attribute kind="DataType" status="meta">
+						<value>Integer</value>
+					</attribute>
+					<attribute kind="Size" status="meta">
+						<value>1</value>
+					</attribute>
+				</atom>
+				<atom id="id-0066-00000023" kind="InputSignal" role="InputSignals" relid="0x3">
+					<name>Data</name>
+					<regnode name="PartRegs" isopaque="yes">
+						<value></value>
+						<regnode name="SignalFlowAspect" isopaque="yes">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>58,135</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<regnode name="namePosition" isopaque="yes">
+						<value></value>
+					</regnode>
+				</atom>
+			</model>
+			<model id="id-0065-0000000c" kind="Basic" role="BasicParts" relid="0x68" childrelidcntr="0x4">
+				<name>DBSetup1</name>
+				<regnode name="PartRegs" isopaque="yes">
+					<value></value>
+					<regnode name="ParameterAspect" isopaque="yes">
+						<value></value>
+						<regnode name="Position" isopaque="yes">
+							<value>140,385</value>
+						</regnode>
+					</regnode>
+					<regnode name="SignalFlowAspect" isopaque="yes">
+						<value></value>
+						<regnode name="Position" isopaque="yes">
+							<value>197,742</value>
+						</regnode>
+					</regnode>
+				</regnode>
+				<attribute kind="Firing" status="meta">
+					<value>IFALL</value>
+				</attribute>
+				<attribute kind="Priority">
+					<value>150</value>
+				</attribute>
+				<attribute kind="Script">
+					<value>dbsetup_script</value>
+				</attribute>
+				<atom id="id-0066-00000024" kind="InputParam" role="InputParameters" relid="0x1">
+					<name>Name</name>
+					<regnode name="PartRegs" isopaque="yes">
+						<value></value>
+						<regnode name="ParameterAspect" isopaque="yes">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>79,58</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<regnode name="namePosition" isopaque="yes">
+						<value>4</value>
+					</regnode>
+					<attribute kind="DataType">
+						<value>Character</value>
+					</attribute>
+					<attribute kind="Size">
+						<value>20</value>
+					</attribute>
+				</atom>
+				<atom id="id-0066-00000025" kind="InputParam" role="InputParameters" relid="0x2">
+					<name>SampRate</name>
+					<regnode name="PartRegs" isopaque="yes">
+						<value></value>
+						<regnode name="ParameterAspect" isopaque="yes">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>72,254</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<regnode name="namePosition" isopaque="yes">
+						<value>4</value>
+					</regnode>
+					<attribute kind="DataType">
+						<value>Double</value>
+					</attribute>
+					<attribute kind="Size" status="meta">
+						<value>1</value>
+					</attribute>
+				</atom>
+				<atom id="id-0066-00000026" kind="InputParam" role="InputParameters" relid="0x3">
+					<name>IsFrequency</name>
+					<regnode name="PartRegs" isopaque="yes">
+						<value></value>
+						<regnode name="ParameterAspect" isopaque="yes">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>69,181</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<regnode name="namePosition" isopaque="yes">
+						<value>4</value>
+					</regnode>
+					<attribute kind="DataType" status="meta">
+						<value>Integer</value>
+					</attribute>
+					<attribute kind="Size" status="meta">
+						<value>1</value>
+					</attribute>
+				</atom>
+				<atom id="id-0066-00000027" kind="InputParam" role="InputParameters" relid="0x4">
+					<name>Size</name>
+					<regnode name="PartRegs" isopaque="yes">
+						<value></value>
+						<regnode name="ParameterAspect" isopaque="yes">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>86,121</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<regnode name="namePosition" isopaque="yes">
+						<value>4</value>
+					</regnode>
+					<attribute kind="DataType" status="meta">
+						<value>Integer</value>
+					</attribute>
+					<attribute kind="Size" status="meta">
+						<value>1</value>
+					</attribute>
+				</atom>
+			</model>
+			<model id="id-0065-0000000d" kind="Basic" role="BasicParts" relid="0x2c" childrelidcntr="0x5">
+				<name>Envelope2</name>
+				<regnode name="PartRegs" isopaque="yes">
+					<value></value>
+					<regnode name="ParameterAspect" isopaque="yes">
+						<value></value>
+						<regnode name="Position" isopaque="yes">
+							<value>441,245</value>
+						</regnode>
+					</regnode>
+					<regnode name="SignalFlowAspect" isopaque="yes">
+						<value></value>
+						<regnode name="Position" isopaque="yes">
+							<value>519,259</value>
+						</regnode>
+					</regnode>
+				</regnode>
+				<attribute kind="Firing" status="meta">
+					<value>IFALL</value>
+				</attribute>
+				<attribute kind="Priority">
+					<value>100</value>
+				</attribute>
+				<attribute kind="Script">
+					<value>envelope_script</value>
+				</attribute>
+				<atom id="id-0066-00000028" kind="InputParam" role="InputParameters" relid="0x1">
+					<name>Reset</name>
+					<regnode name="PartRegs" isopaque="yes">
+						<value></value>
+						<regnode name="ParameterAspect" isopaque="yes">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>79,79</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<regnode name="namePosition" isopaque="yes">
+						<value>4</value>
+					</regnode>
+					<attribute kind="DataType" status="meta">
+						<value>Integer</value>
+					</attribute>
+					<attribute kind="Size" status="meta">
+						<value>1</value>
+					</attribute>
+				</atom>
+				<atom id="id-0066-00000029" kind="OutputSignal" role="OutputSignals" relid="0x4">
+					<name>Out</name>
+					<regnode name="PartRegs" isopaque="yes">
+						<value></value>
+						<regnode name="SignalFlowAspect" isopaque="yes">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>639,170</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<regnode name="namePosition" isopaque="yes">
+						<value></value>
+					</regnode>
+				</atom>
+				<atom id="id-0066-0000002a" kind="Param" role="Parameters" relid="0x3">
+					<name>LastReset</name>
+					<regnode name="PartRegs" isopaque="yes">
+						<value></value>
+						<regnode name="ParameterAspect" isopaque="yes">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>303,37</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<regnode name="namePosition" isopaque="yes">
+						<value>4</value>
+					</regnode>
+					<attribute kind="DataType" status="meta">
+						<value>Integer</value>
+					</attribute>
+					<attribute kind="Global" status="meta">
+						<value>false</value>
+					</attribute>
+					<attribute kind="InitValue" status="meta">
+						<value>0</value>
+					</attribute>
+					<attribute kind="Size" status="meta">
+						<value>1</value>
+					</attribute>
+				</atom>
+				<atom id="id-0066-0000002b" kind="Param" role="Parameters" relid="0x2">
+					<name>Buffer</name>
+					<regnode name="PartRegs" isopaque="yes">
+						<value></value>
+						<regnode name="ParameterAspect" isopaque="yes">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>324,107</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<regnode name="namePosition" isopaque="yes">
+						<value>4</value>
+					</regnode>
+					<attribute kind="DataType">
+						<value>Pointer</value>
+					</attribute>
+					<attribute kind="Global" status="meta">
+						<value>false</value>
+					</attribute>
+					<attribute kind="InitValue" status="meta">
+						<value>0</value>
+					</attribute>
+					<attribute kind="Size" status="meta">
+						<value>1</value>
+					</attribute>
+				</atom>
+				<atom id="id-0066-0000002c" kind="InputSignal" role="InputSignals" relid="0x5">
+					<name>In</name>
+					<regnode name="PartRegs" isopaque="yes">
+						<value></value>
+						<regnode name="SignalFlowAspect" isopaque="yes">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>58,149</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<regnode name="namePosition" isopaque="yes">
+						<value></value>
+					</regnode>
+				</atom>
+			</model>
+			<model id="id-0065-0000000e" kind="Basic" role="BasicParts" relid="0x35" childrelidcntr="0x3">
+				<name>Plotter4</name>
+				<regnode name="PartRegs" isopaque="yes">
+					<value></value>
+					<regnode name="ParameterAspect" isopaque="yes">
+						<value></value>
+						<regnode name="Position" isopaque="yes">
+							<value>756,336</value>
+						</regnode>
+					</regnode>
+					<regnode name="SignalFlowAspect" isopaque="yes">
+						<value></value>
+						<regnode name="Position" isopaque="yes">
+							<value>764,308</value>
+						</regnode>
+					</regnode>
+				</regnode>
+				<attribute kind="Firing" status="meta">
+					<value>IFALL</value>
+				</attribute>
+				<attribute kind="Priority">
+					<value>100</value>
+				</attribute>
+				<attribute kind="Script">
+					<value>plotter_script</value>
+				</attribute>
+				<atom id="id-0066-0000002d" kind="InputSignal" role="InputSignals" relid="0x2">
+					<name>Data</name>
+					<regnode name="PartRegs" isopaque="yes">
+						<value></value>
+						<regnode name="SignalFlowAspect" isopaque="yes">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>58,135</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<regnode name="namePosition" isopaque="yes">
+						<value></value>
+					</regnode>
+				</atom>
+				<atom id="id-0066-0000002e" kind="InputParam" role="InputParameters" relid="0x3">
+					<name>DBase</name>
+					<regnode name="PartRegs" isopaque="yes">
+						<value></value>
+						<regnode name="ParameterAspect" isopaque="yes">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>100,114</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<regnode name="namePosition" isopaque="yes">
+						<value>4</value>
+					</regnode>
+					<attribute kind="DataType">
+						<value>Character</value>
+					</attribute>
+					<attribute kind="Size">
+						<value>20</value>
+					</attribute>
+				</atom>
+				<atom id="id-0066-0000002f" kind="InputParam" role="InputParameters" relid="0x1">
+					<name>Channel</name>
+					<regnode name="PartRegs" isopaque="yes">
+						<value></value>
+						<regnode name="ParameterAspect" isopaque="yes">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>100,37</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<regnode name="namePosition" isopaque="yes">
+						<value>4</value>
+					</regnode>
+					<attribute kind="DataType" status="meta">
+						<value>Integer</value>
+					</attribute>
+					<attribute kind="Size" status="meta">
+						<value>1</value>
+					</attribute>
+				</atom>
+			</model>
+			<model id="id-0065-0000000f" kind="Basic" role="BasicParts" relid="0x45" childrelidcntr="0x5">
+				<name>Envelope1</name>
+				<regnode name="PartRegs" isopaque="yes">
+					<value></value>
+					<regnode name="ParameterAspect" isopaque="yes">
+						<value></value>
+						<regnode name="Position" isopaque="yes">
+							<value>441,49</value>
+						</regnode>
+					</regnode>
+					<regnode name="SignalFlowAspect" isopaque="yes">
+						<value></value>
+						<regnode name="Position" isopaque="yes">
+							<value>519,49</value>
+						</regnode>
+					</regnode>
+				</regnode>
+				<attribute kind="Firing" status="meta">
+					<value>IFALL</value>
+				</attribute>
+				<attribute kind="Priority">
+					<value>100</value>
+				</attribute>
+				<attribute kind="Script">
+					<value>envelope_script</value>
+				</attribute>
+				<atom id="id-0066-00000030" kind="InputParam" role="InputParameters" relid="0x5">
+					<name>Reset</name>
+					<regnode name="PartRegs" isopaque="yes">
+						<value></value>
+						<regnode name="ParameterAspect" isopaque="yes">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>79,79</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<regnode name="namePosition" isopaque="yes">
+						<value>4</value>
+					</regnode>
+					<attribute kind="DataType" status="meta">
+						<value>Integer</value>
+					</attribute>
+					<attribute kind="Size" status="meta">
+						<value>1</value>
+					</attribute>
+				</atom>
+				<atom id="id-0066-00000031" kind="OutputSignal" role="OutputSignals" relid="0x3">
+					<name>Out</name>
+					<regnode name="PartRegs" isopaque="yes">
+						<value></value>
+						<regnode name="SignalFlowAspect" isopaque="yes">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>625,177</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<regnode name="namePosition" isopaque="yes">
+						<value></value>
+					</regnode>
+				</atom>
+				<atom id="id-0066-00000032" kind="InputSignal" role="InputSignals" relid="0x4">
+					<name>In</name>
+					<regnode name="PartRegs" isopaque="yes">
+						<value></value>
+						<regnode name="SignalFlowAspect" isopaque="yes">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>44,170</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<regnode name="namePosition" isopaque="yes">
+						<value></value>
+					</regnode>
+				</atom>
+				<atom id="id-0066-00000033" kind="Param" role="Parameters" relid="0x1">
+					<name>LastReset</name>
+					<regnode name="PartRegs" isopaque="yes">
+						<value></value>
+						<regnode name="ParameterAspect" isopaque="yes">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>303,37</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<regnode name="namePosition" isopaque="yes">
+						<value>4</value>
+					</regnode>
+					<attribute kind="DataType" status="meta">
+						<value>Integer</value>
+					</attribute>
+					<attribute kind="Global" status="meta">
+						<value>false</value>
+					</attribute>
+					<attribute kind="InitValue" status="meta">
+						<value>0</value>
+					</attribute>
+					<attribute kind="Size" status="meta">
+						<value>1</value>
+					</attribute>
+				</atom>
+				<atom id="id-0066-00000034" kind="Param" role="Parameters" relid="0x2">
+					<name>Buffer</name>
+					<regnode name="PartRegs" isopaque="yes">
+						<value></value>
+						<regnode name="ParameterAspect" isopaque="yes">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>324,107</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<regnode name="namePosition" isopaque="yes">
+						<value>4</value>
+					</regnode>
+					<attribute kind="DataType">
+						<value>Pointer</value>
+					</attribute>
+					<attribute kind="Global" status="meta">
+						<value>false</value>
+					</attribute>
+					<attribute kind="InitValue" status="meta">
+						<value>0</value>
+					</attribute>
+					<attribute kind="Size" status="meta">
+						<value>1</value>
+					</attribute>
+				</atom>
+			</model>
+			<model id="id-0065-00000010" kind="Basic" role="BasicParts" relid="0x30" childrelidcntr="0x3">
+				<name>Plotter9</name>
+				<regnode name="PartRegs" isopaque="yes">
+					<value></value>
+					<regnode name="ParameterAspect" isopaque="yes">
+						<value></value>
+						<regnode name="Position" isopaque="yes">
+							<value>756,826</value>
+						</regnode>
+					</regnode>
+					<regnode name="SignalFlowAspect" isopaque="yes">
+						<value></value>
+						<regnode name="Position" isopaque="yes">
+							<value>946,357</value>
+						</regnode>
+					</regnode>
+				</regnode>
+				<attribute kind="Firing" status="meta">
+					<value>IFALL</value>
+				</attribute>
+				<attribute kind="Priority">
+					<value>100</value>
+				</attribute>
+				<attribute kind="Script">
+					<value>plotter_script</value>
+				</attribute>
+				<atom id="id-0066-00000035" kind="InputParam" role="InputParameters" relid="0x1">
+					<name>Channel</name>
+					<regnode name="PartRegs" isopaque="yes">
+						<value></value>
+						<regnode name="ParameterAspect" isopaque="yes">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>100,37</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<regnode name="namePosition" isopaque="yes">
+						<value>4</value>
+					</regnode>
+					<attribute kind="DataType" status="meta">
+						<value>Integer</value>
+					</attribute>
+					<attribute kind="Size" status="meta">
+						<value>1</value>
+					</attribute>
+				</atom>
+				<atom id="id-0066-00000036" kind="InputParam" role="InputParameters" relid="0x2">
+					<name>DBase</name>
+					<regnode name="PartRegs" isopaque="yes">
+						<value></value>
+						<regnode name="ParameterAspect" isopaque="yes">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>100,114</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<regnode name="namePosition" isopaque="yes">
+						<value>4</value>
+					</regnode>
+					<attribute kind="DataType">
+						<value>Character</value>
+					</attribute>
+					<attribute kind="Size">
+						<value>20</value>
+					</attribute>
+				</atom>
+				<atom id="id-0066-00000037" kind="InputSignal" role="InputSignals" relid="0x3">
+					<name>Data</name>
+					<regnode name="PartRegs" isopaque="yes">
+						<value></value>
+						<regnode name="SignalFlowAspect" isopaque="yes">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>58,135</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<regnode name="namePosition" isopaque="yes">
+						<value>4</value>
+					</regnode>
+				</atom>
+			</model>
+			<model id="id-0065-00000011" kind="Basic" role="BasicParts" relid="0x36" childrelidcntr="0x3">
+				<name>Plotter1</name>
+				<regnode name="PartRegs" isopaque="yes">
+					<value></value>
+					<regnode name="ParameterAspect" isopaque="yes">
+						<value></value>
+						<regnode name="Position" isopaque="yes">
+							<value>756,42</value>
+						</regnode>
+					</regnode>
+					<regnode name="SignalFlowAspect" isopaque="yes">
+						<value></value>
+						<regnode name="Position" isopaque="yes">
+							<value>764,35</value>
+						</regnode>
+					</regnode>
+				</regnode>
+				<attribute kind="Firing" status="meta">
+					<value>IFALL</value>
+				</attribute>
+				<attribute kind="Priority">
+					<value>100</value>
+				</attribute>
+				<attribute kind="Script">
+					<value>plotter_script</value>
+				</attribute>
+				<atom id="id-0066-00000038" kind="InputParam" role="InputParameters" relid="0x1">
+					<name>DBase</name>
+					<regnode name="PartRegs" isopaque="yes">
+						<value></value>
+						<regnode name="ParameterAspect" isopaque="yes">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>100,114</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<regnode name="namePosition" isopaque="yes">
+						<value>4</value>
+					</regnode>
+					<attribute kind="DataType">
+						<value>Character</value>
+					</attribute>
+					<attribute kind="Size">
+						<value>20</value>
+					</attribute>
+				</atom>
+				<atom id="id-0066-00000039" kind="InputParam" role="InputParameters" relid="0x2">
+					<name>Channel</name>
+					<regnode name="PartRegs" isopaque="yes">
+						<value></value>
+						<regnode name="ParameterAspect" isopaque="yes">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>100,37</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<regnode name="namePosition" isopaque="yes">
+						<value>4</value>
+					</regnode>
+					<attribute kind="DataType" status="meta">
+						<value>Integer</value>
+					</attribute>
+					<attribute kind="Size" status="meta">
+						<value>1</value>
+					</attribute>
+				</atom>
+				<atom id="id-0066-0000003a" kind="InputSignal" role="InputSignals" relid="0x3">
+					<name>Data</name>
+					<regnode name="PartRegs" isopaque="yes">
+						<value></value>
+						<regnode name="SignalFlowAspect" isopaque="yes">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>58,135</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<regnode name="namePosition" isopaque="yes">
+						<value></value>
+					</regnode>
+				</atom>
+			</model>
+			<model id="id-0065-00000012" kind="Basic" role="BasicParts" relid="0x3d" childrelidcntr="0x4">
+				<name>DBSetup5</name>
+				<regnode name="PartRegs" isopaque="yes">
+					<value></value>
+					<regnode name="ParameterAspect" isopaque="yes">
+						<value></value>
+						<regnode name="Position" isopaque="yes">
+							<value>140,826</value>
+						</regnode>
+					</regnode>
+					<regnode name="SignalFlowAspect" isopaque="yes">
+						<value></value>
+						<regnode name="Position" isopaque="yes">
+							<value>197,644</value>
+						</regnode>
+					</regnode>
+				</regnode>
+				<attribute kind="Firing" status="meta">
+					<value>IFALL</value>
+				</attribute>
+				<attribute kind="Priority">
+					<value>150</value>
+				</attribute>
+				<attribute kind="Script">
+					<value>dbsetup_script</value>
+				</attribute>
+				<atom id="id-0066-0000003b" kind="InputParam" role="InputParameters" relid="0x3">
+					<name>Size</name>
+					<regnode name="PartRegs" isopaque="yes">
+						<value></value>
+						<regnode name="ParameterAspect" isopaque="yes">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>86,121</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<regnode name="namePosition" isopaque="yes">
+						<value>4</value>
+					</regnode>
+					<attribute kind="DataType" status="meta">
+						<value>Integer</value>
+					</attribute>
+					<attribute kind="Size" status="meta">
+						<value>1</value>
+					</attribute>
+				</atom>
+				<atom id="id-0066-0000003c" kind="InputParam" role="InputParameters" relid="0x4">
+					<name>Name</name>
+					<regnode name="PartRegs" isopaque="yes">
+						<value></value>
+						<regnode name="ParameterAspect" isopaque="yes">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>79,58</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<regnode name="namePosition" isopaque="yes">
+						<value>4</value>
+					</regnode>
+					<attribute kind="DataType">
+						<value>Character</value>
+					</attribute>
+					<attribute kind="Size">
+						<value>20</value>
+					</attribute>
+				</atom>
+				<atom id="id-0066-0000003d" kind="InputParam" role="InputParameters" relid="0x1">
+					<name>IsFrequency</name>
+					<regnode name="PartRegs" isopaque="yes">
+						<value></value>
+						<regnode name="ParameterAspect" isopaque="yes">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>69,181</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<regnode name="namePosition" isopaque="yes">
+						<value>4</value>
+					</regnode>
+					<attribute kind="DataType" status="meta">
+						<value>Integer</value>
+					</attribute>
+					<attribute kind="Size" status="meta">
+						<value>1</value>
+					</attribute>
+				</atom>
+				<atom id="id-0066-0000003e" kind="InputParam" role="InputParameters" relid="0x2">
+					<name>SampRate</name>
+					<regnode name="PartRegs" isopaque="yes">
+						<value></value>
+						<regnode name="ParameterAspect" isopaque="yes">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>72,254</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<regnode name="namePosition" isopaque="yes">
+						<value>4</value>
+					</regnode>
+					<attribute kind="DataType">
+						<value>Double</value>
+					</attribute>
+					<attribute kind="Size" status="meta">
+						<value>1</value>
+					</attribute>
+				</atom>
+			</model>
+			<model id="id-0065-00000013" kind="Basic" role="BasicParts" relid="0x2" childrelidcntr="0x6">
+				<name>LPFilter1</name>
+				<regnode name="PartRegs" isopaque="yes">
+					<value></value>
+					<regnode name="ParameterAspect" isopaque="yes">
+						<value></value>
+						<regnode name="Position" isopaque="yes">
+							<value>441,147</value>
+						</regnode>
+					</regnode>
+					<regnode name="SignalFlowAspect" isopaque="yes">
+						<value></value>
+						<regnode name="Position" isopaque="yes">
+							<value>519,147</value>
+						</regnode>
+					</regnode>
+				</regnode>
+				<regnode name="borderColor" isopaque="yes">
+					<value>0</value>
+				</regnode>
+				<regnode name="nameColor" isopaque="yes">
+					<value>0</value>
+				</regnode>
+				<regnode name="portColor" isopaque="yes">
+					<value>0</value>
+				</regnode>
+				<attribute kind="Firing" status="meta">
+					<value>IFALL</value>
+				</attribute>
+				<attribute kind="Priority">
+					<value>100</value>
+				</attribute>
+				<attribute kind="Script">
+					<value>lpfilter_script</value>
+				</attribute>
+				<atom id="id-0066-0000003f" kind="InputParam" role="InputParameters" relid="0x4">
+					<name>Reset</name>
+					<regnode name="PartRegs" isopaque="yes">
+						<value></value>
+						<regnode name="ParameterAspect" isopaque="yes">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>79,79</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<regnode name="namePosition" isopaque="yes">
+						<value>4</value>
+					</regnode>
+					<attribute kind="DataType" status="meta">
+						<value>Integer</value>
+					</attribute>
+					<attribute kind="Size" status="meta">
+						<value>1</value>
+					</attribute>
+				</atom>
+				<atom id="id-0066-00000040" kind="Param" role="Parameters" relid="0x1">
+					<name>Factor</name>
+					<regnode name="PartRegs" isopaque="yes">
+						<value></value>
+						<regnode name="ParameterAspect" isopaque="yes">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>317,170</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<regnode name="namePosition" isopaque="yes">
+						<value>4</value>
+					</regnode>
+					<attribute kind="DataType">
+						<value>Double</value>
+					</attribute>
+					<attribute kind="Global" status="meta">
+						<value>false</value>
+					</attribute>
+					<attribute kind="InitValue">
+						<value>0.05</value>
+					</attribute>
+					<attribute kind="Size" status="meta">
+						<value>1</value>
+					</attribute>
+				</atom>
+				<atom id="id-0066-00000041" kind="OutputSignal" role="OutputSignals" relid="0x2">
+					<name>Out</name>
+					<regnode name="PartRegs" isopaque="yes">
+						<value></value>
+						<regnode name="SignalFlowAspect" isopaque="yes">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>625,177</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<regnode name="namePosition" isopaque="yes">
+						<value></value>
+					</regnode>
+				</atom>
+				<atom id="id-0066-00000042" kind="InputSignal" role="InputSignals" relid="0x5">
+					<name>In</name>
+					<regnode name="PartRegs" isopaque="yes">
+						<value></value>
+						<regnode name="SignalFlowAspect" isopaque="yes">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>44,170</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<regnode name="namePosition" isopaque="yes">
+						<value></value>
+					</regnode>
+				</atom>
+				<atom id="id-0066-00000043" kind="Param" role="Parameters" relid="0x6">
+					<name>Buffer</name>
+					<regnode name="PartRegs" isopaque="yes">
+						<value></value>
+						<regnode name="ParameterAspect" isopaque="yes">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>317,107</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<regnode name="namePosition" isopaque="yes">
+						<value>4</value>
+					</regnode>
+					<attribute kind="DataType">
+						<value>Pointer</value>
+					</attribute>
+					<attribute kind="Global" status="meta">
+						<value>false</value>
+					</attribute>
+					<attribute kind="InitValue" status="meta">
+						<value>0</value>
+					</attribute>
+					<attribute kind="Size" status="meta">
+						<value>1</value>
+					</attribute>
+				</atom>
+				<atom id="id-0066-00000044" kind="Param" role="Parameters" relid="0x3">
+					<name>LastReset</name>
+					<regnode name="PartRegs" isopaque="yes">
+						<value></value>
+						<regnode name="ParameterAspect" isopaque="yes">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>317,37</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<regnode name="namePosition" isopaque="yes">
+						<value>4</value>
+					</regnode>
+					<attribute kind="DataType" status="meta">
+						<value>Integer</value>
+					</attribute>
+					<attribute kind="Global" status="meta">
+						<value>false</value>
+					</attribute>
+					<attribute kind="InitValue" status="meta">
+						<value>0</value>
+					</attribute>
+					<attribute kind="Size" status="meta">
+						<value>1</value>
+					</attribute>
+				</atom>
+			</model>
+			<model id="id-0065-00000014" kind="Basic" role="BasicParts" relid="0x15" childrelidcntr="0x3">
+				<name>Plotter6</name>
+				<regnode name="PartRegs" isopaque="yes">
+					<value></value>
+					<regnode name="ParameterAspect" isopaque="yes">
+						<value></value>
+						<regnode name="Position" isopaque="yes">
+							<value>756,532</value>
+						</regnode>
+					</regnode>
+					<regnode name="SignalFlowAspect" isopaque="yes">
+						<value></value>
+						<regnode name="Position" isopaque="yes">
+							<value>946,84</value>
+						</regnode>
+					</regnode>
+				</regnode>
+				<attribute kind="Firing" status="meta">
+					<value>IFALL</value>
+				</attribute>
+				<attribute kind="Priority">
+					<value>100</value>
+				</attribute>
+				<attribute kind="Script">
+					<value>plotter_script</value>
+				</attribute>
+				<atom id="id-0066-00000045" kind="InputParam" role="InputParameters" relid="0x1">
+					<name>DBase</name>
+					<regnode name="PartRegs" isopaque="yes">
+						<value></value>
+						<regnode name="ParameterAspect" isopaque="yes">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>100,114</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<regnode name="namePosition" isopaque="yes">
+						<value>4</value>
+					</regnode>
+					<attribute kind="DataType">
+						<value>Character</value>
+					</attribute>
+					<attribute kind="Size">
+						<value>20</value>
+					</attribute>
+				</atom>
+				<atom id="id-0066-00000046" kind="InputParam" role="InputParameters" relid="0x2">
+					<name>Channel</name>
+					<regnode name="PartRegs" isopaque="yes">
+						<value></value>
+						<regnode name="ParameterAspect" isopaque="yes">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>100,37</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<regnode name="namePosition" isopaque="yes">
+						<value>4</value>
+					</regnode>
+					<attribute kind="DataType" status="meta">
+						<value>Integer</value>
+					</attribute>
+					<attribute kind="Size" status="meta">
+						<value>1</value>
+					</attribute>
+				</atom>
+				<atom id="id-0066-00000047" kind="InputSignal" role="InputSignals" relid="0x3">
+					<name>Data</name>
+					<regnode name="PartRegs" isopaque="yes">
+						<value></value>
+						<regnode name="SignalFlowAspect" isopaque="yes">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>58,135</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<regnode name="namePosition" isopaque="yes">
+						<value></value>
+					</regnode>
+				</atom>
+			</model>
+			<model id="id-0065-00000015" kind="Basic" role="BasicParts" relid="0x26" childrelidcntr="0x4">
+				<name>DBSetup4</name>
+				<regnode name="PartRegs" isopaque="yes">
+					<value></value>
+					<regnode name="ParameterAspect" isopaque="yes">
+						<value></value>
+						<regnode name="Position" isopaque="yes">
+							<value>140,714</value>
+						</regnode>
+					</regnode>
+					<regnode name="SignalFlowAspect" isopaque="yes">
+						<value></value>
+						<regnode name="Position" isopaque="yes">
+							<value>43,644</value>
+						</regnode>
+					</regnode>
+				</regnode>
+				<attribute kind="Firing" status="meta">
+					<value>IFALL</value>
+				</attribute>
+				<attribute kind="Priority">
+					<value>150</value>
+				</attribute>
+				<attribute kind="Script">
+					<value>dbsetup_script</value>
+				</attribute>
+				<atom id="id-0066-00000048" kind="InputParam" role="InputParameters" relid="0x2">
+					<name>SampRate</name>
+					<regnode name="PartRegs" isopaque="yes">
+						<value></value>
+						<regnode name="ParameterAspect" isopaque="yes">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>72,254</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<regnode name="namePosition" isopaque="yes">
+						<value>4</value>
+					</regnode>
+					<attribute kind="DataType">
+						<value>Double</value>
+					</attribute>
+					<attribute kind="Size" status="meta">
+						<value>1</value>
+					</attribute>
+				</atom>
+				<atom id="id-0066-00000049" kind="InputParam" role="InputParameters" relid="0x4">
+					<name>IsFrequency</name>
+					<regnode name="PartRegs" isopaque="yes">
+						<value></value>
+						<regnode name="ParameterAspect" isopaque="yes">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>69,181</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<regnode name="namePosition" isopaque="yes">
+						<value>4</value>
+					</regnode>
+					<attribute kind="DataType" status="meta">
+						<value>Integer</value>
+					</attribute>
+					<attribute kind="Size" status="meta">
+						<value>1</value>
+					</attribute>
+				</atom>
+				<atom id="id-0066-0000004a" kind="InputParam" role="InputParameters" relid="0x1">
+					<name>Name</name>
+					<regnode name="PartRegs" isopaque="yes">
+						<value></value>
+						<regnode name="ParameterAspect" isopaque="yes">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>79,58</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<regnode name="namePosition" isopaque="yes">
+						<value>4</value>
+					</regnode>
+					<attribute kind="DataType">
+						<value>Character</value>
+					</attribute>
+					<attribute kind="Size">
+						<value>20</value>
+					</attribute>
+				</atom>
+				<atom id="id-0066-0000004b" kind="InputParam" role="InputParameters" relid="0x3">
+					<name>Size</name>
+					<regnode name="PartRegs" isopaque="yes">
+						<value></value>
+						<regnode name="ParameterAspect" isopaque="yes">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>86,121</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<regnode name="namePosition" isopaque="yes">
+						<value>4</value>
+					</regnode>
+					<attribute kind="DataType" status="meta">
+						<value>Integer</value>
+					</attribute>
+					<attribute kind="Size" status="meta">
+						<value>1</value>
+					</attribute>
+				</atom>
+			</model>
+			<model id="id-0065-00000016" kind="Basic" role="BasicParts" relid="0x6" childrelidcntr="0x4">
+				<name>Generator1</name>
+				<regnode name="PartRegs" isopaque="yes">
+					<value></value>
+					<regnode name="ParameterAspect" isopaque="yes">
+						<value></value>
+						<regnode name="Position" isopaque="yes">
+							<value>140,49</value>
+						</regnode>
+					</regnode>
+					<regnode name="SignalFlowAspect" isopaque="yes">
+						<value></value>
+						<regnode name="Position" isopaque="yes">
+							<value>78,49</value>
+						</regnode>
+					</regnode>
+				</regnode>
+				<attribute kind="Firing" status="meta">
+					<value>IFALL</value>
+				</attribute>
+				<attribute kind="Priority" status="meta">
+					<value>10</value>
+				</attribute>
+				<attribute kind="Script">
+					<value>datagen_script</value>
+				</attribute>
+				<atom id="id-0066-0000004c" kind="InputParam" role="InputParameters" relid="0x4">
+					<name>Size</name>
+					<regnode name="PartRegs" isopaque="yes">
+						<value></value>
+						<regnode name="ParameterAspect" isopaque="yes">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>27,41</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<regnode name="namePosition" isopaque="yes">
+						<value>4</value>
+					</regnode>
+					<attribute kind="DataType" status="meta">
+						<value>Integer</value>
+					</attribute>
+					<attribute kind="Size" status="meta">
+						<value>1</value>
+					</attribute>
+				</atom>
+				<atom id="id-0066-0000004d" kind="InputParam" role="InputParameters" relid="0x3">
+					<name>Channel</name>
+					<regnode name="PartRegs" isopaque="yes">
+						<value></value>
+						<regnode name="ParameterAspect" isopaque="yes">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>27,90</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<regnode name="namePosition" isopaque="yes">
+						<value>4</value>
+					</regnode>
+					<attribute kind="DataType" status="meta">
+						<value>Integer</value>
+					</attribute>
+					<attribute kind="Size" status="meta">
+						<value>1</value>
+					</attribute>
+				</atom>
+				<atom id="id-0066-0000004e" kind="InputParam" role="InputParameters" relid="0x2">
+					<name>Frequency</name>
+					<regnode name="PartRegs" isopaque="yes">
+						<value></value>
+						<regnode name="ParameterAspect" isopaque="yes">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>27,146</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<regnode name="namePosition" isopaque="yes">
+						<value>4</value>
+					</regnode>
+					<attribute kind="DataType">
+						<value>Double</value>
+					</attribute>
+					<attribute kind="Size">
+						<value>1</value>
+					</attribute>
+				</atom>
+				<atom id="id-0066-0000004f" kind="OutputSignal" role="OutputSignals" relid="0x1">
+					<name>Data</name>
+					<regnode name="PartRegs" isopaque="yes">
+						<value></value>
+						<regnode name="SignalFlowAspect" isopaque="yes">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>534,135</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<regnode name="namePosition" isopaque="yes">
+						<value></value>
+					</regnode>
+				</atom>
+			</model>
+			<model id="id-0065-00000017" kind="Basic" role="BasicParts" relid="0x3" childrelidcntr="0x3">
+				<name>Plotter7</name>
+				<regnode name="PartRegs" isopaque="yes">
+					<value></value>
+					<regnode name="ParameterAspect" isopaque="yes">
+						<value></value>
+						<regnode name="Position" isopaque="yes">
+							<value>756,630</value>
+						</regnode>
+					</regnode>
+					<regnode name="SignalFlowAspect" isopaque="yes">
+						<value></value>
+						<regnode name="Position" isopaque="yes">
+							<value>946,175</value>
+						</regnode>
+					</regnode>
+				</regnode>
+				<attribute kind="Firing" status="meta">
+					<value>IFALL</value>
+				</attribute>
+				<attribute kind="Priority">
+					<value>100</value>
+				</attribute>
+				<attribute kind="Script">
+					<value>plotter_script</value>
+				</attribute>
+				<atom id="id-0066-00000050" kind="InputParam" role="InputParameters" relid="0x3">
+					<name>Channel</name>
+					<regnode name="PartRegs" isopaque="yes">
+						<value></value>
+						<regnode name="ParameterAspect" isopaque="yes">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>100,37</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<regnode name="namePosition" isopaque="yes">
+						<value>4</value>
+					</regnode>
+					<attribute kind="DataType" status="meta">
+						<value>Integer</value>
+					</attribute>
+					<attribute kind="Size" status="meta">
+						<value>1</value>
+					</attribute>
+				</atom>
+				<atom id="id-0066-00000051" kind="InputParam" role="InputParameters" relid="0x2">
+					<name>DBase</name>
+					<regnode name="PartRegs" isopaque="yes">
+						<value></value>
+						<regnode name="ParameterAspect" isopaque="yes">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>100,114</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<regnode name="namePosition" isopaque="yes">
+						<value>4</value>
+					</regnode>
+					<attribute kind="DataType">
+						<value>Character</value>
+					</attribute>
+					<attribute kind="Size">
+						<value>20</value>
+					</attribute>
+				</atom>
+				<atom id="id-0066-00000052" kind="InputSignal" role="InputSignals" relid="0x1">
+					<name>Data</name>
+					<regnode name="PartRegs" isopaque="yes">
+						<value></value>
+						<regnode name="SignalFlowAspect" isopaque="yes">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>58,135</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<regnode name="namePosition" isopaque="yes">
+						<value></value>
+					</regnode>
+				</atom>
+			</model>
+			<model id="id-0065-00000018" kind="Compound" role="CompoundParts" relid="0x2f" childrelidcntr="0x16">
+				<name>TwoChannels</name>
+				<regnode name="PartRegs" isopaque="yes">
+					<value></value>
+					<regnode name="ParameterAspect" isopaque="yes">
+						<value></value>
+						<regnode name="Position" isopaque="yes">
+							<value>273,91</value>
+						</regnode>
+					</regnode>
+					<regnode name="SignalFlowAspect" isopaque="yes">
+						<value></value>
+						<regnode name="Position" isopaque="yes">
+							<value>268,121</value>
+						</regnode>
+					</regnode>
+				</regnode>
+				<model id="id-0065-00000019" kind="Basic" role="BasicParts" relid="0x16" childrelidcntr="0x4">
+					<name>AbsPhase</name>
+					<regnode name="PartRegs" isopaque="yes">
+						<value></value>
+						<regnode name="ParameterAspect" isopaque="yes">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>512,175</value>
+							</regnode>
+						</regnode>
+						<regnode name="SignalFlowAspect" isopaque="yes">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>512,175</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<regnode name="namePosition" isopaque="yes">
+						<value></value>
+					</regnode>
+					<attribute kind="Firing" status="meta">
+						<value>IFALL</value>
+					</attribute>
+					<attribute kind="Priority">
+						<value>100</value>
+					</attribute>
+					<attribute kind="Script">
+						<value>abs_phase_script</value>
+					</attribute>
+					<atom id="id-0066-00000053" kind="InputSignal" role="InputSignals" relid="0x4">
+						<name>Imag</name>
+						<regnode name="PartRegs" isopaque="yes">
+							<value></value>
+							<regnode name="SignalFlowAspect" isopaque="yes">
+								<value></value>
+								<regnode name="Position" isopaque="yes">
+									<value>34,167</value>
+								</regnode>
+							</regnode>
+						</regnode>
+						<regnode name="namePosition" isopaque="yes">
+							<value>4</value>
+						</regnode>
+					</atom>
+					<atom id="id-0066-00000054" kind="InputSignal" role="InputSignals" relid="0x2">
+						<name>Real</name>
+						<regnode name="PartRegs" isopaque="yes">
+							<value></value>
+							<regnode name="SignalFlowAspect" isopaque="yes">
+								<value></value>
+								<regnode name="Position" isopaque="yes">
+									<value>37,44</value>
+								</regnode>
+							</regnode>
+						</regnode>
+						<regnode name="namePosition" isopaque="yes">
+							<value>4</value>
+						</regnode>
+					</atom>
+					<atom id="id-0066-00000055" kind="OutputSignal" role="OutputSignals" relid="0x3">
+						<name>Abs</name>
+						<regnode name="PartRegs" isopaque="yes">
+							<value></value>
+							<regnode name="SignalFlowAspect" isopaque="yes">
+								<value></value>
+								<regnode name="Position" isopaque="yes">
+									<value>744,44</value>
+								</regnode>
+							</regnode>
+						</regnode>
+						<regnode name="namePosition" isopaque="yes">
+							<value>4</value>
+						</regnode>
+					</atom>
+					<atom id="id-0066-00000056" kind="OutputSignal" role="OutputSignals" relid="0x1">
+						<name>Phase</name>
+						<regnode name="PartRegs" isopaque="yes">
+							<value></value>
+							<regnode name="SignalFlowAspect" isopaque="yes">
+								<value></value>
+								<regnode name="Position" isopaque="yes">
+									<value>734,146</value>
+								</regnode>
+							</regnode>
+						</regnode>
+						<regnode name="namePosition" isopaque="yes">
+							<value>4</value>
+						</regnode>
+					</atom>
+				</model>
+				<model id="id-0065-0000001a" kind="Basic" role="BasicParts" relid="0x7" childrelidcntr="0x4">
+					<name>FFT</name>
+					<regnode name="PartRegs" isopaque="yes">
+						<value></value>
+						<regnode name="ParameterAspect" isopaque="yes">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>120,119</value>
+							</regnode>
+						</regnode>
+						<regnode name="SignalFlowAspect" isopaque="yes">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>120,119</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<regnode name="namePosition" isopaque="yes">
+						<value></value>
+					</regnode>
+					<attribute kind="Firing" status="meta">
+						<value>IFALL</value>
+					</attribute>
+					<attribute kind="Priority">
+						<value>100</value>
+					</attribute>
+					<attribute kind="Script">
+						<value>fft_script</value>
+					</attribute>
+					<atom id="id-0066-00000057" kind="OutputSignal" role="OutputSignals" relid="0x3">
+						<name>Real</name>
+						<regnode name="PartRegs" isopaque="yes">
+							<value></value>
+							<regnode name="SignalFlowAspect" isopaque="yes">
+								<value></value>
+								<regnode name="Position" isopaque="yes">
+									<value>814,44</value>
+								</regnode>
+							</regnode>
+						</regnode>
+						<regnode name="namePosition" isopaque="yes">
+							<value>4</value>
+						</regnode>
+					</atom>
+					<atom id="id-0066-00000058" kind="InputSignal" role="InputSignals" relid="0x4">
+						<name>Imag</name>
+						<regnode name="PartRegs" isopaque="yes">
+							<value></value>
+							<regnode name="SignalFlowAspect" isopaque="yes">
+								<value></value>
+								<regnode name="Position" isopaque="yes">
+									<value>37,128</value>
+								</regnode>
+							</regnode>
+						</regnode>
+						<regnode name="namePosition" isopaque="yes">
+							<value>4</value>
+						</regnode>
+					</atom>
+					<atom id="id-0066-00000059" kind="InputSignal" role="InputSignals" relid="0x1">
+						<name>Real</name>
+						<regnode name="PartRegs" isopaque="yes">
+							<value></value>
+							<regnode name="SignalFlowAspect" isopaque="yes">
+								<value></value>
+								<regnode name="Position" isopaque="yes">
+									<value>37,51</value>
+								</regnode>
+							</regnode>
+						</regnode>
+						<regnode name="namePosition" isopaque="yes">
+							<value>4</value>
+						</regnode>
+					</atom>
+					<atom id="id-0066-0000005a" kind="OutputSignal" role="OutputSignals" relid="0x2">
+						<name>Imag</name>
+						<regnode name="PartRegs" isopaque="yes">
+							<value></value>
+							<regnode name="SignalFlowAspect" isopaque="yes">
+								<value></value>
+								<regnode name="Position" isopaque="yes">
+									<value>814,121</value>
+								</regnode>
+							</regnode>
+						</regnode>
+						<regnode name="namePosition" isopaque="yes">
+							<value>4</value>
+						</regnode>
+					</atom>
+				</model>
+				<model id="id-0065-0000001b" kind="Basic" role="BasicParts" relid="0x11" childrelidcntr="0x4">
+					<name>AbsPhase</name>
+					<regnode name="PartRegs" isopaque="yes">
+						<value></value>
+						<regnode name="ParameterAspect" isopaque="yes">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>512,56</value>
+							</regnode>
+						</regnode>
+						<regnode name="SignalFlowAspect" isopaque="yes">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>512,56</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<regnode name="namePosition" isopaque="yes">
+						<value></value>
+					</regnode>
+					<attribute kind="Firing" status="meta">
+						<value>IFALL</value>
+					</attribute>
+					<attribute kind="Priority">
+						<value>100</value>
+					</attribute>
+					<attribute kind="Script">
+						<value>abs_phase_script</value>
+					</attribute>
+					<atom id="id-0066-0000005b" kind="InputSignal" role="InputSignals" relid="0x2">
+						<name>Imag</name>
+						<regnode name="PartRegs" isopaque="yes">
+							<value></value>
+							<regnode name="SignalFlowAspect" isopaque="yes">
+								<value></value>
+								<regnode name="Position" isopaque="yes">
+									<value>34,167</value>
+								</regnode>
+							</regnode>
+						</regnode>
+						<regnode name="namePosition" isopaque="yes">
+							<value>4</value>
+						</regnode>
+					</atom>
+					<atom id="id-0066-0000005c" kind="OutputSignal" role="OutputSignals" relid="0x1">
+						<name>Phase</name>
+						<regnode name="PartRegs" isopaque="yes">
+							<value></value>
+							<regnode name="SignalFlowAspect" isopaque="yes">
+								<value></value>
+								<regnode name="Position" isopaque="yes">
+									<value>734,146</value>
+								</regnode>
+							</regnode>
+						</regnode>
+						<regnode name="namePosition" isopaque="yes">
+							<value>4</value>
+						</regnode>
+					</atom>
+					<atom id="id-0066-0000005d" kind="OutputSignal" role="OutputSignals" relid="0x3">
+						<name>Abs</name>
+						<regnode name="PartRegs" isopaque="yes">
+							<value></value>
+							<regnode name="SignalFlowAspect" isopaque="yes">
+								<value></value>
+								<regnode name="Position" isopaque="yes">
+									<value>744,44</value>
+								</regnode>
+							</regnode>
+						</regnode>
+						<regnode name="namePosition" isopaque="yes">
+							<value>4</value>
+						</regnode>
+					</atom>
+					<atom id="id-0066-0000005e" kind="InputSignal" role="InputSignals" relid="0x4">
+						<name>Real</name>
+						<regnode name="PartRegs" isopaque="yes">
+							<value></value>
+							<regnode name="SignalFlowAspect" isopaque="yes">
+								<value></value>
+								<regnode name="Position" isopaque="yes">
+									<value>37,44</value>
+								</regnode>
+							</regnode>
+						</regnode>
+						<regnode name="namePosition" isopaque="yes">
+							<value>4</value>
+						</regnode>
+					</atom>
+				</model>
+				<model id="id-0065-0000001c" kind="Basic" role="BasicParts" relid="0x14" childrelidcntr="0x6">
+					<name>Splitter</name>
+					<regnode name="PartRegs" isopaque="yes">
+						<value></value>
+						<regnode name="ParameterAspect" isopaque="yes">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>295,119</value>
+							</regnode>
+						</regnode>
+						<regnode name="SignalFlowAspect" isopaque="yes">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>295,119</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<regnode name="namePosition" isopaque="yes">
+						<value></value>
+					</regnode>
+					<attribute kind="Firing" status="meta">
+						<value>IFALL</value>
+					</attribute>
+					<attribute kind="Priority">
+						<value>100</value>
+					</attribute>
+					<attribute kind="Script">
+						<value>splitter_script</value>
+					</attribute>
+					<atom id="id-0066-0000005f" kind="OutputSignal" role="OutputSignals" relid="0x2">
+						<name>Re1</name>
+						<regnode name="PartRegs" isopaque="yes">
+							<value></value>
+							<regnode name="SignalFlowAspect" isopaque="yes">
+								<value></value>
+								<regnode name="Position" isopaque="yes">
+									<value>793,30</value>
+								</regnode>
+							</regnode>
+						</regnode>
+						<regnode name="namePosition" isopaque="yes">
+							<value>4</value>
+						</regnode>
+					</atom>
+					<atom id="id-0066-00000060" kind="InputSignal" role="InputSignals" relid="0x5">
+						<name>Imag</name>
+						<regnode name="PartRegs" isopaque="yes">
+							<value></value>
+							<regnode name="SignalFlowAspect" isopaque="yes">
+								<value></value>
+								<regnode name="Position" isopaque="yes">
+									<value>44,142</value>
+								</regnode>
+							</regnode>
+						</regnode>
+						<regnode name="namePosition" isopaque="yes">
+							<value>4</value>
+						</regnode>
+					</atom>
+					<atom id="id-0066-00000061" kind="OutputSignal" role="OutputSignals" relid="0x1">
+						<name>Im1</name>
+						<regnode name="PartRegs" isopaque="yes">
+							<value></value>
+							<regnode name="SignalFlowAspect" isopaque="yes">
+								<value></value>
+								<regnode name="Position" isopaque="yes">
+									<value>790,83</value>
+								</regnode>
+							</regnode>
+						</regnode>
+						<regnode name="namePosition" isopaque="yes">
+							<value>4</value>
+						</regnode>
+					</atom>
+					<atom id="id-0066-00000062" kind="OutputSignal" role="OutputSignals" relid="0x3">
+						<name>Re2</name>
+						<regnode name="PartRegs" isopaque="yes">
+							<value></value>
+							<regnode name="SignalFlowAspect" isopaque="yes">
+								<value></value>
+								<regnode name="Position" isopaque="yes">
+									<value>790,132</value>
+								</regnode>
+							</regnode>
+						</regnode>
+						<regnode name="namePosition" isopaque="yes">
+							<value>4</value>
+						</regnode>
+					</atom>
+					<atom id="id-0066-00000063" kind="OutputSignal" role="OutputSignals" relid="0x4">
+						<name>Im2</name>
+						<regnode name="PartRegs" isopaque="yes">
+							<value></value>
+							<regnode name="SignalFlowAspect" isopaque="yes">
+								<value></value>
+								<regnode name="Position" isopaque="yes">
+									<value>790,188</value>
+								</regnode>
+							</regnode>
+						</regnode>
+						<regnode name="namePosition" isopaque="yes">
+							<value>4</value>
+						</regnode>
+					</atom>
+					<atom id="id-0066-00000064" kind="InputSignal" role="InputSignals" relid="0x6">
+						<name>Real</name>
+						<regnode name="PartRegs" isopaque="yes">
+							<value></value>
+							<regnode name="SignalFlowAspect" isopaque="yes">
+								<value></value>
+								<regnode name="Position" isopaque="yes">
+									<value>44,44</value>
+								</regnode>
+							</regnode>
+						</regnode>
+						<regnode name="namePosition" isopaque="yes">
+							<value>4</value>
+						</regnode>
+					</atom>
+				</model>
+				<atom id="id-0066-00000065" kind="InputSignal" role="InputSignals" relid="0x1">
+					<name>In2</name>
+					<regnode name="PartRegs" isopaque="yes">
+						<value></value>
+						<regnode name="SignalFlowAspect" isopaque="yes">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>48,202</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<regnode name="namePosition" isopaque="yes">
+						<value></value>
+					</regnode>
+				</atom>
+				<atom id="id-0066-00000066" kind="OutputSignal" role="OutputSignals" relid="0x2">
+					<name>Ph1</name>
+					<regnode name="PartRegs" isopaque="yes">
+						<value></value>
+						<regnode name="SignalFlowAspect" isopaque="yes">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>727,111</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<regnode name="namePosition" isopaque="yes">
+						<value></value>
+					</regnode>
+				</atom>
+				<atom id="id-0066-00000067" kind="OutputSignal" role="OutputSignals" relid="0xb">
+					<name>Ab1</name>
+					<regnode name="PartRegs" isopaque="yes">
+						<value></value>
+						<regnode name="SignalFlowAspect" isopaque="yes">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>730,65</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<regnode name="namePosition" isopaque="yes">
+						<value></value>
+					</regnode>
+				</atom>
+				<atom id="id-0066-00000068" kind="OutputSignal" role="OutputSignals" relid="0x3">
+					<name>Ph2</name>
+					<regnode name="PartRegs" isopaque="yes">
+						<value></value>
+						<regnode name="SignalFlowAspect" isopaque="yes">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>727,237</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<regnode name="namePosition" isopaque="yes">
+						<value></value>
+					</regnode>
+				</atom>
+				<atom id="id-0066-00000069" kind="InputSignal" role="InputSignals" relid="0x12">
+					<name>In1</name>
+					<regnode name="PartRegs" isopaque="yes">
+						<value></value>
+						<regnode name="SignalFlowAspect" isopaque="yes">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>51,100</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<regnode name="namePosition" isopaque="yes">
+						<value></value>
+					</regnode>
+				</atom>
+				<atom id="id-0066-0000006a" kind="OutputSignal" role="OutputSignals" relid="0x8">
+					<name>Ab2</name>
+					<regnode name="PartRegs" isopaque="yes">
+						<value></value>
+						<regnode name="SignalFlowAspect" isopaque="yes">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>727,174</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<regnode name="namePosition" isopaque="yes">
+						<value></value>
+					</regnode>
+				</atom>
+				<connection id="id-0068-00000001" kind="DataflowConn" role="DFC" relid="0xe">
+					<name>DFC</name>
+					<connpoint role="src" target="id-0066-0000005d"/>
+					<connpoint role="dst" target="id-0066-00000067"/>
+				</connection>
+				<connection id="id-0068-00000002" kind="DataflowConn" role="DFC" relid="0xf">
+					<name>DFC</name>
+					<connpoint role="src" target="id-0066-0000005a"/>
+					<connpoint role="dst" target="id-0066-00000060"/>
+				</connection>
+				<connection id="id-0068-00000003" kind="DataflowConn" role="DFC" relid="0x10">
+					<name>DFC</name>
+					<connpoint role="src" target="id-0066-0000005c"/>
+					<connpoint role="dst" target="id-0066-00000066"/>
+				</connection>
+				<connection id="id-0068-00000004" kind="DataflowConn" role="DFC" relid="0x9">
+					<name>DFC</name>
+					<connpoint role="dst" target="id-0066-00000053"/>
+					<connpoint role="src" target="id-0066-00000063"/>
+				</connection>
+				<connection id="id-0068-00000005" kind="DataflowConn" role="DFC" relid="0xa">
+					<name>DFC</name>
+					<connpoint role="dst" target="id-0066-0000005e"/>
+					<connpoint role="src" target="id-0066-0000005f"/>
+				</connection>
+				<connection id="id-0068-00000006" kind="DataflowConn" role="DFC" relid="0xc">
+					<name>DFC</name>
+					<connpoint role="dst" target="id-0066-00000058"/>
+					<connpoint role="src" target="id-0066-00000065"/>
+				</connection>
+				<connection id="id-0068-00000007" kind="DataflowConn" role="DFC" relid="0xd">
+					<name>DFC</name>
+					<connpoint role="dst" target="id-0066-00000054"/>
+					<connpoint role="src" target="id-0066-00000062"/>
+				</connection>
+				<connection id="id-0068-00000008" kind="DataflowConn" role="DFC" relid="0x6">
+					<name>DFC</name>
+					<connpoint role="dst" target="id-0066-00000059"/>
+					<connpoint role="src" target="id-0066-00000069"/>
+				</connection>
+				<connection id="id-0068-00000009" kind="DataflowConn" role="DFC" relid="0x13">
+					<name>DFC</name>
+					<connpoint role="dst" target="id-0066-0000005b"/>
+					<connpoint role="src" target="id-0066-00000061"/>
+				</connection>
+				<connection id="id-0068-0000000a" kind="DataflowConn" role="DFC" relid="0x15">
+					<name>DFC</name>
+					<connpoint role="src" target="id-0066-00000057"/>
+					<connpoint role="dst" target="id-0066-00000064"/>
+				</connection>
+				<connection id="id-0068-0000000b" kind="DataflowConn" role="DFC" relid="0x4">
+					<name>DFC</name>
+					<connpoint role="src" target="id-0066-00000056"/>
+					<connpoint role="dst" target="id-0066-00000068"/>
+				</connection>
+				<connection id="id-0068-0000000c" kind="DataflowConn" role="DFC" relid="0x5">
+					<name>DFC</name>
+					<connpoint role="src" target="id-0066-00000055"/>
+					<connpoint role="dst" target="id-0066-0000006a"/>
+				</connection>
+			</model>
+			<atom id="id-0066-0000006b" kind="Param" role="Parameters" relid="0x1d">
+				<name>False</name>
+				<regnode name="PartRegs" isopaque="yes">
+					<value></value>
+					<regnode name="ParameterAspect" isopaque="yes">
+						<value></value>
+						<regnode name="Position" isopaque="yes">
+							<value>72,632</value>
+						</regnode>
+					</regnode>
+				</regnode>
+				<regnode name="namePosition" isopaque="yes">
+					<value></value>
+				</regnode>
+				<attribute kind="DataType" status="meta">
+					<value>Integer</value>
+				</attribute>
+				<attribute kind="Global" status="meta">
+					<value>false</value>
+				</attribute>
+				<attribute kind="InitValue" status="meta">
+					<value>0</value>
+				</attribute>
+				<attribute kind="Size" status="meta">
+					<value>1</value>
+				</attribute>
+			</atom>
+			<atom id="id-0066-0000006c" kind="Param" role="Parameters" relid="0x38">
+				<name>Ch2</name>
+				<regnode name="PartRegs" isopaque="yes">
+					<value></value>
+					<regnode name="ParameterAspect" isopaque="yes">
+						<value></value>
+						<regnode name="Position" isopaque="yes">
+							<value>667,513</value>
+						</regnode>
+					</regnode>
+				</regnode>
+				<regnode name="namePosition" isopaque="yes">
+					<value></value>
+				</regnode>
+				<attribute kind="DataType" status="meta">
+					<value>Integer</value>
+				</attribute>
+				<attribute kind="Global" status="meta">
+					<value>false</value>
+				</attribute>
+				<attribute kind="InitValue">
+					<value>2</value>
+				</attribute>
+				<attribute kind="Size" status="meta">
+					<value>1</value>
+				</attribute>
+			</atom>
+			<atom id="id-0066-0000006d" kind="Param" role="Parameters" relid="0x66">
+				<name>PhaseDB</name>
+				<regnode name="PartRegs" isopaque="yes">
+					<value></value>
+					<regnode name="ParameterAspect" isopaque="yes">
+						<value></value>
+						<regnode name="Position" isopaque="yes">
+							<value>639,464</value>
+						</regnode>
+					</regnode>
+				</regnode>
+				<regnode name="namePosition" isopaque="yes">
+					<value></value>
+				</regnode>
+				<attribute kind="DataType">
+					<value>Character</value>
+				</attribute>
+				<attribute kind="Global" status="meta">
+					<value>false</value>
+				</attribute>
+				<attribute kind="InitValue">
+					<value>phase</value>
+				</attribute>
+				<attribute kind="Size">
+					<value>20</value>
+				</attribute>
+			</atom>
+			<atom id="id-0066-0000006e" kind="Param" role="Parameters" relid="0x3f">
+				<name>EnvResetCNT</name>
+				<regnode name="PartRegs" isopaque="yes">
+					<value></value>
+					<regnode name="ParameterAspect" isopaque="yes">
+						<value></value>
+						<regnode name="Position" isopaque="yes">
+							<value>401,72</value>
+						</regnode>
+					</regnode>
+				</regnode>
+				<regnode name="namePosition" isopaque="yes">
+					<value>7</value>
+				</regnode>
+				<attribute kind="DataType" status="meta">
+					<value>Integer</value>
+				</attribute>
+				<attribute kind="Global">
+					<value>true</value>
+				</attribute>
+				<attribute kind="InitValue" status="meta">
+					<value>0</value>
+				</attribute>
+				<attribute kind="Size" status="meta">
+					<value>1</value>
+				</attribute>
+			</atom>
+			<atom id="id-0066-0000006f" kind="Param" role="Parameters" relid="0xc">
+				<name>SampRate</name>
+				<regnode name="PartRegs" isopaque="yes">
+					<value></value>
+					<regnode name="ParameterAspect" isopaque="yes">
+						<value></value>
+						<regnode name="Position" isopaque="yes">
+							<value>23,429</value>
+						</regnode>
+					</regnode>
+				</regnode>
+				<regnode name="namePosition" isopaque="yes">
+					<value></value>
+				</regnode>
+				<attribute kind="DataType">
+					<value>Double</value>
+				</attribute>
+				<attribute kind="Global" status="meta">
+					<value>false</value>
+				</attribute>
+				<attribute kind="InitValue">
+					<value>10000.0</value>
+				</attribute>
+				<attribute kind="Size" status="meta">
+					<value>1</value>
+				</attribute>
+			</atom>
+			<atom id="id-0066-00000070" kind="Param" role="Parameters" relid="0x1">
+				<name>FiltDB</name>
+				<regnode name="PartRegs" isopaque="yes">
+					<value></value>
+					<regnode name="ParameterAspect" isopaque="yes">
+						<value></value>
+						<regnode name="Position" isopaque="yes">
+							<value>443,758</value>
+						</regnode>
+					</regnode>
+				</regnode>
+				<regnode name="namePosition" isopaque="yes">
+					<value></value>
+				</regnode>
+				<attribute kind="DataType">
+					<value>Character</value>
+				</attribute>
+				<attribute kind="Global" status="meta">
+					<value>false</value>
+				</attribute>
+				<attribute kind="InitValue">
+					<value>filtered</value>
+				</attribute>
+				<attribute kind="Size">
+					<value>20</value>
+				</attribute>
+			</atom>
+			<atom id="id-0066-00000071" kind="Param" role="Parameters" relid="0x29">
+				<name>True</name>
+				<regnode name="PartRegs" isopaque="yes">
+					<value></value>
+					<regnode name="ParameterAspect" isopaque="yes">
+						<value></value>
+						<regnode name="Position" isopaque="yes">
+							<value>100,744</value>
+						</regnode>
+					</regnode>
+				</regnode>
+				<regnode name="namePosition" isopaque="yes">
+					<value></value>
+				</regnode>
+				<attribute kind="DataType" status="meta">
+					<value>Integer</value>
+				</attribute>
+				<attribute kind="Global" status="meta">
+					<value>false</value>
+				</attribute>
+				<attribute kind="InitValue">
+					<value>1</value>
+				</attribute>
+				<attribute kind="Size" status="meta">
+					<value>1</value>
+				</attribute>
+			</atom>
+			<atom id="id-0066-00000072" kind="Param" role="Parameters" relid="0x3a">
+				<name>EvnDB</name>
+				<regnode name="PartRegs" isopaque="yes">
+					<value></value>
+					<regnode name="ParameterAspect" isopaque="yes">
+						<value></value>
+						<regnode name="Position" isopaque="yes">
+							<value>443,660</value>
+						</regnode>
+					</regnode>
+				</regnode>
+				<regnode name="namePosition" isopaque="yes">
+					<value></value>
+				</regnode>
+				<attribute kind="DataType">
+					<value>Character</value>
+				</attribute>
+				<attribute kind="Global" status="meta">
+					<value>false</value>
+				</attribute>
+				<attribute kind="InitValue">
+					<value>envelope</value>
+				</attribute>
+				<attribute kind="Size">
+					<value>20</value>
+				</attribute>
+			</atom>
+			<atom id="id-0066-00000073" kind="Param" role="Parameters" relid="0xb">
+				<name>AbsDB</name>
+				<regnode name="PartRegs" isopaque="yes">
+					<value></value>
+					<regnode name="ParameterAspect" isopaque="yes">
+						<value></value>
+						<regnode name="Position" isopaque="yes">
+							<value>611,366</value>
+						</regnode>
+					</regnode>
+				</regnode>
+				<regnode name="namePosition" isopaque="yes">
+					<value></value>
+				</regnode>
+				<attribute kind="DataType">
+					<value>Character</value>
+				</attribute>
+				<attribute kind="Global" status="meta">
+					<value>false</value>
+				</attribute>
+				<attribute kind="InitValue">
+					<value>magnitude</value>
+				</attribute>
+				<attribute kind="Size">
+					<value>20</value>
+				</attribute>
+			</atom>
+			<atom id="id-0066-00000074" kind="Param" role="Parameters" relid="0x9">
+				<name>DataSize</name>
+				<regnode name="PartRegs" isopaque="yes">
+					<value></value>
+					<regnode name="ParameterAspect" isopaque="yes">
+						<value></value>
+						<regnode name="Position" isopaque="yes">
+							<value>51,401</value>
+						</regnode>
+					</regnode>
+				</regnode>
+				<regnode name="namePosition" isopaque="yes">
+					<value>1</value>
+				</regnode>
+				<attribute kind="DataType" status="meta">
+					<value>Integer</value>
+				</attribute>
+				<attribute kind="Global" status="meta">
+					<value>false</value>
+				</attribute>
+				<attribute kind="InitValue">
+					<value>1024</value>
+				</attribute>
+				<attribute kind="Size" status="meta">
+					<value>1</value>
+				</attribute>
+			</atom>
+			<atom id="id-0066-00000075" kind="Param" role="Parameters" relid="0x4">
+				<name>TimeDB</name>
+				<regnode name="PartRegs" isopaque="yes">
+					<value></value>
+					<regnode name="ParameterAspect" isopaque="yes">
+						<value></value>
+						<regnode name="Position" isopaque="yes">
+							<value>576,562</value>
+						</regnode>
+					</regnode>
+				</regnode>
+				<regnode name="namePosition" isopaque="yes">
+					<value></value>
+				</regnode>
+				<attribute kind="DataType">
+					<value>Character</value>
+				</attribute>
+				<attribute kind="Global" status="meta">
+					<value>false</value>
+				</attribute>
+				<attribute kind="InitValue">
+					<value>time</value>
+				</attribute>
+				<attribute kind="Size">
+					<value>20</value>
+				</attribute>
+			</atom>
+			<atom id="id-0066-00000076" kind="Param" role="Parameters" relid="0x51">
+				<name>FiltResetCNT</name>
+				<regnode name="PartRegs" isopaque="yes">
+					<value></value>
+					<regnode name="ParameterAspect" isopaque="yes">
+						<value></value>
+						<regnode name="Position" isopaque="yes">
+							<value>380,366</value>
+						</regnode>
+					</regnode>
+				</regnode>
+				<regnode name="namePosition" isopaque="yes">
+					<value></value>
+				</regnode>
+				<attribute kind="DataType" status="meta">
+					<value>Integer</value>
+				</attribute>
+				<attribute kind="Global">
+					<value>true</value>
+				</attribute>
+				<attribute kind="InitValue" status="meta">
+					<value>0</value>
+				</attribute>
+				<attribute kind="Size" status="meta">
+					<value>1</value>
+				</attribute>
+			</atom>
+			<atom id="id-0066-00000077" kind="Param" role="Parameters" relid="0x2e">
+				<name>Ch1</name>
+				<regnode name="PartRegs" isopaque="yes">
+					<value></value>
+					<regnode name="ParameterAspect" isopaque="yes">
+						<value></value>
+						<regnode name="Position" isopaque="yes">
+							<value>695,9</value>
+						</regnode>
+					</regnode>
+				</regnode>
+				<regnode name="namePosition" isopaque="yes">
+					<value></value>
+				</regnode>
+				<attribute kind="DataType" status="meta">
+					<value>Integer</value>
+				</attribute>
+				<attribute kind="Global" status="meta">
+					<value>false</value>
+				</attribute>
+				<attribute kind="InitValue">
+					<value>1</value>
+				</attribute>
+				<attribute kind="Size" status="meta">
+					<value>1</value>
+				</attribute>
+			</atom>
+			<connection id="id-0068-0000000d" kind="ParameterConn" role="PC" relid="0xd">
+				<name>PC</name>
+				<connpoint role="dst" target="id-0066-00000050"/>
+				<connpoint role="src" target="id-0066-00000077"/>
+			</connection>
+			<connection id="id-0068-0000000e" kind="ParameterConn" role="PC" relid="0x25">
+				<name>PC</name>
+				<connpoint role="dst" target="id-0066-0000002e"/>
+				<connpoint role="src" target="id-0066-00000073"/>
+			</connection>
+			<connection id="id-0068-0000000f" kind="ParameterConn" role="PC" relid="0x1c">
+				<name>PC</name>
+				<connpoint role="dst" target="id-0066-00000017"/>
+				<connpoint role="src" target="id-0066-0000006c"/>
+			</connection>
+			<connection id="id-0068-00000010" kind="ParameterConn" role="PC" relid="0x37">
+				<name>PC</name>
+				<connpoint role="dst" target="id-0066-0000003f"/>
+				<connpoint role="src" target="id-0066-00000076"/>
+			</connection>
+			<connection id="id-0068-00000011" kind="ParameterConn" role="PC" relid="0x39">
+				<name>PC</name>
+				<connpoint role="dst" target="id-0066-0000001f"/>
+				<connpoint role="src" target="id-0066-00000077"/>
+			</connection>
+			<connection id="id-0068-00000012" kind="ParameterConn" role="PC" relid="0x16">
+				<name>PC</name>
+				<connpoint role="dst" target="id-0066-00000051"/>
+				<connpoint role="src" target="id-0066-00000072"/>
+			</connection>
+			<connection id="id-0068-00000013" kind="ParameterConn" role="PC" relid="0x55">
+				<name>PC</name>
+				<connpoint role="dst" target="id-0066-0000002f"/>
+				<connpoint role="src" target="id-0066-0000006c"/>
+			</connection>
+			<connection id="id-0068-00000014" kind="ParameterConn" role="PC" relid="0x49">
+				<name>PC</name>
+				<connpoint role="dst" target="id-0066-00000012"/>
+				<connpoint role="src" target="id-0066-0000006c"/>
+			</connection>
+			<connection id="id-0068-00000015" kind="ParameterConn" role="PC" relid="0x4a">
+				<name>PC</name>
+				<connpoint role="dst" target="id-0066-00000036"/>
+				<connpoint role="src" target="id-0066-00000072"/>
+			</connection>
+			<connection id="id-0068-00000016" kind="DataflowConn" role="DFC" relid="0x4b">
+				<name>DFC</name>
+				<connpoint role="dst" target="id-0066-0000003a"/>
+				<connpoint role="src" target="id-0066-00000067"/>
+			</connection>
+			<connection id="id-0068-00000017" kind="DataflowConn" role="DFC" relid="0x4c">
+				<name>DFC</name>
+				<connpoint role="dst" target="id-0066-0000002d"/>
+				<connpoint role="src" target="id-0066-0000006a"/>
+			</connection>
+			<connection id="id-0068-00000018" kind="ParameterConn" role="PC" relid="0x4d">
+				<name>PC</name>
+				<connpoint role="dst" target="id-0066-0000001a"/>
+				<connpoint role="src" target="id-0066-0000006f"/>
+			</connection>
+			<connection id="id-0068-00000019" kind="ParameterConn" role="PC" relid="0x4e">
+				<name>PC</name>
+				<connpoint role="dst" target="id-0066-0000001b"/>
+				<connpoint role="src" target="id-0066-00000074"/>
+			</connection>
+			<connection id="id-0068-0000001a" kind="ParameterConn" role="PC" relid="0x53">
+				<name>PC</name>
+				<connpoint role="dst" target="id-0066-0000003c"/>
+				<connpoint role="src" target="id-0066-00000072"/>
+			</connection>
+			<connection id="id-0068-0000001b" kind="DataflowConn" role="DFC" relid="0x54">
+				<name>DFC</name>
+				<connpoint role="src" target="id-0066-00000016"/>
+				<connpoint role="dst" target="id-0066-00000065"/>
+			</connection>
+			<connection id="id-0068-0000001c" kind="ParameterConn" role="PC" relid="0x47">
+				<name>PC</name>
+				<connpoint role="dst" target="id-0066-00000039"/>
+				<connpoint role="src" target="id-0066-00000077"/>
+			</connection>
+			<connection id="id-0068-0000001d" kind="ParameterConn" role="PC" relid="0x48">
+				<name>PC</name>
+				<connpoint role="dst" target="id-0066-00000035"/>
+				<connpoint role="src" target="id-0066-0000006c"/>
+			</connection>
+			<connection id="id-0068-0000001e" kind="ParameterConn" role="PC" relid="0x57">
+				<name>PC</name>
+				<connpoint role="dst" target="id-0066-0000003d"/>
+				<connpoint role="src" target="id-0066-00000071"/>
+			</connection>
+			<connection id="id-0068-0000001f" kind="ParameterConn" role="PC" relid="0x17">
+				<name>PC</name>
+				<connpoint role="dst" target="id-0066-00000005"/>
+				<connpoint role="src" target="id-0066-00000076"/>
+			</connection>
+			<connection id="id-0068-00000020" kind="ParameterConn" role="PC" relid="0x59">
+				<name>PC</name>
+				<connpoint role="dst" target="id-0066-00000010"/>
+				<connpoint role="src" target="id-0066-0000006c"/>
+			</connection>
+			<connection id="id-0068-00000021" kind="DataflowConn" role="DFC" relid="0x5a">
+				<name>DFC</name>
+				<connpoint role="src" target="id-0066-00000016"/>
+				<connpoint role="dst" target="id-0066-00000047"/>
+			</connection>
+			<connection id="id-0068-00000022" kind="ParameterConn" role="PC" relid="0x5b">
+				<name>PC</name>
+				<connpoint role="dst" target="id-0066-0000000f"/>
+				<connpoint role="src" target="id-0066-00000070"/>
+			</connection>
+			<connection id="id-0068-00000023" kind="ParameterConn" role="PC" relid="0x5c">
+				<name>PC</name>
+				<connpoint role="dst" target="id-0066-0000004e"/>
+				<connpoint role="src" target="id-0066-0000006f"/>
+			</connection>
+			<connection id="id-0068-00000024" kind="DataflowConn" role="DFC" relid="0x5d">
+				<name>DFC</name>
+				<connpoint role="dst" target="id-0066-0000001e"/>
+				<connpoint role="src" target="id-0066-00000041"/>
+			</connection>
+			<connection id="id-0068-00000025" kind="ParameterConn" role="PC" relid="0x5e">
+				<name>PC</name>
+				<connpoint role="dst" target="id-0066-00000008"/>
+				<connpoint role="src" target="id-0066-00000071"/>
+			</connection>
+			<connection id="id-0068-00000026" kind="DataflowConn" role="DFC" relid="0x5f">
+				<name>DFC</name>
+				<connpoint role="src" target="id-0066-00000029"/>
+				<connpoint role="dst" target="id-0066-00000037"/>
+			</connection>
+			<connection id="id-0068-00000027" kind="ParameterConn" role="PC" relid="0x1f">
+				<name>PC</name>
+				<connpoint role="dst" target="id-0066-00000009"/>
+				<connpoint role="src" target="id-0066-0000006f"/>
+			</connection>
+			<connection id="id-0068-00000028" kind="ParameterConn" role="PC" relid="0x61">
+				<name>PC</name>
+				<connpoint role="dst" target="id-0066-00000046"/>
+				<connpoint role="src" target="id-0066-0000006c"/>
+			</connection>
+			<connection id="id-0068-00000029" kind="DataflowConn" role="DFC" relid="0x62">
+				<name>DFC</name>
+				<connpoint role="dst" target="id-0066-00000032"/>
+				<connpoint role="src" target="id-0066-00000067"/>
+			</connection>
+			<connection id="id-0068-0000002a" kind="ParameterConn" role="PC" relid="0x63">
+				<name>PC</name>
+				<connpoint role="dst" target="id-0066-00000019"/>
+				<connpoint role="src" target="id-0066-0000006f"/>
+			</connection>
+			<connection id="id-0068-0000002b" kind="DataflowConn" role="DFC" relid="0x20">
+				<name>DFC</name>
+				<connpoint role="dst" target="id-0066-00000002"/>
+				<connpoint role="src" target="id-0066-0000006a"/>
+			</connection>
+			<connection id="id-0068-0000002c" kind="DataflowConn" role="DFC" relid="0x21">
+				<name>DFC</name>
+				<connpoint role="dst" target="id-0066-00000042"/>
+				<connpoint role="src" target="id-0066-00000067"/>
+			</connection>
+			<connection id="id-0068-0000002d" kind="ParameterConn" role="PC" relid="0x3e">
+				<name>PC</name>
+				<connpoint role="dst" target="id-0066-00000025"/>
+				<connpoint role="src" target="id-0066-0000006f"/>
+			</connection>
+			<connection id="id-0068-0000002e" kind="ParameterConn" role="PC" relid="0x18">
+				<name>PC</name>
+				<connpoint role="dst" target="id-0066-00000030"/>
+				<connpoint role="src" target="id-0066-0000006e"/>
+			</connection>
+			<connection id="id-0068-0000002f" kind="ParameterConn" role="PC" relid="0x19">
+				<name>PC</name>
+				<connpoint role="dst" target="id-0066-00000049"/>
+				<connpoint role="src" target="id-0066-00000071"/>
+			</connection>
+			<connection id="id-0068-00000030" kind="ParameterConn" role="PC" relid="0x14">
+				<name>PC</name>
+				<connpoint role="dst" target="id-0066-0000004a"/>
+				<connpoint role="src" target="id-0066-00000070"/>
+			</connection>
+			<connection id="id-0068-00000031" kind="ParameterConn" role="PC" relid="0x31">
+				<name>PC</name>
+				<connpoint role="dst" target="id-0066-0000003b"/>
+				<connpoint role="src" target="id-0066-00000074"/>
+			</connection>
+			<connection id="id-0068-00000032" kind="ParameterConn" role="PC" relid="0x32">
+				<name>PC</name>
+				<connpoint role="dst" target="id-0066-0000001d"/>
+				<connpoint role="src" target="id-0066-0000006b"/>
+			</connection>
+			<connection id="id-0068-00000033" kind="ParameterConn" role="PC" relid="0x33">
+				<name>PC</name>
+				<connpoint role="dst" target="id-0066-0000004b"/>
+				<connpoint role="src" target="id-0066-00000074"/>
+			</connection>
+			<connection id="id-0068-00000034" kind="ParameterConn" role="PC" relid="0xf">
+				<name>PC</name>
+				<connpoint role="dst" target="id-0066-00000011"/>
+				<connpoint role="src" target="id-0066-0000006f"/>
+			</connection>
+			<connection id="id-0068-00000035" kind="ParameterConn" role="PC" relid="0x2b">
+				<name>PC</name>
+				<connpoint role="dst" target="id-0066-0000001c"/>
+				<connpoint role="src" target="id-0066-00000075"/>
+			</connection>
+			<connection id="id-0068-00000036" kind="ParameterConn" role="PC" relid="0x10">
+				<name>PC</name>
+				<connpoint role="dst" target="id-0066-00000022"/>
+				<connpoint role="src" target="id-0066-00000077"/>
+			</connection>
+			<connection id="id-0068-00000037" kind="ParameterConn" role="PC" relid="0x40">
+				<name>PC</name>
+				<connpoint role="dst" target="id-0066-0000000a"/>
+				<connpoint role="src" target="id-0066-00000074"/>
+			</connection>
+			<connection id="id-0068-00000038" kind="ParameterConn" role="PC" relid="0x41">
+				<name>PC</name>
+				<connpoint role="dst" target="id-0066-00000020"/>
+				<connpoint role="src" target="id-0066-00000070"/>
+			</connection>
+			<connection id="id-0068-00000039" kind="DataflowConn" role="DFC" relid="0x42">
+				<name>DFC</name>
+				<connpoint role="dst" target="id-0066-00000013"/>
+				<connpoint role="src" target="id-0066-00000068"/>
+			</connection>
+			<connection id="id-0068-0000003a" kind="ParameterConn" role="PC" relid="0x27">
+				<name>PC</name>
+				<connpoint role="dst" target="id-0066-00000026"/>
+				<connpoint role="src" target="id-0066-00000071"/>
+			</connection>
+			<connection id="id-0068-0000003b" kind="DataflowConn" role="DFC" relid="0x28">
+				<name>DFC</name>
+				<connpoint role="src" target="id-0066-0000004f"/>
+				<connpoint role="dst" target="id-0066-00000069"/>
+			</connection>
+			<connection id="id-0068-0000003c" kind="DataflowConn" role="DFC" relid="0x43">
+				<name>DFC</name>
+				<connpoint role="dst" target="id-0066-0000002c"/>
+				<connpoint role="src" target="id-0066-0000006a"/>
+			</connection>
+			<connection id="id-0068-0000003d" kind="DataflowConn" role="DFC" relid="0x44">
+				<name>DFC</name>
+				<connpoint role="src" target="id-0066-00000031"/>
+				<connpoint role="dst" target="id-0066-00000052"/>
+			</connection>
+			<connection id="id-0068-0000003e" kind="ParameterConn" role="PC" relid="0x3c">
+				<name>PC</name>
+				<connpoint role="dst" target="id-0066-00000024"/>
+				<connpoint role="src" target="id-0066-00000073"/>
+			</connection>
+			<connection id="id-0068-0000003f" kind="ParameterConn" role="PC" relid="0x2a">
+				<name>PC</name>
+				<connpoint role="dst" target="id-0066-00000045"/>
+				<connpoint role="src" target="id-0066-00000075"/>
+			</connection>
+			<connection id="id-0068-00000040" kind="ParameterConn" role="PC" relid="0x22">
+				<name>PC</name>
+				<connpoint role="dst" target="id-0066-0000000b"/>
+				<connpoint role="src" target="id-0066-00000075"/>
+			</connection>
+			<connection id="id-0068-00000041" kind="ParameterConn" role="PC" relid="0x3b">
+				<name>PC</name>
+				<connpoint role="dst" target="id-0066-00000018"/>
+				<connpoint role="src" target="id-0066-00000074"/>
+			</connection>
+			<connection id="id-0068-00000042" kind="ParameterConn" role="PC" relid="0x13">
+				<name>PC</name>
+				<connpoint role="dst" target="id-0066-00000021"/>
+				<connpoint role="src" target="id-0066-0000006d"/>
+			</connection>
+			<connection id="id-0068-00000043" kind="ParameterConn" role="PC" relid="0xe">
+				<name>PC</name>
+				<connpoint role="dst" target="id-0066-00000015"/>
+				<connpoint role="src" target="id-0066-0000006d"/>
+			</connection>
+			<connection id="id-0068-00000044" kind="ParameterConn" role="PC" relid="0x12">
+				<name>PC</name>
+				<connpoint role="dst" target="id-0066-0000004d"/>
+				<connpoint role="src" target="id-0066-00000077"/>
+			</connection>
+			<connection id="id-0068-00000045" kind="ParameterConn" role="PC" relid="0x11">
+				<name>PC</name>
+				<connpoint role="dst" target="id-0066-0000003e"/>
+				<connpoint role="src" target="id-0066-0000006f"/>
+			</connection>
+			<connection id="id-0068-00000046" kind="ParameterConn" role="PC" relid="0x23">
+				<name>PC</name>
+				<connpoint role="dst" target="id-0066-00000028"/>
+				<connpoint role="src" target="id-0066-0000006e"/>
+			</connection>
+			<connection id="id-0068-00000047" kind="DataflowConn" role="DFC" relid="0x24">
+				<name>DFC</name>
+				<connpoint role="dst" target="id-0066-0000000d"/>
+				<connpoint role="src" target="id-0066-0000004f"/>
+			</connection>
+			<connection id="id-0068-00000048" kind="ParameterConn" role="PC" relid="0xa">
+				<name>PC</name>
+				<connpoint role="dst" target="id-0066-0000000c"/>
+				<connpoint role="src" target="id-0066-00000077"/>
+			</connection>
+			<connection id="id-0068-00000049" kind="ParameterConn" role="PC" relid="0x7">
+				<name>PC</name>
+				<connpoint role="dst" target="id-0066-00000014"/>
+				<connpoint role="src" target="id-0066-0000006c"/>
+			</connection>
+			<connection id="id-0068-0000004a" kind="ParameterConn" role="PC" relid="0x8">
+				<name>PC</name>
+				<connpoint role="dst" target="id-0066-00000007"/>
+				<connpoint role="src" target="id-0066-0000006d"/>
+			</connection>
+			<connection id="id-0068-0000004b" kind="ParameterConn" role="PC" relid="0x5">
+				<name>PC</name>
+				<connpoint role="dst" target="id-0066-00000027"/>
+				<connpoint role="src" target="id-0066-00000074"/>
+			</connection>
+			<connection id="id-0068-0000004c" kind="ParameterConn" role="PC" relid="0x50">
+				<name>PC</name>
+				<connpoint role="dst" target="id-0066-00000048"/>
+				<connpoint role="src" target="id-0066-0000006f"/>
+			</connection>
+			<connection id="id-0068-0000004d" kind="ParameterConn" role="PC" relid="0x1e">
+				<name>PC</name>
+				<connpoint role="dst" target="id-0066-0000004c"/>
+				<connpoint role="src" target="id-0066-00000074"/>
+			</connection>
+			<connection id="id-0068-0000004e" kind="DataflowConn" role="DFC" relid="0x2d">
+				<name>DFC</name>
+				<connpoint role="src" target="id-0066-00000006"/>
+				<connpoint role="dst" target="id-0066-0000000e"/>
+			</connection>
+			<connection id="id-0068-0000004f" kind="DataflowConn" role="DFC" relid="0x1a">
+				<name>DFC</name>
+				<connpoint role="dst" target="id-0066-00000023"/>
+				<connpoint role="src" target="id-0066-00000066"/>
+			</connection>
+			<connection id="id-0068-00000050" kind="ParameterConn" role="PC" relid="0x1b">
+				<name>PC</name>
+				<connpoint role="dst" target="id-0066-00000038"/>
+				<connpoint role="src" target="id-0066-00000073"/>
+			</connection>
+		</model>
+	</folder>
+</project>

@@ -1,0 +1,26 @@
+HKCR
+{
+	Mga.MgaProgressDlg.1 = s 'MgaProgressDlg Class'
+	{
+		CLSID = s '{B88CDEEA-A4FB-11D4-B44B-005004D38590}'
+	}
+	Mga.MgaProgressDlg = s 'MgaProgressDlg Class'
+	{
+		CLSID = s '{B88CDEEA-A4FB-11D4-B44B-005004D38590}'
+		CurVer = s 'Mga.MgaProgressDlg.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {B88CDEEA-A4FB-11D4-B44B-005004D38590} = s 'MgaProgressDlg Class'
+		{
+			ProgID = s 'Mga.MgaProgressDlg.1'
+			VersionIndependentProgID = s 'Mga.MgaProgressDlg'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			'TypeLib' = s '{461F30AE-3BF0-11D4-B3F0-005004D38590}'
+		}
+	}
+}

@@ -1,0 +1,359 @@
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="Author" content="Arpad Bakay">
+   <meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+   <title>Lesson 2 -- Building a Hierarchical Model</title>
+</head>
+<body text="#000066" 
+      bgcolor="#FFFFCC" 
+      link="#0000EE" 
+      vlink="#551A8B" 
+      alink="#FF0000">
+
+<center>
+<b><u><font size=+2>Lesson 2
+<br>Building a Hierarchical Model
+</font></u></b>
+</center>
+<p>
+
+<br><a href="#intro">Introduction to Lesson 2</a>
+<br><a href="#2.1">2.1 Creating a recursive hierarchy</a>
+<br><a href="#2.2">2.2 Clustering</a>
+<p><br>
+
+
+<a name="intro"></a>
+<b><u><font size="+1">Introduction to Lesson 2</font></u></b>
+<p>
+
+The network diagram editor from <a href="Lesson1.html#ready">Lesson 1</a> is a 
+valuable tool for modeling a relatively small network, consisting of a couple 
+of routers and hosts. But as the number of devices represented in the diagram 
+grows larger, the diagram becomes more complex and ultimately loses its 
+usability.
+<p>
+
+<i><font color="#FF0000">
+Fortunately, a network with dozens or even hundreds of devices is usually not 
+as homogeneous as a small one. Large networks typically have different 
+sections, where machines are related much more closely to each other than to 
+the rest of the network. Also, there is a good chance that out of all those 
+devices, at least a few will be identical (from a network designer's point of 
+view, anyway), such as a group of similar user PCs in a department.
+</font></i>
+<p>
+
+These observations illustrate two basic ways to conquer complexity. First, 
+there exists a type of natural segmentation that enables us to transform a 
+single diagram into a <i>hierarchy</i> of subdiagrams with varying detail. 
+Second, we can use <i>clustering</i>, or grouping a set of similar objects into 
+a single unit.
+<p><br>
+
+
+<hr width="80%">
+<br><a name="2.1"></a>
+<b><u><font size=+1>2.1 Creating a recursive hierarchy</font></u></b>
+<p>
+
+<i>Hierarchical decomposition</i> is created by representing the details of a 
+system on subdiagrams, and inserting only a single reference to the subdiagrams 
+in the diagram on the next higher level. For example, if a company has several 
+offices worldwide, each office is represented by an individual subdiagram while 
+the higher-level diagram will only contain one object for each office. If the 
+organization is very big, several intermediate levels (like regional or 
+state-level diagrams) may also be necessary.
+<p>
+
+Recursion appears if a type of (sub)diagram can accept a similar diagram of the 
+same type. In most situations, this cannot happen; the diagrams, or "container 
+units", are usually bound to certain levels of the hierarchy. A state 
+headquarter, for example, is almost always supervised by a regional center, and 
+not by a branch office or another state headquarter. However, in the less 
+traditional and more logical world of engineers and computer experts, recursion 
+is a key technique for providing extensibility and simplicity. Even if a 
+particular application spans only a few levels, it is useful to design the 
+architecture so that it has practically no limits.
+<p>
+
+It is easy to construct a hierarchy, but it is not always easy to construct a 
+good one. In a good hierarchy, objects are usually related only to objects in 
+the same container or in adjacent containers; cross-hierarchy links are rare or 
+non-existent. An example of a good hierarchy is a traditional military 
+organization, or a giant oak. Networking, on the other hand, displays numerous 
+semi-hierarchies.
+<i><font color="#FF0000">
+Networks tend to have multiple cross connections in order to improve proximity 
+and fault-tolerance, but at most locations the "upstream" and "downstream" 
+directions can still be easily identified.
+</font></i>
+<p>
+
+The problem of semi-hierarchies results from relationships; in this case, the 
+network connections in the networking domain. <i><font color="#FF0000">Suppose 
+we designate a contiguous Ethernet network as a subdiagram. Where should the 
+routers of this network be represented: in the subdiagram, in the higher-level 
+diagram, or in both of them? In other words, do we want to draw the subnet 
+boundaries through routers, networks (subnets), or at the point where these two 
+entities meet each other? Where are the externally accessible connection points 
+(a.k.a. ports) of the subdiagrams?</font></i>
+<p>
+
+This "where-to-cut-it-into-pieces" question is often a major problem in 
+creating a hierarchy. A possible heuristic decision could be to place a 
+restriction on the points where the inner and the outer worlds meet, requiring 
+them to be relatively simple atomic entities. Routers with ports are fairly 
+detailed structures in this model. Establishing the boundaries at the networks 
+seems to be the best idea. The following rules are therefore established for 
+the hierarchical modeling paradigm:
+
+<ul>
+ <li>
+  All devices (routers, hosts, and other objects that will be introduced later) 
+  are assigned to a single diagram only. This is known as their <i>parent 
+  diagram</i>, and they are not visible elsewhere (neither "upward" nor 
+  "downward" in the hierarchy).
+ <li>
+  Networks are also assigned to exactly one parent diagram. They are not 
+  visible from higher-level diagrams, and - as shown below - they are only 
+  indirectly visible from the more detailed subdiagrams.
+ <li>
+  Subdiagrams will accommodate a new object, a type of network called a 
+  "<i>perimeter</i>". A perimeter is the representative of a network located in 
+  a higher layer of the diagram hierarchy. Perimeters can connect to other 
+  devices in the same subdiagram, but they are also visible from outside. The 
+  outer diagram contains the subdiagrams with their perimeters indicated, and 
+  there is an association to express the relationship between the perimeters 
+  and the networks they represent. In GME, perimeters will be defined as 
+  ports of the subdiagram entities, and the association to the corresponding 
+  network will be a connection.
+ <li>
+  In a higher-level diagram (one that contains the parent diagram of the 
+  perimeter), the relationship between a network and a perimeter of a 
+  subdiagram indicates that the network is not isolated, but is connected to 
+  devices on a lower level.
+</ul>
+
+How does this translate into a metamodel? Let's start with the metamodel we 
+created in <a href="Lesson1.html#1.2">Lesson 1</a>!
+
+<ol>
+ <li>
+  We already have an entity named NetDiagram. Nothing prevents us from reusing 
+  NetDiagrams as the subdiagrams of the hierarchy. We need only to specify that 
+  NetDiagrams may contain other NetDiagrams. Connect NetDiagram with itself 
+  with a composition relationship (the line with the black diamond). Note that 
+  we have just added recursion to the metamodel!
+ <li>
+  Insert a new <b>&lt;&lt;Atom>></b> entity named "Perimeter". Create another 
+  composition relationship indicating that Perimeters are valid children of 
+  NetDiagrams. Remember that Perimeters are considered "ports" of NetDiagrams
+  (set the role of the containment connection to port). 
+  Also, do not forget to add the new entity to the one and only aspect 
+  (Connectivity) in the Visualization diagram. Since a Perimeter is always 
+  connected to a Network, and effectively "represents" the Network, it does not 
+  need attributes of its own.
+ <li>
+  A perimeter is essentially an extension of a network that "spreads" into a 
+  subdiagram. So we will use the following bitmaps. Assign these (or your own) 
+  icons to Perimeter through the Attributes dialog:
+</ol>
+<p><br>
+
+
+<center>
+<table BORDER cellpadding="5">
+  <tr>
+    <td align=center>
+      <a href="Icons/Perimeter.bmp">
+      <img SRC="Icons/Perimeter.bmp"><p>
+      Perimeter.bmp</a>
+    </td>
+    <td align=center>
+      <a href="Icons/PerimeterSmall.bmp">
+      <img SRC="Icons/PerimeterSmall.bmp" vspace="15"><p>
+      PerimeterSmall.bmp</a>
+    </td>
+  </tr>
+</table>
+</center>
+<p><br>
+
+
+<ol start="4">
+ <li>
+  Perimeters and Networks have several similarities. The most important one, 
+  perhaps, is that devices can connect to both of them. Therefore, we shall 
+  introduce a common generalization for Perimeters and Networks, named 
+  "GenNet". Switch the destination of the Connection relationship from Networks 
+  to GenNet. Make GenNet abstract.
+ <li>
+  We must also create a new connection, "NetworkEquiv", which connects 
+  Perimeters either to Networks or to Perimeters (in case the network in the 
+  grandparent diagram is already represented by a Perimeter in the parent 
+  diagram). GenNet is the destination of the connection, while Perimeter is the 
+  source. NetworkEquiv must also be added to the Connectivity aspect in the 
+  Visualization diagram, and to the NetDiagram entity.
+ <li>
+  NetworkEquiv represents a completely different type of connection than the 
+  one we have been using until now. The best way to differentiate them is to 
+  assign a different appearance to each connection. In the Attribute dialog for 
+  the new connection, set Line type to "Dash", and Color to "0x0000FF" (the RGB 
+  code for <font color="blue">blue</font>).
+</ol>
+<p><br>
+
+
+<center>
+<img SRC="L2/F1/Fig2_1.png">
+<br><b>Fig 2.1 The updated <a href="L2/F1/networking.xme"> metamodel</a></b>
+</center>
+<p><br>
+
+
+We are done with the metamodel, so interpret and register it. We can now test the new 
+hierarchical modeling environment. The first NetDiagram is on the top level of the 
+hierarchy: let's call it "World". Our World consists of the Internet and two 
+companies which are connected to it. Now we can either manually create the 
+subdiagrams, or we can "borrow" a non-hierarchical diagram, like the one from 
+<a href="Lesson1.html#ready">Fig 1.7</a> of Lesson 1. That diagram was at the root 
+level, but it can be dragged onto the World diagram to make it a child.
+<p>
+
+The two child diagrams, CompanyA and CompanyB, need to have at least one perimeter 
+that connects them to the outside world (i.e. the Internet). Internally, these 
+perimeters behave just like normal networks; anything can be connected to them. 
+CompanyA also has a child diagram of its own to contain all its workstations, so that 
+the second-level network diagram is not cluttered by all those PCs. (An alternate 
+approach to this problem will be presented in the <a href="#2.2">next section</a>.)
+<p>
+
+We are already familiar with the browser window, but it is even more useful now that 
+we are working with hierarchical data. The NetDiagram models, when opened, cannot 
+display the full hierarchy; they can only show two levels at a time (Fig 2.2). The 
+browser window, on the other hand, can display as much (or as little) as we want to 
+see.
+<p><br>
+
+
+<center>
+<img SRC="L2/F2/Fig2_2.png">
+<br><b>Fig 2.2 <a href="L2/F2/mynetwork.xme"> Network diagram</a> with 3-level hierarchy</b>
+</center>
+<p><br>
+
+
+<hr width="80%">
+<br><a name="2.2"></a>
+<b><u><font size=+1>2.2 Clustering</font></u></b>
+<p>
+
+Servers, routers and other network devices form the backbone of an IT infrastructure. 
+In addition to these objects, there are typically several workstations. It is 
+important to include the workstations in the diagrams (to be able to calculate 
+network traffic, for example). However, these machines are typically not significant 
+as individuals, but rather as a group of PCs with a common physical location and 
+similar network connectivity. Many infrastructures use dynamic addressing (DHCP), 
+which indicates uniformity, since addresses are randomly distributed within a group.
+<p>
+
+Using the new hierarchical modeling capabilities, we now have a way to handle this 
+complexity: create a subdiagram, create a Host for each workstation, connect them all 
+to a perimeter, name the diagram something like "BunchOfOrdinaryPCs", and use them as 
+a single unit in the higher-level diagram. This approach (shown in Fig 2.2) is 
+feasible, but has several shortcomings:
+
+<ul>
+ <li>
+  From a higher-level diagram, only the name of the subdiagram indicates that nothing 
+"important" (such as network devices or further subnets) exists in this diagram.
+ <li>
+  The separate PC objects will increase the physical size of the model.
+ <li>
+  We should (and can) have a better graphical representation of those PCs.
+</ul>
+
+If the PCs are nearly identical, it is unnecessary to model each of them 
+individually. A single object could represent them all, with attributes for the most 
+important features. An example would be "25 PCs, with addresses from the range 
+192.168.55.10 to 192.168.55.60, located on the 3rd floor of the Memorial building".
+<p>
+
+Let a new <b>&lt;&lt;Atom>></b> entity, "WSGroup", represent a cluster of PCs. It 
+will be very similar to Host in the metamodel, except that it has a different icon 
+and different attributes:
+
+<ul>
+ <li>
+  An integer attribute, "Number"
+ <li>
+  Two string attributes, AddressFirst and AddressLast.
+ <li>
+  A string attribute, "RoomLocation"
+ <li>
+  Perhaps an indication of usage: an <b>&lt;&lt;EnumAttr>></b> "Workload" with the 
+options "Light", "Medium", and "Heavy"
+ <li>
+  A customized icon:
+</ul>
+<p><br>
+
+
+<center>
+<table BORDER cellpadding="5">
+  <tr>
+    <td align=center>
+      <a href="Icons/WSGroup.bmp">
+      <img SRC="Icons/WSGroup.bmp"><p>
+      WSGroup.bmp</a>
+    </td>
+  </tr>
+</table>
+</center>
+<p><br>
+
+
+There is one more thing to consider about WSGroup. Host implements NetInterface; can 
+we do the same with WSGroup? Fortunately, NetInterface does not have any attributes 
+of its own (those were attached directly to Host and Port). There is, however, a 
+slight semantic confusion about NetInterface; so far, it has always represented a 
+single network interface, but we have not really relied on that representation yet. 
+Let us redefine (or clarify) the semantics of NetInterface. We now define it to be 
+"one or several interfaces connecting to the same network". The definition of 
+NetInterface has been loose enough so far to allow this change. Now, having tweaked 
+the rules to our advantage, we can make WSGroup a descendant of NetInterface.
+<p>
+
+We have saved ourselves a lot of extra work, since Connections will now provide 
+connectivity for WSGroups as well. Be sure to indicate that WSGroups are contained by 
+NetDiagrams (and do not forget to include WSGroup in the Connectivity aspect).
+<p>
+
+Interpret and register the metamodel, and update the networking project through XML. 
+We can now add WSGroups to the diagram. Fig 2.3 shows an example of a small company 
+network with a few servers, two workstation groups, and Internet connectivity.
+<p><br>
+
+
+<center>
+<img SRC="L2/F3/Fig2_3.png">
+<br><b>Fig 2.3 <a href="L2/F3/networking.xme"> Network</a> <a href="L2/F3/mynetwork.xme"> diagram</a> with WorkStation clusters</b>
+</center>
+<p><br>
+
+
+<center>
+<hr width="80%">
+<table><tr><td>
+<a href="Lesson1.html">&lt;&lt; Previous Lesson</a> 
+</td><td width=50></td><td>
+<a href="index.html#toc">Complete List</a> 
+</td><td width=50></td><td>
+<a href="Lesson3.html">Next Lesson >></a>
+</td></tr></table>
+</center>
+
+</body>
+</html>

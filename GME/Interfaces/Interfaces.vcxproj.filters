@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Interface Files">
+      <UniqueIdentifier>{2536ced0-82b0-4103-afd9-39f1e4ab3b4c}</UniqueIdentifier>
+      <Extensions>*.idl</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{e5822588-d674-493b-b540-e197f28900d9}</UniqueIdentifier>
+      <Extensions>*.h</Extensions>
+    </Filter>
+    <Filter Include="Interface Lib Files">
+      <UniqueIdentifier>{8bb0fdfb-3ff8-4144-a6b7-86f3c988840e}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="InterfaceColl.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="InterfaceVersion.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Midl Include="Core.idl">
+      <Filter>Interface Files</Filter>
+    </Midl>
+    <Midl Include="Gme.idl">
+      <Filter>Interface Files</Filter>
+    </Midl>
+    <Midl Include="Meta.idl">
+      <Filter>Interface Files</Filter>
+    </Midl>
+    <Midl Include="Mga.idl">
+      <Filter>Interface Files</Filter>
+    </Midl>
+    <Midl Include="MgaUtil.idl">
+      <Filter>Interface Files</Filter>
+    </Midl>
+    <Midl Include="Parser.idl">
+      <Filter>Interface Files</Filter>
+    </Midl>
+    <Midl Include="..\Mga\MgaLib.idl">
+      <Filter>Interface Lib Files</Filter>
+    </Midl>
+    <Midl Include="..\Core\CoreLib.idl">
+      <Filter>Interface Lib Files</Filter>
+    </Midl>
+    <Midl Include="..\Parser\ParserLib.idl">
+      <Filter>Interface Lib Files</Filter>
+    </Midl>
+    <Midl Include="..\MgaUtil\MgaUtilLib.idl">
+      <Filter>Interface Lib Files</Filter>
+    </Midl>
+    <Midl Include="..\Meta\MetaLib.idl">
+      <Filter>Interface Lib Files</Filter>
+    </Midl>
+    <Midl Include="..\Gme\GmeLib.idl">
+      <Filter>Interface Lib Files</Filter>
+    </Midl>
+  </ItemGroup>
+</Project>

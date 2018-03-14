@@ -1,0 +1,26 @@
+HKCR
+{
+	Mga.MgaMetaPointerSpec.1 = s 'MgaMetaPointerSpec Class'
+	{
+		CLSID = s '{83BA325C-B758-11D3-ABAE-000000000000}'
+	}
+	Mga.MgaMetaPointerSpec = s 'MgaMetaPointerSpec Class'
+	{
+		CLSID = s '{83BA325C-B758-11D3-ABAE-000000000000}'
+		CurVer = s 'Mga.MgaMetaPointerSpec.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {83BA325C-B758-11D3-ABAE-000000000000} = s 'MgaMetaPointerSpec Class'
+		{
+			ProgID = s 'Mga.MgaMetaPointerSpec.1'
+			VersionIndependentProgID = s 'Mga.MgaMetaPointerSpec'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			'TypeLib' = s '{0ADEEC71-D83A-11D3-B36B-005004D38590}'
+		}
+	}
+}

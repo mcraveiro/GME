@@ -1,0 +1,148 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{20e3aa63-9534-400a-b427-4a8b02fa9152}</UniqueIdentifier>
+      <Extensions>cpp;c;cxx;rc;def;r;odl;idl;hpj;bat</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{91687bb9-e7fa-4437-a91d-be9dc7625ca1}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{cd80214a-4077-447d-8a91-96fecaa050ad}</UniqueIdentifier>
+      <Extensions>ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\Common\CommonError.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Common\CommonMfc.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Common\CommonSmart.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Console.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ConsoleCtl.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ConsolePpg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="HtmlCtrl.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ScriptEdit.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ScriptHost.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="StdAfx.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Console.def">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="res\btndn.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\btnret.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\btnup.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\cleancon.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Console.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Console.rgs">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="ConsoleCtl.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\error.gif">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\execscr.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\info.gif">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\loadscr.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\normal.gif">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="ScriptHost.rgs">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\warning.gif">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\blank.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <Midl Include="Console.odl">
+      <Filter>Source Files</Filter>
+    </Midl>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Console.rc">
+      <Filter>Source Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\Common\CommonError.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\CommonMfc.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\CommonMgaTrukk.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\CommonSmart.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Console.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ConsoleCtl.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ConsolePpg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="HtmlCtrl.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Resource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ScriptEdit.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ScriptHost.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="StdAfx.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,367 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE project SYSTEM "mga.dtd">
+
+<project guid="{93C09379-146F-476D-A782-862E63CDB497}" cdate="Mon May 04 11:58:30 2009" mdate="Mon May 04 11:58:30 2009" version="" metaguid="{757682DE-E57F-4003-9A7E-8EE5C0368980}" metaversion="" metaname="HFSM">
+	<name>HFSM-Test01</name>
+	<comment></comment>
+	<author></author>
+	<folder id="id-006a-00000001" relid="0x1" childrelidcntr="0x2" kind="RootFolder" guid="{33ab4391-377b-478f-8c13-de792d5a24d1}">
+		<name>HFSM-Test01</name>
+		<model id="id-0065-00000001" kind="InputSequence" guid="{50ac4e09-7d05-4657-9027-269797df3dc7}" relid="0x2" childrelidcntr="0x9">
+			<name>InputSequence</name>
+			<atom id="id-0066-00000001" kind="Events" role="Events" guid="{16407941-a18b-4e28-a78f-2c1f66816cac}" relid="0x1">
+				<name>e1</name>
+				<regnode name="PartRegs" isopaque="yes">
+					<value></value>
+					<regnode name="Sequence" isopaque="yes">
+						<value></value>
+						<regnode name="Position" isopaque="yes">
+							<value>68,47</value>
+						</regnode>
+					</regnode>
+					<regnode name="Sequences" status="undefined">
+						<value></value>
+						<regnode name="Position" isopaque="yes">
+							<value>26,33</value>
+						</regnode>
+					</regnode>
+				</regnode>
+				<regnode name="icon" isopaque="yes">
+					<value>event.bmp</value>
+				</regnode>
+				<attribute kind="Delay">
+					<value>1</value>
+				</attribute>
+			</atom>
+			<atom id="id-0066-00000002" kind="Events" role="Events" guid="{e610f216-43e8-4108-a795-c0a2ccfc785b}" relid="0x4">
+				<name>e4</name>
+				<regnode name="PartRegs" isopaque="yes">
+					<value></value>
+					<regnode name="Sequence" isopaque="yes">
+						<value></value>
+						<regnode name="Position" isopaque="yes">
+							<value>544,47</value>
+						</regnode>
+					</regnode>
+					<regnode name="Sequences" status="undefined">
+						<value></value>
+						<regnode name="Position" isopaque="yes">
+							<value>299,33</value>
+						</regnode>
+					</regnode>
+				</regnode>
+				<regnode name="icon" isopaque="yes">
+					<value>event.bmp</value>
+				</regnode>
+				<attribute kind="Delay">
+					<value>1</value>
+				</attribute>
+			</atom>
+			<atom id="id-0066-00000003" kind="Events" role="Events" guid="{58ecb9e2-5ef9-4360-80ee-d02c8d729b47}" relid="0x5">
+				<name>e5</name>
+				<regnode name="PartRegs" isopaque="yes">
+					<value></value>
+					<regnode name="Sequence" isopaque="yes">
+						<value></value>
+						<regnode name="Position" isopaque="yes">
+							<value>712,47</value>
+						</regnode>
+					</regnode>
+					<regnode name="Sequences" status="undefined">
+						<value></value>
+						<regnode name="Position" isopaque="yes">
+							<value>390,33</value>
+						</regnode>
+					</regnode>
+				</regnode>
+				<regnode name="icon" isopaque="yes">
+					<value>event.bmp</value>
+				</regnode>
+				<attribute kind="Delay" status="meta">
+					<value>2</value>
+				</attribute>
+			</atom>
+			<atom id="id-0066-00000004" kind="Events" role="Events" guid="{af7ab244-ea08-4f62-a5c1-302b9b9e74ea}" relid="0x3">
+				<name>e3</name>
+				<regnode name="PartRegs" isopaque="yes">
+					<value></value>
+					<regnode name="Sequence" isopaque="yes">
+						<value></value>
+						<regnode name="Position" isopaque="yes">
+							<value>390,47</value>
+						</regnode>
+					</regnode>
+					<regnode name="Sequences" status="undefined">
+						<value></value>
+						<regnode name="Position" isopaque="yes">
+							<value>208,33</value>
+						</regnode>
+					</regnode>
+				</regnode>
+				<regnode name="icon" isopaque="yes">
+					<value>event.bmp</value>
+				</regnode>
+				<attribute kind="Delay">
+					<value>1</value>
+				</attribute>
+			</atom>
+			<atom id="id-0066-00000005" kind="Events" role="Events" guid="{a0f02eb6-43b8-4a46-af54-ba181a6d2dc5}" relid="0x2">
+				<name>e2</name>
+				<regnode name="PartRegs" isopaque="yes">
+					<value></value>
+					<regnode name="Sequence" isopaque="yes">
+						<value></value>
+						<regnode name="Position" isopaque="yes">
+							<value>222,47</value>
+						</regnode>
+					</regnode>
+					<regnode name="Sequences" status="undefined">
+						<value></value>
+						<regnode name="Position" isopaque="yes">
+							<value>117,33</value>
+						</regnode>
+					</regnode>
+				</regnode>
+				<regnode name="icon" isopaque="yes">
+					<value>event.bmp</value>
+				</regnode>
+				<attribute kind="Delay">
+					<value>1</value>
+				</attribute>
+			</atom>
+			<connection id="id-0068-00000001" kind="Sequence" role="Sequence" guid="{0a914f9d-a957-48ef-9fb9-aa1e4731eade}" relid="0x9">
+				<name>Sequence</name>
+				<regnode name="autorouterPref" isopaque="yes">
+					<value>Ew</value>
+				</regnode>
+				<connpoint role="src" target="id-0066-00000002"/>
+				<connpoint role="dst" target="id-0066-00000003"/>
+			</connection>
+			<connection id="id-0068-00000002" kind="Sequence" role="Sequence" guid="{92fb3ca0-5f56-4efc-8562-a42d2814177e}" relid="0x7">
+				<name>Sequence</name>
+				<regnode name="autorouterPref" isopaque="yes">
+					<value>Ew</value>
+				</regnode>
+				<connpoint role="dst" target="id-0066-00000004"/>
+				<connpoint role="src" target="id-0066-00000005"/>
+			</connection>
+			<connection id="id-0068-00000003" kind="Sequence" role="Sequence" guid="{21d2cc9c-51b2-4274-85ef-c4f5aa781dbe}" relid="0x8">
+				<name>Sequence</name>
+				<regnode name="autorouterPref" isopaque="yes">
+					<value>Ew</value>
+				</regnode>
+				<connpoint role="dst" target="id-0066-00000002"/>
+				<connpoint role="src" target="id-0066-00000004"/>
+			</connection>
+			<connection id="id-0068-00000004" kind="Sequence" role="Sequence" guid="{c349cfb6-56a1-43f2-83a5-474c393d46d5}" relid="0x6">
+				<name>Sequence</name>
+				<regnode name="autorouterPref" isopaque="yes">
+					<value>w</value>
+				</regnode>
+				<connpoint role="src" target="id-0066-00000001"/>
+				<connpoint role="dst" target="id-0066-00000005"/>
+			</connection>
+		</model>
+		<model id="id-0065-00000002" kind="State" guid="{9ff624e4-b2a1-4f22-b93b-57341421ac01}" relid="0x1" childrelidcntr="0xb">
+			<name>State</name>
+			<regnode name="color" isopaque="yes">
+				<value>0x0080C0</value>
+			</regnode>
+			<regnode name="icon" isopaque="yes">
+				<value>defaultstate.bmp</value>
+			</regnode>
+			<attribute kind="StartState" status="meta">
+				<value>false</value>
+			</attribute>
+			<model id="id-0065-00000003" kind="State" role="State" guid="{e8238b2d-6ac4-4743-9343-bd0908f22e04}" relid="0x1" childrelidcntr="0x6">
+				<name>s1</name>
+				<regnode name="PartRegs" isopaque="yes">
+					<value></value>
+					<regnode name="StateMachine" isopaque="yes">
+						<value></value>
+						<regnode name="Position" isopaque="yes">
+							<value>107,184</value>
+						</regnode>
+					</regnode>
+				</regnode>
+				<regnode name="color" isopaque="yes">
+					<value>0x0080C0</value>
+				</regnode>
+				<regnode name="icon" isopaque="yes">
+					<value>defaultstate.bmp</value>
+				</regnode>
+				<attribute kind="StartState">
+					<value>true</value>
+				</attribute>
+				<model id="id-0065-00000004" kind="State" role="State" guid="{9f124afd-45a4-4910-878d-c1102da8aac9}" relid="0x5" childrelidcntr="0x0">
+					<name>s12</name>
+					<regnode name="PartRegs" isopaque="yes">
+						<value></value>
+						<regnode name="StateMachine" isopaque="yes">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>486,105</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<regnode name="color" isopaque="yes">
+						<value>0x0080C0</value>
+					</regnode>
+					<regnode name="icon" isopaque="yes">
+						<value>defaultstate.bmp</value>
+					</regnode>
+					<attribute kind="StartState" status="meta">
+						<value>false</value>
+					</attribute>
+				</model>
+				<model id="id-0065-00000005" kind="State" role="State" guid="{68f2a5a7-bafe-4fb1-9cee-11104f1e0b13}" relid="0x4" childrelidcntr="0x0">
+					<name>s11</name>
+					<regnode name="PartRegs" isopaque="yes">
+						<value></value>
+						<regnode name="StateMachine" isopaque="yes">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>143,105</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<regnode name="color" isopaque="yes">
+						<value>0x0080C0</value>
+					</regnode>
+					<regnode name="icon" isopaque="yes">
+						<value>defaultstate.bmp</value>
+					</regnode>
+					<attribute kind="StartState">
+						<value>true</value>
+					</attribute>
+				</model>
+				<connection id="id-0068-00000005" kind="Transition" role="Transition" guid="{ee9d5410-6920-4353-999e-8cae871dd078}" relid="0x6">
+					<name>Transition</name>
+					<regnode name="autorouterPref" isopaque="yes">
+						<value>Ew</value>
+					</regnode>
+					<regnode name="color" isopaque="yes">
+						<value>0x000000</value>
+					</regnode>
+					<regnode name="icon" isopaque="yes">
+						<value>0x000000</value>
+					</regnode>
+					<attribute kind="Event">
+						<value>e1</value>
+					</attribute>
+					<connpoint role="dst" target="id-0065-00000004"/>
+					<connpoint role="src" target="id-0065-00000005"/>
+				</connection>
+			</model>
+			<model id="id-0065-00000006" kind="State" role="State" guid="{97ef46a8-217e-46cd-bf4a-a38380956334}" relid="0x2" childrelidcntr="0x0">
+				<name>s2</name>
+				<regnode name="PartRegs" isopaque="yes">
+					<value></value>
+					<regnode name="StateMachine" isopaque="yes">
+						<value></value>
+						<regnode name="Position" isopaque="yes">
+							<value>311,182</value>
+						</regnode>
+					</regnode>
+				</regnode>
+				<regnode name="color" isopaque="yes">
+					<value>0x0080C0</value>
+				</regnode>
+				<regnode name="icon" isopaque="yes">
+					<value>defaultstate.bmp</value>
+				</regnode>
+				<attribute kind="StartState" status="meta">
+					<value>false</value>
+				</attribute>
+			</model>
+			<model id="id-0065-00000007" kind="State" role="State" guid="{b588649d-4ee6-40be-94b8-61725bc43fd1}" relid="0x3" childrelidcntr="0x0">
+				<name>s3</name>
+				<regnode name="PartRegs" isopaque="yes">
+					<value></value>
+					<regnode name="StateMachine" isopaque="yes">
+						<value></value>
+						<regnode name="Position" isopaque="yes">
+							<value>311,294</value>
+						</regnode>
+					</regnode>
+				</regnode>
+				<regnode name="color" isopaque="yes">
+					<value>0x0080C0</value>
+				</regnode>
+				<regnode name="icon" isopaque="yes">
+					<value>defaultstate.bmp</value>
+				</regnode>
+				<attribute kind="StartState" status="meta">
+					<value>false</value>
+				</attribute>
+			</model>
+			<connection id="id-0068-00000006" kind="Transition" role="Transition" guid="{5555275a-97e2-4341-9a71-72a0b47cde13}" relid="0x8">
+				<name>Transition</name>
+				<regnode name="autorouterPref" isopaque="yes">
+					<value>Ee</value>
+				</regnode>
+				<regnode name="color" isopaque="yes">
+					<value>0x000000</value>
+				</regnode>
+				<regnode name="icon" isopaque="yes">
+					<value>0x000000</value>
+				</regnode>
+				<attribute kind="Event">
+					<value>e5</value>
+				</attribute>
+				<connpoint role="dst" target="id-0065-00000006"/>
+				<connpoint role="src" target="id-0065-00000007"/>
+			</connection>
+			<connection id="id-0068-00000007" kind="Transition" role="Transition" guid="{3b68c934-d3e0-4574-be16-34cb7e8edf95}" relid="0x5">
+				<name>Transition</name>
+				<regnode name="autorouterPref" isopaque="yes">
+					<value>Sn</value>
+				</regnode>
+				<attribute kind="Event">
+					<value>e2</value>
+				</attribute>
+				<connpoint role="src" target="id-0065-00000006"/>
+				<connpoint role="dst" target="id-0065-00000007"/>
+			</connection>
+			<connection id="id-0068-00000008" kind="Transition" role="Transition" guid="{68b57bbb-4159-4037-82cf-8208a644187f}" relid="0x6">
+				<name>e3</name>
+				<regnode name="autorouterPref" isopaque="yes">
+					<value>Ws</value>
+				</regnode>
+				<attribute kind="Event">
+					<value>e3</value>
+				</attribute>
+				<connpoint role="dst" target="id-0065-00000003"/>
+				<connpoint role="src" target="id-0065-00000007"/>
+			</connection>
+			<connection id="id-0068-00000009" kind="Transition" role="Transition" guid="{dcd46e53-ac3d-43b4-9849-d0bb25d51491}" relid="0x7">
+				<name>e3</name>
+				<regnode name="autorouterPref" isopaque="yes">
+					<value>Ws</value>
+				</regnode>
+				<regnode name="color" isopaque="yes">
+					<value>0x000000</value>
+				</regnode>
+				<regnode name="icon" isopaque="yes">
+					<value>0x000000</value>
+				</regnode>
+				<attribute kind="Event">
+					<value>e4</value>
+				</attribute>
+				<connpoint role="src" target="id-0065-00000003"/>
+				<connpoint role="dst" target="id-0065-00000007"/>
+			</connection>
+			<connection id="id-0068-0000000a" kind="Transition" role="Transition" guid="{585c7cac-30e2-4be8-8160-d33acf76928e}" relid="0x4">
+				<name>Transition</name>
+				<regnode name="autorouterPref" isopaque="yes">
+					<value>Ew</value>
+				</regnode>
+				<attribute kind="Event">
+					<value>e1</value>
+				</attribute>
+				<connpoint role="src" target="id-0065-00000003"/>
+				<connpoint role="dst" target="id-0065-00000006"/>
+			</connection>
+		</model>
+	</folder>
+</project>

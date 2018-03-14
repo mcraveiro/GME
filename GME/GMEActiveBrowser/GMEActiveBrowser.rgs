@@ -1,0 +1,11 @@
+HKCR
+{
+	NoRemove AppID
+	{
+		{53B05747-1D7E-4374-B3B6-9F78719F0AE0} = s 'GMEActiveBrowser'
+		'GMEActiveBrowser.EXE'
+		{
+			val AppID = s {53B05747-1D7E-4374-B3B6-9F78719F0AE0}
+		}
+	}
+}

@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<assembly xmlns="urn:schemas-microsoft-com:asm.v1" manifestVersion="1.0">
+  <assemblyIdentity type="win32" name="Core" version="1.0.0.0" />
+
+  <file name="core.dll" hashalg="SHA1">
+    <comClass progid="Mga.CoreProject" clsid="{AD9DFA4F-2A3B-11D3-B36C-0060082DF884}" tlbid="{9E9AAACF-28B8-11D3-B36C-0060082DF884}" description="CoreProject Class" threadingModel="Apartment"/>
+    <comClass progid="Mga.CoreMetaProject" clsid="{98AA02DD-2E2C-11D3-B36D-0060082DF884}" tlbid="{9E9AAACF-28B8-11D3-B36C-0060082DF884}" description="CoreMetaProject Class" threadingModel="Apartment"/>
+    <comClass clsid="{98AA02DC-2E2C-11D3-B36D-0060082DF884}" tlbid="{9E9AAACF-28B8-11D3-B36C-0060082DF884}" description="CoreMetaObject Class" threadingModel="Apartment"/>
+    <comClass clsid="{98AA02E2-2E2C-11D3-B36D-0060082DF884}" tlbid="{9E9AAACF-28B8-11D3-B36C-0060082DF884}" description="CoreMetaAttribute Class" threadingModel="Apartment"/>
+    <comClass clsid="{09D9DCAF-3209-11D3-B2F7-005004D38590}" tlbid="{9E9AAACF-28B8-11D3-B36C-0060082DF884}" description="CoreStorage Class" threadingModel="Apartment"/>
+    <comClass progid="Mga.CoreBinFile" clsid="{7281C07A-3E09-11D3-B2F7-005004D38590}" tlbid="{9E9AAACF-28B8-11D3-B36C-0060082DF884}" description="CoreBinFile Class" threadingModel="Apartment"/>
+    <comClass clsid="{826A8737-563B-11D3-B301-005004D38590}" tlbid="{9E9AAACF-28B8-11D3-B36C-0060082DF884}" description="CoreObject Class" threadingModel="Apartment"/>
+    <comClass clsid="{826A8739-563B-11D3-B301-005004D38590}" tlbid="{9E9AAACF-28B8-11D3-B36C-0060082DF884}" description="CoreAttribute Class" threadingModel="Apartment"/>
+    <comClass clsid="{4C3A57C4-8DFF-11D3-B336-005004D38590}" tlbid="{9E9AAACF-28B8-11D3-B36C-0060082DF884}" description="CoreTerritory Class" threadingModel="Apartment"/>
+    <comClass clsid="{43D12112-12CA-11D3-A6EC-0060082DF884}" tlbid="{9E9AAACF-28B8-11D3-B36C-0060082DF884}" description="CoreMetaObjects Class" threadingModel="Apartment"/>
+    <comClass clsid="{43D12128-12CA-11D3-A6EC-0060082DF884}" tlbid="{9E9AAACF-28B8-11D3-B36C-0060082DF884}" description="CoreMetaAttributes Class" threadingModel="Apartment"/>
+    <comClass clsid="{43D12112-22CA-11D3-A6EC-0060082DF884}" tlbid="{9E9AAACF-28B8-11D3-B36C-0060082DF884}" description="CoreObjects Class" threadingModel="Apartment"/>
+    <comClass clsid="{43D12128-22CA-11D3-A6EC-0060082DF884}" tlbid="{9E9AAACF-28B8-11D3-B36C-0060082DF884}" description="CoreAttributes Class" threadingModel="Apartment"/>
+    <!-- GME-418: no way to specify this is InprocHandler32 not InprocServer32 comClass clsid="{9FE3BB80-B596-41BA-910F-0FF9C3B4F38A}" tlbid="{9E9AAACF-28B8-11D3-B36C-0060082DF884}" description="CoreCollectionHandler Class" threadingModel="Both"/ -->
+    <typelib tlbid="{9E9AAACF-28B8-11D3-B36C-0060082DF884}" resourceid="1" version="1.0" helpdir="" flags="HASDISKIMAGE"></typelib>
+  </file>
+  <comInterfaceExternalProxyStub name="ICoreProject" iid="{AD9DFA4E-2A3B-11D3-B36C-0060082DF884}" tlbid="{9E9AAACF-28B8-11D3-B36C-0060082DF884}" proxyStubClsid32="{00020424-0000-0000-C000-000000000046}"></comInterfaceExternalProxyStub>
+  <comInterfaceExternalProxyStub name="ICoreStorage" iid="{AD9DFA4E-3A3B-11D3-B36C-0060082DF884}" tlbid="{9E9AAACF-28B8-11D3-B36C-0060082DF884}" proxyStubClsid32="{00020424-0000-0000-C000-000000000046}"></comInterfaceExternalProxyStub>
+  <comInterfaceExternalProxyStub name="ICoreMetaProject" iid="{98AA02D9-2E2C-11D3-B36D-0060082DF884}" tlbid="{9E9AAACF-28B8-11D3-B36C-0060082DF884}" proxyStubClsid32="{00020424-0000-0000-C000-000000000046}"></comInterfaceExternalProxyStub>
+  <comInterfaceExternalProxyStub name="ICoreMetaObject" iid="{98AA02DB-2E2C-11D3-B36D-0060082DF884}" tlbid="{9E9AAACF-28B8-11D3-B36C-0060082DF884}" proxyStubClsid32="{00020424-0000-0000-C000-000000000046}"></comInterfaceExternalProxyStub>
+  <comInterfaceExternalProxyStub name="ICoreMetaAttribute" iid="{98AA02E1-2E2C-11D3-B36D-0060082DF884}" tlbid="{9E9AAACF-28B8-11D3-B36C-0060082DF884}" proxyStubClsid32="{00020424-0000-0000-C000-000000000046}"></comInterfaceExternalProxyStub>
+  <comInterfaceExternalProxyStub name="ICoreMetaAttributes" iid="{43D12127-12CA-11D3-A6EC-0060082DF884}" tlbid="{9E9AAACF-28B8-11D3-B36C-0060082DF884}" proxyStubClsid32="{00020424-0000-0000-C000-000000000046}"></comInterfaceExternalProxyStub>
+  <comInterfaceExternalProxyStub name="ICoreMetaObjects" iid="{43D12111-12CA-11D3-A6EC-0060082DF884}" tlbid="{9E9AAACF-28B8-11D3-B36C-0060082DF884}" proxyStubClsid32="{00020424-0000-0000-C000-000000000046}"></comInterfaceExternalProxyStub>
+  <comInterfaceExternalProxyStub name="ICoreObject" iid="{826A8736-563B-11D3-B301-005004D38590}" tlbid="{9E9AAACF-28B8-11D3-B36C-0060082DF884}" proxyStubClsid32="{00020424-0000-0000-C000-000000000046}"></comInterfaceExternalProxyStub>
+  <comInterfaceExternalProxyStub name="ICoreAttribute" iid="{826A8738-563B-11D3-B301-005004D38590}" tlbid="{9E9AAACF-28B8-11D3-B36C-0060082DF884}" proxyStubClsid32="{00020424-0000-0000-C000-000000000046}"></comInterfaceExternalProxyStub>
+  <comInterfaceExternalProxyStub name="ICoreAttributes" iid="{43D12127-22CA-11D3-A6EC-0060082DF884}" tlbid="{9E9AAACF-28B8-11D3-B36C-0060082DF884}" proxyStubClsid32="{00020424-0000-0000-C000-000000000046}"></comInterfaceExternalProxyStub>
+  <comInterfaceExternalProxyStub name="ICoreTerritory" iid="{4C3A57C3-8DFF-11D3-B336-005004D38590}" tlbid="{9E9AAACF-28B8-11D3-B36C-0060082DF884}" proxyStubClsid32="{00020424-0000-0000-C000-000000000046}"></comInterfaceExternalProxyStub>
+  <comInterfaceExternalProxyStub name="ISupportErrorInfo" iid="{DF0B3D60-548F-101B-8E65-08002B2BD119}" tlbid="{9E9AAACF-28B8-11D3-B36C-0060082DF884}" proxyStubClsid32="{00020424-0000-0000-C000-000000000046}"></comInterfaceExternalProxyStub>
+  <comInterfaceExternalProxyStub name="IGMEVersionInfo" iid="{9A228010-020B-11D2-BBB3-0040051F7117}" tlbid="{9E9AAACF-28B8-11D3-B36C-0060082DF884}" proxyStubClsid32="{00020424-0000-0000-C000-000000000046}"></comInterfaceExternalProxyStub>
+  <comInterfaceExternalProxyStub name="ICoreObjects" iid="{43D12111-22CA-11D3-A6EC-0060082DF884}" tlbid="{9E9AAACF-28B8-11D3-B36C-0060082DF884}" proxyStubClsid32="{00020424-0000-0000-C000-000000000046}"></comInterfaceExternalProxyStub>
+
+  <!-- comInterfaceProxyStub iid="{}" name="I" tlbid="{}" baseInterface="{iid}" proxyStubClsid32="{}"	threadingModel="Both"/ -->
+
+
+</assembly>

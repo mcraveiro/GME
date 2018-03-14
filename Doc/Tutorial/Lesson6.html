@@ -1,0 +1,540 @@
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="Author" content="Arpad Bakay">
+   <meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+   <title>Lesson 6 -- Multiplicities & Constraints</title>
+</head>
+<body text="#000066"
+      bgcolor="#FFFFCC"
+      link="#0000EE"
+      vlink="#551A8B"
+      alink="#FF0000">
+
+<center>
+<b><u><font size=+2>Lesson 6
+<br>Adding Semantic Rules to the Metamodel:
+<br>Using Multiplicities and Constraints
+</font></u></b>
+</center>
+<p>
+
+<br><a href="#intro">Introduction to Lesson 6</a>
+<br><a href="#6.1">6.1 Multiplicity</a>
+<br><a href="#6.2">6.2 Constraints</a>
+<p><br>
+
+
+<a name="intro"></a>
+<b><u><font size=+1>Introduction to Lesson 6</font></u></b>
+<p>
+
+When you first ran the interpreter of <a href="Lesson3.html">Lesson 3</a> on a
+larger model, you probably detected inconsistencies: ports or perimeters not
+connected, or connected too many times. It would be advantageous if these
+logical errors could be detected as early as possible, preferably at the exact
+moment when the user makes the inconsistent modification.
+<p>
+
+This lesson introduces <i>multiplicities</i> and <i>constraints</i>,
+the GME consistency checking mechanisms.
+<p><br>
+
+
+<hr width="80%">
+<br><a name="6.1"></a>
+<b><u><font size=+1>6.1 Multiplicity</font></u></b>
+<p>
+
+Whenever an association is defined in the metamodel, a sequence of
+symbols, such as "0..*", appears at both ends. This is the <i>multiplicity</i>
+specification, which determines the acceptable number of associations in which an
+object can participate. The usual format is <i>&lt;min></i>.. <i>&lt;max></i>
+(or <i>&lt;minmax></i> if the two values are the same). "*" means
+infinity, so the default value, "0..*" gives practically no limit on the
+number of associations.
+<p>
+
+Here is an example from the networking paradigm:
+<i><font color="#FF0000">
+Interfaces should connect to at most one network or perimeter. (Unconnected
+interfaces will be allowed, since router ports sometimes remain temporarily or
+permanently idle.)
+</font></i>
+To indicate this in the metamodel, change the destination multiplicity of the
+Connection association from "0..*" to "0..1". To achieve this, right click on
+the association line on the destination side and change its Cardinality
+attribute as described before. <i><font color="#FF0000">Also, make sure that each Perimeter is connected to exactly one Network, or to
+another Perimeter.
+</font></i>
+Set the "dst" multiplicity of the NetworkEquiv association to "1".
+<i><font color="#FF0000">
+It is useless to allow Perimeters without associated Networks, so 0 is not
+permitted in this case.
+</font></i>
+<p><br>
+
+
+<center>
+<img SRC="L6/F1/Fig6_1.png">
+<br><b>Fig 6.1 Multiplicities on associations in the <a href="L6/F1/networking.xme"> metamodel</a></b>
+</center>
+<p><br>
+
+
+On the association line, multiplicities are indicated at the opposite end from
+the object to which they apply. For example, in the paragraph above, a
+multiplicity rule that applies to interfaces is actually indicated at the
+"network" side of the connection.
+<p>
+
+Internally, GME treats multiplicities as a special kind of constraint for
+which a simple specification mechanism is provided. Generic constraints are
+more powerful than multiplicites, but are more difficult to specify. As soon as
+a new version of the paradigm is generated, the necessary constraint settings
+will automatically take effect. These are "warning" type constraints; they are
+not "enforced", but violations are reported to the user in the form of a dialog
+box. Adherence to the constraints is checked in response to the following
+events:
+
+<ul>
+ <li>
+  The parent model of the object for which the limited multiplicity is in
+  effect (i.e. interfaces and perimeters in our example) is <i>closed</i> in
+  the editor or <i>collapsed</i> in the browser.
+ <li>
+  An interpreter is started and the object for which the multiplicity is in
+  effect is visible, either as an open model or as a child of an open model.
+</ul>
+<p><br>
+
+
+<hr width="80%">
+<br><a name="6.2"></a>
+<b><u><font size=+1>6.2 Constraints</font></u></b>
+<p>
+
+Multiplicities specify the number of objects that can participate in a particular
+association, which is a typical consistency rule. However, there are many other
+plausible situations in which more general validity rules need to be expressed.
+These rules are provided by a general and functionally rich language,
+originally defined as part of the standard UML notation: OCL, the Object
+Constraint Language.
+<p><br>
+
+
+<b><u>6.2.1 Object Constraint Language (OCL)</u></b>
+<p>
+
+GME includes the full OCL 1.4 with some extensions to the original language.
+OCL is based on predicates, sentences that are either true or false and must
+evaluate to "true" in order to satisfy the constraint. As an example, study the
+following constraint:
+
+<blockquote><tt><b>
+self.parts( Fuse )->forAll( b : Fuse | b.amps &lt;= 60 );
+</b></tt></blockquote>
+
+This constraint will be satisfied only if all the "Fuse" children of the object
+(such as a Fusebox) have an "amps" value not greater than 60. Another
+constraint, slightly more complex, requires that at least five red or green
+fuses exist in the fusebox:
+
+<blockquote><tt><b>
+self.parts( Fuse )->select( b : Fuse | b.color = "red" or b.color = "green" )->size > 5
+</b></tt></blockquote>
+
+The examples above illustrate the following principal features of this
+language:
+
+<ul>
+ <li>
+  The OCL syntax seems rather unusual at first, but is actually fairly
+  simple. The language uses a number of operators (like "=", "&lt;", and "->")
+  and a reasonable set of built-in oprations (like "parts( )",
+  "select( )", and "forAll( )"). Most of the extensions in GME are actually used
+  to navigate the GME model tree. With moderate practice in understanding
+  operators, expressions can easily be read as natural-language predicates or
+  sentences.
+ <li>
+  OCL is purely functional. In other words, the only product of an operation or feature call is
+  its return value. There are no variable assigments or other side effects.
+  Long expression chains and function call sequences are typical
+  characteristics of functional languages.
+ <li>
+  Expressions at the top level of a statement are always of boolean type, but
+  subexpressions can be strings, integers, booleans, FCOs, folders, or
+  collections (Sets, Bags, Sequences) of these types.
+ <li>
+  Feature calls in expression chains are applied to the result of the subexpression
+  that precedes the "->" or "." operator. Expressions have an implicit object
+  that serves as their context and their default argument. This object is
+  always the one that the constraint is attached to (in this case, the
+  Fusebox). It serves as the default context of (sub)expressions if nothing
+  else is specified. So "<i><tt>self.parts( Fuse )</tt></i>" selects children of the
+  current fusebox, but "<i><tt>b.color</tt></i>" specifies another
+  object - the one temporarily referred to as "b" - so the current model is not
+  used.
+</ul>
+
+See Appendix B (the OCL language summary) in the GME Users Manual for
+a detailed definition of the GME OCL language.
+<p>
+
+There is a simple mechanical way to convert OCL expressions into grammatically
+correct natural language predicates, although the resulting sentence may be
+rather hard to understand. This is mainly because natural languages do not have
+good "bracketing" mechanisms. For example, "<i>this dwarf is sleepy or hungry
+and angry</i>" may translate to either <i>"(sleepy or hungry) and angry</i>",
+or "<i>sleepy or (hungry and angry)</i>" ). For the same reason, converting
+natural language predicates into OCL is not a straightforward task, althought OCL
+uses the usual precedence and associativity rules of operators and expressions.
+<p><br>
+
+
+<b><u>6.2.2 A constraint example</u></b>
+<p>
+
+
+
+<!-- ***** RESUME EDITING HERE!! ***** -->
+<!-- ***** RESUME EDITING HERE!! ***** -->
+<!-- ***** RESUME EDITING HERE!! ***** -->
+<!-- ***** RESUME EDITING HERE!! ***** -->
+<!-- ***** RESUME EDITING HERE!! ***** -->
+
+
+
+
+The process of creating a constraint will be illustrated with the networking
+example. Let us consider the following problem: The modeling environment
+introduced Perimeters to represent "central" or "backbone" Networks in
+lower-level diagrams. So far, however, nothing has kept the user of the
+modeling environment from connecting a Perimeter to a Network in the same
+diagram. This is clearly not what Perimeters should be used for. Let's see if a
+constraint will help us solve the problem. The natural language constraint
+predicate would look something like this:
+<p>
+
+<i>"For all network equivalence relationships, the parent of the source
+Perimeter must be a sibling of the destination."</i>
+<p>
+
+We can simplify the language by avoiding the use of the "sibling" predicate and
+getting rid of some unnecessary information. The result is:
+<p>
+
+<i>"For all network equivalence relationships, the parent of the parent of the
+source must be equal to the parent of the destination."</i>
+<p>
+
+The predicate now contains a very limited set of functions:
+
+<ul>
+ <li>
+  selection of a group of objects by kind/role
+ <li>
+  "for all" iterator
+ <li>
+  accessing the source, destination and parent</li>
+ <li>
+  comparison of objects
+</ul>
+
+Since the OCL reference contains functions for all of these concepts, the first
+OCL constraint can be assembled:
+
+<b><tt><blockquote>
+<dl>
+ <dt>
+  self.attachingConnections( EquivalenceConn )->forAll( c |
+ <dd>
+  c.connectionPoints( "src" )->theOnly().target().parent().parent() =
+  <br>c.connectionPoints( "dst" )->theOnly().target().parent()
+</dl>
+</blockquote></tt></b>
+
+This OCL expression will now be used as a constraint.
+<p><br>
+
+
+<b><u>6.2.3 Designing a constraint</u></b>
+<p>
+
+An OCL expression becomes a constraint when it is specified in the metamodel
+along with some important additional information.
+
+First of all, we need to choose which metaobject the constraint should be
+attached to. Since a constraint usually specifies the configuration of several
+objects, this is not always a trivial decision, although the complexity of the
+constraint expression often varies depending on the object to which it is
+assigned. As a general rule, <i>a constraint should be bound to the object
+around which the problem is centered</i>. In the networking example, the
+problem focuses on the equivalence connection (NetworkEquiv) itself. From the
+perspective of the connection, the OCL expression looks simpler:
+
+<a name="MCLexp"></a>
+<blockquote><tt><b>
+self.connectionPoints( "src" )->theOnly().target().parent().parent() =
+<br>self.connectionPoints( "dst" )->theOnly().target().parent()
+</b></tt></blockquote>
+
+The automatic simplifying of the expression is a good indication that our
+choice for the attached object is the right one.
+<p>
+
+Next, we must determine when a constraint needs to be checked. Optimally,
+constraints should be checked on the fly, whenever a possibly relevant change
+occurs. Since the constraint translates into a constraint-checking algorithm
+which needs to be run in order to do the test, continuous checking is not
+possible (or, at the very least, not efficient). Instead, the metamodeler
+should specify the particular operations during which this constraint could be
+violated. GME classifies all modifying operations into the following
+categories.
+<p><br>
+
+
+<center>
+<table BORDER="1" WIDTH="704">
+  <caption>
+    <b>Constraint checking events, mnemonics and entries in the Constraint
+    attributes dialog</b>
+  </caption>
+  <tr>
+    <td width="308" bgcolor="#000080"><font color="#FFFFCC"><b>Description</b></font></td>
+    <td width="224" bgcolor="#000080"><font color="#FFFFCC"><b>Event ID</b></font></td>
+    <td width="152" bgcolor="#000080"><font color="#FFFFCC"><b>Attribute name</b></font></td>
+  </tr>
+  <tr>
+    <td width="308">close event: GME close model</td>
+    <td width="224">OBJEVENT_CLOSEMODEL</td>
+    <td width="152">On close model</td>
+  </tr>
+  <tr>
+    <td width="308">The object has been created</td>
+    <td width="224">OBJEVENT_CREATED</td>
+    <td width="152">On create</td>
+  </tr>
+  <tr>
+    <td width="308">The object has been destroyed <br>(limited access is available)</td>
+    <td width="224">OBJEVENT_DESTROYED</td>
+    <td width="152">On delete</td>
+  </tr>
+  <tr>
+    <td width="308">A new child added</td>
+    <td width="224">OBJEVENT_NEWCHILD</td>
+    <td width="152">On new child</td>
+  </tr>
+  <tr>
+    <td width="308">A child removed/ moved away</td>
+    <td width="224">OBJEVENT_LOSTCHILD</td>
+    <td width="152">On lost child</td>
+  </tr>
+  <tr>
+    <td width="308">Object has been moved</td>
+    <td width="224">OBJEVENT_PARENT</td>
+    <td width="152">On move</td>
+  </tr>
+  <tr>
+    <td width="308">Subtype, instance created</td>
+    <td width="224">OBJEVENT_SUBT_INST</td>
+    <td width="152">On derive</td>
+  </tr>
+  <tr>
+    <td width="308">object has been connected</td>
+    <td width="224">OBJEVENT_CONNECTED</td>
+    <td width="152">On connect</td>
+  </tr>
+  <tr>
+    <td width="308">object has been disconnected</td>
+    <td width="224">OBJEVENT_DISCONNECTED</td>
+    <td width="152">On disconnect</td>
+  </tr>
+  <tr>
+    <td width="308">Name, etc. has been changed</td>
+    <td width="224">OBJEVENT_PROPERTIES</td>
+    <td width="152">On change attribute</td>
+  </tr>
+  <tr>
+    <td width="308">Attribute changed</td>
+    <td width="224">OBJEVENT_ATTR</td>
+    <td width="152">On change property</td>
+  </tr>
+  <tr>
+    <td width="308">ref pointer, set member, conn endpoint change</td>
+    <td width="224">OBJEVENT_RELATION</td>
+    <td width="152">On change assoc.</td>
+  </tr>
+  <tr>
+    <td width="308">object has been referenced</td>
+    <td width="224">OBJEVENT_REFERENCED</td>
+    <td width="152">On refer</td>
+  </tr>
+  <tr>
+    <td width="308">object reference has been released</td>
+    <td width="224">OBJEVENT_REFRELEASED</td>
+    <td width="152">On unrefer</td>
+  </tr>
+  <tr>
+    <td width="308">object has been included in set</td>
+    <td width="224">OBJEVENT_SETINCLUDED</td>
+    <td width="152">On include in set</td>
+  </tr>
+  <tr>
+    <td width="308">object has been excluded from set</td>
+    <td width="224">OBJEVENT_SETEXCLUDED</td>
+    <td width="152">On exclude from set</td>
+  </tr>
+  <tr>
+    <td width="308">Registry changed</td>
+    <td width="224">OBJEVENT_REGISTRY</td>
+    <td width="152">N/A</td>
+  </tr>
+  <tr>
+    <td width="308">Basetype relation broken/added (???)</td>
+    <td width="224">OBJEVENT_BASE</td>
+    <td width="152">N/A</td>
+  </tr>
+  <tr>
+    <td width="308">Anything under the object "Position" regnode</td>
+    <td width="224">OBJEVENT_POSITION</td>
+    <td width="152">N/A</td>
+  </tr>
+</table>
+</center>
+<p><br>
+
+
+These events can be selected or deselected in the Attributes dialog for
+Constraint objects in the metamodeling environment (Fig 6.2).
+<p>
+
+According to the list, OBJEVENT_RELATION seems to be the most suitable
+operation. This event occurs when a new connection is created, or when an
+existing one is modified. (It is also triggered if any of the target objects is
+moved in the modeling hierarchy.)
+<p>
+
+A third piece of information to specify is the <i>scope</i> (or <i>depth</i>)
+of the constraint. Sometimes the event is not generated for the object that the
+constraint belongs to, but to a descendant of that object. An example of this
+situation is when a constraint is attached to a model, which mandates some
+specific attribute configuration for the children of the model (e.g. "order
+number is unique for each child"). The events are generated for the children,
+while the constraint is associated with the model (it could also be associated
+with the children, but that may result in a clumsier constraint expression).
+<p>
+
+Depth has 3 possible values:
+
+<ol>
+ <li>
+  0 - the event must be generated in the the constraint owner in order to check
+  the constraint.
+ <li>
+  1 - the constraint is checked if the event is generated in either the
+  constraint owner object or any of its immediate children.
+ <li>
+  "Any" - the event may be sent to any of the descendants of the constraint
+  owner (including itself) for the constraint to be checked.
+</ol>
+
+If a constraint is attached to a non-container (anything other than a model or
+folder), the depth setting does not matter.
+<p>
+
+Our final task is deciding what to do if a constraint check fails. These actions
+are specified through <i>constraint priority</i>, which also determines the
+order of constraint tests so that grave violations can be dealt with before the
+less serious ones. Priorities range from 1 (highest) to 10 (lowest). A priority
+of 1 means that the constraint is enforced; if a violation takes place, it must
+be dealt with. Lower priorities are given to "informational" constraints, where
+the user can ignore the violation if desired.
+<p>
+
+Generally, a constraint should be informational if it may produce false alarms,
+or if there are certain situations in which the constraint may be legally
+violated (for example, a new object with a non-zero multiplicity is created and
+is not yet connected to anything). Also, constraints fired at the "close model"
+phase should be strictly informational.
+<p>
+
+In the networking example, there is no compelling reason to be tolerant;
+therefore, the highest priority will be specified.
+</ol>
+<p><br>
+
+
+<b><u>6.2.4 Adding a constraint to the metamodel</u></b>
+<p>
+
+We now have enough information to be able to add the first constraint to the
+networking metamodel (Fig 6.2):
+
+<ol>
+ <li>
+  Open the metamodel and the ParadigmSheet.
+ <li>
+  Switch to the "Constraints" aspect, and insert a constraint near the existing
+  metaentity named "NetworkEquiv". Associate the two objects by drawing a
+  connection between them.
+ <li>
+  Assign a name to the constraint, something like "EquivPointsToUpperLevel".
+  Open the attributes dialog, and enter the OCL expression as seen
+  <a href="#MCLexp">above</a>. Click the checkbox for the "On change assoc"
+  event, and set Priority to "1". Depth is irrelevant in this case, although 0
+  is the logical choice. The description should be something similar to
+  "NetworkEquiv relation must point to object at a higher level." (The default
+  parameter Attribute is only used for constraint functions, which are not
+  covered by this tutorial.)
+ <li>
+  The metamodel has been successfully updated; interpret and register the new
+  paradigm.
+</ol>
+<p><br>
+
+
+<center>
+<img SRC="L6/F2/Fig6_2.png">
+<br><b>Fig 6.2 Specifying a constraint in the <a href="L6/F2/networking.xme"> metamodel</a></b>
+</center>
+<p><br>
+
+
+Open a network diagram and update the paradigm, either directly or through XML
+export/import. When the File/Register Components... dialog is opened, we see
+that the constraint manager has been activated (<b>!</b>). Test the constraint
+by attempting to connect Perimeters and Networks in the "right" way and the
+"wrong" way. Also, try moving either end of the connection to see if the model
+behaves as expected.
+<p>
+
+This constraint was the first to be added to the model, but it is certainly not
+the only possible one. Challenge yourself by creating extra constraints that
+fulfill the following requirements:
+
+<ul>
+ <li>
+  Every router has at least one Ethernet port.
+ <li>
+  No two hosts are allowed to have the same IP address.
+ <li>
+  Every diagram, except the root diagram, must have at least one Perimeter
+  object.
+</ul>
+<p><br>
+
+
+<center>
+<hr width="80%">
+<table><tr><td>
+<a href="Lesson5.html">&lt;&lt; Previous Lesson</a>
+</td><td width=50></td><td>
+<a href="index.html#toc">Complete List</a>
+</td><td width=50></td><td>
+<a href="Lesson7.html">Next Lesson >></a>
+</td></tr></table>
+</center>
+
+</body>
+</html>

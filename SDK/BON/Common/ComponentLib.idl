@@ -1,0 +1,34 @@
+import "oaidl.idl";
+import "ocidl.idl";
+
+#include "ComponentConfig.h"
+#include "InterfaceColl.h"
+
+import "core.idl";
+import "mga.idl";
+
+[
+	uuid(TYPELIB_UUID),
+	version(1.0),
+	helpstring(TYPELIB_NAME)
+]
+library MgaComponentLib
+{
+	importlib("stdole32.tlb");
+	importlib("core.dll");
+	importlib("meta.dll");
+	importlib("mga.dll");
+
+	[
+		uuid(COCLASS_UUID),
+		helpstring(COCLASS_NAME)
+	]
+	coclass MgaComponent
+	{
+		[default] interface IMgaComponentEx;
+		interface IMgaComponent;
+		interface IGMEVersionInfo;
+	};
+};
+
+

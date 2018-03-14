@@ -1,0 +1,19 @@
+[!if COMPONENT_FRAMEWORK == "RAW"]
+RawComponent.cpp
+RawComponent.h
+[!endif]
+[!if COMPONENT_FRAMEWORK == "BON"]
+BONComponent.cpp
+BONComponent.h
+[!endif]
+[!if COMPONENT_FRAMEWORK == "BON2"]
+BON2Component.cpp
+BON2Component.h
+[!endif]
+CompIcon.ico
+Component.def
+Component.rc
+ComponentConfig.h
+Resource.h
+StdAfx.cpp
+StdAfx.h

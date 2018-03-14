@@ -1,0 +1,37 @@
+[!if COMPONENT_FRAMEWORK == "BON"]
+Builder.h
+Builder.cpp
+[!endif]
+[!if COMPONENT_FRAMEWORK == "BON2"]
+MON.h
+MON.cpp
+MONImpl.h
+MONImpl.cpp
+BON.h
+BON.cpp
+BONImpl.h
+BONImpl.cpp
+Common.h
+Common.cpp
+Events.h
+Events.cpp
+Extensions.h
+Extensions.cpp
+Utils.h
+Utils.cpp
+[!endif]
+ComHelp.h
+ComHelp.cpp
+ComponentDll.h
+ComponentDll.cpp
+ComponentLib.idl
+ComponentObj.h
+ComponentObj.cpp
+Console.h
+Console.cpp
+Exceptions.h
+Exceptions.cpp
+Formatter.h
+Formatter.cpp
+GMECOM.H
+targetver.h

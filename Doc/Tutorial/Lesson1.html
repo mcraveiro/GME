@@ -1,0 +1,1002 @@
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="Author" content="Arpad Bakay">
+   <meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+   <title>Lesson 1 -- Creating the First Paradigm and Model</title>
+</head>
+<body text="#000066" 
+      bgcolor="#FFFFCC" 
+      link="#0000EE" 
+      vlink="#551A8B" 
+      alink="#FF0000">
+
+<center>
+<b><u><font size=+2>Lesson 1
+<br>Creating the First Paradigm and Model
+</font></u></b>
+</center>
+<p>
+
+<br><a href="#intro">Introduction to Lesson 1</a>
+<br><a href="#1.1">1.1 GME and the modeling process</a>
+<br><a href="#1.2">1.2 Creating a metamodel</a>
+<br><a href="#1.3">1.3 Creating the first model</a>
+<br><a href="#1.4">1.4 Enhancing the metamodel and the model icons</a>
+<p><br>
+
+
+<a name="intro"></a>
+<b><u><font size=+1>Introduction to Lesson 1</font></u></b>
+<p>
+
+In this first lesson, you will configure GME to allow the drawing of basic 
+diagrams for a specific application domain. Later lessons will show you how to 
+extend the project with more advanced features.
+<p>
+
+The application domain throughout this tutorial is that of networking systems: 
+routers, networked computers, and other devices, as well as the connections 
+between these devices. Your application domain is probably quite different from 
+this one, but looking at a specific domain as an example is probably the best 
+way to help you identify the main steps of modeling and learn the techniques of 
+customizing GME. There are some sections that describe the details of 
+networking, and serve as "theoretical backgrounds" for accomplishing a certain 
+task in GME in a particular way. <font color="#FF0000"><i>Those sections appear 
+in red italics.</i></font> If you are not familiar with networking, you may find 
+them irrelevant or hard to understand. Feel free to skim or even skip them, and 
+focus on the rest of the tutorial, which deals with the more practical aspects 
+of GME.
+<p>
+
+This tutorial provides enough information to give the average user a 
+well-developed understanding of GME, without having to rely on extra 
+documentation. Of course, to gain a deeper understanding of GME and to learn all 
+of its features, you will need to consult the GME Users Manual as well.
+<p><br>
+
+
+<hr width="80%">
+<br><a name="1.1"></a>
+<b><u><font size=+1>1.1 GME and the modeling process</font></u></b>
+<p>
+
+GME is a generic, configurable modeling environment. In other words, the 
+configuration of GME is not an option; it is the first step that must be 
+taken before anything meaningful can be done with it. The configuration process 
+itself is also a form of modeling - the modeling of a modeling process. This is 
+called <b><i>metamodeling</i></b>. The output of the metamodeling process is a 
+compiled set of rules, the <b><i>paradigm</i></b>, that configures GME for a 
+specific application domain.
+<p>
+
+Does everyone need to be a metamodeling expert to use GME? Of course not. 
+Normally, only a few people participate in the metamodeling process. By contrast, 
+there are numerous <i>users</i> of the configured environment. The users do not 
+need to know much about metamodeling; what they see is a graphical tool with 
+editing capabilities that is already customized for their domain. The main 
+advantage of model-integrated computing is that the work of the users is guided 
+by the modeling environment.
+<p>
+
+This tutorial is written for those who are interested in metamodeling and 
+customization. The majority of the tutorial deals specifically with metamodeling 
+issues; examples of customized environments are usually explained in much less 
+detail. Remember, the metamodeling environment itself is also based on GME. 
+So while acting as a metamodeler, you are also a user of the customized 
+environment of GME, based on its <b><i>meta-paradigm</i></b>. By the time you 
+begin to build models, you will have already had plenty of practice simply by 
+using the metamodeling environment!
+<p><br>
+
+
+<a NAME="specification"></a>
+<b><u>1.1.1 Problem specification</u></b>
+<p>
+
+The first thing that a metamodeling expert needs is a specification (or at least 
+some vague idea) of the modeling application to be implemented. This typically 
+comes in a natural-language description. As an example, the proposed network 
+modeling application is described below:
+<p>
+
+<i><font color="#FF0000">
+"We want to create networking diagrams. The diagrams will contain routers. Each 
+router has several router-ports. We also have hosts (e.g. servers). We want to 
+connect router-ports and hosts to form networks.
+<p>
+
+"Routers are identified by name and family. Name is a string, family is one of 
+the following: "C16xx", "C25xx", "C36xx", or "Linux" [i.e. we have Cisco and 
+Linux routers]. Ports are identified by portname, IP address, speed (in kbps), 
+and type (which is either "HDLC", "PPP" or "Ethernet").
+<p>
+
+"Hosts are identified by name and address (for now, they all have a single 
+Ethernet port). Networks are identified by a network address and a netmask."
+</font></i>
+<p><br>
+
+
+<b><u>1.1.2 The modeling approach</u></b>
+<p>
+
+We now have a description of the concepts to be modeled using the GME 
+metamodeling environment. The modeling technique we are using is the well-known 
+and widely accepted <b><i>Unified Modeling Technology</i></b>, especially a 
+specific subset called <b><i>UML Class Diagrams</i></b>.
+<p>
+
+The most basic step in the metamodeling process consists of determining two 
+things: the <b><i>entities</i></b> used by the model, and the 
+<b><i>relations</i></b> between them. Information used to identify and qualify 
+certain entities and relations will be assigned to them as 
+<b><i>attributes</i></b>. Metamodeling, in a nutshell, is the <i>mapping of 
+specification concepts onto entities, relations and attributes</i>.
+<p>
+
+We have been given the specification. Now let's describe the modeling paradigm:
+
+<ul>
+ <li>
+  "Router", "network", and "host" can easily be modeled as entities. 
+  "Router-port" is also an entity, one that is always associated with (i.e. 
+  contained by) a router.
+ <li>
+  The model will contain two different types of relations: one that represents 
+  connections between a network and a router-port or host (<i>association</i>), 
+  and one that links a router to its router-ports (<i>containment</i>). The main 
+  difference between containment and association is that contained entities are 
+  "owned" by their containers, and the contained entity cannot exist without its 
+  container.
+ <li>
+  Certain entities have specific attributes. All of the attributes are mentioned 
+  in the specification, such as "name" and "family" for the "router" entity.
+</ul>
+
+Luckily for us, the networking specification in this example turned out to be 
+brief and fairly precise. It often takes much more to extract the essence of the 
+customer's ideas.
+<p><br>
+
+
+<b><u>1.1.3 Generic modeling concepts in GME</u></b>
+<p>
+
+GME supports a set of generic modeling concepts that are variations of the 
+UMT entities, relationships, and attributes. The differences reside partly in 
+the nomenclature and partly in additional features, semantics, and constraints 
+which are expected to guide and simplify the metamodeling process.
+
+<ul>
+ <li>
+  <b><i>Atoms</i></b> are a basic, limited type of entity. The name "atom" 
+  indicates that it has no internal structure (i.e. contained objects). Every 
+  feature of an atom that can be represented in a model is contained in the 
+  atom's name, attributes, and the relations it participates in.
+ <li>
+  <b><i>Models</i></b>, the second generic type of entity, are very similar to 
+  atoms. The main difference lies in the ability of models to <i>contain</i> 
+  atoms, other models, and other types of objects. Thus, models have internal 
+  structure. When viewed together, they form tree-like <i>containment 
+  hierarchies</i> of entities. Models can be 
+  <i>opened</i>, showing a diagram of their internal structure (Fig 1.2).
+  <br>* Please note that - mostly for historical reasons - the term <i>model</i> 
+  has a double meaning in GME: it denotes either the full description of 
+  something (the artifact of a modeling project) or a model entity located 
+  somewhere in a containment hierarchy of entities.
+ <li>
+  <b><i>Connections</i></b> are the primary concepts that represent 
+  relationships. Connections normally describe a relation between two objects, 
+  and this relation is represented as a line in a particular color and style 
+  connecting the two objects. Connections can also have their own attributes.
+ <li>
+  There are two other important generic concepts, <b><i>references</i></b> and 
+  <b><i>sets</i></b>. A reference is an entity with a built-in association for a 
+  single object. This association allows it to act like a pointer or an alias 
+  for that object. A set forms an association between several similar objects. 
+  Sets are often thought of as collections or categories. Both references and 
+  sets are introduced later, in <a href="Lesson4.html">Lesson 4</a>.
+</ul>
+
+The concepts listed above form the core of the GME concepts used to 
+represent entities and relations. They are commonly called First Class Objects, 
+or FCOs, emphasizing their central role in any modeling project. Other important 
+GME concepts are listed below:
+
+<ul>
+ <li>
+  <b><i>Attributes</i></b> correspond to the UMT attribute concept. Attributes 
+  are "bound" to FCOs and are used to store information in an FCO. In GME, 
+  attributes can contain text, integers, real numbers, or boolean values.
+ <li>
+  <b><i>Folders</i></b> are containers for different sections of a modeling 
+  project, just like a directory structure in a file system. Folders are 
+  auxiliary objects (compared with models, which are considered "true" modeling 
+  concepts), and are used merely for organization. Each modeling project 
+  contains at least one folder, called the <i>root folder</i>, located at the 
+  very top of the hierarchy. For the purposes of this tutorial, we will use only 
+  the root folder until <a href="Lesson5.html">Lesson 5</a>, where a detailed 
+  introduction to folders is provided.
+ <li>
+  <b><i>Aspects</i></b> represent different "views" of the structure of a model. 
+  It is not always beneficial to present every object contained in a model all 
+  at once; aspects allow us to choose what we want to see. A model with several 
+  aspects will display different subsets of its contained entities depending on 
+  the aspect selected. See <a href="Lesson5.html">Lesson 5</a> for details.
+ <li>
+  <b><i>Constraints</i></b> are validity rules applied to a model. They are 
+  expressed in OCL, a predicate language. Constraints differ from the 
+  declarative composition rules that result from the paradigm definition, but 
+  both must be satisfied in a model. Constraints can be checked on-line (while 
+  the model is being built), or in on-demand mode. For more information on 
+  constraints, read <a href="Lesson6.html">Lesson 6</a>.
+</ul>
+
+During the metamodeling process, a suitable GME concept (FCO) is chosen to 
+represent each of the real-world concepts that appear in the specification. A 
+set of GME meta-datatypes, or <i>kinds</i>, are established. Each defines a 
+set of attributes, composition rules, association options, constraints, etc. The 
+generic GME FCO (model, reference, etc.) that is selected for an entity or 
+association kind (such as a router, or network connection) is called its 
+<i>stereotype</i>.
+<p><br>
+
+
+<hr width="80%">
+<br><a name="1.2"></a>
+<b><u><font size=+1>1.2 Creating a metamodel</font></u></b>
+<p>
+
+Now that the theoretical process of metamodeling has been described, let us see 
+how the process is conducted in practice. You can follow the instructions below 
+to create a metamodel for the networking application example, or you can adapt 
+the instructions for a separate modeling problem and begin implementing your own 
+customized GME environment.
+<p><br>
+
+
+<b><u>1.2.1 Creating a new metamodeling project</u></b>
+<p>
+
+Start GME, and select "File/New Project...". A dialog box pops up to let 
+you choose the paradigm the new project will be based on. Since we are creating 
+a metamodel, the paradigm will be "<b>MetaGME</b>". Select it and press the 
+"<b>Create New...</b>" button. The next dialog asks you to specify the data 
+storage. Simple models are usually stored in project files.
+<p>
+
+After clicking "<b>Next</b>", a file dialog asks you to name a project file. The 
+standard extension is "<tt>.mga</tt>". Specify a name (like 
+"<tt>networking.mga</tt>") and press OK.
+<p>
+
+GME has now created and opened an empty project. The project is named 
+"networking" and is associated with the MetaGME paradigm, the GME 
+built-in metamodeling paradigm that configures the environment for use as a 
+metamodeling tool. Note that the project is not completely empty: it contains a 
+root folder, also named "networking".
+<p><br>
+
+
+<b><u>1.2.2 Creating a paradigm sheet.</u></b>
+<p>
+
+Right click on the root folder in the Browser window (the one usually docked at 
+the right side), and select the single option "ParadigmSheet" within the "Insert 
+New Model" option. A new object named NewParadigmSheet is created under the root. 
+Double click to open it. A white window appears in the user area (Fig 1.1). This 
+window displays the empty contents of the NewParadigmSheet model, which serves as 
+the all-enclosing drawing board for your class (i.e. entity) diagram. The header 
+of the window contains the following:
+
+<ul>
+ <li>
+  An editable field for the name of the model, showing its kindname as a default.
+ <li>
+  The kindname (in this case, ParadigmSheet).
+ <li>
+  A selection list with all valid aspects for the model, The current aspect is 
+  displayed.
+ <li>
+  The base type of the model, if any (see <a href="Lesson5.html">Lesson 5</a> 
+  for details).
+</ul>
+
+For a while, this will be the only paradigm sheet of the metamodel, so 
+doubleclick its header to maximize it.
+<p><br>
+
+
+<center>
+<img SRC="L1/F1/Fig1_1.png">
+<br><b>Fig 1.1 GME <a href="L1/F1/networking.xme"> metamodel</a> with an empty paradigm sheet</b>
+</center>
+<p><br>
+
+
+<b><u>1.2.3 Defining entities.</u></b>
+<p>
+
+Make sure the current aspect is "ClassDiagram". The Part Browser, a small window 
+in the lower left portion of the program, displays the selection of objects that 
+can be inserted into the model in its current aspect. Drag a "Model" from the 
+Part Browser onto the main window. This will be the entity that represents a 
+router. Give it the name "Router" by selecting it and clicking the topmost input 
+field in the Attributes/Preferences/Properties window (located in the lower right section 
+of the program). The generic GME concept "model" - indicated by 
+<b>&lt;&lt;Model>></b> in the defining class - is the stereotype for routers. 
+Therefore, since routers are models, they can contain other objects (i.e. router-ports).
+<p>
+
+Now create three <b>&lt;&lt;Atom>></b> classes, and name them "Port", "Host" and 
+"Network". The relations will be represented by connection entities, so create a 
+<b>&lt;&lt;Connection>></b> object and let it keep the default name 
+"Connection". (This is an example of an <i>overloaded name</i>: a connection 
+entity represents a relationship which happens to be called "Connection" in the 
+networking paradigm.)
+<p>
+
+We have created five entities so far, but we still need a couple more. First, we 
+must add something to act as a base container for the routers, networks, hosts, 
+and their relations. This will be a <b>&lt;&lt;Model>></b> named "NetDiagram"; 
+add it to the metamodel.
+<p>
+
+Now we need just one more class: a generic entity that represents "anything that 
+can be directly connected to a network" (i.e. router-ports and hosts). The 
+modeling environment should not allow this object to be directly created. 
+Therefore, it must take the form of an <b><i>abstract baseclass</i></b> for
+router-ports and hosts. Create it as an <b>&lt;&lt;FCO>></b> and name it 
+"NetInterface", because it essentially represents anything that incorporates a 
+network interface.
+<p>
+
+Our paradigm sheet now contains all seven necessary entities: two models, three 
+atoms, a connection, and an FCO.
+<p><br>
+
+
+<b><u>1.2.4 Generalization, containment, and association.</u></b>
+<p>
+
+The next step is to indicate relationships between entities. Relationships are 
+represented by lines, so switch the editor mode to "Add Connection" ( <img 
+SRC="Icons/AddConnMode.png" align=top> ).
+<p>
+
+Let us start with NetInterface. We want to show that Ports and Hosts are 
+NetInterfaces; in other words, they <i>implement</i> NetInterface. The UML 
+notation for this is a line connecting the subclasses to the baseclass, passing 
+through a small triangle that points to the baseclass. In the Part Browser, 
+locate a small triangle named "Inheritance" and drag it onto the user area.
+Since we won't refer to this object directly it 
+does not need to have a specific name. Click NetInterface, and make sure the cursor is changed to <img 
+SRC="Icons/ConnCursor2.gif" align=top>. Click the triangle, and <i>VOILA!</i> - 
+the first connection is drawn! Now connect the triangle to the subclasses. Do 
+this by clicking the triangle first; this tells GME which object is the base
+class and which are the derived classes in the inheritance. We now have a UML 
+generalization relationship, just like the one shown in Fig 1.2.<p>
+
+Routers <i>contain</i> ports; this will be the second type of relationship we 
+implement. The UML notation for containment is a line connecting an object to 
+its container, with a small black diamond on the "container" end of the line. 
+Containment is easier to draw than inheritance; no triangles are involved. Just 
+click the <i>contained</i> object first (remain in "Add Connection" mode, <img 
+SRC="Icons/AddConnMode.png" align=top> ), and the <i>container</i> second.
+Whenever your coursor is above an object that can be a candidate for a
+connection, the border of&nbsp; the object gets red. Moreover, when the cursor
+is near one of the side lines of the box, a little red square will appear in the
+midpoint of the line. This indicates that the user is able to enforce the
+location of the connection line attached to the box. If you chose one of the
+side lines to create the connection, GME will always draw the connection
+from that side, even if the object is moved from its place. If you simply click
+in the middle of the object, GME will always try to find the best routing
+for drawing the line representing the connection. Near 
+the end connected to the contained class, the multiplicity "<tt>0..*</tt>" is 
+displayed. We will leave this alone for now.
+<p>
+
+Do not forget that there are more containment relationships to be defined: 
+Routers, Hosts, and Networks are contained by NetDiagrams. GME also requires 
+that relationships (or connections) are contained somewhere, so add a 
+containment relationship between Connections and NetDiagrams as well.
+<p>
+
+If the containment lines in our metamodel look like those in Fig 1.2, we are 
+ready to move on to the third and final type of relationship: associations.
+<p>
+
+We have already defined the association class, "Connection", but we still need 
+to indicate what objects this relationship can associate. This is a ternary 
+relation between the association class and the two endpoints of the association, 
+so another helping object, a small black dot ( <img SRC="Icons/ConnectorDot.gif" 
+align=top> ), must be used. Drag it onto the diagram from the Part Browser.
+The connection source will be router-ports and hosts. Only one 
+source can be specified for each connection, but we can get around this by using 
+the common baseclass, NetInterface, to represent both sources. Connect 
+NetInterface to the connector dot. The line displays "<tt>src</tt>" as the role, 
+and "<tt>0..*</tt>" as the multiplicity at its NetInterface end..
+<p>
+
+Now specify the destination: first click the connector dot, and then the 
+"Network" class. The association class, "Connection", is the third leg of the 
+association relationship. When you connect this class to the connector dot (in 
+any order), GME displays a window asking you to clarify the role of this 
+relation. Select "Association Class" here.
+<p>
+
+We have now defined all three basic UML relations: generalization, containment 
+and association (Fig 1.2).
+<p><br>
+
+
+<center>
+<img SRC="L1/F2/Fig1_2.png">
+<br><b>Fig 1.2 <a href="L1/F2/networking.xme"> Class diagram</a> with entities and relationships</b>
+</center>
+<p><br>
+
+
+<b><u>1.2.5 A visit to the "Attributes" window</u></b>
+<p>
+
+The UML class diagram looks ready, but there is still one more thing to do.
+<p>
+
+The Attributes/PreferencesProperties window is located in the lower right corner of the 
+screen, and shows the attributes, user preferences and properties of the currently selected 
+object. This window has three panes; select the "Attributes" tab to expose the 
+attributes. Here is a quick list of the metaparadigm entity attributes we will 
+encounter:
+
+<ul>
+ <li>
+  <b>Abstract?</b> <i>(Boolean)</i>:
+  Abstract entities are only used as generalizations of other (non-abstract) 
+  entities. They cannot be instantiated as objects in the models and are only 
+  used for metamodeling purposes. We have already created an abstract entity, 
+  NetInterface. Entities with an <b>&lt;&lt;FCO>></b> stereotype must be set 
+  always abstract, because an FCO ("First Class Object") itself is an abstract 
+  generalization of models, atoms, connections, references, and sets.
+ <li>
+  <b>In root folder?</b> <i>(Boolean)</i>:
+  The root folder can contain models (and other folders, as we will see later). 
+  Normally, not all of the models in a metamodel will be contained in a folder. 
+  In this case, we only want to place NetDiagrams in the root folder. Routers 
+  should not be placed there, because they must always be assigned to a 
+  NetDiagram.
+ <li>
+  <b>General preferences</b> <i>(text field)</i>:
+  This is a "catch-all" place, where we can specify all kinds of additional 
+  options. Examples will be mentioned in later lessons.
+ <li>
+  <b>Icon name/Port icon name</b> <i>(strings)</i>:
+  Atoms and models can have a customized bitmap icon that is displayed in the 
+  modeling environment. Furthermore, "ports" (a contained object that can be 
+  connected to entities outside its container) are displayed as miniature icons 
+  atop the parent icon when viewed from the "grandparent" model. These are the 
+  "port icons" and are specified as a separate attribute.
+ <li>
+  <b>Name position</b> <i>(list of options)</i>:
+  The default physical location of the name of the object, in relation to its 
+  icon.
+</ul>
+
+<b>Note:</b> Connections have several additional attributes concerning line 
+styles and labels. See the Users Manual for details.
+<p>
+
+Attributes have a default value that is defined in the model's paradigm (in this 
+case, the metamodeling paradigm). The default value is enabled if nothing else 
+is expressly set. The name of the attribute and the value of it are displayed
+gray until the user changes them indicating that the attribute's default value is
+used. Fortunately, most default 
+values are appropriate at this point. To practice working with attributes, we 
+will change only one: the "In root folder?" option in the "NetDiagram" entity. 
+We want to indicate that network diagrams can be directly created in the root 
+folder. Follow these steps (see Fig 1.3):
+
+<ol>
+ <li>
+  Click on the "NetDiagram" entity to display its attributes in the "Attributes" 
+  pane.
+ <li>
+  Locate the "In root folder?" attribute, select it and click the arrow on the
+  right side of the box. A list will appear where you can select
+  &quot;True&quot; or &quot;False&quot;.
+ <li>
+  Select &quot;True&quot;. The attribute will be displayed black, 
+  indicating that the attribute will now contain its own value instead of the 
+  paradigm-wide default.
+ <li>
+  Resume work on the metamodel by leaving the attributes pane; the changes are 
+  automatically recorded.
+</ol>
+<p><br>
+
+
+<center>
+<img SRC="L1/F3/Fig1_3.png">
+<br><b>Fig 1.3 The Attributes dialog pane</b>
+</center>
+<p><br>
+
+
+As mentioned above, relation entities can also possess attributes. Although this 
+feature is seldom used, our metamodel happens to require attributes for a 
+particular containment relationship. The Attribute pane for a connection may be 
+opened by selecting "Attributes" from its context menu (make sure you point 
+exactly at the connection line). Open the Attribute pane for the "Composition" 
+line between Router and Port. Change the value of the "Object is a port?" 
+attribute to &quot;True&quot;. This tells GME to treat Port objects as 
+<i>ports</i> of Routers; they are visible and accessible from outside the parent 
+model. The Attribute pane for relations also controls the association endpoint 
+names and multiplicities, or cardinalities. (The latter will be explained in 
+<a href="Lesson6.html">Lesson 6</a>).
+<p>
+
+The metamodel's UML Class Diagram part is now complete, but the rest of the 
+metamodel needs further adjustments. The remaining information can be entered 
+using the other three aspects of the NewParadigmSheet: Visualization, Constraints, 
+and Attributes. (Constraints will not be defined at this point in the tutorial, 
+so this aspect will be skipped for now.)
+<p><br>
+
+
+<b><u>1.2.6 Creating an Aspect</u></b>
+<p>
+
+A model must contain at least one aspect. Switch to the "Visualization" aspect 
+of the metamodel. (This is a good place to point out a key difference between 
+the metamodel and the model: the visualization aspect in the <i>metamodel</i> 
+allows us to define aspects for our <i>application</i>.) Drag an "Aspect" onto 
+the paradigm sheet. Name it "Connectivity" to distinguish it from other aspects 
+that we will create later.
+<p>
+
+Aspects are a type of <i>set</i>: the objects contained in this aspect are known 
+as its members. Switch to "Set Edit" editor mode ( <img SRC="Icons/SetMode.png" 
+align=top> ). Right-click the new aspect, and then include all other entities in 
+the diagram by left-clicking them. The result is shown in Fig 1.4.(You could include
+the NetInterface abstract base class, thus you would not be required to include the  
+classes derived from it.)
+<p><br>
+
+
+<center>
+<img SRC="L1/F4/Fig1_4.png">
+<br><b>Fig 1.4 Defining and populating an aspect in your <a href="L1/F4/networking.xme">metamodel</a></b>
+</center>
+<p><br>
+
+
+Membership in the aspect set indicates that every instance of a given
+meta-entity is visible in this aspect. We must
+also show that this aspect is contained in both of the models. A containment
+relationship will accomplish this; switch to "Add Connection" mode, and create
+containment connections from the aspect to both the Router and NetDiagram 
+models. 
+<p>
+
+We have succesfully created an aspect! Since the model contains only one aspect, 
+it might be difficult to understand why this step is even necessary. In 
+<a href="Lesson5.html">Lesson 5</a>, we will learn more about aspects and how 
+they function in a model.
+<p><br>
+
+
+<b><u>1.2.7 Specify attributes</u></b>
+<p>
+
+This is the last major step! Switch to the "Attributes" aspect. (As
+stated earlier, constraints are not used in this lesson).
+<p>
+
+Attributes are data fields of entities. The data fields are mentioned in the 
+<a href="#specification">specification</a>; some examples are name, type, IP 
+address, and speed. In the configured network modeling environment, attributes 
+for objects will be accessed in much the same way as Fig 1.3, which shows the 
+attributes of a UML class in the metamodel. (Make sure you understand the 
+difference between attributes of entities that are <i>used</i> in the metamodel, 
+and attributes of entities that your metamodel is expected to <i>define</i>!)
+<p>
+
+In standard UML class diagrams, attributes are defined in the lower half of the 
+class rectangle. GME also displays attributes on the class diagram, but they 
+are defined in a separate aspect. A connection relationship (which visually 
+resembles UML containment) is used to assign attributes to classes.
+<p>
+
+Let's start by creating attributes for the Router entity:
+
+<ol>
+ <li>
+  According to the specification, Router has two attributes: Name and Family. In 
+  GME, all objects have an automatically generated string property called 
+  "Name". This is a built-in attribute, typically used as the primary and 
+  individual (sometimes explicitly unique) identifier of the entity. In this 
+  case, the name of the router satisfies these criteria. Therefore, only one 
+  attribute, "Family", should be explicitly specified. The specification 
+  provides an enumerated set of options for Family, so this attribute will be an 
+  <b>&lt;&lt;EnumAttribute>></b>. Drag this object onto the paradigm sheet and 
+  name it "Family".
+ <li>
+  Through the context menu, open the Attributes dialog (i.e. the Attributes of 
+  an EnumAttribute meta-entity). All options shown in the dialog are listed 
+  below with brief descriptions and, if needed, the proper value for the 
+  "Family" attribute: 
+
+  <ul>
+   <li>
+    <b>Viewable? (Boolean)</b>: 
+    This specifies whether the attribute is visible in the attribute dialog. 
+    Normally it remains listed as the default value, true.
+   <li>
+    <b>Global Scope? (Boolean)</b>: 
+    Most attributes are defined in the global scope. Sometimes (with huge 
+    metamodels, for example) entity-specific attributes are</font> preferred. This is 
+    not the case now, so the default value - true - is appropriate.
+   <li>
+    <b>Prompt (string)</b>: 
+    This states the prompt displayed in the attribute dialog. In the default 
+    case, when nothing is specified, the prompt will be the name of the 
+    meta-entity. This is the best choice for "Family".
+   <li>
+    <b>Help (string)</b>: 
+    The string specified will be shown in the status bar of the Attribute 
+    window, when the user selects or edits this attribute. 
+   <li>
+    <b>Menu items (multiline string)</b>: 
+    This option only applies to <b>&lt;&lt;EnumAttribute>></b>s. The valid 
+    options of the attribute are listed here. Enter the choices from the 
+    specification ("C16xx", "C25xx", "C36xx" and "Linux") in the text area. 
+    Make sure each option is entered on a new line. You can add an additional 
+    option "Other", for unlisted types.
+   <li>
+    <b>DefaultMenuItem (string)</b>: 
+    The default value for this <b>&lt;&lt;EnumAttribute>></b> is listed here. 
+    Set it to "Other".
+  </ul>
+
+  The other two types of attributes, <b>&lt;&lt;FieldAttribute>></b> and 
+  <b>&lt;&lt;BooleanAttribute>></b>, have the following extra options:
+
+  <ul>
+   <li>
+    <b>Data type (enumeration)</b>: 
+    String, Integer, or Double
+   <li>
+    <b>Default (string)</b>: 
+    The default value for the attribute
+   <li>
+    <b>Number of lines (integer)</b>: 
+    The height of the input space (always set to 1 for Integers and Doubles)
+   <li>
+    <b>Default = 'True'? (Boolean)</b>: 
+    The default value setting for a <b>&lt;&lt;BooleanAttribute>></b>
+  </ul>
+
+ <li>
+  The Family attribute has now been perfectly defined, but it still must be 
+  associated with the meta-entity (or meta-entities) that will use it. Switch to 
+  "Add Connection" mode ( <img SRC="Icons/AddConnMode.png" align=top> ) and 
+  connect the new attribute to the Router entity. An attribute can be used in 
+  several entities by drawing multiple connections. This particular attribute is 
+  only used by Routers.
+</ol>
+
+We can now define the other attributes in a similar fashion. Generally, most 
+settings may be left in the default state, except for the data type of 
+<b>&lt;&lt;FieldAttribute>></b>s, menu item fields of 
+<b>&lt;&lt;EnumAttribute>></b>s, and default values for all attributes.
+<p>
+
+Create the following:
+
+<ul>
+ <li>
+  a <b>&lt;&lt;FieldAttribute>></b> named "IPAddress" 
+
+  <ul>
+   <li>
+    Data type: String
+   <li>
+    Default value: 0.0.0.0
+   <li>
+    Connected to the Port and Host meta-entities (Alternately, we could make use 
+    of the generalization relationship by connecting IPAddress to the 
+    NetInterface meta-entity. This would add the attribute to both Port and 
+    Host.)
+  </ul>
+
+ <li>
+  a <b>&lt;&lt;FieldAttribute>></b> named "IFSpeed" 
+
+  <ul>
+   <li>
+    Prompt: "Speed (kbps)" (This will indicate the proper units to the user.) 
+   <li>
+    Data type: Double
+   <li>
+    Default value: 0.0
+   <li>
+    Connected to the Port meta-entity
+  </ul>
+
+ <li>
+  an <b>&lt;&lt;EnumAttribute>></b> named "IFType" 
+
+  <ul>
+   <li>
+    Menu items: "Ethernet", "HDLC", and "PPP" 
+   <li>
+    Default value: any of the above
+   <li>
+    Connected to the Port metaentity
+  </ul>
+
+ <li>
+  two <b>&lt;&lt;FieldAttribute>></b>s named "NetworkAddress" and "NetMask" 
+
+  <ul>
+   <li>
+    Data type: String
+   <li>
+    Connected to the Network meta-entity
+   <li>
+    Networking people usually mangle this information together in the form 
+    "192.168.2.80/255.255.255.240" or "192.168.22.80/28", and this provides the 
+    name of the network. For now, ignore the rest of the attribute options. 
+    Later, we will automatically generate the network name with an addon (see 
+    Lesson 10).
+  </ul>
+</ul>
+
+The attribute aspect of the metamodel should resemble Fig 1.5.<p><br>
+
+
+<center>
+<img SRC="L1/F5/Fig1_5.png">
+<br><b>Fig 1.5 The Attributes aspect of this <a href="L1/F5/networking.xme">metamodel</a></b></center>
+<p><br>
+
+
+<a NAME="interpret"></a>
+<b><u>1.2.8 Interpret the metamodel and install the new paradigm</u></b>
+<p>
+
+Now we will convert the metamodel into a GME paradigm. Click the button 
+with the cogwheel icon ( <img SRC="Icons/MGAInterpreter.png" align=top> ) in 
+the toolbar. Click "OK" on the "Configure Aspect Mapping" dialog. The next 
+dialog selects the location of the paradigm XML file.
+<p>
+
+If there are no errors in the metamodel, the final dialog reports that the 
+paradigm has been generated, and asks if it is to be registered. Before they 
+are used, paradigms must be registered (the name and properties must be entered 
+into a specific part of the Windows registry), so select "OK".
+<p>
+
+Although theoretically unnecessary, it is a good idea to save your work (with 
+"File/Save Project") before testing the paradigm. If you are working from a 
+database, this step is not needed, since all edits immediately persist. If you 
+are working on file-based models, GME automatically offers to save your work 
+when you quit the program. However, system crashes and other unforeseeable 
+problems may still cause data loss.
+<p><br>
+
+
+<hr width="80%">
+<br><a name="1.3"></a>
+<b><u><font size=+1>1.3 Creating the first model</font></u></b>
+<p>
+
+Select "File/New Project..." from the menu to start a new GME project. The 
+familiar series of dialogs appear. (This is a key feature of GME; users 
+need only learn one process for both modeling and metamodeling.) The newly 
+installed paradigm, "networking", should be visible in the paradigm list. 
+Select this paradigm and choose an appropriate filename, like "mynetwork".
+<p>
+
+The screen of the new model looks just like Fig 1.1, except that the root 
+object is now "mynetwork" or whatever name you used for the file. Right click 
+the root object; the model available for insertion is NetDiagram. This is the 
+first sign of customization! Insert a NewNetDiagram, and open it. The part browser 
+now shows Host, Network, and Router, just as it should. Create a Host and a 
+Network. Give them names like "mailhost" and "localnet", respectively. 
+Test the connections: in Add Connection mode ( <img SRC="Icons/AddConnMode.png" 
+align=top> ), connect "mailhost" to "localnet". Now test the attributes: 
+mailhost has an IP Address, localnet has a Network Address and a NetMask. The 
+configured modeling environment really knows what to do!
+<p>
+
+Now let's see how Routers behave in the model. Create a router and name it 
+"inetgw". Set its Family attribute to one of the four options: "C25xx", for 
+example. The router needs ports, so double-click it to access its internal 
+structure. We can now add ports from the part browser. Add three ports to this 
+router; name them E0, E1, and S0. Place E0 and E1 on the left side of the 
+window and S0 on the right side. Close the inetgw window; the router now has 
+three ports. Connect E1 to "localnet". 
+<p>
+
+Let's try to trick GME. Connect E0 to "mailhost". It does not work; this 
+type of connection is not allowed by the paradigm. We cannot even connect 
+Networks to Hosts because connections are directed by default, and connections 
+in the reverse direction (from Network to NetInterface) are not specified.
+<p>
+
+We do not yet have any objects to connect E0 and S0 to, so leave them 
+unconnected for now. Our first model, built for our first paradigm, looks like 
+the one in Fig 1.6.
+<p><br>
+
+
+<center>
+<img SRC="L1/F6/Fig1_6.png">
+<br><b>Fig 1.6 The first version of the <a href="L1/F6/mynetwork.xme"> network model</a></b>
+</center>
+<p><br>
+
+
+<hr width="80%">
+<br><a name="1.4"></a>
+<b><u><font size=+1>1.4 Enhancing the metamodel and the model icons</font></u></b>
+<p>
+
+So far, the capabilities of the customized modeling environment are hardly 
+enough to justify the amount of work invested in the metamodel. This is because 
+the beginning is usually the hardest part; what typically follows is the 
+incremental enhancement of the metamodel and the example projects. This 
+enhancement is repeated many times, forming a cycle which includes the 
+following steps:
+
+<ol>
+ <li>
+  editing the metamodel
+ <li>
+  re-interpreting and registering it
+ <li>
+  upgrading the example applications to the new version of the paradigm
+ <li>
+  changing the example applications to test/use the enhanced features of the 
+  paradigm
+</ol>
+
+This process will be demonstrated on a significant enhancement of the current 
+metamodel. The first complaint voiced by the users of the new environment will 
+probably be the bland visualization. We can fix this by assigning fancy icons 
+to our components.
+<p>
+
+First, we will have to create bitmaps (one for each object, two for ports; one 
+large and one small). Bitmaps must be in BMP format. If you - like me - are not 
+a good computer artist, you may use the the following bitmaps:
+<p><br>
+
+
+<center>
+<table BORDER cellpadding="5">
+  <tr>
+    <td align=center>
+      <a href="Icons/Host.bmp">
+      <img SRC="Icons/Host.bmp" vspace="15"><p>
+      Host.bmp</a>
+    </td>
+    <td align=center>
+      <a href="Icons/Network.bmp">
+      <img SRC="Icons/Network.bmp" vspace="15"><p>
+      Network.bmp</a>
+    </td>
+    <td align=center>
+      <a href="Icons/Router.bmp">
+      <img SRC="Icons/Router.bmp"><p>
+      Router.bmp</a>
+    </td>
+    <td align=center>
+      <a href="Icons/Port.bmp">
+      <img SRC="Icons/Port.bmp" vspace="22"><p>
+      Port.bmp</a>
+    </td>
+    <td align=center>
+      <a href="Icons/PortSmall.bmp">
+      <img SRC="Icons/PortSmall.bmp" vspace="30"><p>
+      PortSmall.bmp</a>
+    </td>
+  </tr>
+</table>
+</center>
+<p><br>
+
+
+Icon files may be saved anywhere, but it is a good practice to copy them to a 
+subdirectory named "Icons" in the directory of your paradigm file. You can find 
+the location of the paradigm file with the "File/Register Paradigms..." dialog. 
+(If the icons are stored in a different place, you must set the icon path; this 
+process is described below).
+<p>
+
+When creating your own bitmaps, here are some points to consider:
+
+<ul>
+ <li>
+  Since the Router model will be displaying ports, it is best to set the size 
+  of the Router icon to no less than the default model size - 110 x 70 pixels - 
+  to leave adequate space for the ports.
+ <li>
+  Small port icons, on the other hand, must be no larger than 10 x 10 pixels 
+  like PortSmall.bmp above.
+</ul>
+
+We must now specify which icon belongs to which entity. Close the model and 
+open the metamodel. From the class diagram aspect, open the Attributes dialog 
+for each of the entites that will have customized icons. For Host, Network, and 
+Router, enter the name of the bitmap for "Icon name". Ports are also visible as 
+ports of Routers, so provide the name of the normal-sized bitmap for "Icon 
+name" and the name of the smaller bitmap for "Port icon name". If all icons are 
+in the same directory, then only the filenames (including extension) are 
+entered here, because the complete path is usually specified in the icon path 
+settings (described below).
+<p>
+
+Re-interpret and re-register the paradigm as described <a href="#interpret">
+above</a>. Registering a new version of a paradigm does not delete the 
+previously registered version(s), so existing models will continue to use the 
+version that they were created with. New models, however, are created with the 
+<i>current paradigm</i>, which is normally the most recently installed one.
+<p>
+
+It is possible to upgrade existing models to a newer paradigm in two different 
+ways:
+
+<ul>
+ <li>
+  When opening a model, GME offers you the option to attempt an upgrade if the 
+  previously used paradigm is not the same as the current one. This operation 
+  may find the model data structure to be inconsistent with the new paradigm, 
+  depending on the type and scale of the implemented changes. This problem is 
+  not serious; GME merely returns to the original paradigm version. For 
+  minor attribute, naming, or preference changes, this quick upgrade technique 
+  usually works fine.
+ <li>
+  The XML format supported by GME provides a slower but more robust upgrade 
+  feature. The "File/Update through XML..." menu option will export, upgrade, 
+  and import the model, all in a single command. (XML upgrade contains has some 
+  limitations that are described in <a href="Lesson7.html">Lesson 7</a>.)
+</ul>
+
+Hopefully, the upgraded model now displays our custom icons. If not, the system 
+is probably unable to find the icon directory. To correct this problem, open 
+the "Tools/Options..." dialog, and add the name of the icon directory to the 
+"User Icon Path" field. (If the icons were saved to the "Icons" subdirectory 
+next to the paradigm file, we do not need to do anything, thanks to the special 
+item "$PARADIGMDIR\Icons" which is normally located in the "System Icon Path".) 
+<p>
+
+<a NAME="ready"></a>
+The paradigm upgrade process described above may be repeated several times to 
+implement other modifications and to fix errors in the paradigm. Once we are 
+satisfied with the model paradigm, we can create real diagrams, like the 
+typical network of a small company in Fig 1.7.
+<p><br>
+
+
+<center><img SRC="L1/F7/Fig1_7.png">
+<br><b>Fig 1.7 <a href="L1/F7/mynetwork.xme"> Diagram</a> of a typical <a href="L1/F7/networking.xme"> network</a> in a small company</b>
+</center>
+<p><br>
+
+
+<center>
+<hr width="80%">
+<table><tr><td>
+&lt;&lt; Previous Lesson 
+</td><td width=50></td><td>
+<a href="index.html#toc">Complete List</a> 
+</td><td width=50></td><td>
+<a href="Lesson2.html">Next Lesson >></a>
+</td></tr></table>
+</center>
+
+</body>
+</html>

@@ -1,0 +1,26 @@
+HKCR
+{
+	Mga.BoxDecorator.1 = s 'BoxDecorator Class'
+	{
+		CLSID = s '{3FA0768D-F832-4C6A-973D-5D8E3EF05FFA}'
+	}
+	Mga.BoxDecorator = s 'BoxDecorator Class'
+	{
+		CLSID = s '{3FA0768D-F832-4C6A-973D-5D8E3EF05FFA}'
+		CurVer = s 'Mga.BoxDecorator.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {3FA0768D-F832-4C6A-973D-5D8E3EF05FFA} = s 'BoxDecorator Class'
+		{
+			ProgID = s 'Mga.BoxDecorator.1'
+			VersionIndependentProgID = s 'Mga.BoxDecorator'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			'TypeLib' = s '{F5D9A9A0-5A1C-40B8-9EEF-4890FEECC8CD}'
+		}
+	}
+}

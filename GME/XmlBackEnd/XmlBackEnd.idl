@@ -1,0 +1,30 @@
+import "oaidl.idl";
+import "ocidl.idl";
+
+import "Core.idl";
+	
+[
+	uuid(09107441-E750-4516-B6D0-DE6358FDBA9B),
+	version(1.0),
+	helpstring("XmlBackEnd 1.0 Type Library")
+]
+library XMLBACKENDLib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+	importlib("CoreLib.tlb");
+	
+	[
+		uuid(F729BE0C-ACE5-470B-8F98-DAE52D6A5949),
+		helpstring("CoreXmlFile Class")
+	]
+	coclass CoreXmlFile
+	{
+		[default] interface ICoreStorage;
+		interface ISupportErrorInfo;
+	};
+
+
+
+};

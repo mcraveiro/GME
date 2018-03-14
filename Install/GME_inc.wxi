@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='windows-1252'?>
+
+<Include>
+  <?if $(sys.BUILDARCH)=x64 ?>
+  <?define UpgradeCode='D69F58AC-2B74-4B5B-B7E7-EB9AB90A7056'?>
+  <?define ProgramFilesNativeFolder='ProgramFiles64Folder'?>
+  <?define Win64='yes'?>
+  <?define ProductName='GME (64 bit)'?>
+  <?define Release='x64\Release'?>
+  <?define lib='lib\x64'?>
+  <?define bin='bin\x64'?>
+  <?else ?>
+  <?define UpgradeCode='dfdd761e-0979-4897-ac89-71f006d92bf8'?>
+  <?define ProgramFilesNativeFolder='ProgramFilesFolder'?>
+  <?define Win64='no'?>
+  <?define ProductName='GME'?>
+  <?define Release='Release'?>
+  <?define lib='lib'?>
+  <?define bin='bin'?>
+  <?endif ?>
+</Include>

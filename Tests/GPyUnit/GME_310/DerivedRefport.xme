@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE project SYSTEM "mga.dtd">
+
+<project guid="{E8201627-2D29-4845-905F-F9B6E1AD8343}" cdate="Wed Apr 13 10:46:11 2016" mdate="Wed Apr 13 10:46:11 2016" version="" metaguid="{4D75F5CC-0720-4B67-81B2-397E580F0B85}" metaversion="" metaname="GME310ModelRefportTest">
+	<name>RootFolder</name>
+	<comment></comment>
+	<author></author>
+	<folder id="id-006a-00000001" relid="0x1" childrelidcntr="0x1" kind="RootFolder" guid="{28c7a40d-19fa-43a0-80e6-ef50d1894555}">
+		<name>RootFolder</name>
+		<folder id="id-006a-00000002" relid="0x1" childrelidcntr="0x5" kind="KindFolder" guid="{7c5f49d8-6e69-4050-913c-c84ffb5afaa5}">
+			<name>KindFolder</name>
+			<model id="id-0065-00000001" kind="KindModel" guid="{61bdb6d0-4b18-4ad3-89e2-edfb00878f0c}" relid="0x1" childrelidcntr="0x3">
+				<name>Base</name>
+				<atom id="id-0066-00000004" kind="KindAtom" role="KindAtom" guid="{3c2c78f2-e3aa-4317-b1ca-b44d6fa626c5}" relid="0x2">
+					<name>KindAtom</name>
+					<regnode name="PartRegs" status="undefined">
+						<value></value>
+						<regnode name="KindAspect" status="undefined">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>441,49</value>
+							</regnode>
+						</regnode>
+					</regnode>
+				</atom>
+				<reference id="id-0067-00000001" kind="KindModelReference" role="KindModelReference" guid="{67ef2a87-411a-40ff-9479-9ffda14b44c3}" relid="0x1" referred="id-0065-00000002">
+					<name>KindModelReference</name>
+					<regnode name="PartRegs" status="undefined">
+						<value></value>
+						<regnode name="KindAspect" status="undefined">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>133,35</value>
+							</regnode>
+						</regnode>
+					</regnode>
+				</reference>
+				<connection id="id-0068-00000002" kind="KindConnection" role="KindConnection" guid="{d2b59871-5783-4b13-9ae8-344d98dc7b0a}" relid="0x3">
+					<name>KindConnection</name>
+					<connpoint role="src" target="id-0066-00000001" refs="id-0067-00000001"/>
+					<connpoint role="dst" target="id-0066-00000004"/>
+				</connection>
+			</model>
+			<model id="id-0065-00000002" kind="KindModel" guid="{ecc43d4c-2149-4fe2-b9f8-c4351cf34649}" relid="0x2" childrelidcntr="0x1">
+				<name>Referred</name>
+				<atom id="id-0066-00000001" kind="KindAtom" role="KindAtom" guid="{4a64250a-6c4f-42f5-b355-b52334bd1cf0}" relid="0x1">
+					<name>KindAtom</name>
+					<regnode name="PartRegs" status="undefined">
+						<value></value>
+						<regnode name="KindAspect" status="undefined">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>154,35</value>
+							</regnode>
+						</regnode>
+					</regnode>
+				</atom>
+			</model>
+			<model id="id-0065-00000003" kind="KindModel" guid="{a6a63d43-6d5a-4e56-8042-6d6262b59532}" derivedfrom="id-0065-00000001" isinstance="no" isprimary="yes" relid="0x3" childrelidcntr="0x2">
+				<name>Derived</name>
+				<atom id="id-0066-00000005" kind="KindAtom" role="KindAtom" guid="{7d933c18-705b-4792-b8ee-673f0cb44b13}" derivedfrom="id-0066-00000004" isinstance="no" isprimary="no">
+					<name>KindAtom</name>
+				</atom>
+				<reference id="id-0067-00000002" kind="KindModelReference" role="KindModelReference" guid="{30806137-6dcf-4aab-b56a-8dff5bc58b23}" derivedfrom="id-0067-00000001" isinstance="no" isprimary="no" referred="id-0065-00000005">
+					<name>KindModelReference</name>
+				</reference>
+				<connection id="id-0068-00000003" kind="KindConnection" role="KindConnection" guid="{2da93825-ad91-4cc3-ab41-5096f4c77005}" derivedfrom="id-0068-00000002" isinstance="no" isprimary="no">
+					<name>KindConnection</name>
+					<connpoint role="src" target="id-0066-00000002" refs="id-0067-00000002"/>
+					<connpoint role="dst" isbound="yes" target="id-0066-00000005"/>
+				</connection>
+			</model>
+			<model id="id-0065-00000005" kind="KindModel" guid="{57ac5353-abc8-4b02-9a2b-a9eb1145c02b}" derivedfrom="id-0065-00000002" isinstance="no" isprimary="yes" relid="0x5" childrelidcntr="0x0">
+				<name>ReferredDerived</name>
+				<atom id="id-0066-00000002" kind="KindAtom" role="KindAtom" guid="{8ffe6001-3eb3-41ec-a682-acbd4cb76de1}" derivedfrom="id-0066-00000001" isinstance="no" isprimary="no">
+					<name>KindAtom</name>
+				</atom>
+			</model>
+		</folder>
+	</folder>
+</project>

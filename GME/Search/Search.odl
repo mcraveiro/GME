@@ -1,0 +1,71 @@
+#include <olectl.h>
+#include <idispids.h>
+
+[ uuid(E65EEDEF-18B7-4F67-BBC7-0E22D0D34C28), version(1.0),
+  helpfile("Search.hlp"),
+  helpstring("Search ActiveX Control module"),
+  control ]
+library SEARCHLib
+{
+	importlib(STDOLE_TLB);
+	importlib(STDTYPE_TLB);
+
+	//  Primary dispatch interface for CSearchCtrl
+
+	[ uuid(B718CCF7-5055-40DD-9CBD-AB17F72AB113),
+	  helpstring("Dispatch interface for GME Search Control"), hidden ]
+	dispinterface _DSearch
+	{
+		properties:
+			// NOTE - ClassWizard will maintain property information here.
+			//    Use extreme caution when editing this section.
+			//{{AFX_ODL_PROP(CSearchCtrl)
+			[id(1)] IUnknown* MgaProject;
+			//}}AFX_ODL_PROP
+
+		methods:
+			// NOTE - ClassWizard will maintain method information here.
+			//    Use extreme caution when editing this section.
+			//{{AFX_ODL_METHOD(CSearchCtrl)
+			[id(2)] void OpenProject(BSTR connStr);
+			[id(3), helpstring("method for letting the Search component know, which objects are selected in the Tree Browser")] 
+				void SelMgaObjects(IUnknown* p_selMgaObjs);
+			//}}AFX_ODL_METHOD
+
+			[id(DISPID_ABOUTBOX)] void AboutBox();
+	};
+
+	//  Event dispatch interface for CSearchCtrl
+
+	[ uuid(B240C566-A493-4529-8AD7-B9B70B17BBA1),
+	  helpstring("Event interface for GME Search Control") ]
+	dispinterface _DSearchEvents
+	{
+		properties:
+			//  Event interface has no properties
+
+		methods:
+			// NOTE - ClassWizard will maintain event information here.
+			//    Use extreme caution when editing this section.
+			//{{AFX_ODL_EVENT(CSearchCtrl)
+			[id(1)] void ClickMgaObject(IUnknown* mgaObject);
+			[id(2)] void DblClickMgaObject(IUnknown* mgaObject);
+			[id(3)] void WantToBeClosed();
+			//}}AFX_ODL_EVENT
+			[id(4)] void LocateMgaObject(BSTR mgaObjectId);
+	};
+
+	//  Class information for CSearchCtrl
+
+	[ uuid(E5FE98F1-B7AD-4ABE-89DB-87DDD9DB753E),
+	  helpstring("GME Search Control"), control ]
+	coclass Search
+	{
+		[default] dispinterface _DSearch;
+		[default, source] dispinterface _DSearchEvents;
+	};
+
+
+	//{{AFX_APPEND_ODL}}
+	//}}AFX_APPEND_ODL}}
+};

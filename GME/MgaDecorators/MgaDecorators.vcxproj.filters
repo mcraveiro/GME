@@ -1,0 +1,123 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{55b932c7-fed9-4201-a29f-57419e284218}</UniqueIdentifier>
+      <Extensions>cpp;c;cxx;rc;def;r;odl;idl;hpj;bat</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{a82ff9d1-99cb-4119-8b30-52ea21a8950b}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{259e4f82-1561-427e-9dd2-f7c004219e80}</UniqueIdentifier>
+      <Extensions>ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="BoxDecorator.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="BoxDecoratorImpl.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MgaDecorators.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="StdAfx.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Midl Include="MgaDecoratorLib.idl">
+      <Filter>Source Files</Filter>
+    </Midl>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="MgaDecorators.def">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="res\atom.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\atomport.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="BoxDecorator.rgs">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\collapsesign.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\expandsign.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\icon_instance.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\icon_instance_disabled.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\icon_reference.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\icon_reference_disabled.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\icon_subtype.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\icon_subtype_disabled.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\icon_type.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\icon_type_disabled.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\model.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\modelport.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\reference.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\referenceport.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\set.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\setport.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="MgaDecorators.rc">
+      <Filter>Source Files</Filter>
+    </ResourceCompile>
+    <ResourceCompile Include="..\..\SDK\DecoratorLib\DecoratorLib.rc">
+      <Filter>Source Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="BoxDecorator.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="BoxDecoratorImpl.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Resource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="StdAfx.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE project SYSTEM "mga.dtd">
+
+<project guid="{A006DA6F-5153-431A-81F9-E2291E29D7F4}" cdate="Fri Apr 19 09:21:54 2013" mdate="Fri Apr 19 09:21:54 2013" version="" metaguid="{F573F775-0373-43B2-853A-AFDBF9E5EBAA}" metaversion="" metaname="BidirConnection">
+	<name>RootFolder</name>
+	<comment></comment>
+	<author></author>
+	<folder id="id-006a-00000001" relid="0x1" childrelidcntr="0x1" kind="RootFolder" guid="{aae18111-a09b-46cf-9791-a0d6cf04959a}">
+		<name>RootFolder</name>
+		<model id="id-0065-00000001" kind="Model" guid="{2e10cc7e-6375-429a-9e87-80c035a1624d}" relid="0x1" childrelidcntr="0x4">
+			<name>NewModel</name>
+			<model id="id-0065-00000002" kind="Model" role="Model" guid="{22693372-db90-423b-b2bd-ac2d7225415f}" relid="0x1" childrelidcntr="0x0">
+				<name>Child1</name>
+				<regnode name="PartRegs" status="undefined">
+					<value></value>
+					<regnode name="Aspect" status="undefined">
+						<value></value>
+						<regnode name="Position" isopaque="yes">
+							<value>560,217</value>
+						</regnode>
+					</regnode>
+				</regnode>
+			</model>
+			<model id="id-0065-00000003" kind="Model" role="Model" guid="{b243eba2-36c7-46c9-9242-d90bf4c50966}" relid="0x2" childrelidcntr="0x0">
+				<name>Child2</name>
+				<regnode name="PartRegs" status="undefined">
+					<value></value>
+					<regnode name="Aspect" status="undefined">
+						<value></value>
+						<regnode name="Position" isopaque="yes">
+							<value>812,210</value>
+						</regnode>
+					</regnode>
+				</regnode>
+			</model>
+			<connection id="id-0068-00000001" kind="Connection" role="Connection" guid="{63d8a8a0-8f2b-44cf-8468-aad9ed639405}" relid="0x3">
+				<name>C1_C2</name>
+				<connpoint role="src" target="id-0065-00000002"/>
+				<connpoint role="dst" target="id-0065-00000003"/>
+			</connection>
+			<connection id="id-0068-00000002" kind="Connection" role="Connection" guid="{45a057f0-81d6-4665-b22a-1e7a95dbdbd2}" relid="0x4">
+				<name>C2_C1</name>
+				<connpoint role="dst" target="id-0065-00000002"/>
+				<connpoint role="src" target="id-0065-00000003"/>
+			</connection>
+		</model>
+	</folder>
+</project>

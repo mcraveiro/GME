@@ -1,0 +1,26 @@
+HKCR
+{
+	Mga.MgaMetaRoles.1 = s 'MgaMetaRoles Class'
+	{
+		CLSID = s '{c6412a50-c1fd-11d3-9ad2-00aa00b6fe26}'
+	}
+	Mga.MgaMetaRoles = s 'MgaMetaRoles Class'
+	{
+		CLSID = s '{c6412a50-c1fd-11d3-9ad2-00aa00b6fe26}'
+		CurVer = s 'Mga.MgaMetaRoles.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {c6412a50-c1fd-11d3-9ad2-00aa00b6fe26} = s 'MgaMetaRoles Class'
+		{
+			ProgID = s 'Mga.MgaMetaRoles.1'
+			VersionIndependentProgID = s 'Mga.MgaMetaRoles'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			'TypeLib' = s '{0ADEEC71-D83A-11D3-B36B-005004D38590}'
+		}
+	}
+}

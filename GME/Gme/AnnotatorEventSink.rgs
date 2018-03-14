@@ -1,0 +1,23 @@
+HKCR
+{
+	GME.AnnotatorEventSink.1 = s 'AnnotatorEventSink Class'
+	{
+		CLSID = s '{133AB952-9A84-49e0-98CA-C2484D959F3E}'
+	}
+	GME.AnnotatorEventSink = s 'AnnotatorEventSink Class'
+	{
+		CLSID = s '{133AB952-9A84-49e0-98CA-C2484D959F3E}'
+		CurVer = s 'GME.AnnotatorEventSink.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {133AB952-9A84-49e0-98CA-C2484D959F3E} = s 'AnnotatorEventSink Class'
+		{
+			ProgID = s 'GME.AnnotatorEventSink.1'
+			VersionIndependentProgID = s 'GME.AnnotatorEventSink'
+			ForceRemove 'Programmable'
+			LocalServer32 = s '%MODULE%'
+			'TypeLib' = s '{0ADEEC71-D83A-11D3-B36B-005004CC8592}'
+		}
+	}
+}

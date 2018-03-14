@@ -1,0 +1,715 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+#include "..\GME\GMEVersion.h"
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (United States) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_DIALOG_LIST DIALOGEX 0, 0, 232, 111
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    LISTBOX         IDC_LIST,7,7,158,77,LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    DEFPUSHBUTTON   "OK",IDOK,175,7,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,175,25,50,14
+    PUSHBUTTON      "&Ignore",IDC_BUTTON_IGNORE,175,43,50,14
+    CONTROL         "",IDC_CHECK1,"Button",BS_AUTOCHECKBOX | BS_LEFT | BS_MULTILINE | WS_GROUP | WS_TABSTOP,7,87,218,12,WS_EX_TRANSPARENT
+END
+
+IDD_METADLG DIALOGEX 0, 0, 400, 233
+STYLE DS_SETFONT | WS_POPUP | WS_CAPTION | WS_SYSMENU | WS_THICKFRAME
+CAPTION "Select Paradigm"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    DEFPUSHBUTTON   "Create new...",IDOK,7,211,55,15,WS_DISABLED
+    PUSHBUTTON      "Purge/Select...",IDC_PURGE,66,211,55,15,WS_DISABLED
+    PUSHBUTTON      "Add from file...",IDC_ADDFILE,7,192,55,15
+    PUSHBUTTON      "Remove",IDC_REMOVE,66,192,55,15,WS_DISABLED
+    LTEXT           "Please select a Paradigm from the following list. You can also register new Paradigms on your local machine. To parse an XML file containing your paradigm select ""Add File..."" and then the ""XML Files"" file type.",IDC_INFO,7,7,255,40
+    CONTROL         "List1",IDC_LIST,"SysListView32",LVS_REPORT | LVS_SINGLESEL | LVS_SHOWSELALWAYS | LVS_SORTASCENDING | LVS_NOLABELWRAP | LVS_AUTOARRANGE | WS_BORDER | WS_TABSTOP,7,33,386,155
+END
+
+IDD_GMEDLG DIALOGEX 0, 0, 247, 451
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "GME properties"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,48,431,50,15
+    PUSHBUTTON      "Cancel",IDCANCEL,139,431,50,15
+    EDITTEXT        IDC_ICONPATH,10,15,190,15,ES_AUTOHSCROLL
+    PUSHBUTTON      "Add...",IDC_ADDICONPATH,205,15,30,15
+    EDITTEXT        IDC_SYSICONPATH,10,50,190,15,ES_AUTOHSCROLL
+    PUSHBUTTON      "Add...",IDC_ADDSYSICONPATH,205,50,30,14
+    CONTROL         "Enable External Text Editor",IDC_EXT_ENABLE,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,10,85,101,10
+    EDITTEXT        IDC_EXT_EDITOR,10,100,190,15,ES_AUTOHSCROLL
+    PUSHBUTTON      "...",IDC_EXT_BUTTON,205,100,29,14
+    CONTROL         "Enable Autosave",IDC_AUTOSAVE_ENABLED,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,10,135,70,10
+    EDITTEXT        IDC_AUTOSAVE_FREQ,170,133,25,14,ES_AUTOHSCROLL
+    CONTROL         "Store backup file in the project directory",IDC_AUTOSAVE_SAME_DIR,
+                    "Button",BS_AUTORADIOBUTTON | WS_GROUP | WS_TABSTOP,10,150,141,10
+    CONTROL         "Use dedicated backup folder:",IDC_AUTOSAVE_DEDICATED_DIR,
+                    "Button",BS_AUTORADIOBUTTON | WS_TABSTOP,10,162,109,10
+    EDITTEXT        IDC_AUTOSAVE_DIR,20,175,180,14,ES_AUTOHSCROLL | WS_GROUP
+    PUSHBUTTON      "...",IDC_AUTOSAVE_DIR_BUTTON,205,175,30,14
+    CONTROL         "Connections keep clear of labels",IDC_LABELAVOIDANCE,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,12,223,217,10
+    CONTROL         "List1",IDC_LIST1,"SysListView32",LVS_REPORT | LVS_SINGLESEL | LVS_SHOWSELALWAYS | LVS_NOCOLUMNHEADER | WS_BORDER | WS_TABSTOP,85,252,152,74
+    COMBOBOX        IDC_ZOOMS,89,341,50,272,CBS_DROPDOWN | WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_CMBFMTSTRS,89,354,50,52,CBS_DROPDOWN | WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_UNDOSIZE,205,341,27,272,CBS_DROPDOWN | WS_VSCROLL | WS_TABSTOP
+    CONTROL         "Navigation History",IDC_NAVIGATIONHISTORY,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,145,356,73,8
+    CONTROL         "Open model in multiple views",IDC_MULTIPLE_OPEN,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,17,370,107,10
+    CONTROL         "Mouse Over Object Notify",IDC_SENDOVEROBJECT,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,17,381,97,10
+    CONTROL         "Enable Event Logging",IDC_EVENT_LOGGING,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,145,370,86,10
+    CONTROL         "Console Timestamping",IDC_TIMESTAMPING,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,145,381,87,10
+    GROUPBOX        "User Icon Path",IDC_STATIC,5,5,235,30
+    GROUPBOX        "System Icon Path",IDC_STATIC,5,40,235,30
+    GROUPBOX        "Multiline Attributes",IDC_STATIC,5,75,235,45
+    GROUPBOX        "Autosave",IDC_STATIC,5,125,235,70
+    LTEXT           "Save every",IDC_STATIC,130,136,37,8
+    LTEXT           "seconds",IDC_STATIC,200,136,28,8
+    GROUPBOX        "Autorouter",IDC_STATIC,5,200,235,39
+    GROUPBOX        "Scripting",IDC_STATIC,7,242,234,90
+    LTEXT           "Current script engine:",IDC_STATIC,13,253,72,11
+    LTEXT           "Default zoom value:",IDC_STATIC,13,343,66,9
+    GROUPBOX        "Misc",IDC_STATIC,9,333,233,94
+    LTEXT           "Double attribute format:",IDC_STATIC,13,356,75,8
+    LTEXT           "Undo queue size:",IDC_STATIC,147,343,57,9
+    CONTROL         "Use auto routing by default",IDC_AUTOROUTEDEFAULT,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,12,210,214,10
+    COMBOBOX        IDC_EDGESMOOTHMODE,89,395,142,30,CBS_DROPDOWN | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_FONTSMOOTHMODE,89,411,142,30,CBS_DROPDOWN | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Edge Smooth mode:",IDC_STATIC,15,397,70,11
+    LTEXT           "Font Smooth mode:",IDC_STATIC,15,413,70,10
+END
+
+IDD_COMPDLG DIALOGEX 0, 0, 483, 230
+STYLE DS_SETFONT | WS_POPUP | WS_CAPTION | WS_SYSMENU | WS_THICKFRAME
+CAPTION "Components"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    DEFPUSHBUTTON   "Close",IDOK,7,200,55,15
+    PUSHBUTTON      "Enable",IDC_ENABLE_DISABLE,67,200,55,15,WS_DISABLED
+    PUSHBUTTON      "Install New...",IDC_INSTALL,7,181,55,15
+    PUSHBUTTON      "Remove",IDC_REMOVE,67,181,55,15,WS_DISABLED
+    CONTROL         "List2",IDC_LIST,"SysListView32",LVS_REPORT | LVS_SINGLESEL | LVS_SHOWSELALWAYS | LVS_SORTASCENDING | LVS_SHAREIMAGELISTS | LVS_NOLABELWRAP | LVS_AUTOARRANGE | WS_BORDER | WS_TABSTOP,7,19,469,157
+    LTEXT           "Register:",IDC_REGISTERSTATIC,127,181,69,8
+    CONTROL         "Systemwide",IDC_RADIOSYS,"Button",BS_AUTORADIOBUTTON | WS_GROUP | WS_TABSTOP,127,191,53,10
+    CONTROL         "For user only",IDC_RADIOUSER,"Button",BS_AUTORADIOBUTTON,127,201,56,10
+    CONTROL         "Both",IDC_RADIOBOTH,"Button",BS_AUTORADIOBUTTON,127,211,31,10
+    LTEXT           "Show components:",IDC_SHOWCOMPONENTSSTATIC,7,6,62,8
+    CONTROL         "Active",IDC_ACTIVEDISP,"Button",BS_AUTORADIOBUTTON | BS_PUSHLIKE | WS_GROUP | WS_TABSTOP,70,3,48,14
+    CONTROL         "Active && Inactive",IDC_ACTIVE_INACTIVE,"Button",BS_AUTORADIOBUTTON | BS_PUSHLIKE,117,3,69,14
+    CONTROL         "All",IDC_ALLCOMPS,"Button",BS_AUTORADIOBUTTON | BS_PUSHLIKE,186,3,29,14
+END
+
+5100 DIALOGEX 0, 0, 49, 73
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    CONTROL         "",5101,"Button",BS_OWNERDRAW | WS_TABSTOP,1,1,11,10,WS_EX_CLIENTEDGE
+    CONTROL         "",5102,"Button",BS_OWNERDRAW | WS_TABSTOP,13,1,11,10,WS_EX_CLIENTEDGE
+    CONTROL         "",5103,"Button",BS_OWNERDRAW | WS_TABSTOP,25,1,11,10,WS_EX_CLIENTEDGE
+    CONTROL         "",5104,"Button",BS_OWNERDRAW | WS_TABSTOP,37,1,11,10,WS_EX_CLIENTEDGE
+    CONTROL         "",5105,"Button",BS_OWNERDRAW | WS_TABSTOP,1,12,11,10,WS_EX_CLIENTEDGE
+    CONTROL         "",5106,"Button",BS_OWNERDRAW | WS_TABSTOP,13,12,11,10,WS_EX_CLIENTEDGE
+    CONTROL         "",5107,"Button",BS_OWNERDRAW | WS_TABSTOP,25,12,11,10,WS_EX_CLIENTEDGE
+    CONTROL         "",5108,"Button",BS_OWNERDRAW | WS_TABSTOP,37,12,11,10,WS_EX_CLIENTEDGE
+    CONTROL         "",5109,"Button",BS_OWNERDRAW | WS_TABSTOP,1,24,11,10,WS_EX_CLIENTEDGE
+    CONTROL         "",5110,"Button",BS_OWNERDRAW | WS_TABSTOP,13,24,11,10,WS_EX_CLIENTEDGE
+    CONTROL         "",5111,"Button",BS_OWNERDRAW | WS_TABSTOP,25,24,11,10,WS_EX_CLIENTEDGE
+    CONTROL         "",5112,"Button",BS_OWNERDRAW | WS_TABSTOP,37,24,11,10,WS_EX_CLIENTEDGE
+    CONTROL         "",5113,"Button",BS_OWNERDRAW | WS_TABSTOP,1,36,11,10,WS_EX_CLIENTEDGE
+    CONTROL         "",5114,"Button",BS_OWNERDRAW | WS_TABSTOP,13,36,11,10,WS_EX_CLIENTEDGE
+    CONTROL         "",5115,"Button",BS_OWNERDRAW | WS_TABSTOP,25,36,11,10,WS_EX_CLIENTEDGE
+    CONTROL         "",5116,"Button",BS_OWNERDRAW | WS_TABSTOP,37,36,11,10,WS_EX_CLIENTEDGE
+    CONTROL         "",5117,"Button",BS_OWNERDRAW | WS_TABSTOP,1,48,11,10,WS_EX_CLIENTEDGE
+    CONTROL         "",5118,"Button",BS_OWNERDRAW | WS_TABSTOP,13,48,11,10,WS_EX_CLIENTEDGE
+    CONTROL         "",5119,"Button",BS_OWNERDRAW | WS_TABSTOP,25,48,11,10,WS_EX_CLIENTEDGE
+    CONTROL         "",5120,"Button",BS_OWNERDRAW | WS_TABSTOP,37,48,11,10,WS_EX_CLIENTEDGE
+    PUSHBUTTON      "Other...",5121,1,60,47,11
+END
+
+IDD_PROGRESSDLG DIALOGEX 0, 0, 244, 45
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Dialog"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    CONTROL         "Progress1",IDC_PROGRESS1,"msctls_progress32",WS_BORDER,7,29,230,9
+    LTEXT           "",IDC_STATIC1,7,7,230,8
+    LTEXT           "",IDC_STATIC2,7,18,230,8
+END
+
+IDD_METAPURGEDIALOG DIALOGEX 0, 0, 582, 231
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Remove old paradigm versions"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    CONTROL         "List2",IDC_PURGELIST,"SysListView32",LVS_REPORT | WS_BORDER | WS_TABSTOP,7,26,508,199
+    DEFPUSHBUTTON   "OK",IDOK,525,210,50,14
+    PUSHBUTTON      "Purge",IDC_PURGE2,521,26,50,14
+    PUSHBUTTON      "Set Current",IDC_SETCURRENT,521,43,50,14
+    LTEXT           "Select versions no longer needed. \nThe current version (*) cannot be purged.",IDC_STATIC,7,7,496,19
+    CONTROL         "Delete files",IDC_DELFILES,"Button",BS_AUTORADIOBUTTON | WS_GROUP,521,62,51,10
+    CONTROL         "Unregister\nonly",IDC_NODELFILES,"Button",BS_AUTORADIOBUTTON | BS_MULTILINE,522,76,50,21
+    PUSHBUTTON      "Check files",IDC_CHECK_FILES,521,108,50,14
+END
+
+IDD_REGISTRY_BROWSER DIALOGEX 0, 0, 406, 220
+STYLE DS_SETFONT | WS_POPUP | WS_CAPTION | WS_THICKFRAME
+CAPTION "Registry Browser"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,112,204,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,242,204,50,14
+    EDITTEXT        IDC_OBJECTNAME,26,1,109,14,ES_AUTOHSCROLL | ES_READONLY
+    LTEXT           "Name:",IDC_STATIC,3,4,22,8
+    LTEXT           "Kind :",IDC_STATIC,143,4,19,8
+    LTEXT           "Role:",IDC_STATIC,285,4,18,8
+    EDITTEXT        IDC_OBJECTKIND,164,1,106,14,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_OBJECTROLE,306,1,98,14,ES_AUTOHSCROLL | ES_READONLY
+    CONTROL         "Tree1",IDC_REGISTRY_TREE,"SysTreeView32",TVS_HASBUTTONS | TVS_HASLINES | TVS_LINESATROOT | TVS_EDITLABELS | TVS_SHOWSELALWAYS | WS_BORDER | WS_TABSTOP,0,18,200,182
+    GROUPBOX        "Registry Node",IDC_REGNODE,205,18,200,182,0,WS_EX_DLGMODALFRAME
+    LTEXT           "Path:",IDC_STATIC_PATH,215,38,18,8
+    LTEXT           "Status:",IDC_STATIC_STATUS,215,58,23,8
+    LTEXT           "Value:",IDC_STATIC_VALUE,215,78,21,8
+    EDITTEXT        IDC_REGNODE_PATH,240,35,155,14,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_REGNODE_STATUS,240,55,155,14,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_REGNODE_VALUE,240,75,155,115,ES_MULTILINE | ES_AUTOVSCROLL | ES_AUTOHSCROLL | ES_WANTRETURN | WS_VSCROLL | WS_HSCROLL
+END
+
+IDD_COMPINFODLG DIALOGEX 0, 0, 268, 132
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Component information"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,211,7,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,211,24,50,14
+    EDITTEXT        IDC_NAME,80,7,123,14,ES_AUTOHSCROLL
+    LTEXT           "Name:",IDC_STATIC,7,7,71,11
+    LTEXT           "Paradigm(s):",IDC_STATIC,7,41,71,11
+    LTEXT           "Execution Engine:",IDC_STATIC,7,75,71,11
+    LTEXT           "ProgID:",IDC_STATIC,7,24,71,11
+    LTEXT           "Dialect Version:",IDC_STATIC,7,92,71,11
+    LTEXT           "Description:",IDC_STATIC,7,58,71,11
+    EDITTEXT        IDC_PROGID,80,23,123,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_PARADIGM,80,39,123,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_DESCRIPTION,80,55,123,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_VERSION,80,85,123,14,ES_AUTOHSCROLL
+    LTEXT           "Filename:",IDC_STATIC,7,114,44,11
+    EDITTEXT        IDC_FILENAME,81,113,121,12,ES_AUTOHSCROLL | WS_DISABLED
+    COMBOBOX        IDC_ENGINECOMBO,80,71,125,30,CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+END
+
+IDD_ANNOTATION_BROWSER DIALOGEX 0, 0, 406, 373
+STYLE DS_SETFONT | WS_POPUP | WS_CAPTION | WS_THICKFRAME
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    CONTROL         "List1",IDC_ANNOTATION_LIST,"SysListView32",LVS_REPORT | LVS_SINGLESEL | LVS_SHOWSELALWAYS | LVS_NOSORTHEADER | WS_BORDER | WS_TABSTOP,0,20,200,330
+    EDITTEXT        IDC_EDIT_NAME,240,34,155,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_TEXT,240,53,155,60,ES_MULTILINE | ES_AUTOVSCROLL | ES_AUTOHSCROLL | ES_WANTRETURN | WS_VSCROLL | WS_HSCROLL
+    CONTROL         "Inheritable",IDC_CHECK1,"Button",BS_AUTOCHECKBOX | BS_LEFTTEXT | WS_TABSTOP,214,115,45,14
+    PUSHBUTTON      "Rederive",IDC_REDERIVEBUTTON,279,115,54,14
+    PUSHBUTTON      "Show/Hide",IDC_SHOWHIDEBUTTON,341,115,54,14
+    CONTROL         "COLOR",IDC_COMBO_COLOR,"Button",BS_OWNERDRAW | WS_TABSTOP,270,131,125,14
+    CONTROL         "BGCOLOR",IDC_COMBO_BGCOLOR,"Button",BS_OWNERDRAW | WS_TABSTOP,270,147,125,14
+    CONTROL         "SHADOWCOLOR",IDC_COMBO_SHADOWCOLOR,"Button",BS_OWNERDRAW | WS_TABSTOP,270,163,125,14
+    CONTROL         "GRADIENTCOLOR",IDC_COMBO_GRADIENTCOLOR,"Button",BS_OWNERDRAW | WS_TABSTOP,270,179,125,14
+    LTEXT           "Shadow:",IDC_STATIC_SHADOWCOLOR,215,166,51,8
+    LTEXT           "Gradient:",IDC_STATIC_GRADIENTCOLOR,215,182,51,8
+    CONTROL         "Gradient Fill",IDC_CHECK_GRADIENTFILL,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,215,199,55,10
+    LTEXT           "Direction:",IDC_STATIC_GRADIENTDIR,277,199,51,8
+    EDITTEXT        IDC_EDIT_GRADIENTDIR,337,195,55,14,ES_AUTOHSCROLL | ES_NUMBER
+    CONTROL         "Cast shadow",IDC_CHECK_CASTSHADOW,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,215,214,55,10
+    LTEXT           "Depth/offset:",IDC_STATIC_SHADOWDEPTH,277,215,51,8
+    EDITTEXT        IDC_EDIT_SHADOWDEPTH,337,211,55,14,ES_AUTOHSCROLL | ES_NUMBER
+    LTEXT           "Direction:",IDC_STATIC_SHADOWDIRECTION,277,231,51,8
+    EDITTEXT        IDC_EDIT_SHADOWDIRECTION,337,227,55,14,ES_AUTOHSCROLL | ES_NUMBER
+    CONTROL         "Round rect",IDC_CHECK_ROUNDCORNER,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,215,246,55,10
+    LTEXT           "Edge radius:",IDC_STATIC_CORNERRADIUS,277,247,51,8
+    EDITTEXT        IDC_EDIT_CORNERRADIUS,337,243,55,14,ES_AUTOHSCROLL | ES_NUMBER
+    EDITTEXT        IDC_EDIT_FONT,259,260,110,14,ES_AUTOHSCROLL | WS_DISABLED
+    PUSHBUTTON      "...",IDC_BUTTON_FONT,375,259,20,14
+    CONTROL         "List2",IDC_LIST_ASPECT,"SysListView32",LVS_REPORT | LVS_SINGLESEL | LVS_SHOWSELALWAYS | LVS_NOSORTHEADER | WS_BORDER | WS_TABSTOP,213,285,120,55
+    EDITTEXT        IDC_EDIT_XCOORD,353,286,40,14,ES_AUTOHSCROLL | ES_NUMBER
+    EDITTEXT        IDC_EDIT_YCOORD,353,309,40,14,ES_AUTOHSCROLL | ES_NUMBER
+    CONTROL         "Default Pos",IDC_CHECK_DEFPOS,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,341,327,53,10
+    DEFPUSHBUTTON   "OK",IDOK,112,352,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,241,352,50,14
+    EDITTEXT        IDC_MODELNAME,26,1,109,14,ES_AUTOHSCROLL | ES_READONLY
+    LTEXT           "Name:",IDC_STATIC,3,4,22,8
+    LTEXT           "Kind :",IDC_STATIC,143,4,19,8
+    LTEXT           "Role:",IDC_STATIC,285,4,18,8
+    EDITTEXT        IDC_MODELKIND,164,1,106,14,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_MODELROLE,306,1,98,14,ES_AUTOHSCROLL | ES_READONLY
+    GROUPBOX        "Annotation",IDC_ANNOTATION,205,20,200,330,0,WS_EX_DLGMODALFRAME
+    LTEXT           "Name:",IDC_STATIC_NAME,215,37,22,8
+    LTEXT           "Text:",IDC_STATIC_TEXT,215,53,17,8
+    LTEXT           "Color:",IDC_STATIC_COLOR,215,134,51,8
+    LTEXT           "Background:",IDC_STATIC_BGCOLOR,215,150,51,8
+    LTEXT           "Font:",IDC_STATIC_FONT,215,263,17,8
+    GROUPBOX        "Visibility",IDC_STATIC_VISIBILITY,209,273,190,70
+    LTEXT           "X:",IDC_STATIC_XCOORD,343,289,8,8
+    LTEXT           "Y:",IDC_STATIC_YCOORD,343,311,8,8
+END
+
+IDD_XSLTDIAL DIALOG 0, 0, 372, 151
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "XSL Transformation"
+FONT 8, "MS Sans Serif"
+BEGIN
+    LTEXT           "Input XSL stylesheet",IDC_STATIC,20,9,120,8
+    EDITTEXT        IDC_EDIT1,20,20,320,12,ES_AUTOHSCROLL
+    PUSHBUTTON      "...",IDC_BUTTON1,345,20,15,12
+    LTEXT           "Input GME xme file",IDC_STATIC,20,45,123,8
+    EDITTEXT        IDC_EDIT2,20,56,320,12,ES_AUTOHSCROLL
+    PUSHBUTTON      "...",IDC_BUTTON2,345,56,15,12
+    LTEXT           "Output GME xme file",IDC_STATIC,19,81,120,8
+    EDITTEXT        IDC_EDIT3,20,92,320,12,ES_AUTOHSCROLL
+    PUSHBUTTON      "...",IDC_BUTTON3,345,92,15,12
+    DEFPUSHBUTTON   "OK",IDOK,70,130,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,240,130,50,14
+END
+
+IDD_CLOSUREDLG DIALOGEX 0, 0, 279, 260
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Selective Closure"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    GROUPBOX        "Direction, kinds and relations to be considered",IDC_STATIC,21,4,237,99
+    CONTROL         "Up",IDC_DIRECTIONUP,"Button",BS_AUTORADIOBUTTON | WS_GROUP | WS_TABSTOP,25,15,26,8
+    CONTROL         "Down",IDC_DIRECTIONDN,"Button",BS_AUTORADIOBUTTON,25,26,33,8
+    CONTROL         "Part of Folders",IDC_CHECKPARTOFFOLDERS,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,69,14,61,8
+    CONTROL         "Part of Models",IDC_CHECKPARTOFMODEL,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,172,14,61,8
+    CONTROL         "Folder Containment",IDC_CHECKFOLDERCONTAINMENT,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,69,26,77,8
+    CONTROL         "Containment",IDC_CHECKCONTAINMENT,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,69,37,52,8
+    CONTROL         "Include all",IDC_INCLUDEALL,"Button",BS_AUTORADIOBUTTON | WS_GROUP | WS_TABSTOP,172,26,67,8
+    CONTROL         "Include only",IDC_INCLUDESOME,"Button",BS_AUTORADIOBUTTON,172,37,52,8
+    PUSHBUTTON      ">>",IDC_FILTER,225,36,16,9
+    CONTROL         "Refers To",IDC_CHECKREFERSTO,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,69,55,53,8
+    CONTROL         "Referred By",IDC_CHECKREFERREDBY,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,69,66,51,8
+    CONTROL         "Connection",IDC_CHECKCONNECTION,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,69,77,58,8
+    CONTROL         "Connection with refports",IDC_CHECKREFPORTCONNECTION,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,79,88,89,9
+    CONTROL         "Set Members",IDC_CHECKSETMEMBER,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,172,55,55,8
+    CONTROL         "Member of Sets",IDC_CHECKMEMBEROF,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,172,66,67,8
+    CONTROL         "Base Type of This",IDC_CHECKBASETYPES,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,172,77,74,8
+    CONTROL         "Derived Types of This",IDC_CHECKSUBTYPES,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,172,88,82,8
+    GROUPBOX        "Wrap selected closure",IDC_STATIC,21,107,82,51
+    CONTROL         "Miniproject",IDC_WRAPMINIPROJ,"Button",BS_AUTORADIOBUTTON | WS_GROUP | WS_TABSTOP,25,120,49,8
+    CONTROL         "Automatic",IDC_WRAPAUTO,"Button",BS_AUTORADIOBUTTON,25,132,49,8
+    CONTROL         "As is",IDC_WRAPASIS,"Button",BS_AUTORADIOBUTTON,25,144,32,8
+    GROUPBOX        "Library element handling",IDC_STATIC,118,107,140,51
+    CONTROL         "Use stubs",IDC_LIBR1,"Button",BS_AUTORADIOBUTTON | WS_GROUP | WS_TABSTOP,122,120,61,8
+    CONTROL         "Do not include in closure (stop)",IDC_LIBR2,"Button",BS_AUTORADIOBUTTON,122,132,115,8
+    CONTROL         "Include in closure (continue)",IDC_LIBR3,"Button",BS_AUTORADIOBUTTON,122,144,116,8
+    GROUPBOX        "Output to",IDC_STATIC,22,166,236,38
+    CONTROL         "Clipboard",IDC_OUTPUTTOCLIPBOARD,"Button",BS_AUTORADIOBUTTON | WS_GROUP | WS_TABSTOP,25,177,49,9
+    CONTROL         "File",IDC_OUTPUTTOFILE,"Button",BS_AUTORADIOBUTTON,25,189,25,9
+    EDITTEXT        IDC_EDIT1,56,187,177,12,ES_AUTOHSCROLL
+    PUSHBUTTON      " ... ",IDC_BROWSE,237,187,15,12
+    DEFPUSHBUTTON   "OK",IDOK,64,239,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,158,239,50,14
+    GROUPBOX        "Special",IDC_STATIC,22,207,236,30
+    CONTROL         "Mark Elements inside closure",IDC_CHECKMARK,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,28,219,118,10
+    EDITTEXT        IDC_EDITMARK,204,218,22,12,ES_AUTOHSCROLL | ES_NUMBER
+    LTEXT           "ClosureId:",IDC_STATIC,164,219,33,10
+END
+
+IDD_CLOSURERES DIALOG 0, 0, 275, 127
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Selective Closure Result"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "Close",IDOK,211,15,50,14
+    LISTBOX         IDC_LIST1,31,22,160,82,LBS_NOINTEGRALHEIGHT | LBS_NOSEL | WS_VSCROLL | WS_HSCROLL | WS_TABSTOP
+    GROUPBOX        "Folders and Models the Closure can be pasted in:",IDC_STATIC,21,10,178,103
+END
+
+IDD_CLOSURESMARTCP DIALOG 0, 0, 226, 58
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Smart copy dialog"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,169,6,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,169,23,50,14
+    CONTROL         "References",IDC_CHECKREF,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,12,5,138,10
+    CONTROL         "Sets",IDC_CHECKSET,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,12,17,138,10
+    CONTROL         "Connections",IDC_CHECKCONN,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,12,29,138,10
+    PUSHBUTTON      "Invert",IDC_INVERT,12,41,29,13
+END
+
+IDD_CLOSUREKINDSEL DIALOG 0, 0, 186, 95
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Include the following children"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,129,7,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,129,24,50,14
+    CONTROL         "Folders",IDC_CHECK1,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,14,8,82,12
+    CONTROL         "Models",IDC_CHECK2,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,14,24,82,12
+    CONTROL         "Atoms",IDC_CHECK3,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,14,40,82,12
+    CONTROL         "Sets",IDC_CHECK4,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,14,56,82,12
+    CONTROL         "References",IDC_CHECK5,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,14,72,82,12
+END
+
+IDD_CLOSURESIMPLECP DIALOGEX 0, 0, 186, 90
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Smart Copy"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,129,7,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,129,24,50,14
+    CONTROL         "Containment",IDC_CHECK1,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,16,13,79,10
+    CONTROL         "Folder Containment",IDC_CHECK6,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,16,25,79,10
+    CONTROL         "Connections",IDC_EXCONN,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,16,53,55,10
+    CONTROL         "References",IDC_EXREF,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,16,65,53,10
+    CONTROL         "Atoms",IDC_EXATOM,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,76,53,34,10
+    CONTROL         "Sets",IDC_EXSET,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,76,65,30,10
+    GROUPBOX        "Process down through",IDC_STATIC,7,3,108,35
+    GROUPBOX        "Exclude",IDC_STATIC,7,42,108,40
+END
+
+IDD_ALTERNMSPDLG DIALOGEX 0, 0, 213, 90
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Importing objects from a different paradigm"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    CONTROL         "Unalter",IDC_RAD_ALTER0,"Button",BS_AUTORADIOBUTTON | WS_GROUP | WS_TABSTOP,11,19,102,10
+    CONTROL         "Prefix with",IDC_RAD_ALTER1,"Button",BS_AUTORADIOBUTTON,11,32,48,10
+    CONTROL         "Truncate",IDC_RAD_ALTER2,"Button",BS_AUTORADIOBUTTON,11,45,48,10
+    CONTROL         "Migrate",IDC_RAD_ALTER3,"Button",BS_AUTORADIOBUTTON,11,58,48,10
+    EDITTEXT        IDC_EDTPREFIX,68,31,75,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDTTRUNC,68,45,75,14,ES_AUTOHSCROLL
+    CONTROL         "Apply to all objects",IDC_APPLY_ALL,"Button",BS_AUTOCHECKBOX | BS_LEFT | BS_MULTILINE | WS_TABSTOP,12,73,114,12,WS_EX_TRANSPARENT
+    DEFPUSHBUTTON   "OK",IDOK,156,7,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,156,24,50,14
+    PUSHBUTTON      "Help",IDC_BUTTON1,156,41,50,14
+    LTEXT           "Would you like to alter kind and role names?",IDC_STATIC,7,7,141,8
+END
+
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)\r\n"
+    "#ifdef _WIN32\r\n"
+    "LANGUAGE 9, 1\r\n"
+    "#pragma code_page(1252)\r\n"
+    "#endif //_WIN32\r\n"
+    "#include ""res\\MgaUtil.rc2""  // non-Microsoft Visual C++ edited resources\r\n"
+    "#include ""afxres.rc""         // Standard components\r\n"
+    "#endif\r\n"
+    "\r\n"
+    "1 TYPELIB ""MgaUtilLib.tlb""\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION GME_VERSION_RC
+ PRODUCTVERSION GME_VERSION_RC
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x2L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904B0"
+        BEGIN
+            VALUE "FileDescription", "MgaUtil DLL"
+            VALUE "FileVersion", GME_VERSION_STR
+            VALUE "InternalName", "MgaUtil"
+            VALUE "LegalCopyright", "Copyright (C) 2000-2004"
+            VALUE "OriginalFilename", "MgaUtil.DLL"
+            VALUE "ProductName", "MgaUtil Dynamic Link Library"
+            VALUE "ProductVersion", GME_VERSION_STR
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1200
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// REGISTRY
+//
+
+IDR_MGAUTIL             REGISTRY                "MgaUtilLib.rgs"
+IDR_MGARESOLVER         REGISTRY                "MgaResolver.rgs"
+IDR_MGAREGISTRAR        REGISTRY                "MgaRegistrar.rgs"
+IDR_MGALAUNCHER         REGISTRY                "MgaLauncher.rgs"
+IDR_MGAPROGRESSDLG      REGISTRY                "MgaProgressDlg.rgs"
+IDR_COMPONENTPROXY      REGISTRY                "ComponentProxy.rgs"
+IDR_MGACLOSURE          REGISTRY                "MgaClosure.rgs"
+IDR_MGAEVENTLOGGER      REGISTRY                "MgaEventLogger.rgs"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO
+BEGIN
+    IDD_DIALOG_LIST, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 225
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 104
+    END
+
+    IDD_METADLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 295
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 223
+    END
+
+    IDD_GMEDLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 240
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 450
+    END
+
+    IDD_COMPDLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 476
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 232
+    END
+
+    IDD_PROGRESSDLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 237
+        TOPMARGIN, 7
+    END
+
+    IDD_METAPURGEDIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 575
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 224
+    END
+
+    IDD_REGISTRY_BROWSER, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 399
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 213
+    END
+
+    IDD_COMPINFODLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 261
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 125
+    END
+
+    IDD_ANNOTATION_BROWSER, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 399
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 366
+    END
+
+    IDD_XSLTDIAL, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 365
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 144
+    END
+
+    IDD_CLOSUREDLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 272
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 253
+    END
+
+    IDD_CLOSURERES, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 268
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 120
+    END
+
+    IDD_CLOSURESMARTCP, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 219
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 51
+    END
+
+    IDD_CLOSUREKINDSEL, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 179
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 88
+    END
+
+    IDD_CLOSURESIMPLECP, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 179
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 83
+    END
+
+    IDD_ALTERNMSPDLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 206
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 83
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDI_ICON_REGHERE        ICON                    "res\\icon_reghere.ico"
+IDI_ICON_REGMETA        ICON                    "res\\icon_regmeta.ico"
+IDI_ICON_REGINHERIT     ICON                    "res\\icon_reginherit.ico"
+IDI_ICON_REGUNDEF       ICON                    "res\\icon_regundef.ico"
+IDI_ICON_REGINVALID     ICON                    "res\\icon_reginvalid.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+IDR_CNTXMENU_REGBRW MENU
+BEGIN
+    POPUP "Cntx"
+    BEGIN
+        MENUITEM "Add Node",                    ID_CNTX_ADDNODE
+        MENUITEM "Clear Node",                  ID_CNTX_CLEARNODE
+        MENUITEM "Remove All",                  ID_CNTX_REMOVEALL
+        MENUITEM "Remove Tree",                 ID_CNTX_REMOVETREE
+        MENUITEM "Rename Node",                 ID_CNTX_RENAMENODE
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDB_BITMAP1             BITMAP                  "res\\CompImageList.bmp"
+IDB_BITMAP2             BITMAP                  "res\\AddOnStatus.bmp"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE
+BEGIN
+    IDS_REGISTRAR_NAME      "GME Registration Agent"
+END
+
+#endif    // English (United States) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE 9, 1
+#pragma code_page(1252)
+#endif //_WIN32
+#include "res\MgaUtil.rc2"  // non-Microsoft Visual C++ edited resources
+#include "afxres.rc"         // Standard components
+#endif
+
+1 TYPELIB "MgaUtilLib.tlb"
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

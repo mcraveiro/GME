@@ -1,0 +1,104 @@
+import "oaidl.idl";
+import "ocidl.idl";
+
+import "Core.idl";
+import "Mga.idl";
+import "MgaUtil.idl";
+
+// --------------------------- MgaUtil Library
+
+[
+	uuid(461F30AE-3BF0-11D4-B3F0-005004D38590),
+	version(1.0),
+	helpstring("MGA Utilities Type Library")
+]
+library MGAUtilLib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+	importlib("CoreLib.tlb");
+	importlib("MetaLib.tlb");
+	importlib("MgaLib.tlb");
+
+	enum mgautil_error;
+
+	[
+		uuid(461F30B1-3BF0-11D4-B3F0-005004D38590),
+		helpstring("MgaResolver Class")
+	]
+	coclass MgaResolver
+	{
+		[default] interface IMgaResolver;
+	};
+
+	[
+		uuid(F1D6BB06-42EE-11D4-B3F4-005004D38590),
+		helpstring("MgaRegistrar Class")
+	]
+	coclass MgaRegistrar
+	{
+		[default] interface IMgaRegistrar;
+		interface IGMEVersionInfo;
+	};
+
+	[
+		uuid(D03EC327-447B-11D4-B3F6-005004D38590),
+		helpstring("MgaLauncher Class")
+	]
+	coclass MgaLauncher
+	{
+		[default] interface IMgaLauncher;
+	};
+
+	[
+		uuid(B88CDEEA-A4FB-11D4-B44B-005004D38590),
+		helpstring("MgaProgressDlg Class")
+	]
+	coclass MgaProgressDlg
+	{
+		[default] interface IMgaProgressDlg;
+	};
+
+	[
+		uuid(789C184D-B3E3-4B35-B3AE-665DA236F59C),
+		helpstring("ComponentProxy Class")
+	]
+	coclass ComponentProxy
+	{
+		[default] interface IMgaComponentProxy;
+		interface IMgaComponent;
+		interface IMgaComponentEx;
+		interface IGMEVersionInfo;
+		//[default, source] dispinterface IMgaComponentDispatch;
+	};
+
+	[
+		uuid(BEBD0575-BB6F-48ea-8373-7436F04EFEEC),
+		helpstring("Dispatch based MgaComponent class for script languages")
+	]
+	coclass MgaComponentDispatch
+	{
+		[default] interface IMgaComponentDispatch;
+	}
+
+	[
+		uuid(D6F2FBC5-3405-40fd-8880-7E99DD10F0BA),
+		helpstring("Copy Closure feature")
+	]
+	coclass MgaClosure
+	{
+		[default] interface IMgaClosure;
+	}
+
+	[
+		uuid(98C2F832-0209-45c9-B665-829B88AA9399),
+		helpstring("MgaEventLogger Class")
+	]
+	coclass MgaEventLogger
+	{
+		[default] interface IMgaEventLogger;
+	};
+
+};
+

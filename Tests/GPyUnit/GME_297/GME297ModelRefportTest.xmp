@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<!DOCTYPE paradigm SYSTEM "edf.dtd">
+
+<paradigm name="GME297ModelRefportTest" guid="{1164DAF2-157D-47D3-AA65-7CD12784CF82}" cdate="Thu Sep 23 11:45:28 2010" mdate="Thu Sep 23 11:45:28 2010" >
+
+	<comment></comment>
+
+	<author></author>
+
+	<folder name = "RootFolder" metaref = "1000"  subfolders = "KindFolder" >
+		<atom name = "KindAtom" metaref = "1001" >
+				<regnode name = "namePosition" value ="4"></regnode>
+		</atom>
+		<connection name = "KindConnection" metaref = "1002" >
+				<regnode name = "color" value ="0x000000"></regnode>
+				<regnode name = "dstStyle" value ="arrow"></regnode>
+				<regnode name = "srcStyle" value ="butt"></regnode>
+				<regnode name = "lineType" value ="solid"></regnode>
+			<connjoint>
+				<pointerspec name = "src">
+					<pointeritem desc = "KindAtom"></pointeritem>
+					<pointeritem desc = "KindModel KindAtom"></pointeritem>
+					<pointeritem desc = "KindModelReference KindAtom"></pointeritem>
+				</pointerspec>
+				<pointerspec name = "dst">
+					<pointeritem desc = "KindAtom"></pointeritem>
+					<pointeritem desc = "KindModel KindAtom"></pointeritem>
+					<pointeritem desc = "KindModelReference KindAtom"></pointeritem>
+				</pointerspec>
+			</connjoint>
+		</connection>
+		<reference name = "KindModelReference" metaref = "1003">
+				<regnode name = "namePosition" value ="4"></regnode>
+			<pointerspec name = "ref">
+				<pointeritem desc = "KindModel"></pointeritem>
+				<pointeritem desc = "KindModelReference"></pointeritem>
+			</pointerspec>
+		</reference>
+		<model name = "KindModel" metaref = "1004" >
+				<regnode name = "namePosition" value ="4"></regnode>
+				<regnode name = "isTypeInfoShown" value ="true"></regnode>
+			<role name = "KindAtom" metaref = "1005" kind = "KindAtom"></role>
+			<role name = "KindConnection" metaref = "1013" kind = "KindConnection"></role>
+			<role name = "KindModel" metaref = "1011" kind = "KindModel"></role>
+			<role name = "KindModelReference" metaref = "1006" kind = "KindModelReference"></role>
+			<aspect name = "KindAspect" metaref = "1007" >
+				<part metaref = "1008" role = "KindAtom" primary = "yes" linked = "yes"></part>
+				<part metaref = "1014" role = "KindConnection" primary = "yes" linked = "no"></part>
+				<part metaref = "1012" role = "KindModel" primary = "yes" linked = "no"></part>
+				<part metaref = "1009" role = "KindModelReference" primary = "yes" kindaspect = "KindAspect" linked = "no"></part>
+			</aspect>
+		</model>
+		<folder name = "KindFolder" metaref = "1010"  subfolders = "KindFolder" rootobjects = "KindModel" >
+		</folder>
+	</folder>
+</paradigm>

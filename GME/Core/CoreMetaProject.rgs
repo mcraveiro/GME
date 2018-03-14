@@ -1,0 +1,26 @@
+HKCR
+{
+	Mga.CoreMetaProject.1 = s 'CoreMetaProject Class'
+	{
+		CLSID = s '{98AA02DD-2E2C-11D3-B36D-0060082DF884}'
+	}
+	Mga.CoreMetaProject = s 'CoreMetaProject Class'
+	{
+		CLSID = s '{98AA02DD-2E2C-11D3-B36D-0060082DF884}'
+		CurVer = s 'Mga.CoreMetaProject.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {98AA02DD-2E2C-11D3-B36D-0060082DF884} = s 'CoreMetaProject Class'
+		{
+			ProgID = s 'Mga.CoreMetaProject.1'
+			VersionIndependentProgID = s 'Mga.CoreMetaProject'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			'TypeLib' = s '{9E9AAACF-28B8-11D3-B36C-0060082DF884}'
+		}
+	}
+}

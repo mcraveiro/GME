@@ -1,0 +1,470 @@
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="Author" content="Arpad Bakay">
+   <meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+   <title>Lesson 4 -- References and Sets</title>
+</head>
+<body text="#000066" 
+      bgcolor="#FFFFCC" 
+      link="#0000EE" 
+      vlink="#551A8B" 
+      alink="#FF0000">
+
+<center>
+<b><u><font size=+2>Lesson 4
+<br>Other Modeling Concepts:
+<br>References and Sets
+</font></u></b>
+</center>
+<p>
+
+<br><a href="#intro">Introduction to Lesson 4</a>
+<br><a href="#4.1">4.1 References</a>
+<br><a href="#4.2">4.2 Sets</a>
+<p><br>
+
+
+<a name="intro"></a>
+<b><u><font size="+1">Introduction to Lesson 4</font></u></b>
+<p>
+
+<a href="Lesson1.html">Lesson 1</a> introduced three of the primary modeling 
+entities: atoms, models and connections. Obviously these concepts (or 
+functionally equivalent ones) are essential for modeling even the simplest 
+systems. Their use in more complex systems was demonstrated through the 
+hierarchical network modeling application of <a href="Lesson2.html">Lesson 2
+</a>.
+<p>
+
+Still, there are countless situations that would be cumbersome and/or 
+impossible to model using only the concepts seen so far. Fortunately, GME 
+supports a few additional concepts that add to its descriptive power, giving it 
+a much wider range of modeling capabilities.
+<p><br>
+
+
+<hr width="80%">
+<br><a name="4.1"></a>
+<b><u><font size=+1>4.1. References</font></u></b>
+<p>
+
+Consider the following problem in the networking domain.
+<p>
+ 
+<i><font color="#FF0000">
+We have an ambitious modeling project which describes a complex, hierarchical 
+network. The root model is the Internet backbone. The next level contains the 
+continents: Europe, North America, Asia, etc. Within each continent there is a 
+level consisting of country networks, which have an optional level of domestic 
+regions (U.S. states, for example). Under those, each Internet Service Provider 
+has a separate NetDiagram, and each ISP client with more than one PC has a 
+separate NetDiagram on the lowest level.
+<p>
+
+Imagine a situation in which two companies, ZebraStripes PLC (a client of the 
+ZimbaNet ISP in Zimbabwe) and PantherSpots Corp. (a client of BurmiNet in 
+Burma), recognize that they are doing so much business with each other that the 
+added bandwidth of a direct leased line between them would significantly improve 
+their synergy. (See Figs 4.1 - 4.3.) A leased-line connection is typically 
+configured as an IP network between two router ports with only two addresses 
+used at either end of the line.
+<p>
+
+Where will this leased-line network be inserted in the hierarchy? How can we 
+represent the idea that these companies connect to a network that spans two 
+continents?
+<p>
+
+If we follow the rules set forth in <a href="Lesson2.html">Lesson 2</a>, our 
+solution will be to find the lowest point in the hierarchy where both companies 
+are contained, insert the new network there, and use a chain of perimeters along 
+the hierarchy levels to make the network accessible in both companies. Since the 
+lowest point in this case is "World", the network should be placed there. A 
+perimeter is added to each level (continent, country, ISP, company), and the 
+perimeters are connected by NetworkEquiv relationships, so that the perimeters 
+in both company diagrams are "wired" to the new Network object in "World".
+<p>
+
+Clearly, this action will add at least 8 extra Perimeter objects to our model. 
+Also, we must put the new Network in the highest level of the hierarchy. As the 
+number of leased intercontinental data lines continues to grow, the "World" 
+diagram quickly becomes too large to handle. Other plausible scenarios, such as 
+ISPs or other distribution centers with data lines to more than one continent or 
+country, only exacerbate the problem. These situations are common; many European 
+ISPs have their own direct leased-line connection to the U.S.
+</font></i>
+<p>
+
+Translating all this into modeling terminology, the problem is that we do not 
+yet have a way to represent <i>relations that cross hierarchies</i>. 
+Connections, our only relation so far, can only connect objects when they are in 
+the same NetDiagram or when one of the diagrams is the immediate child of the 
+other. <i>References</i> in GME are provided to overcome this exact 
+limitation. As the name implies, a reference is an object that represents 
+another object somewhere (possibly far away) in the modeling hierarchy. When a 
+reference is created, it is associated with a <i>referred object,</i> which it 
+represents (unless it is a <i>NULL reference</i>).
+<p>
+
+For the networking example, references offer us several solutions for the 
+problem described above:
+
+<ol>
+ <li>
+  Introduce a new type of object, a <i>reference to a NetDiagram</i>. The new 
+  NetDiagram typically contains a new Network and references to the local 
+  NetDiagrams of the two companies. Both of the company networks have a new 
+  Perimeter connected to the ports that their routers use for the new leased 
+  line. (Fig 4.1) A reference to a model mirrors and displays the ports of the 
+  referred objects, and they can be connected just like the ports of the 
+  original models.
+</ol>
+<p><br>
+
+
+<center>
+<img SRC="L4/F1/Fig4_1.gif">
+<br><b>Fig 4.1 Implementing cross-hierarchy relationships with references</b>
+<br>Solution #1: using NetDiagram references
+</center>
+<p><br>
+
+
+<ol start="2">
+ <li>
+  Extend the metamodel with a <i>reference to a Router</i>. Router references 
+  allow routers to be "replicated" in remote NetDiagrams and connected to a 
+  Network or Perimeter in those diagrams.
+  <br>
+  Using this solution, we can choose one of two options:
+
+  <ol type="a">
+   <li>
+    Create a reference to ZebraStripes's router and add it to the NetDiagram of 
+    PantherSpots. Also add a new Network (for the leased line) and connect it 
+    to both the RouterReference and the router of PantherSpots. (Fig 4.2) This 
+    method symbolically "assigns" the leased line to one of the companies.
+   <li>
+    Create a new NetDiagram. Add a Network and two RouterReferences, one for 
+    ZebraStripes' router and one for PantherSpots' router, and connect the 
+    selected ports to the network. (Fig 4.3) This emphasizes that the leased 
+    line is not under the authority of either company. The new NetDiagram can 
+    be inserted anywhere, but the best place is probably in the root folder, 
+    outside the Internet hierachy.
+  </ol>
+</ol>
+<p><br>
+
+
+<center>
+<img SRC="L4/F2/Fig4_2.gif">
+<br><b>Fig 4.2 Implementing cross-hierarchy relationships with references</b>
+<br>Solution #2a: using a Router reference
+</center>
+<p><br>
+
+
+<center>
+<img SRC="L4/F3/Fig4_3.gif">
+<br><b>Fig 4.3 Implementing cross-hierarchy relationships with references</b>
+<br>Solution #2b: using multiple Router references
+</center>
+<p><br>
+
+
+<ol start="3">
+ <li>
+  Introduce <i>references to RouterPorts</i>, i.e. references to atoms. It is a 
+  solution similar to the previous techniques using router references, but 
+  somewhat less evident.
+</ol>
+
+Working with the specific details of this example could cause the MIC amateur 
+to "miss the forest for the trees", so to speak, if you feel a bit lost, don't 
+worry. Here is a summary of the essential ideas needed to understand 
+references:
+<p>
+
+Even though hierarchy is a very useful concept, there are situations in which 
+it cannot efficiently model a system on its own. Most systems have components 
+which cannot be fully isolated within the hierarchical containment. Also, 
+sometimes there are a few objects that belong to multiple locations in the 
+hierarchy (e.g. a secretary working for two different departments). Therefore, 
+techniques are needed to refer to remote objects from within the diagrams. 
+<i>References</i> are objects that represent other objects, typically located 
+somewhere else in the modeling hierarchy. References provide the ability to 
+span the hierarchy without "breaking" it and voiding its convenient properties 
+(each object has a single parent, traversing the tree visits each node exactly 
+once, etc.).
+<p>
+
+References are such powerful tools partly because different modeling
+scenarios use references in different ways:
+
+<ul>
+ <li>
+  A reference may behave like an <i>alias</i>, an object nearly 
+  indistinguishable from the referred object itself. The visual appearance of 
+  references used as aliases is usually identical to, or very similar to, that 
+  of the target object. Obviously, aliases cannot exist without their referred 
+  objects, and often aliases are immutable (bound to their target for a 
+  lifetime).
+ <li>
+  At the other extreme, references may be used as pointers. Pointers are 
+  clearly separate entities from their targets, and may be reset to other 
+  targets during their lifetime. They may even be null-pointers, referring to 
+  nothing.
+</ul>
+<p><br>
+
+
+<b><u>4.1.1 Defining and working with references</u></b>
+<p>
+
+We will now update our networking metamodel so that we can create models with 
+Router references, as shown in Fig 4.2 and Fig 4.3. (The same paradigm can be 
+used for both models.)
+
+<ol>
+ <li>
+  Open the metamodel and the ParadigmSheet. Drag a new item, a 
+  <b>&lt;&lt;Reference>></b>, onto the Paradigm window. Name it "RouterRef". 
+  Connect it to the "Router" <b>&lt;&lt;Model>></b>. Select "ReferTo" from the 
+  list that pops up. This type of connection (terminated by an arrow) states 
+  that RouterRefs can refer to models of type Router. References can refer to 
+  models, atoms, or other references. Also connect the reference to NetDiagram. 
+  Select "Containment" as the connection type, because we want to show that 
+  RouterRefs can be drawn onto NetDiagrams.
+ <li>
+  Switch to the Visualization view, and add RouterRef to the Connectivity 
+  <b>&lt;&lt;Aspect>></b>. (Otherwise we would not be able to create or view 
+  RouterRefs anywhere in the model).
+ <li>
+  Interpret and register the metamodel.
+</ol>
+<p><br>
+
+
+<center>
+<img SRC="L4/F4/Fig4_4.png">
+<br><b>Fig 4.4 A reference in the <a href="L4/F4/networking.xme"> metamodel</a></b></center>
+<p><br>
+
+
+Now let's build a model with a leased-line connection between two companies, 
+using the technique shown in Fig 4.3. 
+
+<ol>
+ <li>
+  Create a new network diagram using the new paradigm, or open the example from 
+  <a href="Lesson2.html">Lesson 2</a>. Insert a new NetDiagram model into the 
+  root folder, and name it LeasedLine1. Create a Network inside the new model 
+  that will connect the two routers.
+ <li>
+  To create the references, drag the routers from both companies into the new 
+  model, <u>while pressing the Ctrl and Shift keys</u>. You can use both the 
+  browser and the model windows as the source and/or the destination of the drag 
+  operation; all combinations will work. You can even drag both routers in a 
+  single step if you select both in the browser window.
+ <li>
+  The router ports are visible on the references, but there is a problem: the 
+  routers have no free ports to connect to the new network. A port cannot be 
+  connected to more than one (outside) object, even if the port's existing 
+  connection is not visible in the current diagram. 
+  (<a href="Lesson6.html">Lesson 6</a> will introduce <i>constraints,</i> 
+  mechanisms designed to actually enforce this rule.) We can fix this by adding 
+  new ports (assuming that the real-world routers can be extended). When a 
+  reference is double-clicked, it will locate its parent object. Double-click 
+  one of the RouterRefs, add a new port (i.e. Perimeter), and name it something 
+  like S1 (a typical name for the second serial port of a router). The new port 
+  will immediately become visible on the LeasedLine diagram as well. This 
+  clearly shows that a reference is not a copy, but a representation of the 
+  referred object. Repeat these steps for the other RouterRef. Now you can add 
+  connections from the network to the new ports, arriving at the state shown in 
+  Fig 4.4.
+</ol>
+<p><br>
+
+
+<center>
+<img SRC="L4/F5/Fig4_5.png">
+<br><b>Fig 4.5 Using Router references in your <a href="L4/F5/mynetwork.xme">model</a></b></center>
+<p><br>
+
+
+References add a significant amount of power to GME. All real-world GME 
+applications use references; some applications use them extensively. Sometimes 
+they are used as aliases, sometimes as pointers, and sometimes they simply 
+represent a generic association, where the concept of a reference seems to be 
+more intuitive than a connection. This is often the case when the real-world 
+object is a kind of pointer by itself: a Table of Contents Entry in the model of 
+a book, for example, or a mailbox for a recipient in the model of a mail 
+forwarding system. When working with GME, feel free to use references for any 
+purpose and to define any type of semantics for them.
+<p>
+
+Connections and references are two different types of associations in GME. 
+But they are often used together, as in the example above: the reference locates 
+a remote object so that a connection can be established between two objects 
+which are not visible together from any container.
+<p>
+
+It is worth noting that many other modeling tools do not have anything 
+resembling a reference, which makes the concept even more remarkable.
+<p><br>
+
+
+<hr width="80%">
+<br><a name="4.2"></a>
+<b><u><font size=+1>4.2 Sets</font></u></b>
+<p>
+
+We have already seen two different types of associations in GME: connections 
+and references. Together, they have the power to describe any situation. 
+Sometimes, though, these associations are not the most convenient option. Let's 
+see if we can use them for the following example:
+<p>
+
+<i><font color="#FF0000">
+Mid-size companies have several IT administrators. Each administrator is usually 
+responsible for a couple of machines. Important machines may have several 
+administrators (and some of them work for years after the only person with 
+administrator access leaves the company...). We want to extend the network model 
+to include information on administrators and their responsibilities.
+</font></i>
+<p>
+
+Let us introduce a new object, "Administrator". How shall we represent the 
+"administers/administered by" relationship?
+
+<ul>
+ <li>
+  References will not work. A reference can only be associated with a single 
+  object, while an administrator may be responsible for several machines. A 
+  machine may also be administered by several people, so using references 
+  in the reverse direction is not feasible either.
+ <li>
+  Connections may certainly be used. However, every network device will have at 
+  least one new connection. Even if a new appearance is assigned to these 
+  connection lines, the vast number of new lines would render the diagrams 
+  unreadable.
+</ul>
+
+<i>Sets</i> are the GME concepts recommended for situations in which an 
+object has to be associated with a relatively large number of neighboring 
+objects in a diagram. These objects are called the "members" of the set. In many 
+cases, the real-world object itself has a natural set-like property: if you hear 
+of an administrator, in a networking environment, the first thing you want to 
+know about an administrator is the group of machines he is responsible for.
+<p>
+
+One way to understand sets is to compare them to the way that aspects are 
+specified in the metamodeling environment. In that situation, sets represent 
+meta-aspects. The "lasso" selection mode used when dealing with aspects 
+( <img SRC="Icons/SetMode.png" align=top> ) also provides a way to specify set 
+memberships.
+<p>
+
+This example shows that the concept of sets is not as indispensable as that of 
+connections or references. Sets can usually be replaced by connections. You 
+should regard sets as an alternate association technique that supplies greater 
+convenience in many situations.
+<p>
+
+(Please note that the current version of GME supports sets in a rather
+limited way: the set and its members must be siblings, and objects represented
+by references cannot be added to the set. These limitations will be eliminated
+in future releases.)
+<p><br>
+
+
+<b><u>4.2.1 Defining and Working with Sets</u></b>
+<p>
+
+Let us extend the network modeling environment by adding administrators, as seen 
+above.
+
+<ol>
+ <li>
+  Open the metamodel, and insert a new <b>&lt;&lt;Set>></b> into the paradigm
+sheet. Name it "Admin", and specify an icon for it in the attributes dialog
+box. Here is how I imagine a friendly administrator:
+</ol>
+<p><br>
+
+
+<center>
+<table BORDER cellpadding="5">
+  <tr>
+    <td align=center>
+      <a href="Icons/Admin.bmp">
+      <img SRC="Icons/Admin.bmp"><p>
+      Admin.bmp</a>
+    </td>
+  </tr>
+</table>
+</center>
+<p><br>
+
+
+<ol start="2">
+ <li>
+  Administrators can administer any machine; this includes Routers, Hosts, and 
+  WSGroups. Connect each of these metaentities to the new set. These are 
+  "SetMembership" associations. Also connect the set to NetDiagram with a 
+  containment relationship, to indicate that Administrators can be placed inside 
+  NetDiagrams. Add the set to the Connectivity aspect in the Visualization view.
+ <li>
+  The updated metamodel should look like the one shown in Fig 4.6. Interpret and 
+  register it.
+</ol>
+<p><br>
+
+
+<center>
+<img SRC="L4/F6/Fig4_6.png">
+<br><b>Fig 4.6 A set in the <a href="L4/F6/networking.xme"> metamodel</a></b>
+</center>
+<p><br>
+
+
+<ol start="4">
+ <li>
+  Now experiment with the sets in the modeling environment. Update the example
+model to the new paradigm, and add an "Administrator" into a company NetDiagram.
+Enter the set mode ( <img SRC="Icons/SetMode.png" align=top> ) and right-click
+the set. The set is selected as the "controller" now, so you can add and
+remove objects by left-clicking them. Note that only the objects
+specified as potential set members in the metamodel can be added to a set.
+</ol>
+<p><br>
+
+
+<center>
+<img SRC="L4/F7/Fig4_7.png">
+<br><b>Fig 4.7 Administrator Bob and his administrative <a href="L4/F7/mynetwork.xme"> domain</a></b>
+</center>
+<p><br>
+
+
+Now that we have completed Lesson 4, all members of the FCO family (models, 
+atoms, connections, references, and sets) have been introduced. Additional 
+GME concepts will be discussed in future lessons. These concepts are just as 
+important to the modeling environment, but are not FCOs.
+<p><br>
+
+
+<center>
+<hr width="80%">
+<table><tr><td>
+<a href="Lesson3.html">&lt;&lt; Previous Lesson</a>
+</td><td width=50></td><td>
+<a href="index.html#toc">Complete List</a> 
+</td><td width=50></td><td>
+<a href="Lesson5.html">Next Lesson >></a>
+</td></tr></table>
+</center>
+
+</body>
+</html>

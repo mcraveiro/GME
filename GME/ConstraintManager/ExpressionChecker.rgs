@@ -1,0 +1,26 @@
+HKCR
+{
+	Mga.AddOn.ExpressionChecker.1 = s 'ExpressionChecker Class'
+	{
+		CLSID = s '{74A06CAE-A3CF-4C7B-B4CB-C0A3C3C654B9}'
+	}
+	Mga.AddOn.ExpressionChecker = s 'ExpressionChecker Class'
+	{
+		CLSID = s '{74A06CAE-A3CF-4C7B-B4CB-C0A3C3C654B9}'
+		CurVer = s 'Mga.AddOn.ExpressionChecker.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {74A06CAE-A3CF-4C7B-B4CB-C0A3C3C654B9} = s 'ExpressionChecker Class'
+		{
+			ProgID = s 'Mga.AddOn.ExpressionChecker.1'
+			VersionIndependentProgID = s 'Mga.AddOn.ExpressionChecker'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			'TypeLib' = s '{D69D91D0-4550-4A5D-848C-9BBA92693D22}'
+		}
+	}
+}

@@ -1,0 +1,6 @@
+VSWIZARD 7.0
+Wizard=VsWizard.VsWizardEngine.9.0
+
+Param="WIZARD_NAME = Decorator Wizard"
+Param="ABSOLUTE_PATH = C:\trunk\GME\SDK\DecoratorWizard"
+Param="FALLBACK_LCID = 1033"

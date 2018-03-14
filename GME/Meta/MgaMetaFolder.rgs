@@ -1,0 +1,26 @@
+HKCR
+{
+	Mga.MgaMetaFolder.1 = s 'MgaMetaFolder Class'
+	{
+		CLSID = s '{83BA3246-B758-11D3-ABAE-000000000000}'
+	}
+	Mga.MgaMetaFolder = s 'MgaMetaFolder Class'
+	{
+		CLSID = s '{83BA3246-B758-11D3-ABAE-000000000000}'
+		CurVer = s 'Mga.MgaMetaFolder.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {83BA3246-B758-11D3-ABAE-000000000000} = s 'MgaMetaFolder Class'
+		{
+			ProgID = s 'Mga.MgaMetaFolder.1'
+			VersionIndependentProgID = s 'Mga.MgaMetaFolder'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			'TypeLib' = s '{0ADEEC71-D83A-11D3-B36B-005004D38590}'
+		}
+	}
+}

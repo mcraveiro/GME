@@ -1,0 +1,326 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#ifndef APSTUDIO_INVOKED
+#include "targetver.h"
+#endif
+#include "afxres.h"
+#include "..\GME\GMEVersion.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#ifndef APSTUDIO_INVOKED\r\n"
+    "#include ""targetver.h""\r\n"
+    "#endif\r\n"
+    "#include ""afxres.h""\r\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "1 TYPELIB ""XmlBackEnd.tlb""\r\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION GME_VERSION_RC
+ PRODUCTVERSION GME_VERSION_RC
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x2L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904B0"
+        BEGIN
+            VALUE "FileDescription", "XmlBackEnd Module"
+            VALUE "FileVersion", GME_VERSION_STR
+            VALUE "InternalName", "XmlBackEnd"
+            VALUE "LegalCopyright", "Copyright 2004"
+            VALUE "OriginalFilename", "XmlBackEnd.DLL"
+            VALUE "ProductName", "XmlBackEnd Module"
+            VALUE "ProductVersion", GME_VERSION_STR
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1200
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_DIALOG_FILESAREUSED DIALOGEX 0, 0, 199, 59
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Files in use"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    LTEXT           "Cannot perform this operation because some necessary files are checked out by other users.",IDC_STATIC,7,7,185,22
+    DEFPUSHBUTTON   "OK",IDCANCEL,45,35,50,14
+    PUSHBUTTON      "Details...",IDOK,105,35,50,14
+END
+
+IDD_DIALOG_FILESUSEDETAILS DIALOGEX 0, 0, 332, 183
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Files in use"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    DEFPUSHBUTTON   "Close",IDOK,141,162,50,14
+    LISTBOX         IDC_LIST,7,18,318,136,LBS_SORT | LBS_USETABSTOPS | LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Used files: user, model/folder name, type (model/folder)",IDC_STATIC,7,7,307,8
+END
+
+IDD_DIALOG1 DIALOGEX 0, 0, 266, 97
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU | WS_THICKFRAME
+CAPTION "Authentication Challenge"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,209,7,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,209,29,50,14
+    CONTROL         "May save?",IDC_MAYBESAVED,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,207,77,50,10
+    LTEXT           "Please authenticate yourself:",IDC_STATIC1,7,7,187,9
+    EDITTEXT        IDC_EDIT_REALM,7,17,186,14,ES_AUTOHSCROLL | ES_READONLY | NOT WS_VISIBLE
+    LTEXT           "Username",IDC_STATIC,7,33,33,8
+    EDITTEXT        IDC_EDITNAME,7,44,186,13,ES_AUTOHSCROLL
+    LTEXT           "Password",IDC_STATIC,7,65,32,8
+    EDITTEXT        IDC_EDITWORD,7,75,186,13,ES_PASSWORD | ES_AUTOHSCROLL
+END
+
+IDD_DIALOG2 DIALOGEX 0, 0, 350, 126
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU | WS_THICKFRAME
+CAPTION "Accept Certificate?"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    CONTROL         "Accept &Permanently",IDC_RADIO_PERMANENTLY,"Button",BS_AUTORADIOBUTTON | BS_PUSHLIKE | WS_GROUP | WS_TABSTOP,170,97,114,14
+    DEFPUSHBUTTON   "OK",IDOK,293,7,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,293,24,50,14
+    CONTROL         "&Reject",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON | BS_PUSHLIKE | WS_TABSTOP,16,97,37,14
+    CONTROL         "Accept &Temporarily",IDC_RADIO_TEMPORARILY,"Button",BS_AUTORADIOBUTTON | BS_PUSHLIKE | WS_TABSTOP,65,97,93,14
+    EDITTEXT        IDC_EDITTEXT,7,7,278,85,ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY | WS_VSCROLL | WS_HSCROLL
+END
+
+IDD_TESTRESULTDIALOG DIALOGEX 0, 0, 352, 137
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU | WS_THICKFRAME
+CAPTION "Results"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "Close",IDOK,295,116,50,14
+    EDITTEXT        IDC_EDIT1,7,7,338,105,ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY | WS_VSCROLL | WS_HSCROLL
+END
+
+IDD_DIALOG_SVNLOGIN DIALOGEX 0, 0, 316, 150
+STYLE DS_SETFONT | WS_POPUP | WS_CAPTION | WS_SYSMENU | WS_THICKFRAME
+CAPTION "Subversion Default Credentials"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    LTEXT           "Note: The information you provide will be set in SVN as the default username and/or password.\nIf these turn out not to be sufficient, SVN will show a dialog where further details are asked.",IDC_STATIC_WELCOME,7,97,302,16
+    LTEXT           "Project:",IDC_STATIC,9,10,26,8
+    LTEXT           "C:\\temp\\myprojects\\project1\\project1.mgx ",IDC_STATIC_PROJECT,40,10,263,8
+    LTEXT           "URL:",IDC_STATIC,9,23,21,8
+    LTEXT           "https://svn.isis.vanderbilt.edu/testrepo/gme/myproj1",IDC_STATIC_DATABASE,40,23,264,8
+    LTEXT           "User:",IDC_STATIC,152,55,17,8
+    EDITTEXT        IDC_EDIT_USER,193,52,86,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "Load",IDC_LOADFROMCACHE,282,52,22,14
+    LTEXT           "Password:",IDC_STATIC,152,73,33,8
+    EDITTEXT        IDC_EDIT_PWD,193,72,86,14,ES_PASSWORD | ES_AUTOHSCROLL
+    DEFPUSHBUTTON   "OK",IDOK,140,129,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,199,129,50,14
+    PUSHBUTTON      "Abort",IDC_ABORT,257,129,50,14
+    CONTROL         "Cached Credentials",IDC_RADIO_CACHED,"Button",BS_AUTORADIOBUTTON | WS_GROUP | WS_TABSTOP,30,51,77,10
+    CONTROL         "Username && Password",IDC_RADIO_USPW,"Button",BS_AUTORADIOBUTTON,30,64,89,10
+    CONTROL         "Public-Private Key Pair",IDC_RADIO_PPK,"Button",BS_AUTORADIOBUTTON,30,77,92,10
+    GROUPBOX        "Authentication",IDC_STATIC,7,39,300,55
+    LTEXT           "This happens typically during an 'Authentication Challenge' initiated by SVN.",IDC_STATIC_WELCOME2,7,113,302,10
+END
+
+IDD_DIALOG_COMMIT DIALOGEX 0, 0, 256, 130
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Commit"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,136,109,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,199,109,50,14
+    LTEXT           "Commit message:",IDC_STATIC,7,7,57,8
+    EDITTEXT        IDC_EDIT_COMMENT,7,22,242,78,ES_MULTILINE | ES_AUTOHSCROLL | ES_WANTRETURN
+END
+
+IDD_DIALOG_PROGRESS DIALOGEX 0, 0, 316, 110
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION
+CAPTION "Multiuser operations"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    CONTROL         "",IDC_PROGRESS_BAR,"msctls_progress32",PBS_SMOOTH | WS_BORDER,7,7,302,14
+    EDITTEXT        IDC_EDIT_PROGRESS,7,32,302,71,ES_MULTILINE | ES_AUTOVSCROLL | ES_AUTOHSCROLL | ES_READONLY | WS_VSCROLL
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO 
+BEGIN
+    IDD_DIALOG_VSSLOGIN, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 251
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 143
+    END
+
+    IDD_DIALOG_FILESAREUSED, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 192
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 52
+        HORZGUIDE, 35
+    END
+
+    IDD_DIALOG_FILESUSEDETAILS, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 325
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 176
+    END
+
+    IDD_DIALOG1, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 259
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 90
+    END
+
+    IDD_DIALOG2, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 343
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 119
+    END
+
+    IDD_TESTRESULTDIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 345
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 130
+    END
+
+    IDD_DIALOG_SVNLOGIN, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 309
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 143
+    END
+
+    IDD_DIALOG_COMMIT, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 249
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 123
+    END
+
+    IDD_DIALOG_PROGRESS, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 309
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 103
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// REGISTRY
+//
+
+IDR_CoreXmlFile         REGISTRY                "CoreXmlFile.rgs"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DTD
+//
+
+EDF.DTD                 DTD                     "edf.dtd"
+XMGA.DTD                DTD                     "xmga.dtd"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE 
+BEGIN
+    IDS_PROJNAME            "XmlBackEnd"
+    IDS_COREXMLFILE_DESC    "CoreXmlFile Class"
+END
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+1 TYPELIB "XmlBackEnd.tlb"
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

@@ -1,0 +1,9 @@
+; Parser.def : Declares the module parameters.
+
+LIBRARY      "Parser.DLL"
+
+EXPORTS
+	DllCanUnloadNow     PRIVATE
+	DllGetClassObject   PRIVATE
+	DllRegisterServer   PRIVATE
+	DllUnregisterServer	PRIVATE

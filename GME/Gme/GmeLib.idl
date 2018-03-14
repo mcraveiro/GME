@@ -1,0 +1,112 @@
+import "oaidl.idl";
+import "ocidl.idl";
+
+import "Gme.idl";
+import "Core.idl";
+
+[
+	uuid(0ADEEC71-D83A-11D3-B36B-005004CC8592),
+	version(1.0),
+	helpstring("GME Type Library")
+]
+library GmeLib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+	importlib("CoreLib.tlb");
+	importlib("MetaLib.tlb");
+	importlib("MgaLib.tlb");
+
+	// Decorator interfaces (listed here to include them in typelib)
+	interface IMgaDecorator;
+	interface IMgaCommonDecoratorEvents;
+	interface IMgaDecoratorCommon;
+	interface IMgaElementDecoratorEvents;
+	interface IMgaElementDecorator;
+	enum decorator_error;
+
+
+	//  Class information for CMgaDataSource
+	[ uuid(FCB7DB63-9F59-46a6-9FEF-5C2679AEA69A) ]
+	coclass MgaDataSource
+	{
+		[default] interface IMgaDataSource;
+		interface ISupportErrorInfo;
+	};
+
+	//  Class information for CGMEOLEApp
+
+	[ uuid(C7DCCC2E-1642-4a40-8060-51A7B9FAE488) ]
+	coclass Application
+	{
+		[default] interface IGMEOLEApp;
+		[source]  interface IMgaComponent;
+		[source]  interface IMgaComponentEx;
+		interface IGMEVersionInfo;
+		interface ISupportErrorInfo;
+	};
+
+	//  Class information for CGMEOLEIt
+
+	[ uuid(A19756E1-56AB-4ae5-974A-B3766E190697) ]
+	coclass It
+	{
+		[default] interface IGMEOLEIt;
+		interface ISupportErrorInfo;
+	};
+
+	//  Class information for CGMEOLEModel
+
+	[ uuid(7B512D6A-6767-4e3f-BF1F-A22943E68C32) ]
+	coclass Model
+	{
+		[default] interface IGMEOLEModel;
+		interface ISupportErrorInfo;
+	};
+
+	//  Class information for CGMEOLEAspect
+
+	[ uuid(D4AFDD5A-037A-42d5-A9A1-F44C81EA7AF7) ]
+	coclass Aspect
+	{
+		[default] interface IGMEOLEAspect;
+		interface ISupportErrorInfo;
+	};
+
+	//  Class information for CGMEOLEPanel
+
+	[ uuid(A946466F-29E2-44a6-A69A-4D6D9268A37F) ]
+	coclass Panel
+	{
+		[default] interface IGMEOLEPanel;
+		interface ISupportErrorInfo;
+	};
+
+	//  Class information for CGMEOLEPanel
+
+	[ uuid(05403CF4-5C53-49d4-8F63-ED37870ABF1F) ]
+	coclass Collection
+	{
+		[default] interface IGMEOLEColl;
+		interface ISupportErrorInfo;
+	};
+
+	//  Class information for CDecoratorEventSink
+
+	[ uuid(8B4648C1-C3A9-45dd-AE8C-63DB998F5CC0) ]
+	coclass DecoratorEventSink
+	{
+		[default] interface IMgaElementDecoratorEvents;
+		interface ISupportErrorInfo;
+	};
+
+	//  Class information for CAnnotatorEventSink
+
+	[ uuid(133AB952-9A84-49e0-98CA-C2484D959F3E) ]
+	coclass AnnotatorEventSink
+	{
+		[default] interface IMgaElementDecoratorEvents;
+		interface ISupportErrorInfo;
+	};
+};

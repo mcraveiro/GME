@@ -1,0 +1,26 @@
+HKCR
+{
+	Mga.MgaResolver.1 = s 'MgaResolver Class'
+	{
+		CLSID = s '{461F30B1-3BF0-11D4-B3F0-005004D38590}'
+	}
+	Mga.MgaResolver = s 'MgaResolver Class'
+	{
+		CLSID = s '{461F30B1-3BF0-11D4-B3F0-005004D38590}'
+		CurVer = s 'Mga.MgaResolver.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {461F30B1-3BF0-11D4-B3F0-005004D38590} = s 'MgaResolver Class'
+		{
+			ProgID = s 'Mga.MgaResolver.1'
+			VersionIndependentProgID = s 'Mga.MgaResolver'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			'TypeLib' = s '{461F30AE-3BF0-11D4-B3F0-005004D38590}'
+		}
+	}
+}

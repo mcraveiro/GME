@@ -1,0 +1,84 @@
+// GMEView.idl : type library source for ActiveX Control project.
+
+// This file will be processed by the MIDL compiler tool to
+// produce the type library (GMEView.tlb) that will become a resource in
+// GMEView.ocx.
+
+#include <olectl.h>
+#include <idispids.h>
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+import "Core.idl";
+#ifndef METAIDL_IMPORTED
+import "Meta.idl";
+#endif
+
+
+[ uuid(E8F51618-624F-41D6-B38F-01C80182AEDC), version(1.0),
+  helpfile("GMEView.hlp"),
+  helpstring("GMEView ActiveX Control module"),
+  control ]
+library GMEViewLib
+{
+	importlib(STDOLE_TLB);
+	importlib(STDTYPE_TLB);
+
+	//  Primary dispatch interface for CGMEViewCtrl
+
+	[ uuid(A038BDA8-D878-41CF-A591-60A2DF3EDE70),
+	  helpstring("Dispatch interface for GMEView Control")]
+	dispinterface _DGMEView
+	{
+		properties:
+			// NOTE - ClassWizard will maintain property information here.
+			//    Use extreme caution when editing this section.
+			//{{AFX_ODL_PROP(CGMEViewCtrl)
+			//}}AFX_ODL_PROP
+
+		methods:
+			// NOTE - ClassWizard will maintain property information here.
+			//    Use extreme caution when editing this section.
+			//{{AFX_ODL_METHOD(CGMEViewCtrl)
+			[id(1), helpstring("method SetCurrentProject")] void SetCurrentProject([in] IUnknown* project);
+			[id(2), helpstring("method SetMetaModel")] void SetMetaModel([in] IUnknown* meta);
+			[id(3), helpstring("method SetModel")] void SetModel([in] IUnknown* model);
+			[id(4), helpstring("method ChangeAspect")] void ChangeAspect([in] LONG index);
+			[id(5), helpstring("method CycleAspect")] void CycleAspect(void);
+			[id(6), helpstring("method Invalidate")] void Invalidate(void);
+			//}}AFX_ODL_METHOD
+
+			[id(DISPID_ABOUTBOX)] void AboutBox();
+	};
+
+	//  Event dispatch interface for CGMEViewCtrl
+
+	[ uuid(DF9490E3-4BF6-4DAD-9534-AF8FD81E6839),
+	  helpstring("Event interface for GMEView Control") ]
+	dispinterface _DGMEViewEvents
+	{
+		properties:
+			//  Event interface has no properties
+
+		methods:
+			// NOTE - ClassWizard will maintain event information here.
+			//    Use extreme caution when editing this section.
+			//{{AFX_ODL_EVENT(CGMEViewCtrl)
+			[id(1), helpstring("method AspectChanged")] void AspectChanged(LONG index);
+			[id(2), helpstring("method ZoomChanged")] void ZoomChanged(LONG index);
+			[id(3), helpstring("method WriteStatusZoom")] void WriteStatusZoom(LONG zoomVal);
+			//}}AFX_ODL_EVENT
+	};
+
+	//  Class information for CGMEViewCtrl
+
+	[ uuid(1758EDFF-969C-4f6e-AF81-E8AF07A33799),
+	  helpstring("GMEView Control"), control ]
+	coclass GMEView
+	{
+		[default] dispinterface _DGMEView;
+		[default, source] dispinterface _DGMEViewEvents;
+	};
+
+};

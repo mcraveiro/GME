@@ -1,0 +1,1 @@
+del *.pch,*.obj,*.sbr,*.pdb,*.ilk,*.exp,*.plg,*.tlb,*.aps,*.scc,*.class /S

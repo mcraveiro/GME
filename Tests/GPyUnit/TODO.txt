@@ -1,0 +1,159 @@
+These have no coverage in the tests:
+
+General:
+MetaGME namespaces
+Libraries
+
+Core:
+CCoreProject::AbortNestedTr
+CCoreProject::TryRedoTransaction
+CCoreBinFile::put_AttrID
+
+Meta:
+CMgaMetaAttribute::get_Viewable
+CMgaMetaConstraint::get_Depth
+CMgaMetaFCO::get_AttributeByRef
+CMgaMetaModel::get_AspectByName
+CMgaMetaModel::LegalConnectionRoles
+CMgaMetaModel::LegalReferenceRoles
+CMgaMetaModel::LegalSetRoles
+CMgaMetaModel::LegalRoles
+CMgaMetaPart::get_IsLinked
+CMgaMetaPointerSpec::get_Parent
+CMgaMetaProject::AbortTransaction
+CMgaMetaProject::get_Comment
+CMgaMetaProject::get_CreatedAt
+CMgaMetaProject::get_ModifiedAt
+CMgaMetaRegNode::Delete
+
+Mga:
+CMgaAttribute::get_HasChanged
+CMgaAttribute::Clear
+CMgaAttribute::put_StringValue
+CMgaAttribute::get_IntValue
+CMgaAttribute::put_IntValue
+CMgaAttribute::put_BoolValue
+CMgaAttribute::put_FloatValue
+CMgaAttribute::get_FCOValue
+CMgaAttribute::put_FCOValue
+CMgaAttribute::get_RegistryNode
+CMgaAttribute::get_Registry
+CMgaAttribute::get_RegistryValue
+MgaAttribute.cpp MergeAttrs
+CMgaRegNode::get_FCOValue
+CMgaRegNode::get_ParentNode
+CMgaRegNode::Clear
+CMgaRegNode::RemoveTree
+CMgaPart::get_Model
+CMgaPart::get_MetaAspect
+CMgaPart::get_Meta
+CMgaPart::get_MetaRole
+CMgaPart::get_FCO
+CMgaPart::GetGmeAttrs
+CMgaPart::SetGmeAttrs
+CMgaPart::get_RegistryNode
+CMgaPart::get_Registry
+CMgaPart::get_RegistryValue
+CMgaPart::put_RegistryValue
+CMgaPart::Initialize
+FCO::GetRelMetaPath
+FCO::DeleteObject
+MgaComplexOps.cpp ObjTreeDist
+ CheckConflict
+ ReDeriveNewObjs
+ ObjTreeInternalize
+ DeriveMoveds
+FCO::get_NamedRoleReferences
+CMgaConnPoint::put_ConnRole
+RemoveConnPTask::Do
+CMgaConnPoint::Remove
+FCO::get_UsedByConns
+FCO::ConnCompareToBase
+FCO::ConnRevertToBase
+FCO::GetBaseType
+FCO::get_DerivedObjects
+FCO::get_Type
+FCO::get_BaseType
+FCO::get_ArcheType
+FCO::get_IsPrimaryDerived
+FCO::get_ChildDerivedFrom
+MgaDeriveOps.cpp IsInternalRelation
+ GetDerivedEquivalent
+DeriveTreeTask::_DoWithDeriveds
+FCO::AttachToArcheType
+FCO::get_Parts
+FCO::get_Part
+FCO::get_PartByMP
+FCO::put_*AttrByName
+FCO::ClearAttrByName
+MgaFCO.cpp get_Modifications
+FCO::SendEvent
+FCO::newrelidforchildren
+MgaFolder.cpp libraryNameEqual
+ EnumRefs
+FCO::GetChildrenOfKind
+FCO::GetSourceControlInfo
+MgaLibOps.cpp getConnStrForLibName
+ setlibpermall
+ redo_derivs
+FCO::put_LibraryName
+FCO::prepareDepInfo2Coll
+FCO::prepareColl2DepInfo
+FCO::GetVirtuallyIncludedBy
+FCO::SetVirtuallyIncludedBy
+FCO::GetVirtuallyIncludes
+FCO::SetVirtuallyIncludes
+FCO::doRefresh
+PointerFixup::findLibRoot
+PointerFixup::findCounterpart
+PointerFixup::cntPartLib
+LibImgHelper::ungroupLibs
+LibImgHelper::logCreator
+LibImgHelper::deleteSuperfluousLibs
+LibImgHelper::GetItsGuid
+Ozer::*
+MgaLibRefr.cpp *
+FCO::get_AspectParts
+FCO::GetDescendantFCOs
+FCO::AddInternalConnections
+CMgaProject::OpenParadigm
+CMgaProject::get_NthObjectByPath
+CMgaProject::CreateAddOn
+CMgaProject::get_AddOns
+CMgaProject::get_Clients
+CMgaProject::RegisterClient
+CMgaProject::get_Territories
+CMgaProject::get_AddOnComponents
+CMgaProject::EnableAutoAddOns
+CMgaProject::StartAutoAddOns
+CMgaProject::StopAutoAddOns
+CMgaProject::CheckSupress
+CMgaProject::GlobalNotify
+CMgaProject::abortnested
+CMgaProject::pushterr
+CMgaProject::Redo
+CMgaProject::FlushUndoQueue
+CMgaProject::UpdateSourceControlInfo
+CMgaProject::SourceControlActiveUsers
+CMgaProject::SourceControlObjectOwner
+MgaProject.cpp ClearLocks
+CMgaProject::CheckLocks
+CMgaProject::GetTopLibraries
+FCO::CreateReference
+FCO::get_RefAspect
+FCO::put_RefAspect
+FCO::RefCompareToBase
+FCO::RefRevertToBase
+FCO::get_IsMember
+removemember::Do
+FCO::RemoveMember
+FCO::SetCompareToBase
+FCO::SetRevertToBase
+FCO::get_MemberOfSets
+CMgaTerritory::Associate
+CMgaTerritory::OpenFCO
+CMgaTerritory::CloseObj
+CMgaTerritory::SetNamespace
+CMgaAddOn::Destroy
+
+Others: TODO

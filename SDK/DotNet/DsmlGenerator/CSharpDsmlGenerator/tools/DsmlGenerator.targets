@@ -1,0 +1,35 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <UsingTask AssemblyFile="$(MSBuildThisFileDirectory)..\lib\net40\CSharpDSMLGenerator.dll" TaskName="CSharpDSMLGenerator.GenerateCSharpDSML" />
+  <UsingTask AssemblyFile="$(MSBuildThisFileDirectory)..\lib\net40\CSharpDSMLGenerator.dll" TaskName="CSharpDSMLGenerator.RunMetaInterpreter" />
+  <PropertyGroup Condition="'$(DsmlGeneratorParadigm)'==''">
+    <DsmlGeneratorParadigm>$(MSBuildProjectName)</DsmlGeneratorParadigm>
+  </PropertyGroup>
+  <PropertyGroup>
+    <BuildDependsOn>CSharpDsml;$(BuildDependsOn)</BuildDependsOn>
+    <RebuildDependsOn>CSharpDsmlRebuild;$(RebuildDependsOn)</RebuildDependsOn>
+  </PropertyGroup>
+  <Target DependsOnTargets="MetaInterpreter"
+    Name="CSharpDsml"
+    Outputs="ISIS.GME.Dsml.$(DsmlGeneratorParadigm).Interfaces.cs"
+    Inputs="$(DsmlGeneratorParadigm).mga;$(MSBuildThisFileDirectory)\..\lib\net40\CSharpDSMLGenerator.dll">
+    <Message Importance="High" Text="CSharpDsmlGenerator $(DsmlGeneratorParadigm)" />
+    <GenerateCSharpDSML InputFile="$(DsmlGeneratorParadigm).mga" OutputDir="." CompileDll="false"/>
+  </Target>
+
+  <Target Name="CSharpDsmlRebuild">
+    <Message Importance="High" Text="CSharpDsmlGenerator $(DsmlGeneratorParadigm)" />
+    <RunMetaInterpreter InputFile="$(DsmlGeneratorParadigm).mga"/>
+    <GenerateCSharpDSML InputFile="$(DsmlGeneratorParadigm).mga" OutputDir="." CompileDll="false"/>
+  </Target>
+  
+  <Target Name="MetaInterpreter"
+    Outputs="$(DsmlGeneratorParadigm).xmp"
+    Inputs="$(DsmlGeneratorParadigm).mga">
+    <RunMetaInterpreter InputFile="$(DsmlGeneratorParadigm).mga"/>
+  </Target>
+
+  <ItemGroup>
+    <Compile Include="ISIS.GME.Dsml.$(DsmlGeneratorParadigm).Classes.cs" />
+    <Compile Include="ISIS.GME.Dsml.$(DsmlGeneratorParadigm).Interfaces.cs" />
+  </ItemGroup>
+</Project>

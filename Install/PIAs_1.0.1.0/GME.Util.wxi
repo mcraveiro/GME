@@ -1,0 +1,112 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+    <Fragment>
+        <DirectoryRef Id="PIADIR.1.0.1.0" />
+    </Fragment>
+    <Fragment>
+        <ComponentGroup Id="GME.Util.1.0.1.0">
+            <Component Id="cmp885AB1B6320D6C1595A4F6BC54D799BD" Directory="PIADIR.1.0.1.0" Guid="{3FDF9D4A-688C-48D8-9E03-331B8C7C43D4}" Permanent="yes">
+                <File Id="fil37E4282FA6433FAB0E7388BDE800E258" KeyPath="yes" Source="$(var.PIADir)\GME.Util.dll" Assembly=".net"/>
+                <Condition>NETFRAMEWORK</Condition>
+                <RegistryValue Root="HKCR" Key="CLSID\{461F30B1-3BF0-11D4-B3F0-005004D38590}\InprocServer32\1.0.1.0" Name="Class" Value="GME.Util.MgaResolverClass" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{461F30B1-3BF0-11D4-B3F0-005004D38590}\InprocServer32\1.0.1.0" Name="Assembly" Value="GME.Util, Version=1.0.1.0, Culture=neutral, PublicKeyToken=f240a760fe751c2e" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{461F30B1-3BF0-11D4-B3F0-005004D38590}\InprocServer32\1.0.1.0" Name="RuntimeVersion" Value="v2.0.50727" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{461F30B1-3BF0-11D4-B3F0-005004D38590}\InprocServer32\1.0.1.0" Name="CodeBase" Value="file:///[#fil37E4282FA6433FAB0E7388BDE800E258]" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{461F30B1-3BF0-11D4-B3F0-005004D38590}\InprocServer32" Name="Class" Value="GME.Util.MgaResolverClass" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{461F30B1-3BF0-11D4-B3F0-005004D38590}\InprocServer32" Name="Assembly" Value="GME.Util, Version=1.0.1.0, Culture=neutral, PublicKeyToken=f240a760fe751c2e" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{461F30B1-3BF0-11D4-B3F0-005004D38590}\InprocServer32" Name="RuntimeVersion" Value="v2.0.50727" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{461F30B1-3BF0-11D4-B3F0-005004D38590}\InprocServer32" Name="CodeBase" Value="file:///[#fil37E4282FA6433FAB0E7388BDE800E258]" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{789C184D-B3E3-4B35-B3AE-665DA236F59C}\InprocServer32\1.0.1.0" Name="Class" Value="GME.Util.ComponentProxyClass" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{789C184D-B3E3-4B35-B3AE-665DA236F59C}\InprocServer32\1.0.1.0" Name="Assembly" Value="GME.Util, Version=1.0.1.0, Culture=neutral, PublicKeyToken=f240a760fe751c2e" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{789C184D-B3E3-4B35-B3AE-665DA236F59C}\InprocServer32\1.0.1.0" Name="RuntimeVersion" Value="v2.0.50727" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{789C184D-B3E3-4B35-B3AE-665DA236F59C}\InprocServer32\1.0.1.0" Name="CodeBase" Value="file:///[#fil37E4282FA6433FAB0E7388BDE800E258]" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{789C184D-B3E3-4B35-B3AE-665DA236F59C}\InprocServer32" Name="Class" Value="GME.Util.ComponentProxyClass" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{789C184D-B3E3-4B35-B3AE-665DA236F59C}\InprocServer32" Name="Assembly" Value="GME.Util, Version=1.0.1.0, Culture=neutral, PublicKeyToken=f240a760fe751c2e" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{789C184D-B3E3-4B35-B3AE-665DA236F59C}\InprocServer32" Name="RuntimeVersion" Value="v2.0.50727" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{789C184D-B3E3-4B35-B3AE-665DA236F59C}\InprocServer32" Name="CodeBase" Value="file:///[#fil37E4282FA6433FAB0E7388BDE800E258]" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{98C2F832-0209-45C9-B665-829B88AA9399}\InprocServer32\1.0.1.0" Name="Class" Value="GME.Util.MgaEventLoggerClass" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{98C2F832-0209-45C9-B665-829B88AA9399}\InprocServer32\1.0.1.0" Name="Assembly" Value="GME.Util, Version=1.0.1.0, Culture=neutral, PublicKeyToken=f240a760fe751c2e" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{98C2F832-0209-45C9-B665-829B88AA9399}\InprocServer32\1.0.1.0" Name="RuntimeVersion" Value="v2.0.50727" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{98C2F832-0209-45C9-B665-829B88AA9399}\InprocServer32\1.0.1.0" Name="CodeBase" Value="file:///[#fil37E4282FA6433FAB0E7388BDE800E258]" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{98C2F832-0209-45C9-B665-829B88AA9399}\InprocServer32" Name="Class" Value="GME.Util.MgaEventLoggerClass" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{98C2F832-0209-45C9-B665-829B88AA9399}\InprocServer32" Name="Assembly" Value="GME.Util, Version=1.0.1.0, Culture=neutral, PublicKeyToken=f240a760fe751c2e" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{98C2F832-0209-45C9-B665-829B88AA9399}\InprocServer32" Name="RuntimeVersion" Value="v2.0.50727" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{98C2F832-0209-45C9-B665-829B88AA9399}\InprocServer32" Name="CodeBase" Value="file:///[#fil37E4282FA6433FAB0E7388BDE800E258]" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{B88CDEEA-A4FB-11D4-B44B-005004D38590}\InprocServer32\1.0.1.0" Name="Class" Value="GME.Util.MgaProgressDlgClass" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{B88CDEEA-A4FB-11D4-B44B-005004D38590}\InprocServer32\1.0.1.0" Name="Assembly" Value="GME.Util, Version=1.0.1.0, Culture=neutral, PublicKeyToken=f240a760fe751c2e" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{B88CDEEA-A4FB-11D4-B44B-005004D38590}\InprocServer32\1.0.1.0" Name="RuntimeVersion" Value="v2.0.50727" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{B88CDEEA-A4FB-11D4-B44B-005004D38590}\InprocServer32\1.0.1.0" Name="CodeBase" Value="file:///[#fil37E4282FA6433FAB0E7388BDE800E258]" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{B88CDEEA-A4FB-11D4-B44B-005004D38590}\InprocServer32" Name="Class" Value="GME.Util.MgaProgressDlgClass" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{B88CDEEA-A4FB-11D4-B44B-005004D38590}\InprocServer32" Name="Assembly" Value="GME.Util, Version=1.0.1.0, Culture=neutral, PublicKeyToken=f240a760fe751c2e" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{B88CDEEA-A4FB-11D4-B44B-005004D38590}\InprocServer32" Name="RuntimeVersion" Value="v2.0.50727" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{B88CDEEA-A4FB-11D4-B44B-005004D38590}\InprocServer32" Name="CodeBase" Value="file:///[#fil37E4282FA6433FAB0E7388BDE800E258]" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{BEBD0575-BB6F-48EA-8373-7436F04EFEEC}\InprocServer32\1.0.1.0" Name="Class" Value="GME.Util.MgaComponentDispatchClass" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{BEBD0575-BB6F-48EA-8373-7436F04EFEEC}\InprocServer32\1.0.1.0" Name="Assembly" Value="GME.Util, Version=1.0.1.0, Culture=neutral, PublicKeyToken=f240a760fe751c2e" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{BEBD0575-BB6F-48EA-8373-7436F04EFEEC}\InprocServer32\1.0.1.0" Name="RuntimeVersion" Value="v2.0.50727" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{BEBD0575-BB6F-48EA-8373-7436F04EFEEC}\InprocServer32\1.0.1.0" Name="CodeBase" Value="file:///[#fil37E4282FA6433FAB0E7388BDE800E258]" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{BEBD0575-BB6F-48EA-8373-7436F04EFEEC}\InprocServer32" Name="Class" Value="GME.Util.MgaComponentDispatchClass" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{BEBD0575-BB6F-48EA-8373-7436F04EFEEC}\InprocServer32" Name="Assembly" Value="GME.Util, Version=1.0.1.0, Culture=neutral, PublicKeyToken=f240a760fe751c2e" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{BEBD0575-BB6F-48EA-8373-7436F04EFEEC}\InprocServer32" Name="RuntimeVersion" Value="v2.0.50727" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{BEBD0575-BB6F-48EA-8373-7436F04EFEEC}\InprocServer32" Name="CodeBase" Value="file:///[#fil37E4282FA6433FAB0E7388BDE800E258]" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{D03EC327-447B-11D4-B3F6-005004D38590}\InprocServer32\1.0.1.0" Name="Class" Value="GME.Util.MgaLauncherClass" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{D03EC327-447B-11D4-B3F6-005004D38590}\InprocServer32\1.0.1.0" Name="Assembly" Value="GME.Util, Version=1.0.1.0, Culture=neutral, PublicKeyToken=f240a760fe751c2e" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{D03EC327-447B-11D4-B3F6-005004D38590}\InprocServer32\1.0.1.0" Name="RuntimeVersion" Value="v2.0.50727" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{D03EC327-447B-11D4-B3F6-005004D38590}\InprocServer32\1.0.1.0" Name="CodeBase" Value="file:///[#fil37E4282FA6433FAB0E7388BDE800E258]" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{D03EC327-447B-11D4-B3F6-005004D38590}\InprocServer32" Name="Class" Value="GME.Util.MgaLauncherClass" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{D03EC327-447B-11D4-B3F6-005004D38590}\InprocServer32" Name="Assembly" Value="GME.Util, Version=1.0.1.0, Culture=neutral, PublicKeyToken=f240a760fe751c2e" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{D03EC327-447B-11D4-B3F6-005004D38590}\InprocServer32" Name="RuntimeVersion" Value="v2.0.50727" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{D03EC327-447B-11D4-B3F6-005004D38590}\InprocServer32" Name="CodeBase" Value="file:///[#fil37E4282FA6433FAB0E7388BDE800E258]" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{D6F2FBC5-3405-40FD-8880-7E99DD10F0BA}\InprocServer32\1.0.1.0" Name="Class" Value="GME.Util.MgaClosureClass" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{D6F2FBC5-3405-40FD-8880-7E99DD10F0BA}\InprocServer32\1.0.1.0" Name="Assembly" Value="GME.Util, Version=1.0.1.0, Culture=neutral, PublicKeyToken=f240a760fe751c2e" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{D6F2FBC5-3405-40FD-8880-7E99DD10F0BA}\InprocServer32\1.0.1.0" Name="RuntimeVersion" Value="v2.0.50727" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{D6F2FBC5-3405-40FD-8880-7E99DD10F0BA}\InprocServer32\1.0.1.0" Name="CodeBase" Value="file:///[#fil37E4282FA6433FAB0E7388BDE800E258]" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{D6F2FBC5-3405-40FD-8880-7E99DD10F0BA}\InprocServer32" Name="Class" Value="GME.Util.MgaClosureClass" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{D6F2FBC5-3405-40FD-8880-7E99DD10F0BA}\InprocServer32" Name="Assembly" Value="GME.Util, Version=1.0.1.0, Culture=neutral, PublicKeyToken=f240a760fe751c2e" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{D6F2FBC5-3405-40FD-8880-7E99DD10F0BA}\InprocServer32" Name="RuntimeVersion" Value="v2.0.50727" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{D6F2FBC5-3405-40FD-8880-7E99DD10F0BA}\InprocServer32" Name="CodeBase" Value="file:///[#fil37E4282FA6433FAB0E7388BDE800E258]" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{F1D6BB06-42EE-11D4-B3F4-005004D38590}\InprocServer32\1.0.1.0" Name="Class" Value="GME.Util.MgaRegistrarClass" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{F1D6BB06-42EE-11D4-B3F4-005004D38590}\InprocServer32\1.0.1.0" Name="Assembly" Value="GME.Util, Version=1.0.1.0, Culture=neutral, PublicKeyToken=f240a760fe751c2e" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{F1D6BB06-42EE-11D4-B3F4-005004D38590}\InprocServer32\1.0.1.0" Name="RuntimeVersion" Value="v2.0.50727" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{F1D6BB06-42EE-11D4-B3F4-005004D38590}\InprocServer32\1.0.1.0" Name="CodeBase" Value="file:///[#fil37E4282FA6433FAB0E7388BDE800E258]" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{F1D6BB06-42EE-11D4-B3F4-005004D38590}\InprocServer32" Name="Class" Value="GME.Util.MgaRegistrarClass" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{F1D6BB06-42EE-11D4-B3F4-005004D38590}\InprocServer32" Name="Assembly" Value="GME.Util, Version=1.0.1.0, Culture=neutral, PublicKeyToken=f240a760fe751c2e" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{F1D6BB06-42EE-11D4-B3F4-005004D38590}\InprocServer32" Name="RuntimeVersion" Value="v2.0.50727" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{F1D6BB06-42EE-11D4-B3F4-005004D38590}\InprocServer32" Name="CodeBase" Value="file:///[#fil37E4282FA6433FAB0E7388BDE800E258]" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="Record\{0E53EFCA-6420-39A8-BFEF-192E3ADC6B38}\1.0.1.0" Name="Class" Value="GME.Util._RemotableHandle" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="Record\{0E53EFCA-6420-39A8-BFEF-192E3ADC6B38}\1.0.1.0" Name="Assembly" Value="GME.Util, Version=1.0.1.0, Culture=neutral, PublicKeyToken=f240a760fe751c2e" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="Record\{0E53EFCA-6420-39A8-BFEF-192E3ADC6B38}\1.0.1.0" Name="RuntimeVersion" Value="v2.0.50727" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="Record\{0E53EFCA-6420-39A8-BFEF-192E3ADC6B38}\1.0.1.0" Name="CodeBase" Value="file:///[#fil37E4282FA6433FAB0E7388BDE800E258]" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="Record\{5335A89F-4E42-3036-8290-77C42614CE63}\1.0.1.0" Name="Class" Value="GME.Util.componentdlg_enum" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="Record\{5335A89F-4E42-3036-8290-77C42614CE63}\1.0.1.0" Name="Assembly" Value="GME.Util, Version=1.0.1.0, Culture=neutral, PublicKeyToken=f240a760fe751c2e" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="Record\{5335A89F-4E42-3036-8290-77C42614CE63}\1.0.1.0" Name="RuntimeVersion" Value="v2.0.50727" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="Record\{5335A89F-4E42-3036-8290-77C42614CE63}\1.0.1.0" Name="CodeBase" Value="file:///[#fil37E4282FA6433FAB0E7388BDE800E258]" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="Record\{6C509D78-94DD-3B13-920D-8D5870AFD940}\1.0.1.0" Name="Class" Value="GME.Util.regaccessmode_enum" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="Record\{6C509D78-94DD-3B13-920D-8D5870AFD940}\1.0.1.0" Name="Assembly" Value="GME.Util, Version=1.0.1.0, Culture=neutral, PublicKeyToken=f240a760fe751c2e" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="Record\{6C509D78-94DD-3B13-920D-8D5870AFD940}\1.0.1.0" Name="RuntimeVersion" Value="v2.0.50727" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="Record\{6C509D78-94DD-3B13-920D-8D5870AFD940}\1.0.1.0" Name="CodeBase" Value="file:///[#fil37E4282FA6433FAB0E7388BDE800E258]" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="Record\{D226697E-E5F6-37EE-B20D-ACCABF1E08B1}\1.0.1.0" Name="Class" Value="GME.Util.__MIDL_IWinTypes_0009" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="Record\{D226697E-E5F6-37EE-B20D-ACCABF1E08B1}\1.0.1.0" Name="Assembly" Value="GME.Util, Version=1.0.1.0, Culture=neutral, PublicKeyToken=f240a760fe751c2e" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="Record\{D226697E-E5F6-37EE-B20D-ACCABF1E08B1}\1.0.1.0" Name="RuntimeVersion" Value="v2.0.50727" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="Record\{D226697E-E5F6-37EE-B20D-ACCABF1E08B1}\1.0.1.0" Name="CodeBase" Value="file:///[#fil37E4282FA6433FAB0E7388BDE800E258]" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="Record\{DBF13EEF-5E7B-34D9-BD72-1B0CBD9BA346}\1.0.1.0" Name="Class" Value="GME.Util.metadlg_enum" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="Record\{DBF13EEF-5E7B-34D9-BD72-1B0CBD9BA346}\1.0.1.0" Name="Assembly" Value="GME.Util, Version=1.0.1.0, Culture=neutral, PublicKeyToken=f240a760fe751c2e" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="Record\{DBF13EEF-5E7B-34D9-BD72-1B0CBD9BA346}\1.0.1.0" Name="RuntimeVersion" Value="v2.0.50727" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="Record\{DBF13EEF-5E7B-34D9-BD72-1B0CBD9BA346}\1.0.1.0" Name="CodeBase" Value="file:///[#fil37E4282FA6433FAB0E7388BDE800E258]" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="Record\{DE6EC1DF-1672-3459-B5D9-9EC57E6518FD}\1.0.1.0" Name="Class" Value="GME.Util.fontsmoothmode_enum" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="Record\{DE6EC1DF-1672-3459-B5D9-9EC57E6518FD}\1.0.1.0" Name="Assembly" Value="GME.Util, Version=1.0.1.0, Culture=neutral, PublicKeyToken=f240a760fe751c2e" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="Record\{DE6EC1DF-1672-3459-B5D9-9EC57E6518FD}\1.0.1.0" Name="RuntimeVersion" Value="v2.0.50727" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="Record\{DE6EC1DF-1672-3459-B5D9-9EC57E6518FD}\1.0.1.0" Name="CodeBase" Value="file:///[#fil37E4282FA6433FAB0E7388BDE800E258]" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="Record\{E90F8AF3-2D03-3591-98E3-46B500559224}\1.0.1.0" Name="Class" Value="GME.Util.edgesmoothmode_enum" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="Record\{E90F8AF3-2D03-3591-98E3-46B500559224}\1.0.1.0" Name="Assembly" Value="GME.Util, Version=1.0.1.0, Culture=neutral, PublicKeyToken=f240a760fe751c2e" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="Record\{E90F8AF3-2D03-3591-98E3-46B500559224}\1.0.1.0" Name="RuntimeVersion" Value="v2.0.50727" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="Record\{E90F8AF3-2D03-3591-98E3-46B500559224}\1.0.1.0" Name="CodeBase" Value="file:///[#fil37E4282FA6433FAB0E7388BDE800E258]" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="Record\{F54BC376-1C28-3375-A751-FC778CB7F094}\1.0.1.0" Name="Class" Value="GME.Util.mgautil_error" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="Record\{F54BC376-1C28-3375-A751-FC778CB7F094}\1.0.1.0" Name="Assembly" Value="GME.Util, Version=1.0.1.0, Culture=neutral, PublicKeyToken=f240a760fe751c2e" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="Record\{F54BC376-1C28-3375-A751-FC778CB7F094}\1.0.1.0" Name="RuntimeVersion" Value="v2.0.50727" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="Record\{F54BC376-1C28-3375-A751-FC778CB7F094}\1.0.1.0" Name="CodeBase" Value="file:///[#fil37E4282FA6433FAB0E7388BDE800E258]" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="TypeLib\{461F30AE-3BF0-11D4-B3F0-005004D38590}\1.0" Name="PrimaryInteropAssemblyName" Value="GME.Util, Version=1.0.1.0, Culture=neutral, PublicKeyToken=f240a760fe751c2e" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="TypeLib\{461F30AE-3BF0-11D4-B3F0-005004D38590}\1.0" Name="PrimaryInteropAssemblyCodeBase" Value="file:///[#fil37E4282FA6433FAB0E7388BDE800E258]" Type="string" Action="write" />
+            </Component>
+        </ComponentGroup>
+    </Fragment>
+</Wix>

@@ -1,0 +1,72 @@
+#include <olectl.h>
+#include <idispids.h>
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+
+
+[ uuid(EA3F7431-913A-421F-9B9C-BEB6A735285A), version(1.0),
+  helpfile("PartBrowser.hlp"),
+  helpstring("PartBrowser ActiveX Control module"),
+  control ]
+library PartBrowserLib
+{
+	importlib(STDOLE_TLB);
+	importlib(STDTYPE_TLB);
+
+	//  Primary dispatch interface for CPartBrowserCtrl
+
+	[ uuid(2D05F0EE-EB81-4D1D-A5C6-43146F38BF81),
+	  helpstring("Dispatch interface for PartBrowser Control")]
+	dispinterface _DPartBrowser
+	{
+		properties:
+			// NOTE - ClassWizard will maintain property information here.
+			//    Use extreme caution when editing this section.
+			//{{AFX_ODL_PROP(CPartBrowserCtrl)
+			//}}AFX_ODL_PROP
+
+		methods:
+			// NOTE - ClassWizard will maintain property information here.
+			//    Use extreme caution when editing this section.
+			//{{AFX_ODL_METHOD(CPartBrowserCtrl)
+			[id(1), helpstring("method SetCurrentProject")] void SetCurrentProject([in] IUnknown* project);
+			[id(2), helpstring("method SetMetaModel")] void SetMetaModel([in] IUnknown* meta);
+			[id(3), helpstring("method SetBgColor")] void SetBgColor([in] OLE_COLOR oleBgColor);
+			[id(4), helpstring("method ChangeAspect")] void ChangeAspect([in] LONG index);
+			[id(5), helpstring("method CycleAspect")] void CycleAspect(void);
+			[id(6), helpstring("method RePaint")] void RePaint(void);
+			//}}AFX_ODL_METHOD
+
+			[id(DISPID_ABOUTBOX)] void AboutBox();
+	};
+
+	//  Event dispatch interface for CPartBrowserCtrl
+
+	[ uuid(5042C3E4-58A9-4059-A5E4-FD7BFB3AA22B),
+	  helpstring("Event interface for PartBrowser Control") ]
+	dispinterface _DPartBrowserEvents
+	{
+		properties:
+			//  Event interface has no properties
+
+		methods:
+			// NOTE - ClassWizard will maintain event information here.
+			//    Use extreme caution when editing this section.
+			//{{AFX_ODL_EVENT(CPartBrowserCtrl)
+			[id(1), helpstring("method AspectChanged")] void AspectChanged(LONG index);
+			//}}AFX_ODL_EVENT
+	};
+
+	//  Class information for CPartBrowserCtrl
+
+	[ uuid(1FF57057-D598-4FC2-8F9D-708F59B9C017),
+	  helpstring("PartBrowser Control"), control ]
+	coclass PartBrowser
+	{
+		[default] dispinterface _DPartBrowser;
+		[default, source] dispinterface _DPartBrowserEvents;
+	};
+
+};

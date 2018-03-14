@@ -1,0 +1,26 @@
+HKCR
+{
+	Mga.CoreXmlFile.1 = s 'CoreXmlFile Class'
+	{
+		CLSID = s '{7281C07A-3E09-11D3-B2F7-715004D38590}'
+	}
+	Mga.CoreXmlFile = s 'CoreXmlFile Class'
+	{
+		CLSID = s '{7281C07A-3E09-11D3-B2F7-715004D38590}'
+		CurVer = s 'Mga.CoreXmlFile.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {7281C07A-3E09-11D3-B2F7-715004D38590} = s 'CoreXmlFile Class'
+		{
+			ProgID = s 'Mga.CoreXmlFile.1'
+			VersionIndependentProgID = s 'Mga.CoreXmlFile'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			'TypeLib' = s '{9E9AAACF-28B8-11D3-B36C-0060082DF884}'
+		}
+	}
+}

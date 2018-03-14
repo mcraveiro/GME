@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<assembly xmlns="urn:schemas-microsoft-com:asm.v1" manifestVersion="1.0">
+  <assemblyIdentity type="win32" name="Meta" version="1.0.0.0" />
+
+  <dependency>
+    <dependentAssembly>
+      <assemblyIdentity type="win32" name="Core" version="1.0.0.0" language="*"></assemblyIdentity>
+    </dependentAssembly>
+  </dependency>
+
+  <file name="Meta.dll" hashalg="SHA1">
+    <comClass clsid="{83BA323E-B758-11D3-ABAE-000000000000}" tlbid="{0ADEEC71-D83A-11D3-B36B-005004D38590}" description="MgaMetaRegNode Class" threadingModel="Apartment"/>
+    <comClass clsid="{83BA3242-B758-11D3-ABAE-000000000000}" tlbid="{0ADEEC71-D83A-11D3-B36B-005004D38590}" description="MgaMetaConstraint Class" threadingModel="Apartment"/>
+    <comClass progid="Mga.MgaMetaProject" clsid="{83BA3244-B758-11D3-ABAE-000000000000}" tlbid="{0ADEEC71-D83A-11D3-B36B-005004D38590}" description="MgaMetaProject Class" threadingModel="Apartment"/>
+    <comClass clsid="{83BA32F7-B758-11D3-ABAE-000000000000}" tlbid="{0ADEEC71-D83A-11D3-B36B-005004D38590}" description="MgaMetaBase Class" threadingModel="Apartment"/>
+    <comClass clsid="{83BA3246-B758-11D3-ABAE-000000000000}" tlbid="{0ADEEC71-D83A-11D3-B36B-005004D38590}" description="MgaMetaFolder Class" threadingModel="Apartment"/>
+    <comClass clsid="{83BA3248-B758-11D3-ABAE-000000000000}" tlbid="{0ADEEC71-D83A-11D3-B36B-005004D38590}" description="MgaMetaFCO Class" threadingModel="Apartment"/>
+    <comClass clsid="{83BA324A-B758-11D3-ABAE-000000000000}" tlbid="{0ADEEC71-D83A-11D3-B36B-005004D38590}" description="MgaMetaModel Class" threadingModel="Apartment"/>
+    <comClass clsid="{83BA324C-B758-11D3-ABAE-000000000000}" tlbid="{0ADEEC71-D83A-11D3-B36B-005004D38590}" description="MgaMetaAspect Class" threadingModel="Apartment"/>
+    <comClass clsid="{83BA324E-B758-11D3-ABAE-000000000000}" tlbid="{0ADEEC71-D83A-11D3-B36B-005004D38590}" description="MgaMetaRole Class" threadingModel="Apartment"/>
+    <comClass clsid="{A70CAB46-DD94-11D3-9308-444553540000}" tlbid="{0ADEEC71-D83A-11D3-B36B-005004D38590}" description="MgaMetaPart Class" threadingModel="Apartment"/>
+    <comClass clsid="{83BA3250-B758-11D3-ABAE-000000000000}" tlbid="{0ADEEC71-D83A-11D3-B36B-005004D38590}" description="MgaMetaAtom Class" threadingModel="Apartment"/>
+    <comClass clsid="{83BA3252-B758-11D3-ABAE-000000000000}" tlbid="{0ADEEC71-D83A-11D3-B36B-005004D38590}" description="MgaMetaReference Class" threadingModel="Apartment"/>
+    <comClass clsid="{83BA3254-B758-11D3-ABAE-000000000000}" tlbid="{0ADEEC71-D83A-11D3-B36B-005004D38590}" description="MgaMetaSet Class" threadingModel="Apartment"/>
+    <comClass clsid="{83BA3256-B758-11D3-ABAE-000000000000}" tlbid="{0ADEEC71-D83A-11D3-B36B-005004D38590}" description="MgaMetaConnection Class" threadingModel="Apartment"/>
+    <comClass clsid="{83BA3258-B758-11D3-ABAE-000000000000}" tlbid="{0ADEEC71-D83A-11D3-B36B-005004D38590}" description="MgaMetaConnJoint Class" threadingModel="Apartment"/>
+    <comClass clsid="{83BA325A-B758-11D3-ABAE-000000000000}" tlbid="{0ADEEC71-D83A-11D3-B36B-005004D38590}" description="MgaMetaAttribute Class" threadingModel="Apartment"/>
+    <comClass clsid="{8216325A-B7C8-1AD3-ABAE-000000000000}" tlbid="{0ADEEC71-D83A-11D3-B36B-005004D38590}" description="MgaMetaEnumItem Class" threadingModel="Apartment"/>
+    <comClass clsid="{83BA325C-B758-11D3-ABAE-000000000000}" tlbid="{0ADEEC71-D83A-11D3-B36B-005004D38590}" description="MgaMetaPointerSpec Class" threadingModel="Apartment"/>
+    <comClass clsid="{83426258-B218-11D3-ABAE-000235612000}" tlbid="{0ADEEC71-D83A-11D3-B36B-005004D38590}" description="MgaMetaPointerItem" threadingModel="Apartment"/>
+    <comClass clsid="{C61AF6A0-C1FD-11D3-9AD2-00AA00B6FE26}" tlbid="{0ADEEC71-D83A-11D3-B36B-005004D38590}" description="MgaMetaAspects Class" threadingModel="Apartment"/>
+    <comClass progid="Mga.MgaMetaRoles" clsid="{C6412A50-C1FD-11D3-9AD2-00AA00B6FE26}" tlbid="{0ADEEC71-D83A-11D3-B36B-005004D38590}" description="MgaMetaRoles Class" threadingModel="Apartment"/>
+    <comClass clsid="{C6739780-C1FD-11D3-9AD2-00AA00B6FE26}" tlbid="{0ADEEC71-D83A-11D3-B36B-005004D38590}" description="MgaMetaFCOs Class" threadingModel="Apartment"/>
+    <comClass clsid="{C69B5260-C1FD-11D3-9AD2-00AA00B6FE26}" tlbid="{0ADEEC71-D83A-11D3-B36B-005004D38590}" description="MgaMetaAttributes Class" threadingModel="Apartment"/>
+    <comClass clsid="{C6BFFEE0-C1FD-11D3-9AD2-00AA00B6FE26}" tlbid="{0ADEEC71-D83A-11D3-B36B-005004D38590}" description="MgaMetaFolders Class" threadingModel="Apartment"/>
+    <comClass clsid="{C76B23E0-C1FD-11D3-9AD2-00AA00B6FE26}" tlbid="{0ADEEC71-D83A-11D3-B36B-005004D38590}" description="MgaMetaPointerSpecs Class" threadingModel="Apartment"/>
+    <comClass clsid="{C79F1840-C1FD-11D3-9AD2-00AA00B6FE27}" tlbid="{0ADEEC71-D83A-11D3-B36B-005004D38590}" description="MgaMetaRegNodes Class" threadingModel="Apartment"/>
+    <comClass clsid="{C8F6E974-C1FD-11D3-9AD2-00AA00B6FE26}" tlbid="{0ADEEC71-D83A-11D3-B36B-005004D38590}" description="MgaConstraints Class" threadingModel="Apartment"/>
+    <comClass clsid="{C8F6E970-C1FD-11D3-9AD2-00AA00B6FE27}" tlbid="{0ADEEC71-D83A-11D3-B36B-005004D38590}" description="MgaMetaParts Class" threadingModel="Apartment"/>
+    <comClass clsid="{C8F6E923-C1FD-11D3-9AD2-00AA00B6FE27}" tlbid="{0ADEEC71-D83A-11D3-B36B-005004D38590}" description="MgaMetaModels Class" threadingModel="Apartment"/>
+    <comClass clsid="{C8F62463-C1FD-11D3-9AD2-00AA00B6FE27}" tlbid="{0ADEEC71-D83A-11D3-B36B-005004D38590}" description="MgaMetaConnJoints Class" threadingModel="Apartment"/>
+    <comClass clsid="{C8F62353-C1FD-11D3-9AD2-00AA00B6FE27}" tlbid="{0ADEEC71-D83A-11D3-B36B-005004D38590}" description="MgaMetaPointerItems Class" threadingModel="Apartment"/>
+    <comClass clsid="{C8214353-C1FD-11D3-9AD2-00AACFB24E27}" tlbid="{0ADEEC71-D83A-11D3-B36B-005004D38590}" description="MgaMetaEnumItems Class" threadingModel="Apartment"/>
+    <typelib tlbid="{0ADEEC71-D83A-11D3-B36B-005004D38590}" resourceid="1" version="1.0" helpdir="" flags="HASDISKIMAGE"></typelib>
+  </file>
+  <comInterfaceExternalProxyStub name="IMgaMetaRegNode" iid="{83BA323D-B758-11D3-ABAE-000002387500}" tlbid="{0ADEEC71-D83A-11D3-B36B-005004D38590}" proxyStubClsid32="{00020424-0000-0000-C000-000000000046}"></comInterfaceExternalProxyStub>
+  <comInterfaceExternalProxyStub name="IMgaMetaRegNodes" iid="{C795ED20-C1FD-11D3-9AD2-00AA00B6FE27}" tlbid="{0ADEEC71-D83A-11D3-B36B-005004D38590}" proxyStubClsid32="{00020424-0000-0000-C000-000000000046}"></comInterfaceExternalProxyStub>
+  <comInterfaceExternalProxyStub name="IMgaConstraint" iid="{83BA3241-B758-11D3-ABAE-000000000000}" tlbid="{0ADEEC71-D83A-11D3-B36B-005004D38590}" proxyStubClsid32="{00020424-0000-0000-C000-000000000046}"></comInterfaceExternalProxyStub>
+  <comInterfaceExternalProxyStub name="IMgaMetaProject" iid="{83BA3243-B758-11D3-ABAE-000000000000}" tlbid="{0ADEEC71-D83A-11D3-B36B-005004D38590}" proxyStubClsid32="{00020424-0000-0000-C000-000000000046}"></comInterfaceExternalProxyStub>
+  <comInterfaceExternalProxyStub name="IMgaMetaFolder" iid="{83BA3245-B758-11D3-ABAE-000000000000}" tlbid="{0ADEEC71-D83A-11D3-B36B-005004D38590}" proxyStubClsid32="{00020424-0000-0000-C000-000000000046}"></comInterfaceExternalProxyStub>
+  <comInterfaceExternalProxyStub name="IMgaMetaBase" iid="{DB1E0FB7-C9CB-11D3-9AD2-00AA00B6FE26}" tlbid="{0ADEEC71-D83A-11D3-B36B-005004D38590}" proxyStubClsid32="{00020424-0000-0000-C000-000000000046}"></comInterfaceExternalProxyStub>
+  <comInterfaceExternalProxyStub name="IMgaConstraints" iid="{C8EC3720-C1FD-11D3-9AD2-00AA00B6FE26}" tlbid="{0ADEEC71-D83A-11D3-B36B-005004D38590}" proxyStubClsid32="{00020424-0000-0000-C000-000000000046}"></comInterfaceExternalProxyStub>
+  <comInterfaceExternalProxyStub name="IMgaMetaFolders" iid="{C6B85AF0-C1FD-11D3-9AD2-00AA00B6FE26}" tlbid="{0ADEEC71-D83A-11D3-B36B-005004D38590}" proxyStubClsid32="{00020424-0000-0000-C000-000000000046}"></comInterfaceExternalProxyStub>
+  <comInterfaceExternalProxyStub name="IMgaMetaFCOs" iid="{C66A6C60-C1FD-11D3-9AD2-00AA00B6FE26}" tlbid="{0ADEEC71-D83A-11D3-B36B-005004D38590}" proxyStubClsid32="{00020424-0000-0000-C000-000000000046}"></comInterfaceExternalProxyStub>
+  <comInterfaceExternalProxyStub name="IMgaMetaFCO" iid="{83BA3247-B758-11D3-ABAE-000000000000}" tlbid="{0ADEEC71-D83A-11D3-B36B-005004D38590}" proxyStubClsid32="{00020424-0000-0000-C000-000000000046}"></comInterfaceExternalProxyStub>
+  <comInterfaceExternalProxyStub name="IMgaMetaAttributes" iid="{C6922740-C1FD-11D3-9AD2-00AA00B6FE26}" tlbid="{0ADEEC71-D83A-11D3-B36B-005004D38590}" proxyStubClsid32="{00020424-0000-0000-C000-000000000046}"></comInterfaceExternalProxyStub>
+  <comInterfaceExternalProxyStub name="IMgaMetaAttribute" iid="{83BA3259-B758-11D3-ABAE-000000000000}" tlbid="{0ADEEC71-D83A-11D3-B36B-005004D38590}" proxyStubClsid32="{00020424-0000-0000-C000-000000000046}"></comInterfaceExternalProxyStub>
+  <comInterfaceExternalProxyStub name="IMgaMetaEnumItems" iid="{C8124623-C51D-1AD3-9AD2-11AA0176FE27}" tlbid="{0ADEEC71-D83A-11D3-B36B-005004D38590}" proxyStubClsid32="{00020424-0000-0000-C000-000000000046}"></comInterfaceExternalProxyStub>
+  <comInterfaceExternalProxyStub name="IMgaMetaEnumItem" iid="{83254259-B758-21D3-7BAE-000000000000}" tlbid="{0ADEEC71-D83A-11D3-B36B-005004D38590}" proxyStubClsid32="{00020424-0000-0000-C000-000000000046}"></comInterfaceExternalProxyStub>
+  <comInterfaceExternalProxyStub name="IMgaMetaRoles" iid="{C851E130-C1FD-11D3-9AD2-00AA00B6FE26}" tlbid="{0ADEEC71-D83A-11D3-B36B-005004D38590}" proxyStubClsid32="{00020424-0000-0000-C000-000000000046}"></comInterfaceExternalProxyStub>
+  <comInterfaceExternalProxyStub name="IMgaMetaRole" iid="{83BA324D-B758-11D3-ABAE-000000000000}" tlbid="{0ADEEC71-D83A-11D3-B36B-005004D38590}" proxyStubClsid32="{00020424-0000-0000-C000-000000000046}"></comInterfaceExternalProxyStub>
+  <comInterfaceExternalProxyStub name="IMgaMetaModel" iid="{83BA3249-B758-11D3-ABAE-000000000000}" tlbid="{0ADEEC71-D83A-11D3-B36B-005004D38590}" proxyStubClsid32="{00020424-0000-0000-C000-000000000046}"></comInterfaceExternalProxyStub>
+  <comInterfaceExternalProxyStub name="IMgaMetaAtom" iid="{83BA324F-B758-11D3-ABAE-000000000000}" tlbid="{0ADEEC71-D83A-11D3-B36B-005004D38590}" proxyStubClsid32="{00020424-0000-0000-C000-000000000046}"></comInterfaceExternalProxyStub>
+  <comInterfaceExternalProxyStub name="IMgaMetaReference" iid="{83BA3251-B758-11D3-ABAE-000000000000}" tlbid="{0ADEEC71-D83A-11D3-B36B-005004D38590}" proxyStubClsid32="{00020424-0000-0000-C000-000000000046}"></comInterfaceExternalProxyStub>
+  <comInterfaceExternalProxyStub name="IMgaMetaPointerSpec" iid="{83BA325B-B758-11D3-ABAE-000000000000}" tlbid="{0ADEEC71-D83A-11D3-B36B-005004D38590}" proxyStubClsid32="{00020424-0000-0000-C000-000000000046}"></comInterfaceExternalProxyStub>
+  <comInterfaceExternalProxyStub name="IMgaMetaPointerItems" iid="{C8124623-C51D-11D3-9AD2-00AA00B6FE27}" tlbid="{0ADEEC71-D83A-11D3-B36B-005004D38590}" proxyStubClsid32="{00020424-0000-0000-C000-000000000046}"></comInterfaceExternalProxyStub>
+  <comInterfaceExternalProxyStub name="IMgaMetaPointerItem" iid="{83518A5B-B758-11D3-ABAE-006928360000}" tlbid="{0ADEEC71-D83A-11D3-B36B-005004D38590}" proxyStubClsid32="{00020424-0000-0000-C000-000000000046}"></comInterfaceExternalProxyStub>
+  <comInterfaceExternalProxyStub name="IMgaMetaSet" iid="{83BA3253-B758-11D3-ABAE-000000000000}" tlbid="{0ADEEC71-D83A-11D3-B36B-005004D38590}" proxyStubClsid32="{00020424-0000-0000-C000-000000000046}"></comInterfaceExternalProxyStub>
+  <comInterfaceExternalProxyStub name="IMgaMetaConnection" iid="{83BA3255-B758-11D3-ABAE-000000000000}" tlbid="{0ADEEC71-D83A-11D3-B36B-005004D38590}" proxyStubClsid32="{00020424-0000-0000-C000-000000000046}"></comInterfaceExternalProxyStub>
+  <comInterfaceExternalProxyStub name="IMgaMetaConnJoints" iid="{C8432623-C1FD-11D3-9AD2-00AA00B6FE27}" tlbid="{0ADEEC71-D83A-11D3-B36B-005004D38590}" proxyStubClsid32="{00020424-0000-0000-C000-000000000046}"></comInterfaceExternalProxyStub>
+  <comInterfaceExternalProxyStub name="IMgaMetaConnJoint" iid="{83BA3257-B758-11D3-ABAE-000000000000}" tlbid="{0ADEEC71-D83A-11D3-B36B-005004D38590}" proxyStubClsid32="{00020424-0000-0000-C000-000000000046}"></comInterfaceExternalProxyStub>
+  <comInterfaceExternalProxyStub name="IMgaMetaPointerSpecs" iid="{C761F8C0-C1FD-11D3-9AD2-00AA00B6FE26}" tlbid="{0ADEEC71-D83A-11D3-B36B-005004D38590}" proxyStubClsid32="{00020424-0000-0000-C000-000000000046}"></comInterfaceExternalProxyStub>
+  <comInterfaceExternalProxyStub name="IMgaMetaAspects" iid="{C61352B0-C1FD-11D3-9AD2-00AA00B6FE26}" tlbid="{0ADEEC71-D83A-11D3-B36B-005004D38590}" proxyStubClsid32="{00020424-0000-0000-C000-000000000046}"></comInterfaceExternalProxyStub>
+  <comInterfaceExternalProxyStub name="IMgaMetaAspect" iid="{83BA324B-B758-11D3-ABAE-000000000000}" tlbid="{0ADEEC71-D83A-11D3-B36B-005004D38590}" proxyStubClsid32="{00020424-0000-0000-C000-000000000046}"></comInterfaceExternalProxyStub>
+  <comInterfaceExternalProxyStub name="IMgaMetaParts" iid="{C8EC3720-C1FD-11D3-9AD2-00AA00B6FE27}" tlbid="{0ADEEC71-D83A-11D3-B36B-005004D38590}" proxyStubClsid32="{00020424-0000-0000-C000-000000000046}"></comInterfaceExternalProxyStub>
+  <comInterfaceExternalProxyStub name="IMgaMetaPart" iid="{A70CAB45-DD94-11D3-9308-444553540000}" tlbid="{0ADEEC71-D83A-11D3-B36B-005004D38590}" proxyStubClsid32="{00020424-0000-0000-C000-000000000046}"></comInterfaceExternalProxyStub>
+  <comInterfaceExternalProxyStub name="IMgaMetaModels" iid="{C8EC3723-C1FD-11D3-9AD2-00AA00B6FE27}" tlbid="{0ADEEC71-D83A-11D3-B36B-005004D38590}" proxyStubClsid32="{00020424-0000-0000-C000-000000000046}"></comInterfaceExternalProxyStub>
+</assembly>

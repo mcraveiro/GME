@@ -1,0 +1,231 @@
+ 
+import "oaidl.idl";
+import "ocidl.idl";
+
+#include "InterfaceColl.h"
+
+import "Meta.idl";
+import "Core.idl";
+
+
+// --------------------------- Meta Library
+
+[
+	uuid(0ADEEC71-D83A-11D3-B36B-005004D38590),
+	version(1.0),
+	helpstring("MGA Meta Type Library")
+]
+library MGAMetaLib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+	importlib("CoreLib.tlb");
+
+	enum objtype_enum;
+	enum attval_enum;
+
+	[
+		uuid(83BA323E-B758-11D3-ABAE-000000000000),
+		noncreatable,
+		helpstring("MgaMetaRegNode Class")
+	]
+	coclass MgaMetaRegNode
+	{
+		[default] interface IMgaMetaRegNode;
+	};
+
+	[
+		uuid(83BA3242-B758-11D3-ABAE-000000000000),
+		noncreatable,
+		helpstring("MgaMetaConstraint Class")
+	]
+	coclass MgaMetaConstraint
+	{
+		[default] interface IMgaConstraint;
+	};
+
+	[
+		uuid(83BA3244-B758-11D3-ABAE-000000000000),
+		helpstring("MgaMetaProject Class")
+	]
+	coclass MgaMetaProject
+	{
+		[default] interface IMgaMetaProject;
+		interface IGMEVersionInfo;
+	};
+
+	[
+		uuid(83BA32F7-B758-11D3-ABAE-000000000000),
+		noncreatable,
+		helpstring("MgaMetaBase Class")
+	]
+	coclass MgaMetaBase
+	{
+		[default] interface IMgaMetaBase;
+	};
+
+	[
+		uuid(83BA3246-B758-11D3-ABAE-000000000000),
+		noncreatable,
+		helpstring("MgaMetaFolder Class")
+	]
+	coclass MgaMetaFolder
+	{
+		[default] interface IMgaMetaFolder;
+	};
+
+	[
+		uuid(83BA3248-B758-11D3-ABAE-000000000000),
+		noncreatable,
+		helpstring("MgaMetaFCO Class")
+	]
+	coclass MgaMetaFCO
+	{
+		[default] interface IMgaMetaFCO;
+	};
+
+	[
+		uuid(83BA324A-B758-11D3-ABAE-000000000000),
+		noncreatable,
+		helpstring("MgaMetaModel Class")
+	]
+	coclass MgaMetaModel
+	{
+		[default] interface IMgaMetaModel;
+	};
+
+	[
+		uuid(83BA324C-B758-11D3-ABAE-000000000000),
+		noncreatable,
+		helpstring("MgaMetaAspect Class")
+	]
+	coclass MgaMetaAspect
+	{
+		[default] interface IMgaMetaAspect;
+	};
+
+	[
+		uuid(83BA324E-B758-11D3-ABAE-000000000000),
+		noncreatable,
+		helpstring("MgaMetaRole Class")
+	]
+	coclass MgaMetaRole
+	{
+		[default] interface IMgaMetaRole;
+	};
+
+	[
+		uuid(A70CAB46-DD94-11D3-9308-444553540000),
+		noncreatable,
+		helpstring("MgaMetaPart Class")
+	]
+	coclass MgaMetaPart
+	{
+		[default] interface IMgaMetaPart;
+	};
+
+	[
+		uuid(83BA3250-B758-11D3-ABAE-000000000000),
+		noncreatable,
+		helpstring("MgaMetaAtom Class")
+	]
+	coclass MgaMetaAtom
+	{
+		[default] interface IMgaMetaAtom;
+	};
+
+	[
+		uuid(83BA3252-B758-11D3-ABAE-000000000000),
+		noncreatable,
+		helpstring("MgaMetaReference Class")
+	]
+	coclass MgaMetaReference
+	{
+		[default] interface IMgaMetaReference;
+	};
+
+	[
+		uuid(83BA3254-B758-11D3-ABAE-000000000000),
+		noncreatable,
+		helpstring("MgaMetaSet Class")
+	]
+	coclass MgaMetaSet
+	{
+		[default] interface IMgaMetaSet;
+	};
+
+	[
+		uuid(83BA3256-B758-11D3-ABAE-000000000000),
+		noncreatable,
+		helpstring("MgaMetaConnection Class")
+	]
+	coclass MgaMetaConnection
+	{
+		[default] interface IMgaMetaConnection;
+	};
+
+	[
+		uuid(83BA3258-B758-11D3-ABAE-000000000000),
+		noncreatable,
+		helpstring("MgaMetaConnJoint Class")
+	]
+	coclass MgaMetaConnJoint
+	{
+		[default] interface IMgaMetaConnJoint;
+	};
+
+	[
+		uuid(83BA325A-B758-11D3-ABAE-000000000000),
+		noncreatable,
+		helpstring("MgaMetaAttribute Class")
+	]
+	coclass MgaMetaAttribute
+	{
+		[default] interface IMgaMetaAttribute;
+	};
+
+	[
+		uuid(8216325A-B7C8-1AD3-ABAE-000000000000),
+		noncreatable,
+		helpstring("MgaMetaEnumItem Class")
+	]
+	coclass MgaMetaEnumItem
+	{
+		[default] interface IMgaMetaEnumItem;
+	};
+
+	[
+		uuid(83BA325C-B758-11D3-ABAE-000000000000),
+		noncreatable,
+		helpstring("MgaMetaPointerSpec Class")
+	]
+	coclass MgaMetaPointerSpec
+	{
+		[default] interface IMgaMetaPointerSpec;
+	};
+
+	[
+		uuid(83426258-B218-11D3-ABAE-000235612000),
+		noncreatable,
+		helpstring("MgaMetaPointerItem")
+	]
+	coclass MgaMetaPointerItem
+	{
+		[default] interface IMgaMetaPointerItem;
+	};
+
+	MGACOLL_COCLASS(c61af6a0-c1fd-11d3-9ad2-00aa00b6fe26, MgaMetaAspect)
+	MGACOLL_COCLASS(c6412a50-c1fd-11d3-9ad2-00aa00b6fe26, MgaMetaRole)
+	MGACOLL_COCLASS(c6739780-c1fd-11d3-9ad2-00aa00b6fe26, MgaMetaFCO)
+	MGACOLL_COCLASS(c69b5260-c1fd-11d3-9ad2-00aa00b6fe26, MgaMetaAttribute)
+	MGACOLL_COCLASS(c6bffee0-c1fd-11d3-9ad2-00aa00b6fe26, MgaMetaFolder)
+	MGACOLL_COCLASS(c76b23e0-c1fd-11d3-9ad2-00aa00b6fe26, MgaMetaPointerSpec)
+	MGACOLL_COCLASS(c79f1840-c1fd-11d3-9ad2-00aa00b6fe27, MgaMetaRegNode)
+	MGACOLL_COCLASS(c8f6e974-c1fd-11d3-9ad2-00aa00b6fe26, MgaConstraint)
+	MGACOLL_COCLASS(c8f6e970-c1fd-11d3-9ad2-00aa00b6fe27, MgaMetaPart)
+	MGACOLL_COCLASS(c8f6e923-c1fd-11d3-9ad2-00aa00b6fe27, MgaMetaModel)
+	MGACOLL_COCLASS(c8f62463-c1fd-11d3-9ad2-00aa00b6fe27, MgaMetaConnJoint)
+	MGACOLL_COCLASS(c8f62353-c1fd-11d3-9ad2-00aa00b6fe27, MgaMetaPointerItem)
+	MGACOLL_COCLASS(c8214353-c1fd-11d3-9ad2-00aacfb24e27, MgaMetaEnumItem)
+};

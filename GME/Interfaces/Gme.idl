@@ -1,0 +1,540 @@
+import "oaidl.idl";
+import "ocidl.idl";
+
+#include "InterfaceColl.h"
+#include "InterfaceVersion.h"
+
+
+import "Meta.idl";
+import "Mga.idl";
+
+interface IGMEOLEColl;
+
+typedef enum  msgtype_enum {
+	MSG_NORMAL = 0,
+	MSG_INFO = 1,
+	MSG_WARNING = 2,
+	MSG_ERROR =3
+} msgtype_enum;
+
+typedef enum  editmode_enum {
+	MODE_EDIT = 0,
+	MODE_CONNECT = 1,
+	MODE_DISCONNECT = 2,
+	MODE_SET =3,
+	MODE_ZOOM =4,
+	MODE_VISUALIZE =5
+} editmode_enum;
+
+typedef enum  bar_enum {
+	BAR_HORIZ = 0,
+	BAR_VERTI = 1
+} bar_enum;
+
+typedef enum  scroll_enum {
+	SCROL_UP = 0,
+	SCROL_DOWN = 1,
+	SCROL_PGUP = 2,
+	SCROL_PGDN = 3,
+	SCROL_HOME = 4,
+	SCROL_END = 5
+} scroll_enum;
+
+typedef enum  attribpanel_page {
+	PAGE_ATTRIB = 0,
+	PAGE_PREF = 1,
+	PAGE_PROP = 2
+} attribpanel_page;
+
+// --------------------------- Gme IDL
+
+[ uuid(9FF8F4E0-E0C9-11d3-B376-005004D38590),
+	oleautomation,
+	dual
+]
+interface IMgaDataSource : IDispatch
+{
+	[propget, id(1), helpstring("property Data")]
+	HRESULT Data([out, retval] IUnknown **p);
+
+	[propget, id(2), helpstring("property Data")]
+	HRESULT Folders([out, retval] IUnknown **p);
+
+	[propget, id(3), helpstring("property RegistryData")]
+	HRESULT RegistryData([out, retval] IUnknown **p);
+
+	[propget, id(4), helpstring("property Project")]
+	HRESULT Project([out, retval] IUnknown **p);
+};
+
+interface IGMEOLEIt;
+
+//  Primary dispatch interface for CGMEOLEApp
+	
+[ uuid(81191A44-B898-4143-BF8B-CA7501FEC19A), 
+	oleautomation,
+	dual
+]
+interface IGMEOLEApp : IDispatch
+{
+	// properties:
+	[propput, id(1)] HRESULT Visible([in] VARIANT_BOOL isVisible);
+	[propget, id(1)] HRESULT Visible([out, retval] VARIANT_BOOL* isVisible);
+	[propget, id(2)] HRESULT Version([out, retval] BSTR* versionStr);
+	[propget, id(3)] HRESULT VersionMajor([out, retval] short* n);
+	[propget, id(4)] HRESULT VersionMinor([out, retval] short* n);
+	[propget, id(5)] HRESULT VersionPatchLevel([out, retval] short* n);
+	[propget, id(6)] HRESULT Models([out, retval] IGMEOLEColl** coll);
+	[propget, id(7)] HRESULT MgaProject([out, retval] IMgaProject** p);
+	[propget, id(8)] HRESULT Panels([out, retval] IGMEOLEColl** coll);
+	[propput, id(9)] HRESULT ConsoleContents([in] BSTR contents);
+	[propget, id(9)] HRESULT ConsoleContents([out, retval] BSTR* contents);
+			
+	// methods:
+	[id(10)] HRESULT CreateProject([in] BSTR metaname, [in] BSTR ConnStr);
+	[id(11)] HRESULT OpenProject([in] BSTR ConnStr);
+	[id(12)] HRESULT CreateProjectDialog();
+	[id(13)] HRESULT OpenProjectDialog();
+	[id(14)] HRESULT CloseProject([in] VARIANT_BOOL saveOnClose);
+	[id(15)] HRESULT SaveProject();
+	[id(16)] HRESULT SaveProjectAs([in] BSTR ConnStr);
+	[id(17)] HRESULT SaveProjectAsDialog();
+	[id(18)] HRESULT ExportProject([in] BSTR ConnStr);
+	[id(19)] HRESULT ImportProject([in] BSTR ConnStr);
+	[id(20)] HRESULT ConstraintsDialog();
+	[id(21)] HRESULT CheckAllConstraints();
+	[id(22)] HRESULT RegisterParagimsDialog();
+	[id(23)] HRESULT RegisterComponentsDialog();
+	[id(24)] HRESULT RunComponent([in] BSTR progID);
+	[id(25)] HRESULT RunComponentDialog();
+	[id(26)] HRESULT SettingsDialog();
+	[id(27)] HRESULT Undo();
+	[id(28)] HRESULT Redo();
+	[id(29)] HRESULT ClearUndoQueue();
+	[id(30)] HRESULT ProjectPropertiesDialog();
+	[id(31)] HRESULT ShowHelpContents();
+	[id(32)] HRESULT ShowAbout();
+	[id(33)] HRESULT ShowFCO([in] IMgaFCO* mgaFCO, [in, defaultvalue(0)] VARIANT_BOOL inParent);
+	[id(34)] HRESULT ConsoleMessage([in] BSTR msg, [in]msgtype_enum type);
+	[id(35)] HRESULT ConsoleClear();
+	[id(36)] HRESULT ConsoleNavigateTo([in] BSTR url);
+
+	[id(37), helpstring("method ChangeEditmode")] HRESULT ChangeEditmode([in] editmode_enum mode);
+	[id(38), helpstring("method GridShow")] HRESULT GridShow([in] VARIANT_BOOL show);
+	[id(39), helpstring("method AttributepanelPage")] HRESULT AttributepanelPage([in] attribpanel_page page);
+
+	[propget, id(40)] HRESULT OleIt([out, retval] IGMEOLEIt ** mgamodel);
+
+	// methods for disabling components (interpreters, plugins) on the toolbar and in File/Run Interpreter menu
+	// Users do NOT need to call SetCompFiltering
+	[id(41), helpstring("method for disabling/enabling a component")] 
+	HRESULT DisableComp( [in] BSTR pCompProgID, [in] VARIANT_BOOL pDisable);
+
+	// disable automatically a component whenever a model specified in the 2nd parameter
+	// is opened AND focused in the editing window
+	//    e.g. : gme.DisableCompForKinds( "MGA.Interpreter.SFInterpreter", "Primitive;Compound")
+	// specify the special string below to disable components when no model is open at all
+	//    e.g. : gme.DisableCompForKinds( "MGA.Interpreter.SFInterpreter", "_NO_MODEL_IS_OPEN_")
+	// Users NEED to call SetCompFiltering to activate this feature (before or after)
+	[id(42), helpstring("method for disabling/enabling a component when certain model kinds are shown")] 
+	HRESULT DisableCompForKinds( [in] BSTR pCompProgID, [in] BSTR pKindSequenceDelimitedBySemicolon);
+
+	// this method must be used to turn the DisableCompForKinds feature on
+	[id(43), helpstring("method for turning on/off component filtering")] 
+	HRESULT SetCompFiltering( [in] VARIANT_BOOL pTurnOn);
+
+	// is the feature turned on?
+	[id(44), helpstring("inquire component filtering state")] 
+	HRESULT GetCompFiltering( [out, retval] VARIANT_BOOL* pPtrTurnedOn);
+
+	[id(45), helpstring("Sets the working directory. Will affect the dialogs when the user will Open or Save As")]
+	HRESULT SetWorkingDirectory( [in] BSTR pDirPath);
+
+	[id(46), helpstring("Exit Application")]
+	HRESULT Exit();
+
+	[id(47), helpstring("Refresh Lib")]
+	HRESULT RefreshLib( [in] BSTR pLibName, [in] VARIANT_BOOL ungroup, [out,retval] long* numOfErrors);
+};
+
+
+[ uuid(F2181278-749F-459d-8700-92F088B80D72),
+	oleautomation,
+	dual 
+]
+interface IGMEOLEIt : IDispatch // the current/active opened view (model)
+{
+	// methods and properties similar to those defined in IGMEOLEModel:
+
+	// properties:
+	[propget, id(1)] HRESULT Valid([out, retval] VARIANT_BOOL* isValid);
+	[propget, id(2)] HRESULT Aspects([out, retval] IGMEOLEColl** coll);
+	[propget, id(3)] HRESULT MgaModel([out, retval] IMgaModel** model);
+
+	// methods:
+
+	[id(5)] HRESULT Print();
+	[id(6)] HRESULT PrintDialog();
+	[id(7)] HRESULT DumpWindowsMetaFile([in] BSTR filePath);
+	[id(8)] HRESULT CheckConstraints();
+	[id(9)] HRESULT RunComponent([in] BSTR appID);
+	[id(10)] HRESULT RunComponentDialog();
+	[id(11)] HRESULT Close();
+	[id(12)] HRESULT GrayOutFCO([in] VARIANT_BOOL bGray, [in] VARIANT_BOOL bNeighbours, [in] IMgaFCOs* mgaFCO);
+	[id(13)] HRESULT GrayOutHide();
+	[id(14)] HRESULT ShowSetMembers([in] IMgaFCO* mgaFCO);
+	[id(15)] HRESULT HideSetMembers();
+	[id(16)] HRESULT Zoom([in] DWORD percent);
+	[id(17)] HRESULT ZoomTo([in] IMgaFCOs* mgaFCOs);
+	[id(18)] HRESULT Scroll([in] bar_enum, [in] scroll_enum);
+	[id(19)] HRESULT DumpModelGeometryXML([in] BSTR filePath);
+
+
+	// methods allowing the user to generate models ie. from the scripting window:
+	[helpstring("ShowFCO - accepts relative path both up and down. For models only: If InParent == true shown selected in parent, otherwise opened.")]
+	HRESULT ShowFCO( [in] BSTR path, [in, defaultvalue(0)] VARIANT_BOOL inParent );
+	[helpstring("ShowFCOPtr - changes the view to fco.")]
+	HRESULT ShowFCOPtr( [in] IMgaFCO* fco, [in, defaultvalue(0)] VARIANT_BOOL inParent );
+
+	HRESULT Child( [in] BSTR Name, [out,retval] IMgaFCO** child_fco );
+	HRESULT Create( [in] BSTR part, [in] BSTR Name, [out,retval] IMgaFCO** new_fco );
+	[helpstring("creates a 'part' named 'name' in child_as_parent model")]
+	HRESULT CreateInChild( [in] BSTR child_as_parent, [in] BSTR part, [in] BSTR Name, [out,retval] IMgaFCO** new_fco );
+	HRESULT CreateInChildFCO( [in] IMgaFCO* child_as_parent, [in] BSTR part, [in] BSTR Name, [out,retval] IMgaFCO** new_fco );
+
+	HRESULT Duplicate([in] BSTR existing_fco_name, [in] BSTR new_fco_name, [out,retval] IMgaFCO** new_fco );
+	HRESULT DuplicateFCO([in] IMgaFCO* existing_fco, [in] BSTR new_fco_name, [out,retval] IMgaFCO** new_fco );
+
+	HRESULT Rename( [in] BSTR oldname, [in] BSTR newname);
+	HRESULT SetName( [in] IMgaFCO*, [in] BSTR Name);
+
+	HRESULT Include( [in] BSTR setname, [in] BSTR Name);
+	HRESULT Exclude( [in] BSTR setname, [in] BSTR membername);
+
+	HRESULT IncludeFCO( [in] IMgaSet* p_set, [in] IMgaFCO* fco);
+	HRESULT ExcludeFCO( [in] IMgaSet* p_set, [in] IMgaFCO* fco);
+
+	HRESULT Connect( [in] BSTR src_part, [in] BSTR dst_part, [in] BSTR connection_role, [out, retval] IMgaConnection ** conn );
+	HRESULT Disconnect( [in] BSTR src_part, [in] BSTR dst_part, [in] BSTR connection_name);
+
+	[helpstring("creates a connection. src_part_1 must be the model/reference, src_part_2 must be the port's name. if portname empty connection drawn to src_part_1")]
+	HRESULT ConnectThruPort( [in] BSTR src_part_1, [in] BSTR src_part_2, [in] BSTR dst_part_1, [in] BSTR dst_part_2, [in] BSTR connection_role, [out, retval] IMgaConnection ** conn );
+	HRESULT ConnectThruPortFCO( [in] IMgaFCO* src_part_1, [in] IMgaFCO* src_part_2, [in] IMgaFCO* dst_part_1, [in] IMgaFCO* dst_part_2, [in] BSTR connection_role, [out, retval] IMgaConnection ** conn);
+	HRESULT DisconnectThruPort( [in] BSTR src_part_1, [in] BSTR src_part_2, [in] BSTR dst_part_1, [in] BSTR dst_part_2, [in] BSTR connection_name);
+
+
+	HRESULT ConnectFCOs( [in] IMgaFCO* src_part, [in] IMgaFCO* dst_part, [in] BSTR connection_role, [out, retval] IMgaConnection ** conn );
+	HRESULT DisconnectFCOs( [in] IMgaFCO* src_part, [in] IMgaFCO* dst_part, [in] BSTR connection_name);
+
+	HRESULT Refer( [in] BSTR reference, [in] BSTR Referred);
+	HRESULT ClearRef( [in] BSTR reference);
+	HRESULT FollowRef( [in] BSTR reference);
+
+	HRESULT ReferFCO( [in] IMgaReference* reference, [in] IMgaFCO* Referred);
+	HRESULT ClearRefFCO( [in] IMgaReference* reference);
+	HRESULT FollowRefFCO( [in] IMgaReference* reference);
+	HRESULT NullFCO( [out, retval] IMgaFCO** nullobj);
+
+
+	HRESULT SetAttribute( [in] BSTR Name, [in] BSTR attr_name, [in] VARIANT value);
+	HRESULT GetAttribute( [in] BSTR Name, [in] BSTR attr_name, [out, retval] VARIANT* value);
+
+	HRESULT SetAttributeFCO( [in] IMgaFCO* fco, [in] BSTR attr_name, [in] VARIANT value);
+	HRESULT GetAttributeFCO( [in] IMgaFCO* fco, [in] BSTR attr_name, [out, retval] VARIANT* value);
+
+	HRESULT SubType( [in] BSTR base, [in] BSTR name_of_subtype, [out, retval] IMgaFCO** subtype);	
+	HRESULT Instantiate( [in] BSTR base, [in] BSTR name_of_instance, [out, retval] IMgaFCO** instance);
+
+	HRESULT SubTypeFCO( [in] IMgaFCO* base, [in] BSTR name_of_subtype, [out, retval] IMgaFCO** subtype);
+	HRESULT InstantiateFCO( [in] IMgaFCO* base, [in] BSTR name_of_instance, [out, retval] IMgaFCO** instance);
+
+	HRESULT BeginTransaction();
+	HRESULT CommitTransaction();
+	HRESULT AbortTransaction();
+	HRESULT IsInTransaction( [out, retval] VARIANT_BOOL* intrans);
+	HRESULT PutInTerritory( [in] IMgaFCO* fco, [out, retval] IMgaFCO** newfco);
+
+	HRESULT Help();
+
+	HRESULT SetSelected( [in] BSTR space_delimited_string );
+	HRESULT GetSelected( [out, retval] BSTR * space_delimited_string );
+	HRESULT SetSelectedFCOs([in] IMgaFCOs* fcos_to_select);
+	HRESULT GetSelectedFCOs([out, retval] IMgaFCOs** selected_fcos);
+
+
+	[helpstring("gets the current aspect of this view (opened model)")]
+	HRESULT GetCurrentAspect([out, retval] BSTR* aspectName);
+	[helpstring("sets the current aspect to the given aspect in this view (opened model)")]
+	HRESULT SetCurrentAspect([in] BSTR aspectName);
+	[helpstring("switches to the next aspect of this view (opened model)")]
+	HRESULT NextAspect();
+	[helpstring("switches to the previous aspect of this view (opened model)")]
+	HRESULT PrevAspect();
+
+	[helpstring("makes the next (if any) view (opened model) the active view ")]
+	HRESULT Next();
+	HRESULT Prev();
+
+	HRESULT Position( [in] BSTR child, [in] BSTR aspect, [in] long parX, [in] long parY);
+	HRESULT PositionFCO( [in] IMgaFCO* fco, [in] BSTR aspect, [in] long parX, [in] long parY);
+};
+
+//  Primary dispatch interface for CGMEOLEModel
+
+[ uuid(399A16A0-D209-4d00-9BDF-858D87EC4641),
+	oleautomation,
+	dual 
+]
+interface IGMEOLEModel : IDispatch // actually it corresponds to a view
+{
+	// properties:
+	[propput, id(1)] HRESULT Active([in] VARIANT_BOOL isActive);
+	[propget, id(1)] HRESULT Active([out, retval] VARIANT_BOOL* isActive);
+	[propget, id(2)] HRESULT Aspects([out, retval] IGMEOLEColl** coll);
+	[propget, id(3)] HRESULT MgaModel([out, retval] IMgaModel** model);
+	[propget, id(4)] HRESULT Valid([out, retval] VARIANT_BOOL* isValid);
+		
+	// methods:
+	[id(5)] HRESULT Print();
+	[id(6)] HRESULT PrintDialog();
+	[id(7)] HRESULT DumpWindowsMetaFile([in] BSTR filePath);
+	[id(8)] HRESULT CheckConstraints();
+	[id(9)] HRESULT RunComponent([in] BSTR appID);
+	[id(10)] HRESULT RunComponentDialog();
+	[id(11)] HRESULT Close();
+	[id(12)] HRESULT GrayOutFCO([in] VARIANT_BOOL bGray, [in] VARIANT_BOOL bNeighbours, [in] IMgaFCOs* mgaFCO);
+	[id(13)] HRESULT GrayOutHide();
+	[id(14)] HRESULT ShowSetMembers([in] IMgaFCO* mgaFCO); // set is in this open model
+	[id(15)] HRESULT HideSetMembers();
+	[id(16)] HRESULT Zoom([in] DWORD percent); // for open models only
+	[id(17)] HRESULT ZoomTo([in] IMgaFCOs* mgaFCOs); // for open models only
+	[id(18)] HRESULT Scroll([in] bar_enum, [in] scroll_enum); // for opened models only
+	[id(19)] HRESULT DumpModelGeometryXML([in] BSTR filePath);
+	[id(20)] HRESULT GetCurrentAspect([out, retval] BSTR* aspectName);
+	[id(21)] HRESULT SetCurrentAspect([in] BSTR aspectName);
+
+};
+
+
+//  Primary dispatch interface for CGMEOLEAspect
+
+[ uuid(EDEEB1F8-BC44-40d2-BE91-83E8CCD59845),
+	oleautomation, 
+	dual
+]
+interface IGMEOLEAspect : IDispatch
+{
+	// properties:
+	[propget, id(1)] HRESULT MgaAspect([out, retval] IMgaMetaAspect** aspect);
+	[propput, id(2)] HRESULT Active([in] VARIANT_BOOL isActive);
+	[propget, id(2)] HRESULT Active([out, retval] VARIANT_BOOL* isActive);
+	[propget, id(3)] HRESULT Valid([out, retval] VARIANT_BOOL* isValid);
+
+	// methods:
+};
+
+
+//  Primary dispatch interface for CGMEOLEPanel
+
+[ uuid(C047FAEB-7AE7-40fb-8C5C-90C73DAD4BC6), 
+	oleautomation, 
+	dual
+]
+interface IGMEOLEPanel :  IDispatch
+{
+	// properties:
+	[propget, id(1)] HRESULT Name([out, retval] BSTR* Name);
+	[propput, id(2)] HRESULT Visible([in] VARIANT_BOOL isVisible);
+	[propget, id(2)] HRESULT Visible([out, retval] VARIANT_BOOL* isVisible);
+	[propget, id(3)] HRESULT Interface([out, retval] IDispatch** interf);
+		
+	// methods:
+};
+
+
+//  Primary dispatch interface for CGMEOLEColl
+
+[ uuid(36C7B797-6BDE-46d0-8870-70189000EDF9),
+	oleautomation,
+	dual
+]
+interface IGMEOLEColl : IDispatch
+{
+	[propget, id(1)] HRESULT Count([out, retval] long *cnt);
+	
+	[id(2)] HRESULT Add(IDispatch* newValue);
+	[id(3)] HRESULT Find(IDispatch* findValue, [out, retval] long *cnt);
+	[id(4)] HRESULT Remove(VARIANT removeValue);
+	[id(5)] HRESULT RemoveAll();
+
+	[propget, id(DISPID_VALUE)] HRESULT Item(long nIndex, [out, retval] IDispatch** val);
+	[propput, id(DISPID_VALUE)] HRESULT Item(long nIndex, IDispatch* newValue);
+	[propget, id(DISPID_NEWENUM)] HRESULT _NewEnum([out, retval] IUnknown** e);
+};
+
+
+// --------------------------- Decorators
+
+
+// Error codes
+typedef enum decorator_error {
+[helpstring("Specified parameter name is unknown")]
+	E_DECORATOR_UNKNOWN_PARAMETER	=	0x80737001,
+[helpstring("Initialization with null pointer to MgaProject or MgaMetaPart")]
+	E_DECORATOR_INIT_WITH_NULL	=	0x80737002,
+[helpstring("Decorator is not initialized. Call Initialize() before use it.")]
+	E_DECORATOR_UNINITIALIZED	=	0x80737003,
+[helpstring("Object location is not initialized. Call SetLocation() before calling this function.")]
+	E_DECORATOR_LOCISNOTSET = 0x80737004,
+[helpstring("Specified port (based on IMgaFCO) not found.")]
+	E_DECORATOR_PORTNOTFOUND	=	0x80737005,
+[helpstring("In case of new decorator interface use the new InitializeEx and supply parent HWND.")]
+	E_DECORATOR_USING_DEPRECATED_FUNCTION	= 0x80737006,
+[helpstring("Not implemented method.")]
+	E_DECORATOR_NOT_IMPLEMENTED	= 0x80737007,
+[helpstring("Event handled / consumed.")]
+	S_DECORATOR_EVENT_HANDLED	= 0x00737001,
+[helpstring("Event not handled.")]
+	S_DECORATOR_EVENT_NOT_HANDLED	= 0x00737002
+} decorator_error;
+
+// Feature codes
+// FIXME should be an enum
+typedef unsigned long feature_code;
+const unsigned long F_RESIZABLE	= 1<<0;
+const unsigned long	F_MOUSEEVENTS =	1<<1;
+const unsigned long	F_HASLABEL =	1<<2;
+const unsigned long	F_HASSTATE = 1<<3;
+const unsigned long	F_HASPORTS = 1<<4;
+const unsigned long	F_ANIMATION = 1<<5;
+const unsigned long	F_IMGPATH = 1<<6;
+const unsigned long	F_RESIZEAFTERMOD = 1<<7;
+
+// Refresh modes
+typedef enum  refresh_mode_enum {
+	RM_NOREFRESH				= 0,
+	RM_REDRAW_SELF				= 1,
+	RM_REGENERATE_SELF			= 2,
+	RM_REGENERATE_PARENT_ALSO	= 3,
+	RM_REGENERATE_ALL_VIEWS		= 4
+} refresh_mode_enum;
+
+
+[
+	object,
+	uuid(1E13054E-5AD1-41EB-8FF1-C3901D99FDCC),
+	oleautomation,
+	helpstring("IMgaDecorator Interface"),
+	pointer_default(unique)
+]
+interface IMgaDecorator : IUnknown
+{
+	[id(1), helpstring("method Initialize")] HRESULT Initialize([in] IMgaProject* p, [in] IMgaMetaPart* meta, [in] IMgaFCO* obj);
+	[id(2), helpstring("method Destroy")] HRESULT Destroy();
+	[id(3), helpstring("method GetMnemonic")] HRESULT GetMnemonic([out] BSTR* mnemonic);
+	[id(4), helpstring("method GetFeatures")] HRESULT GetFeatures([out] feature_code* features);
+	[id(5), helpstring("method SetParam")] HRESULT SetParam([in] BSTR Name, [in] VARIANT value);
+	[id(6), helpstring("method GetParam")] HRESULT GetParam([in] BSTR Name, [out] VARIANT* value);
+	[id(7), helpstring("method SetActive")] HRESULT SetActive([in] VARIANT_BOOL isActive);
+	[id(8), helpstring("method GetPreferredSize")] HRESULT GetPreferredSize([out] long* sizex, [out] long* sizey);
+	[id(9), helpstring("method SetLocation")] HRESULT SetLocation([in] long sx, [in] long sy, [in] long ex, [in] long ey);
+	[id(10), helpstring("method GetLocation")] HRESULT GetLocation([out] long* sx, [out] long* sy, [out] long* ex, [out] long* ey);
+	[id(11), helpstring("method GetLabelLocation")] HRESULT GetLabelLocation([out] long* sx, [out] long* sy, [out] long* ex, [out] long* ey);
+	[id(12), helpstring("method GetPortLocation")] HRESULT GetPortLocation([in] IMgaFCO* fco, [out] long* sx, [out] long* sy, [out] long* ex, [out] long* ey);
+	[id(13), helpstring("method GetPorts")] HRESULT GetPorts([out, retval] IMgaFCOs** portFCOs);
+	[id(14), helpstring("method Draw")] HRESULT Draw([in] ULONG hdc);
+	[id(15), helpstring("method SaveState")] HRESULT SaveState();
+};
+
+[
+	object,
+	uuid(D25188F5-3ECF-433e-85C5-8B9574CA264C),
+	oleautomation,
+	helpstring("IMgaCommonDecoratorEvents Interface"),
+	pointer_default(unique)
+]
+interface IMgaCommonDecoratorEvents : IUnknown
+{
+	[id(1), helpstring("method Refresh needed")] HRESULT Refresh([in] refresh_mode_enum refreshMode);
+	[id(2), helpstring("method the editing operation is canceled")] HRESULT OperationCanceled();
+	[id(3), helpstring("method CursorChanged")] HRESULT CursorChanged([in] LONG newCursorID);
+	[id(4), helpstring("method CursorRestored")] HRESULT CursorRestored();
+
+	[id(5), helpstring("method LabelEditingStarted")] HRESULT LabelEditingStarted([in] LONG left, [in] LONG top, [in] LONG right, [in] LONG bottom);
+	[id(6), helpstring("method LabelEditingFinished")] HRESULT LabelEditingFinished([in] LONG left, [in] LONG top, [in] LONG right, [in] LONG bottom);
+	[id(7), helpstring("method LabelChanged")] HRESULT LabelChanged([in] BSTR newLabel);
+	[id(8), helpstring("method LabelMovingStarted")] HRESULT LabelMovingStarted([in] LONG nFlags, [in] LONG left, [in] LONG top, [in] LONG right, [in] LONG bottom);
+	[id(9), helpstring("method LabelMoving")] HRESULT LabelMoving([in] LONG nFlags, [in] LONG left, [in] LONG top, [in] LONG right, [in] LONG bottom);
+	[id(10), helpstring("method LabelMovingFinished")] HRESULT LabelMovingFinished([in] LONG nFlags, [in] LONG left, [in] LONG top, [in] LONG right, [in] LONG bottom);
+	[id(11), helpstring("method LabelMoved")] HRESULT LabelMoved([in] LONG nFlags, [in] LONG x, [in] LONG y);
+	[id(12), helpstring("method LabelResizingStarted")] HRESULT LabelResizingStarted([in] LONG nFlags, [in] LONG left, [in] LONG top, [in] LONG right, [in] LONG bottom);
+	[id(13), helpstring("method LabelResizing")] HRESULT LabelResizing([in] LONG nFlags, [in] LONG left, [in] LONG top, [in] LONG right, [in] LONG bottom);
+	[id(14), helpstring("method LabelResizingFinished")] HRESULT LabelResizingFinished([in] LONG nFlags, [in] LONG left, [in] LONG top, [in] LONG right, [in] LONG bottom);
+	[id(15), helpstring("method LabelResized")] HRESULT LabelResized([in] LONG nFlags, [in] LONG cx, [in] LONG cy);
+
+	[id(16), helpstring("method GeneralOperationStarted")] HRESULT GeneralOperationStarted([in] ULONGLONG operationData);
+	[id(17), helpstring("method GeneralOperationFinished")] HRESULT GeneralOperationFinished([out] ULONGLONG* operationData);
+};
+
+[
+	object,
+	uuid(91004115-2D1F-44a8-B6A0-09A2750BF278),
+	oleautomation,
+	helpstring("IMgaDecoratorCommon Interface"),
+	pointer_default(unique)
+]
+interface IMgaDecoratorCommon : IMgaDecorator
+{
+	[id(20), helpstring("method InitializeEx")] HRESULT InitializeEx([in] IMgaProject* p, [in] IMgaMetaPart* meta, [in] IMgaFCO* obj, [in] IMgaCommonDecoratorEvents* eventSink, [in] ULONGLONG parentWnd);
+	[id(21), helpstring("method DrawEx")] HRESULT DrawEx([in] ULONG hdc, [in] ULONGLONG gdip);
+	[id(22), helpstring("method SetSelected")] HRESULT SetSelected([in] VARIANT_BOOL isSelected);
+	[id(23), helpstring("method MouseMoved")] HRESULT MouseMoved([in] ULONG nFlags, [in] LONG pointx, [in] LONG pointy, [in] ULONGLONG transformHDC);
+	[id(24), helpstring("method MouseLeftButtonDown")] HRESULT MouseLeftButtonDown([in] ULONG nFlags, [in] LONG pointx, [in] LONG pointy, [in] ULONGLONG transformHDC);
+	[id(25), helpstring("method MouseLeftButtonUp")] HRESULT MouseLeftButtonUp([in] ULONG nFlags, [in] LONG pointx, [in] LONG pointy, [in] ULONGLONG transformHDC);
+	[id(26), helpstring("method MouseLeftButtonDoubleClick")] HRESULT MouseLeftButtonDoubleClick([in] ULONG nFlags, [in] LONG pointx, [in] LONG pointy, [in] ULONGLONG transformHDC);
+	[id(27), helpstring("method MouseRightButtonDown")] HRESULT MouseRightButtonDown([in] ULONGLONG hCtxMenu, [in] ULONG nFlags, [in] LONG pointx, [in] LONG pointy, [in] ULONGLONG transformHDC);
+	[id(28), helpstring("method MouseRightButtonUp")] HRESULT MouseRightButtonUp([in] ULONG nFlags, [in] LONG pointx, [in] LONG pointy, [in] ULONGLONG transformHDC);
+	[id(29), helpstring("method MouseRightButtonDoubleClick")] HRESULT MouseRightButtonDoubleClick([in] ULONG nFlags, [in] LONG pointx, [in] LONG pointy, [in] ULONGLONG transformHDC);
+	[id(30), helpstring("method MouseMiddleButtonDown")] HRESULT MouseMiddleButtonDown([in] ULONG nFlags, [in] LONG pointx, [in] LONG pointy, [in] ULONGLONG transformHDC);
+	[id(31), helpstring("method MouseMiddleButtonUp")] HRESULT MouseMiddleButtonUp([in] ULONG nFlags, [in] LONG pointx, [in] LONG pointy, [in] ULONGLONG transformHDC);
+	[id(32), helpstring("method MouseMiddleButtonDoubleClick")] HRESULT MouseMiddleButtonDoubleClick([in] ULONG nFlags, [in] LONG pointx, [in] LONG pointy, [in] ULONGLONG transformHDC);
+	[id(33), helpstring("method MouseWheelTurned")] HRESULT MouseWheelTurned([in] ULONG nFlags, [in] LONG distance, [in] LONG pointx, [in] LONG pointy, [in] ULONGLONG transformHDC);
+	[id(34), helpstring("method MenuItemSelected")] HRESULT MenuItemSelected([in] ULONG menuItemId, [in] ULONG nFlags, [in] LONG pointx, [in] LONG pointy, [in] ULONGLONG transformHDC);
+	[id(35), helpstring("method OperationCanceled")] HRESULT OperationCanceled();
+	[id(36), helpstring("method DragEnter")] HRESULT DragEnter([out] ULONG* dropEffect, [in] ULONGLONG pCOleDataObject, [in] ULONG keyState, [in] LONG pointx, [in] LONG pointy, [in] ULONGLONG transformHDC);
+	[id(37), helpstring("method DragOver")] HRESULT DragOver([out] ULONG* dropEffect, [in] ULONGLONG pCOleDataObject, [in] ULONG keyState, [in] LONG pointx, [in] LONG pointy, [in] ULONGLONG transformHDC);
+	[id(38), helpstring("method Drop")] HRESULT Drop([in] ULONGLONG pCOleDataObject, [in] ULONG dropEffect, [in] LONG pointx, [in] LONG pointy, [in] ULONGLONG transformHDC);
+	[id(39), helpstring("method DropFile")] HRESULT DropFile([in] ULONGLONG hDropInfo, [in] LONG pointx, [in] LONG pointy, [in] ULONGLONG transformHDC);
+};
+
+[
+	object,
+	uuid(1D63D045-28C9-4902-8E5F-46F4AC1F8C5B),
+	oleautomation,
+	helpstring("IMgaElementDecoratorEvents Interface"),
+	pointer_default(unique)
+]
+interface IMgaElementDecoratorEvents : IMgaCommonDecoratorEvents
+{
+	[id(25), helpstring("method WindowMovingStarted")] HRESULT WindowMovingStarted([in] LONG nFlags, [in] LONG left, [in] LONG top, [in] LONG right, [in] LONG bottom);
+	[id(26), helpstring("method WindowMoving")] HRESULT WindowMoving([in] LONG nFlags, [in] LONG left, [in] LONG top, [in] LONG right, [in] LONG bottom);
+	[id(27), helpstring("method WindowMovingFinished")] HRESULT WindowMovingFinished([in] LONG nFlags, [in] LONG left, [in] LONG top, [in] LONG right, [in] LONG bottom);
+	[id(28), helpstring("method WindowMoved")] HRESULT WindowMoved([in] LONG nFlags, [in] LONG x, [in] LONG y);
+
+	[id(29), helpstring("method WindowResizingStarted")] HRESULT WindowResizingStarted([in] LONG nFlags, [in] LONG left, [in] LONG top, [in] LONG right, [in] LONG bottom);
+	[id(30), helpstring("method WindowResizing")] HRESULT WindowResizing([in] LONG nFlags, [in] LONG left, [in] LONG top, [in] LONG right, [in] LONG bottom);
+	[id(31), helpstring("method WindowResizingFinished")] HRESULT WindowResizingFinished([in] LONG nFlags, [in] LONG left, [in] LONG top, [in] LONG right, [in] LONG bottom);
+	[id(32), helpstring("method WindowResized")] HRESULT WindowResized([in] LONG nFlags, [in] LONG cx, [in] LONG cy);
+};
+
+[
+	object,
+	uuid(2BEAD76C-126E-405D-AAC6-B9CA39067006),
+	oleautomation,
+	helpstring("IMgaElementDecorator Interface"),
+	pointer_default(unique)
+]
+interface IMgaElementDecorator : IMgaDecoratorCommon
+{
+};
+

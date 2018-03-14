@@ -1,0 +1,23 @@
+HKCR
+{
+	GME.DecoratorEventSink.1 = s 'DecoratorEventSink Class'
+	{
+		CLSID = s '{8B4648C1-C3A9-45dd-AE8C-63DB998F5CC0}'
+	}
+	GME.DecoratorEventSink = s 'DecoratorEventSink Class'
+	{
+		CLSID = s '{8B4648C1-C3A9-45dd-AE8C-63DB998F5CC0}'
+		CurVer = s 'GME.DecoratorEventSink.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {8B4648C1-C3A9-45dd-AE8C-63DB998F5CC0} = s 'DecoratorEventSink Class'
+		{
+			ProgID = s 'GME.DecoratorEventSink.1'
+			VersionIndependentProgID = s 'GME.DecoratorEventSink'
+			ForceRemove 'Programmable'
+			LocalServer32 = s '%MODULE%'
+			'TypeLib' = s '{0ADEEC71-D83A-11D3-B36B-005004CC8592}'
+		}
+	}
+}

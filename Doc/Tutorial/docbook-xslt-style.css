@@ -1,0 +1,17 @@
+pre.programlisting {
+  background-color: #FFFF99 ;
+  border: 1px solid #006600 ;
+  width: auto;
+  /* float for shrink-to-fit */
+  float: left;
+  clear: both;
+}
+
+body {
+  padding: 0 2em;
+}
+
+p {
+ max-width: 800px;
+ clear: both;
+}

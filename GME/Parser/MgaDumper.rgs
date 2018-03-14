@@ -1,0 +1,27 @@
+HKCR
+{
+	Mga.MgaDumper.1 = s 'MgaDumper Class'
+	{
+		CLSID = s '{A5D0DAE7-16EE-11D4-B3C2-005004D38590}'
+	}
+	Mga.MgaDumper = s 'MgaDumper Class'
+	{
+		CLSID = s '{A5D0DAE7-16EE-11D4-B3C2-005004D38590}'
+		CurVer = s 'Mga.MgaDumper.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {A5D0DAE7-16EE-11D4-B3C2-005004D38590} = s 'MgaDumper Class'
+		{
+			ProgID = s 'Mga.MgaDumper.1'
+			VersionIndependentProgID = s 'Mga.MgaDumper'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			val AppID = s '{461F30AF-3BF0-11D4-B3F0-005004D38590}'
+			'TypeLib' = s '{70C41B15-E3CE-11D3-B37A-005004D38590}'
+		}
+	}
+}

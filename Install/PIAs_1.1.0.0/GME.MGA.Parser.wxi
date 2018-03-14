@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+    <Fragment>
+        <DirectoryRef Id="INSTALLDIR_PARADIGMS32">
+            <Directory Id="PIADIR.1.1.0.0" Name="PIA1.1.0.0"/>
+        </DirectoryRef>
+    </Fragment>
+    <Fragment>
+        <ComponentGroup Id="GME.MGA.Parser.1.1.0.0">
+            <Component Id="cmp7DC6908A5632BAD72F1D292D7E72DE46" Directory="PIADIR.1.1.0.0" Guid="{61940AF6-644E-488E-A29C-94AC59AE6781}">
+			    <Condition>NETFRAMEWORK</Condition>
+                <File Id="filD81515CCFD08D8A988FDF5D3DAE554B8" KeyPath="yes" Source="$(var.PIADir)\GME.MGA.Parser.dll" Assembly=".net"/>
+                <RegistryValue Root="HKCR" Key="CLSID\{70C41B25-E3CE-11D3-B37A-005004D38590}\InprocServer32\1.1.0.0" Name="Class" Value="GME.MGA.Parser.MgaMetaParserClass" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{70C41B25-E3CE-11D3-B37A-005004D38590}\InprocServer32\1.1.0.0" Name="Assembly" Value="GME.MGA.Parser, Version=1.1.0.0, Culture=neutral, PublicKeyToken=f240a760fe751c2e" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{70C41B25-E3CE-11D3-B37A-005004D38590}\InprocServer32\1.1.0.0" Name="RuntimeVersion" Value="v2.0.50727" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{70C41B25-E3CE-11D3-B37A-005004D38590}\InprocServer32\1.1.0.0" Name="CodeBase" Value="file:///[#filD81515CCFD08D8A988FDF5D3DAE554B8]" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{70C41B25-E3CE-11D3-B37A-005004D38590}\InprocServer32" Name="Class" Value="GME.MGA.Parser.MgaMetaParserClass" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{70C41B25-E3CE-11D3-B37A-005004D38590}\InprocServer32" Name="Assembly" Value="GME.MGA.Parser, Version=1.1.0.0, Culture=neutral, PublicKeyToken=f240a760fe751c2e" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{70C41B25-E3CE-11D3-B37A-005004D38590}\InprocServer32" Name="RuntimeVersion" Value="v2.0.50727" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{70C41B25-E3CE-11D3-B37A-005004D38590}\InprocServer32" Name="CodeBase" Value="file:///[#filD81515CCFD08D8A988FDF5D3DAE554B8]" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{94D6FB54-1F7C-11D4-B3D0-005004D38590}\InprocServer32\1.1.0.0" Name="Class" Value="GME.MGA.Parser.MgaParserClass" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{94D6FB54-1F7C-11D4-B3D0-005004D38590}\InprocServer32\1.1.0.0" Name="Assembly" Value="GME.MGA.Parser, Version=1.1.0.0, Culture=neutral, PublicKeyToken=f240a760fe751c2e" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{94D6FB54-1F7C-11D4-B3D0-005004D38590}\InprocServer32\1.1.0.0" Name="RuntimeVersion" Value="v2.0.50727" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{94D6FB54-1F7C-11D4-B3D0-005004D38590}\InprocServer32\1.1.0.0" Name="CodeBase" Value="file:///[#filD81515CCFD08D8A988FDF5D3DAE554B8]" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{94D6FB54-1F7C-11D4-B3D0-005004D38590}\InprocServer32" Name="Class" Value="GME.MGA.Parser.MgaParserClass" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{94D6FB54-1F7C-11D4-B3D0-005004D38590}\InprocServer32" Name="Assembly" Value="GME.MGA.Parser, Version=1.1.0.0, Culture=neutral, PublicKeyToken=f240a760fe751c2e" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{94D6FB54-1F7C-11D4-B3D0-005004D38590}\InprocServer32" Name="RuntimeVersion" Value="v2.0.50727" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{94D6FB54-1F7C-11D4-B3D0-005004D38590}\InprocServer32" Name="CodeBase" Value="file:///[#filD81515CCFD08D8A988FDF5D3DAE554B8]" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{A5D0DAE7-16EE-11D4-B3C2-005004D38590}\InprocServer32\1.1.0.0" Name="Class" Value="GME.MGA.Parser.MgaDumperClass" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{A5D0DAE7-16EE-11D4-B3C2-005004D38590}\InprocServer32\1.1.0.0" Name="Assembly" Value="GME.MGA.Parser, Version=1.1.0.0, Culture=neutral, PublicKeyToken=f240a760fe751c2e" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{A5D0DAE7-16EE-11D4-B3C2-005004D38590}\InprocServer32\1.1.0.0" Name="RuntimeVersion" Value="v2.0.50727" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{A5D0DAE7-16EE-11D4-B3C2-005004D38590}\InprocServer32\1.1.0.0" Name="CodeBase" Value="file:///[#filD81515CCFD08D8A988FDF5D3DAE554B8]" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{A5D0DAE7-16EE-11D4-B3C2-005004D38590}\InprocServer32" Name="Class" Value="GME.MGA.Parser.MgaDumperClass" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{A5D0DAE7-16EE-11D4-B3C2-005004D38590}\InprocServer32" Name="Assembly" Value="GME.MGA.Parser, Version=1.1.0.0, Culture=neutral, PublicKeyToken=f240a760fe751c2e" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{A5D0DAE7-16EE-11D4-B3C2-005004D38590}\InprocServer32" Name="RuntimeVersion" Value="v2.0.50727" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{A5D0DAE7-16EE-11D4-B3C2-005004D38590}\InprocServer32" Name="CodeBase" Value="file:///[#filD81515CCFD08D8A988FDF5D3DAE554B8]" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="Record\{DF2010FC-D1DA-3A4C-9970-1E6C9FEB8F08}\1.1.0.0" Name="Class" Value="GME.MGA.Parser.inserttype_enum" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="Record\{DF2010FC-D1DA-3A4C-9970-1E6C9FEB8F08}\1.1.0.0" Name="Assembly" Value="GME.MGA.Parser, Version=1.1.0.0, Culture=neutral, PublicKeyToken=f240a760fe751c2e" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="Record\{DF2010FC-D1DA-3A4C-9970-1E6C9FEB8F08}\1.1.0.0" Name="RuntimeVersion" Value="v2.0.50727" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="Record\{DF2010FC-D1DA-3A4C-9970-1E6C9FEB8F08}\1.1.0.0" Name="CodeBase" Value="file:///[#filD81515CCFD08D8A988FDF5D3DAE554B8]" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="TypeLib\{70C41B15-E3CE-11D3-B37A-005004D38590}\1.1" Name="PrimaryInteropAssemblyName" Value="GME.MGA.Parser, Version=1.1.0.0, Culture=neutral, PublicKeyToken=f240a760fe751c2e" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="TypeLib\{70C41B15-E3CE-11D3-B37A-005004D38590}\1.1" Name="PrimaryInteropAssemblyCodeBase" Value="file:///[#filD81515CCFD08D8A988FDF5D3DAE554B8]" Type="string" Action="write" />
+            </Component>
+        </ComponentGroup>
+    </Fragment>
+</Wix>

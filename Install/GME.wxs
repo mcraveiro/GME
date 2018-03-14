@@ -1,0 +1,368 @@
+<?xml version='1.0' encoding='windows-1252'?>
+
+<!--
+
+  WiX installer source file for GME.
+  Author: Peter Volgyesi <peter.volgyesi@vanderbilt.edu>
+
+  Copyright (c) 2009, Vanderbilt University
+  All rights reserved.
+  
+  Permission to use, copy, modify, and distribute this software and its
+  documentation for any purpose, without fee, and without written agreement is
+  hereby granted, provided that the above copyright notice, the following
+  two paragraphs and the author appear in all copies of this software.
+  
+  IN NO EVENT SHALL THE VANDERBILT UNIVERSITY BE LIABLE TO ANY PARTY FOR
+  DIRECT, INDIRECT, SPECIAL, INCIDENTAL, OR CONSEQUENTIAL DAMAGES ARISING OUT
+  OF THE USE OF THIS SOFTWARE AND ITS DOCUMENTATION, EVEN IF THE VANDERBILT
+  UNIVERSITY HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+  
+  THE VANDERBILT UNIVERSITY SPECIFICALLY DISCLAIMS ANY WARRANTIES,
+  INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY
+  AND FITNESS FOR A PARTICULAR PURPOSE.  THE SOFTWARE PROVIDED HEREUNDER IS
+  ON AN "AS IS" BASIS, AND THE VANDERBILT UNIVERSITY HAS NO OBLIGATION TO
+  PROVIDE MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
+  
+-->
+
+<!--
+
+  General comments:
+  
+  This file needs to be compiled with the following switches (as of WiX 3.0.4813.0):
+  
+  candle.exe GME.wxs
+  
+  light.exe -sw1076 -sw1055 -sw1056 -sice:ICE43 -sice:ICE57 GME.wixobj  -ext WixUIExtension -ext WixUtilExtension
+  
+  -sw1076 -sw1055 -sw1056: These are needed to supress the warnings coming from the (kosher) VC9 runtime 
+                           redistributable merge modules.
+                           
+  -sice:ICE43 -sice:ICE57: These are needed because of the non-advertised shortcuts. ICEs (wrongly) complain because these
+                           shortcuts are in the 'user' profile without user keypaths. Since, ALLUSER is constantly set to
+                           '1', the shortcuts will never be in the 'user' profile but will be created machine-wide. 
+                           Also, I had problems with advertised shortcuts (icons for pdf and html files), so I decided
+                           to disable these consistency checks.
+  
+  -ext WixUIExtension -ext WixUtilExtension: These are needed for the installer GUI (references to 'stock' WiX plugins)
+  
+-->
+
+<Wix xmlns='http://schemas.microsoft.com/wix/2006/wi' RequiredVersion='3.0.4813.0'>
+
+  <?include GME_dyn.wxi ?>
+  <?include GME_inc.wxi ?>
+
+
+
+  <Product Name='$(var.ProductName)' Id='*' UpgradeCode='$(var.UpgradeCode)'
+        Language='1033' Codepage='1252' Version='$(var.VERSIONSTR)' Manufacturer='Vanderbilt University, ISIS'>
+
+    <Package Id='*' Keywords='GME, MIC, modeling, domain specific languages' Description='Generic Modeling Environment Installer'
+        Manufacturer='Vanderbilt University, ISIS'
+        InstallerVersion='300' Languages='1033' Compressed='yes' SummaryCodepage='1252'
+        InstallPrivileges='elevated' InstallScope='perMachine'
+        Comments='GME $(var.VERSIONSTR) $(sys.BUILDARCH)'/>
+
+
+    <Upgrade Id="$(var.UpgradeCode)">
+      <UpgradeVersion Minimum="$(var.VERSIONSTR)" OnlyDetect="yes" Property="NEWERVERSIONDETECTED"/>
+      <UpgradeVersion OnlyDetect="no" Minimum="1.0.0" IncludeMinimum="yes" Maximum="$(var.VERSIONSTR)" IncludeMaximum="no" Property="PREVIOUSFOUND"/>
+    </Upgrade>
+    <?if $(sys.BUILDARCH)=x64 ?>
+    <Upgrade Id="dfdd761e-0979-4897-ac89-71f006d92bf8">
+      <UpgradeVersion Minimum="$(var.VERSIONSTR)" OnlyDetect="yes" Property="NEWERVERSIONDETECTED_X86"/>
+      <UpgradeVersion OnlyDetect="no" Minimum="1.0.0" IncludeMinimum="yes" Maximum="$(var.VERSIONSTR)" IncludeMaximum="no" Property="PREVIOUSFOUND_X86"/>
+    </Upgrade>
+    <?endif?>
+    <?if $(sys.BUILDARCH)=x64 ?>
+    <InstallExecuteSequence>
+      <Custom Action="WixExitEarlyWithSuccess" After="FindRelatedProducts">NEWERVERSIONDETECTED OR NEWERVERSION_DETECTED_X86</Custom>
+    </InstallExecuteSequence>
+    <?else?>
+    <CustomActionRef Id="WixExitEarlyWithSuccess"/>
+    <?endif?>
+
+    <InstallExecuteSequence>
+      <RemoveExistingProducts After="InstallValidate" />
+    </InstallExecuteSequence>
+
+    <SetProperty Id="NETFRAMEWORK" Value="#1" After="AppSearch">NETFRAMEWORK20 OR NETFRAMEWORK40FULL OR NETFRAMEWORK40CLIENT</SetProperty>
+    <SetProperty Id="NETFRAMEWORK40" Value="#1" After="AppSearch">NETFRAMEWORK40FULL OR NETFRAMEWORK40CLIENT</SetProperty>
+
+    <Media Id='1' Cabinet='GME.cab' EmbedCab='yes' />
+
+    <Condition Message="This application is only supported on Windows XP or higher.">
+      <![CDATA[Installed OR (VersionNT >= 501)]]>
+    </Condition>
+
+    <Property Id='ARPPRODUCTICON' Value='GME.ico' />
+
+    <Property Id="WIXUI_EXITDIALOGOPTIONALCHECKBOXTEXT" Value="Launch GME" />
+    <Property Id="WixShellExecTarget" Value="[#GME.exe$(sys.BUILDARCH)]" />
+    <CustomAction Id="LaunchApplication" BinaryKey="WixCA" DllEntry="WixShellExec" Impersonate="yes" />
+
+    <WixVariable Id="WixUILicenseRtf" Value="..\Doc\Legal\License.rtf" />
+    <WixVariable Id="WixUIBannerBmp" Value="banner.bmp" />
+    <WixVariable Id="WixUIDialogBmp" Value="dialog.bmp" />
+
+    <Icon Id='GME.ico' SourceFile='..\GME\Gme\res\GME.ico' />
+
+    <!-- =========================================================== -->
+    <!-- DIRECTORY STRUCTURE -->
+    <!-- =========================================================== -->
+    <Directory Id='TARGETDIR' Name='SourceDir'>
+      <Directory Id='ProgramFilesFolder'>
+        <Directory Id='INSTALLDIRx86' Name='GME'>
+          <Directory Id='INSTALLDIR_DOCx86' Name='Doc'>
+            <Directory Id='INSTALLDIR_DOC' />
+            <Directory Id='INSTALLDIR_DOC_TUTORIALS' Name='Tutorials'>
+              <Directory Id='INSTALLDIR_DOC_TUTORIALS_ICONS' Name='Icons'/>
+              <Directory Id='INSTALLDIR_DOC_TUTORIALS_L1' Name='L1'>
+                <Directory Id='INSTALLDIR_DOC_TUTORIALS_L1_F1' Name='F1' />
+                <Directory Id='INSTALLDIR_DOC_TUTORIALS_L1_F2' Name='F2' />
+                <Directory Id='INSTALLDIR_DOC_TUTORIALS_L1_F3' Name='F3' />
+                <Directory Id='INSTALLDIR_DOC_TUTORIALS_L1_F4' Name='F4' />
+                <Directory Id='INSTALLDIR_DOC_TUTORIALS_L1_F5' Name='F5' />
+                <Directory Id='INSTALLDIR_DOC_TUTORIALS_L1_F6' Name='F6' />
+                <Directory Id='INSTALLDIR_DOC_TUTORIALS_L1_F7' Name='F7' />
+              </Directory>
+              <Directory Id='INSTALLDIR_DOC_TUTORIALS_L2' Name='L2'>
+                <Directory Id='INSTALLDIR_DOC_TUTORIALS_L2_F1' Name='F1' />
+                <Directory Id='INSTALLDIR_DOC_TUTORIALS_L2_F2' Name='F2' />
+                <Directory Id='INSTALLDIR_DOC_TUTORIALS_L2_F3' Name='F3' />
+              </Directory>
+              <Directory Id='INSTALLDIR_DOC_TUTORIALS_L3' Name='L3'>
+                <Directory Id='INSTALLDIR_DOC_TUTORIALS_L3_BON1' Name='BON1' />
+                <Directory Id='INSTALLDIR_DOC_TUTORIALS_L3_BON2' Name='BON2' />
+                <Directory Id='INSTALLDIR_DOC_TUTORIALS_L3_BON2Ex' Name='BON2Ex' />
+              </Directory>
+              <Directory Id='INSTALLDIR_DOC_TUTORIALS_L4' Name='L4'>
+                <Directory Id='INSTALLDIR_DOC_TUTORIALS_L4_F1' Name='F1' />
+                <Directory Id='INSTALLDIR_DOC_TUTORIALS_L4_F2' Name='F2' />
+                <Directory Id='INSTALLDIR_DOC_TUTORIALS_L4_F3' Name='F3' />
+                <Directory Id='INSTALLDIR_DOC_TUTORIALS_L4_F4' Name='F4' />
+                <Directory Id='INSTALLDIR_DOC_TUTORIALS_L4_F5' Name='F5' />
+                <Directory Id='INSTALLDIR_DOC_TUTORIALS_L4_F6' Name='F6' />
+                <Directory Id='INSTALLDIR_DOC_TUTORIALS_L4_F7' Name='F7' />
+              </Directory>
+              <Directory Id='INSTALLDIR_DOC_TUTORIALS_L5' Name='L5'>
+                <Directory Id='INSTALLDIR_DOC_TUTORIALS_L5_F1' Name='F1' />
+                <Directory Id='INSTALLDIR_DOC_TUTORIALS_L5_F2' Name='F2' />
+                <Directory Id='INSTALLDIR_DOC_TUTORIALS_L5_F3' Name='F3' />
+                <Directory Id='INSTALLDIR_DOC_TUTORIALS_L5_F4' Name='F4' />
+                <Directory Id='INSTALLDIR_DOC_TUTORIALS_L5_F5' Name='F5' />
+              </Directory>
+              <Directory Id='INSTALLDIR_DOC_TUTORIALS_L6' Name='L6'>
+                <Directory Id='INSTALLDIR_DOC_TUTORIALS_L6_F1' Name='F1' />
+                <Directory Id='INSTALLDIR_DOC_TUTORIALS_L6_F2' Name='F2' />
+              </Directory>
+              <Directory Id='INSTALLDIR_DOC_TUTORIALS_L7' Name='L7'>
+                <Directory Id='INSTALLDIR_DOC_TUTORIALS_L7_F1' Name='F1' />
+              </Directory>
+              <Directory Id='INSTALLDIR_DOC_TUTORIALS_L8' Name='L8'>
+              </Directory>
+              <Directory Id='INSTALLDIR_DOC_TUTORIALS_T1' Name='T1' />
+              <Directory Id='INSTALLDIR_DOC_TUTORIALS_T2' Name='T2' />
+              <Directory Id='INSTALLDIR_DOC_TUTORIALS_T3' Name='T3' />
+            </Directory>
+          </Directory>
+          <Directory Id='INSTALLDIR_BINx86' Name='Bin'/>
+          <Directory Id='INSTALLDIR_INTERFACESx86' Name='Interfaces'>
+            <Directory Id='INSTALLDIR_INTERFACES'/>
+          </Directory>
+          <Directory Id='INSTALLDIR_PARADIGMSx86' Name='Paradigms'>
+            <Directory Id='INSTALLDIR_PARADIGMS32'/>
+            <Directory Id='INSTALLDIR_PARADIGMS_HFSMx86' Name='HFSM'>
+              <Directory Id='INSTALLDIR_PARADIGMS_HFSM_ICONSx86' Name='icons'/>
+              <Directory Id='INSTALLDIR_PARADIGMS_HFSM_HFSMSIMULATORx86' Name='HFSMSimulator'/>
+            </Directory>
+            <Directory Id='INSTALLDIR_PARADIGMS_METAGMEx86' Name='MetaGME'>
+              <Directory Id='INSTALLDIR_PARADIGMS_METAGME_PARADIGM'/>
+            </Directory>
+            <Directory Id='INSTALLDIR_PARADIGMS_UML' Name='UML'>
+              <Directory Id='INSTALLDIR_PARADIGMS_UMLx86'/>
+              <Directory Id='INSTALLDIR_PARADIGMS_UML_PARADIGM'/>
+              <Directory Id='INSTALLDIR_PARADIGMS_UML_DECORATOR' Name='Decorator'>
+                <Directory Id='INSTALLDIR_PARADIGMS_UML_DECORATOR_RES' Name='res' />
+              </Directory>
+            </Directory>
+            <Directory Id='INSTALLDIR_PARADIGMS_HFSM' Name='HFSM'>
+              <Directory Id='INSTALLDIR_PARADIGMS_HFSM_ICONS' Name='icons'/>
+              <Directory Id='INSTALLDIR_PARADIGMS_HFSM_HFSMSIMULATOR' Name='HFSMSimulator'/>
+            </Directory>
+            <Directory Id='INSTALLDIR_PARADIGMS_METAGME' Name='MetaGME'>
+            </Directory>
+            <Directory Id='INSTALLDIR_PARADIGMS_SF' Name='SF'>
+              <Directory Id='INSTALLDIR_PARADIGMS_SF_BON2SFINTERPRETER' Name='BON2SFInterpreter'/>
+              <Directory Id='INSTALLDIR_PARADIGMS_SF_BON2SFSAMPLE' Name='BON2SFSample'/>
+              <Directory Id='INSTALLDIR_PARADIGMS_SF_DEMO' Name='demo'>
+                <Directory Id='INSTALLDIR_PARADIGMS_SF_DEMO_INCLUDE' Name='include' />
+                <Directory Id='INSTALLDIR_PARADIGMS_SF_DEMO_LIB' Name='lib' />
+                <Directory Id='INSTALLDIR_PARADIGMS_SF_DEMO_SCRIPTS' Name='scripts' />
+              </Directory>
+              <Directory Id='INSTALLDIR_PARADIGMS_SF_ICONS' Name='icons'/>
+              <Directory Id='INSTALLDIR_PARADIGMS_SF_SFINTERPRETER' Name='SFInterpreter'/>
+              <Directory Id='INSTALLDIR_PARADIGMS_SF_JAVABONSFEXAMPLE' Name='JavaBONSFExample'>
+                <Directory Id='INSTALLDIR_PARADIGMS_SF_JAVABONSFEXAMPLE_SFINTERPRETER' Name='sfInterpreter' />
+              </Directory>
+              <Directory Id='INSTALLDIR_PARADIGMS_SF_XSLT' Name='xslt'/>
+            </Directory>
+          </Directory>
+          <Directory Id='INSTALLDIR_SDKx86' Name='SDK'>
+            <Directory Id='INSTALLDIR_SDK' />
+            <Directory Id='INSTALLDIR_SDK_JAVAx86' Name='Java'>
+              <Directory Id='INSTALLDIR_SDK_JAVA'/>
+            </Directory>
+            <Directory Id='INSTALLDIR_SDK_PATTERNPROCESSORx86' Name='PatternProcessor' />
+            <Directory Id='INSTALLDIR_SDK_DOTNET' Name='DotNet'>
+              <Directory Id='INSTALLDIR_SDK_DOTNET_CSHARPDSMLGENERATOR' Name='CSharpDSMLGenerator'>
+                <Directory Id='INSTALLDIR_SDK_DOTNET_CSHARPDSMLGENERATOR_1_0_4_0' Name='1.0.4.0'/>
+              </Directory>
+            </Directory>
+            <Directory Id='INSTALLDIR_SDK_PATTERNPROCESSOR' Name='PatternProcessor' />
+            <Directory Id='INSTALLDIR_SDK_SCRIPTS' Name='Scripts' />
+            <Directory Id='INSTALLDIR_SDK_BON' Name='BON'>
+              <Directory Id='INSTALLDIR_SDK_BON_COMMON' Name='Common' />
+              <Directory Id='INSTALLDIR_SDK_BON_WIZARD' Name='Wizard'>
+                <Directory Id='INSTALLDIR_SDK_BON_WIZARD_1033' Name='1033'>
+                  <Directory Id='INSTALLDIR_SDK_BON_WIZARD_1033_IMAGES' Name='Images' />
+                </Directory>
+                <Directory Id='INSTALLDIR_SDK_BON_WIZARD_HTML' Name='HTML'>
+                  <Directory Id='INSTALLDIR_SDK_BON_WIZARD_HTML_1033' Name='1033' />
+                </Directory>
+                <Directory Id='INSTALLDIR_SDK_BON_WIZARD_IMAGES' Name='Images' />
+                <Directory Id='INSTALLDIR_SDK_BON_WIZARD_SCRIPTS' Name='Scripts'>
+                  <Directory Id='INSTALLDIR_SDK_BON_WIZARD_SCRIPTS_1033' Name='1033' />
+                </Directory>
+                <Directory Id='INSTALLDIR_SDK_BON_WIZARD_TEMPLATES' Name='Templates'>
+                  <Directory Id='INSTALLDIR_SDK_BON_WIZARD_TEMPLATES_1033' Name='1033' />
+                </Directory>
+              </Directory>
+            </Directory>
+            <Directory Id='INSTALLDIR_SDK_DECORATORLIB' Name='DecoratorLib'>
+              <Directory Id='INSTALLDIR_SDK_DECORATORLIB_RES' Name='res' />
+            </Directory>
+            <Directory Id='INSTALLDIR_SDK_DECORATOR_WIZARD' Name='DecoratorWizard'>
+              <Directory Id='INSTALLDIR_SDK_DECORATOR_WIZARD_1033' Name='1033'>
+                <Directory Id='INSTALLDIR_SDK_DECORATOR_WIZARD_1033_IMAGES' Name='Images' />
+              </Directory>
+              <Directory Id='INSTALLDIR_SDK_DECORATOR_WIZARD_HTML' Name='HTML'>
+                <Directory Id='INSTALLDIR_SDK_DECORATOR_WIZARD_HTML_1033' Name='1033' />
+              </Directory>
+              <Directory Id='INSTALLDIR_SDK_DECORATOR_WIZARD_IMAGES' Name='Images' />
+              <Directory Id='INSTALLDIR_SDK_DECORATOR_WIZARD_SCRIPTS' Name='Scripts'>
+                <Directory Id='INSTALLDIR_SDK_DECORATOR_WIZARD_SCRIPTS_1033' Name='1033' />
+              </Directory>
+              <Directory Id='INSTALLDIR_SDK_DECORATOR_WIZARD_TEMPLATES' Name='Templates'>
+                <Directory Id='INSTALLDIR_SDK_DECORATOR_WIZARD_TEMPLATES_1033' Name='1033' />
+              </Directory>
+            </Directory>
+            <Directory Id='INSTALLDIR_SDK_DECORATOREXAMPLES' Name='Decorator Examples'>
+              <Directory Id='INSTALLDIR_SDK_DECORATOREXAMPLES_NEWSAMPLE' Name='NewSample' />
+              <Directory Id='INSTALLDIR_SDK_DECORATOREXAMPLES_PLAINSAMPLE' Name='PlainSample' />
+            </Directory>
+          </Directory>
+          <Directory Id='INSTALLDIR_TOOLSx86' Name='Tools' />
+          <Directory Id='INSTALLDIR_LIBSx86' Name='Lib' />
+        </Directory>
+      </Directory>
+      <Directory Id='ProgramMenuFolder'>
+        <Directory Id='ShortcutFolder' Name='GME'>
+          <Directory Id='ShortcutDocFolder' Name='Documentation'>
+            <Directory Id='ShortcutTutorialsFolder' Name='Tutorials' />
+          </Directory>
+        </Directory>
+      </Directory>
+      <?if $(sys.BUILDARCH)=x64 ?>
+      <Directory Id='ProgramFiles64Folder'>
+        <Directory Id='INSTALLDIRx64' Name='GME'>
+          <Directory Id='INSTALLDIR_DOCx64' Name='Doc'/>
+          <Directory Id='INSTALLDIR_BINx64' Name='Bin'/>
+          <Directory Id='INSTALLDIR_INTERFACESx64' Name='Interfaces'/>
+          <Directory Id='INSTALLDIR_PARADIGMSx64' Name='Paradigms'>
+            <Directory Id='INSTALLDIR_PARADIGMS_HFSMx64' Name='HFSM'>
+              <Directory Id='INSTALLDIR_PARADIGMS_HFSM_ICONSx64' Name='icons'/>
+              <Directory Id='INSTALLDIR_PARADIGMS_HFSM_HFSMSIMULATORx64' Name='HFSMSimulator'/>
+            </Directory>
+            <Directory Id='INSTALLDIR_PARADIGMS_METAGMEx64' Name='MetaGME'/>
+            <Directory Id='INSTALLDIR_PARADIGMS_UMLx64' Name='UML'/>
+          </Directory>
+          <Directory Id='INSTALLDIR_SDKx64' Name='SDK'>
+            <Directory Id='INSTALLDIR_SDK_JAVAx64' Name='Java' />
+            <Directory Id='INSTALLDIR_SDK_PATTERNPROCESSORx64' Name='PatternProcessor' />
+          </Directory>
+          <Directory Id='INSTALLDIR_TOOLSx64' Name='Tools' />
+          <Directory Id='INSTALLDIR_LIBSx64' Name='Lib' />
+        </Directory>
+      </Directory>
+      <?endif?>
+    </Directory>
+
+    <!-- =========================================================== -->
+    <!-- MERGE MODULES -->
+    <!-- =========================================================== -->
+    <DirectoryRef Id='TARGETDIR'>
+      <?if $(sys.BUILDARCH)=x86 ?>
+      <?endif?>
+      <Merge Id="CRT100" Language="0" SourceFile="$(env.ProgramFiles)\Common Files\Merge Modules\Microsoft_VC100_CRT_$(sys.BUILDARCH).msm" DiskId="1" />
+      <Merge Id="MFC100" Language="0" SourceFile="$(env.ProgramFiles)\Common Files\Merge Modules\Microsoft_VC100_MFC_$(sys.BUILDARCH).msm" DiskId="1" />
+      <Merge Id="ATL100" Language="0" SourceFile="$(env.ProgramFiles)\Common Files\Merge Modules\Microsoft_VC100_ATL_$(sys.BUILDARCH).msm" DiskId="1" />
+
+      <?if $(sys.BUILDARCH)=x64 ?>
+      <Merge Id="CRT100_x86" Language="0" SourceFile="$(env.ProgramFiles)\Common Files\Merge Modules\Microsoft_VC100_CRT_x86.msm" DiskId="1" />
+      <Merge Id="MFC100_x86" Language="0" SourceFile="$(env.ProgramFiles)\Common Files\Merge Modules\Microsoft_VC100_MFC_x86.msm" DiskId="1" />
+      <Merge Id="ATL100_x86" Language="0" SourceFile="$(env.ProgramFiles)\Common Files\Merge Modules\Microsoft_VC100_ATL_x86.msm" DiskId="1" />
+      <?endif?>
+    </DirectoryRef>
+
+    <!-- =========================================================== -->
+    <!-- FEATURES -->
+    <!-- =========================================================== -->
+    <Feature Id='Complete' Title='Generic Modeling Environment' Description='The complete package' Display='expand' Level='1'>
+
+      <Feature Id='GMEApplication' Title='GME Application' Description='This feature contains the core modeling framework and the meta environment'
+          Level='1'>
+
+        <ComponentGroupRef Id='GME_binx86' />
+        <ComponentGroupRef Id='GME_SDKx86' />
+        <ComponentGroupRef Id='GME_paradigmsx86' />
+        <?if $(sys.BUILDARCH)=x64 ?>
+        <ComponentGroupRef Id='GME_binx64' />
+        <MergeRef Id='CRT100_x86' />
+        <MergeRef Id='MFC100_x86' />
+        <MergeRef Id='ATL100_x86' />
+        <?endif?>
+
+        <?if $(sys.BUILDARCH)=x86 ?>
+        <?endif?>
+
+        <MergeRef Id='CRT100' />
+        <MergeRef Id='MFC100' />
+        <MergeRef Id='ATL100' />
+      </Feature>
+
+      <Feature Id='Samples' Title='Samples' Description='These are sample paradigms and interpreters with source code'
+          Level='1'>
+        <ComponentGroupRef Id='GME_SDKx86'/>
+      </Feature>
+    </Feature>
+
+    <!-- =========================================================== -->
+    <!-- USER INTERFACE -->
+    <!-- =========================================================== -->
+    <UI>
+      <UIRef Id="WixUI_Minimal" />
+      <UIRef Id="WixUI_ErrorProgressText" />
+      <Publish Dialog="ExitDialog"
+          Control="Finish"
+          Event="DoAction"
+          Value="LaunchApplication">WIXUI_EXITDIALOGOPTIONALCHECKBOX = 1 and NOT Installed</Publish>
+      <InstallUISequence>
+        <Show Dialog="UserExit" OnExit="cancel">0</Show>
+      </InstallUISequence>
+    </UI>
+
+  </Product>
+</Wix>

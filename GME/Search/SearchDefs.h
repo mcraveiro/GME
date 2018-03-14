@@ -1,0 +1,9 @@
+#ifndef SEARCH_DEFS_H
+#define SEARCH_DEFS_H
+
+
+#define SEARCH_INITIAL_SIZEX	200	
+#define SEARCH_INITIAL_SIZEY	320
+
+
+#endif	//SEARCH_DEFS_H

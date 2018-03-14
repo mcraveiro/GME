@@ -1,0 +1,9 @@
+; Core.def : Declares the module parameters.
+
+LIBRARY      "Core.DLL"
+
+EXPORTS
+	DllCanUnloadNow     PRIVATE
+	DllGetClassObject   PRIVATE
+	DllRegisterServer   PRIVATE
+	DllUnregisterServer	PRIVATE

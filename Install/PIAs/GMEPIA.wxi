@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+    <Fragment>
+        <DirectoryRef Id="INSTALLDIR_PARADIGMS32" />
+    </Fragment>
+    <Fragment>
+        <ComponentGroup Id="GME">
+            <Component Id="GME.dll" Directory="INSTALLDIR_PARADIGMS32" Guid="{B4C1E329-1964-4941-901B-077CC0A64A83}" Permanent="yes">
+                <File Id="GME.dll" KeyPath="yes" Source="$(var.PIADir.1.0.0.0)\GME.dll" Assembly=".net" />
+                <Condition>NETFRAMEWORK</Condition>
+            </Component>
+        </ComponentGroup>
+    </Fragment>
+</Wix>

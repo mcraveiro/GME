@@ -1,0 +1,27 @@
+HKCR
+{
+	Console.ScriptHost.1 = s 'ScriptHost Class'
+	{
+		CLSID = s '{CD42B6DD-CCC7-4D4A-A82D-124AF08A6737}'
+	}
+	Console.ScriptHost = s 'ScriptHost Class'
+	{
+		CLSID = s '{CD42B6DD-CCC7-4D4A-A82D-124AF08A6737}'
+		CurVer = s 'Console.ScriptHost.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {CD42B6DD-CCC7-4D4A-A82D-124AF08A6737} = s 'ScriptHost Class'
+		{
+			ProgID = s 'Console.ScriptHost.1'
+			VersionIndependentProgID = s 'Console.ScriptHost'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			val AppID = s '{461F30AF-3BF0-11D4-B3F0-005004D38590}'
+			'TypeLib' = s '{339FD307-717B-4698-AC13-4ACCCF5D4C91}'
+		}
+	}
+}

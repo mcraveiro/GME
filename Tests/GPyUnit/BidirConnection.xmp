@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<!DOCTYPE paradigm SYSTEM "edf.dtd">
+
+<paradigm name="BidirConnection" guid="{F573F775-0373-43B2-853A-AFDBF9E5EBAA}" cdate="Fri Apr 19 09:19:52 2013" mdate="Fri Apr 19 09:19:52 2013" >
+
+	<comment></comment>
+
+	<author></author>
+
+	<folder name = "RootFolder" metaref = "1000"  rootobjects = "Model" >
+		<connection name = "Connection" metaref = "1001" >
+				<regnode name = "color" value ="0x000000"></regnode>
+				<regnode name = "dstStyle" value ="butt"></regnode>
+				<regnode name = "srcStyle" value ="butt"></regnode>
+				<regnode name = "lineType" value ="solid"></regnode>
+			<connjoint>
+				<pointerspec name = "src">
+					<pointeritem desc = "Model"></pointeritem>
+				</pointerspec>
+				<pointerspec name = "dst">
+					<pointeritem desc = "Model"></pointeritem>
+				</pointerspec>
+			</connjoint>
+			<connjoint>
+				<pointerspec name = "src">
+					<pointeritem desc = "Model"></pointeritem>
+				</pointerspec>
+				<pointerspec name = "dst">
+					<pointeritem desc = "Model"></pointeritem>
+				</pointerspec>
+			</connjoint>
+		</connection>
+		<model name = "Model" metaref = "1002" >
+				<regnode name = "namePosition" value ="4"></regnode>
+				<regnode name = "isTypeInfoShown" value ="true"></regnode>
+			<role name = "Connection" metaref = "1006" kind = "Connection"></role>
+			<role name = "Model" metaref = "1003" kind = "Model"></role>
+			<aspect name = "Aspect" metaref = "1004" >
+				<part metaref = "1007" role = "Connection" primary = "yes" linked = "no"></part>
+				<part metaref = "1005" role = "Model" primary = "yes" linked = "no"></part>
+			</aspect>
+		</model>
+	</folder>
+</paradigm>

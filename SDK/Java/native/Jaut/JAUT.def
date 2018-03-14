@@ -1,0 +1,9 @@
+; JAUT.def : Declares the module parameters.
+
+LIBRARY      "JAUT.DLL"
+
+EXPORTS
+	DllCanUnloadNow     PRIVATE
+	DllGetClassObject   PRIVATE
+	DllRegisterServer   PRIVATE
+	DllUnregisterServer	PRIVATE

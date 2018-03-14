@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+    <Fragment>
+        <DirectoryRef Id="INSTALLDIR_PARADIGMS32" />
+    </Fragment>
+    <Fragment>
+        <ComponentGroup Id="GME.MGA.Core">
+            <Component Id="GME.MGA.Core.dll" Directory="INSTALLDIR_PARADIGMS32" Guid="{3BDD7F38-DCF5-46C1-B07E-CF70772C882F}" Permanent="yes">
+                <File Id="GME.MGA.Core.dll" KeyPath="yes" Source="$(var.PIADir.1.0.0.0)\GME.MGA.Core.dll" Assembly=".net" />
+                <Condition>NETFRAMEWORK</Condition>
+            </Component>
+        </ComponentGroup>
+    </Fragment>
+</Wix>

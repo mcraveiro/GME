@@ -1,0 +1,140 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{57E1446E-6F58-44CD-B381-5D6A7F0509EB}</ProjectGuid>
+    <RootNamespace>DotNetPIAs</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup />
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+  <PropertyGroup>
+    <PIAVersion>1.0.1.0</PIAVersion>
+  </PropertyGroup>
+  <Target Name="CreatePIA">
+    <Exec Command="&quot;$(SDK35ToolsPath)\tlbimp&quot; /nologo /primary /keyfile:..\MgaDotNetServices\MgaDotNetServicesKey.snk /asmversion:$(PIAVersion) /out:$(OutName).dll $(InFile) " />
+  </Target>
+  <Target Name="RegisterPIA">
+    <Exec Command="&quot;$(windir)\Microsoft.NET\Framework\v2.0.50727\regasm&quot; /nologo $(OutName).dll" />
+    <Exec Command="&quot;$(SDK35ToolsPath)\gacutil&quot; /nologo /i $(OutName).dll" />
+    <!-- nb must execute 32bit -->
+    <Exec Command="reg add HKLM\SOFTWARE\Microsoft\.NETFramework\v2.0.50727\AssemblyFoldersEx\$([System.IO.Path]::GetFileName($(OutName))) /ve /d c:\WINDOWS\assembly\GAC_MSIL\$([System.IO.Path]::GetFileName($(OutName)))\$(PIAVersion)__f240a760fe751c2e /f" />
+    <Exec Command="reg add HKLM\SOFTWARE\Microsoft\.NETFramework\v4.0.30319\AssemblyFoldersEx\$([System.IO.Path]::GetFileName($(OutName))) /ve /d c:\WINDOWS\assembly\GAC_MSIL\$([System.IO.Path]::GetFileName($(OutName)))\$(PIAVersion)__f240a760fe751c2e /f" />
+  </Target>
+  <Target Name="AfterBuild">
+    <MSBuild Properties="OutName=..\DotNetPIAs_1.0.0.0\GME.MGA.Core;PIAVersion=1.0.0.0" Projects="$(MSBuildProjectFullPath)" Targets="RegisterPIA" />
+    <MSBuild Properties="OutName=..\DotNetPIAs_1.0.0.0\GME.MGA.Meta;PIAVersion=1.0.0.0" Projects="$(MSBuildProjectFullPath)" Targets="RegisterPIA" />
+    <MSBuild Properties="OutName=..\DotNetPIAs_1.0.0.0\GME.MGA;PIAVersion=1.0.0.0" Projects="$(MSBuildProjectFullPath)" Targets="RegisterPIA" />
+    <MSBuild Properties="OutName=..\DotNetPIAs_1.0.0.0\GME.Util;PIAVersion=1.0.0.0" Projects="$(MSBuildProjectFullPath)" Targets="RegisterPIA" />
+    <MSBuild Properties="OutName=..\DotNetPIAs_1.0.0.0\GME.MGA.Parser;PIAVersion=1.0.0.0" Projects="$(MSBuildProjectFullPath)" Targets="RegisterPIA" />
+    <MSBuild Properties="OutName=..\DotNetPIAs_1.0.0.0\GME;PIAVersion=1.0.0.0" Projects="$(MSBuildProjectFullPath)" Targets="RegisterPIA" />
+    <MSBuild Properties="InFile=..\Interfaces\CoreLib.tlb;OutName=GME.MGA.Core;PIAVersion=$(PIAVersion)" Projects="$(MSBuildProjectFullPath)" Targets="CreatePIA;RegisterPIA" />
+    <MSBuild Properties="OutName=..\DotNetPIAs_1.0.1.0\GME.MGA.Parser;PIAVersion=1.0.1.0" Projects="$(MSBuildProjectFullPath)" Targets="RegisterPIA" />
+    <MSBuild Properties="InFile=..\Interfaces\MetaLib.tlb;OutName=GME.MGA.Meta;PIAVersion=$(PIAVersion)" Projects="$(MSBuildProjectFullPath)" Targets="CreatePIA;RegisterPIA" />
+    <MSBuild Properties="InFile=..\Interfaces\MgaLib.tlb;OutName=GME.MGA;PIAVersion=$(PIAVersion)" Projects="$(MSBuildProjectFullPath)" Targets="CreatePIA;RegisterPIA" />
+    <MSBuild Properties="InFile=..\Interfaces\MgaUtilLib.tlb;OutName=GME.Util;PIAVersion=$(PIAVersion)" Projects="$(MSBuildProjectFullPath)" Targets="CreatePIA;RegisterPIA" />
+    <MSBuild Properties="InFile=..\Interfaces\ParserLib.tlb;OutName=GME.MGA.Parser;PIAVersion=1.1.0.0" Projects="$(MSBuildProjectFullPath)" Targets="CreatePIA;RegisterPIA" />
+    <MSBuild Properties="InFile=..\Interfaces\GMELib.tlb;OutName=GME;PIAVersion=$(PIAVersion)" Projects="$(MSBuildProjectFullPath)" Targets="CreatePIA;RegisterPIA" />
+  </Target>
+</Project>

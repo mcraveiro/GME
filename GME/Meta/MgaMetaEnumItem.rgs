@@ -1,0 +1,26 @@
+HKCR
+{
+	Mga.MgaMetaEnumItem.1 = s 'MgaMetaEnumItem Class'
+	{
+		CLSID = s '{8216325A-B7C8-1AD3-ABAE-000000000000}'
+	}
+	Mga.MgaMetaEnumItem = s 'MgaMetaEnumItem Class'
+	{
+		CLSID = s '{8216325A-B7C8-1AD3-ABAE-000000000000}'
+		CurVer = s 'Mga.MgaMetaEnumItem.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {8216325A-B7C8-1AD3-ABAE-000000000000} = s 'MgaMetaEnumItem Class'
+		{
+			ProgID = s 'Mga.MgaMetaEnumItem.1'
+			VersionIndependentProgID = s 'Mga.MgaMetaEnumItem'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			'TypeLib' = s '{0ADEEC71-D83A-11D3-B36B-005004D38590}'
+		}
+	}
+}

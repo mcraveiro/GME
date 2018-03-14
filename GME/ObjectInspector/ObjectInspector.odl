@@ -1,0 +1,70 @@
+#include <olectl.h>
+#include <idispids.h>
+
+[ uuid(92B54998-8E88-41A2-924F-7354CAD14565), version(1.0),
+  helpfile("ObjectInspector.hlp"),
+  helpstring("ObjectInspector ActiveX Control module"),
+  control ]
+library OBJECTINSPECTORLib
+{
+	importlib(STDOLE_TLB);
+	importlib(STDTYPE_TLB);
+
+	//  Primary dispatch interface for CObjectInspectorCtrl
+
+	[ uuid(A7DC846C-DAE3-4B3F-B947-71D85B5F6437),
+	  helpstring("Dispatch interface for ObjectInspector Control"), hidden ]
+	dispinterface _DObjectInspector
+	{
+		properties:
+			// NOTE - ClassWizard will maintain property information here.
+			//    Use extreme caution when editing this section.
+			//{{AFX_ODL_PROP(CObjectInspectorCtrl)
+			[id(1)] IUnknown* MgaProject;
+			[id(2)] IUnknown* MgaObject;
+			//}}AFX_ODL_PROP
+
+		methods:
+			// NOTE - ClassWizard will maintain method information here.
+			//    Use extreme caution when editing this section.
+			//{{AFX_ODL_METHOD(CObjectInspectorCtrl)
+			[id(3)] void ShowPanel(long panelID);
+			[id(4)] void EditName();
+			[id(5)] void CyclePanel(VARIANT_BOOL frwd);
+			//}}AFX_ODL_METHOD
+
+			[id(DISPID_ABOUTBOX)] void AboutBox();
+	};
+
+	//  Event dispatch interface for CObjectInspectorCtrl
+
+	[ uuid(0B2858A8-321A-43E1-999D-686B8EFC0AF2),
+	  helpstring("Event interface for ObjectInspector Control") ]
+	dispinterface _DObjectInspectorEvents
+	{
+		properties:
+			//  Event interface has no properties
+
+		methods:
+			// NOTE - ClassWizard will maintain event information here.
+			//    Use extreme caution when editing this section.
+			//{{AFX_ODL_EVENT(CObjectInspectorCtrl)
+			[id(1)] void RootFolderNameChanged();
+			[id(2)] void ConvertPathToCustom(IUnknown* pMgaObject);
+			//}}AFX_ODL_EVENT
+	};
+
+	//  Class information for CObjectInspectorCtrl
+
+	[ uuid(B786F53C-297F-4DB8-8060-D45057217AEE),
+	  helpstring("ObjectInspector Control"), control ]
+	coclass ObjectInspector
+	{
+		[default] dispinterface _DObjectInspector;
+		[default, source] dispinterface _DObjectInspectorEvents;
+	};
+
+
+	//{{AFX_APPEND_ODL}}
+	//}}AFX_APPEND_ODL}}
+};

@@ -1,0 +1,128 @@
+
+CORE LEVEL
+----------
+
+CoreObject
+
+	metaobj
+	modelid
+
+	attributes
+	pointers
+
+CoreAttribute
+
+	metaattr
+	attrid
+	father
+
+	datatype
+		integer
+		real
+		string
+		pointer
+
+SQL LEVEL
+---------
+
+-	Each metaobject has a table name that holds the objects of that type.
+	Each row in this table corresponds to an object, each column corresponds
+	to a fixed attribute.
+
+		metaid				(can be avoided)
+		modelid
+		
+		exist_lock			(-1 for delete_lock)
+		read_lock			(-1 for write_lock)
+
+		attributes
+
+
+-	Children attributes (not fixed) are stored in a global (for the type)
+	table. Inparticular, all pointer attributes must be in one table.
+
+
+		metaid				(can be avoided, separate table)
+
+		owner_metaid		(can be avoided, separate table)
+		owner_modelid
+		attrid				(can be avoided, separate table)
+
+		value_type
+			target_metaid	(can be avoided ?)
+			target_modelid
+
+
+REPOSITORY LEVEL
+----------------
+
+TypeLib MGA Core
+
+	InterfaceDef ICoreObject
+		PropertyDef name
+
+	InterfaceDef ICoreAttribute
+		PropertyDef attrid
+
+	InterfaceDef ICoreInteger
+		PropertyDef value (int)
+
+	InterfaceDef ICoreString
+		PropertyDef value (string)
+
+	InterfaceDef ISpecObject
+		...
+
+	ClassDef CoreObject
+		Interface ICoreObject
+
+	ClassDef CoreInteger
+		Interface ICoreAttribute
+		Interface ICoreInteger
+
+	ClassDef CoreString
+		Interface ICoreAttribute
+		Interface ICoreString
+
+	ClassDef SpecObject
+		Interface ICoreObject
+		Interface ISpecObject
+
+	RelationshipDef Attributes_Father
+		Interface ICoreObject (Attributes)
+		Interface ICoreAttribute (Father)
+
+	RelationshipDef Pointers_PointerTargets
+		Interface ICoreObject (Pointers)
+		Interface ICoreObject (PointerTargets)
+
+	// spec
+
+	RelationshipDef Children_Father
+		Interface ICoreObject (Children)
+		Interface ICoreObject (Father)
+
+	RelationshipDef Subtypes_Basetype
+		Interface ICoreObject (Subtypes)
+		Interface ICoreObject (Basetype)
+
+	RelationshipDef References_ReferenceTarget
+		Interface ICoreObject (References)
+		Interface ICoreObject (RefTarget)
+
+	RelationshipDef SourceConnections_Source
+		Interface ICoreObject (SourceConnections)
+		Interface ICoreObject (Source)
+
+	RelationshipDef DestinationConnections_Destination
+		Interface ICoreObject (DestinationConnections)
+		Interface ICoreObject (Destination)
+
+META LEVEL
+----------
+
+MetaProject
+	MetaObjects
+
+MetaObject
+	MetaAttributes

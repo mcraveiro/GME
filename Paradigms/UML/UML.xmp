@@ -1,0 +1,662 @@
+<?xml version="1.0"?>
+<!DOCTYPE paradigm SYSTEM "edf.dtd">
+
+<paradigm name="UML" guid="{1913C77F-2986-4DA3-BD61-02F6C19FD44E}" cdate="Mon Jun 22 12:16:56 2009" mdate="Mon Jun 22 12:16:56 2009" >
+
+	<comment>Descent into the maelstrom!</comment>
+
+	<author>Jonathan M. Sprinkle</author>
+
+	<folder name = "RootFolder" metaref = "1000"  rootobjects = "ClassDiagram Package" >
+		<constraint type="function" name="allAscendants">
+			<![CDATA[method;gme::FCO;visited : ocl::Set;ocl::Set;
+			let identity = self.identity() in
+if ( identity.isNull() ) then
+   Set{ }
+else
+   let immediates = identity.allImmediateAscendants() in
+   let visitedEx = visited.including( self ) in
+   immediates -> iterate( im : gme::FCO ; accu = Set{ } |
+      if ( visited.includes( im ) or im = self ) then
+         accu + im.identities()
+      else
+         accu + im.allAscendants( visitedEx ) + im.identities()
+      endif
+   )
+endif]]>
+		</constraint>
+		<constraint type="function" name="allContexts">
+			<![CDATA[method;Constraint;;ocl::Set;
+			let associates = self.connectedFCOs( "dst", HasConstraint ) -> iterate( obj ; accu = Set{} |
+   if ( obj.identity().isNull() ) then
+      accu
+   else
+      accu.including( obj.identity() )
+   endif ) in
+associates -> iterate( fco : gme::FCO ; ctxs = Set{} | ctxs.union( fco.allDescendants( Set{} ) ).union( fco.identities() ) )]]>
+		</constraint>
+		<constraint type="function" name="allDescendants">
+			<![CDATA[method;gme::FCO;visited : ocl::Set;ocl::Set;
+			let identity = self.identity() in
+if ( identity.isNull() ) then
+   Set{ }
+else
+   let immediates = identity.allImmediateDescendants() in
+   let visitedEx = visited.including( self ) in
+   immediates -> iterate( im : gme::FCO ; accu = Set{ } |
+      if ( visited.includes( im ) or im = self ) then
+         accu + im.identities()
+      else
+         accu + im.allDescendants( visitedEx ) + im.identities()
+      endif
+   )
+endif]]>
+		</constraint>
+		<constraint type="function" name="allImmediateAscendants">
+			<![CDATA[method;gme::FCO;;ocl::Set;
+			self.identities() -> iterate( id : gme::FCO ; accu = Set{ } | accu + id.ascendants() )]]>
+		</constraint>
+		<constraint type="function" name="allImmediateDescendants">
+			<![CDATA[method;gme::FCO;;ocl::Set;
+			self.identities() -> iterate( id : gme::FCO ; accu = Set{ } | accu + id.descendants() )]]>
+		</constraint>
+		<constraint type="function" name="ascendants">
+			<![CDATA[method;gme::FCO;;ocl::Set;
+			let operators = self.connectedFCOs( "src", Sub ) in
+operators->iterate( op ; accu = Set{ } | accu + op.connectedFCOs( "src", Base ) )]]>
+		</constraint>
+		<constraint type="function" name="descendants">
+			<![CDATA[method;gme::FCO;;ocl::Set;
+			let operators = self.connectedFCOs( "dst", Base ) in
+operators->iterate( op ; accu = Set{ } | accu + op.connectedFCOs( "dst", Sub ) )]]>
+		</constraint>
+		<constraint type="function" name="identities">
+			<![CDATA[method;gme::FCO;;ocl::Set;
+			if ( self.oclIsKindOf( gme::Reference ) ) then
+   let fco = self.oclAsType( gme::Reference ).refersTo() in
+   if ( fco.isNull() ) then
+      Set{ }
+   else
+      fco.referencedBy().including( fco )
+   endif
+else
+   self.referencedBy().including( self )
+endif]]>
+		</constraint>
+		<constraint type="function" name="identity">
+			<![CDATA[method;gme::FCO;;gme::FCO;
+			if ( self.oclIsKindOf( gme::Reference ) ) then
+   self.oclAsType( gme::Reference ).refersTo()
+else
+   self
+endif]]>
+		</constraint>
+		<constraint type="function" name="isCardinalityValid">
+			<![CDATA[method;gme::Project;card : string;bool;
+			let ws = "[\t ]*" in
+let num = "[0-9][0-9]*" in
+let rng = num + ws + ".." + ws + "(" + num + "|\*)" in
+let item = "(" + num +"|" + rng + ")" in
+card.trim() <> "" implies card.trim().match( "^\*|(" + item + "(" + ws + "," + ws + item + ")*)$" )
+]]>
+		</constraint>
+		<constraint type="function" name="isRoleValid">
+			<![CDATA[method;gme::Project;role : string;bool;
+			role.trim() <> "" implies role.trim().match( "^[_a-z][_a-zA-Z0-9]*$" )]]>
+		</constraint>
+		<attrdef name="Attributes" metaref = "1001" valuetype = "string" defvalue = "">
+			<dispname>Attributes:</dispname>
+			<regnode name="multiLine" value = "8"></regnode>
+		</attrdef>
+		<attrdef name="Cardinality" metaref = "1002" valuetype = "string" defvalue = "0..*">
+			<dispname>Cardinality:</dispname>
+		</attrdef>
+		<attrdef name="ChildRole" metaref = "1003" valuetype = "string" defvalue = "">
+			<dispname>Child Role</dispname>
+		</attrdef>
+		<attrdef name="ConstraintDescription" metaref = "1004" valuetype = "string" defvalue = "">
+			<dispname>Description:</dispname>
+		</attrdef>
+		<attrdef name="ConstraintEqn" metaref = "1005" valuetype = "string" defvalue = "">
+			<dispname>Equation:</dispname>
+			<regnode name="multiLine" value = "8"></regnode>
+		</attrdef>
+		<attrdef name="DefinitionEqn" metaref = "1006" valuetype = "string" defvalue = "">
+			<dispname>Equation:</dispname>
+			<regnode name="multiLine" value = "8"></regnode>
+		</attrdef>
+		<attrdef name="DefinitionParamList" metaref = "1007" valuetype = "string" defvalue = "">
+			<dispname>Parameter list:</dispname>
+		</attrdef>
+		<attrdef name="DefinitionRetType" metaref = "1008" valuetype = "string" defvalue = "">
+			<dispname>Return type:</dispname>
+		</attrdef>
+		<attrdef name="DefinitionStereo" metaref = "1009" valuetype = "enum" defvalue = "method">
+			<dispname>Stereotype:</dispname>
+			<enumitem dispname = "method" value = "method"></enumitem>
+			<enumitem dispname = "attribute" value = "attribute"></enumitem>
+		</attrdef>
+		<attrdef name="IsAbstract" metaref = "1010" valuetype = "boolean" defvalue = "false">
+			<dispname>Abstract:</dispname>
+		</attrdef>
+		<attrdef name="ParentRole" metaref = "1011" valuetype = "string" defvalue = "">
+			<dispname>Parent Role</dispname>
+		</attrdef>
+		<attrdef name="Stereotype" metaref = "1012" valuetype = "string" defvalue = "">
+			<dispname>Stereotype:</dispname>
+		</attrdef>
+		<attrdef name="alias" metaref = "1090" valuetype = "string" defvalue = "">
+		</attrdef>
+		<attrdef name="dstCardinality" metaref = "1013" valuetype = "string" defvalue = "0..*">
+			<dispname>Dst Cardinality:</dispname>
+		</attrdef>
+		<attrdef name="dstRolename" metaref = "1014" valuetype = "string" defvalue = "dst">
+			<dispname>Dst Rolename:</dispname>
+		</attrdef>
+		<attrdef name="srcCardinality" metaref = "1015" valuetype = "string" defvalue = "0..*">
+			<dispname>Src Cardinality:</dispname>
+		</attrdef>
+		<attrdef name="srcRolename" metaref = "1016" valuetype = "string" defvalue = "src">
+			<dispname>Src Rolename:</dispname>
+		</attrdef>
+		<attrdef name="version" metaref = "1017" valuetype = "string" defvalue = "1.00">
+		</attrdef>
+		<atom name = "Class" metaref = "1018"  attributes = "IsAbstract Stereotype Attributes">
+				<regnode name = "namePosition" value ="8"></regnode>
+				<regnode name = "color" value ="0x000000"></regnode>
+			<constraint name="NoInheritanceRecursion" eventmask = "0xc00" depth = "0" priority = "1">
+				<![CDATA[let identity = self.identity() in
+not identity.isNull() implies identity.allAscendants( Set{ } ).excludes( identity )]]>
+				<dispname>Inheritance recursion is not allowed</dispname>
+			</constraint>
+			<constraint name="OnlyOneConnector" eventmask = "0x800" depth = "0" priority = "1">
+				<![CDATA[let assocCount = self.attachingConnections( AssociationClass ) -> size in
+assocCount <> 0 implies assocCount = 1]]>
+				<dispname>Class as AssociationClass can have at most one Connector </dispname>
+			</constraint>
+			<constraint name="UniqueClassName" eventmask = "0x0" depth = "0" priority = "2">
+				<![CDATA[project.allInstancesOf( Class ) -> select( class | class.name = self.name && class.parent().parent() = self.parent().parent() ) -> size = 1]]>
+				<dispname>Name of a Class must be unique.</dispname>
+			</constraint>
+			<constraint name="ValidName" eventmask = "0x10" depth = "0" priority = "1">
+				<![CDATA[name.trim().match( "^[_a-zA-Z][_a-zA-Z0-9]*$" )]]>
+				<dispname>Format of the name of the Class is invalid</dispname>
+			</constraint>
+			<constraint name="ValidStereotype" eventmask = "0x1" depth = "0" priority = "1">
+				<![CDATA[let st = self.Stereotype.trim() in
+st <> "" implies st.match( "^[_a-zA-Z][_a-zA-Z0-9]*$" )]]>
+				<dispname>Format of Stereotype is invalid.</dispname>
+			</constraint>
+				<regnode name = "icon" value ="class.bmp"></regnode>
+				<regnode name = "decorator" value ="Mga.UMLDecorator"></regnode>
+				<regnode name = "itemResizable" value ="true"></regnode>
+				<regnode name = "shadowColor" value ="0x000000"></regnode>
+				<regnode name = "shadowThickness" value ="0"></regnode>
+				<regnode name = "shadowDirection" value ="0"></regnode>
+		</atom>
+		<atom name = "Connector" metaref = "1019" >
+				<regnode name = "namePosition" value ="4"></regnode>
+				<regnode name = "color" value ="0x000000"></regnode>
+				<regnode name = "autorouterPref" value ="SEn"></regnode>
+				<regnode name = "color" value ="0x000000"></regnode>
+			<constraint name="HasAssoc" eventmask = "0x1" depth = "0" priority = "2">
+				<![CDATA[self.connectedFCOs( AssociationClass ) -> size <> 0]]>
+				<dispname>Connector is invalid. It must have an Association Class.</dispname>
+			</constraint>
+			<constraint name="HasDst" eventmask = "0x1" depth = "0" priority = "2">
+				<![CDATA[self.connectedFCOs( "dst", Dst ) -> size <> 0]]>
+				<dispname>Connector is invalid. It must have a Destination.</dispname>
+			</constraint>
+			<constraint name="HasSrc" eventmask = "0x1" depth = "0" priority = "2">
+				<![CDATA[self.connectedFCOs( "src", Src ) -> size <> 0]]>
+				<dispname>Connector is invalid. It must have a Source.</dispname>
+			</constraint>
+			<constraint name="OnlyOneAssoc" eventmask = "0x1" depth = "0" priority = "1">
+				<![CDATA[let assocCount = self.attachingConnections( AssociationClass ) -> size in
+assocCount <> 0 implies assocCount = 1]]>
+				<dispname>Connector is invalid. It can have exactly one Destination.</dispname>
+			</constraint>
+			<constraint name="OnlyOneDst" eventmask = "0x1" depth = "0" priority = "1">
+				<![CDATA[let dstCount = self.attachingConnections( "dst", Dst ) -> size in
+dstCount <> 0 implies dstCount = 1]]>
+				<dispname>Connector is invalid. It can have exactly one Destination.</dispname>
+			</constraint>
+			<constraint name="OnlyOneSrc" eventmask = "0x1" depth = "0" priority = "1">
+				<![CDATA[let srcCount = self.attachingConnections( "src", Src ) -> size in
+srcCount <> 0 implies srcCount = 1]]>
+				<dispname>Connector is invalid. It can have exactly one Source.</dispname>
+			</constraint>
+				<regnode name = "icon" value ="connector.bmp"></regnode>
+				<regnode name = "decorator" value ="Mga.UMLDecorator"></regnode>
+		</atom>
+		<atom name = "Constraint" metaref = "1020"  attributes = "ConstraintEqn ConstraintDescription">
+				<regnode name = "namePosition" value ="4"></regnode>
+			<constraint name="HasContext" eventmask = "0x0" depth = "0" priority = "1">
+				<![CDATA[self.connectedFCOs( HasConstraint ) -> size > 0]]>
+				<dispname>Constraint must have a Class as context</dispname>
+			</constraint>
+			<constraint name="NotEmptyDescription" eventmask = "0x0" depth = "0" priority = "2">
+				<![CDATA[self.ConstraintDescription.trim() <> ""]]>
+				<dispname>Description of Constraint may not be empty. Was it the intention?</dispname>
+			</constraint>
+			<constraint name="NotEmptyEquation" eventmask = "0x0" depth = "0" priority = "1">
+				<![CDATA[self.ConstraintEqn.trim() <> ""]]>
+				<dispname>Equation of Constraint cannot be empty</dispname>
+			</constraint>
+			<constraint name="UniqueConstraints" eventmask = "0x0" depth = "0" priority = "1">
+				<![CDATA[let constraints = project.allInstancesOf( Constraint ) -> select( c : Constraint | c.name = self.name ) in
+if ( constraints -> size <= 1 ) then
+   true
+else
+   let ctxBag = constraints -> collect( c : Constraint | c.allContexts() ) in
+   ctxBag -> forAll( ctx1 , ctx2 : ocl::Set | ctx1 != ctx2 implies ctx1.intersection( ctx2 ).isEmpty() )
+endif]]>
+				<dispname>Classes are not allowed to be context for Constraints which are different but have the same name</dispname>
+			</constraint>
+			<constraint name="ValidName" eventmask = "0x10" depth = "0" priority = "1">
+				<![CDATA[name.trim().match( "^[_a-zA-Z][_a-zA-Z0-9]*$" )]]>
+				<dispname>Format of the name of the Constraint is invalid</dispname>
+			</constraint>
+				<regnode name = "icon" value ="constraint.bmp"></regnode>
+				<regnode name = "decorator" value ="Mga.UMLDecorator"></regnode>
+		</atom>
+		<atom name = "ConstraintDefinition" metaref = "1021"  attributes = "DefinitionRetType DefinitionStereo DefinitionEqn DefinitionParamList">
+				<regnode name = "namePosition" value ="4"></regnode>
+			<constraint name="HasContext" eventmask = "0x0" depth = "0" priority = "1">
+				<![CDATA[self.connectedFCOs( HasDefinition ) -> size > 0]]>
+				<dispname>Definition must have a Class as context</dispname>
+			</constraint>
+			<constraint name="NotEmptyEquation" eventmask = "0x0" depth = "0" priority = "1">
+				<![CDATA[self.DefinitionEqn.trim() <> ""]]>
+				<dispname>Equation of Definition cannot be empty</dispname>
+			</constraint>
+			<constraint name="NotEmptyReturnType" eventmask = "0x0" depth = "0" priority = "1">
+				<![CDATA[self.DefinitionRetType.trim() <> ""]]>
+				<dispname>Return type of Definition cannot be empty</dispname>
+			</constraint>
+			<constraint name="ValidName" eventmask = "0x10" depth = "0" priority = "1">
+				<![CDATA[name.trim().match( "^[_a-zA-Z][_a-zA-Z0-9]*$" )]]>
+				<dispname>Format of the name of the Constraint is invalid</dispname>
+			</constraint>
+				<regnode name = "icon" value ="constraintdefinition.bmp"></regnode>
+				<regnode name = "decorator" value ="Mga.UMLDecorator"></regnode>
+		</atom>
+		<atom name = "Inheritance" metaref = "1022" >
+				<regnode name = "namePosition" value ="4"></regnode>
+				<regnode name = "color" value ="0x000000"></regnode>
+				<regnode name = "autorouterPref" value ="Sn"></regnode>
+				<regnode name = "color" value ="0x000000"></regnode>
+			<constraint name="HasBase" eventmask = "0x0" depth = "0" priority = "2">
+				<![CDATA[self.connectedFCOs( "src", Base ) -> size <> 0]]>
+				<dispname>Inheritance operator is invalid. It must have a base Class.</dispname>
+			</constraint>
+			<constraint name="HasSub" eventmask = "0x0" depth = "0" priority = "2">
+				<![CDATA[self.connectedFCOs( "dst", Sub ) -> size <> 0]]>
+				<dispname>Inheritance operator is invalid. It must have at least one derived Class.</dispname>
+			</constraint>
+			<constraint name="OnlyOneBase" eventmask = "0x0" depth = "0" priority = "1">
+				<![CDATA[let baseCount = self.attachingConnections( "src", Base ) -> size in
+baseCount <> 0 implies baseCount = 1]]>
+				<dispname>Inheritance operator is invalid. It can have exactly one base Class.</dispname>
+			</constraint>
+				<regnode name = "icon" value ="inheritance.bmp"></regnode>
+				<regnode name = "decorator" value ="Mga.UMLDecorator"></regnode>
+		</atom>
+		<connection name = "Association" metaref = "1023" attributes = "Stereotype dstCardinality dstRolename srcCardinality srcRolename" >
+				<regnode name = "color" value ="0x000000"></regnode>
+				<regnode name = "sName" value ="srcAssociationClasses"></regnode>
+				<regnode name = "dName" value ="dstAssociationClasses"></regnode>
+				<regnode name = "color" value ="0x000000"></regnode>
+				<regnode name = "dstStyle" value ="butt"></regnode>
+				<regnode name = "srcStyle" value ="butt"></regnode>
+				<regnode name = "lineType" value ="solid"></regnode>
+				<regnode name= "srcLabel1" value="%srcRolename%"/>
+				<regnode name= "srcLabel2" value="%srcCardinality%"/>
+				<regnode name= "dstLabel1" value="%dstRolename%"/>
+				<regnode name= "dstLabel2" value="%dstCardinality%"/>
+			<constraint name="NotEmptyDstCardinality" eventmask = "0x0" depth = "0" priority = "1">
+				<![CDATA[let attr = ( if ( self.kindName = "Dst" ) then "Cardinality" else "dstCardinality" endif ) in
+self.attribute( attr ).oclAsType( ocl::String ).trim() <> ""]]>
+				<dispname>Destination Cardinality cannot be empty</dispname>
+			</constraint>
+			<constraint name="NotEmptySrcCardinality" eventmask = "0x0" depth = "0" priority = "1">
+				<![CDATA[let attr = ( if ( self.kindName = "Src" ) then "Cardinality" else "srcCardinality" endif ) in
+self.attribute( attr ).oclAsType( ocl::String ).trim() <> ""]]>
+				<dispname>Source Cardinality cannot be empty</dispname>
+			</constraint>
+			<constraint name="ValidDstCardinality" eventmask = "0x1" depth = "0" priority = "1">
+				<![CDATA[let attr = ( if ( self.kindName = "Dst" ) then "Cardinality" else "dstCardinality" endif ) in
+project.isCardinalityValid( self.attribute( attr ).oclAsType( ocl::String ) )]]>
+				<dispname>Format of destination Cardinality is invalid</dispname>
+			</constraint>
+			<constraint name="ValidDstRole" eventmask = "0x0" depth = "0" priority = "5">
+				<![CDATA[project.isRoleValid( self.dstRolename ) ]]>
+				<dispname>Format of destination Role is invalid</dispname>
+			</constraint>
+			<constraint name="ValidSrcCardinality" eventmask = "0x1" depth = "0" priority = "1">
+				<![CDATA[let attr = ( if ( self.kindName = "Src" ) then "Cardinality" else "srcCardinality" endif ) in
+project.isCardinalityValid( self.attribute( attr ).oclAsType( ocl::String ) )]]>
+				<dispname>Format of source Cardinality is invalid</dispname>
+			</constraint>
+			<constraint name="ValidSrcRole" eventmask = "0x0" depth = "0" priority = "5">
+				<![CDATA[project.isRoleValid( self.srcRolename ) ]]>
+				<dispname>Format of source Role is invalid</dispname>
+			</constraint>
+			<connjoint>
+				<pointerspec name = "src">
+					<pointeritem desc = "Class"></pointeritem>
+					<pointeritem desc = "ClassCopy"></pointeritem>
+				</pointerspec>
+				<pointerspec name = "dst">
+					<pointeritem desc = "Class"></pointeritem>
+					<pointeritem desc = "ClassCopy"></pointeritem>
+				</pointerspec>
+			</connjoint>
+		</connection>
+		<connection name = "AssociationClass" metaref = "1024" >
+				<regnode name = "color" value ="0x000000"></regnode>
+				<regnode name = "sName" value ="srcAssocConnector"></regnode>
+				<regnode name = "dName" value ="dstAssocClassBase"></regnode>
+				<regnode name = "color" value ="0x000000"></regnode>
+				<regnode name = "dstStyle" value ="butt"></regnode>
+				<regnode name = "srcStyle" value ="butt"></regnode>
+				<regnode name = "lineType" value ="dash"></regnode>
+			<connjoint>
+				<pointerspec name = "src">
+					<pointeritem desc = "Connector"></pointeritem>
+				</pointerspec>
+				<pointerspec name = "dst">
+					<pointeritem desc = "Class"></pointeritem>
+					<pointeritem desc = "ClassCopy"></pointeritem>
+				</pointerspec>
+			</connjoint>
+		</connection>
+		<connection name = "Base" metaref = "1025" >
+				<regnode name = "color" value ="0x000000"></regnode>
+				<regnode name = "sName" value ="srcClassBase"></regnode>
+				<regnode name = "dName" value ="dstInheritance"></regnode>
+				<regnode name = "color" value ="0x000000"></regnode>
+				<regnode name = "dstStyle" value ="butt"></regnode>
+				<regnode name = "srcStyle" value ="butt"></regnode>
+				<regnode name = "lineType" value ="solid"></regnode>
+			<connjoint>
+				<pointerspec name = "src">
+					<pointeritem desc = "Class"></pointeritem>
+					<pointeritem desc = "ClassCopy"></pointeritem>
+				</pointerspec>
+				<pointerspec name = "dst">
+					<pointeritem desc = "Inheritance"></pointeritem>
+				</pointerspec>
+			</connjoint>
+		</connection>
+		<connection name = "Composition" metaref = "1026" attributes = "ParentRole ChildRole Cardinality" >
+				<regnode name = "color" value ="0x000000"></regnode>
+				<regnode name = "sName" value ="srcChildren"></regnode>
+				<regnode name = "dName" value ="dstParent"></regnode>
+				<regnode name = "color" value ="0x000000"></regnode>
+				<regnode name = "dstStyle" value ="diamond"></regnode>
+				<regnode name = "srcStyle" value ="butt"></regnode>
+				<regnode name = "lineType" value ="solid"></regnode>
+				<regnode name= "srcLabel1" value="%ChildRole%"/>
+				<regnode name= "srcLabel2" value="%Cardinality%"/>
+				<regnode name= "dstLabel1" value="%ParentRole%"/>
+			<constraint name="NotEmptyCardinality" eventmask = "0x0" depth = "0" priority = "1">
+				<![CDATA[self.Cardinality.trim() <> ""]]>
+				<dispname>Cardinality of Composition cannot be empty</dispname>
+			</constraint>
+			<constraint name="ValidCardinality" eventmask = "0x1" depth = "0" priority = "1">
+				<![CDATA[project.isCardinalityValid( self.Cardinality )]]>
+				<dispname>Format of Cardinality is invalid</dispname>
+			</constraint>
+			<constraint name="ValidChildRole" eventmask = "0x0" depth = "0" priority = "5">
+				<![CDATA[project.isRoleValid( self.ChildRole )]]>
+				<dispname>Format of ChildRole is invalid</dispname>
+			</constraint>
+			<constraint name="ValidParentRole" eventmask = "0x0" depth = "0" priority = "5">
+				<![CDATA[project.isRoleValid( self.ParentRole )]]>
+				<dispname>Format of ParentRole is invalid</dispname>
+			</constraint>
+			<attrdef name="Cardinality" metaref = "1027" valuetype = "string" defvalue = "0..*">
+				<dispname>Cardinality:</dispname>
+			</attrdef>
+			<connjoint>
+				<pointerspec name = "src">
+					<pointeritem desc = "Class"></pointeritem>
+					<pointeritem desc = "ClassCopy"></pointeritem>
+				</pointerspec>
+				<pointerspec name = "dst">
+					<pointeritem desc = "Class"></pointeritem>
+					<pointeritem desc = "ClassCopy"></pointeritem>
+				</pointerspec>
+			</connjoint>
+		</connection>
+		<connection name = "Dst" metaref = "1028" attributes = "Cardinality dstRolename" >
+				<regnode name = "color" value ="0x000000"></regnode>
+				<regnode name = "sName" value ="srcConnector"></regnode>
+				<regnode name = "dName" value ="dstClassBase"></regnode>
+				<regnode name = "color" value ="0x000000"></regnode>
+				<regnode name = "dstStyle" value ="butt"></regnode>
+				<regnode name = "srcStyle" value ="butt"></regnode>
+				<regnode name = "lineType" value ="solid"></regnode>
+				<regnode name= "dstLabel1" value="%dstRolename%"/>
+				<regnode name= "dstLabel2" value="%Cardinality%"/>
+			<constraint name="NotEmptyDstCardinality" eventmask = "0x0" depth = "0" priority = "1">
+				<![CDATA[let attr = ( if ( self.kindName = "Dst" ) then "Cardinality" else "dstCardinality" endif ) in
+self.attribute( attr ).oclAsType( ocl::String ).trim() <> ""]]>
+				<dispname>Destination Cardinality cannot be empty</dispname>
+			</constraint>
+			<constraint name="ValidDstCardinality" eventmask = "0x1" depth = "0" priority = "1">
+				<![CDATA[let attr = ( if ( self.kindName = "Dst" ) then "Cardinality" else "dstCardinality" endif ) in
+project.isCardinalityValid( self.attribute( attr ).oclAsType( ocl::String ) )]]>
+				<dispname>Format of destination Cardinality is invalid</dispname>
+			</constraint>
+			<constraint name="ValidDstRole" eventmask = "0x0" depth = "0" priority = "5">
+				<![CDATA[project.isRoleValid( self.dstRolename ) ]]>
+				<dispname>Format of destination Role is invalid</dispname>
+			</constraint>
+			<connjoint>
+				<pointerspec name = "src">
+					<pointeritem desc = "Connector"></pointeritem>
+				</pointerspec>
+				<pointerspec name = "dst">
+					<pointeritem desc = "Class"></pointeritem>
+					<pointeritem desc = "ClassCopy"></pointeritem>
+				</pointerspec>
+			</connjoint>
+		</connection>
+		<connection name = "HasConstraint" metaref = "1029" >
+				<regnode name = "color" value ="0x000000"></regnode>
+				<regnode name = "sName" value ="srcConstraint"></regnode>
+				<regnode name = "dName" value ="dstClassBase"></regnode>
+				<regnode name = "color" value ="0x000000"></regnode>
+				<regnode name = "dstStyle" value ="butt"></regnode>
+				<regnode name = "srcStyle" value ="butt"></regnode>
+				<regnode name = "lineType" value ="solid"></regnode>
+			<connjoint>
+				<pointerspec name = "src">
+					<pointeritem desc = "Constraint"></pointeritem>
+				</pointerspec>
+				<pointerspec name = "dst">
+					<pointeritem desc = "Class"></pointeritem>
+					<pointeritem desc = "ClassCopy"></pointeritem>
+				</pointerspec>
+			</connjoint>
+		</connection>
+		<connection name = "HasDefinition" metaref = "1030" >
+				<regnode name = "sName" value ="srcConstraintDefinition"></regnode>
+				<regnode name = "dName" value ="dstClassBase"></regnode>
+				<regnode name = "color" value ="0x000000"></regnode>
+				<regnode name = "dstStyle" value ="butt"></regnode>
+				<regnode name = "srcStyle" value ="butt"></regnode>
+				<regnode name = "lineType" value ="solid"></regnode>
+			<connjoint>
+				<pointerspec name = "src">
+					<pointeritem desc = "ConstraintDefinition"></pointeritem>
+				</pointerspec>
+				<pointerspec name = "dst">
+					<pointeritem desc = "Class"></pointeritem>
+					<pointeritem desc = "ClassCopy"></pointeritem>
+				</pointerspec>
+			</connjoint>
+		</connection>
+		<connection name = "Src" metaref = "1031" attributes = "Cardinality srcRolename" >
+				<regnode name = "color" value ="0x000000"></regnode>
+				<regnode name = "sName" value ="srcClassBase"></regnode>
+				<regnode name = "dName" value ="dstConnector"></regnode>
+				<regnode name = "color" value ="0x000000"></regnode>
+				<regnode name = "dstStyle" value ="butt"></regnode>
+				<regnode name = "srcStyle" value ="butt"></regnode>
+				<regnode name = "lineType" value ="solid"></regnode>
+				<regnode name= "srcLabel1" value="%srcRolename%"/>
+				<regnode name= "srcLabel2" value="%Cardinality%"/>
+			<constraint name="NotEmptySrcCardinality" eventmask = "0x0" depth = "0" priority = "1">
+				<![CDATA[let attr = ( if ( self.kindName = "Src" ) then "Cardinality" else "srcCardinality" endif ) in
+self.attribute( attr ).oclAsType( ocl::String ).trim() <> ""]]>
+				<dispname>Source Cardinality cannot be empty</dispname>
+			</constraint>
+			<constraint name="ValidSrcCardinality" eventmask = "0x1" depth = "0" priority = "1">
+				<![CDATA[let attr = ( if ( self.kindName = "Src" ) then "Cardinality" else "srcCardinality" endif ) in
+project.isCardinalityValid( self.attribute( attr ).oclAsType( ocl::String ) )]]>
+				<dispname>Format of source Cardinality is invalid</dispname>
+			</constraint>
+			<constraint name="ValidSrcRole" eventmask = "0x0" depth = "0" priority = "5">
+				<![CDATA[project.isRoleValid( self.srcRolename ) ]]>
+				<dispname>Format of source Role is invalid</dispname>
+			</constraint>
+			<connjoint>
+				<pointerspec name = "src">
+					<pointeritem desc = "Class"></pointeritem>
+					<pointeritem desc = "ClassCopy"></pointeritem>
+				</pointerspec>
+				<pointerspec name = "dst">
+					<pointeritem desc = "Connector"></pointeritem>
+				</pointerspec>
+			</connjoint>
+		</connection>
+		<connection name = "Sub" metaref = "1032" >
+				<regnode name = "color" value ="0x000000"></regnode>
+				<regnode name = "sName" value ="srcInheritance"></regnode>
+				<regnode name = "dName" value ="dstClassBase"></regnode>
+				<regnode name = "color" value ="0x000000"></regnode>
+				<regnode name = "dstStyle" value ="butt"></regnode>
+				<regnode name = "srcStyle" value ="butt"></regnode>
+				<regnode name = "lineType" value ="solid"></regnode>
+			<connjoint>
+				<pointerspec name = "src">
+					<pointeritem desc = "Inheritance"></pointeritem>
+				</pointerspec>
+				<pointerspec name = "dst">
+					<pointeritem desc = "Class"></pointeritem>
+					<pointeritem desc = "ClassCopy"></pointeritem>
+				</pointerspec>
+			</connjoint>
+		</connection>
+		<reference name = "ClassCopy" metaref = "1033" attributes = "IsAbstract">
+				<regnode name = "namePosition" value ="8"></regnode>
+				<regnode name = "color" value ="0x000000"></regnode>
+				<regnode name = "rName" value ="ref"></regnode>
+				<regnode name = "rrName" value ="src"></regnode>
+			<constraint name="NoInheritanceRecursion" eventmask = "0xc00" depth = "0" priority = "1">
+				<![CDATA[let identity = self.identity() in
+not identity.isNull() implies identity.allAscendants( Set{ } ).excludes( identity )]]>
+				<dispname>Inheritance recursion is not allowed</dispname>
+			</constraint>
+			<constraint name="NotNull" eventmask = "0x0" depth = "0" priority = "2">
+				<![CDATA[not self.refersTo().isNull()]]>
+				<dispname>A ClassCopy cannot refer to null</dispname>
+			</constraint>
+			<constraint name="OnlyOneConnector" eventmask = "0x800" depth = "0" priority = "1">
+				<![CDATA[let assocCount = self.attachingConnections( AssociationClass ) -> size in
+assocCount <> 0 implies assocCount = 1]]>
+				<dispname>Class as AssociationClass can have at most one Connector </dispname>
+			</constraint>
+			<regnode name = "icon" value ="classref.bmp"></regnode>
+			<regnode name = "decorator" value ="Mga.UMLDecorator"></regnode>
+			<regnode name = "itemResizable" value ="true"></regnode>
+			<regnode name = "shadowColor" value ="0x000000"></regnode>
+			<regnode name = "shadowThickness" value ="0"></regnode>
+			<regnode name = "shadowDirection" value ="0"></regnode>
+			<pointerspec name = "ref">
+				<pointeritem desc = "Class"></pointeritem>
+			</pointerspec>
+		</reference>
+		<model name = "ClassDiagram" metaref = "1034" >
+				<regnode name = "namePosition" value ="0"></regnode>
+				<regnode name = "itemResizable" value ="true"></regnode>
+				<regnode name = "shadowColor" value ="0x000000"></regnode>
+				<regnode name = "shadowThickness" value ="0"></regnode>
+				<regnode name = "shadowDirection" value ="0"></regnode>
+			<role name = "Association" metaref = "1035" kind = "Association"></role>
+			<role name = "AssociationClass" metaref = "1036" kind = "AssociationClass"></role>
+			<role name = "Base" metaref = "1037" kind = "Base"></role>
+			<role name = "Class" metaref = "1038" kind = "Class"></role>
+			<role name = "ClassCopy" metaref = "1039" kind = "ClassCopy"></role>
+			<role name = "ClassDiagram" metaref = "1085" kind = "ClassDiagram"></role>
+			<role name = "Composition" metaref = "1040" kind = "Composition"></role>
+			<role name = "Connector" metaref = "1041" kind = "Connector"></role>
+			<role name = "Constraint" metaref = "1042" kind = "Constraint"></role>
+			<role name = "ConstraintDefinition" metaref = "1043" kind = "ConstraintDefinition"></role>
+			<role name = "Dst" metaref = "1044" kind = "Dst"></role>
+			<role name = "HasConstraint" metaref = "1045" kind = "HasConstraint"></role>
+			<role name = "HasDefinition" metaref = "1046" kind = "HasDefinition"></role>
+			<role name = "Inheritance" metaref = "1047" kind = "Inheritance"></role>
+			<role name = "Src" metaref = "1048" kind = "Src"></role>
+			<role name = "Sub" metaref = "1049" kind = "Sub"></role>
+			<aspect name = "UML" metaref = "1050" >
+				<part metaref = "1051" role = "Association" primary = "yes" linked = "no"></part>
+				<part metaref = "1052" role = "AssociationClass" primary = "yes" linked = "no"></part>
+				<part metaref = "1053" role = "Base" primary = "yes" linked = "no"></part>
+				<part metaref = "1054" role = "Class" primary = "yes" linked = "no"></part>
+				<part metaref = "1055" role = "ClassCopy" primary = "yes" linked = "no"></part>
+				<part metaref = "1086" role = "ClassDiagram" primary = "yes" linked = "no"></part>
+				<part metaref = "1056" role = "Composition" primary = "yes" linked = "no"></part>
+				<part metaref = "1057" role = "Connector" primary = "yes" linked = "no"></part>
+				<part metaref = "1058" role = "Dst" primary = "yes" linked = "no"></part>
+				<part metaref = "1059" role = "Inheritance" primary = "yes" linked = "no"></part>
+				<part metaref = "1060" role = "Src" primary = "yes" linked = "no"></part>
+				<part metaref = "1061" role = "Sub" primary = "yes" linked = "no"></part>
+			</aspect>
+			<aspect name = "Constraints" metaref = "1062" >
+				<part metaref = "1063" role = "Base" primary = "no" linked = "no"></part>
+				<part metaref = "1064" role = "Class" primary = "no" linked = "no"></part>
+				<part metaref = "1065" role = "ClassCopy" primary = "no" linked = "no"></part>
+				<part metaref = "1066" role = "Constraint" primary = "yes" linked = "no"></part>
+				<part metaref = "1067" role = "ConstraintDefinition" primary = "yes" linked = "no"></part>
+				<part metaref = "1068" role = "HasConstraint" primary = "yes" linked = "no"></part>
+				<part metaref = "1069" role = "HasDefinition" primary = "yes" linked = "no"></part>
+				<part metaref = "1070" role = "Inheritance" primary = "no" linked = "no"></part>
+				<part metaref = "1071" role = "Sub" primary = "no" linked = "no"></part>
+			</aspect>
+		</model>
+		<model name = "Namespace" metaref = "1087" >
+				<regnode name = "namePosition" value ="4"></regnode>
+			<constraint name="UniqueNamespaceName" eventmask = "0x0" depth = "0" priority = "2">
+				<![CDATA[project.allInstancesOf( Namespace ) -> select( ns | ns.name = self.name && ns.parent() = self.parent() ) -> size = 1]]>
+				<dispname>A namespace must be unique.</dispname>
+			</constraint>
+			<constraint name="ValidName" eventmask = "0x10" depth = "0" priority = "1">
+				<![CDATA[name.trim().match( "^[_a-zA-Z][_a-zA-Z0-9]*$" )]]>
+				<dispname>Format of the name of the Namespace is invalid</dispname>
+			</constraint>
+			<role name = "ClassDiagram" metaref = "1078" kind = "ClassDiagram"></role>
+			<role name = "Namespace" metaref = "1091" kind = "Namespace"></role>
+			<aspect name = "UML" metaref = "1082" >
+				<part metaref = "1083" role = "ClassDiagram" primary = "yes" linked = "no"></part>
+				<part metaref = "1092" role = "Namespace" primary = "yes" linked = "no"></part>
+			</aspect>
+		</model>
+		<model name = "Package" metaref = "1072" attributes = "version alias" >
+				<regnode name = "namePosition" value ="4"></regnode>
+			<constraint name="UniquePackageName" eventmask = "0x0" depth = "0" priority = "2">
+				<![CDATA[project.allInstancesOf( Package ) -> select( pkg | pkg.name = self.name ) -> size = 1]]>
+				<dispname>Name of a Package must be unique.</dispname>
+			</constraint>
+			<role name = "ClassDiagram" metaref = "1073" kind = "ClassDiagram"></role>
+			<role name = "Namespace" metaref = "1088" kind = "Namespace"></role>
+			<aspect name = "UML" metaref = "1074" attributes = "version alias" >
+				<part metaref = "1075" role = "ClassDiagram" primary = "yes" linked = "no"></part>
+				<part metaref = "1089" role = "Namespace" primary = "yes" linked = "no"></part>
+			</aspect>
+		</model>
+	</folder>
+</paradigm>

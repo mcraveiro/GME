@@ -1,0 +1,1463 @@
+import "oaidl.idl";
+import "ocidl.idl";
+
+#include "InterfaceColl.h"
+#include "InterfaceVersion.h"
+
+import "Meta.idl";
+
+// --------------------------- Mga IDL
+
+interface IMgaProject;
+interface IMgaTerritory;
+interface IMgaAddOn;
+interface IMgaComponent;
+interface IMgaClient;
+interface IMgaEventSink;
+
+interface IMgaObject;
+interface IMgaFCO;
+interface IMgaFolder;
+interface IMgaModel;
+interface IMgaAtom;
+interface IMgaPart;
+interface IMgaConnection;
+interface IMgaReference;
+interface IMgaSet;
+interface IMgaSimpleConnection;
+interface IMgaConnPoint;
+interface IMgaFilter;
+interface IMgaAttribute;
+interface IMgaRegNode;
+
+interface IMgaObjects;
+interface IMgaFCOs;
+interface IMgaFolders;
+interface IMgaParts;
+interface IMgaAttributes;
+interface IMgaRegNodes;
+interface IMgaConnPoints;
+interface IMgaAddOns;
+interface IMgaTerritories;
+interface IMgaComponents;
+interface IMgaClients;
+
+// ------- Typedefs
+
+typedef enum  accesstype_enum {
+	ACC_NULL = 0,
+	ACC_READ = 1,
+	ACC_WRITE = 2,
+	ACC_LINK = 4,
+} accesstype_enum;
+
+typedef enum transactiontype_enum {
+	TRANSACTION_GENERAL,
+	TRANSACTION_READ_ONLY,
+	TRANSACTION_NON_NESTED
+} transactiontype_enum;
+
+
+typedef enum attstatus_enum {
+	ATTSTATUS_HERE		= 0,
+	ATTSTATUS_METADEFAULT = -1,
+	ATTSTATUS_UNDEFINED	  = -2,
+	ATTSTATUS_INVALID	  = -3,
+//AND:
+	ATTSTATUS_IN_ARCHETYPE1	= 1,
+	ATTSTATUS_IN_ARCHETYPE2	= 2,
+	ATTSTATUS_IN_ARCHETYPE3	= 3,
+	ATTSTATUS_IN_ARCHETYPE4	= 4,
+// etc.
+} attstatus_enum;
+
+typedef BSTR ID_type;
+
+typedef enum openmode { OPEN_READ = 1, OPEN_READWRITE = 3} openmode;
+
+typedef enum globalevent_enum  {
+	GLOBALEVENT_OPEN_PROJECT,								// include create
+	GLOBALEVENT_CLOSE_PROJECT,
+	GLOBALEVENT_SAVE_PROJECT,
+    GLOBALEVENT_NEW_TERRITORY,
+    GLOBALEVENT_DESTROY_TERRITORY,							// any territory has been destroyed (includes destroy by release)
+    GLOBALEVENT_COMMIT_TRANSACTION,
+    GLOBALEVENT_ABORT_TRANSACTION,
+    GLOBALEVENT_UNDO,
+    GLOBALEVENT_REDO,
+	GLOBALEVENT_PROJECT_PROPERTIES,							// project properties Name, author, etc changed
+	GLOBALEVENT_NOTIFICATION_READY,
+	GLOBALEVENT_OPEN_PROJECT_FINISHED, // notification is sent after 1. File>New 2. File>Open 3. File>Import XML
+															// application specific (GUI) events
+	APPEVENT_XML_IMPORT_BEGIN = 0xFF,
+	APPEVENT_XML_IMPORT_END,
+	APPEVENT_XML_IMPORT_FCOS_BEGIN,
+	APPEVENT_XML_IMPORT_FCOS_END,
+	APPEVENT_XML_IMPORT_SPECIAL_BEGIN,
+	APPEVENT_XML_IMPORT_SPECIAL_END,
+	APPEVENT_LIB_ATTACH_BEGIN,
+	APPEVENT_LIB_ATTACH_END
+
+} globalevent_enum;
+
+
+const long RELID_BASE_MAX  = 0x7FFFFFF;	//assigned to non-derived ojects
+const long RELID_VALUE_MAX = 0x7FFFFFFF;   // automatically assigned to deriveds
+
+
+typedef enum objectevent_enum {
+[ helpstring("The object has been created")]
+		OBJEVENT_CREATED    =   0x80000000,             
+[ helpstring("The object has been destroyed (limited access is available)")]
+		OBJEVENT_DESTROYED  =   0x40000000,             
+[ helpstring("The object is going to be deleted.")]
+		OBJEVENT_PRE_DESTROYED  = 0x20000000,
+[ helpstring("Status of attribute/registry node is going to change.")]
+		OBJEVENT_PRE_STATUS =   0x10000000,
+[ helpstring("The object is being copied.")]
+		OBJEVENT_COPIED     =   0x08000000,
+[ helpstring("Attribute changed")]
+		OBJEVENT_ATTR       =   0x00000001,             
+[ helpstring("Registry changed")]
+		OBJEVENT_REGISTRY   =   0x00000002,             
+[ helpstring("child added")]
+		OBJEVENT_NEWCHILD   =   0x00000004,             
+[ helpstring("ref pointer, set member, conn endpoint change")]
+		OBJEVENT_RELATION   =   0x00000008,             
+[ helpstring("Name, etc.")]
+		OBJEVENT_PROPERTIES =   0x00000010,             
+[ helpstring("Subtype, instance created")]
+		OBJEVENT_SUBT_INST  =   0x00000020,             
+//[ helpstring("Basetype relation broken/added (???)")]
+//		OBJEVENT_BASE       =   0x00000040,             
+//[ helpstring("Anything under the object 'Position' regnode")]
+//		OBJEVENT_POSITION   =   0x00000080,				
+[ helpstring("Object has been moved")]
+		OBJEVENT_PARENT		=   0x00000100,				
+[ helpstring("child removed/ moved away")]
+		OBJEVENT_LOSTCHILD  =   0x00000200,             
+[ helpstring("object has been referenced")]
+		OBJEVENT_REFERENCED =   0x00000400,             
+[ helpstring("object has been connected")]
+		OBJEVENT_CONNECTED  =   0x00000800,             
+[ helpstring("object has been included in set")]
+		OBJEVENT_SETINCLUDED=   0x00001000,             
+[ helpstring("object reference has been released")]
+		OBJEVENT_REFRELEASED=   0x00002000,             
+[ helpstring("object has been disconnected")]
+		OBJEVENT_DISCONNECTED=  0x00004000,             
+[ helpstring("object has been excluded from set")]
+		OBJEVENT_SETEXCLUDED=   0x00008000,              
+[ helpstring("object has been marked readonly")]
+		OBJEVENT_MARKEDRO   =   0x00010000,
+[ helpstring("object has been marked readwrite (readonly flag has been removed)")]
+		OBJEVENT_MARKEDRW   =   0x00020000,
+
+[ helpstring("user event bitfield, user events should fall into this range")]
+		OBJEVENT_USERBITS	=	0x00FF0000,             
+[ helpstring("user event: GME open model")]
+		OBJEVENT_OPENMODEL	=	0x00080000,             
+[ helpstring("user event: GME object selected")]
+		OBJEVENT_SELECT		=	0x00100000,             
+[ helpstring("user event: GME object deselected")]
+		OBJEVENT_DESELECT	=	0x00200000,             
+[ helpstring("user event: mouse over GME object")]
+		OBJEVENT_MOUSEOVER	=	0x00400000,             
+[ helpstring("user event: GME close model")]
+		OBJEVENT_CLOSEMODEL	=	0x00800000,             
+}  objectevent_enum;             
+
+typedef enum objectstatus_enum {
+	[ helpstring("method Create  (call when nothing is open)")] 	OBJECT_EXISTS,
+	OBJECT_DELETED,
+	OBJECT_ZOMBIE,
+}  objectstatus_enum;             
+
+// Used with MgaProject::Preferences()
+
+typedef enum preference_flags {
+MGAPREF_NODUPLICATENAMES  = 0x00000001,		// make sure, names are never duplicated
+MGAPREF_NAMENEWOBJECTS    = 0x00000002,		// assign kind/rolename to new objects
+MGAPREF_IGNORECONNCHECKS =  0x00000004,		// do not complain on partially connected simple connections
+MGAPREF_FREEINSTANCEREFS =  0x00000008,		// do not bind refs in subtypes/instances to successors of ref target in basetype 
+MGAPREF_RELAXED_RDATTRTYPES =  0x00000010,	// attributes may be read as types other than the real type
+MGAPREF_RELAXED_WRATTRTYPES =  0x00000020,	// attributes may be written as types other than the real type
+MGAPREF_MANUAL_RELIDS		= 0x00000040,	// relid-s are assigned manually
+MGAPREF_NO_NESTED_TX = 0x00000080 // don't use nested transactions, as they are very slow. If an MGA operation fails, the entire transaction must be aborted.
+} preference_flags;
+
+
+// Used with MgaProject::OperationsMask()
+// Affected operations: MgaModel::DeriveFCOs, MgaFolder::DeriveRootObject, 
+//						*::CopyFCOs, *::MoveFCOs, MgaObject::DestroyObject
+
+// The operationsmask consists of 3 bytes, which individually control reference, connection and set operations
+//	each byte has space for 3 2-bit opmask codes for relations which are 'internal', 'incoming' or 'outgoing' 
+//	relative to the set of objects primarily affected by the operation (i.e. the objects created, moved or 
+//	deleted, along with their descendants)
+//  other flags (like MM_FULLDELETE) may occupy the remaining 2 bits
+
+typedef enum opmask_codes {
+	MM_ERROR = 0,				// signal error, abort operation
+	MM_CLEAR = 1,				// clear the relation (and check object validity)
+	MM_DO    = 2,				// keep the relation in the resulting object (and check its validity)
+
+    MM_FULLDELETE = 0x40		// fully delete objects with deleted/trucated relations
+} opmask_codes;
+
+typedef enum opmask_shifts {
+      MM_REF	= 0,
+      MM_CONN	= 8,
+      MM_SET	= 16,
+
+      MM_INTERNAL = 0,
+      MM_INTO	  = 2,
+      MM_OUTOF	  = 4,
+} opmask_shifts;
+
+
+typedef enum componenttype_enum
+{
+	COMPONENTTYPE_NONE					= 0x0000,
+	COMPONENTTYPE_INTERPRETER			= 0x0001,
+	COMPONENTTYPE_ADDON					= 0x0002,
+	COMPONENTTYPE_PLUGIN				= 0x0004,
+	COMPONENTTYPE_ALL					= 0x0007,
+
+	COMPONENTTYPE_EVENT_BASED			= COMPONENTTYPE_ADDON,
+	COMPONENTTYPE_PARADIGM_INDEPENDENT	= 0x0008,
+	COMPONENTTYPE_EXECENGINE			= 0x0010,
+	COMPONENTTYPE_SCRIPT				= 0x0020,
+
+	COMPONENTTYPE_SYSREGREF				= 0x0080,    // used in user registry to reference components in system registry
+} componenttype_enum;
+
+typedef enum component_startmode_enum {
+	GME_MAIN_START		= 0,
+	GME_BROWSER_START	= 1,
+	GME_CONTEXT_START	= 2,
+	GME_EMBEDDED_START  = 3,
+	GME_MENU_START		= 16,
+	GME_BGCONTEXT_START = 18,
+	GME_ICON_START		= 32, 
+	METAMODEL_CHECK_SYNTAX  = 101,
+	CONSTMGR_SHOW_CONSTRAINTS = 102,
+	GME_SILENT_MODE		= 128
+} component_startmode_enum;
+
+
+
+// MGAERRORTABLE BEGIN			take care when editing
+typedef enum mgaerrors {
+// library behavior
+[helpstring("This method is not yet implemented")]
+		E_MGA_NOT_IMPLEMENTED			= 0x87650000,
+[helpstring("This mode of operation is not supported")]
+		E_MGA_NOT_SUPPORTED				= 0x87650001,
+
+
+// module, paradigm, component error 
+[helpstring("MGA data structure conflict: error or incompatibility")]
+		E_MGA_MODULE_INCOMPATIBILITY	= 0x87650010,
+[helpstring("The paradigm is not registered")]
+		E_MGA_PARADIGM_NOTREG			= 0x87650011,
+[helpstring("The paradigm is invalid")]
+		E_MGA_PARADIGM_INVALID			= 0x87650012,
+[helpstring("Some addons cannot be loaded/initialized")]
+		E_MGA_COMPONENT_ERROR			= 0x87650013,
+
+[helpstring("Inconsistent data in database metainfo violated")]
+		E_MGA_DATA_INCONSISTENCY		= 0x87650021,
+[helpstring("Meta incompatibility")]
+		E_MGA_META_INCOMPATIBILITY		= 0x87650022,
+
+
+// project status
+[helpstring("Project must be closed")]
+		E_MGA_PROJECT_OPEN				= 0x87650031,
+[helpstring("Project must be open")]
+		E_MGA_PROJECT_NOT_OPEN			= 0x87650032,
+[helpstring("Database is in read-only mode")]
+		E_MGA_READ_ONLY_ACCESS			= 0x87650033,
+[helpstring("Object is unknown in this territory")]
+		E_MGA_NOT_IN_TERRITORY			= 0x87650034,
+[helpstring("Operation must execute within transaction")]
+		E_MGA_NOT_IN_TRANSACTION		= 0x87650035,
+[helpstring("The project is already in transaction"	)]
+		E_MGA_ALREADY_IN_TRANSACTION	= 0x87650036,
+[helpstring("This transaction must be aborted"	)]
+		E_MGA_MUST_ABORT				= 0x87650037,
+[helpstring("Territory/AddOn already destroyed")]
+		E_MGA_TARGET_DESTROYED			= 0x87650038,
+
+
+[helpstring("This is not the callee object's project")]
+		E_MGA_FOREIGN_PROJECT			= 0x87650041,
+[helpstring("Object does not belong to this project")]
+		E_MGA_FOREIGN_OBJECT			= 0x87650042,
+
+// object status
+[helpstring("The object is deleted partially inaccessible")]
+		E_MGA_OBJECT_DELETED			= 0x87650051,
+[helpstring("The object is deleted and fully inaccessible")]
+		E_MGA_OBJECT_ZOMBIE				= 0x87650052,
+[helpstring("The project for this (sub)object has been destroyed")]
+		E_MGA_ZOMBIE_NOPROJECT			= 0x87650053,
+[helpstring("The project for this (sub)object has been closed")]
+		E_MGA_ZOMBIE_CLOSED_PROJECT		= 0x87650054,
+
+
+// method call arguments
+[helpstring("invalid argument")]
+		E_MGA_INVALID_ARG				= 0x87650060,
+[helpstring("argument out of range")]
+		E_MGA_ARG_RANGE					= 0x87650061,
+[helpstring("NULL Input COM pointer")]
+		E_MGA_INPTR_NULL				= 0x87650062,
+[helpstring("Nonempty COM pointer supplied for output")]
+		E_MGA_OUTPTR_NONEMPTY			= 0x87650063,
+[helpstring("NULL output COM pointer address")]
+		E_MGA_OUTPTR_NULL				= 0x87650064,
+
+
+[helpstring("Search by name failed")]
+		E_MGA_NAME_NOT_FOUND			= 0x87650070,
+[helpstring("The operation caused name uniqueness conflict")]
+		E_MGA_NAME_DUPLICATE			= 0x87650071,
+[helpstring("The operation caused meta violation for object %o")]
+		E_MGA_META_VIOLATION			= 0x87650072,
+[helpstring("Object cannot be changed")]
+		E_MGA_NOT_CHANGEABLE			= 0x87650073,
+[helpstring("Operation refused due to the state of existing data")]
+		E_MGA_OP_REFUSED				= 0x87650074,
+[helpstring("Object belongs to a lib image")]
+		E_MGA_LIBOBJECT					= 0x87650075,
+ 
+
+[helpstring("Unknown attribute specified")]
+		E_META_INVALIDATTR				= 0x87650080,
+[helpstring("Unknown aspect specified"		)]
+		E_META_INVALIDASPECT			= 0x87650081,
+[helpstring("Access method conflicts with attribute type")]
+		E_MGA_ACCESS_TYPE				= 0x87650082,
+[helpstring("Invalid value for enum attr")]
+		E_MGA_BAD_ENUMVALUE				= 0x87650083,
+
+[helpstring("Reference %o is used for connections")]
+		E_MGA_REFPORTS_USED				= 0x87650131,
+[helpstring("Node is not a physical, but inherited")]
+		E_MGA_VIRTUAL_NODE				= 0x87650136,
+[helpstring("Bad GME position read/written")]
+		E_MGA_BAD_POSITIONVALUE			= 0x87650137,
+[helpstring("Operation not allowed for root FCOs")]
+		E_MGA_ROOTFCO					= 0x87650138,
+[helpstring("Operation not allowed for non-root FCOs")]
+		E_MGA_NOT_ROOTOBJECT			= 0x87650138,
+[helpstring("Collection parameter counts must match")]
+		E_MGA_BAD_COLLENGTH				= 0x87650140,
+[helpstring("Bad/NULL metarole or metapart")]
+		E_MGA_INVALID_ROLE				= 0x87650142,
+[helpstring("Object ID format error")]
+		E_MGA_BAD_ID					= 0x87650143,
+[helpstring("Non-root object, or derived into itself")]
+		E_MGA_NOT_DERIVABLE				= 0x87650144,
+[helpstring("%o is not a member in set")]
+		E_MGA_OBJECT_NOT_MEMBER			= 0x87650145,
+[helpstring("%o is not in a connectible position")]
+		E_MGA_NOT_CONNECTIBLE			= 0x87650146,
+[helpstring("Role not specified")]
+		E_MGA_NO_ROLE					= 0x87650147,
+[helpstring("Connrole allowed number exceeded for %o")]
+		E_MGA_CONNROLE_USED				= 0x87650148,
+[helpstring("Object is not derived")]
+		E_MGA_NOT_DERIVED				= 0x87650149,
+[helpstring("Object is not an instance")]
+		E_MGA_NOT_INSTANCE				= 0x87650150,
+[helpstring("Object is a type")]
+		E_MGA_INSTANCE					= 0x87650151,
+[helpstring("Object %o specified is not a reference")]
+		E_MGA_REFERENCE_EXPECTED		= 0x87650152,
+[helpstring("MgaFilter property format error")]
+		E_MGA_FILTERFORMAT				= 0x87650153,
+[helpstring("Cannot generate a unique value")]
+		E_MGA_GEN_OUT_OF_SPACE			= 0x87650154,
+[helpstring("Invalid reference target")]
+		E_MGA_INVALID_TARGET			= 0x87650155,
+[helpstring("Derive chain too long")]
+		E_MGA_LONG_DERIVCHAIN			= 0x87650156,
+[helpstring("Invalid changes in library")]
+		E_MGA_LIB_DIFF					= 0x87650157,
+
+[helpstring("Invalid event mask value")]
+		E_MGA_BAD_MASKVALUE				= 0x87650170,
+[helpstring("Constraint violation")]
+		E_MGA_CONSTRAINT_VIOLATION		= 0x87657FFF,
+
+[helpstring("Errcode out of errcode range")]
+		E_MGA_ERRCODE_ERROR				= 0x87658000
+
+} mgaerrors;
+// MGAERRORTABLE END
+
+[
+	object,
+	uuid(270B4F92-B17C-11D3-9AD1-00AA00B6FE26),
+	dual,
+	helpstring("IMgaProject Interface"),
+	pointer_default(unique)
+]
+interface IMgaProject : IDispatch
+{
+// Open, close et al.
+	[ helpstring("method Create  (call when nothing is open)")] HRESULT Create([in]BSTR projectname, [in] BSTR paradigmname);
+	[ helpstring("method CreateEx  (call when nothing is open)")] HRESULT CreateEx([in]BSTR projectname, [in] BSTR paradigmname, [in] VARIANT paradigmGUID);
+
+	[ helpstring("method Open (call when nothing is open)")] HRESULT Open([in] BSTR projectname,[out, defaultvalue(0)] VARIANT_BOOL *ro_mode);
+	[ helpstring("method OpenEx (call when nothing is open)")] 
+	// paradigmGUID==true means open with the currently-registered paradigm
+		HRESULT OpenEx([in] BSTR projectname, [in] BSTR paradigmname, [in] VARIANT paradigmGUID);
+	[ helpstring("method Close (call outside transaction)")] HRESULT Close([in, defaultvalue(0)] VARIANT_BOOL abort);
+	[ helpstring("method Save (call when outside transaction)")] HRESULT Save([in, defaultvalue("")] BSTR save_as_conn, [in, defaultvalue(0)] VARIANT_BOOL keepoldname);
+
+	[ helpstring("method CheckLocks (call when nothing is open)")] 
+			HRESULT CheckLocks([in] BSTR filename, [in, defaultvalue((VARIANT_BOOL)-1)] VARIANT_BOOL clearlocks);
+
+	[propput, helpstring("property Preferences (call anytime)")] HRESULT Preferences([in] long prefmask);
+	[propget, helpstring("property Preferences (call anytime)")] HRESULT Preferences([out,retval] long* prefmask);
+	[propput, helpstring("property OperationsMask (call anytime)")] HRESULT OperationsMask([in] long opmask);
+	[propget, helpstring("property OperationsMask (call anytime)")] HRESULT OperationsMask([out,retval] long* opmask);
+
+// Transactions, territory, undo/redo
+	[ helpstring("method CreateTerritory (call outside transaction)")] 
+			HRESULT CreateTerritory([in] IMgaEventSink *handler, [out] IMgaTerritory **terr, [in, defaultvalue(0)] IMgaEventSink *rwhandler);
+	[ helpstring("method CreateAddOn (call outside transaction)")] HRESULT CreateAddOn([in] IMgaEventSink *handler, [out] IMgaAddOn **addon);
+
+	[ propget, helpstring("property AddOns")] 
+				HRESULT AddOns([out, retval] IMgaAddOns **addons);
+	[ propget, helpstring("property Territories")] 
+				HRESULT Territories([out, retval] IMgaTerritories **terrs);
+	[ helpstring("property EnableAllAutoAddOns (by default auto addon loading disabled)")] 
+				HRESULT EnableAutoAddOns([in] VARIANT_BOOL bEnable);
+	[ propget, helpstring("property AddOnComponents")] 
+				HRESULT AddOnComponents([out, retval] IMgaComponents **comps);
+	[ propget, helpstring("property ActiveTerritory: the one which opened a transaction")] 
+				HRESULT ActiveTerritory([out, retval] IMgaTerritory **aterr);
+
+	[ helpstring("method BeginTransaction ")] 
+				HRESULT BeginTransaction([in] IMgaTerritory *terr, 
+									[in, defaultvalue(TRANSACTION_GENERAL)] transactiontype_enum mode);
+	[ helpstring("method BeginTransactionInNewTerr with Territory creation")] 
+				HRESULT BeginTransactionInNewTerr([in, defaultvalue(TRANSACTION_GENERAL)] transactiontype_enum mode, [out, retval] IMgaTerritory **terr);
+
+	[ propget, helpstring("property ProjectStatus mask bits: bit 0 set:project is open. bit 2 set: project has changed. bit 3 set: in transaction. bit 4 set: transaction is read only. bit 31 set: error state")] 
+				HRESULT ProjectStatus([out, retval] long *stat);
+
+	[ helpstring("method Notify: Send global notification")] HRESULT Notify([in] globalevent_enum event);
+	[ helpstring("method CommitTransaction")] HRESULT CommitTransaction();
+	[ helpstring("method AbortTransaction")] HRESULT AbortTransaction();
+
+	[ helpstring("method CheckSupress")] HRESULT CheckSupress([in] VARIANT_BOOL mode);
+	[ helpstring("method Undo (call outside transaction)")] HRESULT Undo();
+	[ helpstring("method Redo (call outside transaction)")] HRESULT Redo();
+	[ helpstring("method UndoRedoSize")] HRESULT UndoRedoSize([out] short *undosize, [out] short *redosize);
+	[ helpstring("method FlushUndoQueue")] HRESULT FlushUndoQueue();
+
+	[ helpstring("method UpdateSourceControlInfo, for users to ask the XML backend to update its current status")] 
+	HRESULT UpdateSourceControlInfo([in] BSTR p_optionalID);
+
+	[ helpstring( "method SourceControlActiveUsers, for showing a dialog with all potential commiters of a project")]
+	HRESULT SourceControlActiveUsers();
+
+	[ helpstring( "method SourceControlObjectOwner, for showing a dialog with the owner of a locked object")]
+	HRESULT SourceControlObjectOwner( [in] BSTR p_optionalID);
+
+
+// Access to meta and project trees
+	[propget, helpstring("property RootMeta: access root of meta tree")] 
+									HRESULT RootMeta([out, retval] IMgaMetaProject **pVal);
+	[propget, helpstring("property RootFolder: access root of model tree")] 
+									HRESULT RootFolder([out, retval] IMgaFolder **pVal);
+
+// Global search on model tree
+	[ helpstring("method CreateFilter")] HRESULT CreateFilter([out, retval] IMgaFilter **filter);
+	[ helpstring("method AllFCOs")] HRESULT AllFCOs([in] IMgaFilter *filter, [out, retval] IMgaFCOs **returnset);
+	[ helpstring("method GetObjectByID")] HRESULT GetObjectByID([in] ID_type id, [out, retval] IMgaObject **pVal);
+	[ helpstring("method GetFCOByID")] HRESULT GetFCOByID([in] ID_type id, [out, retval] IMgaFCO **pVal);
+
+	[ helpstring("method GetFCOsByName")] HRESULT GetFCOsByName([in] BSTR name, [out, retval] IMgaFCOs **pVal);
+	[ helpstring("method GetFolderByPath")] HRESULT GetFolderByPath([in] BSTR path, [out, retval] IMgaFolder **pVal);
+	[ helpstring("method EnumExtReferences: Get all ref objects referring from outside to this tree")] 
+											HRESULT EnumExtReferences([in] IMgaFCOs *fcos, [out, retval] IMgaFCOs **pVal);
+// Delimiter in the path is the slash character: '/'
+// searches based on name and kind: "/@MyFolder|kind=OneFolder/@MySubFolder|kind=AnotherFolder" (the project or root folder name must not be included)
+//       or based on plain name:    "/MyFolder/MySubFolder"
+//       or based on relid:         "/#1/#3"
+// these may be mixed like:         "/@MyFolder|kind=OneFolder|relpos=1/#2" which means that look for MyFolder, then select its child with Relid = 2
+// incoming path may contain 'misleading' relpos tokens as well: /@MyFolder|kind=OneFolder|relpos=1/@MySubFolder|kind=AnotherFolder|relpos=2" these are disregarded
+// If several objects are found, NULL is returned
+//
+// FCO::get_ObjectByPath ignores the leading '/'
+	[ propget, helpstring("property ObjectByPath: path may contain /@names or /RelID-s")] 
+			HRESULT ObjectByPath([in] BSTR path, [out, retval] IMgaObject **pVal);
+	[ propget, helpstring("property nthObjectByPath, returns the nth samename object if path not unique")] 
+			HRESULT NthObjectByPath([in] long n_th, [in] BSTR path, [out, retval] IMgaObject **pVal);
+
+	[ helpstring("method GetTopLibraries")] HRESULT GetTopLibraries( [in] BSTR dispGuid, [out, retval] IMgaFolders **returnset);
+
+// Project properties
+	[helpstring("method GetStatistics")] HRESULT GetStatistics([out, retval] BSTR *statstr);
+	[propget, helpstring("property Name")] HRESULT Name([out, retval] BSTR *pVal);
+	[propput, helpstring("property Name")] HRESULT Name([in] BSTR newval);
+	[propget, helpstring("property Version")] HRESULT Version([out, retval] BSTR *pVal);
+	[propput, helpstring("property Version")] HRESULT Version([in] BSTR newval);
+	[propget, helpstring("property MetaName")] HRESULT MetaName([out, retval] BSTR *pVal);
+	[propget, helpstring("property MetaGUID")] HRESULT MetaGUID([out, retval] VARIANT *pVal);
+	[propget, helpstring("property MetaVersion")] HRESULT MetaVersion([out, retval] BSTR *pVal);
+	[propget, helpstring("property GUID")] HRESULT GUID([out, retval] VARIANT *pVal);
+	[propput, helpstring("property GUID")] HRESULT GUID([in] VARIANT newVal);
+	[propget, helpstring("property CreateTime")] HRESULT CreateTime([out, retval] BSTR *pVal);
+	[propget, helpstring("property ChangeTime")] HRESULT ChangeTime([out, retval] BSTR *pVal);
+	[propget, helpstring("property Author")] HRESULT Author([out, retval] BSTR *pVal);
+	[propput, helpstring("property Author")] HRESULT Author([in] BSTR newval);
+	[propget, helpstring("property Comment")] HRESULT Comment([out, retval] BSTR *pVal);
+	[propput, helpstring("property Comment")] HRESULT Comment([in] BSTR newVal);
+
+	[propget, helpstring("property ProjectConnStr")] HRESULT ProjectConnStr([out, retval] BSTR *pVal);
+	[propget, helpstring("property ParadigmConnStr")] HRESULT ParadigmConnStr([out, retval] BSTR *pVal);
+
+	[propget, helpstring("property MetaObj: get the metaobject for a reference")] 
+								HRESULT MetaObj([in] metaref_type mref, [out, retval] IMgaMetaBase **pVal);
+	[helpstring("getter for property MetaObj: get the metaobject for a reference")] 
+								HRESULT GetMetaObjDisp([in] metaref_type mref, [out, retval] IMgaMetaBase **pVal);
+
+	[helpstring("method QueryProjectInfo (call anytime)")] 
+		HRESULT QueryProjectInfo([in] BSTR projectname, [out] long *mgaversion, 
+								 [out] BSTR *paradigmname, 
+								 [out] BSTR *paradigmversion, 
+								 [out] VARIANT *paradigmGUID,
+								 [out] VARIANT_BOOL *ro_mode);
+
+	[ propget, helpstring("property Clients")] HRESULT Clients([out, retval] IMgaClients **clients);
+	[ helpstring("method RegisterClient")] 
+								HRESULT RegisterClient([in] BSTR name, [in] IDispatch *OLEServer, [out, retval] IMgaClient **client);
+	[ helpstring("method GetClientByName")] HRESULT GetClientByName([in] BSTR name, [out, retval] IMgaClient **client);
+
+	[ helpstring("method CreateTerritoryWithoutSink (call outside transaction)")] 
+			HRESULT CreateTerritoryWithoutSink([out] IMgaTerritory **terr);
+};
+
+[
+	object,
+	uuid(32D1F3A5-D276-11D3-9AD5-00AA00B6FE26),
+	oleautomation,
+	helpstring("IMgaEventSink: to be implemented by the client to be called back"),
+	pointer_default(unique)
+]
+interface IMgaEventSink : IUnknown
+{
+	[ helpstring("GlobalEvent")] HRESULT GlobalEvent([in] globalevent_enum event);
+	[ helpstring("ObjectEvent")] HRESULT ObjectEvent([in] IMgaObject * obj, [in] unsigned long eventmask, [in]  VARIANT v);
+};
+	
+[
+	object,
+	uuid(80A6D661-D411-11D3-9AD5-00AA00B6FE26),
+	dual,
+	helpstring("IMgaAddOn Interface"),
+	pointer_default(unique)
+]
+interface IMgaAddOn : IDispatch
+{
+	[ propget,  helpstring("property Priority")] HRESULT Priority([out, retval] long *pVal);
+	[ propput,  helpstring("property Priority")] HRESULT Priority([in] long newVal);
+	[ propput, helpstring("property EventMask (defaults to ALL)")] HRESULT EventMask([in] unsigned long eventmask);
+	[ helpstring("method Destroy: disable further callbacks to this addon")] HRESULT Destroy();
+
+	[ propget,  helpstring("property Project")] HRESULT Project([out, retval] IMgaProject **pVal);
+	[ helpstring("Check if object belongs to a project")]	HRESULT CheckProject([in] IMgaProject *p_project);
+};
+
+
+
+[
+	object,
+	uuid(11BB02D9-2E2C-11D3-B36D-0060082DF884),
+	oleautomation,
+	helpstring("IMgaComponent Interface"),
+	pointer_default(unique)
+
+]
+interface IMgaComponent : IUnknown
+{
+	[helpstring ("method Invoke, selectedobjs may be NULL")]
+		HRESULT Invoke([in] IMgaProject *project, [in] IMgaFCOs *selectedobjs, [in] long param);
+	[helpstring("method Initialize")] 
+		HRESULT Initialize(IMgaProject *p);
+	[helpstring("method Enable")] 
+		HRESULT Enable(VARIANT_BOOL newVal);
+	[propget, helpstring("property InteractiveMode")] 
+		HRESULT InteractiveMode([out, retval] VARIANT_BOOL * enabled);
+	[propput, helpstring("property InteractiveMode")] 
+		HRESULT InteractiveMode([in] VARIANT_BOOL enabled);
+	[propget, helpstring("property ComponentName")] 
+		HRESULT ComponentName([out, retval] BSTR *pVal);
+	[propget, helpstring("property ComponentType")] 
+		HRESULT ComponentType([out, retval] componenttype_enum *t);
+	[propget, helpstring("property Paradigm")] 
+		HRESULT Paradigm([out, retval] BSTR *pVal);
+};
+
+
+[
+	object,
+	uuid(11BB44D9-2E2C-11D3-B36D-0060082DF884),
+	oleautomation,
+	helpstring("IMgaComponentEx Interface"),
+	pointer_default(unique)
+
+]
+interface IMgaComponentEx : IMgaComponent
+{
+	[helpstring ("method InvokeEx, responsible for opening transaction. Selectedobjs may be NULL")]
+		HRESULT InvokeEx([in] IMgaProject *project, [in] IMgaFCO *currentobj, [in,out] IMgaFCOs *selectedobjs, [in] long param);
+	[helpstring ("method ObjectsInvokeEx, responsible for opening transaction. Selectedobjs may be NULL")]
+		HRESULT ObjectsInvokeEx([in] IMgaProject *project, [in] IMgaObject *currentobj, [in,out] IMgaObjects *selectedobjs, [in] long param);
+	[propget, helpstring("property ComponentProgID")] 
+		HRESULT ComponentProgID([out, retval] BSTR *pVal);
+	[propput, helpstring("property ComponentParameter")] 
+		HRESULT ComponentParameter([in] BSTR name, [in] VARIANT newVal);
+	[propget, helpstring("property ComponentParameter")] 
+		HRESULT ComponentParameter([in] BSTR name, [out, retval] VARIANT *pVal);
+};
+
+[
+	object,
+	uuid(F07EE1A2-2D53-449b-A2DA-45A1A9110E53),
+	dual,
+	helpstring("IMgaClient Interface"),
+	pointer_default(unique)
+]
+interface IMgaClient : IDispatch
+{
+	[ propget,  helpstring("property Name")] HRESULT Name([out, retval] BSTR *pName);
+	[ propget,  helpstring("property OLEServer")] HRESULT OLEServer([out, retval] IDispatch **pServer);
+	[ propget,  helpstring("property Project")] HRESULT Project([out, retval] IMgaProject **pVal);
+	[ helpstring("method Destroy: remove registered Client")] HRESULT Destroy();
+};
+
+
+
+
+/*
+[
+	uuid(11B994D9-2E2C-11D3-B36D-0060082DF886),
+	helpstring("IMgaDispComponent Interface"),
+
+]
+dispinterface IMgaDispComponent {
+	interface IMgaComponentEx;
+};
+*/
+
+[	
+	uuid(52871786-9C85-408f-A7D1-AE507905A540),
+	helpstring("Dispatch interface for IMgaComponents") 
+]
+dispinterface IMgaComponentDispatch
+{
+	properties:
+	[id(1)] VARIANT_BOOL InteractiveMode;
+	[id(2)] BSTR ComponentName;
+	[id(3)] LONG ComponentType;
+	[id(4)] BSTR Paradigm;
+	[id(5)] BSTR ComponentProgID;
+	[id(6)] LONG Version;
+
+	methods:
+	[id(20)] void Invoke(IMgaProject *project, IMgaFCOs *selectedobjs, LONG param);
+	[id(21)] void Initialize(IMgaProject *p);
+	[id(22)] void Enable(VARIANT_BOOL newVal);
+	[id(23)] void InvokeEx(IMgaProject *project, IMgaFCO *currentobj, IMgaFCOs *selectedobjs, LONG param);
+	[id(24)] void ObjectsInvokeEx(IMgaProject *project, IMgaObject *currentobj, IMgaObjects *selectedobjs, LONG param);
+	[id(25)] void SetComponentParameter(BSTR name, VARIANT newVal);
+	[id(26)] VARIANT GetComponentParameter(BSTR name);
+};
+
+[
+	object,
+	uuid(32D1F3A3-D276-11D3-9AD5-00AA00B6FE26),
+	dual,
+	helpstring("IMgaTerritory Interface"),
+	pointer_default(unique)
+]
+interface IMgaTerritory : IDispatch
+{
+	[ helpstring("method Flush: empty the territory")] HRESULT Flush();
+	[ helpstring("method Destroy: empty and destroy the territory")] HRESULT Destroy();
+	[ propput, helpstring("property EventMask (defaults to ALL)")] HRESULT EventMask([in] unsigned long eventmask);
+	[ propput, helpstring("property RWEventMask (defaults to NONE)")] HRESULT RWEventMask([in] unsigned long eventmask);
+	[ helpstring("Associate object with user data")] HRESULT Associate([in] IMgaObject *obj, [in] VARIANT userdata);
+	[ helpstring("property OpenObj")] HRESULT OpenObj([in] IMgaObject *obj, [in, out] IMgaObject **newobj);
+	[ helpstring("property OpenFCO")] HRESULT OpenFCO([in] IMgaFCO *obj, [in, out] IMgaFCO **newobj);
+	[ helpstring("property OpenFCOs")] HRESULT OpenFCOs([in] IMgaFCOs *obj, [in, out] IMgaFCOs **newobj);
+	[ helpstring("property CloseObj")] HRESULT CloseObj([in] IMgaObject *obj);
+
+	[ propget,  helpstring("property Project")] HRESULT Project([out, retval] IMgaProject **pVal);
+	[ helpstring("Check if object belongs to a project")]	HRESULT CheckProject([in] IMgaProject *project);
+	[ helpstring("Set Namespace")] HRESULT SetNamespace( [in] BSTR pNmsp);
+	[ helpstring("Get Namespace")] HRESULT GetNamespace( [out, retval] BSTR * pNmsp);
+};
+
+[
+	object,
+	uuid(32D1F3A7-D276-11D3-9AD5-00AA00B6FE26),
+	dual,
+	helpstring("IMgaObject Interface: an empty class used as a common base class for Mga objects"),
+	pointer_default(unique)
+]
+interface IMgaObject : IDispatch	{
+	[propget, helpstring("property Status: always available")]	HRESULT Status([out, retval] long *p);
+	[propget, helpstring("property IsWritable")]	HRESULT IsWritable([out, retval] VARIANT_BOOL *p);
+	[propget, helpstring("property ID")]		HRESULT ID([out, retval] ID_type *pVal);
+	[propget, helpstring("property Name")]		HRESULT Name([out, retval] BSTR *pVal);
+	[propput, helpstring("property Name")]		HRESULT Name([in] BSTR newVal);
+	[propget, helpstring("property AbsPath")]	HRESULT AbsPath([out, retval] BSTR *pVal);
+	[propget, helpstring("property MetaBase")]	HRESULT MetaBase([out, retval] IMgaMetaBase **pVal);
+	[propget, helpstring("property ObjType")]	HRESULT ObjType([out, retval] objtype_enum *pVal);
+	[propget, helpstring("property Project")]   HRESULT Project([out, retval] IMgaProject **pVal);
+	[propget, helpstring("property Territory")] HRESULT Territory([out, retval] IMgaTerritory **pVal);
+	[propget, helpstring("property IsEqual")]   HRESULT IsEqual([in] IMgaObject *o, [out, retval] VARIANT_BOOL *pVal);
+	[helpstring("getter for property IsEqual")]   HRESULT GetIsEqualDisp([in] IMgaObject *o, [out, retval] VARIANT_BOOL *pVal);
+	[helpstring("method GetParent")] HRESULT GetParent([out] IMgaObject **pVal, [out, defaultvalue(0)] objtype_enum *objtype);
+
+	[helpstring("Check if object belongs to a project")]	HRESULT CheckProject([in] IMgaProject *project);
+	[helpstring("method DestroyObject")]		HRESULT DestroyObject();
+	[helpstring("method Open: mode does not define access, sets locking type only (subsequents Open()-s are legal)")] 
+												HRESULT Open([in, defaultvalue(OPEN_READ)] openmode mode);
+	[helpstring("method Close: unlock object and discard from territory")] HRESULT Close();
+
+	[helpstring("Associate: always available")] HRESULT Associate([in] VARIANT userdata);
+	[propget, helpstring("Current Association value: always available")] HRESULT CurrentAssociation([out,retval] VARIANT *userdata);
+	[helpstring("method SendEvent: see objectevent_enum definition for mask bit values")]
+												HRESULT SendEvent([in] long mask);
+	[propget, helpstring("property RelID")]		HRESULT RelID([out, retval] long *pVal);
+	[propput, helpstring("property RelID")]		HRESULT RelID([in] long newVal);
+	[propget, helpstring("property IsLibObject")] 
+				HRESULT IsLibObject([out, retval] VARIANT_BOOL *pVal);
+
+	[helpstring("method Check")]				
+			HRESULT Check();
+	[helpstring("method CheckTree")]			
+			HRESULT CheckTree();
+	[propput, helpstring("property Exempt")]	
+			HRESULT Exempt([in] VARIANT_BOOL newVal);
+	[propget, helpstring("property Exempt")]	
+			HRESULT Exempt([out, retval] VARIANT_BOOL *pVal);
+
+	[propget, helpstring("property ChildObjects")] 
+			HRESULT ChildObjects([out, retval] IMgaObjects **pVal);
+	[propget, helpstring("property ChildObjectByRelID")] 
+			HRESULT ChildObjectByRelID([in] long relid, [out, retval] IMgaObject **pVal);
+	[helpstring("getter for property ChildObjectByRelID")] 
+			HRESULT GetChildObjectByRelIDDisp([in] long relid, [out, retval] IMgaObject **pVal);
+	[ propget, helpstring("property ObjectByPath: path may contain /@names or /RelID-s")] 
+			HRESULT ObjectByPath([in] BSTR path, [out, retval] IMgaObject **pVal);
+	[helpstring("getter for property ObjectByPath: path may contain /@names or /RelID-s")] 
+			HRESULT GetObjectByPathDisp([in] BSTR path, [out, retval] IMgaObject **pVal);
+	[ propget, helpstring("property nthObjectByPath, returns the nth samename object if path not unique")] 
+			HRESULT NthObjectByPath([in] long n_th, [in] BSTR path, [out, retval] IMgaObject **pVal);
+	[helpstring("getter for property nthObjectByPath, returns the nth samename object if path not unique")] 
+			HRESULT GetNthObjectByPathDisp([in] long n_th, [in] BSTR path, [out, retval] IMgaObject **pVal);
+	[helpstring("make an object and its subelements ReadOnly/ReadWrite")]
+			HRESULT PutReadOnlyAccessWithPropagate( [in] VARIANT_BOOL pReadOnly );
+	[helpstring("make an object ReadOnly/ReadWrite")]
+			HRESULT PutReadOnlyAccess( [in] VARIANT_BOOL pReadOnly );
+	[helpstring("ask about access rights to an object")]
+			HRESULT HasReadOnlyAccess( [out, retval] VARIANT_BOOL* pReadOnly );
+
+	[ helpstring("GetGuid")] HRESULT GetGuid([in, out] long* l1, [in, out] long* l2, [in, out] long* l3, [in, out] long* l4);
+	[ helpstring("PutGuid")] HRESULT PutGuid([in] long l1, [in] long l2, [in] long l3, [in] long l4);
+	[ helpstring("GetGuid Dispatch compatible")] HRESULT GetGuidDisp([out, retval] BSTR *guid_str);
+	[ helpstring("PutGuid Dispatch compatible")] HRESULT PutGuidDisp([in] BSTR guid_str);
+};
+
+
+[
+	object,
+	uuid(270B4F98-B17C-11D3-9AD1-00AA00B6FE26),
+	dual,
+	helpstring("IMgaFCO Interface"),
+	pointer_default(unique)
+]
+interface IMgaFCO : IMgaObject
+{
+	[propget, helpstring("property Meta")]	HRESULT Meta([out, retval] IMgaMetaFCO **pVal);
+
+	[propget, helpstring("property MetaRole")] HRESULT MetaRole([out, retval] IMgaMetaRole **pVal);
+
+	[propget, helpstring("property ParentModel (null if root)")] HRESULT ParentModel([out, retval] IMgaModel **pVal);
+	[propget, helpstring("property ParentFolder (null if non-root)")] HRESULT ParentFolder([out, retval] IMgaFolder **pVal);
+
+
+	[propget, helpstring("property Parts")] HRESULT Parts([out, retval] IMgaParts **pVal);
+	[propget, helpstring("property Part, NULL if not present in specified aspect")] 
+				HRESULT Part([in] IMgaMetaAspect * asp, [out, retval] IMgaPart **pVal);
+	[helpstring("getter for property Part, NULL if not present in specified aspect")] 
+				HRESULT GetPartDisp([in] IMgaMetaAspect * asp, [out, retval] IMgaPart **pVal);
+	[propget, helpstring("property PartByMetaPart")] 
+				HRESULT PartByMetaPart([in] IMgaMetaPart * part, [out, retval] IMgaPart **pVal);
+	[helpstring("getter for property PartByMetaPart")] 
+				HRESULT GetPartByMetaPartDisp([in] IMgaMetaPart * part, [out, retval] IMgaPart **pVal);
+// TODO: GetPartByAspectName([in] BSTR *AspectName, [out, retval] IMgaPart **pVal);
+
+
+// Style #1: some may like it better
+	[propget, helpstring("property Attributes: includes virtual attributes")] 
+										HRESULT Attributes([out, retval] IMgaAttributes **pVal);
+	[propget, helpstring("property Attribute: return an attribute identified by its meta")] 
+										HRESULT Attribute([in] IMgaMetaAttribute *meta, [out, retval] IMgaAttribute **pVal);
+	[helpstring("getter for property Attribute: return an attribute identified by its meta")] 
+										HRESULT GetAttributeDisp([in] IMgaMetaAttribute *meta, [out, retval] IMgaAttribute **pVal);
+
+// Style #2: probably more convenient attribute access, also faster if an attr is used only once
+	[propget, id(DISPID_VALUE), helpstring("property AttributeByName")] HRESULT AttributeByName([in] BSTR name, [out, retval] VARIANT *pVal);
+	[propput, id(DISPID_VALUE), helpstring("property AttributeByName")] HRESULT AttributeByName([in] BSTR name, [in] VARIANT newval);
+	[helpstring("getter for property AttributeByName")] HRESULT GetAttributeByNameDisp([in] BSTR name, [out, retval] VARIANT *pVal);
+	[helpstring("setter for property AttributeByName")] HRESULT SetAttributeByNameDisp([in] BSTR name, [in] VARIANT newval);
+	[propget, helpstring("property StrAttrByName")] HRESULT StrAttrByName([in] BSTR name, [out, retval] BSTR *pVal);
+	[propput, helpstring("property StrAttrByName")] HRESULT StrAttrByName([in] BSTR name, [in] BSTR newval);
+	[helpstring("getter for property StrAttrByName")] HRESULT GetStrAttrByNameDisp([in] BSTR name, [out, retval] BSTR *pVal);
+	[helpstring("setter for property StrAttrByName")] HRESULT SetStrAttrByNameDisp([in] BSTR name, [in] BSTR newval);
+	[propget, helpstring("property IntAttrByName")] HRESULT IntAttrByName([in] BSTR name, [out, retval] long *pVal);
+	[propput, helpstring("property IntAttrByName")] HRESULT IntAttrByName([in] BSTR name, [in] long newval);
+	[helpstring("getter for property IntAttrByName")] HRESULT GetIntAttrByNameDisp([in] BSTR name, [out, retval] long *pVal);
+	[helpstring("setter for property IntAttrByName")] HRESULT SetIntAttrByNameDisp([in] BSTR name, [in] long newval);
+	[propget, helpstring("property FloatAttrByName")] HRESULT FloatAttrByName([in] BSTR name, [out, retval] double *pVal);
+	[propput, helpstring("property FloatAttrByName")] HRESULT FloatAttrByName([in] BSTR name, [in] double newval);
+	[helpstring("getter for property FloatAttrByName")] HRESULT GetFloatAttrByNameDisp([in] BSTR name, [out, retval] double *pVal);
+	[helpstring("setter for property FloatAttrByName")] HRESULT SetFloatAttrByNameDisp([in] BSTR name, [in] double newval);
+	[propget, helpstring("property BoolAttrByName")] HRESULT BoolAttrByName([in] BSTR name, [out, retval] VARIANT_BOOL *pVal);
+	[propput, helpstring("property BoolAttrByName")] HRESULT BoolAttrByName([in] BSTR name, [in] VARIANT_BOOL newval);
+	[helpstring("getter for property BoolAttrByName")] HRESULT GetBoolAttrByNameDisp([in] BSTR name, [out, retval] VARIANT_BOOL *pVal);
+	[helpstring("setter for property BoolAttrByName")] HRESULT SetBoolAttrByNameDisp([in] BSTR name, [in] VARIANT_BOOL newval);
+	[propget, helpstring("property RefAttrByName")] HRESULT RefAttrByName([in] BSTR name, [out, retval] IMgaFCO **pVal);
+	[propput, helpstring("property RefAttrByName")] HRESULT RefAttrByName([in] BSTR name, [in] IMgaFCO* newval);
+	[helpstring("getter for property RefAttrByName")] HRESULT GetRefAttrByNameDisp([in] BSTR name, [out, retval] IMgaFCO **pVal);
+	[helpstring("setter for property RefAttrByName")] HRESULT SetRefAttrByNameDisp([in] BSTR name, [in] IMgaFCO* newval);
+	[helpstring("Remove attribute for this object, expose value of base object or default")] 
+											HRESULT ClearAttrByName([in] BSTR name);
+
+
+	[id(0x540), propget, helpstring("property RegistryNode")] 
+		HRESULT RegistryNode([in] BSTR path, [out, retval] IMgaRegNode **pVal);
+	[helpstring("getter for property RegistryNode")] 
+		HRESULT GetRegistryNodeDisp([in] BSTR path, [out, retval] IMgaRegNode **pVal);
+	[id(0x541), propget, helpstring("property Registry")] 
+		HRESULT Registry([in, defaultvalue(0)] VARIANT_BOOL virtuals, [out, retval] IMgaRegNodes **pVal);
+	[helpstring("getter for property Registry")] 
+		HRESULT GetRegistryDisp([in, defaultvalue(0)] VARIANT_BOOL virtuals, [out, retval] IMgaRegNodes **pVal);
+	[id(0x542), propget, helpstring("property RegistryValue")] 
+		HRESULT RegistryValue([in] BSTR path, [out, retval] BSTR *pVal);
+	[id(0x542), propput, helpstring("property RegistryValue")] 
+		HRESULT RegistryValue([in] BSTR path, [in] BSTR newval);
+	[helpstring("getter for property RegistryValue")] 
+		HRESULT GetRegistryValueDisp([in] BSTR path, [out, retval] BSTR *pVal);
+	[helpstring("setter for property RegistryValue")] 
+		HRESULT SetRegistryValueDisp([in] BSTR path, [in] BSTR newval);
+
+	[id(0x544), propget, helpstring("property Constraints")] 
+		HRESULT Constraints([in] VARIANT_BOOL includemeta, [out, retval] IMgaConstraints **pVal);
+	[helpstring("getter for property Constraints")] 
+		HRESULT GetConstraintsDisp([in] VARIANT_BOOL includemeta, [out, retval] IMgaConstraints **pVal);
+	[id(0x545), helpstring("method AddConstraint")] 
+		HRESULT AddConstraint([in] IMgaConstraint *constraint);
+	[id(0x546), helpstring("method DefineConstraint")] 
+		HRESULT DefineConstraint([in] BSTR name, [in] long mask, [in] BSTR expr, [out] IMgaConstraint **nconstraint);
+
+//	[ helpstring("method GetBaseType  BaseType, ImmediateBase, IsInstance [all may be NULL]")] 
+//			HRESULT GetBaseType([out] IMgaFCO ** basetype, [out] IMgaFCO ** ibase, [out] VARIANT_BOOL *isinst);
+	[propget, helpstring("property DerivedFrom (returns NULL if object is not derived)")] 
+				HRESULT DerivedFrom([out, retval] IMgaFCO **pVal);
+	[propget, helpstring("property DerivedObjects")] 
+				HRESULT DerivedObjects([out, retval] IMgaFCOs **pVal);
+	[propget, helpstring("property Type (succeeds only for instances)")] 
+				HRESULT Type([out, retval] IMgaFCO **pVal);
+	[propget, helpstring("property BaseType (fails for all instances; returns NULL if object is not derived)")] 
+				HRESULT BaseType([out, retval] IMgaFCO **pVal);
+	[propget, helpstring("property ArcheType (returns NULL if object is not derived)")] 
+				HRESULT ArcheType([out, retval] IMgaFCO **pVal);
+	[propget, helpstring("property IsInstance (also returns false for non-derived objects)")] 
+				HRESULT IsInstance([out, retval] VARIANT_BOOL *pVal);
+	[propget, helpstring("property IsPrimaryDerived (false if derived along with its parent, or if not derived at all)")] 
+				HRESULT IsPrimaryDerived([out, retval] VARIANT_BOOL *pVal);
+	[ helpstring("method AttachToArcheType")] 
+				HRESULT AttachToArcheType([in] IMgaFCO *newtype, [in] VARIANT_BOOL instance);
+	[ helpstring("method DetachFromArcheType")] 
+				HRESULT DetachFromArcheType();
+
+	[ helpstring("Get Abspath")] HRESULT GetAbsMetaPath([in, out] BSTR *abspath);
+	[ helpstring("Get Relpath")] HRESULT GetRelMetaPath([in] IMgaFCO *begfco, [in, out] BSTR *relpath, [in, defaultvalue(0)] IMgaFCOs *refs);
+
+	[propget, helpstring("property PartOfConns")]	HRESULT PartOfConns([out, retval] IMgaConnPoints **pVal);
+	[propget, helpstring("property MemberOfSets")]	HRESULT MemberOfSets([out, retval] IMgaFCOs **pVal);
+	[propget, helpstring("property ReferencedBy")]	HRESULT ReferencedBy([out, retval] IMgaFCOs **pVal);
+
+
+	[ helpstring("method CreateCollection")]	HRESULT CreateCollection([in,out] IMgaFCOs **pVal);
+
+	[propget, helpstring("property RootFCO")] 
+				HRESULT RootFCO([out, retval] IMgaFCO **pVal);
+};
+/*
+[
+	object,
+	uuid(270B4F94-B17C-11D3-9AD1-00AA00B6FE26),
+	dual,
+	helpstring("IMgaContainer Interface"),
+	pointer_default(unique)
+]
+
+interface IMgaContainer : IMgaFCO
+{
+	[propget, helpstring("property ChildFCOs")] HRESULT ChildFCOs([out, retval] IMgaFCOs **pVal);
+	[propget, helpstring("property ChildFCO")] HRESULT ChildFCO([in] BSTR, [out, retval] IMgaFCO **pVal);
+	[ helpstring("method GetDescendantFCOs: recursive search")] HRESULT GetDescendantFCOs([in] IMgaFilter*, [out] IMgaFCOs **);
+	[ helpstring("method GetChildFCOsOfKind: non recursive search")] HRESULT GetChildrenOfKind([in] BSTR, [out] IMgaFCOs **);
+};
+*/
+
+[
+	object,
+	uuid(270B4F96-B17C-11D3-9AD1-00AA00B6FE26),
+	dual,
+	helpstring("IMgaFolder: these are not really FCO-s, so implement only part of the functions from IMgaFCO!!!"),
+	pointer_default(unique)
+]
+interface IMgaFolder : IMgaObject
+{
+	[propget, helpstring("property MetaFolder")] HRESULT MetaFolder([out, retval] IMgaMetaFolder **pVal);
+	[propget, helpstring("property ParentFolder")] HRESULT ParentFolder([out, retval] IMgaFolder **pVal);
+
+	[propget, helpstring("property ChildFolders")] HRESULT ChildFolders([out, retval] IMgaFolders **pVal);
+	[ helpstring("method CreateFolder")] HRESULT CreateFolder([in] IMgaMetaFolder *meta, [out, retval] IMgaFolder **nf);
+	[ helpstring("method CreateRootObject")] HRESULT CreateRootObject([in] IMgaMetaFCO* meta, [out, retval] IMgaFCO **nobj);
+	[ helpstring("method DeriveRootObject")] HRESULT DeriveRootObject([in] IMgaFCO* base, [in] VARIANT_BOOL instance, [out, retval] IMgaFCO **nobj);
+
+	[id(0x540), propget, helpstring("property RegistryNode")] 
+		HRESULT RegistryNode([in] BSTR path, [out, retval] IMgaRegNode **pVal);
+	[helpstring("getter for property RegistryNode")] 
+		HRESULT GetRegistryNodeDisp([in] BSTR path, [out, retval] IMgaRegNode **pVal);
+	[id(0x541), propget, helpstring("property Registry")] 
+		HRESULT Registry([in, defaultvalue(0)] VARIANT_BOOL virtuals, [out, retval] IMgaRegNodes **pVal);
+	[helpstring("getter for property Registry")] 
+		HRESULT GetRegistryDisp([in, defaultvalue(0)] VARIANT_BOOL virtuals, [out, retval] IMgaRegNodes **pVal);
+	[id(0x542), propget, helpstring("property RegistryValue")] 
+		HRESULT RegistryValue([in] BSTR path, [out, retval] BSTR *pVal);
+	[helpstring("getter for property RegistryValue")] 
+		HRESULT GetRegistryValueDisp([in] BSTR path, [out, retval] BSTR *pVal);
+	[id(0x542), propput, helpstring("property RegistryValue")] 
+		HRESULT RegistryValue([in] BSTR path, [in] BSTR newval);
+	[helpstring("setter for property RegistryValue")] 
+		HRESULT SetRegistryValueDisp([in] BSTR path, [in] BSTR newval);
+
+	[id(0x544), propget, helpstring("property Constraints")] 
+		HRESULT Constraints([in] VARIANT_BOOL includemeta, [out, retval] IMgaConstraints **pVal);
+	[helpstring("getter for property Constraints")] 
+		HRESULT GetConstraintsDisp([in] VARIANT_BOOL includemeta, [out, retval] IMgaConstraints **pVal);
+	[id(0x545), helpstring("method AddConstraint")] 
+		HRESULT AddConstraint([in] IMgaConstraint *constraint);
+	[id(0x546), helpstring("method DefineConstraint")] 
+		HRESULT DefineConstraint([in] BSTR name, [in] long mask, [in] BSTR expr, [out] IMgaConstraint **nconstraint);
+
+	[id(0x551), helpstring("method MoveFCOs")] 
+		HRESULT MoveFCOs([in] IMgaFCOs *to_copy, [out] IMgaFCOs **objs);
+	[id(0x552), helpstring("method CopyFCOs")] 
+		HRESULT CopyFCOs([in] IMgaFCOs *to_move, [out] IMgaFCOs **objs);
+	[id(0x561), helpstring("method MoveFolders")] 
+		HRESULT MoveFolders([in] IMgaFolders *to_copy, [out] IMgaFolders **objs);
+	[id(0x562), helpstring("method CopyFolders")] 
+		HRESULT CopyFolders([in] IMgaFolders *to_move, [out] IMgaFolders **objs);
+	[id(0x563), helpstring("method MarkParent")] 
+		HRESULT RefreshParent([in] IMgaFolder *folder);
+
+// Container methods and properties
+	[id(0x553), propget, helpstring("property ChildFCOs")] 
+		HRESULT ChildFCOs([out, retval] IMgaFCOs **pVal);
+	[id(0x554),propget, helpstring("property ChildFCO, return NULL if not found")] 
+		HRESULT ChildFCO([in] BSTR name, [out, retval] IMgaFCO **pVal);
+	[helpstring("getter for property ChildFCO, return NULL if not found")] 
+		HRESULT GetChildFCODisp([in] BSTR name, [out, retval] IMgaFCO **pVal);
+	[id(0x555), helpstring("method GetDescendantFCOs: recursive search")] 
+		HRESULT GetDescendantFCOs([in] IMgaFilter *filter, [out, retval] IMgaFCOs **returnset);
+	[id(0x556), helpstring("method GetChildFCOsOfKind: non recursive search")] 
+		HRESULT GetChildrenOfKind([in] BSTR kindname, [out, retval] IMgaFCOs **returnset);
+
+	[id(0x560), propget, helpstring("property ChildRelIDCounter")] 
+		HRESULT ChildRelIDCounter([out, retval] long *pVal);
+	[id(0x560), propput, helpstring("property ChildRelIDCounter")] 
+		HRESULT ChildRelIDCounter([in] long pVal);
+//lastid: 0x563
+
+	[ helpstring("method AttachLibrary")] HRESULT AttachLibrary([in] BSTR connstring, [out] IMgaFolder **nf);
+	[ helpstring("method RefreshLibrary")] HRESULT RefreshLibrary([in] BSTR connstring);
+	[ propget, helpstring("method LibraryName")] HRESULT LibraryName([out, retval] BSTR *connstring);
+	[ propput, helpstring("method LibraryName")] HRESULT LibraryName([in] BSTR connstring);
+
+	[ helpstring("method AttachLibrary with Ungroup option (aka Optimization)")] 
+		HRESULT AttachLibraryV3([in] BSTR connstring, [in] VARIANT_BOOL ungroup, [out, retval] IMgaFolder **nf);
+	[ helpstring("method RefreshLibrary with Ungroup option (aka Optimization)")] 
+		HRESULT RefreshLibraryV3([in] BSTR connstring, [in] VARIANT_BOOL ungroup, [out, retval] long* numOfErrors);
+
+	[ helpstring("method for getting those libraries which are virtually included by this")] 
+		HRESULT GetVirtuallyIncludes( [out, retval] IMgaFolders** pDep);
+	[ helpstring("method for getting those libraries which virtually include this")] 
+		HRESULT GetVirtuallyIncludedBy( [out, retval] IMgaFolders** pDep);
+	[ helpstring("method for setting those libraries which are virtually included by this")] 
+		HRESULT SetVirtuallyIncludes( [in] IMgaFolders* pDep);
+	[ helpstring("method for setting those libraries which virtually include this")] 
+		HRESULT SetVirtuallyIncludedBy( [in] IMgaFolders* pDep);
+
+// Dispatch compatible copy/move
+	[helpstring("method MoveFCO through Dispatch")]
+		HRESULT MoveFCODisp([in] IMgaFCO *to_copy, [out, retval] IMgaFCO **obj);
+	[helpstring("method CopyFCO through Dispatch")]
+		HRESULT CopyFCODisp([in] IMgaFCO *to_move, [out, retval] IMgaFCO **obj);
+	[helpstring("method MoveFolder through Dispatch")]
+		HRESULT MoveFolderDisp([in] IMgaFolder *to_copy, [out, retval] IMgaFolder **obj);
+	[helpstring("method CopyFolder through Dispatch")]
+		HRESULT CopyFolderDisp([in] IMgaFolder *to_move, [out, retval] IMgaFolder **obj);
+
+// Source control
+	[ helpstring("method GetSourceControlInfo, to find out current status of file")] 
+	HRESULT GetSourceControlInfo( [out, retval] long * scInfo);
+};
+
+[
+	object,
+	uuid(270B4F9A-B17C-11D3-9AD1-00AA00B6FE26),
+	dual,
+	helpstring("IMgaModel Interface"),
+	pointer_default(unique)
+]
+interface IMgaModel : IMgaFCO
+{
+	[ helpstring("method CreateChildObject")] HRESULT CreateChildObject([in] IMgaMetaRole *meta, [out, retval] IMgaFCO **newobj);
+	[ helpstring("method DeriveChildObject")] HRESULT DeriveChildObject([in] IMgaFCO *base, 
+											[in] IMgaMetaRole *Role, [in] VARIANT_BOOL instance, [out, retval] IMgaFCO **newobj);
+
+	[propget, helpstring("property ChildDerivedFrom")] HRESULT ChildDerivedFrom([in] IMgaFCO *baseobj, [out, retval] IMgaFCO **pVal);
+
+	[helpstring("getter for property ChildDerivedFrom")] HRESULT GetChildDerivedFromDisp([in] IMgaFCO *baseobj, [out, retval] IMgaFCO **pVal);
+
+	[propget, helpstring("property AspectParts")] 
+					HRESULT AspectParts([in] IMgaMetaAspect * asp, [in] unsigned int filter, [out, retval] IMgaParts **pVal);
+	[helpstring("getter for property AspectParts")] 
+					HRESULT GetAspectPartsDisp([in] IMgaMetaAspect * asp, [in] unsigned int filter, [out, retval] IMgaParts **pVal);
+
+	[ helpstring("method CreateSimpleConn")] 
+					HRESULT CreateSimpleConn([in] IMgaMetaRole *meta, [in] IMgaFCO *Src, [in] IMgaFCO *Dst,
+											 [in] IMgaFCOs *srcrefs, [in] IMgaFCOs *dstrefs, [out, retval] IMgaFCO **newobj);
+	[ helpstring("method CreateReference")] 
+					HRESULT CreateReference([in] IMgaMetaRole *meta, [in] IMgaFCO *Target, [out, retval] IMgaFCO **newobj);
+	[ helpstring("method AddInternalConnections")] HRESULT AddInternalConnections([in] IMgaFCOs *inobjs, [out, retval] IMgaFCOs **outobjs);
+
+	[id(0x551), helpstring("method MoveFCOs")] 
+		HRESULT MoveFCOs([in] IMgaFCOs * to_copy, [in] IMgaMetaRoles *destroles, [out] IMgaFCOs **objs);
+	[id(0x552), helpstring("method CopyFCOs")] 
+		HRESULT CopyFCOs([in] IMgaFCOs * to_move, [in] IMgaMetaRoles *destroles, [out] IMgaFCOs **objs);
+
+
+// Container methods and properties
+	[id(0x553), propget, helpstring("property ChildFCOs")] 
+		HRESULT ChildFCOs([out, retval] IMgaFCOs **pVal);
+	[id(0x554),propget, helpstring("property ChildFCO, return NULL if not found")] 
+		HRESULT ChildFCO([in] BSTR name, [out, retval] IMgaFCO **pVal);
+	[helpstring("getter for property ChildFCO, return NULL if not found")] 
+		HRESULT GetChildFCODisp([in] BSTR name, [out, retval] IMgaFCO **pVal);
+	[id(0x555), helpstring("method GetDescendantFCOs: recursive search")] 
+		HRESULT GetDescendantFCOs([in] IMgaFilter *filter, [out, retval] IMgaFCOs **returnset);
+	[id(0x556), helpstring("method GetChildFCOsOfKind: non recursive search")] 
+		HRESULT GetChildrenOfKind([in] BSTR kindname, [out, retval] IMgaFCOs **returnset);
+
+	[id(0x560), propget, helpstring("property ChildRelIDCounter")] 
+		HRESULT ChildRelIDCounter([out, retval] long *pVal);
+	[id(0x560), propput, helpstring("property ChildRelIDCounter")] 
+		HRESULT ChildRelIDCounter([in] long pVal);
+
+// Dispatch compatible connection creation
+	[helpstring("method CreateSimpleConn through Dispatch")] 
+		HRESULT CreateSimpleConnDisp([in] IMgaMetaRole *meta, [in] IMgaFCO *Src, [in] IMgaFCO *Dst,
+							 [in] IMgaFCO *Srcref, [in] IMgaFCO *Dstref, [out, retval] IMgaFCO **newobj);
+
+	[helpstring("method CreateSimpleConn through Dispatch")] 
+		HRESULT CreateSimplerConnDisp([in] IMgaMetaRole *meta, [in] IMgaFCO *Src, [in] IMgaFCO *Dst, [out, retval] IMgaFCO **newobj);
+
+// Dispatch compatible copy/move
+	[helpstring("method MoveFCO through Dispatch")] 
+		HRESULT MoveFCODisp([in] IMgaFCO * to_copy, [in] IMgaMetaRole *destrole, [out, retval] IMgaFCO **obj);
+	[helpstring("method CopyFCO through Dispatch")] 
+		HRESULT CopyFCODisp([in] IMgaFCO * to_move, [in] IMgaMetaRole *destrole, [out, retval] IMgaFCO **obj);
+
+
+// Source control
+	[ helpstring("method GetSourceControlInfo, to find out current status of file")] 
+	HRESULT GetSourceControlInfo( [out, retval] long * scInfo);
+};
+
+[
+	object,
+	uuid(270B4F9C-B17C-11D3-9AD1-00AA00B6FE26),
+	dual,
+	helpstring("IMgaAtom Interface"),
+	pointer_default(unique)
+]
+interface IMgaAtom : IMgaFCO
+{
+};
+
+[
+	object,
+	uuid(270B4F9E-B17C-11D3-9AD1-00AA00B6FE26),
+	dual,
+	helpstring("IMgaPart Interface"),
+	pointer_default(unique)
+]
+
+interface IMgaPart : IDispatch
+{
+	[propget, helpstring("property Model")] HRESULT Model([out, retval] IMgaModel **pVal);
+	[propget, helpstring("property Meta")] HRESULT Meta([out, retval] IMgaMetaPart **pVal);
+	[propget, helpstring("property MetaAspect")] HRESULT MetaAspect([out, retval] IMgaMetaAspect **pVal);
+	[propget, helpstring("property MetaRole")] HRESULT MetaRole([out, retval] IMgaMetaRole **pVal);
+	[propget, helpstring("property FCO")] HRESULT FCO([out, retval] IMgaFCO **pVal);
+	[propget, helpstring("property AccessMask: primary, secondary and/or port")] HRESULT AccessMask([out, retval] long *pVal);
+
+	[propget, helpstring("property RegistryMode")] HRESULT RegistryMode([out, retval] VARIANT_BOOL *own);
+	[propput, helpstring("property RegistryMode")] HRESULT RegistryMode([in] VARIANT_BOOL own);
+	[propget, helpstring("property RegistryNode")] HRESULT RegistryNode([in] BSTR path, [out, retval] IMgaRegNode **pVal);
+	[helpstring("getter for property RegistryNode")] HRESULT GetRegistryNodeDisp([in] BSTR path, [out, retval] IMgaRegNode **pVal);
+	[propget, helpstring("property Registry")] 
+		HRESULT Registry([in, defaultvalue(0)] VARIANT_BOOL virtuals, [out, retval] IMgaRegNodes **pVal);
+	[helpstring("getter for property Registry")] 
+		HRESULT GetRegistryDisp([in, defaultvalue(0)] VARIANT_BOOL virtuals, [out, retval] IMgaRegNodes **pVal);
+	[propget, helpstring("property RegistryValue")] HRESULT RegistryValue([in] BSTR path, [out, retval] BSTR *pVal);
+	[propput, helpstring("property RegistryValue")] HRESULT RegistryValue([in] BSTR path, [in] BSTR newval);
+	[helpstring("getter for property RegistryValue")] HRESULT GetRegistryValueDisp([in] BSTR path, [out, retval] BSTR *pVal);
+	[helpstring("setter for property RegistryValue")] HRESULT SetRegistryValueDisp([in] BSTR path, [in] BSTR newval);
+
+
+	[helpstring("method GetGmeAttrs")] HRESULT GetGmeAttrs([out] BSTR *Icon, [out] long *xpos, [out] long *ypos);
+	[helpstring("method SetGmeAttrs")] HRESULT SetGmeAttrs([in] BSTR Icon, [in] long xpos, [in] long ypos);
+};
+
+[
+	object,
+	uuid(83BA3233-B758-11D3-ABAE-000000000000),
+	dual,
+	helpstring("IMgaReference Interface"),
+	pointer_default(unique)
+]
+interface IMgaReference : IMgaFCO
+{
+	[propget, helpstring("property Referred")] HRESULT Referred([out, retval] IMgaFCO * *pVal);
+	[propput, helpstring("property Referred")] HRESULT Referred([in] IMgaFCO * newVal);
+	[propget, helpstring("property RefAspect: allways NULL for ref's to non-models, and may also be NULL for model refs")] 
+												HRESULT RefAspect([out, retval] IMgaMetaAspect **pVal);
+	[propput, helpstring("property RefAspect: NOP for non-model refs")] 
+												HRESULT RefAspect([in] IMgaMetaAspect * newVal);
+
+	[propget, helpstring("property UsedByConns: get ConnPoints that connect to this Reference's RefPorts")]
+	HRESULT UsedByConns([out, retval] IMgaConnPoints **pVal);
+/*
+	[propget, helpstring("property RefPorts")] HRESULT RefPorts([out, retval] IMgaRefPorts **pVal);
+	[propget, helpstring("property RefPortFor")] HRESULT RefPortFor([in] IMgaFCO* target, [out, retval] IMgaRefPorts *pVal);
+*/
+	[id(0x580), helpstring("method CompareToBase: returns 0 if match found")] 
+		HRESULT CompareToBase([out] short *status);
+	[id(0x581), helpstring("method RevertToBase")] 
+		HRESULT RevertToBase();
+
+	// Dispatch compatible method, similar to Referred = 0
+	[helpstring("Clear Reference")] HRESULT ClearRef();
+};
+
+/*
+[
+	object,
+	uuid(),
+	dual,
+	helpstring("IMgaRefPort Interface"),
+	pointer_default(unique)
+]
+interface IMgaRefPort : IDispatch
+{
+	[propget, helpstring("property Reference: the reference the port belongs to")] 
+		HRESULT Reference([out, retval] IMgaFCO **pVal);
+	[propget, helpstring("property Target: the atom this port represents")]  
+		HRESULT Target([out, retval] IMgaFCO **pVal);
+	[propget, helpstring("property PointsTo: the atom or port immediately referred")]  
+		HRESULT PointsTo([out, retval] IMgaFCO **pVal);
+	[propget, helpstring("property Visible")] 
+		HRESULT Visible([out, retval] VARIANT_BOOL *pVal);
+	[propput, helpstring("property Visible")] 
+		HRESULT Visible([out, retval] VARIANT_BOOL newVal);
+};
+*/
+
+
+[
+	object,
+	uuid(83BA3235-B758-11D3-ABAE-000000000000),
+	dual,
+	helpstring("IMgaSet Interface"),
+	pointer_default(unique)
+]
+interface IMgaSet : IMgaFCO
+{
+	[helpstring("method AddMember")] HRESULT AddMember([in] IMgaFCO *mem);
+	[helpstring("method RemoveMember")] HRESULT RemoveMember([in] IMgaFCO *member);
+	[helpstring("method RemoveAll")] HRESULT RemoveAll();
+	[propget, helpstring("property Members")] HRESULT Members([out, retval] IMgaFCOs **pVal);
+	[propget, helpstring("property IsMember")] HRESULT IsMember([in] IMgaFCO *obj, [out, retval] VARIANT_BOOL *pVal);
+
+	[id(0x580), helpstring("method CompareToBase; all elements are compared; 0 if all match")] 
+			HRESULT CompareToBase([out] short *status);
+	[id(0x581), helpstring("method RevertToBase; all elements are reverted")] 
+			HRESULT RevertToBase();
+/*
+	[helpstring("method CompareToBase; if elem is null, all elements are compared")] 
+			HRESULT CompareToBase([in, defaultvalue(0)] IMgaFCO *elem, [out] short *status);
+	[helpstring("method RevertToBase; if elem is null, all elements are reverted")] 
+			HRESULT RevertToBase([in, defaultvalue(0)] IMgaFCO *elem);
+*/
+	[helpstring("getter for property IsMember")] HRESULT GetIsMemberDisp([in] IMgaFCO *obj, [out, retval] VARIANT_BOOL *pVal);
+};
+
+[
+	object,
+	uuid(270B4FA0-B17C-11D3-9AD1-00AA00B6FE26),
+	dual,
+	helpstring("IMgaConnection Interface"),
+	pointer_default(unique)
+]
+interface IMgaConnection : IMgaFCO
+{
+	[helpstring("property AddConnPoint")] 
+		HRESULT AddConnPoint([in] BSTR rolename, [in] long maxinrole, 
+						[in] IMgaFCO *Target, [in] IMgaFCOs *refs, [out] IMgaConnPoint **pVal);
+	[propget, helpstring("property ConnPoints")] HRESULT ConnPoints([out, retval] IMgaConnPoints **pVal);
+
+	[helpstring("method CompareToBase; if connpoint is null, all connpoints are compared")] 
+			HRESULT CompareToBase([in] IMgaConnPoint *connpoint, [out] short *status);
+	[helpstring("method RevertToBase; if connpoint is null, all connpoints are reverted")] 
+			HRESULT RevertToBase([in] IMgaConnPoint *connpoint);
+};
+
+[
+	object,
+	uuid(83BA3237-B758-11D3-ABAE-000000000000),
+	dual,
+	helpstring("IMgaSimpleConnection Interface"),
+	pointer_default(unique)
+]
+interface IMgaSimpleConnection : IMgaConnection
+{
+	[propget, helpstring("property Src")] HRESULT Src([out, retval] IMgaFCO * *pVal);
+	[propget, helpstring("property Dst")] HRESULT Dst([out, retval] IMgaFCO * *pVal);
+	[propget, helpstring("property SrcReferences")] HRESULT SrcReferences([out, retval] IMgaFCOs **pVal);
+	[propget, helpstring("property DstReferences")] HRESULT DstReferences([out, retval] IMgaFCOs **pVal);
+	[helpstring("method SetDst")] HRESULT SetDst([in] IMgaFCOs *references, [in] IMgaFCO *Target);
+	[helpstring("method SetSrc")] HRESULT SetSrc([in] IMgaFCOs *references, [in] IMgaFCO *Target);
+/*
+	[propget, helpstring("property SrcPort")] HRESULT SrcPort([out, retval] IMgaRefPort **pVal);
+	[propget, helpstring("property DstPort")] HRESULT DstPort([out, retval] IMgaRefPort **pVal);
+	[propput, helpstring("property SrcPort")] HRESULT SrcPort([in] IMgaRefPort *newVal);
+	[propput, helpstring("property DstPort")] HRESULT DstPort([in] IMgaRefPort *newVal);
+*/
+};
+
+[
+	object,
+	uuid(cb8fa000-c1fd-11d3-9ad2-00aa00b6fe26),
+	dual,
+	helpstring("IMgaConnPoint Interface"),
+	pointer_default(unique)
+]
+interface IMgaConnPoint : IDispatch
+{
+	[propget, helpstring("property Owner")] HRESULT Owner([out, retval] IMgaConnection **pVal);
+	[propget, helpstring("property ConnRole")] HRESULT ConnRole([out, retval] BSTR *pVal);
+	[propput, helpstring("property ConnRole")] HRESULT ConnRole([in] BSTR newVal);
+	[propget, helpstring("property Target")] HRESULT Target([out, retval] IMgaFCO **pVal);
+	[propget, helpstring("property References")] HRESULT References([out, retval] IMgaFCOs **pVal);
+	[helpstring("method Remove")] HRESULT Remove();
+//	[propget, helpstring("property RefPort")] HRESULT RefPort([out, retval] IMgaRefPort **pVal);
+};
+
+
+[
+	object,
+	uuid(83BA323D-B758-11D3-ABAE-000000000000),
+	dual,
+	helpstring("IMgaRegNode Interface"),
+	pointer_default(unique)
+]
+interface IMgaRegNode : IDispatch
+{
+	[propget, helpstring("property Name")]
+	HRESULT Name([out, retval] BSTR *pVal);
+
+	[propget, helpstring("property Path")]
+	HRESULT Path([out, retval] BSTR *pVal);
+
+	[propget, helpstring("property Value")]
+	HRESULT Value([out, retval] BSTR *pVal);
+
+	[propput, helpstring("property Value")]
+	HRESULT Value([in] BSTR newVal);
+
+	[propget, helpstring("property FCOValue")]
+	HRESULT FCOValue([out, retval] IMgaFCO **pVal);
+
+	[propput, helpstring("property FCOValue")]
+	HRESULT FCOValue([in] IMgaFCO *newVal);
+
+	[propget, helpstring("property SubNodes")]
+	HRESULT SubNodes([in, defaultvalue(0)] VARIANT_BOOL virtuals, [out, retval] IMgaRegNodes **p);
+
+	[helpstring("getter for property SubNodes")]
+	HRESULT GetSubNodesDisp([in, defaultvalue(0)] VARIANT_BOOL virtuals, [out, retval] IMgaRegNodes **p);
+
+	[propget, helpstring("property SubNodeByName")]
+	HRESULT SubNodeByName([in] BSTR name, [out, retval] IMgaRegNode **pVal);
+
+	[helpstring("getter for property SubNodeByName")]
+	HRESULT GetSubNodeByNameDisp([in] BSTR name, [out, retval] IMgaRegNode **pVal);
+
+	[propget, helpstring("property ParentNode")]
+	HRESULT ParentNode([out, retval] IMgaRegNode **p);
+
+	[propget, helpstring("property Status of definition: 0: here, -1: in meta, >=1: inherited")]
+	HRESULT Status([out] long *status);
+
+	[propget, helpstring("property Opacity")]
+	HRESULT Opacity([out, retval] VARIANT_BOOL *p);
+
+	[propput, helpstring("property Opacity")]
+	HRESULT Opacity([in] VARIANT_BOOL p);
+
+	[helpstring("method Clear: assign empty value (nop if virtual)")]
+	HRESULT Clear();
+
+	[helpstring("method RemoveTree: remove this node and subnodes (nop if already virtual)")]
+	HRESULT RemoveTree();
+};
+
+[
+	object,
+	uuid(c8f6e970-c1fd-11d3-9ad2-00aa00b6fe26),
+	dual,
+	helpstring("IMgaFilter Interface"),
+	pointer_default(unique)
+]
+interface IMgaFilter : IDispatch
+{
+	[propget, helpstring("property Name: Space-separated list of names")] 
+					HRESULT Name([out, retval] BSTR *pVal);
+	[propput, helpstring("property Name")] 
+					HRESULT Name([in] BSTR newVal);
+	[propget, helpstring("property Kind: Space separated list of names or #<metarefs>")] 
+					HRESULT Kind([out, retval] BSTR *pVal);
+	[propput, helpstring("property Kind")] 
+					HRESULT Kind([in] BSTR newVal);
+	[propget, helpstring("property Role: Space separated list of names or #<metarefs>")] 
+					HRESULT Role([out, retval] BSTR *pVal);
+	[propput, helpstring("property Role")] 
+					HRESULT Role([in] BSTR newVal);
+	[propget, helpstring("property ObjType: Space separated list of objtype numbers or mnemonics")] 
+					HRESULT ObjType([out, retval] BSTR *pVal);
+	[propput, helpstring("property ObjType")] 
+					HRESULT ObjType([in] BSTR newVal);
+	[propget, helpstring("property SearchLevel space separated list of numbers, or dash-separated number pairs")] 
+					HRESULT Level([out, retval] BSTR *pVal);
+	[propput, helpstring("property SearchLevel")] 
+					HRESULT Level([in] BSTR newVal);
+	[ propget,  helpstring("property Project")] 
+					HRESULT Project([out, retval] IMgaProject **pVal);
+};
+
+[
+	object,
+	uuid(CBF20084-BD43-11D3-9AD2-00AA00B6FE26),
+	dual,
+	helpstring("IMgaAttribute Interface"),
+	pointer_default(unique)
+]
+interface IMgaAttribute : IDispatch
+{
+	[propget, helpstring("property Meta")] HRESULT Meta([out, retval] IMgaMetaAttribute **pVal);
+	[propget, helpstring("property Value")] HRESULT Value([out, retval] VARIANT *pVal);
+	[propput, helpstring("property Value")] HRESULT Value([in] VARIANT newVal);
+	[propget, helpstring("property Owner")] HRESULT Owner([out, retval] IMgaFCO * *pVal);
+	[propget, helpstring("property Status of definition: 0: here, -1: in meta, >=1: inherited, -2: undefined")] 
+											HRESULT Status([out, retval] long *status);
+	[propget, helpstring("property OrigValue")] HRESULT OrigValue([out, retval] VARIANT *pVal);
+	[propget, helpstring("property HasChanged")] HRESULT HasChanged([out, retval] VARIANT_BOOL *pVal);
+
+	[propget, helpstring("property StringValue")] HRESULT StringValue([out, retval] BSTR *pVal);
+	[propput, helpstring("property StringValue")] HRESULT StringValue([in] BSTR newVal);
+	[propget, helpstring("property IntValue")] HRESULT IntValue([out, retval] long *pVal);
+	[propput, helpstring("property IntValue")] HRESULT IntValue([in] long newVal);
+	[propget, helpstring("property BoolValue")] HRESULT BoolValue([out, retval] VARIANT_BOOL *pVal);
+	[propput, helpstring("property BoolValue")] HRESULT BoolValue([in] VARIANT_BOOL newVal);
+	[propget, helpstring("property FloatValue")] HRESULT FloatValue([out, retval] double *pVal);
+	[propput, helpstring("property FloatValue")] HRESULT FloatValue([in] double newVal);
+	[propget, helpstring("property FCOValue")] HRESULT FCOValue([out, retval] IMgaFCO **pVal);
+	[propput, helpstring("property FCOValue")] HRESULT FCOValue([in] IMgaFCO * newVal);
+
+	[propget, helpstring("property RegistryNode")] 
+		HRESULT RegistryNode([in] BSTR path, [out, retval] IMgaRegNode **pVal);
+	[helpstring("getter for property RegistryNode")] 
+		HRESULT GetRegistryNodeDisp([in] BSTR path, [out, retval] IMgaRegNode **pVal);
+	[propget, helpstring("property Registry")] 
+		HRESULT Registry([in, defaultvalue(0)] VARIANT_BOOL virtuals, [out, retval] IMgaRegNodes **pVal);
+	[helpstring("getter for property Registry")] 
+		HRESULT GetRegistryDisp([in, defaultvalue(0)] VARIANT_BOOL virtuals, [out, retval] IMgaRegNodes **pVal);
+	[propget, helpstring("property RegistryValue")] 
+		HRESULT RegistryValue([in] BSTR path, [out, retval] BSTR *pVal);
+	[propput, helpstring("property RegistryValue")] 
+		HRESULT RegistryValue([in] BSTR path, [in] BSTR newval);
+	[helpstring("getter for property RegistryValue")] 
+		HRESULT GetRegistryValueDisp([in] BSTR path, [out, retval] BSTR *pVal);
+	[helpstring("setter for property RegistryValue")] 
+		HRESULT SetRegistryValueDisp([in] BSTR path, [in] BSTR newval);
+
+	[helpstring("method Clear")] HRESULT Clear();
+};
+
+
+
+
+
+MGACOLL_INTERFACE(c59c2210-c1fd-11d3-9ad2-00aa00b6fe26, MgaFolder)
+MGACOLL_INTERFACE(c5f4c2f0-c1fd-11d3-9ad2-00aa00b6fe26, MgaFCO)
+MGACOLL_INTERFACE(c6f3f340-c1fd-11d3-9ad2-00aa00b6fe26, MgaAttribute)
+MGACOLL_INTERFACE(c71a26f0-c1fd-11d3-9ad2-00aa00b6fe26, MgaPart)
+MGACOLL_INTERFACE(c7f19c60-c1fd-11d3-9ad2-00aa00b6fe26, MgaConnPoint)
+MGACOLL_INTERFACE(c79f1840-c1fd-11d3-9ad2-00aa00b6fe26, MgaRegNode)
+MGACOLL_INTERFACE(c8a5ec80-c1fd-11d3-9ad2-00aa00b6fe26, MgaAddOn)
+MGACOLL_INTERFACE2(c87caa70-c1fd-11d3-9ad2-00aa00b6fe26, IMgaTerritories, IMgaTerritory)
+MGACOLL_INTERFACE(c8cda760-c1fd-11d3-9ad2-00aa00b6fe26, MgaComponent)
+MGACOLL_INTERFACE(c9d8df93-c1fd-11d3-9ad2-00aa00b6fe26, MgaClient)
+MGACOLL_INTERFACE(c5aac2f0-c1fd-11d3-9ad2-00aa00b6fe26, MgaObject)
+
+[
+	object,
+	uuid(C356B135-961D-4B6C-8B1F-257E19117CC1),
+	dual,
+	helpstring("IMgaO Interface"),
+	pointer_default(unique)
+]
+interface IMgaO : IDispatch
+{
+};

@@ -1,0 +1,14 @@
+HKCR
+{
+	NoRemove CLSID
+	{
+		ForceRemove {9FE3BB80-B596-41BA-910F-0FF9C3B4F38A} = s 'CoreCollectionHandler Class'
+		{
+			InprocHandler32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Both'
+			}
+			'TypeLib' = s '{9E9AAACF-28B8-11D3-B36C-0060082DF884}'
+		}
+	}
+}

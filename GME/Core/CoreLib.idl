@@ -1,0 +1,137 @@
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+#include "InterfaceColl.h"
+
+import "Core.idl";
+
+// --------------------------- Core Library 
+
+[
+	uuid(9E9AAACF-28B8-11D3-B36C-0060082DF884),
+	version(1.0),
+	helpstring("MGA Core Type Library")
+]
+library MGACoreLib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+	enum locking_enum;
+	enum valtype_enum;
+
+	interface ICoreDictionaryAttributeValue;
+
+	[
+		uuid(AD9DFA4F-2A3B-11D3-B36C-0060082DF884),
+		helpstring("CoreProject Class")
+	]
+	coclass CoreProject
+	{
+		[default] interface ICoreProject;
+		interface ISupportErrorInfo;
+		interface IGMEVersionInfo;
+	};
+
+	[
+		uuid(98AA02DD-2E2C-11D3-B36D-0060082DF884),
+		helpstring("CoreMetaProject Class"),
+	]
+	coclass CoreMetaProject
+	{
+		[default] interface ICoreMetaProject;
+		interface ISupportErrorInfo;
+	};
+
+	[
+		uuid(98AA02DC-2E2C-11D3-B36D-0060082DF884),
+		helpstring("CoreMetaObject Class"),
+		noncreatable
+	]
+	coclass CoreMetaObject
+	{
+		[default] interface ICoreMetaObject;
+		interface ISupportErrorInfo;
+	};
+
+	[
+		uuid(98AA02E2-2E2C-11D3-B36D-0060082DF884),
+		helpstring("CoreMetaAttribute Class"),
+		noncreatable
+	]
+	coclass CoreMetaAttribute
+	{
+		[default] interface ICoreMetaAttribute;
+		interface ISupportErrorInfo;
+	};
+
+	[
+		uuid(09D9DCAF-3209-11D3-B2F7-005004D38590),
+		helpstring("CoreStorage Class"),
+		noncreatable
+	]
+	coclass CoreStorage
+	{
+		[default] interface ICoreStorage;
+		interface ISupportErrorInfo;
+	};
+
+
+	[
+		uuid(7281C07A-3E09-11D3-B2F7-005004D38590),
+		helpstring("CoreBinFile Class")
+	]
+	coclass CoreBinFile
+	{
+		[default] interface ICoreStorage;
+		interface ISupportErrorInfo;
+	};
+
+	[
+		uuid(826A8737-563B-11D3-B301-005004D38590),
+		helpstring("CoreObject Class"),
+		noncreatable
+	]
+	coclass CoreObject
+	{
+		[default] interface ICoreObject;
+		interface ISupportErrorInfo;
+	};
+
+	[
+		uuid(826A8739-563B-11D3-B301-005004D38590),
+		helpstring("CoreAttribute Class"),
+		noncreatable
+	]
+	coclass CoreAttribute
+	{
+		[default] interface ICoreAttribute;
+		interface ISupportErrorInfo;
+	};
+
+	[
+		uuid(4C3A57C4-8DFF-11D3-B336-005004D38590),
+		helpstring("CoreTerritory Class"),
+		noncreatable
+	]
+	coclass CoreTerritory
+	{
+		[default] interface ICoreTerritory;
+		interface ISupportErrorInfo;
+	};
+
+	[
+		uuid(9FE3BB80-B596-41BA-910F-0FF9C3B4F38A)
+	]
+	coclass CoreCollectionHandler
+	{
+		[default] interface IUnknown;
+	};
+
+
+	MGACOLL_COCLASS(43D12112-12CA-11D3-A6EC-0060082DF884, CoreMetaObject)
+	MGACOLL_COCLASS(43D12128-12CA-11D3-A6EC-0060082DF884, CoreMetaAttribute)
+	MGACOLL_COCLASS(43D12112-22CA-11D3-A6EC-0060082DF884, CoreObject)
+	MGACOLL_COCLASS(43D12128-22CA-11D3-A6EC-0060082DF884, CoreAttribute)
+};

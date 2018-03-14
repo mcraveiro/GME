@@ -1,0 +1,310 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns="http://tempuri.org/edf" elementFormDefault="qualified" targetNamespace="http://tempuri.org/edf" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:element name="paradigm">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element minOccurs="0" maxOccurs="1" ref="comment" />
+				<xs:element minOccurs="0" maxOccurs="1" ref="author" />
+				<xs:element minOccurs="0" maxOccurs="1" ref="dispname" />
+				<xs:element ref="folder" />
+			</xs:sequence>
+			<xs:attribute name="name" type="xs:NMTOKEN" use="required" />
+			<xs:attribute name="guid" type="xs:string" />
+			<xs:attribute name="version" type="xs:string" />
+			<xs:attribute name="cdate" type="xs:string" />
+			<xs:attribute name="mdate" type="xs:string" />
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="dispname" type="xs:string" />
+	<xs:element name="comment" type="xs:string" />
+	<xs:element name="author" type="xs:string" />
+	<xs:element name="constraint">
+		<xs:complexType mixed="true">
+			<xs:choice minOccurs="0" maxOccurs="unbounded">
+				<xs:element ref="dispname" />
+			</xs:choice>
+			<xs:attribute name="name" type="xs:NMTOKEN" />
+			<xs:attribute name="eventmask" type="xs:string" />
+			<xs:attribute default="5" name="priority" type="xs:string" />
+			<xs:attribute default="1" name="depth">
+				<xs:simpleType>
+					<xs:restriction base="xs:NMTOKEN">
+						<xs:enumeration value="0" />
+						<xs:enumeration value="1" />
+						<xs:enumeration value="any" />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute default="eventbased" name="type">
+				<xs:simpleType>
+					<xs:restriction base="xs:NMTOKEN">
+						<xs:enumeration value="eventbased" />
+						<xs:enumeration value="ondemand" />
+						<xs:enumeration value="function" />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="defdfornamesp" type="xs:string" />
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="regnode">
+		<xs:complexType>
+			<xs:sequence minOccurs="0" maxOccurs="unbounded">
+				<xs:element ref="regnode" />
+			</xs:sequence>
+			<xs:attribute name="name" type="xs:NMTOKEN" use="required" />
+			<xs:attribute name="value" type="xs:string" />
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="folder">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element minOccurs="0" maxOccurs="1" ref="dispname" />
+				<xs:choice minOccurs="0" maxOccurs="unbounded">
+					<xs:element ref="regnode" />
+					<xs:element ref="constraint" />
+					<xs:element ref="attrdef" />
+					<xs:element ref="atom" />
+					<xs:element ref="reference" />
+					<xs:element ref="set" />
+					<xs:element ref="connection" />
+					<xs:element ref="model" />
+				</xs:choice>
+				<xs:element minOccurs="0" maxOccurs="unbounded" ref="folder" />
+			</xs:sequence>
+			<xs:attribute name="metaref" type="xs:string" />
+			<xs:attribute name="name" type="xs:NMTOKEN" use="required" />
+			<xs:attribute name="subfolders" type="xs:NMTOKENS" />
+			<xs:attribute name="rootobjects" type="xs:NMTOKENS" />
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="model">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element minOccurs="0" maxOccurs="1" ref="dispname" />
+				<xs:choice minOccurs="0" maxOccurs="unbounded">
+					<xs:element ref="regnode" />
+					<xs:element ref="constraint" />
+					<xs:element ref="attrdef" />
+					<xs:element ref="atom" />
+					<xs:element ref="reference" />
+					<xs:element ref="set" />
+					<xs:element ref="connection" />
+					<xs:element ref="model" />
+				</xs:choice>
+				<xs:element minOccurs="0" maxOccurs="unbounded" ref="role" />
+				<xs:element minOccurs="0" maxOccurs="unbounded" ref="aspect" />
+			</xs:sequence>
+			<xs:attribute name="metaref" type="xs:string" />
+			<xs:attribute name="name" type="xs:NMTOKEN" use="required" />
+			<xs:attribute name="attributes" type="xs:NMTOKENS" />
+			<xs:attribute default="no" name="aliasenabled">
+				<xs:simpleType>
+					<xs:restriction base="xs:NMTOKEN">
+						<xs:enumeration value="yes" />
+						<xs:enumeration value="no" />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="role">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element minOccurs="0" maxOccurs="1" ref="dispname" />
+				<xs:element minOccurs="0" maxOccurs="unbounded" ref="regnode" />
+			</xs:sequence>
+			<xs:attribute name="metaref" type="xs:string" />
+			<xs:attribute name="name" type="xs:NMTOKEN" use="required" />
+			<xs:attribute name="kind" type="xs:NMTOKEN" use="required" />
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="aspect">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element minOccurs="0" maxOccurs="1" ref="dispname" />
+				<xs:element minOccurs="0" maxOccurs="unbounded" ref="regnode" />
+				<xs:element minOccurs="0" maxOccurs="unbounded" ref="part" />
+			</xs:sequence>
+			<xs:attribute name="metaref" type="xs:string" />
+			<xs:attribute name="name" type="xs:NMTOKEN" use="required" />
+			<xs:attribute name="attributes" type="xs:NMTOKENS" />
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="part">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element minOccurs="0" maxOccurs="unbounded" ref="regnode" />
+			</xs:sequence>
+			<xs:attribute name="metaref" type="xs:string" />
+			<xs:attribute name="role" type="xs:NMTOKEN" use="required" />
+			<xs:attribute name="kindaspect" type="xs:NMTOKEN" />
+			<xs:attribute name="primary">
+				<xs:simpleType>
+					<xs:restriction base="xs:NMTOKEN">
+						<xs:enumeration value="yes" />
+						<xs:enumeration value="no" />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="linked">
+				<xs:simpleType>
+					<xs:restriction base="xs:NMTOKEN">
+						<xs:enumeration value="yes" />
+						<xs:enumeration value="no" />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="atom">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element minOccurs="0" maxOccurs="1" ref="dispname" />
+				<xs:choice minOccurs="0" maxOccurs="unbounded">
+					<xs:element ref="regnode" />
+					<xs:element ref="constraint" />
+					<xs:element ref="attrdef" />
+				</xs:choice>
+			</xs:sequence>
+			<xs:attribute name="metaref" type="xs:string" />
+			<xs:attribute name="name" type="xs:NMTOKEN" use="required" />
+			<xs:attribute name="attributes" type="xs:NMTOKENS" />
+			<xs:attribute default="no" name="aliasenabled">
+				<xs:simpleType>
+					<xs:restriction base="xs:NMTOKEN">
+						<xs:enumeration value="yes" />
+						<xs:enumeration value="no" />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="attrdef">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element minOccurs="0" maxOccurs="1" ref="dispname" />
+				<xs:choice minOccurs="0" maxOccurs="unbounded">
+					<xs:element ref="regnode" />
+					<xs:element ref="enumitem" />
+				</xs:choice>
+			</xs:sequence>
+			<xs:attribute name="metaref" type="xs:string" />
+			<xs:attribute name="name" type="xs:NMTOKEN" use="required" />
+			<xs:attribute name="viewable" type="xs:string" />
+			<xs:attribute name="defvalue" type="xs:string" />
+			<xs:attribute default="string" name="valuetype">
+				<xs:simpleType>
+					<xs:restriction base="xs:NMTOKEN">
+						<xs:enumeration value="integer" />
+						<xs:enumeration value="double" />
+						<xs:enumeration value="boolean" />
+						<xs:enumeration value="string" />
+						<xs:enumeration value="enum" />
+						<xs:enumeration value="dynamic" />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="enumitem">
+		<xs:complexType>
+			<xs:attribute name="dispname" type="xs:string" use="required" />
+			<xs:attribute name="value" type="xs:string" use="required" />
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="reference">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element minOccurs="0" maxOccurs="1" ref="dispname" />
+				<xs:choice minOccurs="0" maxOccurs="unbounded">
+					<xs:element ref="regnode" />
+					<xs:element ref="constraint" />
+					<xs:element ref="attrdef" />
+				</xs:choice>
+				<xs:element ref="pointerspec" />
+			</xs:sequence>
+			<xs:attribute name="metaref" type="xs:string" />
+			<xs:attribute name="name" type="xs:NMTOKEN" use="required" />
+			<xs:attribute name="attributes" type="xs:NMTOKENS" />
+			<xs:attribute default="no" name="aliasenabled">
+				<xs:simpleType>
+					<xs:restriction base="xs:NMTOKEN">
+						<xs:enumeration value="yes" />
+						<xs:enumeration value="no" />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="set">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element minOccurs="0" maxOccurs="1" ref="dispname" />
+				<xs:choice minOccurs="0" maxOccurs="unbounded">
+					<xs:element ref="regnode" />
+					<xs:element ref="constraint" />
+					<xs:element ref="attrdef" />
+				</xs:choice>
+				<xs:element ref="pointerspec" />
+			</xs:sequence>
+			<xs:attribute name="metaref" type="xs:string" />
+			<xs:attribute name="name" type="xs:NMTOKEN" use="required" />
+			<xs:attribute name="attributes" type="xs:NMTOKENS" />
+			<xs:attribute default="no" name="aliasenabled">
+				<xs:simpleType>
+					<xs:restriction base="xs:NMTOKEN">
+						<xs:enumeration value="yes" />
+						<xs:enumeration value="no" />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="connection">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element minOccurs="0" maxOccurs="1" ref="dispname" />
+				<xs:choice minOccurs="0" maxOccurs="unbounded">
+					<xs:element ref="regnode" />
+					<xs:element ref="constraint" />
+					<xs:element ref="attrdef" />
+				</xs:choice>
+				<xs:element minOccurs="0" maxOccurs="unbounded" ref="connjoint" />
+			</xs:sequence>
+			<xs:attribute name="metaref" type="xs:string" />
+			<xs:attribute name="name" type="xs:NMTOKEN" use="required" />
+			<xs:attribute name="attributes" type="xs:NMTOKENS" />
+			<xs:attribute default="no" name="aliasenabled">
+				<xs:simpleType>
+					<xs:restriction base="xs:NMTOKEN">
+						<xs:enumeration value="yes" />
+						<xs:enumeration value="no" />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="connjoint">
+		<xs:complexType>
+			<xs:sequence minOccurs="0" maxOccurs="unbounded">
+				<xs:element ref="pointerspec" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="pointerspec">
+		<xs:complexType>
+			<xs:sequence minOccurs="0" maxOccurs="unbounded">
+				<xs:element ref="pointeritem" />
+			</xs:sequence>
+			<xs:attribute name="name" type="xs:NMTOKEN" use="required" />
+			<xs:attribute default="1" name="min" type="xs:NMTOKEN" />
+			<xs:attribute default="1" name="max" type="xs:NMTOKEN" />
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="pointeritem">
+		<xs:complexType>
+			<xs:attribute name="desc" type="xs:NMTOKENS" />
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

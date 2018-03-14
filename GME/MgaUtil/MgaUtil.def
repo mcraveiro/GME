@@ -1,0 +1,10 @@
+; MgaUtil.def : Declares the module parameters for the DLL.
+
+LIBRARY      "MgaUtil"
+
+EXPORTS
+    ; Explicit exports can go here
+	DllCanUnloadNow PRIVATE
+	DllGetClassObject PRIVATE
+	DllRegisterServer PRIVATE
+	DllUnregisterServer PRIVATE

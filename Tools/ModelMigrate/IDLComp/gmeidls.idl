@@ -1,0 +1,10 @@
+
+// This file will be processed by the MIDL compiler to produce the necessary header file
+
+#include "InterfaceColl.h"
+import "Core.idl";
+import "Meta.idl";
+import "Mga.idl";
+import "MgaUtil.idl";
+import "GME.idl";
+import "Parser.idl";

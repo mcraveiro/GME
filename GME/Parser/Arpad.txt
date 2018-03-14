@@ -1,0 +1,23 @@
+
+- make sure that the GUID returns a byte array of length 16 in a VARIANT
+- get_CreateTime, get_ChangeTime, no final '\n' please
+- I need get_Project in IMgaFCO
+- What should we do with get_Attributes. I need the registry in each attribute,
+  even in those that have not been created (???). Currently I dump only the present
+  attributes (get_Attributes). (It seems that it returns the full list, hmmm)
+- IMgaConnection::get_ConnPoints is not implemented
+- ATTVAL_REFERENCE: I assumed that this corresponds to the get_FCOValue
+- ATTVAL_ENUM, ATTVAL_DYNAMIC, what shoud I use, how to store them?
+- IMgaAttribute::get_Registry is not implemented
+- What to do with the IMgaPart objects
+- Could the GetBaseType return the "indirect"-ness in its 3rd argument?
+- What about the IMgaReference::get_RefAspect, should I dump it?
+- IMgaConnPoint::get_Owner should be IMgaConnection, not IMgaFCO. Or?
+  the same for get_References (IMgaReference)
+- The get_ID should return an XML id, plase use "id-" (for example) instead of '#'
+
+New points:
+
+- acyclic references, additional logic would be required to parse
+- in abort transaction the mga notifies the browser 
+  which try to start a new transaction...

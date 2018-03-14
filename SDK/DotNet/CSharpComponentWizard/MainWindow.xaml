@@ -1,0 +1,262 @@
+﻿<Window x:Class="CSharpComponentWizard.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="CSharp Component Wizard" Height="488" Width="495"
+        ResizeMode="NoResize" Closed="Window_Closed">
+    <Window.Resources>
+        <ResourceDictionary>
+            <LinearGradientBrush x:Key="HeaderBrush" StartPoint="0,0" EndPoint="0,1">
+                <GradientStop Color="#FFDEDEDE" Offset="0"></GradientStop>
+                <GradientStop Color="White" Offset="0.70"></GradientStop>
+                <GradientStop Color="#FFEBEBEB" Offset="0.9"></GradientStop>
+            </LinearGradientBrush>
+            <LinearGradientBrush x:Key="TabBrush" StartPoint="0,0" EndPoint="0,1">
+                <GradientStop Color="#FF898686" Offset="0"></GradientStop>
+                <GradientStop Color="White" Offset="0.025"></GradientStop>
+                <GradientStop Color="White" Offset="0.2"></GradientStop>
+                <GradientStop Color="White" Offset="0.4"></GradientStop>
+                <GradientStop Color="#FFF2F2F2" Offset="0.6"></GradientStop>
+                <GradientStop Color="#FFE2E2E2" Offset="0.9"></GradientStop>
+            </LinearGradientBrush>
+        </ResourceDictionary>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="80" />
+            <RowDefinition Height="100*" />
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0" Background="{StaticResource HeaderBrush}">
+            <Image Source="/CSharpComponentWizard;component/Images/gmeICON.png" VerticalAlignment="Top"
+                   HorizontalAlignment="Left" Margin="16,4,0,0" Width="75" Height="75"></Image>
+            <Line X1="0" Y1="80" X2="500" Y2="80" Stroke="Black" StrokeThickness="1"/>
+            <Label Name="lbl_Title" Content="GME C# Component Wizard" Height="38" HorizontalAlignment="Left" Margin="109,10,0,0" VerticalAlignment="Top" FontSize="18" Width="265" FontFamily="Segoe UI" FontWeight="Bold">
+                <Label.BitmapEffect>
+                    <DropShadowBitmapEffect ShadowDepth="6" Softness="0.75" Opacity="0.4" />
+                </Label.BitmapEffect>
+            </Label>
+            <Label Content="Step 1 of 6" Height="28" Margin="0,46,17,0" Name="lbl_Step" VerticalAlignment="Top" FontFamily="Segoe UI" FontWeight="Bold" FontSize="12" HorizontalAlignment="Right" Width="Auto" />
+        </Grid>
+        <TabControl BorderThickness="0" Grid.Row="1" Margin="0,-2,0,0" Padding="0" Name="tbc_WizardTab">
+            <TabControl.Resources>
+                <Style TargetType="TabItem">
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="TabItem" />
+                        </Setter.Value>
+                    </Setter>
+                    <Setter Property="Padding">
+                        <Setter.Value>
+                            0
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </TabControl.Resources>
+            
+            <TabItem>
+                <Grid Background="{StaticResource TabBrush}">
+                    <TextBlock Height="22" HorizontalAlignment="Left" Margin="16,26,0,0" VerticalAlignment="Top" TextWrapping="Wrap" Width="380" FontWeight="Bold" FontSize="13" FontFamily="Segoe UI">
+                        Welcome to the GME C# Component Wizard.
+                    </TextBlock>
+
+                    <TextBlock Height="37" HorizontalAlignment="Left" Margin="16,50,0,0" VerticalAlignment="Top" TextWrapping="Wrap" Width="413" FontFamily="Segoe UI" FontSize="13">
+                        This is the first step to create your Visual Studio 2010 solution to access your GME model.
+                    </TextBlock>
+
+                    <Label Content="Solution name:" Height="28" HorizontalAlignment="Left" Margin="21,103,0,0" Name="lbl_SolutionName" VerticalAlignment="Top" FontSize="13" FontFamily="Segoe UI" />
+                    <TextBox Height="23" Margin="25,128,0,0" Name="txb_SolutionName" VerticalAlignment="Top" Background="White" HorizontalAlignment="Left" Width="277" TextChanged="txb_SolutionName_TextChanged" />
+                    <TextBlock Foreground="#FF9A9A9A" Height="23" Margin="0,199,21,0" TextWrapping="Wrap" VerticalAlignment="Top" FontStyle="Italic" FontFamily="Segoe UI" HorizontalAlignment="Right" Width="135">
+                        <Bold>Solution output folder</Bold>
+                    </TextBlock>
+
+                    <TextBlock Foreground="#FF9A9A9A" Height="17" Margin="26,226,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Segoe UI" HorizontalAlignment="Left" Width="180">
+                        Please choose an existing folder.
+                    </TextBlock>
+                    <Label Content="Folder path:" FontFamily="Segoe UI" FontSize="13" Height="28" HorizontalAlignment="Left" Margin="21,173,0,0" Name="lbl_Path" VerticalAlignment="Top" />
+                    <TextBox Height="23" Margin="25,199,0,0" Name="txb_TargetFolder" VerticalAlignment="Top" Background="White" TextChanged="txb_TargetFolder_TextChanged" HorizontalAlignment="Left" Width="194" />
+                    <TextBlock Foreground="#FF9A9A9A" Height="23" Margin="0,128,21,0" TextWrapping="Wrap" VerticalAlignment="Top" FontStyle="Italic" FontFamily="Segoe UI" HorizontalAlignment="Right" Width="135">
+                        <Bold>Desired solution name</Bold>
+                    </TextBlock>
+                    <Button Content="Browse" Height="23" HorizontalAlignment="Left" Margin="229,199,0,0" Name="btn_Browse" VerticalAlignment="Top" Width="73" Click="btn_Browse_Click" />
+                    <Button IsEnabled="False" Content="Next »" Height="30" HorizontalAlignment="Right" Margin="0,334,18,0" Name="btn_Next1" VerticalAlignment="Top" Width="90" FontWeight="Normal" FontSize="13" Click="btn_Next_Click" IsDefault="True" />
+                    <Button Content="Exit" Height="30" HorizontalAlignment="Right" Margin="0,334,115,0" Name="btn_Exit1" VerticalAlignment="Top" Width="90" FontSize="14" FontWeight="Normal" Click="btn_Exit_Click" />
+                </Grid>
+            </TabItem>
+            <TabItem>
+                <Grid Background="{StaticResource TabBrush}">
+                    <TextBlock Height="22" HorizontalAlignment="Left" Margin="16,32,0,0" VerticalAlignment="Top" TextWrapping="Wrap" Width="380" FontWeight="Bold" FontSize="13" FontFamily="Segoe UI">
+                        Domain-specific interface
+                    </TextBlock>
+
+                    <TextBlock Height="43" HorizontalAlignment="Left" Margin="16,56,0,0" VerticalAlignment="Top" TextWrapping="Wrap" Width="451" FontFamily="Segoe UI" FontSize="13">
+                        You can access your model through the MGA interface (paradigm-independent), or you can generate a domain-specific interface above it.
+                    </TextBlock>
+                    <TextBlock Height="39" HorizontalAlignment="Left" Margin="16,103,0,0" VerticalAlignment="Top" TextWrapping="Wrap" Width="439" FontFamily="Segoe UI" FontSize="13">
+                        (Generating the domain specific interface will prevent component registration for all paradigms.)
+                    </TextBlock>
+
+                    <TextBlock Foreground="#FF9A9A9A" Margin="334,188,0,0" TextWrapping="Wrap" FontStyle="Italic" FontFamily="Segoe UI" HorizontalAlignment="Left" Width="88" Height="23" VerticalAlignment="Top">
+                        <Bold>Recommended</Bold>
+                    </TextBlock>
+                    <CheckBox IsChecked="True" Content="Generate domain-specific interface" Height="24" HorizontalAlignment="Left" Margin="96,187,0,0" Name="ckb_GenerateDSI" VerticalAlignment="Top" FontSize="13" Checked="ckb_GenerateDSI_Checked" Unchecked="ckb_GenerateDSI_UnChecked" />
+                    <Label Content="Select project path:" Height="28" HorizontalAlignment="Left" Margin="21,224,0,0" Name="lbl_mgaPath" VerticalAlignment="Top" FontSize="13" FontFamily="Segoe UI" />
+                    <TextBox Name="txb_MgaPath" Height="23" HorizontalAlignment="Left" Margin="25,249,0,0" VerticalAlignment="Top" Width="211" Background="White" TextChanged="txb_MgaPath_TextChanged" />
+                    <Button Content="Browse" Height="23" HorizontalAlignment="Left" Margin="242,248,0,0" Name="btn_BrowseMga" VerticalAlignment="Top" Width="71" Click="btn_BrowseMga_Click"/>
+                    <TextBlock Foreground="#FF9A9A9A" Margin="334,248,0,0" TextWrapping="Wrap" FontStyle="Italic" FontFamily="Segoe UI" HorizontalAlignment="Left" Width="121" Height="23" VerticalAlignment="Top">
+                        <Bold>Paradigm MGA</Bold>
+                    </TextBlock>
+
+                    <Button IsEnabled="False" Content="Next »" Height="30" HorizontalAlignment="Right" Margin="0,334,18,0" Name="btn_Next2" VerticalAlignment="Top" Width="90" FontWeight="Normal" FontSize="13" Click="btn_Next_Click" IsDefault="True" />
+                    <Button Content="« Back" Height="30" HorizontalAlignment="Right" Margin="0,334,115,0" Name="btn_Back2" VerticalAlignment="Top" Width="90" FontSize="14" FontWeight="Normal" Click="btn_Back_Click" />
+                    <Label Content="GME Interface:" Height="28" HorizontalAlignment="Left" Margin="21,158,0,0" Name="label2" VerticalAlignment="Top" FontSize="13" />
+                </Grid>
+            </TabItem>
+            <TabItem>
+                <Grid Background="{StaticResource TabBrush}">
+                    <TextBlock Height="22" HorizontalAlignment="Left" Margin="16,29,0,0" VerticalAlignment="Top" TextWrapping="Wrap" Width="380" FontWeight="Bold" FontSize="13" FontFamily="Segoe UI">
+                        Choose the corresponding paradigm name
+                    </TextBlock>
+
+                    <TextBlock Height="35" HorizontalAlignment="Left" Margin="16,53,0,0" VerticalAlignment="Top" TextWrapping="Wrap" Width="431" FontFamily="Segoe UI" FontSize="13">
+                        Please specify the name of the paradigm you want to register your Component for, or check the box if you want to register for all paradigms:
+                    </TextBlock>
+
+                    <Label Content="Name of paradigm:" Height="28" HorizontalAlignment="Left" Margin="21,115,0,0" Name="lbl_ParadignName" VerticalAlignment="Top" FontSize="13" FontFamily="Segoe UI" />
+                    <TextBox IsEnabled="False" Height="23" HorizontalAlignment="Left" Margin="25,140,0,0" Name="txb_ParadigmName" VerticalAlignment="Top" Width="288" Background="White" TextChanged="txb_ParadigmName_TextChanged" Text="This will be retrieved from .MGA file" FontStyle="Italic" />
+                    <CheckBox IsEnabled="False" Content="All paradigms" Height="16" Margin="334,143,0,0" Name="ckb_AllParadigms" VerticalAlignment="Top" Checked="ckb_AllParadigms_Checked" Unchecked="ckb_AllParadigms_Unchecked" HorizontalAlignment="Left" Width="90" />
+                    <Label Content="Component GUID" Height="28" HorizontalAlignment="Left" Margin="21,204,0,0" Name="lbl_Guid" VerticalAlignment="Top" FontSize="13" FontFamily="Segoe UI" />
+                    <TextBox Name="txb_Guid" Height="23" HorizontalAlignment="Left" Margin="25,229,0,0" VerticalAlignment="Top" Width="288" TextChanged="Guid_Changed" Background="#FFD7F2C3"/>
+                    <TextBlock Foreground="#FF9A9A9A" Margin="334,232,0,0" TextWrapping="Wrap" FontStyle="Italic" FontFamily="Segoe UI" HorizontalAlignment="Left" Width="121" Height="23" VerticalAlignment="Top">
+                        <Bold>No need to edit this</Bold>
+                    </TextBlock>
+                    <TextBlock Name="txb_GuidError" Visibility="Hidden" Foreground="Red" Height="23" Margin="235,210,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontStyle="Italic" FontFamily="Segoe UI" HorizontalAlignment="Left" Width="78">
+                    <Bold>Invalid GUID</Bold>
+                    </TextBlock>
+                    <Button IsEnabled="False" Content="Next »" Height="30" HorizontalAlignment="Right" Margin="0,334,18,0" Name="btn_Next3" VerticalAlignment="Top" Width="90" FontWeight="Normal" FontSize="13" Click="btn_Next_Click" IsDefault="True" />
+                    <Button Content="« Back" Height="30" HorizontalAlignment="Right" Margin="0,334,115,0" Name="btn_Back3" VerticalAlignment="Top" Width="90" FontSize="14" FontWeight="Normal" Click="btn_Back_Click" />                    
+                </Grid>
+            </TabItem>
+            <TabItem>
+                <Grid Background="{StaticResource TabBrush}">
+                    <TextBlock Height="22" HorizontalAlignment="Left" Margin="16,14,0,0" VerticalAlignment="Top" TextWrapping="Wrap" Width="380" FontWeight="Bold" FontSize="13" FontFamily="Segoe UI">
+                        Please choose your component type.
+                    </TextBlock>
+
+                    <TextBlock Height="37" HorizontalAlignment="Left" Margin="16,38,0,0" VerticalAlignment="Top" TextWrapping="Wrap" Width="429" FontFamily="Segoe UI" FontSize="13">
+                        AddOn is a background component for GME invoked by specific events, while the interpreter is component that can be manually ran by the user.
+                    </TextBlock>
+
+                    <Label Content="Select type:" Height="28" HorizontalAlignment="Left" Margin="17,76,0,0" Name="lbl_Type" VerticalAlignment="Top" FontSize="13" FontFamily="Segoe UI" />
+                    <RadioButton Content="AddOn" GroupName="ComponentType" Height="16" HorizontalAlignment="Left" Margin="215,83,0,0" Name="rbb_Addon" VerticalAlignment="Top" FontFamily="Segoe UI" />
+                    <RadioButton IsChecked="True" Content="Interpreter" GroupName="ComponentType" Height="16" HorizontalAlignment="Left" Margin="128,83,0,0" Name="rbb_Interpreter" VerticalAlignment="Top" FontFamily="Segoe UI" Checked="rbb_Interpreter_Checked" Unchecked="rbb_Interpreter_Unchecked" />
+
+                    <Label Content="Select the events to trigger your AddOn:" Height="28" HorizontalAlignment="Left" Margin="16,118,0,0" Name="lbl_Events" VerticalAlignment="Top" FontSize="13" FontFamily="Segoe UI" />
+
+                    <CheckBox IsEnabled="False" Content="Creation" Height="16" HorizontalAlignment="Left" Margin="25,152,0,0" Name="ckb_a0" VerticalAlignment="Top" Checked="ckb_Checked" Unchecked="ckb_Unchecked" />
+                    <CheckBox IsEnabled="False" Content="Attribute change" Height="16" HorizontalAlignment="Left" Margin="25,172,0,0" Name="ckb_a1" VerticalAlignment="Top" Checked="ckb_Checked" Unchecked="ckb_Unchecked" />
+                    <CheckBox IsEnabled="False" Content="Registry change" Height="16" HorizontalAlignment="Left" Margin="25,192,0,0" Name="ckb_a2" VerticalAlignment="Top" Checked="ckb_Checked" Unchecked="ckb_Unchecked" />
+                    <CheckBox IsEnabled="False" Content="Child added" Height="16" HorizontalAlignment="Left" Margin="25,212,0,0" Name="ckb_a3" VerticalAlignment="Top" Checked="ckb_Checked" Unchecked="ckb_Unchecked" />
+                    <CheckBox IsEnabled="False" Content="Relation change" Height="16" HorizontalAlignment="Left" Margin="25,232,0,0" Name="ckb_a4" VerticalAlignment="Top" Checked="ckb_Checked" Unchecked="ckb_Unchecked" />
+                    <CheckBox IsEnabled="False" Content="Property change" Height="16" HorizontalAlignment="Left" Margin="25,252,0,0" Name="ckb_a5" VerticalAlignment="Top" Checked="ckb_Checked" Unchecked="ckb_Unchecked" />
+                    <CheckBox IsEnabled="False" Content="Subtype/instance created" Height="16" HorizontalAlignment="Left" Margin="25,272,0,0" Name="ckb_a6" VerticalAlignment="Top" Checked="ckb_Checked" Unchecked="ckb_Unchecked" />
+                    <CheckBox IsEnabled="False" Content="Parent changed" Height="16" HorizontalAlignment="Left" Margin="25,292,0,0" Name="ckb_a7" VerticalAlignment="Top" Checked="ckb_Checked" Unchecked="ckb_Unchecked" />
+                    <CheckBox IsEnabled="False" Content="Child removed" Height="16" HorizontalAlignment="Left" Margin="25,314,0,0" Name="ckb_a8" VerticalAlignment="Top" Checked="ckb_Checked" Unchecked="ckb_Unchecked" />
+
+                    <CheckBox IsEnabled="False" Content="Referenced" Height="16" HorizontalAlignment="Left" Margin="194,152,0,0" Name="ckb_a9" VerticalAlignment="Top" Checked="ckb_Checked" Unchecked="ckb_Unchecked" />
+                    <CheckBox IsEnabled="False" Content="Connected" Height="16" HorizontalAlignment="Left" Margin="194,172,0,0" Name="ckb_a10" VerticalAlignment="Top" Checked="ckb_Checked" Unchecked="ckb_Unchecked" />
+                    <CheckBox IsEnabled="False" Content="Included in set" Height="16" HorizontalAlignment="Left" Margin="194,192,0,0" Name="ckb_a11" VerticalAlignment="Top" Checked="ckb_Checked" Unchecked="ckb_Unchecked" />
+                    <CheckBox IsEnabled="False" Content="Reference released" Height="16" HorizontalAlignment="Left" Margin="194,212,0,0" Name="ckb_a12" VerticalAlignment="Top" Checked="ckb_Checked" Unchecked="ckb_Unchecked" />
+                    <CheckBox IsEnabled="False" Content="Disconnected" Height="16" HorizontalAlignment="Left" Margin="194,232,0,0" Name="ckb_a13" VerticalAlignment="Top" Checked="ckb_Checked" Unchecked="ckb_Unchecked" />
+                    <CheckBox IsEnabled="False" Content="Excluded from set" Height="16" HorizontalAlignment="Left" Margin="194,252,0,0" Name="ckb_a14" VerticalAlignment="Top" Checked="ckb_Checked" Unchecked="ckb_Unchecked" />
+                    <CheckBox IsEnabled="False" Content="Marked Readonly" HorizontalAlignment="Left" Margin="194,272,0,0" Name="ckb_a15" Height="16" VerticalAlignment="Top" Checked="ckb_Checked" Unchecked="ckb_Unchecked" />
+                    <CheckBox IsEnabled="False" Content="Marked ReadWrite" Height="16" HorizontalAlignment="Left" Margin="194,293,0,0" Name="ckb_a16" VerticalAlignment="Top" Checked="ckb_Checked" Unchecked="ckb_Unchecked" />
+
+                    <CheckBox IsEnabled="False" Content="Open model" Height="16" HorizontalAlignment="Left" Margin="363,152,0,0" Name="ckb_a17" VerticalAlignment="Top" Checked="ckb_Checked" Unchecked="ckb_Unchecked" />
+                    <CheckBox IsEnabled="False" Content="Selected" Height="16" HorizontalAlignment="Left" Margin="363,171,0,0" Name="ckb_a18" VerticalAlignment="Top" Checked="ckb_Checked" Unchecked="ckb_Unchecked" />
+                    <CheckBox IsEnabled="False" Content="Deselected" Height="16" HorizontalAlignment="Left" Margin="363,191,0,0" Name="ckb_a19" VerticalAlignment="Top" Checked="ckb_Checked" Unchecked="ckb_Unchecked" />
+                    <CheckBox IsEnabled="False" Content="MouseOver" Height="16" HorizontalAlignment="Left" Margin="363,211,0,0" Name="ckb_a20" VerticalAlignment="Top" Checked="ckb_Checked" Unchecked="ckb_Unchecked" />
+                    <CheckBox IsEnabled="False" Content="Close model" Height="16" HorizontalAlignment="Left" Margin="363,231,0,0" Name="ckb_a21" VerticalAlignment="Top" Checked="ckb_Checked" Unchecked="ckb_Unchecked" />
+                    <CheckBox IsEnabled="False" Content="UserEvent bits" Height="16" HorizontalAlignment="Left" Margin="363,251,0,0" Name="ckb_a22" VerticalAlignment="Top" Checked="ckb_Checked" Unchecked="ckb_Unchecked" />
+                    <CheckBox IsEnabled="False" Content="Pre destroyed" Height="16" HorizontalAlignment="Left" Margin="363,272,0,0" Name="ckb_a23" VerticalAlignment="Top" Checked="ckb_Checked" Unchecked="ckb_Unchecked" />
+                    <CheckBox IsEnabled="False" Content="Destroyed" Height="16" HorizontalAlignment="Left" Margin="363,292,0,0" Name="ckb_a24" VerticalAlignment="Top" Checked="ckb_Checked" Unchecked="ckb_Unchecked" />
+
+                    <Button Content="Next »" Height="30" HorizontalAlignment="Right" Margin="0,334,18,0" Name="btn_Next4" VerticalAlignment="Top" Width="90" FontWeight="Normal" FontSize="13" Click="btn_Next_Click" IsDefault="True" />
+                    <Button Content="« Back" Height="30" Margin="0,334,115,0" Name="btn_Back4" VerticalAlignment="Top" FontSize="14" FontWeight="Normal" Click="btn_Back_Click" HorizontalAlignment="Right" Width="90" />
+                </Grid>
+            </TabItem>
+            <TabItem>
+                <Grid Background="{StaticResource TabBrush}">
+                    <TextBlock Height="22" HorizontalAlignment="Left" Margin="16,20,0,0" VerticalAlignment="Top" TextWrapping="Wrap" Width="380" FontWeight="Bold" FontSize="13" FontFamily="Segoe UI">
+                        Some additional settings...
+                    </TextBlock>
+
+                    <TextBlock Height="25" HorizontalAlignment="Left" Margin="16,53,0,0" VerticalAlignment="Top" TextWrapping="Wrap" Width="429" FontFamily="Segoe UI" FontSize="13">
+                        Please choose a readable name for your component
+                    </TextBlock>
+
+
+                    <TextBlock Height="19" HorizontalAlignment="Left" Margin="16,149,0,0" VerticalAlignment="Top" TextWrapping="Wrap" Width="429" FontFamily="Segoe UI" FontSize="13">
+                        If you write an interpreter, you can select an icon to be displayed in GME
+                    </TextBlock>
+
+                    <Label Content="Component name:" Height="28" HorizontalAlignment="Left" Margin="21,77,0,0" Name="lbl_ComponentName" VerticalAlignment="Top" FontSize="13" FontFamily="Segoe UI" />
+                    <TextBox Height="23" HorizontalAlignment="Left" Margin="25,102,0,0" Name="txb_ComponentName" VerticalAlignment="Top" Width="264" Background="White" TextChanged="txb_ComponentName_TextChanged" />
+                    <TextBlock Foreground="#FF9A9A9A" Height="23" Margin="313,102,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontStyle="Italic" FontFamily="Segoe UI" HorizontalAlignment="Left" Width="145">
+                        <Bold>You can use whitespace</Bold>
+                    </TextBlock>
+                    <Label Content="Icon path (32×32, *.ico):" FontFamily="Segoe UI" FontSize="13" Height="28" HorizontalAlignment="Left" Margin="21,173,0,0" Name="lbl_IconPath" VerticalAlignment="Top" />
+                    <TextBox Height="23" IsEnabled="True" HorizontalAlignment="Left" Margin="25,198,0,0" Name="txb_IconPath" VerticalAlignment="Top" Width="264" TextChanged="txb_IconPath_TextChanged" />
+                    <TextBlock Foreground="#FF9A9A9A" Height="23" HorizontalAlignment="Left" Margin="313,198,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="155" FontStyle="Italic" FontFamily="Segoe UI">
+                        <Bold>You may leave this blank</Bold>
+                    </TextBlock>
+                    <TextBlock Visibility="Hidden" Name="txb_IconInfo" Foreground="#FF9A9A9A" Height="23" HorizontalAlignment="Left" Margin="25,224,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="143" FontStyle="Italic" FontFamily="Segoe UI">
+                        <Bold>Disabled for AddOn type</Bold>
+                    </TextBlock>
+                    <Button Content="Browse" IsEnabled="True" Height="23" HorizontalAlignment="Left" Margin="216,225,0,0" Name="btn_BrowseIcon" VerticalAlignment="Top" Width="73" Click="btn_BrowseIcon_Click" />
+                    <Button IsEnabled="False" Content="Next »" Height="30" HorizontalAlignment="Right" Margin="0,334,18,0" Name="btn_Next5" VerticalAlignment="Top" Width="90" FontWeight="Normal" FontSize="13" Click="btn_Next_Click" IsDefault="True" />
+                    <Button Content="« Back" Height="30" HorizontalAlignment="Right" Margin="0,334,115,0" Name="btn_Back5" VerticalAlignment="Top" Width="90" FontSize="14" FontWeight="Normal" Click="btn_Back_Click" />
+                </Grid>
+            </TabItem>
+            <TabItem Name="tbi_gen">
+                <Grid Background="{StaticResource TabBrush}">
+                    <TextBlock Height="22" HorizontalAlignment="Left" Margin="16,23,0,0" VerticalAlignment="Top" TextWrapping="Wrap" Width="118" FontWeight="Bold" FontSize="13" FontFamily="Segoe UI">
+                        Settings summary:
+                    </TextBlock>
+                    <Label Content="Component type:" Height="28" HorizontalAlignment="Left" Margin="65,51,0,0" VerticalAlignment="Top" />
+                    <Label Content="Component name:" Height="28" HorizontalAlignment="Left" Margin="59,72,0,0" VerticalAlignment="Top" />
+                    <Label Content="Paradigm name:" Height="28" HorizontalAlignment="Left" Margin="71,93,0,0" VerticalAlignment="Top" />
+                    <Label Content="Solution name:" Height="28" HorizontalAlignment="Left" Margin="78,114,0,0" VerticalAlignment="Top" />
+                    <Label Content="Output folder:" Height="28" HorizontalAlignment="Left" Margin="82,135,0,0" VerticalAlignment="Top" />
+
+                    <Label Content="" Name="lbl_SumComponentType" Height="28" HorizontalAlignment="Left" Margin="180,51,0,0" VerticalAlignment="Top" FontWeight="Bold" Width="275" />
+                    <Label Content="" Name="lbl_SumComponentName" Height="28" HorizontalAlignment="Left" Margin="180,72,0,0" VerticalAlignment="Top" FontWeight="Bold" Width="275" />
+                    <Label Content="" Name="lbl_SumParadigmName" Height="28" HorizontalAlignment="Left" Margin="180,93,0,0" VerticalAlignment="Top" FontWeight="Bold" Width="275" />
+                    <Label Content="" Name="lbl_SumSolutionName" Height="28" HorizontalAlignment="Left" Margin="180,114,0,0" VerticalAlignment="Top" FontWeight="Bold" Width="275" />
+                    <Label Content="" Name="lbl_SumOutputFolder" Height="28" HorizontalAlignment="Left" Margin="180,135,0,0" VerticalAlignment="Top" FontWeight="Bold" Width="275" />
+
+                    <Label Content="Register:" Height="28" HorizontalAlignment="Left" Margin="111,177,0,0" Name="label1" VerticalAlignment="Top" FontSize="12" FontWeight="Normal" />
+                    <RadioButton GroupName="Register" Content="Systemwide" Height="16" HorizontalAlignment="Left" Margin="180,182,0,0" Name="rbb_System" VerticalAlignment="Top" IsChecked="True" Checked="rbb_System_Checked" />
+                    <RadioButton GroupName="Register" Content="This user" Height="16" HorizontalAlignment="Left" Margin="180,204,0,0" Name="rbb_User" VerticalAlignment="Top" Checked="rbb_User_Checked" />
+                    <RadioButton GroupName="Register" Content="Both" Height="16" HorizontalAlignment="Left" Margin="180,226,0,0" Name="rbb_Both" VerticalAlignment="Top" Checked="rbb_Both_Checked" />
+                    <Button Content="« Back" Height="30" HorizontalAlignment="Right" Margin="0,334,115,0" Name="btn_Back6" VerticalAlignment="Top" Width="90" FontSize="14" FontWeight="Normal" Click="btn_Back_Click" />
+                    <Button Content="Generate" Height="30" HorizontalAlignment="Right" Margin="0,334,18,0" Name="btn_Generate" VerticalAlignment="Top" Width="90" FontWeight="Normal" FontSize="13" Click="btn_Next_Click" IsDefault="True"/>
+                    <Label Name="lbl_pleasewait" Visibility="Hidden" Content="Please wait..." Height="28" Margin="0,311,14,0" VerticalAlignment="Top" FontStyle="Italic" HorizontalAlignment="Right" Width="77" FontWeight="Normal" Foreground="#FF797979" />
+                    <ProgressBar Visibility="Hidden" Height="19" HorizontalAlignment="Left" Margin="16,279,0,0" Name="pgb_generationprogress" VerticalAlignment="Top" Width="451" />
+                </Grid>
+            </TabItem>
+            <TabItem>
+                <Grid Background="{StaticResource TabBrush}">
+                    <TextBlock Name="txb_GenerationResultSummary" Height="22" HorizontalAlignment="Left" Margin="16,29,0,0" VerticalAlignment="Top" TextWrapping="Wrap" Width="380" FontWeight="Bold" FontSize="13" FontFamily="Segoe UI">
+                        Completed.
+                    </TextBlock>
+
+                    <TextBlock Name="txb_GenerationResultDetails" Height="128" HorizontalAlignment="Left" Margin="16,60,0,0" VerticalAlignment="Top" TextWrapping="Wrap" Width="429" FontFamily="Segoe UI" FontSize="13">
+                        Your Visual Studio solution has been successfully generated.
+                    </TextBlock>
+                    <Button Content="Exit" Height="30" HorizontalAlignment="Right" Margin="0,334,18,0" Name="btn_ExitLastPage" VerticalAlignment="Top" Width="90" FontWeight="Normal" FontSize="13" Click="btn_Exit_Click" IsDefault="True"/>
+                    <Button Content="Open your solution" Height="30" HorizontalAlignment="Left" Margin="169,216,0,0" Name="btn_OpenSolution" VerticalAlignment="Top" Width="171" Click="btn_OpenSolution_Click" />
+                </Grid>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>

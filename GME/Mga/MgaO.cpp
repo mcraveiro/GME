@@ -1,0 +1,8 @@
+// MgaO.cpp : Implementation of CMgaO
+#include "stdafx.h"
+#include "Mga.h"
+#include "MgaO.h"
+
+/////////////////////////////////////////////////////////////////////////////
+// CMgaO
+

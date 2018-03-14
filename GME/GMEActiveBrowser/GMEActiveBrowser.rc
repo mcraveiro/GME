@@ -1,0 +1,415 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+#include "..\GME\GMEVersion.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (United States) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "1 TYPELIB ""GMEActiveBrowser.tlb""\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION GME_VERSION_RC
+ PRODUCTVERSION GME_VERSION_RC
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x2L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904B0"
+        BEGIN
+            VALUE "CompanyName", "ISIS, Vanderbilt University"
+            VALUE "FileDescription", "GMEActiveBrowser ActiveX Control Module"
+            VALUE "FileVersion", GME_VERSION_STR
+            VALUE "InternalName", "GMEActiveBrowser"
+            VALUE "LegalCopyright", "Copyright (C) 2001"
+            VALUE "OriginalFilename", "GMEActiveBrowser.OCX"
+            VALUE "ProductName", "GMEActiveBrowser ActiveX Control Module"
+            VALUE "ProductVersion", GME_VERSION_STR
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1200
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDB_GMEACTIVEBROWSER    BITMAP                  "GMEActiveBrowserCtl.bmp"
+IDB_IMAGELIST_AGGREGATE BITMAP                  "AggIco.bmp"
+IDB_IMAGELIST_INHERITANCE BITMAP                  "InhIco.bmp"
+IDB_IMAGELIST_META      BITMAP                  "MetaIco.bmp"
+IDB_SEARCH              BITMAP                  "IcoFind.bmp"
+IDB_IMAGELIST_AGGREGATE_STATE BITMAP                  "StateIco.bmp"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_PROPPAGE_GMEACTIVEBROWSER DIALOG 0, 0, 250, 62
+STYLE DS_SETFONT | WS_CHILD
+FONT 8, "MS Sans Serif"
+BEGIN
+    CTEXT           "No Properties are available.",IDC_STATIC,7,25,229,16
+END
+
+IDD_PROPPAGE_META DIALOGEX 0, 0, 183, 285
+STYLE DS_SETFONT | DS_CONTROL | WS_CHILD | WS_DISABLED | WS_CAPTION
+CAPTION "Meta"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    CONTROL         "Tree1",IDC_TREE_META,"SysTreeView32",TVS_SHOWSELALWAYS | WS_BORDER | WS_TABSTOP,7,47,169,231
+    COMBOBOX        IDC_COMBO_SERACH_META,7,27,158,74,CBS_DROPDOWN | WS_VSCROLL | WS_TABSTOP
+END
+
+IDD_PROPPAGE_INHERITANCE DIALOGEX 0, 0, 188, 281
+STYLE DS_SETFONT | DS_CONTROL | WS_CHILD | WS_DISABLED | WS_CAPTION
+CAPTION "Inheritance"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    CONTROL         "Tree1",IDC_TREE_INHERITANCE,"SysTreeView32",TVS_SHOWSELALWAYS | WS_BORDER | WS_TABSTOP,13,46,151,192
+    COMBOBOX        IDC__COMBO_SEARCH_INHERITANCE,15,20,151,57,CBS_DROPDOWN | WS_VSCROLL | WS_TABSTOP
+END
+
+IDD_PROPPAGE_AGGREGATE DIALOGEX 0, 0, 183, 253
+STYLE DS_SETFONT | DS_CONTROL | WS_CHILD | WS_DISABLED | WS_CAPTION
+CAPTION "Aggregate"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    CONTROL         "Tree1",IDC_TREE_AGGREGATE,"SysTreeView32",TVS_HASBUTTONS | TVS_HASLINES | TVS_LINESATROOT | TVS_SHOWSELALWAYS | WS_BORDER | WS_HSCROLL | WS_TABSTOP,13,46,151,192
+    COMBOBOX        IDC_COMBO_SEARCH_AGGREGATE,15,17,133,95,CBS_DROPDOWN | WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "Search",IDC_SEARCH,89,0,14,13,BS_BITMAP
+END
+
+IDD_OPTIONS_DIALOG DIALOGEX 0, 0, 221, 252
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Aggregate Tab Options"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,49,223,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,123,223,50,14
+    GROUPBOX        "Display Options",IDC_STATIC,13,13,196,163
+    GROUPBOX        "Filter",IDC_STATIC,64,26,97,86
+    CONTROL         "Display Models",IDC_DISPLAY_MODELS,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,71,38,63,10
+    CONTROL         "Display Atoms",IDC_DISPLAY_ATOMS,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,71,52,60,10
+    CONTROL         "Display References",IDC_DISPLAY_REFERENCES,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,71,66,77,10
+    CONTROL         "Display Sets",IDC_DISPLAY_SETS,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,71,80,55,10
+    CONTROL         "Display Connections",IDC_DISPLAY_CONNECTIONS,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,71,94,80,10
+    GROUPBOX        "Sort",IDC_STATIC,64,118,96,49
+    CONTROL         "Sort By Name",IDC_SORT,"Button",BS_AUTORADIOBUTTON | WS_GROUP,71,129,59,10
+    CONTROL         "Sort By Type",IDC_SORT_BYTYPE,"Button",BS_AUTORADIOBUTTON,71,141,57,10
+    CONTROL         "Sort By Creation",IDC_SORT_BYCREATION,"Button",BS_AUTORADIOBUTTON,71,153,67,10
+    CONTROL         "Preserve tree state across GME runs",IDC_STORE_TREE_REGISTRY,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,39,192,141,10
+    GROUPBOX        "Other Options",IDC_STATIC,14,178,195,36
+END
+
+IDD_META_CONNECTION_DIALOG DIALOGEX 0, 0, 143, 183
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_TOOLWINDOW
+CAPTION "Meta Connection Properties"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    EDITTEXT        IDC_CONNECTION_PROP,7,7,129,169,ES_MULTILINE | ES_AUTOVSCROLL | ES_AUTOHSCROLL | ES_READONLY | WS_VSCROLL | WS_HSCROLL
+END
+
+IDD_ATTACH_LIB_DIALOG DIALOGEX 0, 0, 363, 74
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Attach Library"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    EDITTEXT        IDC_CONN_STRING,37,20,298,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "...",IDC_BROWSE,342,20,14,14
+    CONTROL         "Optimize (Ungroup Inner Libraries)",IDC_CHECKOPTIMIZED,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,38,36,122,12
+    CONTROL         "Use Relative Path",IDC_CHECK_RELATIVE_PATH,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,163,38,73,10
+    DEFPUSHBUTTON   "OK",IDOK,111,53,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,204,53,50,14
+    LTEXT           "Mga Connection String:",IDC_CONNSTR,37,9,319,8,SS_ENDELLIPSIS
+    ICON            IDI_LIBRARY,IDC_STATIC,8,12,20,20
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO
+BEGIN
+    IDD_PROPPAGE_GMEACTIVEBROWSER, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 243
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 55
+    END
+
+    IDD_PROPPAGE_META, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 176
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 278
+    END
+
+    IDD_PROPPAGE_INHERITANCE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 181
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 273
+    END
+
+    IDD_PROPPAGE_AGGREGATE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 176
+        BOTTOMMARGIN, 245
+    END
+
+    IDD_OPTIONS_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 214
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 245
+    END
+
+    IDD_META_CONNECTION_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 136
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 176
+    END
+
+    IDD_ATTACH_LIB_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 356
+        VERTGUIDE, 54
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 67
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// REGISTRY
+//
+
+IDR_GMEACTIVEBROWSER    REGISTRY                "GMEActiveBrowser.rgs"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+CG_IDR_POPUP_AGGREGATE_PROPERTY_PAGE_MULTIPLE_ITEMS MENU
+BEGIN
+    POPUP "_POPUP_"
+    BEGIN
+        MENUITEM "&Attributes",                 ID_POPUP_ATTRIBUTES
+        MENUITEM "Pr&eferences",                ID_POPUP_PREFERENCES
+        MENUITEM "&Properties",                 ID_POPUP_PROPERTIES
+        MENUITEM SEPARATOR
+        MENUITEM "&Copy",                       ID_EDIT_COPY
+        MENUITEM "C&opy Closure",               ID_EDIT_COPYCLOSURE
+        MENUITEM "Copy &Smart",                 ID_EDIT_COPYSMART
+        MENUITEM SEPARATOR
+        MENUITEM "Delete",                      ID_POPUP_EDIT_DELETE
+        MENUITEM SEPARATOR
+        POPUP "&Constraints"
+        BEGIN
+            MENUITEM "Check &All",                  ID_POPUP_SORT_CONSTRAINTS_CHECKALL
+        END
+        MENUITEM "&Interpret",                  ID_POPUP_INTERPRET
+        MENUITEM SEPARATOR
+        MENUITEM "&Tree Browser Options...",    ID_POPUP_DISPLAYOPTIONS
+    END
+END
+
+CG_IDR_POPUP_AGGREGATE_PROPERTY_PAGE_GENERAL MENU
+BEGIN
+    POPUP "_POPUP_"
+    BEGIN
+        POPUP "&Sort"
+        BEGIN
+            MENUITEM "&Name",                       ID_POPUP_SORT_NAME
+            MENUITEM "&Type",                       ID_POPUP_SORT_TYPE
+            MENUITEM "&Creation",                   ID_POPUP_SORT_CREATION
+        END
+        MENUITEM SEPARATOR
+        POPUP "&Constraints"
+        BEGIN
+            MENUITEM "Check &All",                  ID_POPUP_SORT_CONSTRAINTS_CHECKALL
+        END
+        MENUITEM SEPARATOR
+        MENUITEM "&Tree Browser Options...",    ID_POPUP_DISPLAYOPTIONS
+    END
+END
+
+CG_IDR_POPUP_AGGREGATE_PROPERTY_PAGE_SINGLE_ITEM MENU
+BEGIN
+    POPUP "_POPUP_"
+    BEGIN
+        MENUITEM "&Attributes",                 ID_POPUP_ATTRIBUTES
+        MENUITEM "Pr&eferences",                ID_POPUP_PREFERENCES
+        MENUITEM "&Properties",                 ID_POPUP_PROPERTIES
+        MENUITEM "Registr&y...",                ID_POPUP_REGISTRY
+        MENUITEM "&Attach Library...",          ID_POPUP_ATTACH_LIBRARY
+        MENUITEM "&Refresh Library...",         ID_POPUP_REFRESH_LIBRARY
+        MENUITEM SEPARATOR
+        MENUITEM "INSERTIONS",                  ID_POPUP_INSERTIONS
+        MENUITEM SEPARATOR
+        MENUITEM "&Copy",                       ID_EDIT_COPY
+        MENUITEM "C&opy Closure",               ID_EDIT_COPYCLOSURE
+        MENUITEM "Copy &Smart",                 ID_EDIT_COPYSMART
+        MENUITEM "&Paste",                      ID_EDIT_PASTE
+        POPUP "Pas&te Special"
+        BEGIN
+            MENUITEM "As Reference",                ID_EDIT_PASTESPECIAL_ASREFERENCE
+            MENUITEM "As Subtype",                  ID_EDIT_PASTESPECIAL_ASSUBTYPE
+            MENUITEM "As Instance",                 ID_EDIT_PASTESPECIAL_ASINSTANCE
+            MENUITEM "Closure",                     ID_EDIT_PASTECLOSURE
+            POPUP "Smart"
+            BEGIN
+                MENUITEM "Add",                         ID_EDIT_PASTESPECIAL_SMART_ADDITIVE
+                MENUITEM "Merge",                       ID_EDIT_PASTESPECIAL_SMART_MERGE
+            END
+        END
+        MENUITEM SEPARATOR
+        MENUITEM "Delete",                      ID_POPUP_EDIT_DELETE
+        MENUITEM SEPARATOR
+        POPUP "&Constraints"
+        BEGIN
+            MENUITEM "&Check",                      ID_POPUP_CONSTRAINTS_CHECK
+            MENUITEM "Check &All",                  ID_POPUP_SORT_CONSTRAINTS_CHECKALL
+        END
+        MENUITEM "&Interpret",                  ID_POPUP_INTERPRET
+        POPUP "&Access"
+        BEGIN
+            MENUITEM "Read Only",                   ID_POPUP_READONLY
+            MENUITEM "Read Write",                  ID_POPUP_READWRITE
+        END
+        MENUITEM "&View in Parent",             ID_POPUP_SHOWINPARENT
+        POPUP "&Multi-User"
+        BEGIN
+            MENUITEM "&Refresh Status",             ID_USERS_SOURCECONTROLSTATUS
+            MENUITEM "Show &Owner...",              ID_USERS_OWNER
+            MENUITEM "&Active Users...",            ID_USERS_ACTIVE
+        END
+        MENUITEM SEPARATOR
+        MENUITEM "&Help",                       ID_POPUP_HELP
+        MENUITEM SEPARATOR
+        MENUITEM "&Tree Browser Options...",    ID_POPUP_DISPLAYOPTIONS
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDI_LIBRARY             ICON                    "Library.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE
+BEGIN
+    IDS_GMEACTIVEBROWSER    "GMEActiveBrowser Control"
+    IDS_GMEACTIVEBROWSER_PPG "GMEActiveBrowser Property Page"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_GMEACTIVEBROWSER_PPG_CAPTION "General"
+    IDS_PROPSHT_CAPTION     "PropertySheet"
+END
+
+STRINGTABLE
+BEGIN
+    AFX_IDS_APP_TITLE       "Model Browser"
+END
+
+#endif    // English (United States) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+1 TYPELIB "GMEActiveBrowser.tlb"
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

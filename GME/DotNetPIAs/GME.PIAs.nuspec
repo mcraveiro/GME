@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>GME.PIAs</id>
+    <version>1.0.1.0</version>
+    <title>GME PIAs</title>
+    <authors>ISIS, Vanderbilt University</authors>
+    <owners>ksmyth</owners>
+    <licenseUrl>http://repo.isis.vanderbilt.edu/GME/License.txt</licenseUrl>
+    <projectUrl>http://www.isis.vanderbilt.edu/projects/GME</projectUrl>
+    <iconUrl>http://repo.isis.vanderbilt.edu/GME/GME.ico</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Canonical .NET assemblies for the GME type libraries</description>
+    <releaseNotes>Initial release</releaseNotes>
+    <copyright>Copyright 2013 ISIS, Vanderbilt University</copyright>
+    <tags>GME</tags>
+  </metadata>
+  <files>
+    <file src="*.dll" target="lib\net20"/>
+  </files>
+</package>

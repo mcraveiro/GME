@@ -1,0 +1,91 @@
+#include <olectl.h>
+#include <idispids.h>
+
+
+[ uuid(FDA9EDB8-ED6A-468F-A3A9-E9361FEED051), version(1.0),
+  helpfile("GMEActiveBrowser.hlp"),
+  helpstring("GMEActiveBrowser ActiveX Control module"),
+  control ]
+library GMEACTIVEBROWSERLib
+{
+	importlib(STDOLE_TLB);
+	importlib(STDTYPE_TLB);
+
+ typedef enum  browser_page{
+	MODE_AGGRE = 0,
+	MODE_INHERI = 1,
+	MODE_META = 2,
+ } browser_page;
+
+	//  Primary dispatch interface for CGMEActiveBrowserCtrl
+
+	[ uuid(9D345706-0DE7-4A6A-B32A-DD1BB2F8B810),
+	  helpstring("Dispatch interface for GMEActiveBrowser Control"), hidden ]
+	dispinterface _DGMEActiveBrowser
+	{
+		properties:
+			// NOTE - ClassWizard will maintain property information here.
+			//    Use extreme caution when editing this section.
+			//{{AFX_ODL_PROP(CGMEActiveBrowserCtrl)
+			//}}AFX_ODL_PROP
+
+		methods:
+			// NOTE - ClassWizard will maintain method information here.
+			//    Use extreme caution when editing this section.
+			//{{AFX_ODL_METHOD(CGMEActiveBrowserCtrl)
+			[id(1)] short SetCurrentProject(IUnknown* pMgaProject);
+			[id(2)] short CloseCurrentProject();
+			[id(3)] void RefreshAll();
+			[id(4)] IUnknown* GetSelectedMgaObjects();
+			[id(5)] void OpenProject(BSTR pProjectName);
+			[id(6)] void FocusItem(BSTR Id);
+			[id(7)] void OpenItem(BSTR Id);
+			[id(8)] void OpenSubtree(BSTR Id);
+			[id(9)] void CloseSubtree(BSTR Id);
+			[id(10)] void Up();
+			[id(11)] void Down();
+			[id(12)] void ChangePropPage(browser_page);
+			//}}AFX_ODL_METHOD
+			[id(50)] void HighlightItem(IUnknown* pMgaObject, int hightlight);
+	};
+
+	//  Event dispatch interface for CGMEActiveBrowserCtrl
+
+	[ uuid(9953EA94-3294-4F9E-BF48-99AE7F47038B),
+	  helpstring("Event interface for GMEActiveBrowser Control") ]
+	dispinterface _DGMEActiveBrowserEvents
+	{
+		properties:
+			//  Event interface has no properties
+
+		methods:
+			// NOTE - ClassWizard will maintain event information here.
+			//    Use extreme caution when editing this section.
+			//{{AFX_ODL_EVENT(CGMEActiveBrowserCtrl)
+			[id(1)] void DblClickMgaObject(IUnknown* pMgaObject);
+			[id(2)] void ShowAttributes(IUnknown* pMgaObject);
+			[id(3)] void ShowPreferences(IUnknown* pMgaObject);
+			[id(4)] void ShowProperties();
+			[id(5)] void ClickMgaObject(IUnknown* pMgaObject);
+			[id(6)] void ShowInParentMgaObject(IUnknown* pMgaObject);
+			[id(7)] void RootFolderNameChanged();
+			[id(8)] void ShowFindDlg();
+			[id(9)] void ShowObjInspDlg();
+			[id(10)] void CycleObjInsp( VARIANT_BOOL frwd);
+			//}}AFX_ODL_EVENT
+	};
+
+	//  Class information for CGMEActiveBrowserCtrl
+
+	[ uuid(DD4F2DEB-D064-4844-9EE1-04673C872E7B),
+	  helpstring("GMEActiveBrowser Control"), control ]
+	coclass GMEActiveBrowser
+	{
+		[default] dispinterface _DGMEActiveBrowser;
+		[default, source] dispinterface _DGMEActiveBrowserEvents;
+	};
+
+
+	//{{AFX_APPEND_ODL}}
+	//}}AFX_APPEND_ODL}}
+};

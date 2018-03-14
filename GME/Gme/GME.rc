@@ -1,0 +1,1792 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+#include "GMEVersion.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (United States) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "#include ""GMEVersion.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)\r\n"
+    "#ifdef _WIN32\r\n"
+    "LANGUAGE 9, 1\r\n"
+    "#pragma code_page(1252)\r\n"
+    "#endif //_WIN32\r\n"
+    "#include ""res\\GME.rc2""  // non-Microsoft Visual C++ edited resources\r\n"
+    "#include ""afxres.rc""         // Standard components\r\n"
+    "#include ""afxprint.rc""       // printing/print preview resources\r\n"
+    "#include ""afxolecl.rc""       // OLE container resources\r\n"
+    "#endif\r\n"
+    "1 TYPELIB ""GmeLib.tlb""\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON                    "res\\GME.ico"
+IDR_GMETYPE             ICON                    "res\\GMEDoc.ico"
+IDI_TYPEMARK_ICON       ICON                    "res\\icon1.ico"
+IDI_INSTANCEMARK_ICON   ICON                    "res\\typemark.ico"
+IDI_COMPNOTFOUND        ICON                    "res\\compnotfound.ico"
+// If this changes from ,5, change GME_bin.wxs
+ID_FILE_IMPORTXML       ICON                    "res\\XME.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDR_TOOLBAR_MAIN        BITMAP                  "res\\ToolbarMain.bmp"
+IDR_TOOLBAR_MODE        BITMAP                  "res\\ToolbarMode.bmp"
+IDR_TOOLBAR_WINS        BITMAP                  "res\\ToolbarWins.bmp"
+IDR_TOOLBAR_MODELING    BITMAP                  "res\\ToolbarModeling.bmp"
+IDB_MGAOPEN             BITMAP                  "res\\mgaopen.bmp"
+IDB_BITMAP_LOGO         BITMAP                  "res\\bitmap_l.bmp"
+IDB_SPLASH              BITMAP                  "Splsh16.bmp"
+IDB_ABOUT               BITMAP                  "aboutpic.bmp"
+IDR_TOOLBAR_COMPONENTS  BITMAP                  "res\\ToolbarComponents.bmp"
+IDR_TOOLBAR_NAVIG       BITMAP                  "res\\ToolbarNavig.bmp"
+IDB_MAIN_TOOLBAR24      BITMAP                  "res\\ToolbarMain24.bmp"
+IDB_WINS_TOOLBAR24      BITMAP                  "res\\ToolbarWins24.bmp"
+IDB_MODELING_TOOLBAR24  BITMAP                  "res\\ToolbarModeling24.bmp"
+IDB_MODE_TOOLBAR24      BITMAP                  "res\\ToolbarMode24.bmp"
+IDB_NAVIG_TOOLBAR24     BITMAP                  "res\\ToolbarNavig24.bmp"
+IDB_COMPONENTS_TOOLBAR24 BITMAP                  "res\\ToolbarComponents24.bmp"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Toolbar
+//
+
+IDR_TOOLBAR_MAIN TOOLBAR 16, 16
+BEGIN
+    BUTTON      ID_FILE_OPEN
+    BUTTON      ID_FILE_SAVEPROJECT
+    BUTTON      ID_EDIT_COPY
+    BUTTON      ID_EDIT_PASTE
+    BUTTON      ID_EDIT_DELETE
+    SEPARATOR
+    BUTTON      ID_EDIT_UNDO
+    BUTTON      ID_EDIT_REDO
+    SEPARATOR
+    BUTTON      ID_EDIT_SEARCH
+    SEPARATOR
+    BUTTON      ID_FILE_PRINT
+    SEPARATOR
+    BUTTON      ID_HELP_CONTENTS
+END
+
+IDR_TOOLBAR_MODELING TOOLBAR 16, 16
+BEGIN
+    BUTTON      ID_VIEW_REFRESH
+    SEPARATOR
+    BUTTON      ID_MODE_SHORTCONNECT
+    BUTTON      ID_MODE_SHORTDISCONNECT
+    SEPARATOR
+    BUTTON      ID_VIEW_GRID
+    BUTTON      ID_VIEW_SHOWCONNECTEDPORTSONLY
+    BUTTON      ID_EDIT_SYNC
+    SEPARATOR
+    BUTTON      ID_VIEW_PARENT
+    BUTTON      ID_EDIT_SHOWBASETYPE
+    BUTTON      ID_EDIT_SHOWTYPE
+END
+
+IDR_TOOLBAR_MODE TOOLBAR 16, 16
+BEGIN
+    BUTTON      ID_MODE_EDIT
+    BUTTON      ID_MODE_AUTOCONNECT
+    BUTTON      ID_MODE_DISCONNECT
+    BUTTON      ID_MODE_SET
+    BUTTON      ID_MODE_ZOOM
+    BUTTON      ID_MODE_VISUALIZE
+END
+
+IDR_TOOLBAR_COMPONENTS TOOLBAR 16, 16
+BEGIN
+    BUTTON      ID_FILE_CHECK
+    BUTTON      ID_FILE_INTERPRET
+END
+
+IDR_TOOLBAR_WINS TOOLBAR 16, 16
+BEGIN
+    BUTTON      ID_VIEW_FULLSCREEN
+    SEPARATOR
+    BUTTON      ID_WINDOW_NEWHORIZONTALTABGROUP
+    BUTTON      ID_WINDOW_NEWVERTICALTABGROUP
+    SEPARATOR
+    BUTTON      ID_APP_ABOUT
+END
+
+IDR_TOOLBAR_NAVIG TOOLBAR 16, 16
+BEGIN
+    BUTTON      ID_BUTTON33020
+    BUTTON      ID_BUTTON33021
+    BUTTON      ID_BUTTON33022
+    BUTTON      ID_BUTTON33035
+    BUTTON      ID_BUTTON33037
+    BUTTON      ID_BUTTON33027
+    BUTTON      ID_BUTTON33028
+    BUTTON      ID_BUTTON33033
+    BUTTON      ID_BUTTON33044
+    BUTTON      ID_JUMPALONGCONN
+    BUTTON      ID_BACKALONGCONN
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+IDR_MAINFRAME MENU
+BEGIN
+    POPUP "&File"
+    BEGIN
+        MENUITEM "&New Project...",             ID_FILE_NEW
+        MENUITEM "&Open Project...",            ID_FILE_OPEN
+        MENUITEM "&Close Project",              ID_FILE_CLOSEPROJECT
+        MENUITEM "&Save Project",               ID_FILE_SAVEPROJECT
+        MENUITEM "S&ave Project As...",         ID_FILE_SAVEPROJECTAS
+        MENUITEM "A&bort Project",              ID_FILE_ABORTPROJECT
+        MENUITEM SEPARATOR
+        MENUITEM "&Export XML...",              ID_FILE_EXPORTXML
+        MENUITEM "&Import XML...",              ID_FILE_IMPORTXML
+        MENUITEM "&Update through XML...",      ID_FILE_UPDATETHROUGHXML
+        MENUITEM SEPARATOR
+        MENUITEM "Recent Pro&jects",            ID_FILE_MRU_PRJ1, GRAYED
+        MENUITEM SEPARATOR
+        MENUITEM "E&xit",                       ID_APP_EXIT
+    END
+    POPUP "&Edit"
+    BEGIN
+        MENUITEM "&Undo\tCtrl+Z",               ID_EDIT_UNDO
+        MENUITEM "&Redo\tCtrl+Y",               ID_EDIT_REDO
+        MENUITEM "Clear Undo Queue",            ID_EDIT_CLEARUNDO
+        MENUITEM SEPARATOR
+        MENUITEM "Find...\tCtrl+F",             ID_EDIT_SEARCH
+        MENUITEM SEPARATOR
+        MENUITEM "&Project Properties",         ID_EDIT_PROJECTPROPERTIES
+    END
+    POPUP "&View"
+    BEGIN
+        POPUP "&Toolbars"
+        BEGIN
+            MENUITEM "&Standard",                   IDW_TOOLBAR_MAIN
+            MENUITEM "&Modeling",                   IDW_TOOLBAR_MODELING
+            MENUITEM "&Windows",                    IDW_TOOLBAR_WINS
+            MENUITEM "&Component",                  IDW_TOOLBAR_COMPONENT
+            MENUITEM "&Mode",                       IDW_TOOLBAR_MODE
+            MENUITEM "&Navigator",                  IDW_TOOLBAR_NAVIG
+        END
+        MENUITEM "&Full Screen",                ID_VIEW_FULLSCREEN
+        MENUITEM "Cl&ear Console",              ID_VIEW_CLEARCONSOLE
+        MENUITEM SEPARATOR
+        MENUITEM "GME Browser",                 ID_VIEW_GMEBROWSER
+        MENUITEM "Object Inspector",            ID_VIEW_OBJECTINSPECTOR
+        MENUITEM "Part Browser",                ID_VIEW_PARTBROWSER
+        MENUITEM "Panning Window",              ID_VIEW_PANNWIN
+        MENUITEM "Console",                     ID_VIEW_CONSOLE
+        MENUITEM "Search",                      ID_VIEW_SEARCH
+    END
+    POPUP "&Tools"
+    BEGIN
+        POPUP "&Constraints"
+        BEGIN
+            MENUITEM "C&heck All",                  ID_FILE_CHECKALL
+            MENUITEM "&Display Constraints",        ID_FILE_DISPLAY_CONSTRAINTS
+        END
+        MENUITEM SEPARATOR
+        MENUITEM "&Register Paradigms...",      ID_FILE_REGPARADIGMS
+        MENUITEM "Re&gister Components...",     ID_FILE_REGCOMPONENTS
+        MENUITEM SEPARATOR
+        POPUP "&Multi-User"
+        BEGIN
+            MENUITEM "&Refresh SourceControl Status", ID_VIEW_REFRESH_SOURCECONTROL
+            MENUITEM "Show &Owner...",              ID_MULTIUSER_SHOWOWNER
+            MENUITEM "&Active Users...",            ID_MULTIUSER_ACTIVEUSERS
+        END
+        MENUITEM SEPARATOR
+        MENUITEM "<External Tools>",            ID_TOOLS_EXTERNAL_TOOLS
+        MENUITEM "&Options...",                 ID_FILE_SETTINGS
+    END
+    POPUP "&Help"
+    BEGIN
+        MENUITEM "&Contents",                   ID_HELP_CONTENTS
+        MENUITEM "&About GME...",               ID_APP_ABOUT
+    END
+END
+
+IDR_GMETYPE MENU
+BEGIN
+    POPUP "&File"
+    BEGIN
+        MENUITEM "Close &Model",                ID_FILE_CLOSE
+        MENUITEM SEPARATOR
+        MENUITEM "&Close Project",              ID_FILE_CLOSEPROJECT
+        MENUITEM "&Save Project",               ID_FILE_SAVEPROJECT
+        MENUITEM "S&ave Project As...",         ID_FILE_SAVEPROJECTAS
+        MENUITEM "A&bort Project",              ID_FILE_ABORTPROJECT
+        MENUITEM SEPARATOR
+        MENUITEM "&Export XML",                 ID_FILE_EXPORTXML
+        MENUITEM "&Import XML",                 ID_FILE_IMPORTXML
+        MENUITEM SEPARATOR
+        MENUITEM "&Print...\tCtrl+P",           ID_FILE_PRINT
+        MENUITEM "P&rint Setup...",             ID_FILE_PRINT_SETUP
+        MENUITEM "Print to &Metafile",          ID_PRINT_METAFILE
+        MENUITEM SEPARATOR
+        MENUITEM SEPARATOR
+        MENUITEM "E&xit",                       ID_APP_EXIT
+    END
+    POPUP "&Edit"
+    BEGIN
+        MENUITEM "&Undo\tCtrl+Z",               ID_EDIT_UNDO
+        MENUITEM "&Redo\tCtrl+Y",               ID_EDIT_REDO
+        MENUITEM "Clear Undo Queue",            ID_EDIT_CLEARUNDO
+        MENUITEM SEPARATOR
+        MENUITEM "Find...\tCtrl+F",             ID_EDIT_SEARCH
+        MENUITEM SEPARATOR
+        MENUITEM "Show Parent",                 ID_VIEW_PARENT
+        MENUITEM "Show Basetype",               ID_EDIT_SHOWBASETYPE
+        MENUITEM "Show Type",                   ID_EDIT_SHOWTYPE
+        MENUITEM SEPARATOR
+        MENUITEM "&Copy\tCtrl+C",               ID_EDIT_COPY
+        MENUITEM "C&opy Closure",               ID_EDIT_COPYCLOSURE
+        MENUITEM "Cop&y Smart",                 ID_EDIT_COPYSMART
+        MENUITEM "&Paste\tCtrl+V",              ID_EDIT_PASTE
+        POPUP "Paste &Special"
+        BEGIN
+            MENUITEM "As Reference",                ID_EDIT_PASTESPECIAL_ASREFERENCE
+            MENUITEM "As Subtype",                  ID_EDIT_PASTESPECIAL_ASSUBTYPE
+            MENUITEM "As Instance",                 ID_EDIT_PASTESPECIAL_ASINSTANCE
+            MENUITEM "Closure",                     ID_EDIT_PASTESPECIAL_ASCLOSURE
+            POPUP "Smart"
+            BEGIN
+                MENUITEM "Add",                         ID_EDIT_PASTESPECIAL_SMART_ADDITIVE
+                MENUITEM "Merge",                       ID_EDIT_PASTESPECIAL_SMART_MERGE
+            END
+        END
+        MENUITEM "&Delete",                     ID_EDIT_DELETE
+        MENUITEM "&Select All\tCtrl+A",         ID_EDIT_SELECTALL
+        MENUITEM SEPARATOR
+        MENUITEM "Cancel\tESC",                 ID_EDIT_CANCEL
+        MENUITEM SEPARATOR
+        MENUITEM "Cl&ear Console",              ID_VIEW_CLEARCONSOLE
+        MENUITEM "Project Properties",          ID_EDIT_PROJECTPROPERTIES
+        MENUITEM "Preferences",                 ID_EDIT_PREFERENCES
+        MENUITEM "Annotations",                 ID_EDIT_ANNOTATIONS
+        MENUITEM "Registry",                    ID_EDIT_REGISTRY
+        MENUITEM SEPARATOR
+        MENUITEM "Sync Aspects....",            ID_EDIT_SYNC
+        MENUITEM "Reset Sticky Settings",       ID_RESET_STICKY
+    END
+    POPUP "&View"
+    BEGIN
+        POPUP "&Application Look"
+        BEGIN
+            MENUITEM "Windows &2000",               ID_VIEW_APPLOOK_WIN_2000
+            MENUITEM "Office &XP",                  ID_VIEW_APPLOOK_OFF_XP
+            MENUITEM "&Windows XP",                 ID_VIEW_APPLOOK_WIN_XP
+            MENUITEM "Office 200&3",                ID_VIEW_APPLOOK_OFF_2003
+            MENUITEM "Visual Studio.NET 200&5",     ID_VIEW_APPLOOK_VS_2005
+            POPUP "Office 200&7"
+            BEGIN
+                MENUITEM "&Blue Style",                 ID_VIEW_APPLOOK_OFF_2007_BLUE
+                MENUITEM "B&lack Style",                ID_VIEW_APPLOOK_OFF_2007_BLACK
+                MENUITEM "&Silver Style",               ID_VIEW_APPLOOK_OFF_2007_SILVER
+                MENUITEM "&Aqua Style",                 ID_VIEW_APPLOOK_OFF_2007_AQUA
+            END
+        END
+        POPUP "&Toolbars"
+        BEGIN
+            MENUITEM "&Standard",                   IDW_TOOLBAR_MAIN
+            MENUITEM "&Modeling",                   IDW_TOOLBAR_MODELING
+            MENUITEM "&Windows",                    IDW_TOOLBAR_WINS
+            MENUITEM "&Component",                  IDW_TOOLBAR_COMPONENT
+            MENUITEM "&Mode",                       IDW_TOOLBAR_MODE
+            MENUITEM "&Navigator",                  IDW_TOOLBAR_NAVIG
+        END
+        MENUITEM "&Status Bar",                 ID_VIEW_STATUS_BAR
+        MENUITEM "Show Connected Ports Only",   ID_VIEW_SHOWCONNECTEDPORTSONLY
+        MENUITEM "&Full Screen",                ID_VIEW_FULLSCREEN
+        MENUITEM SEPARATOR
+        MENUITEM "GME Browser",                 ID_VIEW_GMEBROWSER
+        MENUITEM "Object Inspector",            ID_VIEW_OBJECTINSPECTOR
+        MENUITEM "Part Browser",                ID_VIEW_PARTBROWSER
+        MENUITEM "Panning Window",              ID_VIEW_PANNWIN
+        MENUITEM "Console",                     ID_VIEW_CONSOLE
+        MENUITEM "Search",                      ID_VIEW_SEARCH
+    END
+    POPUP "&Tools"
+    BEGIN
+        POPUP "&Constraints"
+        BEGIN
+            MENUITEM "Check &Selected",             ID_FILE_CHECKSEL
+            MENUITEM "Chec&k",                      ID_FILE_CHECK
+            MENUITEM "C&heck All",                  ID_FILE_CHECKALL
+            MENUITEM "&Trace Constraints",          ID_FILE_CHECKTRACE
+            MENUITEM "&Display Constraints",        ID_FILE_DISPLAY_CONSTRAINTS
+        END
+        MENUITEM SEPARATOR
+        MENUITEM "Re&gister Components...",     ID_FILE_REGCOMPONENTS
+        MENUITEM "Run In&terpreter",            ID_FILE_RUNINTERPRETER
+        MENUITEM "R&un Plug-In",                ID_TOOLS_RUNPLUG
+        MENUITEM SEPARATOR
+        POPUP "&Multi-User"
+        BEGIN
+            MENUITEM "&Refresh SourceControl Status", ID_VIEW_REFRESH_SOURCECONTROL
+            MENUITEM "Show &Owner...",              ID_MULTIUSER_SHOWOWNER
+            MENUITEM "&Active Users...",            ID_MULTIUSER_ACTIVEUSERS
+        END
+        MENUITEM SEPARATOR
+        MENUITEM "<External Tools>",            ID_TOOLS_EXTERNAL_TOOLS
+        MENUITEM SEPARATOR
+        MENUITEM "&Options...",                 ID_FILE_SETTINGS
+    END
+    POPUP "&Window"
+    BEGIN
+        MENUITEM "&New Window",                 ID_WINDOW_NEW, INACTIVE
+        MENUITEM "New &Horizontal Tab Group",   ID_WINDOW_NEWHORIZONTALTABGROUP
+        MENUITEM "New &Vertical Tab Group",     ID_WINDOW_NEWVERTICALTABGROUP
+        MENUITEM "Move to &Previous Tab Group", ID_WINDOW_MOVETOPREVIOUSTABGROUP
+        MENUITEM "Move to &Next Tab Group",     ID_WINDOW_MOVETONEXTTABGROUP
+    END
+    POPUP "&Help"
+    BEGIN
+        MENUITEM "&Contents",                   ID_HELP_CONTENTS
+        MENUITEM "&Help",                       ID_HELP_HELP
+        MENUITEM "&About GME...",               ID_APP_ABOUT
+    END
+END
+
+IDR_GMETYPE_CNTR_IP MENU
+BEGIN
+    POPUP "&File"
+    BEGIN
+        MENUITEM "&New\tCtrl+N",                ID_FILE_NEW
+        MENUITEM "&Open...\tCtrl+O",            ID_FILE_OPEN
+        MENUITEM "&Close",                      ID_FILE_CLOSE
+        MENUITEM "&Save\tCtrl+S",               ID_FILE_SAVE
+        MENUITEM "Save &As...",                 ID_FILE_SAVE_AS
+        MENUITEM SEPARATOR
+        MENUITEM "&Print...\tCtrl+P",           ID_FILE_PRINT
+        MENUITEM "Print Selected...",           ID_FILE_PRINTSEL
+        MENUITEM "Print All...",                ID_FILE_PRINTALL
+        MENUITEM "Print Pre&view",              ID_FILE_PRINT_PREVIEW
+        MENUITEM "P&rint Setup...",             ID_FILE_PRINT_SETUP
+        MENUITEM SEPARATOR
+        MENUITEM "Recent File",                 ID_FILE_MRU_FILE1, GRAYED
+        MENUITEM SEPARATOR
+        MENUITEM "E&xit",                       ID_APP_EXIT
+    END
+    MENUITEM SEPARATOR
+    MENUITEM SEPARATOR
+    POPUP "&Window"
+    BEGIN
+        MENUITEM "&New Window",                 ID_WINDOW_NEW
+        MENUITEM "&Cascade",                    ID_WINDOW_CASCADE
+        MENUITEM "&Tile",                       ID_WINDOW_TILE_HORZ
+        MENUITEM "&Arrange Icons",              ID_WINDOW_ARRANGE
+    END
+END
+
+IDR_SELFCONTEXT_MENU MENU
+BEGIN
+    POPUP "Cntx"
+    BEGIN
+        MENUITEM "Properties",                  ID_CNTX_PROPERTIES
+        MENUITEM "Attributes",                  ID_CNTX_ATTRIBUTES
+        MENUITEM "Preferences",                 ID_CNTX_PREFERENCES
+        MENUITEM "Annotations",                 ID_CNTX_ANNOTATIONS
+        MENUITEM "Registry",                    ID_CNTX_REGISTRY
+        MENUITEM SEPARATOR
+        MENUITEM "Insert New Model",            ID_CNTX_INSERTNEWMODEL
+        MENUITEM "Insert New Atom",             ID_CNTX_INSERTNEWATOM
+        MENUITEM "Insert New Reference",        ID_CNTX_INSERTNEWREFERENCE
+        MENUITEM "Insert New Set",              ID_CNTX_INSERTNEWSET
+        MENUITEM SEPARATOR
+        MENUITEM "Insert Annotation",           ID_CNTX_INSERTANNOTATION
+        MENUITEM SEPARATOR
+        POPUP "Name Location"
+        BEGIN
+            MENUITEM "North",                       32978
+            MENUITEM "South",                       32980
+            MENUITEM "West",                        32982
+            MENUITEM "East",                        32984
+        END
+        MENUITEM SEPARATOR
+        MENUITEM "Show Basetype",               ID_CNTX_SHOWBASETYPE
+        MENUITEM "Show Type",                   ID_CNTX_SHOWTYPE
+        MENUITEM SEPARATOR
+        MENUITEM "Copy",                        ID_SELFCNTX_COPY
+        MENUITEM "Copy Closure",                ID_SELFCNTX_COPYCLOSURE
+        MENUITEM "Copy Smart",                  ID_SELFCNTX_COPYSMART
+        MENUITEM "Paste",                       ID_SELFCNTX_PASTE
+        POPUP "Paste Special"
+        BEGIN
+            MENUITEM "As Reference",                ID_CNTX_PASTESPECIAL_ASREFERENCE
+            MENUITEM "As Subtype",                  ID_CNTX_PASTESPECIAL_ASSUBTYPE
+            MENUITEM "As Instance",                 ID_CNTX_PASTESPECIAL_ASINSTANCE
+            MENUITEM "Closure",                     ID_CNTX_PASTESPECIAL_ASCLOSURE
+            POPUP "Smart"
+            BEGIN
+                MENUITEM "Add",                         ID_CNTX_PASTESPECIAL_SMART_ADDITIVE
+                MENUITEM "Merge",                       ID_CNTX_PASTESPECIAL_SMART_MERGE
+            END
+        END
+        MENUITEM "Delete",                      ID_SELFCNTX_DELETE
+        MENUITEM SEPARATOR
+        MENUITEM "Interpret...",                ID_CNTX_INTERPRET
+        MENUITEM "Check",                       ID_CNTX_CHECK
+        MENUITEM "Locate",                      ID_CNTX_LOCATE
+        MENUITEM SEPARATOR
+        MENUITEM "Help",                        ID_CNTX_HELP
+    END
+END
+
+IDR_ANNCONTEXT_MENU MENU
+BEGIN
+    POPUP "Cntx"
+    BEGIN
+        MENUITEM "Annotations",                 ID_CNTX_ANNOTATIONS
+        MENUITEM SEPARATOR
+        MENUITEM "Copy",                        ID_CNTX_COPY
+        MENUITEM "Delete",                      ID_CNTX_DELETE
+        MENUITEM SEPARATOR
+        MENUITEM "Help",                        ID_CNTX_HELP
+    END
+END
+
+IDR_CONNCONTEXT_MENU MENU
+BEGIN
+    POPUP "Cntx"
+    BEGIN
+        MENUITEM "Properties",                  ID_CONNCNTX_PROPERTIES
+        MENUITEM "Attributes",                  ID_CNTX_ATTRIBUTES
+        MENUITEM "Preferences",                 ID_CNTX_PREFERENCES
+        MENUITEM "Registry",                    ID_CNTX_REGISTRY
+        MENUITEM SEPARATOR
+        POPUP "Source AutoRouting"
+        BEGIN
+            MENUITEM "North",                       ID_CNTX_SRCAR_NORTH, CHECKED
+            MENUITEM "South",                       ID_CNTX_SRCAR_SOUTH, CHECKED
+            MENUITEM "West",                        ID_CNTX_SRCAR_WEST, CHECKED
+            MENUITEM "East",                        ID_CNTX_SRCAR_EAST, CHECKED
+            MENUITEM SEPARATOR
+            MENUITEM "Clear All",                   ID_CNTX_SRCAR_CLEAR
+            MENUITEM "Set All",                     ID_CNTX_SRCAR_SET
+        END
+        POPUP "Destination AutoRouting"
+        BEGIN
+            MENUITEM "North",                       ID_CNTX_DSTAR_NORTH, CHECKED
+            MENUITEM "South",                       ID_CNTX_DSTAR_SOUTH, CHECKED
+            MENUITEM "West",                        ID_CNTX_DSTAR_WEST, CHECKED
+            MENUITEM "East",                        ID_CNTX_DSTAR_EAST, CHECKED
+            MENUITEM SEPARATOR
+            MENUITEM "Clear All",                   ID_CNTX_DSTAR_CLEAR
+            MENUITEM "Set All",                     ID_CNTX_DSTAR_SET
+        END
+        MENUITEM SEPARATOR
+        MENUITEM "Delete",                      ID_CONNCNTX_DELETE
+        MENUITEM "Reverse connection direction", ID_CONNCNTX_REVERSE
+        MENUITEM SEPARATOR
+        MENUITEM "Help",                        ID_CNTX_HELP
+        MENUITEM SEPARATOR
+        MENUITEM "Jump to Source",              ID_CONNCNTX_JUMP_SRC
+        MENUITEM "Jump to Destination",         ID_CONNCNTX_FOLLOW
+        MENUITEM SEPARATOR
+        MENUITEM "Try to apply horizontal/vertical snap along the whole connection", ID_TRYTOSNAPHORZVERTPATH
+        MENUITEM "Delete this edge's customization", ID_DELETECONNEDGECUSTOMDATA
+        MENUITEM "Delete this point's customization", ID_DELETECONNPOINTCUSTOMDATA
+        MENUITEM "Delete customizations for this connection (just this aspect)", ID_DELETECONNCUSTOMDATA_THISASPECT
+        MENUITEM "Delete customizations for this connection (all aspects)", ID_DELETECONNCUSTOMDATA_ALLASPECTS
+    END
+END
+
+IDR_CONTEXT_MENU MENU
+BEGIN
+    POPUP "Cntx"
+    BEGIN
+        MENUITEM "Properties",                  ID_CNTX_PROPERTIES
+        MENUITEM "Attributes",                  ID_CNTX_ATTRIBUTES
+        MENUITEM "Preferences",                 ID_CNTX_PREFERENCES
+        MENUITEM "Registry",                    ID_CNTX_REGISTRY
+        MENUITEM SEPARATOR
+        POPUP "Source AutoRouting"
+        BEGIN
+            MENUITEM "North",                       ID_CNTX_SRCAR_NORTH, CHECKED
+            MENUITEM "South",                       ID_CNTX_SRCAR_SOUTH, CHECKED
+            MENUITEM "West",                        ID_CNTX_SRCAR_WEST, CHECKED
+            MENUITEM "East",                        ID_CNTX_SRCAR_EAST, CHECKED
+            MENUITEM SEPARATOR
+            MENUITEM "Clear All",                   ID_CNTX_SRCAR_CLEAR
+            MENUITEM "Set All",                     ID_CNTX_SRCAR_SET
+        END
+        POPUP "Destination AutoRouting"
+        BEGIN
+            MENUITEM "North",                       ID_CNTX_DSTAR_NORTH, CHECKED
+            MENUITEM "South",                       ID_CNTX_DSTAR_SOUTH, CHECKED
+            MENUITEM "West",                        ID_CNTX_DSTAR_WEST, CHECKED
+            MENUITEM "East",                        ID_CNTX_DSTAR_EAST, CHECKED
+            MENUITEM SEPARATOR
+            MENUITEM "Clear All",                   ID_CNTX_DSTAR_CLEAR
+            MENUITEM "Set All",                     ID_CNTX_DSTAR_SET
+        END
+        MENUITEM SEPARATOR
+        POPUP "Name Location"
+        BEGIN
+            MENUITEM "North",                       ID_CNTX_NMPOS_NORTH
+            MENUITEM "South",                       ID_CNTX_NMPOS_SOUTH
+            MENUITEM "West",                        ID_CNTX_NMPOS_WEST
+            MENUITEM "East",                        ID_CNTX_NMPOS_EAST
+        END
+        MENUITEM SEPARATOR
+        MENUITEM "Show Basetype",               ID_CNTX_SHOWBASETYPE
+        MENUITEM "Show Type",                   ID_CNTX_SHOWTYPE
+        MENUITEM SEPARATOR
+        MENUITEM "Copy",                        ID_CNTX_COPY
+        MENUITEM "Copy Closure",                ID_CNTX_COPYCLOSURE
+        MENUITEM "Copy Smart",                  ID_CNTX_COPYSMART
+        MENUITEM "Delete",                      ID_CNTX_DELETE
+        MENUITEM SEPARATOR
+        MENUITEM "Connect",                     ID_CNTX_CONNECT
+        MENUITEM "Disconnect All",              ID_CNTX_DISCONNECTALL
+        MENUITEM SEPARATOR
+        MENUITEM "Redirection Paste",           ID_CNTX_REDIRECTIONPASTE
+        MENUITEM "Reset",                       ID_CNTX_RESET
+        MENUITEM "Clear",                       ID_CNTX_CLEAR
+        MENUITEM SEPARATOR
+        MENUITEM "Interpret",                   ID_CNTX_INTERPRET
+        MENUITEM "Check",                       ID_CNTX_CHECK
+        MENUITEM "Locate",                      ID_CNTX_LOCATE
+        MENUITEM SEPARATOR
+        MENUITEM "Help",                        ID_CNTX_HELP
+        MENUITEM SEPARATOR
+        MENUITEM "Follow Incoming Connection",  ID_CNTX_REVERSECONNECTION
+        MENUITEM "Follow Outgoing Connection",  ID_CNTX_FOLLOWCONNECTION
+    END
+END
+
+IDR_MYTOOLBARS_MENU MENU
+BEGIN
+    POPUP "Toolbars"
+    BEGIN
+        MENUITEM "&Standard",                   IDW_TOOLBAR_MAIN
+        MENUITEM "&Windows",                    IDW_TOOLBAR_WINS
+        MENUITEM "&Components",                 IDW_TOOLBAR_COMPONENT
+        MENUITEM "&Navigator",                  IDW_TOOLBAR_NAVIG
+    END
+END
+
+IDR_PORTCONTEXT_MENU MENU
+BEGIN
+    POPUP "PortCntx"
+    BEGIN
+        MENUITEM "Follow Incoming Connection",  ID_PORTCNTX_REVERSECONNECTION
+        MENUITEM "Follow Outgoing Connection",  ID_PORTCNTX_FOLLOWCONNECTION
+        MENUITEM SEPARATOR
+        MENUITEM "Show Port in Parent",         ID_CNTX_SHOWPORTINPARENT
+        MENUITEM "Locate Port in Browser",      ID_CNTX_LOCATEPORTINBROWSER
+        MENUITEM "Delete",                      ID_PORTCNTX_DELETE
+    END
+END
+
+IDR_CRASH_TEST_MENU MENU
+BEGIN
+    POPUP "Crash Test"
+    BEGIN
+        MENUITEM "Illegal write",               ID_CRASHTEST_ILLEGALWRITE
+        MENUITEM "Illegal Read",                ID_CRASHTEST_ILLEGALREAD
+        MENUITEM "Illegal Read in C runtime",   ID_CRASHTEST_ILLEGALREADINCRUNTIME
+        MENUITEM "Illegal code read (jump to zero address)", ID_CRASHTEST_ILLEGALCODEREAD
+        MENUITEM "Divide by zero",              ID_CRASHTEST_DIVIDEBYZERO
+        MENUITEM "Abort",                       ID_CRASHTEST_ABORT
+        MENUITEM "Terminate",                   ID_CRASHTEST_TERMINATE
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Accelerator
+//
+
+IDR_MAINFRAME ACCELERATORS
+BEGIN
+    VK_LEFT,        ID_BUTTON33020,         VIRTKEY, ALT, NOINVERT
+    VK_RIGHT,       ID_BUTTON33021,         VIRTKEY, ALT, NOINVERT
+    "Y",            ID_EDIT_REDO,           VIRTKEY, CONTROL, NOINVERT
+    "F",            ID_EDIT_SEARCH,         VIRTKEY, CONTROL, NOINVERT
+    "Z",            ID_EDIT_UNDO,           VIRTKEY, CONTROL, NOINVERT
+    VK_BACK,        ID_EDIT_UNDO,           VIRTKEY, CONTROL, NOINVERT
+    "L",            ID_FILE_CLEARLOCKS,     VIRTKEY, CONTROL, ALT, NOINVERT
+    "S",            ID_FILE_SAVEPROJECT,    VIRTKEY, CONTROL
+    "O",            ID_FILE_OPEN,           VIRTKEY, CONTROL
+    "N",            ID_FILE_NEW,            VIRTKEY, CONTROL
+    "B",            ID_FOCUS_BROWSER,       VIRTKEY, CONTROL, NOINVERT
+    "I",            ID_FOCUS_INSPECTOR,     VIRTKEY, CONTROL, NOINVERT
+    "2",            ID_MODE_AUTOCONNECT,    VIRTKEY, CONTROL, NOINVERT
+    "3",            ID_MODE_DISCONNECT,     VIRTKEY, CONTROL, NOINVERT
+    "1",            ID_MODE_EDIT,           VIRTKEY, CONTROL, NOINVERT
+    "4",            ID_MODE_SET,            VIRTKEY, CONTROL, NOINVERT
+    "7",            ID_MODE_SHORTCONNECT,   VIRTKEY, CONTROL, NOINVERT
+    "8",            ID_MODE_SHORTDISCONNECT, VIRTKEY, CONTROL, NOINVERT
+    "6",            ID_MODE_VISUALIZE,      VIRTKEY, CONTROL, NOINVERT
+    "5",            ID_MODE_ZOOM,           VIRTKEY, CONTROL, NOINVERT
+END
+
+IDR_GMETYPE_CNTR_IP ACCELERATORS
+BEGIN
+    "N",            ID_FILE_NEW,            VIRTKEY, CONTROL
+    "O",            ID_FILE_OPEN,           VIRTKEY, CONTROL
+    "S",            ID_FILE_SAVE,           VIRTKEY, CONTROL
+    "P",            ID_FILE_PRINT,          VIRTKEY, CONTROL
+    VK_F6,          ID_NEXT_PANE,           VIRTKEY
+    VK_F6,          ID_PREV_PANE,           VIRTKEY, SHIFT
+    VK_ESCAPE,      ID_CANCEL_EDIT_CNTR,    VIRTKEY, NOINVERT
+END
+
+IDR_GMEVIEW ACCELERATORS
+BEGIN
+    "h",            ID_BACKALONGCONN,       ASCII,  NOINVERT
+    VK_ESCAPE,      ID_EDIT_CANCEL,         VIRTKEY, NOINVERT
+    "C",            ID_EDIT_COPY,           VIRTKEY, CONTROL, NOINVERT
+    VK_INSERT,      ID_EDIT_COPY,           VIRTKEY, CONTROL, NOINVERT
+    VK_DELETE,      ID_EDIT_DELETE,         VIRTKEY, NOINVERT
+    VK_DOWN,        ID_EDIT_NUDGEDOWN,      VIRTKEY, NOINVERT
+    VK_LEFT,        ID_EDIT_NUDGELEFT,      VIRTKEY, NOINVERT
+    VK_RIGHT,       ID_EDIT_NUDGERIGHT,     VIRTKEY, NOINVERT
+    VK_UP,          ID_EDIT_NUDGEUP,        VIRTKEY, NOINVERT
+    "V",            ID_EDIT_PASTE,          VIRTKEY, CONTROL, NOINVERT
+    "V",            ID_EDIT_PASTESPECIAL_ASREFERENCE,      VIRTKEY, CONTROL, SHIFT, NOINVERT
+    VK_INSERT,      ID_EDIT_PASTE,          VIRTKEY, SHIFT, NOINVERT
+    "A",            ID_EDIT_SELECTALL,      VIRTKEY, CONTROL, NOINVERT
+    "P",            ID_FILE_PRINT,          VIRTKEY, CONTROL, NOINVERT
+    "W",            ID_FILE_CLOSE,          VIRTKEY, CONTROL
+    VK_F1,          ID_HELP_HELP,           VIRTKEY, NOINVERT
+    "j",            ID_JUMPALONGCONN,       ASCII,  NOINVERT
+    "f",            ID_JUMPTOFIRSTOBJ,      ASCII,  NOINVERT
+    "n",            ID_JUMPTONEXTOBJ,       ASCII,  NOINVERT
+    "C",            ID_KEY_CONNECT,         VIRTKEY, NOINVERT
+    "A",            ID_KEY_CYCLEOBJINSPBKWD, ASCII, NOINVERT
+    "A",            ID_KEY_CYCLEOBJINSPBKWD, VIRTKEY, SHIFT, ALT, NOINVERT
+    "a",            ID_KEY_CYCLEOBJINSPFRWD, ASCII, NOINVERT
+    "A",            ID_KEY_CYCLEOBJINSPFRWD, VIRTKEY, ALT, NOINVERT
+    VK_ADD,         ID_KEY_ZOOMIN,          VIRTKEY, NOINVERT
+    VK_SUBTRACT,    ID_KEY_ZOOMOUT,         VIRTKEY, NOINVERT
+    VK_F10,         ID_SHOWCONTEXTMENU,     VIRTKEY, SHIFT, NOINVERT
+    "`",            ID_VIEW_CYCLEALLASPECTS, ASCII, NOINVERT
+    VK_TAB,         ID_VIEW_CYCLEASPECTKEY, VIRTKEY, NOINVERT
+    VK_TAB,         ID_VIEW_CYCLEASPECTBACKWARDSKEY, VIRTKEY, SHIFT, NOINVERT
+    VK_F2,          ID_VIEW_RENAME,         VIRTKEY, NOINVERT
+    "B",            ID_VIEW_FOCUSBROWSER,   VIRTKEY, NOINVERT
+    "B",            ID_VIEW_FOCUSBROWSER,   VIRTKEY, CONTROL, NOINVERT
+    "L",            ID_VIEW_FOCUSBROWSER,   VIRTKEY, NOINVERT
+    "I",            ID_VIEW_FOCUSINSPECTOR, VIRTKEY, CONTROL, NOINVERT
+    "Z",            ID_VIEW_HISTORYBACKKEY, VIRTKEY, NOINVERT
+    "X",            ID_VIEW_HISTORYFORWKEY, VIRTKEY, NOINVERT
+    VK_BACK,        ID_VIEW_PARENT,         VIRTKEY, NOINVERT
+    VK_RETURN,      ID_VIEW_SHOWSELMODEL,   VIRTKEY, NOINVERT
+    VK_APPS,        ID_SHOWCONTEXTMENU,     VIRTKEY, NOINVERT
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+CG_IDD_MODELPROPERTIESBAR DIALOGEX 0, 0, 467, 16
+STYLE DS_SETFONT | WS_CHILD
+EXSTYLE WS_EX_TOOLWINDOW
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    EDITTEXT        IDC_NAME,37,2,88,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_KINDNAME,127,2,68,12,ES_AUTOHSCROLL | ES_READONLY | NOT WS_TABSTOP
+    COMBOBOX        IDC_ASPECT,223,2,65,272,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    EDITTEXT        IDC_TYPENAME,312,2,68,12,ES_AUTOHSCROLL | ES_READONLY | NOT WS_TABSTOP
+    COMBOBOX        IDC_ZOOMS,406,2,41,272,CBS_DROPDOWN | WS_VSCROLL | WS_TABSTOP
+    ICON            IDI_INSTANCEMARK_ICON,IDC_INSTANCEMARK,0,0,20,20,SS_REALSIZEIMAGE | NOT WS_VISIBLE
+    LTEXT           "Name:",IDC_STATIC,15,4,21,8
+    LTEXT           "Aspect:",IDC_STATIC,197,4,24,8
+    RTEXT           "Base:",IDC_BASETYPE_LABEL,290,4,19,8
+    LTEXT           "Zoom:",IDC_STATIC,384,4,22,8
+    ICON            IDI_TYPEMARK_ICON,IDC_TYPEMARK,0,0,20,20,SS_REALSIZEIMAGE
+END
+
+IDD_BROWSER_DIALOG DIALOGEX 0, 0, 250, 256
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "GME Browser"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    CONTROL         "",IDC_GMEACTIVEBROWSERCTRL1,
+                    "{DD4F2DEB-D064-4844-9EE1-04673C872E7B}",WS_TABSTOP,10,10,233,53
+END
+
+IDD_MGAOPEN DIALOGEX 0, 0, 167, 73
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Open"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    DEFPUSHBUTTON   "&Next >",IDC_NEXT,57,52,46,14
+    PUSHBUTTON      "Cancel",IDCANCEL,114,52,46,14
+    PUSHBUTTON      "< &Back",IDC_BACK,7,52,46,14,WS_DISABLED
+    CONTROL         "Open project file",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON | WS_GROUP | WS_TABSTOP,58,18,102,10
+    CONTROL         "Open multi-user project",IDC_RADIO4,"Button",BS_AUTORADIOBUTTON | WS_TABSTOP,58,32,102,10
+    CONTROL         155,IDC_MGAOPEN_BMP,"Static",SS_BITMAP,7,8,43,39
+END
+
+IDR_MAINFRAME DIALOG 0, 0, 214, 16
+STYLE DS_SETFONT | WS_CHILD
+FONT 8, "MS Sans Serif"
+BEGIN
+END
+
+IDD_PROJECTPROPERTIES_DIALOG DIALOGEX 0, 0, 400, 289
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Project Properties"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,289,268,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,343,268,50,14
+    EDITTEXT        IDC_PROJECT_NAME,50,7,343,14,ES_AUTOHSCROLL
+    LTEXT           "Name:",IDC_STATIC,7,9,21,8
+    EDITTEXT        IDC_PROJECT_AUTHOR,50,44,343,14,ES_AUTOHSCROLL
+    LTEXT           "Author:",IDC_STATIC,7,46,29,8
+    EDITTEXT        IDC_PROJECT_VERSION,50,63,343,14,ES_AUTOHSCROLL
+    LTEXT           "Version:",IDC_STATIC,7,65,26,8
+    EDITTEXT        IDC_PROJECT_CREATED,50,81,343,14,ES_AUTOHSCROLL | ES_READONLY
+    LTEXT           "Created:",IDC_STATIC,7,83,27,8
+    EDITTEXT        IDC_PROJECT_MODIFIED,50,99,343,14,ES_AUTOHSCROLL | ES_READONLY
+    LTEXT           "Modified:",IDC_STATIC,7,101,29,8
+    EDITTEXT        IDC_PROJECT_COMMENT,50,117,343,52,ES_MULTILINE | ES_AUTOHSCROLL | ES_WANTRETURN
+    LTEXT           "Comment:",IDC_STATIC,7,119,31,8
+    EDITTEXT        IDC_PROJECT_GUID,50,174,343,14,ES_AUTOHSCROLL | ES_READONLY
+    LTEXT           "GUID:",IDC_STATIC,7,176,36,8
+    EDITTEXT        IDC_PROJECT_PARADIGM,50,194,343,14,ES_AUTOHSCROLL | ES_READONLY
+    LTEXT           "Paradigm:",IDC_STATIC,7,196,36,8
+    EDITTEXT        IDC_PROJECT_PARVERSION,50,212,343,14,ES_AUTOHSCROLL | ES_READONLY
+    LTEXT           "Par.Version:",IDC_STATIC,7,214,37,8
+    EDITTEXT        IDC_PROJECT_PARGUID,50,231,343,14,ES_AUTOHSCROLL | ES_READONLY
+    LTEXT           "Par.GUID:",IDC_STATIC,7,232,37,8
+    PUSHBUTTON      "Paradigm...",IDC_BUTTON_PARADIGM,343,249,50,14
+    EDITTEXT        IDC_PROJECT_CONNECTION,50,25,343,14,ES_AUTOHSCROLL | ES_READONLY
+    LTEXT           "File name:",IDC_STATIC,7,27,38,8
+END
+
+IDD_SYNCHRONIZE_DIALOG DIALOGEX 0, 0, 357, 275
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Synchronize Aspects"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    LTEXT           "From:",IDC_STATIC,5,7,18,8
+    COMBOBOX        IDC_SRCASPECT_COMBO,30,5,120,50,CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "To:",IDC_STATIC,165,7,12,8
+    CONTROL         "List4",IDC_DSTASPECT_LIST,"SysListView32",LVS_REPORT | LVS_SHOWSELALWAYS | WS_BORDER | WS_TABSTOP,180,5,170,101
+    CONTROL         "Priority for selected objects",IDC_PRIORITY_CHECK2,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,5,25,100,10
+    CONTROL         "Priority for source visible selected objects",IDC_PRIORITY_CHECK,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,5,40,145,10
+    LTEXT           "Objects to be synchronized:",IDC_STATIC,5,55,88,8
+    CONTROL         "List1",IDC_SELOBJS_LIST,"SysListView32",LVS_REPORT | LVS_SHOWSELALWAYS | WS_BORDER | WS_TABSTOP,7,116,343,132
+    DEFPUSHBUTTON   "OK",IDOK,67,254,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,195,254,50,14
+END
+
+IDD_DLL_DIALOG DIALOG 0, 0, 252, 186
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "DLL Info"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "Close",IDOK,100,168,50,14
+    LTEXT           "Loaded DLLs",IDC_STATIC,6,3,105,10
+    CONTROL         "List2",IDC_DLL_LIST,"SysListView32",LVS_REPORT | WS_BORDER | WS_TABSTOP,5,15,240,145
+END
+
+IDD_OBJECT_INSPECTOR_DIALOG DIALOG 0, 0, 157, 212
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Dialog"
+FONT 8, "MS Sans Serif"
+BEGIN
+    CONTROL         "",IDC_OBJECT_INSPECTOR_CTRL,
+                    "{B786F53C-297F-4DB8-8060-D45057217AEE}",WS_TABSTOP,12,9,133,197
+END
+
+IDD_SEARCH_DIALOG DIALOGEX 200, 100, 244, 236
+STYLE DS_SETFONT | WS_POPUP | WS_CAPTION | WS_SYSMENU | WS_THICKFRAME
+CAPTION "Search"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    CONTROL         "",IDC_SEARCHCTRL,"{E5FE98F1-B7AD-4ABE-89DB-87DDD9DB753E}",WS_TABSTOP,0,0,242,236
+END
+
+IDD_PRINTOPTIONS DIALOG 0, 0, 162, 205
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Print Options"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,105,7,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,105,24,50,14
+    CONTROL         "List1",IDC_LSTASPECTS,"SysListView32",LVS_LIST | LVS_SORTASCENDING | WS_BORDER | WS_TABSTOP,13,52,136,119
+    CONTROL         "Do not print header",IDC_CHKNOHEADER,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,16,18,80,10
+    PUSHBUTTON      "Select All",IDC_BTNSELECT,27,177,50,14
+    PUSHBUTTON      "Deselect All",IDC_BTNDESELECT,84,177,50,14
+    GROUPBOX        " Aspects ",IDC_STATIC,7,39,148,159
+    GROUPBOX        " Header ",IDC_STATIC,7,7,92,28
+END
+
+IDD_PRINT_DIALOG DIALOGEX 32, 32, 420, 374
+STYLE DS_SETFONT | DS_MODALFRAME | DS_3DLOOK | DS_CONTEXTHELP | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "Print"
+FONT 8, "MS Shell Dlg", 0, 0, 0x1
+BEGIN
+    GROUPBOX        "Printer",1075,8,5,274,63,WS_GROUP
+    LTEXT           "&Name:",1093,16,20,36,8
+    COMBOBOX        1139,52,18,152,152,CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_GROUP | WS_TABSTOP
+    LTEXT           "Status:",1095,16,36,36,10,SS_NOPREFIX
+    CONTROL         "",1099,"Static",SS_LEFTNOWORDWRAP | SS_NOPREFIX | WS_GROUP,52,36,152,10
+    LTEXT           "Type:",1094,16,51,36,10,SS_NOPREFIX
+    CONTROL         "",1098,"Static",SS_LEFTNOWORDWRAP | SS_NOPREFIX | WS_GROUP,52,51,152,10
+    PUSHBUTTON      "&Properties...",1025,212,17,60,14,WS_GROUP
+    CONTROL         "Print to fi&le",1040,"Button",BS_AUTOCHECKBOX | WS_GROUP | WS_TABSTOP,212,43,64,12
+    GROUPBOX        "Copies",1073,289,5,121,63,WS_GROUP
+    LTEXT           "Number of &copies:",1092,298,20,68,8
+    EDITTEXT        1154,370,18,32,12,ES_NUMBER | WS_GROUP
+    ICON            "",1086,292,35,76,24,SS_REALSIZEIMAGE | WS_GROUP
+    CONTROL         "C&ollate",1041,"Button",BS_AUTOCHECKBOX | WS_GROUP | WS_TABSTOP,370,43,36,12
+    GROUPBOX        "Print range",1072,8,73,153,64,WS_GROUP
+    RADIOBUTTON     "&All Aspects",IDC_ALLASP1058,16,102,75,12,WS_TABSTOP
+    RADIOBUTTON     "&Current Aspect",IDC_CURASP1056,16,87,75,12,WS_TABSTOP
+    RADIOBUTTON     "&Selected Aspects",IDC_SELASP1057,16,118,75,12,WS_TABSTOP
+    CONTROL         "Do not print &header",IDC_CHKNOHEADER,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,178,85,90,10
+    CONTROL         "Fit to &1 page",IDC_FITTO1PAGE,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,178,102,90,10
+    CONTROL         "Auto &rotate",IDC_AUTOROTATE,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,178,119,90,10
+    GROUPBOX        "Layout",1074,169,73,241,64,WS_GROUP
+    CONTROL         "Portrait",IDC_XPORTRAIT,"Button",BS_AUTORADIOBUTTON | WS_TABSTOP,304,93,75,12
+    CONTROL         "Landscape",IDC_XLANDSCAPE,"Button",BS_AUTORADIOBUTTON | WS_TABSTOP,304,109,75,12
+    GROUPBOX        " Aspects ",IDC_STATIC,7,143,154,224,WS_GROUP
+    LISTBOX         IDC_ASPECTSLIST,15,156,137,179,LBS_SORT | LBS_MULTIPLESEL | LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_HSCROLL | WS_TABSTOP
+    PUSHBUTTON      "Deselect All",IDC_BTNDESELECT,62,344,43,14
+    PUSHBUTTON      "Select All",IDC_BTNSELECT,109,344,43,14
+    GROUPBOX        "Preview",IDC_STATIC,170,143,240,204,WS_GROUP
+    CONTROL         "Slider2",IDC_SLIDER2,"msctls_trackbar32",TBS_AUTOTICKS | TBS_TOP | WS_TABSTOP,234,322,110,23
+    PUSHBUTTON      "&Help",1038,252,353,48,14
+    DEFPUSHBUTTON   "OK",IDOK,307,353,48,14,WS_GROUP
+    PUSHBUTTON      "Cancel",IDCANCEL,362,353,48,14
+    GROUPBOX        "Paper orientation",IDC_ORIENT,290,82,111,47,WS_GROUP
+    LTEXT           "Where:",1097,226,214,36,10,SS_NOPREFIX | NOT WS_VISIBLE | WS_DISABLED,WS_EX_TRANSPARENT
+    CONTROL         "",1101,"Static",SS_LEFTNOWORDWRAP | SS_NOPREFIX | NOT WS_VISIBLE | WS_DISABLED | WS_GROUP,245,214,124,10,WS_EX_TRANSPARENT | WS_EX_CLIENTEDGE
+    LTEXT           "Comment:",1096,226,227,36,10,SS_NOPREFIX | NOT WS_VISIBLE | WS_DISABLED,WS_EX_TRANSPARENT
+    CONTROL         "",1100,"Static",SS_LEFTNOWORDWRAP | SS_NOPREFIX | NOT WS_VISIBLE | WS_DISABLED | WS_GROUP,245,227,124,10,WS_EX_TRANSPARENT | WS_EX_CLIENTEDGE
+    RTEXT           "&from:",1089,262,251,20,8,NOT WS_VISIBLE | WS_DISABLED,WS_EX_TRANSPARENT
+    EDITTEXT        1152,264,263,26,12,ES_NUMBER | NOT WS_VISIBLE | WS_DISABLED | WS_GROUP,WS_EX_TRANSPARENT
+    RTEXT           "&to:",1090,312,251,16,8,NOT WS_VISIBLE | WS_DISABLED,WS_EX_TRANSPARENT
+    EDITTEXT        1153,330,248,26,12,ES_NUMBER | NOT WS_VISIBLE | WS_DISABLED | WS_GROUP,WS_EX_TRANSPARENT
+    LTEXT           "Scale:",IDC_SCALETXT,212,330,22,8
+    PUSHBUTTON      "Reverse",IDC_REVERSE,15,344,43,14
+    CONTROL         "",IDC_PREVIEWBTN,"Button",BS_OWNERDRAW | BS_BITMAP,180,156,220,165,WS_EX_STATICEDGE
+END
+
+IDD_PRINTSETUP_DIALOG DIALOGEX 32, 32, 291, 177
+STYLE DS_SETFONT | DS_MODALFRAME | DS_3DLOOK | DS_CONTEXTHELP | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "Print Setup"
+FONT 8, "MS Shell Dlg", 0, 0, 0x1
+BEGIN
+    GROUPBOX        "Printer",1075,8,4,272,84,WS_GROUP
+    LTEXT           "&Name:",1093,16,20,36,8
+    COMBOBOX        1136,52,18,152,152,CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_GROUP | WS_TABSTOP
+    PUSHBUTTON      "&Properties...",1025,212,17,60,14,WS_GROUP
+    LTEXT           "Status:",1095,16,36,36,10,SS_NOPREFIX
+    CONTROL         "",1099,"Static",SS_LEFTNOWORDWRAP | SS_NOPREFIX | WS_GROUP,52,36,224,10
+    LTEXT           "Type:",1094,16,48,36,10,SS_NOPREFIX
+    CONTROL         "",1098,"Static",SS_LEFTNOWORDWRAP | SS_NOPREFIX | WS_GROUP,52,48,224,10
+    LTEXT           "Where:",1097,16,60,36,10,SS_NOPREFIX
+    CONTROL         "",1101,"Static",SS_LEFTNOWORDWRAP | SS_NOPREFIX | WS_GROUP,52,60,224,10
+    LTEXT           "Comment:",1096,16,72,36,10,SS_NOPREFIX
+    CONTROL         "",1100,"Static",SS_LEFTNOWORDWRAP | SS_NOPREFIX | WS_GROUP,52,72,224,10
+    GROUPBOX        "Paper",1073,8,92,272,56,WS_GROUP
+    LTEXT           "Si&ze:",1089,16,108,36,8
+    COMBOBOX        1137,52,106,112,112,CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_GROUP | WS_TABSTOP
+    LTEXT           "&Source:",1090,16,128,36,8
+    COMBOBOX        1138,52,126,112,112,CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_GROUP | WS_TABSTOP
+    GROUPBOX        "Orientation",1072,180,92,100,56,NOT WS_VISIBLE | WS_DISABLED | WS_GROUP
+    CONTROL         "",1084,"Static",SS_BITMAP | NOT WS_VISIBLE | WS_DISABLED,191,111,21,20,WS_EX_TRANSPARENT
+    RADIOBUTTON     "P&ortrait",1056,224,106,52,12,NOT WS_VISIBLE | WS_DISABLED | WS_GROUP | WS_TABSTOP
+    RADIOBUTTON     "L&andscape",1057,224,126,52,12,NOT WS_VISIBLE | WS_DISABLED
+    DEFPUSHBUTTON   "OK",IDOK,178,157,48,14,WS_GROUP
+    PUSHBUTTON      "Cancel",IDCANCEL,232,157,48,14
+    PUSHBUTTON      "&Help",1038,8,157,48,14
+END
+
+IDD_NEW_MULTIUSER_PROJ_DLG DIALOGEX 0, 0, 375, 181
+STYLE DS_SETFONT | WS_POPUP | WS_CAPTION | WS_SYSMENU | WS_THICKFRAME
+CAPTION "New Multiuser Project"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    GROUPBOX        "",IDC_STATIC,4,3,364,51
+    LTEXT           "&Project Location:",IDC_STATIC,13,17,85,8
+    EDITTEXT        IDC_EDIT_LOCATION,98,14,241,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "...",IDC_BUTTON_BROWSE_LOC,342,15,15,14
+    LTEXT           "P&roject Name:",IDC_STATIC,13,39,85,8
+    EDITTEXT        IDC_EDIT_PROJNAME,98,36,112,14,ES_AUTOHSCROLL
+    CONTROL         "Split Project Into Subdirectories",IDC_CHECK_SPLITTOSUBDIRS,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,214,38,112,10
+    COMBOBOX        IDC_COMBO_SPLITALG,327,36,31,38,CBS_DROPDOWN | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    CONTROL         "Subversion",IDC_RADIO_SUBVERSION,"Button",BS_AUTORADIOBUTTON | WS_GROUP | WS_TABSTOP,13,68,58,10
+    CONTROL         "None",IDC_RADIO_NONE,"Button",BS_AUTORADIOBUTTON,75,68,36,10
+    GROUPBOX        "Subversion",IDC_STATIC_SVN,4,88,364,58
+    EDITTEXT        IDC_EDIT_SVNDATABASE,37,99,322,14,ES_AUTOHSCROLL
+    LTEXT           "Examples: svn+ssh://username@svn.example.com/repository/projects",IDC_STATIC_SUBVERSION,13,115,224,8
+    LTEXT           "https://svn.server.example.com/repository/projects",IDC_STATIC_SUBVERSION2,46,126,162,8
+    DEFPUSHBUTTON   "OK",IDOK,129,150,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,194,150,50,14
+    LTEXT           "URL:",IDC_STATIC_SUBVERSION_URLLABEL,13,102,20,8
+    GROUPBOX        "Source Control",IDC_STATIC,4,58,364,26
+END
+
+IDD_PARADIGMPROPERTIES_DIALOG DIALOGEX 0, 0, 211, 202
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Paradigm Properties"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    DEFPUSHBUTTON   "Close",IDOK,154,181,50,14
+    EDITTEXT        IDC_PARADIGM_NAME,43,7,161,14,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_PARADIGM_AUTHOR,43,25,161,14,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_PARADIGM_VERSION,43,44,161,14,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_PARADIGM_CREATED,43,62,161,14,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_PARADIGM_MODIFIED,43,80,161,14,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_PARADIGM_COMMENT,43,98,161,52,ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_PARADIGM_GUID,43,155,161,14,ES_AUTOHSCROLL | ES_READONLY
+    LTEXT           "Name:",-1,7,10,21,8
+    LTEXT           "Author:",-1,7,28,29,8
+    LTEXT           "Created:",-1,7,65,27,8
+    LTEXT           "Modified:",-1,7,83,29,8
+    LTEXT           "Comment:",-1,7,101,31,8
+    LTEXT           "GUID:",-1,7,158,30,8
+    LTEXT           "Version:",-1,7,47,26,8
+END
+
+IDD_CONSOLE_DIALOG DIALOG 0, 0, 393, 65
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Dialog"
+FONT 8, "MS Sans Serif"
+BEGIN
+    CONTROL         "",IDC_CONSOLE_CTRL,
+                    "{E4EB8324-13F0-46CB-96A3-F539DF7F79D4}",WS_TABSTOP,7,7,379,50
+END
+
+IDD_PART_BROWSER_DIALOG DIALOGEX 0, 0, 186, 90
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Dialog"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    CONTROL         "",IDC_PARTBROWSERCTRL1,
+                    "{1FF57057-D598-4FC2-8F9D-708F59B9C017}",WS_TABSTOP,7,7,172,76
+END
+
+IDD_CONNECTIVITYDIALOG DIALOGEX 0, 0, 220, 86
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU | WS_THICKFRAME
+CAPTION "Select where to jump"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    LISTBOX         IDC_LIST1,7,7,206,53,LBS_USETABSTOPS | LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    DEFPUSHBUTTON   "OK",IDOK,50,65,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,124,65,50,14
+END
+
+IDD_EMERGENCY_DIALOG DIALOGEX 0, 0, 315, 135
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Emergency Save and CrashDump"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,258,113,50,14
+    CONTROL         "Write MiniDump crash report",IDC_MINIDUMP_CHECK,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,95,301,13
+    LTEXT           "Emergency Save Information",IDC_EMERGENCY_INFO_STATIC,7,7,301,24
+    LTEXT           "MiniDump crash dump information",IDC_MINIDUMP_INFO_STATIC,7,39,301,52
+END
+
+IDD_PANNING_WINDOW_DIALOG DIALOGEX 0, 0, 186, 90
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Dialog"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    CONTROL         "",IDC_PANNINGWINDOWCTRL1,
+                    "{B0C28BAA-7E44-404C-BEAD-83735356F1D2}",WS_TABSTOP,7,7,172,76
+END
+
+IDD_CHILDFRAME_DIALOG DIALOGEX 0, 0, 186, 90
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Dialog"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    CONTROL         "",IDC_CHILDFRAMECTRL1,
+                    "{1758EDFF-969C-4f6e-AF81-E8AF07A33799}",WS_TABSTOP,7,7,172,76
+END
+
+IDD_DIALOG_SVNCOMMIT DIALOGEX 0, 0, 316, 183
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Subversion Commit"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,205,162,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,259,162,50,14
+    LTEXT           "Filename:",IDC_STATIC,16,18,32,8
+    LTEXT           "Repository:",IDC_STATIC,16,36,38,8
+    LTEXT           "Revision:",IDC_STATIC,16,56,30,8
+    EDITTEXT        IDC_EDIT_SVNCOMMIT_FILENAME,57,14,245,14,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_EDIT_SVNCOMMIT_REPO,57,34,245,14,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_EDIT_SVNCOMMIT_REVISION,57,54,50,14,ES_AUTOHSCROLL | ES_READONLY
+    LTEXT           "Log Message:",IDC_STATIC,16,76,45,8
+    EDITTEXT        IDC_EDIT_SVNCOMMIT_LOG,15,89,286,62,ES_AUTOHSCROLL
+END
+
+IDD_DIALOG_SVNPLAINTEXT DIALOGEX 0, 0, 268, 135
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Subversion Plaintext Warning"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    PUSHBUTTON      "Yes",IDOK,156,114,50,14
+    DEFPUSHBUTTON   "No",IDCANCEL,210,114,50,14
+    LTEXT           "Realm:",IDC_STATIC,7,15,23,8
+    EDITTEXT        IDC_EDIT_REALM,36,12,222,14,ES_AUTOHSCROLL | ES_READONLY
+    LTEXT           "ATTENTION!\r\rYour password/passphrase can only be stored to disk unencrypted! You are advised to configure your system so that Subversion can store passwords encrypted, if possible. See the documentation for details.",IDC_STATIC,12,36,246,48
+    LTEXT           "Do you want to store password unencrypted ?",IDC_STATIC,48,96,150,8
+END
+
+IDD_DIALOG_SVNSSLSERVERTRUST DIALOGEX 0, 0, 284, 183
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Subversion SSL Server Trust Warning"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    PUSHBUTTON      "Accept",IDOK,157,162,50,14
+    DEFPUSHBUTTON   "Cancel",IDCANCEL,227,162,50,14
+    LTEXT           "ATTENTION!\r\rValidating the SSL server certificate failed. See details below.",IDC_STATIC,7,7,246,29
+    LTEXT           "Host:",IDC_STATIC,6,44,18,8
+    EDITTEXT        IDC_EDIT_HOST,47,42,229,14,ES_AUTOHSCROLL | ES_READONLY
+    LTEXT           "Fingerprint:",IDC_STATIC,6,63,38,8
+    EDITTEXT        IDC_EDIT_FINGERPRINT,47,60,229,14,ES_AUTOHSCROLL | ES_READONLY
+    LTEXT           "Issuer:",IDC_STATIC,6,81,24,8
+    EDITTEXT        IDC_EDIT_ISSUER,47,78,229,14,ES_AUTOHSCROLL | ES_READONLY
+    LTEXT           "Problems:",IDC_STATIC,6,102,32,8
+    EDITTEXT        IDC_EDIT_PROBLEMS,48,102,229,54,ES_AUTOHSCROLL | ES_READONLY
+    CONTROL         "Accept Permanently",IDC_CHECK_PERMANENT,"Button",BS_AUTOCHECKBOX | BS_LEFTTEXT | WS_TABSTOP,65,164,80,10
+END
+
+IDD_DIALOG_SVNLOGIN DIALOGEX 0, 0, 207, 103
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Subversion Login"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,96,82,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,150,82,50,14
+    LTEXT           "Realm:",IDC_STATIC,7,9,23,8
+    EDITTEXT        IDC_EDIT_REALM,36,7,164,14,ES_AUTOHSCROLL | ES_READONLY
+    LTEXT           "Username",IDC_STATIC,7,33,33,8
+    EDITTEXT        IDC_EDIT_USERNAME,50,30,150,14,ES_AUTOHSCROLL
+    LTEXT           "Password:",IDC_STATIC,7,55,34,8
+    EDITTEXT        IDC_EDIT_PASSWORD,50,52,150,14,ES_PASSWORD | ES_AUTOHSCROLL
+    CONTROL         "Save credentials",IDC_CHECK_PERMANENT,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,84,69,10,WS_EX_RIGHT
+END
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION GME_VERSION_RC
+ PRODUCTVERSION GME_VERSION_RC
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904b0"
+        BEGIN
+            VALUE "FileDescription", "GME"
+            VALUE "FileVersion", GME_VERSION_STR
+            VALUE "InternalName", "GME"
+            VALUE "LegalCopyright", "Copyright (C) 1999-2017 ISIS, Vanderbilt University"
+            VALUE "OriginalFilename", "GME.EXE"
+            VALUE "ProductName", "GME Application"
+            VALUE "ProductVersion", GME_VERSION_STR
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1200
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO
+BEGIN
+    CG_IDD_MODELPROPERTIESBAR, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 460
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 9
+    END
+
+    IDD_BROWSER_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 243
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 249
+    END
+
+    IDD_MGAOPEN, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 160
+        VERTGUIDE, 58
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 66
+    END
+
+    IDR_MAINFRAME, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 207
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 9
+    END
+
+    IDD_PROJECTPROPERTIES_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 209
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 282
+    END
+
+    IDD_SYNCHRONIZE_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 350
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 268
+    END
+
+    IDD_DLL_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 245
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 179
+    END
+
+    IDD_OBJECT_INSPECTOR_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 150
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 205
+    END
+
+    IDD_SEARCH_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 240
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 229
+    END
+
+    IDD_PRINTOPTIONS, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 155
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 198
+    END
+
+    IDD_PRINT_DIALOG, DIALOG
+    BEGIN
+        RIGHTMARGIN, 410
+        VERTGUIDE, 161
+        VERTGUIDE, 204
+        VERTGUIDE, 240
+        VERTGUIDE, 290
+        TOPMARGIN, 5
+        BOTTOMMARGIN, 367
+        HORZGUIDE, 18
+        HORZGUIDE, 68
+        HORZGUIDE, 157
+        HORZGUIDE, 227
+        HORZGUIDE, 336
+    END
+
+    IDD_PRINTSETUP_DIALOG, DIALOG
+    BEGIN
+        TOPMARGIN, 4
+    END
+
+    IDD_NEW_MULTIUSER_PROJ_DLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 4
+        RIGHTMARGIN, 368
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 174
+    END
+
+    IDD_PARADIGMPROPERTIES_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 204
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 195
+    END
+
+    IDD_CONSOLE_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 386
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 58
+    END
+
+    IDD_PART_BROWSER_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 179
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 83
+    END
+
+    IDD_CONNECTIVITYDIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 213
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 79
+    END
+
+    IDD_EMERGENCY_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 308
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 127
+    END
+
+    IDD_DIALOG_SVNCOMMIT, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 309
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 176
+    END
+
+    IDD_DIALOG_SVNPLAINTEXT, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 261
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 128
+    END
+
+    IDD_DIALOG_SVNSSLSERVERTRUST, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 277
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 176
+    END
+
+    IDD_DIALOG_SVNLOGIN, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 200
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 96
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog Info
+//
+
+IDD_BROWSER_DIALOG DLGINIT
+BEGIN
+    IDC_GMEACTIVEBROWSERCTRL1, 0x376, 20, 0
+0x0000, 0x0000, 0x0000, 0x0001, 0x242c, 0x0000, 0x08e3, 0x0000, 0x0000,
+0x0000,
+    0
+END
+
+IDD_OBJECT_INSPECTOR_DIALOG DLGINIT
+BEGIN
+    IDC_OBJECT_INSPECTOR_CTRL, 0x376, 20, 0
+0x0000, 0x0000, 0x0000, 0x0001, 0x14ac, 0x0000, 0x2113, 0x0000, 0x0000,
+0x0000,
+    0
+END
+
+IDD_SEARCH_DIALOG DLGINIT
+BEGIN
+    IDC_SEARCHCTRL, 0x376, 20, 0
+0x0000, 0x0000, 0x0000, 0x0001, 0x2584, 0x0000, 0x27b0, 0x0000, 0x0000,
+0x0000,
+    0
+END
+
+IDD_CONSOLE_DIALOG DLGINIT
+BEGIN
+    IDC_CONSOLE_CTRL, 0x376, 20, 0
+0x0000, 0x0000, 0x0000, 0x0001, 0x3acf, 0x0000, 0x085f, 0x0000, 0x0000,
+0x0000,
+    0
+END
+
+IDD_NEW_MULTIUSER_PROJ_DLG DLGINIT
+BEGIN
+    IDC_COMBO_SPLITALG, 0x403, 5, 0
+0x3034, 0x3639, "\000"
+    IDC_COMBO_SPLITALG, 0x403, 4, 0
+0x3532, 0x0036,
+    0
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Cursor
+//
+
+IDC_AUTOCONNECT_CURSOR  CURSOR                  "res\\cursor1.cur"
+IDC_DISCONNECT_CURSOR   CURSOR                  "res\\cur00001.cur"
+IDC_AUTOCONNECT2_CURSOR CURSOR                  "res\\cur00002.cur"
+IDC_DISCONNECT2_CURSOR  CURSOR                  "res\\cur00003.cur"
+IDC_SET_CURSOR          CURSOR                  "res\\cur00005.cur"
+IDC_SET2_CURSOR         CURSOR                  "res\\cur00004.cur"
+IDC_VISUAL_CURSOR       CURSOR                  "res\\visual_c.cur"
+IDC_ZOOM_CURSOR         CURSOR                  "res\\cur00006.cur"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// REGISTRY
+//
+
+IDR_DECORATOREVENTSINK  REGISTRY                "DecoratorEventSink.rgs"
+IDR_ANNOTATOREVENTSINK  REGISTRY                "AnnotatorEventSink.rgs"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE
+BEGIN
+    IDP_FAILED_TO_CREATE    "Failed to create object.  Make sure the object is entered in the system registry."
+    ID_INDICATOR_MODE       "EDIT"
+    ID_INDICATOR_ZOOM       "100%"
+    ID_INDICATOR_PARADIGM   "-"
+    ID_INDICATOR_TIME       "Time"
+    CG_ID_VIEW_MODELPROPERTIESBAR
+                            "Show or hide ModelPropertiesBar\nToggle ModelPropertiesBar"
+END
+
+STRINGTABLE
+BEGIN
+    IDR_MAINFRAME           "GME"
+    IDR_GMETYPE             "\nGME\nGME\n\n\nGME.Project\nGME Project"
+    ID_WINDOW_MANAGER       """Manages the currently open windows\nWindow List"""
+END
+
+STRINGTABLE
+BEGIN
+    AFX_IDS_APP_TITLE       "GME"
+    AFX_IDS_IDLEMESSAGE     "Ready"
+END
+
+STRINGTABLE
+BEGIN
+    ID_INDICATOR_EXT        "EXT"
+    ID_INDICATOR_CAPS       "CAP"
+    ID_INDICATOR_NUM        "NUM"
+    ID_INDICATOR_SCRL       "SCRL"
+    ID_INDICATOR_OVR        "OVR"
+    ID_INDICATOR_REC        "REC"
+END
+
+STRINGTABLE
+BEGIN
+    ID_FILE_NEW             "Create a new project\nNew"
+    ID_FILE_OPEN            "Open an existing project\nOpen"
+    ID_FILE_CLOSE           "Close the active model\nClose"
+    ID_FILE_SAVE            "Save the active document\nSave"
+    ID_FILE_SAVE_AS         "Save the active document with a new name\nSave As"
+    ID_FILE_PAGE_SETUP      "Change the printing options\nPage Setup"
+    ID_FILE_PRINT_SETUP     "Change the printer and printing options\nPrint Setup"
+    ID_FILE_PRINT           "Print the active document\nPrint"
+    ID_FILE_PRINT_PREVIEW   "Display full pages\nPrint Preview"
+END
+
+STRINGTABLE
+BEGIN
+    ID_APP_ABOUT            "Display program information, version number and copyright\nAbout"
+    ID_APP_EXIT             "Quit the application\nExit"
+END
+
+STRINGTABLE
+BEGIN
+    ID_VIEW_FULLSCREEN      "Switch to Full Screen (hide panels and toolbars)\nFull Screen"
+END
+
+STRINGTABLE
+BEGIN
+    ID_TOOLS_EXTERNAL_TOOLS "<User defined tools>\n<User defined tools>"
+    ID_WINDOW_NEWHORIZONTALTABGROUP
+                            "New Horizontal Tab Group\nNew Horizontal Tab Group"
+    ID_WINDOW_NEWVERTICALTABGROUP
+                            "New Vertical Tab Group\nNew Vertical Tab Group"
+END
+
+STRINGTABLE
+BEGIN
+    ID_FILE_MRU_FILE1       "Open this document"
+    ID_FILE_MRU_FILE2       "Open this document"
+    ID_FILE_MRU_FILE3       "Open this document"
+    ID_FILE_MRU_FILE4       "Open this document"
+    ID_FILE_MRU_FILE5       "Open this document"
+    ID_FILE_MRU_FILE6       "Open this document"
+    ID_FILE_MRU_FILE7       "Open this document"
+    ID_FILE_MRU_FILE8       "Open this document"
+    ID_FILE_MRU_FILE9       "Open this document"
+    ID_FILE_MRU_FILE10      "Open this document"
+    ID_FILE_MRU_FILE11      "Open this document"
+    ID_FILE_MRU_FILE12      "Open this document"
+    ID_FILE_MRU_FILE13      "Open this document"
+    ID_FILE_MRU_FILE14      "Open this document"
+    ID_FILE_MRU_FILE15      "Open this document"
+    ID_FILE_MRU_FILE16      "Open this document"
+END
+
+STRINGTABLE
+BEGIN
+    ID_NEXT_PANE            "Switch to the next window pane\nNext Pane"
+    ID_PREV_PANE            "Switch back to the previous window pane\nPrevious Pane"
+END
+
+STRINGTABLE
+BEGIN
+    ID_WINDOW_NEW           "Open another window for the active document\nNew Window"
+    ID_WINDOW_ARRANGE       "Arrange icons at the bottom of the window\nArrange Icons"
+    ID_WINDOW_CASCADE       "Arrange windows so they overlap\nCascade Windows"
+    ID_WINDOW_TILE_HORZ     "Arrange windows as non-overlapping tiles\nTile Horizontal"
+    ID_WINDOW_TILE_VERT     "Arrange windows as non-overlapping tiles\nTile Vertical"
+    ID_WINDOW_SPLIT         "Split the active window into panes\nSplit"
+END
+
+STRINGTABLE
+BEGIN
+    ID_EDIT_CLEAR           "Erase the selection\nErase"
+    ID_EDIT_CLEAR_ALL       "Erase everything\nErase All"
+    ID_EDIT_COPY            "Copy the selection and put it on the Clipboard\nCopy"
+    ID_EDIT_CUT             "Cut the selection and put it on the Clipboard\nCut"
+    ID_EDIT_FIND            "Find the specified text\nFind"
+    ID_EDIT_PASTE           "Insert Clipboard contents\nPaste"
+    ID_EDIT_PASTE_LINK      "Insert Clipboard contents and a link to its source\nPaste Link"
+    ID_EDIT_PASTE_SPECIAL   "Insert Clipboard contents with options\nPaste Special"
+    ID_EDIT_REPEAT          "Repeat the last action\nRepeat"
+    ID_EDIT_REPLACE         "Replace specific text with different text\nReplace"
+    ID_EDIT_SELECT_ALL      "Select the entire document\nSelect All"
+    ID_EDIT_UNDO            "Undo the last action\nUndo"
+    ID_EDIT_REDO            "Redo the previously undone action\nRedo"
+END
+
+STRINGTABLE
+BEGIN
+    IDW_TOOLBAR_MAIN        "Show or hide the standard toolbar\nToggle Standard ToolBar"
+    IDW_TOOLBAR_WINS        "Show or hide the window toolbar\nToggle Windows ToolBar"
+    IDW_TOOLBAR_COMPONENT   "Show or hide the component toolbar\nToggle Components ToolBar"
+    IDW_TOOLBAR_MODE        "Show or hide the mode toolbar\nToggle Mode ToolBar"
+    IDW_TOOLBAR_NAVIG       "Show or hide the navigator toolbar\nToggle Navigator ToolBar"
+END
+
+STRINGTABLE
+BEGIN
+    ID_VIEW_STATUS_BAR      "Show or hide the status bar\nToggle StatusBar"
+END
+
+STRINGTABLE
+BEGIN
+    ID_OLE_INSERT_NEW       "Insert new embedded object\nNew Object"
+    ID_OLE_EDIT_LINKS       "Edit linked objects\nEdit Links"
+    ID_OLE_EDIT_CONVERT     "Convert object to different type\nConvert Object"
+END
+
+STRINGTABLE
+BEGIN
+    ID_OLE_VERB_FIRST       "Activate embedded or linked object"
+    57873                   "Activate embedded or linked object"
+    57874                   "Activate embedded or linked object"
+    57875                   "Activate embedded or linked object"
+END
+
+STRINGTABLE
+BEGIN
+    AFX_IDS_SCSIZE          "Change the window size"
+    AFX_IDS_SCMOVE          "Change the window position"
+    AFX_IDS_SCMINIMIZE      "Reduce the window to an icon"
+    AFX_IDS_SCMAXIMIZE      "Enlarge the window to full size"
+    AFX_IDS_SCNEXTWINDOW    "Switch to the next document window"
+    AFX_IDS_SCPREVWINDOW    "Switch to the previous document window"
+    AFX_IDS_SCCLOSE         "Close the active window and prompts to save the documents"
+END
+
+STRINGTABLE
+BEGIN
+    AFX_IDS_SCRESTORE       "Restore the window to normal size"
+    AFX_IDS_SCTASKLIST      "Activate Task List"
+    AFX_IDS_MDICHILD        "Activate this window"
+END
+
+STRINGTABLE
+BEGIN
+    AFX_IDS_PREVIEW_CLOSE   "Close print preview mode\nCancel Preview"
+END
+
+STRINGTABLE
+BEGIN
+    ID_MODE_EDIT            "Edit Mode\nEdit Mode"
+    ID_MODE_AUTOCONNECT     "Connect Mode\nConnect Mode"
+    ID_MODE_DISCONNECT      "Disconnect Mode\nDisconnect Mode"
+    ID_MODE_SET             "Set Mode\nSet Mode"
+    ID_MODE_ZOOM            "Zoom Mode\nZoom Mode"
+    ID_MODE_VISUALIZE       "Visualization Mode\nVisualization Mode"
+    ID_VIEW_REFRESH         "Repaint Window\nRepaint"
+    ID_VIEW_GRID            "Toggle grid\nGrid"
+    ID_VIEW_PARENT          "Show parent\nParent"
+    ID_EDIT_DELETE          "Delete selected objects\nDelete"
+END
+
+STRINGTABLE
+BEGIN
+    ID_VIEW_BROWSER         "Toggle Browser\nTree Browser"
+END
+
+STRINGTABLE
+BEGIN
+    ID_EDIT_CANCEL          "Cancel operation\nCancel"
+    ID_CNTX_DISCONNECTALL   "Disconnect all"
+    ID_FILE_INTERPRET       "Interpret the current model\nInterpret"
+    ID_FILE_IMPORTXML       "Import XML\nImport"
+    ID_FILE_EXPORTXML       "Export XML\nExport"
+    ID_FILE_CLOSEPROJECT    "Close Project\nClose"
+    ID_FILE_SAVEPROJECT     "Save Project\nSave"
+END
+
+STRINGTABLE
+BEGIN
+    ID_HELP_HELP            "Web-based context-sensitive help\nHelp"
+END
+
+STRINGTABLE
+BEGIN
+    ID_EDIT_SHOWBASETYPE    "Show bastype mdoel of current model\nShow Basetype"
+    ID_EDIT_SHOWTYPE        "Show type model of current model\nShow Type"
+    ID_EDIT_PROJECTPROPERTIES "View Project Properties\nProject Properties"
+    ID_FILE_REGISTERINTERPRETER
+                            "Register an interpreter for the current paradigm"
+    ID_FILE_SETTINGS        "View and change GME settings"
+    ID_EDIT_CLEARUNDO       "Clear all undo and redo information."
+    ID_FILE_CHECKALL        "Check constraint on the whole project\nCheck All"
+    ID_FILE_CHECK           "Check constraints on the current model\nCheck"
+END
+
+STRINGTABLE
+BEGIN
+    ID_CNTX_INTERPRET       "Interpret selected models"
+    ID_EDIT_SYNC            "Synchronize object positions between aspects\nSynchronize aspects"
+    ID_EDIT_SELECTALL       "Select all objects in current aspect\nSelect All"
+    ID_FILE_REGPARADIGMS    "Register Paradigms\nRegister Paradigms"
+    ID_FILE_REGCOMPONENTS   "Register Components\nRegister Components"
+    ID_FILE_UPDATETHROUGHXML "Update project\nUpdate"
+    ID_VIEW_ATTRIBUTES      "Toggle attribute panel\nAttribute Panel"
+END
+
+STRINGTABLE
+BEGIN
+    ID_EDIT_COPYCLOSURE     "Copy a closure of the selected objects to the Clipboard"
+    ID_EDIT_COPYSMART       "Copies references/sets/connections to the Clipboard so that it can be reproduced upon Paste"
+    ID_VIEW_REFRESH_SOURCECONTROL
+                            "Refreshes checked out status for models and folders\nRefreshes checked out status for models and folders"
+    ID_CNTX_CHECK           "Check selected or current model"
+    ID_CNTX_LOCATE          "Locate in Object Browser"
+    ID_EDIT_PASTESPECIAL_ASCLOSURE
+                            "Pastes copyclosured/smartcopied data without checking constraints"
+END
+
+STRINGTABLE
+BEGIN
+    ID_FILE_ABORTPROJECT    "Abort Project\nAbort"
+    ID_EDIT_PASTESPECIAL    "Paste Special"
+END
+
+STRINGTABLE
+BEGIN
+    ID_EDIT_SEARCH          "Search in the Project\nSearch"
+END
+
+STRINGTABLE
+BEGIN
+    ID_FILE_PRINTSEL        "Print the selected models\nPrint Selected"
+    ID_FILE_PRINTALL        "Print all models in the document\nPrint All"
+    ID_PRINT_METAFILE       "Print the active document to a Metafile\nPrint to Metafile"
+    ID_VIEW_PANNWIN         "Toggle Panning Window\nPanning Window"
+END
+
+STRINGTABLE
+BEGIN
+    ID_MODE_SHORTCONNECT    "Non-Sticky Connect Mode\nNon-Sticky Connect Mode"
+    ID_MODE_SHORTDISCONNECT "Non-Sticky Disconnect Mode\nNon-Sticky Disconnect Mode"
+END
+
+STRINGTABLE
+BEGIN
+    ID_BUTTON33020          "Back\nBack"
+    ID_BUTTON33021          "Forward\nForward"
+    ID_BUTTON33022          "Home\nHome"
+END
+
+STRINGTABLE
+BEGIN
+    ID_BUTTON33027          "Close Model\nClose Model"
+    ID_BUTTON33028          "Close All Models\nClose All Models"
+    ID_BUTTON33033          "Close All But Active Model\nClose All But Active Model"
+    ID_BUTTON33035          "Cycle Aspects\nCycle Aspects"
+    ID_BUTTON33037          "Cycle Aspects For All Open Models\nCycle Aspects For All Open Models"
+    ID_MULTIUSER_ACTIVEUSERS
+                            "Displays status of users working on this project\nDisplays status of users working on this project"
+END
+
+STRINGTABLE
+BEGIN
+    ID_MULTIUSER_SHOWOWNER  "Displays user who controls the active model\nDisplays user who controls the active model"
+    ID_BUTTON33044          "Next Window\nNext Window"
+    ID_VIEW_CLEARCONSOLE    "Clears Console Contents\nClears Console Contents"
+    ID_CNTX_FOLLOWCONNECTION
+                            "Jump to the destination of an outgoing connection"
+    ID_CNTX_REVERSECONNECTION "Jump to the source of an incoming connection"
+    ID_JUMPALONGCONN        "Jump to the destination of an outgoing connection\nJump Along Outgoing Connection"
+END
+
+STRINGTABLE
+BEGIN
+    ID_BACKALONGCONN        "Jump to the source of an incoming connection\nJump Along Incoming Connection"
+END
+
+STRINGTABLE
+BEGIN
+    IDP_OLE_INIT_FAILED     "OLE initialization failed.  Make sure that the OLE libraries are the correct version."
+END
+
+STRINGTABLE
+BEGIN
+    ID_USER_TOOL1           """Activates user-defined tool"""
+    ID_USER_TOOL2           """Activates user-defined tool"""
+    ID_USER_TOOL3           """Activates user-defined tool"""
+    ID_USER_TOOL4           """Activates user-defined tool"""
+    ID_USER_TOOL5           """Activates user-defined tool"""
+    ID_USER_TOOL6           """Activates user-defined tool"""
+    ID_USER_TOOL7           """Activates user-defined tool"""
+    ID_USER_TOOL8           """Activates user-defined tool"""
+    ID_USER_TOOL9           """Activates user-defined tool"""
+    ID_USER_TOOL10          """Activates user-defined tool"""
+END
+
+STRINGTABLE
+BEGIN
+    ID_VIEW_SHOWCONNECTEDPORTSONLY
+                            "Show connected ports only\nConnected ports"
+END
+
+#endif    // English (United States) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE 9, 1
+#pragma code_page(1252)
+#endif //_WIN32
+#include "res\GME.rc2"  // non-Microsoft Visual C++ edited resources
+#include "afxres.rc"         // Standard components
+#include "afxprint.rc"       // printing/print preview resources
+#include "afxolecl.rc"       // OLE container resources
+#endif
+1 TYPELIB "GmeLib.tlb"
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

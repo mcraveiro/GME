@@ -1,0 +1,7 @@
+VSWIZARD 7.0
+Wizard=VsWizard.VsWizardEngine.9.0
+
+Param="WIZARD_NAME = GME BON 2 Component Wizard"
+Param="ABSOLUTE_PATH = E:\GMESRC\SDK\BON\Wizard"
+Param="FALLBACK_LCID = 1033"
+Param="COMPONENT_FRAMEWORK = BON2"

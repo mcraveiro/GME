@@ -1,0 +1,84 @@
+Multi user GME features
+-----------------------
+
+1. Creating a multiuser project
+
+  - Start GME
+
+  - File/New Project, select paradigm
+
+  - When it asks for the backend select "Create multi user project"
+
+  - Fill the project location and project name fields. GME will create a new folder named the 
+    same as the Project Name under the Project Location.
+
+  - Select source control. If "None" is selected gme will store the project in xml files but files
+    won't be under source control.
+
+  - In case of sourcesafe fill the SoruceSafe Database and SourceSafe Project fields. In the 
+    SourceSafe Database field the full path of the srcsafe.ini file must be specified. 
+    SourceSafe Database must be a network path (!) otherwise other clients won't find the database. 
+    In the SourceSafe Project a parent project must be specified, the new project will be created 
+    under that with the given Project Name. Sourcsafe project paths always begins with $. 
+    Eg.: $/projects or $/
+
+    Example: 
+	Project Location   : c:\projects\gmetest
+	Project Name       : test1
+	SourceSafe Database: \\user1\GMEXMLBackEndTest\sorucesafedb\srcsafe.ini
+	SourceSafe Project : $/
+
+    GME will ask for sourcesafe user and password to log in the user to sourcesafe database.
+
+  - In case of ClearCase the project location must be a clearcase controlled dynamic view drive.
+    All user have to use the same dynamic view.
+
+  - to import an existing GME project the project should be exported to XML than imported back to
+    a newly created multi user project.
+
+  We are done, the multi user project is created and controlled via source control.
+
+2. Joining a multisuer project
+
+  - In case of sourcesafe the user have to get the project files form the sourcesafe using the 
+    sourcesafe clinet progam. It have to be done only once after that gme will handel sourcesafe.
+
+  - In case of clearcase the user only need to open the project from the dynamic view drive.
+
+3. Opening a multiuser project
+
+   - Start GME
+
+   - File/Open Project/Open multi user project
+
+   - Select the folder which contains the project
+
+   - If the project is under sourcesafe GME will asks for user name and password to login the
+     source control database
+
+4. Saving project
+
+   - After the project is saved, files will be checked in and the user will be asked for keeping files 
+     checked out or not. This way the user can keep the files checked out so others won't be allowed 
+     to edit or the user can check modifications in giving permission other to edit them.
+
+5. Viewing/Editing multiuser projects
+
+   Once a multi user project is opened GME can be used as usual with the following exceptions:
+
+   - If a modification being made GME tries to check out the necessary xml files form sourcesafe.
+     If it can check out all the necessary files the operation will be done. If one or more files
+     are checked out by other users GME will roll back the operation and notify the user.
+
+   - When the project is closed GME saves the project see 4.
+
+
+6. Questions
+
+   If you have further questions contact Gyorgy.Balogh@vanderbilt.edu.
+
+
+
+
+     
+

@@ -1,0 +1,531 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)\r\n"
+    "LANGUAGE 9, 1\r\n"
+    "#pragma code_page(1252)\r\n"
+    "#include ""res\\FrontEnd.rc2""  // non-Microsoft Visual C++ edited resources\r\n"
+    "#include ""afxres.rc""         // Standard components\r\n"
+    "#endif\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON                    "res\\FrontEnd.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_ABOUTBOX DIALOGEX 0, 0, 235, 55
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
+    WS_SYSMENU
+CAPTION "About ModelMigrate"
+FONT 8, "MS Shell Dlg", 0, 0, 0x1
+BEGIN
+    ICON            IDR_MAINFRAME,IDC_STATIC,11,17,21,20
+    LTEXT           "ModelMigrate Version 1.0",IDC_STATIC,40,10,119,8,
+                    SS_NOPREFIX
+    LTEXT           "Copyright (C) ISIS, Vanderbilt University 2005",
+                    IDC_STATIC,40,25,178,8
+    DEFPUSHBUTTON   "OK",IDOK,178,7,50,16,WS_GROUP
+    LTEXT           "Author: Zoltan Molnar, Vanderbilt University",
+                    IDC_STATIC,40,40,178,8
+END
+
+IDD_DLG_PROPNAMECHANGE DIALOGEX 0, 0, 186, 87
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
+    WS_SYSMENU
+CAPTION "Replace"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    EDITTEXT        IDC_EDIT1,13,22,84,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT2,13,54,84,14,ES_AUTOHSCROLL
+    DEFPUSHBUTTON   "OK",IDOK,129,7,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,129,24,50,14
+    LTEXT           "New:",IDC_STATIC,15,42,18,8
+    LTEXT           "Old:",IDC_STATIC,16,10,14,8
+END
+
+IDD_DLG_ADDRULE DIALOGEX 0, 0, 186, 95
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
+    WS_SYSMENU
+CAPTION "New Rule"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    LISTBOX         IDC_LIST1,7,7,114,81,LBS_NOINTEGRALHEIGHT | WS_VSCROLL | 
+                    WS_TABSTOP
+    DEFPUSHBUTTON   "OK",IDOK,129,7,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,129,24,50,14
+END
+
+IDD_DLG_PROPENATTRCHANGE DIALOGEX 0, 0, 303, 122
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
+    WS_SYSMENU
+CAPTION "Enum Attribute Value Change"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    EDITTEXT        IDC_EDIT1,21,27,90,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT2,21,65,90,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT3,128,65,90,14,ES_AUTOHSCROLL
+    DEFPUSHBUTTON   "OK",IDOK,246,7,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,246,24,50,14
+    PUSHBUTTON      "Global/Local",IDGLOBAL,246,41,50,14
+    LTEXT           "Enum Attribute Name",IDC_STATIC,21,15,81,8
+    LTEXT           "Old Enumeration Value",IDC_STATIC,21,52,81,8
+    LTEXT           "New Enumeration Value",IDC_STATIC,128,52,81,8
+    LTEXT           "Note: Only the values need to be transformed. The labels displayed are handled automatically by GME.",
+                    IDC_STATIC,20,86,197,20
+END
+
+IDD_DLG_PROPATTRCHANGE DIALOGEX 0, 0, 186, 86
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
+    WS_SYSMENU
+CAPTION "Attribute Name Change"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    EDITTEXT        IDC_EDIT1,13,22,84,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT2,13,54,84,14,ES_AUTOHSCROLL
+    DEFPUSHBUTTON   "OK",IDOK,129,7,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,129,24,50,14
+    PUSHBUTTON      "Global/Local",IDGLOBAL,129,42,50,14
+    LTEXT           "New:",IDC_STATIC,15,42,18,8
+    LTEXT           "Old:",IDC_STATIC,16,10,14,8
+END
+
+IDD_DLG_FILETRANS DIALOGEX 0, 0, 494, 345
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_MINIMIZEBOX | WS_MAXIMIZEBOX | WS_POPUP | 
+    WS_CAPTION | WS_SYSMENU | WS_THICKFRAME
+CAPTION "ModelMigrate"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    EDITTEXT        IDC_EDIT2,125,7,261,13,ES_AUTOHSCROLL
+    PUSHBUTTON      "...",IDC_BUTTON3,392,7,19,14
+    PUSHBUTTON      "Edit Rules",IDC_BUTTON1,417,7,50,14
+    PUSHBUTTON      "Process All",IDC_BUTTON4,7,25,50,14
+    PUSHBUTTON      "Process Selected",IDC_BUTTON8,62,25,64,14
+    PUSHBUTTON      "Add Dir",IDC_BUTTON2,146,25,50,14
+    PUSHBUTTON      "Add File",IDC_BUTTON6,201,25,50,14
+    PUSHBUTTON      "Clear Log",IDC_BUTTONCLEAR,361,26,50,14
+    PUSHBUTTON      "Options",IDC_BUTTON5,417,26,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,292,26,26,14,NOT WS_VISIBLE
+    PUSHBUTTON      "OK",IDOK,323,26,20,14,NOT WS_VISIBLE
+    CONTROL         "",IDC_LIST1,"SysListView32",LVS_REPORT | LVS_ALIGNLEFT | 
+                    LVS_NOSORTHEADER | WS_BORDER | WS_TABSTOP,7,42,480,182,
+                    WS_EX_ACCEPTFILES
+    LTEXT           "Script to apply on selected files:",IDC_STATIC,15,8,106,
+                    10
+    EDITTEXT        IDC_EDIT4,7,228,480,110,ES_MULTILINE | ES_AUTOHSCROLL | 
+                    ES_READONLY | WS_VSCROLL | WS_HSCROLL
+END
+
+IDD_DLG_OPTIONS DIALOGEX 0, 0, 308, 149
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
+    WS_SYSMENU
+CAPTION "Options"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    EDITTEXT        IDC_EDIT1,17,21,192,15,ES_AUTOHSCROLL
+    PUSHBUTTON      "...",IDC_BUTTON1,213,21,22,14
+    EDITTEXT        IDC_EDIT2,17,53,192,15,ES_AUTOHSCROLL
+    PUSHBUTTON      "...",IDC_BUTTON6,213,53,22,14
+    EDITTEXT        IDC_EDIT5,17,84,192,15,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT6,17,115,192,15,ES_AUTOHSCROLL
+    PUSHBUTTON      "...",IDC_BUTTON7,213,115,22,14
+    DEFPUSHBUTTON   "OK",IDOK,251,7,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,251,24,50,14
+    LTEXT           "Initial directory to load:",IDC_STATIC,20,10,126,8
+    LTEXT           "Default script to apply:",IDC_STATIC,20,41,81,8
+    LTEXT           "Appended string to filenames:",IDC_STATIC,20,73,128,8
+    LTEXT           "Target directory (if empty then same directory as input)",
+                    IDC_STATIC,20,104,185,8
+END
+
+IDD_DLG_RULEEDITOR DIALOGEX 0, 0, 261, 207
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_CAPTION | WS_SYSMENU | WS_THICKFRAME
+CAPTION "Rule Editor"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    PUSHBUTTON      "Add Rule...",IDADDRULE,7,7,46,14
+    PUSHBUTTON      "Generate All",IDGENERATE,60,7,47,14
+    PUSHBUTTON      "Generate Selected",IDGENERATESEL,121,7,68,14
+    DEFPUSHBUTTON   "OK",IDOK,204,7,50,14
+    CONTROL         "",IDC_RULELIST,"SysListView32",LVS_REPORT | 
+                    LVS_ALIGNLEFT | LVS_NOSORTHEADER | WS_BORDER | 
+                    WS_TABSTOP,7,25,247,175
+END
+
+IDD_DLG_PROPMOVEUP DIALOGEX 0, 0, 228, 223
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
+    WS_SYSMENU
+CAPTION "Move Element Up In Hierarchy"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    CONTROL         "",IDC_TREE1,"SysTreeView32",TVS_HASBUTTONS | 
+                    TVS_HASLINES | TVS_LINESATROOT | TVS_EDITLABELS | 
+                    TVS_DISABLEDRAGDROP | TVS_SHOWSELALWAYS | WS_BORDER | 
+                    WS_TABSTOP,7,26,155,155
+    PUSHBUTTON      "OK",IDOK,171,7,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,171,24,50,14
+    PUSHBUTTON      "Insert Child",IDC_BUTTON_INSERTNODE,171,48,50,14
+    PUSHBUTTON      "Delete Child",IDC_BUTTON_DELETENODE,171,71,50,14
+    LTEXT           "Please construct the hierarchy of elements to be matched. The lowest child will be moved up:",
+                    IDC_STATIC,7,7,155,19
+    LTEXT           "When the transformer meets such a construct it will move the lowest child up (its syblings remain there), so that it becomes a sybling of the highest element in this hierarchy.",
+                    IDC_STATIC,7,187,214,27
+END
+
+IDD_DLG_PROPMOVEDOWN DIALOGEX 0, 0, 237, 193
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
+    WS_SYSMENU
+CAPTION "Move Down Element"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    EDITTEXT        IDC_EDITKIND,7,20,162,12,ES_AUTOHSCROLL
+    CONTROL         "",IDC_TREETWO,"SysTreeView32",TVS_HASBUTTONS | 
+                    TVS_HASLINES | TVS_LINESATROOT | TVS_EDITLABELS | 
+                    TVS_DISABLEDRAGDROP | TVS_SHOWSELALWAYS | WS_BORDER | 
+                    WS_TABSTOP,7,49,162,118
+    DEFPUSHBUTTON   "OK",IDOK,180,7,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,180,24,50,14
+    PUSHBUTTON      "Insert Child",IDC_BUTTON_INSERTNODE,180,50,50,14
+    PUSHBUTTON      "Delete Child",IDC_BUTTON_DELETENODE,180,73,50,14
+    LTEXT           "Element to move down:",IDC_STATIC,9,10,143,10
+    LTEXT           "Wrap into:",IDC_STATIC,7,38,143,10
+    LTEXT           "When specifying the wrapper elements, please indicate Models by appending a ':M' to the label.",
+                    IDC_STATIC,7,168,167,18
+END
+
+IDD_DLG_PROPATTRTYPECHANGE DIALOGEX 0, 0, 299, 170
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
+    WS_SYSMENU
+CAPTION "Conversion Test of Attribute Values (string to number)"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    EDITTEXT        IDC_EDIT1,7,17,211,14,ES_AUTOHSCROLL
+    CONTROL         "Terminate on conversion failure?",IDC_CHECK1,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,7,75,213,10
+    PUSHBUTTON      "Generate Separate Script",IDC_BUTTON1,7,117,215,14
+    DEFPUSHBUTTON   "OK",IDOK,242,7,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,242,24,50,14
+    PUSHBUTTON      "Global/Local",IDGLOBAL,242,42,50,14
+    LTEXT           "Attribute kind to be checked for conversion to number:",
+                    IDC_STATIC,7,7,211,10
+    LTEXT           "Note: Values are not really converted, just checked. This script is only checking if the conversion will succeed when GME will parse the file. If it doesn't, then a comment is introduced ('CONVERROR') into the target file.",
+                    IDC_STATIC,7,36,211,35
+    LTEXT           "Note: if unchecked please check manually the target file for 'CONVERROR's since the transformer will not show any error.",
+                    IDC_STATIC,7,87,215,24
+    LTEXT           "Note: By generating a separate script you can execute this stand-alone script and get as output a formatted text file containing the error occurences, if any.",
+                    IDC_STATIC,7,135,214,29
+END
+
+IDD_DLG_PROPATTRGLOBALLOCAL DIALOGEX 0, 0, 237, 46
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
+    WS_SYSMENU
+CAPTION "Global or Local Attribute?"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,180,7,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,180,24,50,14
+    CONTROL         "Global",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | 
+                    WS_GROUP | WS_TABSTOP,13,11,35,10
+    CONTROL         "Local",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,13,24,32,
+                    10
+    EDITTEXT        IDC_EDIT3,65,21,96,13,ES_AUTOHSCROLL
+    LTEXT           "Owned by:",IDC_STATIC,66,11,36,8
+END
+
+IDD_DLG_PROPREMOVEELEM DIALOGEX 0, 0, 186, 46
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
+    WS_SYSMENU
+CAPTION "Remove Kind"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    EDITTEXT        IDC_EDIT1,13,22,84,14,ES_AUTOHSCROLL
+    DEFPUSHBUTTON   "OK",IDOK,129,7,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,129,24,50,14
+    LTEXT           "Name:",-1,16,10,80,8
+END
+
+IDD_DLG_PROPREMOVELOCALATTR DIALOGEX 0, 0, 186, 87
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
+    WS_SYSMENU
+CAPTION "Remove Local Attribute"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    EDITTEXT        IDC_EDIT1,13,22,84,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT2,13,54,84,14,ES_AUTOHSCROLL
+    DEFPUSHBUTTON   "OK",IDOK,129,7,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,129,24,50,14
+    LTEXT           "Owned by:",IDC_STATIC,15,42,36,8
+    LTEXT           "Attribute:",IDC_STATIC,16,10,32,8
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,0,0,1
+ PRODUCTVERSION 1,0,0,1
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904e4"
+        BEGIN
+            VALUE "CompanyName", "ISIS, Vanderbilt University, 2005"
+            VALUE "FileDescription", "TODO: <File description>"
+            VALUE "FileVersion", "1.0.0.1"
+            VALUE "InternalName", "FrontEnd.exe"
+            VALUE "LegalCopyright", "ISIS, Vanderbilt University, 2005"
+            VALUE "OriginalFilename", "FrontEnd.exe"
+            VALUE "ProductName", "ModelMigrate"
+            VALUE "ProductVersion", "1.0.0.1"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1252
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO 
+BEGIN
+    IDD_ABOUTBOX, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 228
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 48
+    END
+
+    IDD_DLG_PROPNAMECHANGE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 179
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 80
+    END
+
+    IDD_DLG_ADDRULE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 179
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 88
+    END
+
+    IDD_DLG_PROPENATTRCHANGE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 296
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 115
+    END
+
+    IDD_DLG_PROPATTRCHANGE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 179
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 79
+    END
+
+    IDD_DLG_FILETRANS, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 487
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 338
+    END
+
+    IDD_DLG_OPTIONS, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 301
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 142
+    END
+
+    IDD_DLG_RULEEDITOR, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 254
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 200
+    END
+
+    IDD_DLG_PROPMOVEUP, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 221
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 216
+    END
+
+    IDD_DLG_PROPMOVEDOWN, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 230
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 186
+    END
+
+    IDD_DLG_PROPATTRTYPECHANGE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 292
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 163
+    END
+
+    IDD_DLG_PROPATTRGLOBALLOCAL, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 230
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 39
+    END
+
+    IDD_DLG_PROPREMOVEELEM, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 179
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 39
+    END
+
+    IDD_DLG_PROPREMOVELOCALATTR, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 179
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 80
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// XSL
+//
+
+Header.xsl              XSL                     "res\\header.xsl"
+Tail.xsl                XSL                     "res\\tail.xsl"
+TKindNameChange.xsl     XSL                     "res\\TKindNameChange.xsl"
+TAttrNameChange.xsl     XSL                     "res\\TAttrNameChange.xsl"
+TEnumAttrValueChange.xsl XSL                     "res\\TEnumAttrValueChange.xsl"
+TAttrTypeChange.xsl     XSL                     "res\\TAttrTypeChange.xsl"
+TAttrTypeCheck2Text.xsl XSL                     "res\\TAttrTypeCheck2Text.xsl"
+TRemoveGlobalAttr.xsl   XSL                     "res\\TRemoveGlobalAttr.xsl"
+TRemoveLocalAttr.xsl    XSL                     "res\\TRemoveLocalAttr.xsl"
+TRemoveKind.xsl         XSL                     "res\\TRemoveKind.xsl"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE 
+BEGIN
+    IDS_ABOUTBOX            "&About ModelMigrate..."
+END
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+LANGUAGE 9, 1
+#pragma code_page(1252)
+#include "res\FrontEnd.rc2"  // non-Microsoft Visual C++ edited resources
+#include "afxres.rc"         // Standard components
+#endif
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

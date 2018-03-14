@@ -1,0 +1,106 @@
+<?xml version="1.0"?>
+<!DOCTYPE paradigm SYSTEM "edf.dtd">
+
+<paradigm name="HFSM" guid="{757682DE-E57F-4003-9A7E-8EE5C0368980}" cdate="Mon May 04 11:56:35 2009" mdate="Mon May 04 11:56:35 2009" >
+
+	<comment></comment>
+
+	<author></author>
+
+	<folder name = "RootFolder" metaref = "1000"  rootobjects = "InputSequence State" >
+		<attrdef name="Delay" metaref = "1001" valuetype = "integer" defvalue = "2">
+			<dispname>Secs after last event:</dispname>
+		</attrdef>
+		<attrdef name="Event" metaref = "1002" valuetype = "string" defvalue = "">
+			<dispname>Event:</dispname>
+		</attrdef>
+		<attrdef name="StartState" metaref = "1003" valuetype = "boolean" defvalue = "false">
+			<dispname>Start State?</dispname>
+		</attrdef>
+		<atom name = "Events" metaref = "1004"  attributes = "Delay">
+				<regnode name = "namePosition" value ="4"></regnode>
+			<constraint name="SingleConnection" eventmask = "0x800" depth = "1" priority = "1">
+				<![CDATA[self.attachingConnections( "dst", Sequence )->size < 2]]>
+				<dispname>Only a single Event can follow any Event</dispname>
+			</constraint>
+			<constraint name="ValidSequencedstCardinality2" eventmask = "0x0" depth = "1" priority = "1">
+				<![CDATA[let dstCount = self.attachingConnections( "src", meta::Sequence ) -> size in
+                     (dstCount <= 1)]]>
+				<dispname>Multiplicity of objects, which are associated to Events as &quot;dst&quot; over Sequence, has to match 0..1.</dispname>
+			</constraint>
+			<constraint name="ValidSequencesrcCardinality1" eventmask = "0x0" depth = "1" priority = "1">
+				<![CDATA[let srcCount = self.attachingConnections( "dst", meta::Sequence ) -> size in
+                     (srcCount <= 1)]]>
+				<dispname>Multiplicity of objects, which are associated to Events as &quot;src&quot; over Sequence, has to match 0..1.</dispname>
+			</constraint>
+				<regnode name = "icon" value ="event.bmp"></regnode>
+				<regnode name = "shadowColor" value ="0x000000"></regnode>
+				<regnode name = "shadowThickness" value ="0"></regnode>
+				<regnode name = "shadowDirection" value ="0"></regnode>
+		</atom>
+		<connection name = "Sequence" metaref = "1005" >
+				<regnode name = "color" value ="0x000000"></regnode>
+				<regnode name = "dstStyle" value ="arrow"></regnode>
+				<regnode name = "srcStyle" value ="butt"></regnode>
+				<regnode name = "lineType" value ="solid"></regnode>
+			<connjoint>
+				<pointerspec name = "src">
+					<pointeritem desc = "Events"></pointeritem>
+				</pointerspec>
+				<pointerspec name = "dst">
+					<pointeritem desc = "Events"></pointeritem>
+				</pointerspec>
+			</connjoint>
+		</connection>
+		<connection name = "Transition" metaref = "1006" attributes = "Event" >
+				<regnode name = "labelFormatStr" value ="%Event%"></regnode>
+				<regnode name = "color" value ="0x000000"></regnode>
+				<regnode name = "dstStyle" value ="arrow"></regnode>
+				<regnode name = "srcStyle" value ="butt"></regnode>
+				<regnode name = "lineType" value ="solid"></regnode>
+			<connjoint>
+				<pointerspec name = "src">
+					<pointeritem desc = "State"></pointeritem>
+				</pointerspec>
+				<pointerspec name = "dst">
+					<pointeritem desc = "State"></pointeritem>
+				</pointerspec>
+			</connjoint>
+		</connection>
+		<model name = "InputSequence" metaref = "1007" >
+				<regnode name = "namePosition" value ="4"></regnode>
+				<regnode name = "itemResizable" value ="true"></regnode>
+				<regnode name = "shadowColor" value ="0x000000"></regnode>
+				<regnode name = "shadowThickness" value ="0"></regnode>
+				<regnode name = "shadowDirection" value ="0"></regnode>
+			<role name = "Events" metaref = "1008" kind = "Events"></role>
+			<role name = "Sequence" metaref = "1009" kind = "Sequence"></role>
+			<aspect name = "Sequences" metaref = "1019" >
+				<part metaref = "1020" role = "Events" primary = "yes" linked = "no"></part>
+				<part metaref = "1021" role = "Sequence" primary = "yes" linked = "no"></part>
+			</aspect>
+		</model>
+		<model name = "State" metaref = "1013" attributes = "StartState" >
+				<regnode name = "namePosition" value ="4"></regnode>
+				<regnode name = "color" value ="0x0080C0"></regnode>
+				<regnode name = "icon" value ="defaultstate.bmp"></regnode>
+				<regnode name = "itemResizable" value ="true"></regnode>
+				<regnode name = "shadowColor" value ="0x000000"></regnode>
+				<regnode name = "shadowThickness" value ="0"></regnode>
+				<regnode name = "shadowDirection" value ="0"></regnode>
+			<constraint name="SingleStartState" eventmask = "0x800000" depth = "1" priority = "2">
+				<![CDATA[let states = self.parts( State ) in
+states->size > 0
+implies
+states->select( s : State | s.StartState )->size = 1]]>
+				<dispname>Exactly one start state</dispname>
+			</constraint>
+			<role name = "State" metaref = "1014" kind = "State"></role>
+			<role name = "Transition" metaref = "1015" kind = "Transition"></role>
+			<aspect name = "StateMachine" metaref = "1016" attributes = "StartState" >
+				<part metaref = "1017" role = "State" primary = "yes" linked = "no"></part>
+				<part metaref = "1018" role = "Transition" primary = "yes" linked = "no"></part>
+			</aspect>
+		</model>
+	</folder>
+</paradigm>

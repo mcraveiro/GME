@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE project SYSTEM "mga.dtd">
+
+<project guid="{C5C95341-A81E-4F46-9D0C-F90C53FF540A}" cdate="Tue Aug 25 09:21:14 2009" mdate="Tue Aug 25 09:21:14 2009" version="" metaguid="{9D3F9884-FE60-409C-8FC1-45789193989B}" metaversion="" metaname="MetaGME">
+	<name>FSM_Meta</name>
+	<comment></comment>
+	<author></author>
+	<folder id="id-006a-00000001" relid="0x1" childrelidcntr="0x1" kind="RootFolder" guid="{40c1db0d-68a4-4e8d-9ffa-a570766c04b8}">
+		<name>FSM_Meta</name>
+		<model id="id-0065-00000001" kind="ParadigmSheet" guid="{3ba3d849-24bf-432b-9512-36efdf136e2e}" relid="0x1" childrelidcntr="0x0">
+			<name>NewParadigmSheet</name>
+		</model>
+	</folder>
+</project>

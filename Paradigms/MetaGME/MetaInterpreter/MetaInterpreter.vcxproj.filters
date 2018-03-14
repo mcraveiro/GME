@@ -1,0 +1,384 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{1a106888-c46a-4e6e-8221-2963b7e7b82a}</UniqueIdentifier>
+      <Extensions>cpp;c;cxx;rc;def;r;odl;idl;hpj;bat</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{dc2c7000-77a8-4f78-b269-987b02aa84de}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{715d716f-d23a-4d64-b212-d8af5e10197f}</UniqueIdentifier>
+      <Extensions>ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe</Extensions>
+    </Filter>
+    <Filter Include="Asp">
+      <UniqueIdentifier>{efae21d1-83ae-464b-8700-680e5a9d84f2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Rep">
+      <UniqueIdentifier>{497af44d-4c4c-4bde-bf7f-9c4095a70716}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="$(GME_ROOT)\SDK\BON\Common\BON.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="BON2Component.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="BON2Engine.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(GME_ROOT)\SDK\BON\Common\BONImpl.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(GME_ROOT)\SDK\BON\Common\ComHelp.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(GME_ROOT)\SDK\BON\Common\Common.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(GME_ROOT)\SDK\BON\Common\ComponentDll.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(GME_ROOT)\SDK\BON\Common\ComponentObj.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(GME_ROOT)\SDK\BON\Common\Console.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(GME_ROOT)\SDK\BON\Common\Events.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(GME_ROOT)\SDK\BON\Common\Exceptions.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(GME_ROOT)\SDK\BON\Common\Extensions.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(GME_ROOT)\SDK\BON\Common\Formatter.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="logger.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="LogStream.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(GME_ROOT)\SDK\BON\Common\MON.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(GME_ROOT)\SDK\BON\Common\MONImpl.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Regexp.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="relation.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="StdAfx.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="token.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(GME_ROOT)\SDK\BON\Common\Utils.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Asp\AspectPage.cpp">
+      <Filter>Asp</Filter>
+    </ClCompile>
+    <ClCompile Include="Asp\AspectSpecDlg.cpp">
+      <Filter>Asp</Filter>
+    </ClCompile>
+    <ClCompile Include="Asp\AspectSpecTbl.cpp">
+      <Filter>Asp</Filter>
+    </ClCompile>
+    <ClCompile Include="Asp\EventsDial.cpp">
+      <Filter>Asp</Filter>
+    </ClCompile>
+    <ClCompile Include="Asp\GlobalAspOrder.cpp">
+      <Filter>Asp</Filter>
+    </ClCompile>
+    <ClCompile Include="Asp\InPlaceEdit.cpp">
+      <Filter>Asp</Filter>
+    </ClCompile>
+    <ClCompile Include="Asp\InPlaceList.cpp">
+      <Filter>Asp</Filter>
+    </ClCompile>
+    <ClCompile Include="Asp\NameSpecDlg.cpp">
+      <Filter>Asp</Filter>
+    </ClCompile>
+    <ClCompile Include="Asp\NameSpecTbl.cpp">
+      <Filter>Asp</Filter>
+    </ClCompile>
+    <ClCompile Include="Asp\Options.cpp">
+      <Filter>Asp</Filter>
+    </ClCompile>
+    <ClCompile Include="Rep\Any.cpp">
+      <Filter>Rep</Filter>
+    </ClCompile>
+    <ClCompile Include="Rep\AspectRep.cpp">
+      <Filter>Rep</Filter>
+    </ClCompile>
+    <ClCompile Include="Rep\AtomRep.cpp">
+      <Filter>Rep</Filter>
+    </ClCompile>
+    <ClCompile Include="Rep\AttributeRep.cpp">
+      <Filter>Rep</Filter>
+    </ClCompile>
+    <ClCompile Include="Rep\Broker.cpp">
+      <Filter>Rep</Filter>
+    </ClCompile>
+    <ClCompile Include="Rep\ConnectionRep.cpp">
+      <Filter>Rep</Filter>
+    </ClCompile>
+    <ClCompile Include="Rep\ConnJoint.cpp">
+      <Filter>Rep</Filter>
+    </ClCompile>
+    <ClCompile Include="Rep\ConstraintFuncRep.cpp">
+      <Filter>Rep</Filter>
+    </ClCompile>
+    <ClCompile Include="Rep\ConstraintRep.cpp">
+      <Filter>Rep</Filter>
+    </ClCompile>
+    <ClCompile Include="Rep\Dumper.cpp">
+      <Filter>Rep</Filter>
+    </ClCompile>
+    <ClCompile Include="Rep\FCO.cpp">
+      <Filter>Rep</Filter>
+    </ClCompile>
+    <ClCompile Include="Rep\FolderRep.cpp">
+      <Filter>Rep</Filter>
+    </ClCompile>
+    <ClCompile Include="Rep\ModelRep.cpp">
+      <Filter>Rep</Filter>
+    </ClCompile>
+    <ClCompile Include="Rep\PointerItem.cpp">
+      <Filter>Rep</Filter>
+    </ClCompile>
+    <ClCompile Include="Rep\ReferenceRep.cpp">
+      <Filter>Rep</Filter>
+    </ClCompile>
+    <ClCompile Include="Rep\RoleRep.cpp">
+      <Filter>Rep</Filter>
+    </ClCompile>
+    <ClCompile Include="Rep\RootFolder.cpp">
+      <Filter>Rep</Filter>
+    </ClCompile>
+    <ClCompile Include="Rep\SetRep.cpp">
+      <Filter>Rep</Filter>
+    </ClCompile>
+    <ClCompile Include="Rep\Sheet.cpp">
+      <Filter>Rep</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Component.def">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="bitmapDN.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="bitmapup.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="CompIcon.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="iconDN.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="iconUP.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Component.rc">
+      <Filter>Source Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Midl Include="$(GME_ROOT)\SDK\BON\Common\ComponentLib.idl">
+      <Filter>Source Files</Filter>
+    </Midl>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="$(GME_ROOT)\SDK\BON\Common\BON.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="BON2Component.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(GME_ROOT)\SDK\BON\Common\BONImpl.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(GME_ROOT)\SDK\BON\Common\ComHelp.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(GME_ROOT)\SDK\BON\Common\Common.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ComponentConfig.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(GME_ROOT)\SDK\BON\Common\ComponentDll.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(GME_ROOT)\SDK\BON\Common\ComponentObj.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(GME_ROOT)\SDK\BON\Common\Console.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="entity.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(GME_ROOT)\SDK\BON\Common\Events.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(GME_ROOT)\SDK\BON\Common\Exceptions.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(GME_ROOT)\SDK\BON\Common\Extensions.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(GME_ROOT)\SDK\BON\Common\Formatter.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Globals.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(GME_ROOT)\SDK\BON\Common\GMECOM.H">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="logger.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="LogStream.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(GME_ROOT)\SDK\BON\Common\MON.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(GME_ROOT)\SDK\BON\Common\MONImpl.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Regexp.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="relation.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="StdAfx.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(GME_ROOT)\SDK\BON\Common\targetver.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="token.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(GME_ROOT)\SDK\BON\Common\Utils.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Asp\AspectPage.h">
+      <Filter>Asp</Filter>
+    </ClInclude>
+    <ClInclude Include="Asp\AspectSpecDlg.h">
+      <Filter>Asp</Filter>
+    </ClInclude>
+    <ClInclude Include="Asp\AspectSpecTbl.h">
+      <Filter>Asp</Filter>
+    </ClInclude>
+    <ClInclude Include="Asp\EventsDial.h">
+      <Filter>Asp</Filter>
+    </ClInclude>
+    <ClInclude Include="Asp\GlobalAspOrder.h">
+      <Filter>Asp</Filter>
+    </ClInclude>
+    <ClInclude Include="Asp\InPlaceEdit.h">
+      <Filter>Asp</Filter>
+    </ClInclude>
+    <ClInclude Include="Asp\InPlaceList.h">
+      <Filter>Asp</Filter>
+    </ClInclude>
+    <ClInclude Include="Asp\NameSpecDlg.h">
+      <Filter>Asp</Filter>
+    </ClInclude>
+    <ClInclude Include="Asp\NameSpecTbl.h">
+      <Filter>Asp</Filter>
+    </ClInclude>
+    <ClInclude Include="Asp\options.h">
+      <Filter>Asp</Filter>
+    </ClInclude>
+    <ClInclude Include="Rep\Any.h">
+      <Filter>Rep</Filter>
+    </ClInclude>
+    <ClInclude Include="Rep\AspectRep.h">
+      <Filter>Rep</Filter>
+    </ClInclude>
+    <ClInclude Include="Rep\AtomRep.h">
+      <Filter>Rep</Filter>
+    </ClInclude>
+    <ClInclude Include="Rep\AttributeRep.h">
+      <Filter>Rep</Filter>
+    </ClInclude>
+    <ClInclude Include="Rep\Broker.h">
+      <Filter>Rep</Filter>
+    </ClInclude>
+    <ClInclude Include="Rep\ConnectionRep.h">
+      <Filter>Rep</Filter>
+    </ClInclude>
+    <ClInclude Include="Rep\ConnJoint.h">
+      <Filter>Rep</Filter>
+    </ClInclude>
+    <ClInclude Include="Rep\ConstraintFuncRep.h">
+      <Filter>Rep</Filter>
+    </ClInclude>
+    <ClInclude Include="Rep\ConstraintRep.h">
+      <Filter>Rep</Filter>
+    </ClInclude>
+    <ClInclude Include="Rep\Dumper.h">
+      <Filter>Rep</Filter>
+    </ClInclude>
+    <ClInclude Include="Rep\FCO.h">
+      <Filter>Rep</Filter>
+    </ClInclude>
+    <ClInclude Include="Rep\FcoRep.h">
+      <Filter>Rep</Filter>
+    </ClInclude>
+    <ClInclude Include="Rep\FolderRep.h">
+      <Filter>Rep</Filter>
+    </ClInclude>
+    <ClInclude Include="Rep\ModelRep.h">
+      <Filter>Rep</Filter>
+    </ClInclude>
+    <ClInclude Include="Rep\PartRep.h">
+      <Filter>Rep</Filter>
+    </ClInclude>
+    <ClInclude Include="Rep\PointerItem.h">
+      <Filter>Rep</Filter>
+    </ClInclude>
+    <ClInclude Include="Rep\ReferenceRep.h">
+      <Filter>Rep</Filter>
+    </ClInclude>
+    <ClInclude Include="Rep\RoleRep.h">
+      <Filter>Rep</Filter>
+    </ClInclude>
+    <ClInclude Include="Rep\RootFolder.h">
+      <Filter>Rep</Filter>
+    </ClInclude>
+    <ClInclude Include="Rep\SetRep.h">
+      <Filter>Rep</Filter>
+    </ClInclude>
+    <ClInclude Include="Rep\Sheet.h">
+      <Filter>Rep</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,24 @@
+
+XML stuff
+
+http://www.informatik.tu-darmstadt.de/DVS1/staff/bourret/bourret.htm
+
+http://www.jclark.com/bio.htm
+http://www.jclark.com/sp/
+
+To use the command-line version with XML, you need to use the -wxml
+flag and prepend the SGML declaration included in the distribution;
+i.e.
+
+nsgmls -wxml /usr/lib/sgml/sgmldecl/xml.dcl myfile.xml
+
+http://www.xml.com/pub/1999/09/conformance/index.html
+
+http://xml.apache.org/index.html
+
+*********************************************
+
+no min/max in a conjoint
+duplciated connjoints
+roles for connections
+enumitems, valuetype for defattrs

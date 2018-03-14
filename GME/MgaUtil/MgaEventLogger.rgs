@@ -1,0 +1,26 @@
+HKCR
+{
+	Mga.MgaEventLogger.1 = s 'MgaEventLogger Class'
+	{
+		CLSID = s '{98C2F832-0209-45c9-B665-829B88AA9399}'
+	}
+	Mga.MgaEventLogger = s 'MgaEventLogger Class'
+	{
+		CLSID = s '{98C2F832-0209-45c9-B665-829B88AA9399}'
+		CurVer = s 'Mga.MgaEventLogger.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {98C2F832-0209-45c9-B665-829B88AA9399} = s 'MgaEventLogger Class'
+		{
+			ProgID = s 'Mga.MgaEventLogger.1'
+			VersionIndependentProgID = s 'Mga.MgaEventLogger'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			'TypeLib' = s '{98C2F832-0209-45c9-B665-829B88AA9399}'
+		}
+	}
+}

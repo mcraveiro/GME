@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE paradigm SYSTEM "edf.dtd">
+
+<paradigm name="GME391FloatingPointTest" guid="{CBFCDBEA-77EC-4FB3-B227-665B59083A72}" cdate="Thu Sep 23 11:45:28 2010" mdate="Thu Sep 23 11:45:28 2010" >
+
+	<comment></comment>
+
+	<author></author>
+
+	<folder name = "RootFolder" metaref = "1000"  rootobjects = "KindModel" >
+		<attrdef name="d" metaref = "1008" valuetype = "double" defvalue = "">
+		</attrdef>
+		<model name = "KindModel" metaref = "1009" attributes = "d" >
+				<regnode name = "namePosition" value ="4"></regnode>
+				<regnode name = "isTypeInfoShown" value ="true"></regnode>
+			<role name = "KindModel" metaref = "1010" kind = "KindModel"></role>
+			<aspect name = "KindAspect" metaref = "1007" attributes = "d" >
+				<part metaref = "1011" role = "KindModel" primary = "yes" linked = "no"></part>
+			</aspect>
+		</model>
+	</folder>
+</paradigm>

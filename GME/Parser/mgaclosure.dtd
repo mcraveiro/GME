@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!ENTITY lt     "&#38;#60;">
+<!ENTITY gt     "&#62;">
+<!ENTITY amp    "&#38;#38;">
+<!ENTITY apos   "&#39;"> 
+<!ENTITY quot   "&#34;">
+
+<!ELEMENT project (name, comment?, author?, folder)>
+<!ATTLIST project
+	version		CDATA		#IMPLIED
+	guid		CDATA		#IMPLIED
+	cdate		CDATA		#IMPLIED
+	mdate		CDATA		#IMPLIED
+	metaversion	CDATA		#IMPLIED
+	metaguid	CDATA		#IMPLIED
+	metaname	CDATA		#REQUIRED
+>
+
+<!ELEMENT name (#PCDATA)>
+<!ELEMENT comment (#PCDATA)>
+<!ELEMENT author (#PCDATA)>
+<!ELEMENT value (#PCDATA)>
+
+<!ELEMENT constraint (name, value)>
+
+<!ELEMENT regnode (value, regnode*)>
+<!ATTLIST regnode
+	name		CDATA		#REQUIRED
+	status		(inherited|meta|undefined) #IMPLIED
+	isopaque	(yes|no)	"no"
+>
+
+<!ELEMENT folder (name, (regnode|constraint|folder|model|atom|reference|set|connection)*)>
+<!ATTLIST folder
+	id			ID			#IMPLIED
+	kind		NMTOKEN		#REQUIRED
+	relid		CDATA		#IMPLIED
+	childrelidcntr	CDATA	#IMPLIED
+	libref		CDATA		#IMPLIED
+	closureguid	CDATA           #IMPLIED
+	closurename	CDATA		#IMPLIED		
+	closurepath	CDATA		#IMPLIED		
+	perm 		CDATA		#IMPLIED
+	guid		CDATA		#IMPLIED
+>
+
+<!ELEMENT model (name, (regnode|constraint|attribute|model|atom|reference|set|connection)*)>
+<!ATTLIST model
+	id			ID			#IMPLIED
+	kind		NMTOKEN		#REQUIRED
+	role		NMTOKEN		#IMPLIED
+	derivedfrom	CDATA		#IMPLIED
+	smartDerivedFromGUID    CDATA           #IMPLIED
+	closurelibderivedfrom	CDATA		#IMPLIED
+	closure2derivedfrom	CDATA		#IMPLIED
+	isinstance	(yes|no)	"no"
+	isprimary	(yes|no)	"yes"
+	relid		CDATA		#IMPLIED
+	childrelidcntr	CDATA		#IMPLIED
+	closureguid	CDATA           #IMPLIED
+	closurename	CDATA		#IMPLIED	
+	closurepath	CDATA		#IMPLIED		
+	perm 		CDATA		#IMPLIED
+	guid		CDATA		#IMPLIED
+>
+
+<!ELEMENT atom (name, (regnode|constraint|attribute)*)>
+<!ATTLIST atom
+	id			ID			#IMPLIED
+	kind		NMTOKEN		#REQUIRED
+	role		NMTOKEN		#IMPLIED
+	derivedfrom	CDATA		#IMPLIED
+	smartDerivedFromGUID    CDATA           #IMPLIED
+	closurelibderivedfrom	CDATA		#IMPLIED
+	closure2derivedfrom	CDATA		#IMPLIED
+	isinstance	(yes|no)	"no"
+	isprimary	(yes|no)	"yes"
+	relid		CDATA		#IMPLIED
+	closureguid	CDATA           #IMPLIED
+	closurename	CDATA		#IMPLIED	
+	closurepath	CDATA		#IMPLIED		
+	perm 		CDATA		#IMPLIED
+	guid		CDATA		#IMPLIED
+>
+
+<!ELEMENT reference (name, (regnode|constraint|attribute)*)>
+<!ATTLIST reference
+	id			ID			#IMPLIED
+	kind		NMTOKEN		#REQUIRED
+	role		NMTOKEN		#IMPLIED
+	derivedfrom	CDATA		#IMPLIED
+	smartDerivedFromGUID    CDATA           #IMPLIED
+	closurelibderivedfrom	CDATA		#IMPLIED
+	closure2derivedfrom	CDATA		#IMPLIED
+	isinstance	(yes|no)	"no"
+	isprimary	(yes|no)	"yes"
+	referred	CDATA		#IMPLIED
+	closurelibreferred           CDATA              #IMPLIED
+	smartReferredGUID            CDATA              #IMPLIED
+	closure2referred             CDATA              #IMPLIED
+	isbound		(yes|no)	"no"
+	relid		CDATA		#IMPLIED
+	closureguid	CDATA           #IMPLIED
+	closurename	CDATA		#IMPLIED	
+	closurepath	CDATA		#IMPLIED
+	perm 		CDATA		#IMPLIED
+	guid		CDATA		#IMPLIED
+>
+
+<!ELEMENT set (name, (regnode|constraint|attribute)*)>
+<!ATTLIST set
+	id			ID			#IMPLIED
+	kind		NMTOKEN		#REQUIRED
+	role		NMTOKEN		#IMPLIED
+	derivedfrom	CDATA		#IMPLIED
+	smartDerivedFromGUID    CDATA           #IMPLIED
+	closurelibderivedfrom	CDATA		#IMPLIED
+	closure2derivedfrom	CDATA		#IMPLIED
+	smartMemberGUIDs        CDATA           #IMPLIED
+	closure2members         CDATA           #IMPLIED
+	isinstance	(yes|no)	"no"
+	isprimary	(yes|no)	"yes"
+	members		CDATA		#IMPLIED
+	isbound		(yes|no)	"no"
+	relid		CDATA		#IMPLIED
+	closureguid	CDATA           #IMPLIED
+	closurename	CDATA		#IMPLIED	
+	closurepath	CDATA		#IMPLIED		
+	perm 		CDATA		#IMPLIED
+	guid		CDATA		#IMPLIED
+>
+
+<!ELEMENT connection (name?, (regnode|constraint|connpoint|attribute)*)>
+<!ATTLIST connection
+	id			ID			#IMPLIED
+	kind		NMTOKEN		#REQUIRED
+	role		NMTOKEN		#IMPLIED
+	derivedfrom	CDATA		#IMPLIED
+	smartDerivedFromGUID    CDATA           #IMPLIED
+	closurelibderivedfrom	CDATA		#IMPLIED
+	closure2derivedfrom	CDATA		#IMPLIED
+	isinstance	(yes|no)	"no"
+	isprimary	(yes|no)	"yes"
+	isbound		(yes|no)	"no"
+	relid		CDATA		#IMPLIED
+	closureguid	CDATA           #IMPLIED
+	closurename	CDATA		#IMPLIED	
+	closurepath	CDATA		#IMPLIED
+        smart0Role         CDATA		#IMPLIED
+        smart0TargetGUID   CDATA		#IMPLIED
+        smart0Target       CDATA		#IMPLIED
+        smart0RefChainGUID CDATA		#IMPLIED
+        smart0RefChain     CDATA		#IMPLIED
+        smart0IsBound      CDATA		#IMPLIED
+        smart1Role         CDATA		#IMPLIED
+        smart1TargetGUID   CDATA		#IMPLIED
+        smart1Target       CDATA		#IMPLIED
+        smart1RefChainGUID CDATA		#IMPLIED
+        smart1RefChain     CDATA		#IMPLIED
+        smart1IsBound      CDATA		#IMPLIED
+	perm 		CDATA		#IMPLIED
+	guid		CDATA		#IMPLIED
+>
+
+<!ELEMENT connpoint EMPTY>
+<!ATTLIST connpoint
+	role		NMTOKEN		#REQUIRED
+	closurelibtarget	CDATA		#IMPLIED
+	closure2target	CDATA		#IMPLIED
+	target		CDATA		#IMPLIED
+	refs		CDATA		#IMPLIED
+	closure2refs		CDATA		#IMPLIED
+	isbound		(yes|no)	"no"
+>
+
+<!ELEMENT attribute (value, regnode*)>
+<!ATTLIST attribute
+	kind		NMTOKEN		#REQUIRED
+	status		(inherited|meta) #IMPLIED
+>

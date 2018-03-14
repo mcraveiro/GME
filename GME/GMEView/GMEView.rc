@@ -1,0 +1,241 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "1 TYPELIB ""GMEView.tlb""\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,0,0,1
+ PRODUCTVERSION 1,0,0,1
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x2L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904e4"
+        BEGIN
+            VALUE "CompanyName", "TODO: <Company name>"
+            VALUE "FileDescription", "TODO: <File description>"
+            VALUE "FileVersion", "1.0.0.1"
+            VALUE "InternalName", "GMEView.ocx"
+            VALUE "LegalCopyright", "TODO: (c) <Company name>.  All rights reserved."
+            VALUE "OriginalFilename", "GMEView.ocx"
+            VALUE "ProductName", "TODO: <Product name>"
+            VALUE "ProductVersion", "1.0.0.1"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1252
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDI_ABOUTDLL            ICON                    "GMEView.ico"
+IDI_INSTANCEMARK_ICON   ICON                    "res\\typemark.ico"
+IDI_TYPEMARK_ICON       ICON                    "res\\icon1.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDB_GMEVIEW             BITMAP                  "GMEViewCtrl.bmp"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_ABOUTBOX_GMEVIEW DIALOG  34, 22, 260, 55
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "About GMEView Control"
+FONT 8, "MS Sans Serif"
+BEGIN
+    ICON            IDI_ABOUTDLL,IDC_STATIC,10,10,20,20
+    LTEXT           "GMEView Control, Version 1.0",IDC_STATIC,40,10,170,8
+    LTEXT           "Copyright (C) 2008, ",IDC_STATIC,40,25,170,8
+    DEFPUSHBUTTON   "OK",IDOK,221,7,32,16,WS_GROUP
+END
+
+IDD_PROPPAGE_GMEVIEW DIALOG  0, 0, 250, 62
+STYLE DS_SETFONT | WS_CHILD
+FONT 8, "MS Sans Serif"
+BEGIN
+    LTEXT           "TODO: Place controls to manipulate properties of GMEView Control on this dialog.",
+                    IDC_STATIC,7,25,229,16
+END
+
+IDD_MODELPROPERTIESBAR DIALOGEX 0, 0, 467, 16
+STYLE DS_SETFONT | WS_CHILD | CBRS_TOP
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    EDITTEXT        IDC_NAME,37,2,68,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_KINDNAME,107,2,68,12,ES_AUTOHSCROLL | ES_READONLY | 
+                    NOT WS_TABSTOP
+    COMBOBOX        IDC_ASPECT,203,2,65,272,CBS_DROPDOWNLIST | WS_VSCROLL | 
+                    WS_TABSTOP
+    EDITTEXT        IDC_TYPENAME,292,2,68,12,ES_AUTOHSCROLL | ES_READONLY | 
+                    NOT WS_TABSTOP
+    COMBOBOX        IDC_ZOOMS,386,2,41,272,CBS_DROPDOWN | WS_VSCROLL | 
+                    WS_TABSTOP
+    ICON            IDI_INSTANCEMARK_ICON,IDC_INSTANCEMARK,0,0,20,20,
+                    SS_REALSIZEIMAGE | NOT WS_VISIBLE
+    LTEXT           "Name:",IDC_STATIC,15,4,21,8
+    LTEXT           "Aspect:",IDC_STATIC,177,4,24,8
+    RTEXT           "Base:",IDC_BASETYPE_LABEL,270,4,19,8
+    LTEXT           "Zoom:",IDC_STATIC,364,4,22,8
+    ICON            IDI_TYPEMARK_ICON,IDC_TYPEMARK,0,0,20,20,
+                    SS_REALSIZEIMAGE
+END
+
+IDD_GMEVIEW_DIALOG DIALOGEX 0, 0, 186, 90
+STYLE DS_SETFONT | DS_SETFOREGROUND | WS_CHILD | WS_VISIBLE
+EXSTYLE WS_EX_CLIENTEDGE
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO 
+BEGIN
+    IDD_ABOUTBOX_GMEVIEW, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 253
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 48
+    END
+
+    IDD_PROPPAGE_GMEVIEW, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 243
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 55
+    END
+
+    IDD_MODELPROPERTIESBAR, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 460
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 9
+    END
+
+    IDD_GMEVIEW_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 5
+        RIGHTMARGIN, 178
+        TOPMARGIN, 6
+        BOTTOMMARGIN, 83
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE 
+BEGIN
+    IDS_GMEVIEW             "GMEView Control"
+    IDS_GMEVIEW_PPG         "GMEView Property Page"
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_GMEVIEW_PPG_CAPTION "General"
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_MODELPROPERTIESBAR_HELP 
+                            "Show or hide ModelPropertiesBar\nToggle ModelPropertiesBar"
+END
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+1 TYPELIB "GMEView.tlb"
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

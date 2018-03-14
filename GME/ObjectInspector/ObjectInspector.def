@@ -1,0 +1,9 @@
+; ObjectInspector.def : Declares the module parameters.
+
+LIBRARY      "OBJECTINSPECTOR.OCX"
+
+EXPORTS
+	DllCanUnloadNow     PRIVATE
+	DllGetClassObject   PRIVATE
+	DllRegisterServer   PRIVATE
+	DllUnregisterServer PRIVATE

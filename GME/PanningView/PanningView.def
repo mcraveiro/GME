@@ -1,0 +1,9 @@
+; PanningView.def : Declares the module parameters.
+
+LIBRARY      "PanningView.OCX"
+
+EXPORTS
+	DllCanUnloadNow     PRIVATE
+	DllGetClassObject   PRIVATE
+	DllRegisterServer   PRIVATE
+	DllUnregisterServer PRIVATE

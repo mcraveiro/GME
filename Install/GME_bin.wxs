@@ -1,0 +1,855 @@
+<?xml version='1.0' encoding='windows-1252'?>
+
+<Wix xmlns='http://schemas.microsoft.com/wix/2006/wi' RequiredVersion='3.0.4813.0'>
+
+  <?include GME_dyn.wxi ?>
+  <?include GME_inc.wxi ?>
+
+  <Fragment>
+
+    <ComponentGroup Id='GME_bin$(sys.BUILDARCH)'>
+
+
+      <!-- =========================================================== -->
+      <!-- COMPONENTS -->
+      <!-- =========================================================== -->
+      <Component Id='GME.exe$(sys.BUILDARCH)' Directory='INSTALLDIR_BIN$(sys.BUILDARCH)'>
+        <File Id='GME.exe$(sys.BUILDARCH)' Name='GME.exe' DiskId='1' Source='..\GME\$(var.Release)\GME.exe' KeyPath='yes' Checksum='yes'>
+          <?if $(sys.BUILDARCH)=x86 ?>
+          <Shortcut Id='ApplicationStartMenuShortcut$(sys.BUILDARCH)' Name='GME' Icon='GME.ico' Description='Generic Modeling Environment' Directory='ShortcutFolder' Advertise="yes" />
+          <?else?>
+          <Shortcut Id='ApplicationStartMenuShortcut$(sys.BUILDARCH)' Name='GME (64 bit)' Icon='GME.ico' Description='Generic Modeling Environment' Directory='ShortcutFolder' Advertise="yes" />
+          <?endif?>
+          <TypeLib Id="{0ADEEC71-D83A-11D3-B36B-005004CC8592}" Description="GME Type Library" Language="0" MajorVersion="1" MinorVersion="0">
+            <Class Id='C7DCCC2E-1642-4a40-8060-51A7B9FAE488' Context='LocalServer32' Server='GME.exe$(sys.BUILDARCH)' Handler='2'>
+              <ProgId Id='GME.Application' />
+            </Class>
+            <Interface Id="{81191A44-B898-4143-BF8B-CA7501FEC19A}" Name="IGMEOLEApp" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{9FF8F4E0-E0C9-11d3-B376-005004D38590}" Name="IMgaDataSource" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{F2181278-749F-459d-8700-92F088B80D72}" Name="IGMEOLEIt" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{399A16A0-D209-4d00-9BDF-858D87EC4641}" Name="IGMEOLEModel" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{EDEEB1F8-BC44-40d2-BE91-83E8CCD59845}" Name="IGMEOLEAspect" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{C047FAEB-7AE7-40fb-8C5C-90C73DAD4BC6}" Name="IGMEOLEPanel" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{36C7B797-6BDE-46d0-8870-70189000EDF9}" Name="IGMEOLEColl" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{1E13054E-5AD1-41EB-8FF1-C3901D99FDCC}" Name="IMgaDecorator" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{D25188F5-3ECF-433e-85C5-8B9574CA264C}" Name="IMgaCommonDecoratorEvents" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{91004115-2D1F-44a8-B6A0-09A2750BF278}" Name="IMgaDecoratorCommon" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{1D63D045-28C9-4902-8E5F-46F4AC1F8C5B}" Name="IMgaElementDecoratorEvents" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{2BEAD76C-126E-405D-AAC6-B9CA39067006}" Name="IMgaElementDecorator" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+          </TypeLib>
+        </File>
+        <RegistryKey Root='HKLM' Key='Software\GME'>
+          <RegistryValue Name='IconPath' Type='string' Value='$PARADIGMDIR\icons;$PROJECTDIR\icons'/>
+          <RegistryValue Name='Version' Type='string' Value='$(var.VERSIONSTR)' />
+        </RegistryKey>
+        <RegistryKey Root='HKLM' Key='Software\Microsoft\Windows\CurrentVersion\App Paths\GME.exe'>
+          <RegistryValue Type='string' Value='[INSTALLDIR$(sys.BUILDARCH)]GME.exe'/>
+          <RegistryValue Name='Path' Type='string' Value='[INSTALLDIR$(sys.BUILDARCH)]'/>
+        </RegistryKey>
+
+        <ProgId Id='GME.mgafile' Description='GME project file'>
+          <Extension Id='mga' ContentType='application/x-mga'>
+            <?if $(sys.BUILDARCH)=x86 ?>
+            <Verb Id='open' Command='Open with GME' TargetFile='GME.exe$(sys.BUILDARCH)' Argument='"%1"' />
+            <Verb Id='open_x86' Command='Open with GME' TargetFile='GME.exe$(sys.BUILDARCH)' Argument='"%1"' />
+            <?else?>
+            <Verb Id='open_x64' Command='Open with 64bit GME' TargetFile='GME.exe$(sys.BUILDARCH)' Argument='"%1"' />
+            <?endif?>
+          </Extension>
+        </ProgId>
+        <ProgId Id='GME.xmefile' Description='GME XML project file'>
+          <Extension Id='xme' ContentType='application/x-xme'>
+            <?if $(sys.BUILDARCH)=x86 ?>
+            <Verb Id='open' Command='Open with GME' TargetFile='GME.exe$(sys.BUILDARCH)' Argument='"%1"' />
+            <Verb Id='open_x86' Command='Open with GME' TargetFile='GME.exe$(sys.BUILDARCH)' Argument='"%1"' />
+            <?else?>
+            <Verb Id='open_x64' Command='Open with 64bit GME' TargetFile='GME.exe$(sys.BUILDARCH)' Argument='"%1"' />
+            <?endif?>
+          </Extension>
+        </ProgId>
+        <?if $(sys.BUILDARCH)=x86 ?>
+        <Registry Id='GME.mgafile_desc' Root='HKCR' Key='GME.mgafile' Action='write' Type='string' Value='GME model file' />
+        <Registry Id='GME.xmefile_desc' Root='HKCR' Key='GME.xmefile' Action='write' Type='string' Value='GME XML model file' />
+        <Registry Id='GME.xmefile_icon' Root='HKCR' Key='GME.xmefile\DefaultIcon' Action='write' Type='string' Value='[#GME.exe$(sys.BUILDARCH)],5' />
+        <Environment Id="GME_ROOT" Action="set" System="yes" Name="GME_ROOT" Value="[INSTALLDIR$(sys.BUILDARCH)]" />
+        <RemoveFolder Id='RemoveShortcutFolder' On='uninstall' Directory='ShortcutFolder'/>
+        <?endif?>
+      </Component>
+
+      <Component Id='Annotator.dll$(sys.BUILDARCH)' Directory='INSTALLDIR_BIN$(sys.BUILDARCH)'>
+        <File Id='Annotator.dll$(sys.BUILDARCH)' KeyPath="yes" Source="..\GME\$(var.Release)\Annotator.dll">
+          <TypeLib Id="{F0E585D5-1697-4698-B374-D73B0D6127D0}" Description="GME Annotator Type Library" Language="0" MajorVersion="1" MinorVersion="0">
+            <Class Id="{D3CF55F1-D1AA-433E-982B-D2A6E22D8299}" Context="InprocServer32" Description="MGA Decorator CoClass (Annotator)" ThreadingModel="apartment" Programmable="yes">
+              <ProgId Id="MGA.Decorator.Annotator.1" Description="MGA Decorator CoClass (Annotator)">
+                <ProgId Id="MGA.Decorator.Annotator" Description="MGA Decorator CoClass (Annotator)" />
+              </ProgId>
+            </Class>
+          </TypeLib>
+        </File>
+      </Component>
+
+
+      <Component Id="AutoLayout.dll$(sys.BUILDARCH)" Directory="INSTALLDIR_TOOLS$(sys.BUILDARCH)">
+        <File Id="AutoLayout.dll$(sys.BUILDARCH)" KeyPath="yes" Source="..\Tools\AutoLayout\$(var.Release)\AutoLayout.dll">
+          <TypeLib Id="E0EDD212-6AEC-41AE-8F45-4A75921D16C7" Description="MGA Interpreter TypeLibrary (AutoLayout)" Language="0" MajorVersion="1" MinorVersion="0">
+            <Class Id="{DB312634-F076-4FB2-BCA9-CEF7D239590D}" Context="InprocServer32" Description="MGA.Interpreter.AutoLayout">
+              <ProgId Id="MGA.Interpreter.AutoLayout" Description="MGA.Interpreter.AutoLayout" />
+            </Class>
+          </TypeLib>
+        </File>
+        <RegistryKey Root='HKLM' Key='Software\GME\Components\Mga.Interpreter.AutoLayout'>
+          <RegistryValue Name='Description' Type='string' Value='AutoLayout'/>
+          <RegistryValue Name='Icon' Type='string' Value=',IDI_COMPICON'/>
+          <RegistryValue Name='Paradigm' Type='string' Value='*'/>
+          <RegistryValue Name='Tooltip' Type='string' Value='Auto Layout PlugIn'/>
+          <RegistryValue Name='Type' Type='integer' Value='12'/>
+
+          <RegistryKey Key='Associated'>
+            <RegistryValue Name='HFSM' Type='string' Value=''/>
+            <RegistryValue Name='MetaGME' Type='string' Value=''/>
+            <RegistryValue Name='SF' Type='string' Value=''/>
+            <RegistryValue Name='UML' Type='string' Value=''/>
+          </RegistryKey>
+
+        </RegistryKey>
+      </Component>
+
+      <Component Id="Console.ocx$(sys.BUILDARCH)" Directory='INSTALLDIR_BIN$(sys.BUILDARCH)'>
+        <File Id="Console.ocx$(sys.BUILDARCH)" KeyPath="yes" Source="..\GME\$(var.Release)\Console.ocx">
+          <TypeLib Id="{339FD307-717B-4698-AC13-4ACCCF5D4C91}" Description="Console ActiveX Control module" Language="0" MajorVersion="1" MinorVersion="0" Control="yes">
+            <Class Id="{A9B2B82A-B753-4FB0-8F0B-3661BC307053}" Context="InprocServer32" Description="GME Console Property Page" />
+            <AppId Description="MgaUtil" Id="{461F30AF-3BF0-11D4-B3F0-005004D38590}">
+              <Class Id="{CD42B6DD-CCC7-4D4A-A82D-124AF08A6737}" Context="InprocServer32" Description="ScriptHost Class" ThreadingModel="apartment" Programmable="yes">
+                <ProgId Id="Console.ScriptHost.1" Description="ScriptHost Class">
+                  <ProgId Id="Console.ScriptHost" Description="ScriptHost Class" />
+                </ProgId>
+              </Class>
+            </AppId>
+            <Class Id="{E4EB8324-13F0-46CB-96A3-F539DF7F79D4}" Context="InprocServer32" Description="GME Console Control" ThreadingModel="apartment" Version="1.0" Control="yes">
+              <ProgId Id="GME.Console.1" Description="GME Console Control" />
+            </Class>
+          </TypeLib>
+        </File>
+      </Component>
+
+      <Component Id="ConstraintManager.dll$(sys.BUILDARCH)" Directory='INSTALLDIR_BIN$(sys.BUILDARCH)'>
+        <File Id="ConstraintManager.dll$(sys.BUILDARCH)" KeyPath="yes" Source="..\GME\$(var.Release)\ConstraintManager.dll">
+          <TypeLib Id="{D69D91D0-4550-4A5D-848C-9BBA92693D22}" Description="ConstraintManager 1.0 Type Library" Language="0" MajorVersion="1" MinorVersion="0">
+            <Class Id="{44055854-A45B-4357-9D2C-FC66D6C0DFFA}" Context="InprocServer32" Description="ConstraintManager Class" ThreadingModel="apartment" Programmable="yes">
+              <ProgId Id="Mga.AddOn.ConstraintManager.1" Description="ConstraintManager Class">
+                <ProgId Id="Mga.AddOn.ConstraintManager" Description="ConstraintManager Class" />
+              </ProgId>
+            </Class>
+            <Class Id="{74A06CAE-A3CF-4C7B-B4CB-C0A3C3C654B9}" Context="InprocServer32" Description="ExpressionChecker Class" ThreadingModel="apartment" Programmable="yes">
+              <ProgId Id="Mga.AddOn.ExpressionChecker.1" Description="ExpressionChecker Class">
+                <ProgId Id="Mga.AddOn.ExpressionChecker" Description="ExpressionChecker Class" />
+              </ProgId>
+            </Class>
+          </TypeLib>
+        </File>
+        <RegistryKey Root='HKLM' Key='Software\GME\Components\Mga.AddOn.ConstraintManager'>
+          <RegistryValue Name='Description' Type='string' Value='ConstraintManager'/>
+          <RegistryValue Name='Paradigm' Type='string' Value='*'/>
+          <RegistryValue Name='Type' Type='integer' Value='10'/>
+          <RegistryKey Key='Associated'>
+            <RegistryValue Name='HFSM' Type='string' Value=''/>
+            <RegistryValue Name='MetaGME' Type='string' Value=''/>
+            <RegistryValue Name='SF' Type='string' Value=''/>
+            <RegistryValue Name='UML' Type='string' Value=''/>
+          </RegistryKey>
+        </RegistryKey>
+        <RegistryKey Root='HKLM' Key='Software\GME\Components\Mga.AddOn.ExpressionChecker'>
+          <RegistryValue Name='Description' Type='string' Value='ExpressionChecker'/>
+          <RegistryValue Name='Paradigm' Type='string' Value='*'/>
+          <RegistryValue Name='Type' Type='integer' Value='2'/>
+          <RegistryKey Key='Associated'>
+            <RegistryValue Name='MetaGME' Type='string' Value=''/>
+          </RegistryKey>
+        </RegistryKey>
+      </Component>
+
+      <Component Id="Core.dll$(sys.BUILDARCH)" Directory='INSTALLDIR_BIN$(sys.BUILDARCH)'>
+        <File Id="Core.dll$(sys.BUILDARCH)" KeyPath="yes" Source="..\GME\$(var.Release)_PGO\Core.dll">
+          <TypeLib Id="{9E9AAACF-28B8-11D3-B36C-0060082DF884}" Description="MGA Core Type Library" Language="0" MajorVersion="1" MinorVersion="0">
+            <Class Id="{7281C07A-3E09-11D3-B2F7-005004D38590}" Context="InprocServer32" Description="CoreBinFile Class" ThreadingModel="apartment" Programmable="yes">
+              <ProgId Id="Mga.CoreBinFile.1" Description="CoreBinFile Class">
+                <ProgId Id="Mga.CoreBinFile" Description="CoreBinFile Class" />
+              </ProgId>
+            </Class>
+            <Class Id="{98AA02DD-2E2C-11D3-B36D-0060082DF884}" Context="InprocServer32" Description="CoreMetaProject Class" ThreadingModel="apartment" Programmable="yes">
+              <ProgId Id="Mga.CoreMetaProject.1" Description="CoreMetaProject Class">
+                <ProgId Id="Mga.CoreMetaProject" Description="CoreMetaProject Class" />
+              </ProgId>
+            </Class>
+            <Class Id="{AD9DFA4F-2A3B-11D3-B36C-0060082DF884}" Context="InprocServer32" Description="CoreProject Class" ThreadingModel="apartment" Programmable="yes">
+              <ProgId Id="Mga.CoreProject.1" Description="CoreProject Class">
+                <ProgId Id="Mga.CoreProject" Description="CoreProject Class" />
+              </ProgId>
+            </Class>
+            <Class Id="{9FE3BB80-B596-41BA-910F-0FF9C3B4F38A}" Context="InprocServer32" Description="CoreCollectionHandler Class" ThreadingModel="both" Programmable="yes" Handler="[#Core.dll$(sys.BUILDARCH)]" />
+            <Interface Id="{9A228010-020B-11D2-BBB3-0040051F7117}" Name="IGMEVersionInfo" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+          </TypeLib>
+        </File>
+      </Component>
+
+      <Component Id="GMEActiveBrowser.ocx$(sys.BUILDARCH)" Directory='INSTALLDIR_BIN$(sys.BUILDARCH)'>
+        <File Id="GMEActiveBrowser.ocx$(sys.BUILDARCH)" KeyPath="yes" Source="..\GME\$(var.Release)\GMEActiveBrowser.ocx">
+          <TypeLib Id="{FDA9EDB8-ED6A-468F-A3A9-E9361FEED051}" Description="GMEActiveBrowser ActiveX Control module" Language="0" MajorVersion="1" MinorVersion="0" Control="yes">
+            <Class Id="{4B4C56DA-A2A0-4AE3-BC4B-B07151DE732C}" Context="InprocServer32" Description="GMEActiveBrowser Property Page" />
+            <Class Id="{DD4F2DEB-D064-4844-9EE1-04673C872E7B}" Context="InprocServer32" Description="GMEActiveBrowser Control" ThreadingModel="apartment" Version="1.0" Control="yes" Insertable="yes">
+              <ProgId Id="GME.GMEActiveBrowserCtrl.1" Description="GMEActiveBrowser Control" />
+            </Class>
+          </TypeLib>
+        </File>
+      </Component>
+
+      <Component Directory='INSTALLDIR_BIN$(sys.BUILDARCH)'>
+        <File Id="CrashRpt.dll$(sys.BUILDARCH)" KeyPath="yes" Source="..\GME\lib\CrashRpt\$(var.bin)\CrashRpt.dll" />
+      </Component>
+      <Component Directory='INSTALLDIR_BIN$(sys.BUILDARCH)'>
+        <File Id="crashrpt_lang.ini$(sys.BUILDARCH)" KeyPath="yes" Source="..\GME\lib\CrashRpt\bin\crashrpt_lang.ini" />
+      </Component>
+      <Component  Directory='INSTALLDIR_BIN$(sys.BUILDARCH)'>
+        <File Id="CrashSender.exe$(sys.BUILDARCH)" KeyPath="yes" Source="..\GME\lib\CrashRpt\$(var.bin)\CrashSender.exe" />
+      </Component>
+      <Component Directory='INSTALLDIR$(sys.BUILDARCH)'>
+        <File Id="CrashRpt.license$(sys.BUILDARCH)" Name="CrashRpt.license" KeyPath="yes" Source="..\GME\lib\CrashRpt\License.txt" />
+      </Component>
+
+      <Component Directory='INSTALLDIR_BIN$(sys.BUILDARCH)'>
+        <File Id='CSGUI.dll$(sys.BUILDARCH)' Source="..\GME\CSGUI\bin\Release\CSGUI.dll" />
+      </Component>
+      <Component Id="Meta.dll$(sys.BUILDARCH)" Directory='INSTALLDIR_BIN$(sys.BUILDARCH)'>
+        <File Id="Meta.dll$(sys.BUILDARCH)" KeyPath="yes" Source="..\GME\$(var.Release)_PGO\Meta.dll">
+          <TypeLib Id="{0ADEEC71-D83A-11D3-B36B-005004D38590}" Description="MGA Meta Type Library" Language="0" MajorVersion="1" MinorVersion="0">
+            <Class Id="{8216325A-B7C8-1AD3-ABAE-000000000000}" Context="InprocServer32" Description="MgaMetaEnumItem Class" ThreadingModel="apartment" Programmable="yes">
+              <ProgId Id="Mga.MgaMetaEnumItem.1" Description="MgaMetaEnumItem Class">
+                <ProgId Id="Mga.MgaMetaEnumItem" Description="MgaMetaEnumItem Class" />
+              </ProgId>
+            </Class>
+            <Class Id="{83426258-B218-11D3-ABAE-000235612000}" Context="InprocServer32" Description="MgaMetaPointerItem Class" ThreadingModel="apartment" Programmable="yes">
+              <ProgId Id="Mga.MgaMetaPointerItem.1" Description="MgaMetaPointerItem Class">
+                <ProgId Id="Mga.MgaMetaPointerItem" Description="MgaMetaPointerItem Class" />
+              </ProgId>
+            </Class>
+            <Class Id="{83BA323E-B758-11D3-ABAE-000000000000}" Context="InprocServer32" Description="MgaMetaRegNode Class" ThreadingModel="apartment" Programmable="yes">
+              <ProgId Id="Mga.MgaMetaRegNode.1" Description="MgaMetaRegNode Class">
+                <ProgId Id="Mga.MgaMetaRegNode" Description="MgaMetaRegNode Class" />
+              </ProgId>
+            </Class>
+            <Class Id="{83BA3242-B758-11D3-ABAE-000000000000}" Context="InprocServer32" Description="MgaMetaConstraint Class" ThreadingModel="apartment" Programmable="yes">
+              <ProgId Id="Mga.MgaMetaConstraint.1" Description="MgaMetaConstraint Class">
+                <ProgId Id="Mga.MgaMetaConstraint" Description="MgaMetaConstraint Class" />
+              </ProgId>
+            </Class>
+            <AppId Description="MgaUtil" Id="{461F30AF-3BF0-11D4-B3F0-005004D38590}">
+              <Class Id="{83BA3244-B758-11D3-ABAE-000000000000}" Context="InprocServer32" Description="MgaMetaProject Class" ThreadingModel="apartment" Programmable="yes">
+                <ProgId Id="Mga.MgaMetaProject.1" Description="MgaMetaProject Class">
+                  <ProgId Id="Mga.MgaMetaProject" Description="MgaMetaProject Class" />
+                </ProgId>
+              </Class>
+            </AppId>
+            <Class Id="{83BA3246-B758-11D3-ABAE-000000000000}" Context="InprocServer32" Description="MgaMetaFolder Class" ThreadingModel="apartment" Programmable="yes">
+              <ProgId Id="Mga.MgaMetaFolder.1" Description="MgaMetaFolder Class">
+                <ProgId Id="Mga.MgaMetaFolder" Description="MgaMetaFolder Class" />
+              </ProgId>
+            </Class>
+            <Class Id="{83BA324A-B758-11D3-ABAE-000000000000}" Context="InprocServer32" Description="MgaMetaModel Class" ThreadingModel="apartment" Programmable="yes">
+              <ProgId Id="Mga.MgaMetaModel.1" Description="MgaMetaModel Class">
+                <ProgId Id="Mga.MgaMetaModel" Description="MgaMetaModel Class" />
+              </ProgId>
+            </Class>
+            <Class Id="{83BA324C-B758-11D3-ABAE-000000000000}" Context="InprocServer32" Description="MgaMetaAspect Class" ThreadingModel="apartment" Programmable="yes">
+              <ProgId Id="Mga.MgaMetaAspect.1" Description="MgaMetaAspect Class">
+                <ProgId Id="Mga.MgaMetaAspect" Description="MgaMetaAspect Class" />
+              </ProgId>
+            </Class>
+            <Class Id="{83BA324E-B758-11D3-ABAE-000000000000}" Context="InprocServer32" Description="MgaMetaRole Class" ThreadingModel="apartment" Programmable="yes">
+              <ProgId Id="Mga.MgaMetaRole.1" Description="MgaMetaRole Class">
+                <ProgId Id="Mga.MgaMetaRole" Description="MgaMetaRole Class" />
+              </ProgId>
+            </Class>
+            <Class Id="{83BA3250-B758-11D3-ABAE-000000000000}" Context="InprocServer32" Description="MgaMetaAtom Class" ThreadingModel="apartment" Programmable="yes">
+              <ProgId Id="Mga.MgaMetaAtom.1" Description="MgaMetaAtom Class">
+                <ProgId Id="Mga.MgaMetaAtom" Description="MgaMetaAtom Class" />
+              </ProgId>
+            </Class>
+            <Class Id="{83BA3252-B758-11D3-ABAE-000000000000}" Context="InprocServer32" Description="MgaMetaReference Class" ThreadingModel="apartment" Programmable="yes">
+              <ProgId Id="Mga.MgaMetaReference.1" Description="MgaMetaReference Class">
+                <ProgId Id="Mga.MgaMetaReference" Description="MgaMetaReference Class" />
+              </ProgId>
+            </Class>
+            <Class Id="{83BA3254-B758-11D3-ABAE-000000000000}" Context="InprocServer32" Description="MgaMetaSet Class" ThreadingModel="apartment" Programmable="yes">
+              <ProgId Id="Mga.MgaMetaSet.1" Description="MgaMetaSet Class">
+                <ProgId Id="Mga.MgaMetaSet" Description="MgaMetaSet Class" />
+              </ProgId>
+            </Class>
+            <Class Id="{83BA3256-B758-11D3-ABAE-000000000000}" Context="InprocServer32" Description="MgaMetaConnection Class" ThreadingModel="apartment" Programmable="yes">
+              <ProgId Id="Mga.MgaMetaConnection.1" Description="MgaMetaConnection Class">
+                <ProgId Id="Mga.MgaMetaConnection" Description="MgaMetaConnection Class" />
+              </ProgId>
+            </Class>
+            <Class Id="{83BA3258-B758-11D3-ABAE-000000000000}" Context="InprocServer32" Description="MgaMetaConnJoint Class" ThreadingModel="apartment" Programmable="yes">
+              <ProgId Id="Mga.MgaMetaConnJoint.1" Description="MgaMetaConnJoint Class">
+                <ProgId Id="Mga.MgaMetaConnJoint" Description="MgaMetaConnJoint Class" />
+              </ProgId>
+            </Class>
+            <Class Id="{83BA325A-B758-11D3-ABAE-000000000000}" Context="InprocServer32" Description="MgaMetaAttribute Class" ThreadingModel="apartment" Programmable="yes">
+              <ProgId Id="Mga.MgaMetaAttribute.1" Description="MgaMetaAttribute Class">
+                <ProgId Id="Mga.MgaMetaAttribute" Description="MgaMetaAttribute Class" />
+              </ProgId>
+            </Class>
+            <Class Id="{83BA325C-B758-11D3-ABAE-000000000000}" Context="InprocServer32" Description="MgaMetaPointerSpec Class" ThreadingModel="apartment" Programmable="yes">
+              <ProgId Id="Mga.MgaMetaPointerSpec.1" Description="MgaMetaPointerSpec Class">
+                <ProgId Id="Mga.MgaMetaPointerSpec" Description="MgaMetaPointerSpec Class" />
+              </ProgId>
+            </Class>
+            <Class Id="{A70CAB46-DD94-11D3-9308-444553540000}" Context="InprocServer32" Description="MgaMetaPart Class" ThreadingModel="apartment" Programmable="yes">
+              <ProgId Id="Mga.MgaMetaPart.1" Description="MgaMetaPart Class">
+                <ProgId Id="Mga.MgaMetaPart" Description="MgaMetaPart Class" />
+              </ProgId>
+            </Class>
+            <Class Id="{C6412A50-C1FD-11D3-9AD2-00AA00B6FE26}" Context="InprocServer32" Description="MgaMetaRoles Class" ThreadingModel="apartment" Programmable="yes">
+              <ProgId Id="Mga.MgaMetaRoles.1" Description="MgaMetaRoles Class">
+                <ProgId Id="Mga.MgaMetaRoles" Description="MgaMetaRoles Class" />
+              </ProgId>
+            </Class>
+            <Class Id="{C6739780-C1FD-11D3-9AD2-00AA00B6FE26}" Context="InprocServer32" Description="MgaMetaFCOs Class" ThreadingModel="apartment" Programmable="yes">
+              <ProgId Id="Mga.MgaMetaFCOs.1" Description="MgaMetaFCOs Class">
+                <ProgId Id="Mga.MgaMetaFCOs" Description="MgaMetaFCOs Class" />
+              </ProgId>
+            </Class>
+            <Interface Id="{83254259-B758-21D3-7BAE-000000000000}" Name="IMgaMetaEnumItem" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{83518A5B-B758-11D3-ABAE-006928360000}" Name="IMgaMetaPointerItem" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{83BA323D-B758-11D3-ABAE-000002387500}" Name="IMgaMetaRegNode" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{83BA3241-B758-11D3-ABAE-000000000000}" Name="IMgaConstraint" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{83BA3243-B758-11D3-ABAE-000000000000}" Name="IMgaMetaProject" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{83BA3245-B758-11D3-ABAE-000000000000}" Name="IMgaMetaFolder" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{83BA3247-B758-11D3-ABAE-000000000000}" Name="IMgaMetaFCO" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{83BA3249-B758-11D3-ABAE-000000000000}" Name="IMgaMetaModel" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{83BA324B-B758-11D3-ABAE-000000000000}" Name="IMgaMetaAspect" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{83BA324D-B758-11D3-ABAE-000000000000}" Name="IMgaMetaRole" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{83BA324F-B758-11D3-ABAE-000000000000}" Name="IMgaMetaAtom" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{83BA3251-B758-11D3-ABAE-000000000000}" Name="IMgaMetaReference" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{83BA3253-B758-11D3-ABAE-000000000000}" Name="IMgaMetaSet" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{83BA3255-B758-11D3-ABAE-000000000000}" Name="IMgaMetaConnection" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{83BA3257-B758-11D3-ABAE-000000000000}" Name="IMgaMetaConnJoint" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{83BA3259-B758-11D3-ABAE-000000000000}" Name="IMgaMetaAttribute" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{83BA325B-B758-11D3-ABAE-000000000000}" Name="IMgaMetaPointerSpec" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{A70CAB45-DD94-11D3-9308-444553540000}" Name="IMgaMetaPart" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{C61352B0-C1FD-11D3-9AD2-00AA00B6FE26}" Name="IMgaMetaAspects" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{C66A6C60-C1FD-11D3-9AD2-00AA00B6FE26}" Name="IMgaMetaFCOs" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{C6922740-C1FD-11D3-9AD2-00AA00B6FE26}" Name="IMgaMetaAttributes" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{C6B85AF0-C1FD-11D3-9AD2-00AA00B6FE26}" Name="IMgaMetaFolders" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{C761F8C0-C1FD-11D3-9AD2-00AA00B6FE26}" Name="IMgaMetaPointerSpecs" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{C795ED20-C1FD-11D3-9AD2-00AA00B6FE27}" Name="IMgaMetaRegNodes" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{C8124623-C51D-11D3-9AD2-00AA00B6FE27}" Name="IMgaMetaPointerItems" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{C8124623-C51D-1AD3-9AD2-11AA0176FE27}" Name="IMgaMetaEnumItems" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{C8432623-C1FD-11D3-9AD2-00AA00B6FE27}" Name="IMgaMetaConnJoints" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{C851E130-C1FD-11D3-9AD2-00AA00B6FE26}" Name="IMgaMetaRoles" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{C8EC3720-C1FD-11D3-9AD2-00AA00B6FE26}" Name="IMgaConstraints" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{C8EC3720-C1FD-11D3-9AD2-00AA00B6FE27}" Name="IMgaMetaParts" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{C8EC3723-C1FD-11D3-9AD2-00AA00B6FE27}" Name="IMgaMetaModels" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{DB1E0FB7-C9CB-11D3-9AD2-00AA00B6FE26}" Name="IMgaMetaBase" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+          </TypeLib>
+        </File>
+      </Component>
+
+      <Component Id="MetaDecorator.dll$(sys.BUILDARCH)" Directory="INSTALLDIR_PARADIGMS_METAGME$(sys.BUILDARCH)">
+        <File Id="MetaDecorator.dll$(sys.BUILDARCH)" KeyPath="yes" Source="..\Paradigms\MetaGME\$(var.Release)\MetaDecorator.dll">
+          <TypeLib Id="{315F4696-6E31-48d2-8580-FA6CBB805520}" Description="MGA MetaDecorator Type Library" Language="0" MajorVersion="1" MinorVersion="0">
+            <Class Id="{E0062203-4CF9-424A-BF05-4F6590942015}" Context="InprocServer32" Description="MGA Decorator CoClass (MetaDecorator)" ThreadingModel="apartment" Programmable="yes">
+              <ProgId Id="MGA.Decorator.MetaDecorator.1" Description="MGA Decorator CoClass (MetaDecorator)">
+                <ProgId Id="MGA.Decorator.MetaDecorator" Description="MGA Decorator CoClass (MetaDecorator)" />
+              </ProgId>
+            </Class>
+          </TypeLib>
+        </File>
+      </Component>
+
+      <Component Id="MetaInterpreter.dll$(sys.BUILDARCH)" Directory="INSTALLDIR_PARADIGMS_METAGME$(sys.BUILDARCH)">
+        <File Id="MetaInterpreter.dll$(sys.BUILDARCH)" KeyPath="yes" Source="..\Paradigms\MetaGME\$(var.Release)\MetaInterpreter.dll">
+          <TypeLib Id="1CB9FEAE-D8F7-48B0-A776-1541149AAF50" Description="MGA Interpreter TypeLibrary (MetaInterpreter)" Language="0" MajorVersion="1" MinorVersion="0">
+            <Class Id="{F15CF3E9-7383-44B3-9AB8-A275283BBCA9}" Context="InprocServer32" Description="MGA.Interpreter.MetaInterpreter">
+              <ProgId Id="MGA.Interpreter.MetaInterpreter" Description="MGA.Interpreter.MetaInterpreter" />
+            </Class>
+          </TypeLib>
+        </File>
+        <RegistryKey Root='HKLM' Key='Software\GME\Components\MGA.Interpreter.MetaInterpreter'>
+          <RegistryValue Name='Description' Type='string' Value='MetaInterpreter'/>
+          <RegistryValue Name='Icon' Type='string' Value=',IDI_COMPICON'/>
+          <RegistryValue Name='Paradigm' Type='string' Value='MetaGME'/>
+          <RegistryValue Name='Tooltip' Type='string' Value='MetaGME Interpreter'/>
+          <RegistryValue Name='Type' Type='integer' Value='1'/>
+          <RegistryKey Key='Associated'>
+            <RegistryValue Name='MetaGME' Type='string' Value=''/>
+          </RegistryKey>
+        </RegistryKey>
+      </Component>
+
+      <Component Id="UMLDecorator.dll$(sys.BUILDARCH)" Directory="INSTALLDIR_PARADIGMS_UML$(sys.BUILDARCH)">
+        <File Id="UMLDecorator.dll$(sys.BUILDARCH)" KeyPath="yes" Source="..\Paradigms\UML\decorator\$(var.Release)\UMLDecorator.dll">
+          <TypeLib Id="{4696E82A-ABFD-4B36-BC6B-4248CC56FD89}" Description="UMLDecoratorLib 1.0 Type Library" Language="0" MajorVersion="1" MinorVersion="0">
+            <Class Id="{26AC9143-6F73-4E6A-B942-F641B37F87B5}" Context="InprocServer32" Description="UMLDecorator Class" ThreadingModel="apartment" Programmable="yes">
+              <ProgId Id="Mga.UMLDecorator.1" Description="UMLDecorator Class">
+                <ProgId Id="Mga.UMLDecorator" Description="UMLDecorator Class" />
+              </ProgId>
+            </Class>
+          </TypeLib>
+        </File>
+      </Component>
+
+      <Component Id="Mga.dll$(sys.BUILDARCH)" Directory='INSTALLDIR_BIN$(sys.BUILDARCH)'>
+        <File Id="Mga.dll$(sys.BUILDARCH)" KeyPath="yes" Source="..\GME\$(var.Release)_PGO\Mga.dll">
+          <TypeLib Id="{270B4F86-B17C-11D3-9AD1-00AA00B6FE26}" Description="MGA Mga Type Library" Language="0" MajorVersion="1" MinorVersion="0">
+            <Class Id="{1DF52E42-BCC0-4439-B3CD-75610AC372A3}" Context="InprocServer32" Description="MgaO Class" ThreadingModel="apartment" Programmable="yes">
+              <ProgId Id="Mga.MgaO.1" Description="MgaO Class">
+                <ProgId Id="Mga.MgaO" Description="MgaO Class" />
+              </ProgId>
+            </Class>
+            <AppId Description="MgaUtil" Id="{461F30AF-3BF0-11D4-B3F0-005004D38590}">
+              <Class Id="{270B4F93-B17C-11D3-9AD1-00AA00B6FE26}" Context="InprocServer32" Description="MgaProject Class" ThreadingModel="apartment" Programmable="yes">
+                <ProgId Id="Mga.MgaProject.1" Description="MgaProject Class">
+                  <ProgId Id="Mga.MgaProject" Description="MgaProject Class" />
+                </ProgId>
+              </Class>
+              <Class Id="{C592F6F0-C1FD-11D3-9AD2-00AA00B6FE26}" Context="InprocServer32" Description="MgaFolders Class" ThreadingModel="apartment" Programmable="yes">
+                <ProgId Id="Mga.MgaFolders.1" Description="MgaFolders Class">
+                  <ProgId Id="Mga.MgaFolders" Description="MgaFolders Class" />
+                </ProgId>
+              </Class>
+              <Class Id="{C795ED20-C1FD-11D3-9AD2-00AA00B6FE26}" Context="InprocServer32" Description="MgaRegNodes Class" ThreadingModel="apartment" Programmable="yes">
+                <ProgId Id="Mga.MgaRegNodes.1" Description="MgaRegNodes Class">
+                  <ProgId Id="Mga.MgaRegNodes" Description="MgaRegNodes Class" />
+                </ProgId>
+              </Class>
+              <Class Id="{C81DECD0-C1FD-11D3-9AD2-00AA00B6FE26}" Context="InprocServer32" Description="MgaFCOs Class" ThreadingModel="apartment" Programmable="yes">
+                <ProgId Id="Mga.MgaFCOs.1" Description="MgaFCOs Class">
+                  <ProgId Id="Mga.MgaFCOs" Description="MgaFCOs Class" />
+                </ProgId>
+              </Class>
+              <Class Id="{C996E971-C1FD-11D3-9AD2-00AA00B6FE26}" Context="InprocServer32" Description="MgaObjects Class" ThreadingModel="apartment" Programmable="yes">
+                <ProgId Id="Mga.MgaObjects.1" Description="MgaObjects Class">
+                  <ProgId Id="Mga.MgaObjects" Description="MgaObjects Class" />
+                </ProgId>
+              </Class>
+            </AppId>
+            <Interface Id="{11BB02D9-2E2C-11D3-B36D-0060082DF884}" Name="IMgaComponent" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{11BB44D9-2E2C-11D3-B36D-0060082DF884}" Name="IMgaComponentEx" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{270B4F92-B17C-11D3-9AD1-00AA00B6FE26}" Name="IMgaProject" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{270B4F96-B17C-11D3-9AD1-00AA00B6FE26}" Name="IMgaFolder" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{270B4F98-B17C-11D3-9AD1-00AA00B6FE26}" Name="IMgaFCO" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{270B4F9A-B17C-11D3-9AD1-00AA00B6FE26}" Name="IMgaModel" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{270B4F9C-B17C-11D3-9AD1-00AA00B6FE26}" Name="IMgaAtom" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{270B4F9E-B17C-11D3-9AD1-00AA00B6FE26}" Name="IMgaPart" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{270B4FA0-B17C-11D3-9AD1-00AA00B6FE26}" Name="IMgaConnection" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{32D1F3A3-D276-11D3-9AD5-00AA00B6FE26}" Name="IMgaTerritory" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{32D1F3A5-D276-11D3-9AD5-00AA00B6FE26}" Name="IMgaEventSink" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{32D1F3A7-D276-11D3-9AD5-00AA00B6FE26}" Name="IMgaObject" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{80A6D661-D411-11D3-9AD5-00AA00B6FE26}" Name="IMgaAddOn" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{83BA3233-B758-11D3-ABAE-000000000000}" Name="IMgaReference" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{83BA3235-B758-11D3-ABAE-000000000000}" Name="IMgaSet" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{83BA3237-B758-11D3-ABAE-000000000000}" Name="IMgaSimpleConnection" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{83BA323D-B758-11D3-ABAE-000000000000}" Name="IMgaRegNode" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{C356B135-961D-4B6C-8B1F-257E19117CC1}" Name="IMgaO" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{C59C2210-C1FD-11D3-9AD2-00AA00B6FE26}" Name="IMgaFolders" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{C5AAC2F0-C1FD-11D3-9AD2-00AA00B6FE26}" Name="IMgaObjects" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{C5F4C2F0-C1FD-11D3-9AD2-00AA00B6FE26}" Name="IMgaFCOs" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{C6F3F340-C1FD-11D3-9AD2-00AA00B6FE26}" Name="IMgaAttributes" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{C71A26F0-C1FD-11D3-9AD2-00AA00B6FE26}" Name="IMgaParts" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{C79F1840-C1FD-11D3-9AD2-00AA00B6FE26}" Name="IMgaRegNodes" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{C7F19C60-C1FD-11D3-9AD2-00AA00B6FE26}" Name="IMgaConnPoints" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{C87CAA70-C1FD-11D3-9AD2-00AA00B6FE26}" Name="IMgaTerritories" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{C8A5EC80-C1FD-11D3-9AD2-00AA00B6FE26}" Name="IMgaAddOns" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{C8CDA760-C1FD-11D3-9AD2-00AA00B6FE26}" Name="IMgaComponents" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{C8F6E970-C1FD-11D3-9AD2-00AA00B6FE26}" Name="IMgaFilter" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{C9D8DF93-C1FD-11D3-9AD2-00AA00B6FE26}" Name="IMgaClients" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{CB8FA000-C1FD-11D3-9AD2-00AA00B6FE26}" Name="IMgaConnPoint" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{CBF20084-BD43-11D3-9AD2-00AA00B6FE26}" Name="IMgaAttribute" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{F07EE1A2-2D53-449B-A2DA-45A1A9110E53}" Name="IMgaClient" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+          </TypeLib>
+        </File>
+      </Component>
+
+      <Component Id="MgaDecorators.dll$(sys.BUILDARCH)" Directory='INSTALLDIR_BIN$(sys.BUILDARCH)'>
+        <File Id="MgaDecorators.dll$(sys.BUILDARCH)" KeyPath="yes" Source="..\GME\$(var.Release)\MgaDecorators.dll">
+          <TypeLib Id="{F5D9A9A0-5A1C-40B8-9EEF-4890FEECC8CD}" Description="MgaDecoratorLib 1.0 Type Library" Language="0" MajorVersion="1" MinorVersion="0">
+            <Class Id="{3FA0768D-F832-4C6A-973D-5D8E3EF05FFA}" Context="InprocServer32" Description="BoxDecorator Class" ThreadingModel="apartment" Programmable="yes">
+              <ProgId Id="Mga.BoxDecorator.1" Description="BoxDecorator Class">
+                <ProgId Id="Mga.BoxDecorator" Description="BoxDecorator Class" />
+              </ProgId>
+            </Class>
+          </TypeLib>
+        </File>
+      </Component>
+
+      <Component Id="MgaDotNetServices.dll$(sys.BUILDARCH)" Directory='INSTALLDIR_BIN$(sys.BUILDARCH)'>
+        <File Id="MgaDotNetServices.dll$(sys.BUILDARCH)" Name="MgaDotNetServices.dll" KeyPath="yes" Source="..\GME\Release\MgaDotNetServices.dll" />
+        <Class Id="{0BB0C371-6835-4F09-A156-0BD8E3DF8216}" Context="InprocServer32" Description="MGA.DotNetServices.Registrar" ThreadingModel="both" ForeignServer="mscoree.dll">
+          <ProgId Id="MGA.DotNetRegistrar" Description="MGA.DotNetServices.Registrar" />
+        </Class>
+        <RegistryValue Root="HKCR" Key="CLSID\{0BB0C371-6835-4F09-A156-0BD8E3DF8216}\Implemented Categories\{62C8FE65-4EBB-45e7-B440-6E39B2CDBF29}" Value="" Type="string" Action="write" />
+        <RegistryValue Root="HKCR" Key="CLSID\{0BB0C371-6835-4F09-A156-0BD8E3DF8216}\InprocServer32\1.0.0.0" Name="Class" Value="MGA.DotNetServices.Registrar" Type="string" Action="write" />
+        <RegistryValue Root="HKCR" Key="CLSID\{0BB0C371-6835-4F09-A156-0BD8E3DF8216}\InprocServer32\1.0.0.0" Name="Assembly" Value="MgaDotNetServices, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f240a760fe751c2e" Type="string" Action="write" />
+        <RegistryValue Root="HKCR" Key="CLSID\{0BB0C371-6835-4F09-A156-0BD8E3DF8216}\InprocServer32\1.0.0.0" Name="RuntimeVersion" Value="v2.0.50727" Type="string" Action="write" />
+        <RegistryValue Root="HKCR" Key="CLSID\{0BB0C371-6835-4F09-A156-0BD8E3DF8216}\InprocServer32\1.0.0.0" Name="SupportedRuntimeVersions" Value="v4.0.30319;v2.0.50727" Type="string" Action="write" />
+        <RegistryValue Root="HKCR" Key="CLSID\{0BB0C371-6835-4F09-A156-0BD8E3DF8216}\InprocServer32\1.0.0.0" Name="CodeBase" Value="file:///[#MgaDotNetServices.dll$(sys.BUILDARCH)]" Type="string" Action="write" />
+        <RegistryValue Root="HKCR" Key="CLSID\{0BB0C371-6835-4F09-A156-0BD8E3DF8216}\InprocServer32" Name="Class" Value="MGA.DotNetServices.Registrar" Type="string" Action="write" />
+        <RegistryValue Root="HKCR" Key="CLSID\{0BB0C371-6835-4F09-A156-0BD8E3DF8216}\InprocServer32" Name="Assembly" Value="MgaDotNetServices, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f240a760fe751c2e" Type="string" Action="write" />
+        <RegistryValue Root="HKCR" Key="CLSID\{0BB0C371-6835-4F09-A156-0BD8E3DF8216}\InprocServer32" Name="RuntimeVersion" Value="v2.0.50727" Type="string" Action="write" />
+        <RegistryValue Root="HKCR" Key="CLSID\{0BB0C371-6835-4F09-A156-0BD8E3DF8216}\InprocServer32" Name="SupportedRuntimeVersions" Value="v4.0.30319;v2.0.50727" Type="string" Action="write" />
+        <RegistryValue Root="HKCR" Key="CLSID\{0BB0C371-6835-4F09-A156-0BD8E3DF8216}\InprocServer32" Name="CodeBase" Value="file:///[#MgaDotNetServices.dll$(sys.BUILDARCH)]" Type="string" Action="write" />
+        <RegistryValue Root="HKCR" Key="Component Categories\{62C8FE65-4EBB-45e7-B440-6E39B2CDBF29}" Name="0" Value=".NET Category" Type="string" Action="write" />
+      </Component>
+
+      <Component Id="MgaUtil.dll$(sys.BUILDARCH)" Directory='INSTALLDIR_BIN$(sys.BUILDARCH)'>
+        <File Id="MgaUtil.dll$(sys.BUILDARCH)" KeyPath="yes" Source="..\GME\$(var.Release)\MgaUtil.dll">
+          <TypeLib Id="{461F30AE-3BF0-11D4-B3F0-005004D38590}" Description="MGA Utilities Type Library" Language="0" MajorVersion="1" MinorVersion="0">
+            <AppId Description="MgaUtil" Id="{461F30AF-3BF0-11D4-B3F0-005004D38590}">
+              <Class Id="{F1D6BB06-42EE-11D4-B3F4-005004D38590}" Context="InprocServer32" Description="MgaRegistrar Class" ThreadingModel="apartment" Programmable="yes">
+                <ProgId Id="Mga.MgaRegistrar.1" Description="MgaRegistrar Class">
+                  <ProgId Id="Mga.MgaRegistrar" Description="MgaRegistrar Class" />
+                </ProgId>
+                <Interface Id="{F1D6BB05-42EE-11D4-B3F4-005004D38590}" Name="IMgaRegistrar"  ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+              </Class>
+              <Class Id="{D03EC327-447B-11D4-B3F6-005004D38590}" Context="InprocServer32" Description="MgaLauncher Class" ThreadingModel="apartment" Programmable="yes">
+                <ProgId Id="Mga.MgaLauncher.1" Description="MgaLauncher Class">
+                  <ProgId Id="Mga.MgaLauncher" Description="MgaLauncher Class" />
+                </ProgId>
+              </Class>
+            </AppId>
+
+            <Class Id="{98C2F832-0209-45C9-B665-829B88AA9399}" Context="InprocServer32" Description="MgaEventLogger Class" ThreadingModel="apartment" Programmable="yes">
+              <ProgId Id="Mga.MgaEventLogger.1" Description="MgaEventLogger Class">
+                <ProgId Id="Mga.MgaEventLogger" Description="MgaEventLogger Class" />
+              </ProgId>
+            </Class>
+            <Class Id="{461F30B1-3BF0-11D4-B3F0-005004D38590}" Context="InprocServer32" Description="MgaResolver Class" ThreadingModel="apartment" Programmable="yes">
+              <ProgId Id="Mga.MgaResolver.1" Description="MgaResolver Class">
+                <ProgId Id="Mga.MgaResolver" Description="MgaResolver Class" />
+              </ProgId>
+            </Class>
+            <Class Id="{789C184D-B3E3-4B35-B3AE-665DA236F59C}" Context="InprocServer32" Description="ComponentProxy Class" ThreadingModel="apartment">
+              <ProgId Id="MgaUtil.ComponentProxy.1" Description="ComponentProxy Class">
+                <ProgId Id="MgaUtil.ComponentProxy" Description="ComponentProxy Class" />
+              </ProgId>
+            </Class>
+            <Class Id="{B88CDEEA-A4FB-11D4-B44B-005004D38590}" Context="InprocServer32" Description="MgaProgressDlg Class" ThreadingModel="apartment" Programmable="yes">
+              <ProgId Id="Mga.MgaProgressDlg.1" Description="MgaProgressDlg Class">
+                <ProgId Id="Mga.MgaProgressDlg" Description="MgaProgressDlg Class" />
+              </ProgId>
+            </Class>
+            <Class Id="{D6F2FBC5-3405-40FD-8880-7E99DD10F0BA}" Context="InprocServer32" Description="MgaClosure Class" ThreadingModel="apartment" Programmable="yes">
+              <ProgId Id="Mga.MgaClosure.1" Description="MgaClosure Class">
+                <ProgId Id="Mga.MgaClosure" Description="MgaClosure Class" />
+              </ProgId>
+            </Class>
+            <Interface Id="{461F30B0-3BF0-11D4-B3F0-005004D38590}" Name="IMgaResolver" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{52871786-9C85-408F-A7D1-AE507905A540}" Name="IMgaComponentDispatch" ProxyStubClassId32="{00020420-0000-0000-C000-000000000046}" />
+            <Interface Id="{74348E5A-C76D-4C2E-88D5-D968C01CE432}" Name="IMgaClosure" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{9D46C230-31A5-4248-B61E-4223FA6A7F7A}" Name="IMgaEventLogger" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{D03EC326-447B-11D4-B3F6-005004D38590}" Name="IMgaLauncher" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+          </TypeLib>
+        </File>
+        <!-- These are needed for Vista support (along with the AppId for the MgaRegistrar -->
+        <RegistryValue Root="HKCR" Key="AppID\MgaUtil.dll" Name="AppID" Value="{461F30AF-3BF0-11D4-B3F0-005004D38590}" Type="string" Action="write" />
+        <RegistryValue Root="HKCR" Key="AppID\{461F30AF-3BF0-11D4-B3F0-005004D38590}" Name="DllSurrogate" Value="" Type="string" Action="write" />
+        <RegistryValue Root="HKCR" Key="CLSID\{F1D6BB06-42EE-11D4-B3F4-005004D38590}\Elevation" Name="Enabled" Value="1" Type="integer" Action="write" />
+        <RegistryValue Root="HKCR" Key="CLSID\{F1D6BB06-42EE-11D4-B3F4-005004D38590}" Name="LocalizedString" Value="@[#MgaUtil.dll$(sys.BUILDARCH)],-2072" Type="string" Action="write" />
+      </Component>
+
+      <Component Id="NamespaceConfig.dll$(sys.BUILDARCH)" Directory="INSTALLDIR_PARADIGMS_METAGME$(sys.BUILDARCH)">
+        <File Id="NamespaceConfig.dll$(sys.BUILDARCH)" KeyPath="yes" Source="..\Paradigms\MetaGME\$(var.Release)\NamespaceConfig.dll">
+          <TypeLib Id="A80F5574-0EA6-44F4-8001-9B803C3E2960" Description="MGA Interpreter TypeLibrary (NamespaceConfig)" Language="0" MajorVersion="1" MinorVersion="0">
+            <Class Id="{7A7B03E5-9132-45EA-919C-C5BEC40387B1}" Context="InprocServer32" Description="MGA.Interpreter.NamespaceConfig">
+              <ProgId Id="MGA.Interpreter.NamespaceConfig" Description="MGA.Interpreter.NamespaceConfig" />
+            </Class>
+          </TypeLib>
+        </File>
+        <RegistryKey Root='HKLM' Key='Software\GME\Components\MGA.Interpreter.NamespaceConfig'>
+          <RegistryValue Name='Description' Type='string' Value='NamespaceConfig'/>
+          <RegistryValue Name='Icon' Type='string' Value=',IDI_COMPICON'/>
+          <RegistryValue Name='Paradigm' Type='string' Value='MetaGME'/>
+          <RegistryValue Name='Tooltip' Type='string' Value='NamespaceConfig Interpreter'/>
+          <RegistryValue Name='Type' Type='integer' Value='1'/>
+          <RegistryKey Key='Associated'>
+            <RegistryValue Name='MetaGME' Type='string' Value=''/>
+          </RegistryKey>
+        </RegistryKey>
+      </Component>
+
+      <Component Id="ObjectInspector.ocx$(sys.BUILDARCH)" Directory='INSTALLDIR_BIN$(sys.BUILDARCH)'>
+        <File Id="ObjectInspector.ocx$(sys.BUILDARCH)" KeyPath="yes" Source="..\GME\$(var.Release)\ObjectInspector.ocx">
+          <TypeLib Id="{92B54998-8E88-41A2-924F-7354CAD14565}" Description="ObjectInspector ActiveX Control module" Language="0" MajorVersion="1" MinorVersion="0" Control="yes">
+            <Class Id="{0B4B5A75-BF21-4C8B-A705-E2666E1D9B15}" Context="InprocServer32" Description="ObjectInspector Property Page" />
+            <Class Id="{B786F53C-297F-4DB8-8060-D45057217AEE}" Context="InprocServer32" Description="ObjectInspector Control" ThreadingModel="apartment" Version="1.0" Control="yes">
+              <ProgId Id="GME.ObjectInspectorCtrl.1" Description="ObjectInspector Control" />
+            </Class>
+          </TypeLib>
+        </File>
+      </Component>
+
+      <Component Id="OnlineHelp$(sys.BUILDARCH)" Directory="INSTALLDIR_DOC$(sys.BUILDARCH)">
+        <File Id="GME_Manual_and_User_Guide.chm$(sys.BUILDARCH)" KeyPath="yes" Source="..\Doc\GME Manual and User Guide\GME Manual and User Guide.chm">
+        </File>
+      </Component>
+
+      <Component Id="PanningView.ocx$(sys.BUILDARCH)" Directory='INSTALLDIR_BIN$(sys.BUILDARCH)'>
+        <File Id="PanningView.ocx$(sys.BUILDARCH)" KeyPath="yes" Source="..\GME\$(var.Release)\PanningView.ocx">
+          <TypeLib Id="{B6ED16CA-512F-48B7-B5DB-1C064821F7DB}" Description="PanningView ActiveX Control module" Language="0" MajorVersion="1" MinorVersion="0" Control="yes">
+            <Class Id="{458D3476-B3FF-4545-9645-C247A7C17E36}" Context="InprocServer32" Description="PanningView Property Page" />
+            <Class Id="{B0C28BAA-7E44-404C-BEAD-83735356F1D2}" Context="InprocServer32" Description="PanningView Control" ThreadingModel="apartment" Version="1.0" Control="yes">
+              <ProgId Id="PANNINGVIEW.PanningViewCtrl.1" Description="PanningView Control" />
+            </Class>
+          </TypeLib>
+        </File>
+      </Component>
+
+      <Component Id="Parser.dll$(sys.BUILDARCH)" Directory='INSTALLDIR_BIN$(sys.BUILDARCH)'>
+        <File Id="Parser.dll$(sys.BUILDARCH)" KeyPath="yes" Source="..\GME\$(var.Release)\Parser.dll">
+          <TypeLib Id="{70C41B15-E3CE-11D3-B37A-005004D38590}" Description="MGA Parser Type Library" Language="0" MajorVersion="1" MinorVersion="1">
+            <AppId Description="MgaUtil" Id="{461F30AF-3BF0-11D4-B3F0-005004D38590}">
+              <Class Id="{70C41B25-E3CE-11D3-B37A-005004D38590}" Context="InprocServer32" Description="MgaMetaParser Class" ThreadingModel="apartment" Programmable="yes">
+                <ProgId Id="Mga.MgaMetaParser.1" Description="MetaParser Class">
+                  <ProgId Id="Mga.MgaMetaParser" Description="MetaParser Class" />
+                </ProgId>
+              </Class>
+              <Class Id="{94D6FB54-1F7C-11D4-B3D0-005004D38590}" Context="InprocServer32" Description="MgaParser Class" ThreadingModel="apartment" Programmable="yes">
+                <ProgId Id="Mga.MgaParser.1" Description="MgaParser Class">
+                  <ProgId Id="Mga.MgaParser" Description="MgaParser Class" />
+                </ProgId>
+              </Class>
+              <Class Id="{A5D0DAE7-16EE-11D4-B3C2-005004D38590}" Context="InprocServer32" Description="MgaDumper Class" ThreadingModel="apartment" Programmable="yes">
+                <ProgId Id="Mga.MgaDumper.1" Description="MgaDumper Class">
+                  <ProgId Id="Mga.MgaDumper" Description="MgaDumper Class" />
+                </ProgId>
+              </Class>
+            </AppId>
+            <Interface Id="{70C41B24-E3CE-11D3-B37A-005004D38590}" Name="IMgaMetaParser" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{94D6FB53-1F7C-11D4-B3D0-005004D38590}" Name="IMgaParser" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{E39BEA37-384D-423B-ADDF-2BB13550F577}" Name="IMgaParser2" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{5CAB528B-474B-4C52-BE40-74FF29AFBB58}" Name="IMgaParser3" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{A5D0DAE6-16EE-11D4-B3C2-005004D38590}" Name="IMgaDumper" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{3813768B-5A4C-477D-BCD5-1776089948EC}" Name="IMgaDumper2" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+          </TypeLib>
+        </File>
+      </Component>
+      <Component Directory='INSTALLDIR_BIN$(sys.BUILDARCH)'>
+        <File Id="edf.dtd$(sys.BUILDARCH)" Source="..\GME\Parser\edf.dtd" />
+      </Component>
+      <Component Directory='INSTALLDIR_BIN$(sys.BUILDARCH)'>
+        <File Id="mga.dtd$(sys.BUILDARCH)" Source="..\GME\Parser\mga.dtd" />
+      </Component>
+      <Component Directory='INSTALLDIR_BIN$(sys.BUILDARCH)'>
+        <File Id="mga2.dtd$(sys.BUILDARCH)" Source="..\GME\Parser\mga2.dtd" />
+      </Component>
+      <Component Directory='INSTALLDIR_BIN$(sys.BUILDARCH)'>
+        <File Id="mgaclosure.dtd$(sys.BUILDARCH)" Source="..\GME\Parser\mgaclosure.dtd" />
+      </Component>
+
+      <Component Id="PartBrowser.ocx$(sys.BUILDARCH)" Directory='INSTALLDIR_BIN$(sys.BUILDARCH)'>
+        <File Id="PartBrowser.ocx$(sys.BUILDARCH)" KeyPath="yes" Source="..\GME\$(var.Release)\PartBrowser.ocx">
+          <TypeLib Id="{EA3F7431-913A-421F-9B9C-BEB6A735285A}" Description="PartBrowser ActiveX Control module" Language="0" MajorVersion="1" MinorVersion="0" Control="yes">
+            <Class Id="{8E82D238-D222-493D-8ED2-3175A5B1086C}" Context="InprocServer32" Description="PartBrowser Property Page" />
+            <Class Id="{1FF57057-D598-4FC2-8F9D-708F59B9C017}" Context="InprocServer32" Description="PartBrowser Control" ThreadingModel="apartment" Version="1.0" Control="yes" Insertable="yes">
+              <ProgId Id="PARTBROWSER.PartBrowserCtrl.1" Description="PartBrowser Control" />
+            </Class>
+          </TypeLib>
+        </File>
+      </Component>
+
+      <Component Directory="INSTALLDIR$(sys.BUILDARCH)">
+        <File Id="ReadmeFiles_README.txt$(sys.BUILDARCH)" KeyPath="yes" Source="..\Doc\README.txt" />
+      </Component>
+      <Component Directory="INSTALLDIR$(sys.BUILDARCH)">
+        <File Id="muserdoc.txt$(sys.BUILDARCH)" Source="..\Doc\muserdoc.txt" />
+      </Component>
+      <Component Directory="INSTALLDIR$(sys.BUILDARCH)">
+        <File Id="License.txt$(sys.BUILDARCH)" Source="..\Doc\Legal\License.txt" />
+      </Component>
+      <Component Directory="INSTALLDIR$(sys.BUILDARCH)">
+        <File Id="APR_Serf_Xerces.license$(sys.BUILDARCH)" Source="..\Doc\Legal\APR_Serf_Xerces.license" />
+      </Component>
+      <Component Directory="INSTALLDIR$(sys.BUILDARCH)">
+        <File Id="OpenSSL.license$(sys.BUILDARCH)" Source="..\Doc\Legal\OpenSSL.license" />
+      </Component>
+      <Component Directory="INSTALLDIR$(sys.BUILDARCH)">
+        <File Id="Subversion.license$(sys.BUILDARCH)" Source="..\Doc\Legal\Subversion.license" />
+      </Component>
+      <Component Directory="INSTALLDIR$(sys.BUILDARCH)">
+        <File Id="Neon.license$(sys.BUILDARCH)" Source="..\Doc\Legal\Neon.license" />
+      </Component>
+
+      <Component Id='Search.ocx$(sys.BUILDARCH)' Directory='INSTALLDIR_BIN$(sys.BUILDARCH)'>
+        <File Id='Search.ocx$(sys.BUILDARCH)' KeyPath="yes" Source="..\GME\$(var.Release)\Search.ocx">
+          <TypeLib Id="{E65EEDEF-18B7-4F67-BBC7-0E22D0D34C28}" Description="Search ActiveX Control module" Language="0" MajorVersion="1" MinorVersion="0" Control="yes">
+            <Class Id="{F299943A-2397-45B1-8C77-A9D29F2FE58E}" Context="InprocServer32" Description="GME Search Property Page" />
+            <Class Id="{E5FE98F1-B7AD-4ABE-89DB-87DDD9DB753E}" Context="InprocServer32" Description="GME Search Control" ThreadingModel="apartment" Version="1.0" Control="yes">
+              <ProgId Id="GME.SearchCtrl.1" Description="GME Search Control" />
+            </Class>
+          </TypeLib>
+        </File>
+      </Component>
+
+      <Component Directory='INSTALLDIR_BIN$(sys.BUILDARCH)'>
+        <File Id="xerces_c_3_1.dll$(sys.BUILDARCH)" KeyPath="yes" Source="..\GME\$(var.lib)\xerces-c_3_1.dll" />
+      </Component>
+
+      <?if $(sys.BUILDARCH)=x86 ?>
+      <Component Id="ssleay32.dll" Directory='INSTALLDIR_BIN$(sys.BUILDARCH)'>
+        <File Id="ssleay32.dll" Name="ssleay32.dll" KeyPath="yes" Source="..\GME\lib\ssleay32.dll" />
+      </Component>
+
+      <Component Id="TableEditor.dll" Directory="INSTALLDIR_TOOLS$(sys.BUILDARCH)">
+        <File Id="TableEditor.dll" Name="TableEditor.dll" KeyPath="yes" Source="..\Tools\TableEditor\$(var.Release)\TableEditor.dll">
+          <TypeLib Id="C4970E27-78C0-45E5-93DB-171F34D62C58" Description="MGA Interpreter TypeLibrary (TableEditor)" Language="0" MajorVersion="1" MinorVersion="0">
+            <Class Id="{E91D51AD-6B6D-44BC-AE35-E7F3CB604B26}" Context="InprocServer32" Description="MGA.Interpreter.TableEditor">
+              <ProgId Id="MGA.Interpreter.TableEditor" Description="MGA.Interpreter.TableEditor" />
+            </Class>
+          </TypeLib>
+        </File>
+        <RegistryKey Root='HKLM' Key='Software\GME\Components\MGA.Interpreter.TableEditor'>
+          <RegistryValue Name='Description' Type='string' Value='Table Editor'/>
+          <RegistryValue Name='Icon' Type='string' Value=',IDI_COMPICON'/>
+          <RegistryValue Name='Paradigm' Type='string' Value='*'/>
+          <RegistryValue Name='Tooltip' Type='string' Value='Table Editor PlugIn'/>
+          <RegistryValue Name='Type' Type='integer' Value='12'/>
+          <RegistryKey Key='Associated'>
+            <RegistryValue Name='HFSM' Type='string' Value=''/>
+            <RegistryValue Name='MetaGME' Type='string' Value=''/>
+            <RegistryValue Name='SF' Type='string' Value=''/>
+            <RegistryValue Name='UML' Type='string' Value=''/>
+          </RegistryKey>
+        </RegistryKey>
+      </Component>
+
+      <Component Id="XmlBackEnd.dll" Directory='INSTALLDIR_BIN$(sys.BUILDARCH)'>
+        <File Id="XmlBackEnd.dll" Name="XmlBackEnd.dll" KeyPath="yes" Source="..\GME\$(var.Release)\XmlBackEnd.dll">
+          <TypeLib Id="{09107441-E750-4516-B6D0-DE6358FDBA9B}" Description="XmlBackEnd 1.0 Type Library" Language="0" MajorVersion="1" MinorVersion="0">
+            <Class Id="{F729BE0C-ACE5-470B-8F98-DAE52D6A5949}" Context="InprocServer32" Description="CoreXmlFile Class" ThreadingModel="both" Programmable="yes">
+              <ProgId Id="Mga.CoreXmlFile.1" Description="CoreXmlFile Class">
+                <ProgId Id="Mga.CoreXmlFile" Description="CoreXmlFile Class" />
+              </ProgId>
+            </Class>
+          </TypeLib>
+        </File>
+      </Component>
+
+      <Component Id="GMEplink.exe" Directory='INSTALLDIR_BIN$(sys.BUILDARCH)'>
+        <File Id="GMEplink.exe" Name="GMEplink.exe" KeyPath="yes" Source="..\Tools\GMEplink\Release\GMEplink.exe">
+        </File>
+      </Component>
+
+      <Component Id='Interop_AssemblyFoldersEx' Directory='INSTALLDIR_BIN$(sys.BUILDARCH)'>
+        <RegistryKey Root='HKLM' Key='Software\Microsoft\.NETFramework\v2.0.50727\AssemblyFoldersEx'>
+          <RegistryKey Key='GME.MGA.Core' >
+            <RegistryValue Type='string' Value='[WindowsFolder]assembly\GAC_MSIL\GME.MGA.Core\1.0.1.0__f240a760fe751c2e'/>
+          </RegistryKey>
+          <RegistryKey Key='GME.MGA.Meta' >
+            <RegistryValue Type='string' Value='[WindowsFolder]assembly\GAC_MSIL\GME.MGA.Meta\1.0.1.0__f240a760fe751c2e'/>
+          </RegistryKey>
+          <RegistryKey Key='GME.MGA' >
+            <RegistryValue Type='string' Value='[WindowsFolder]assembly\GAC_MSIL\GME.MGA\1.0.1.0__f240a760fe751c2e'/>
+          </RegistryKey>
+          <RegistryKey Key='GME.MGA.Parser' >
+            <RegistryValue Type='string' Value='[WindowsFolder]assembly\GAC_MSIL\GME.MGA.Parser\1.1.0.0__f240a760fe751c2e'/>
+          </RegistryKey>
+          <RegistryKey Key='GME.Util' >
+            <RegistryValue Type='string' Value='[WindowsFolder]assembly\GAC_MSIL\GME.Util\1.0.1.0__f240a760fe751c2e'/>
+          </RegistryKey>
+          <RegistryKey Key='GME' >
+            <RegistryValue Type='string' Value='[WindowsFolder]assembly\GAC_MSIL\GME\1.0.1.0__f240a760fe751c2e'/>
+          </RegistryKey>
+        </RegistryKey>
+        <RegistryKey Root='HKLM' Key='Software\Microsoft\.NETFramework\v4.0.30319\AssemblyFoldersEx'>
+          <RegistryKey Key='GME.MGA.Core' >
+            <RegistryValue Type='string' Value='[WindowsFolder]assembly\GAC_MSIL\GME.MGA.Core\1.0.1.0__f240a760fe751c2e'/>
+          </RegistryKey>
+          <RegistryKey Key='GME.MGA.Meta' >
+            <RegistryValue Type='string' Value='[WindowsFolder]assembly\GAC_MSIL\GME.MGA.Meta\1.0.1.0__f240a760fe751c2e'/>
+          </RegistryKey>
+          <RegistryKey Key='GME.MGA' >
+            <RegistryValue Type='string' Value='[WindowsFolder]assembly\GAC_MSIL\GME.MGA\1.0.1.0__f240a760fe751c2e'/>
+          </RegistryKey>
+          <RegistryKey Key='GME.MGA.Parser' >
+            <RegistryValue Type='string' Value='[WindowsFolder]assembly\GAC_MSIL\GME.MGA.Parser\1.1.0.0__f240a760fe751c2e'/>
+          </RegistryKey>
+          <RegistryKey Key='GME.Util' >
+            <RegistryValue Type='string' Value='[WindowsFolder]assembly\GAC_MSIL\GME.Util\1.0.1.0__f240a760fe751c2e'/>
+          </RegistryKey>
+          <RegistryKey Key='GME' >
+            <RegistryValue Type='string' Value='[WindowsFolder]assembly\GAC_MSIL\GME\1.0.1.0__f240a760fe751c2e'/>
+          </RegistryKey>
+
+          <RegistryKey Key='ISIS.GME.Common' >
+            <RegistryValue Type='string' Value='[WindowsFolder]Microsoft.NET\assembly\GAC_MSIL\ISIS.GME.Common\v4.0_1.0.7.0__1321e6b92842fe54'/>
+          </RegistryKey>
+        </RegistryKey>
+      </Component>
+
+      <Component Id="libapr_1.dll" Directory='INSTALLDIR_BIN$(sys.BUILDARCH)'>
+        <File Id="libapr_1.dll" Name="libapr-1.dll" KeyPath="yes" Source="..\GME\lib\subv_release\libapr-1.dll" />
+      </Component>
+
+      <Component Id="libapriconv_1.dll" Directory='INSTALLDIR_BIN$(sys.BUILDARCH)'>
+        <File Id="libapriconv_1.dll" Name="libapriconv-1.dll" KeyPath="yes" Source="..\GME\lib\subv_release\libapriconv-1.dll" />
+      </Component>
+
+      <Component Id="libaprutil_1.dll" Directory='INSTALLDIR_BIN$(sys.BUILDARCH)'>
+        <File Id="libaprutil_1.dll" Name="libaprutil-1.dll" KeyPath="yes" Source="..\GME\lib\subv_release\libaprutil-1.dll" />
+      </Component>
+
+      <Component Id="libeay32.dll" Directory='INSTALLDIR_BIN$(sys.BUILDARCH)'>
+        <File Id="libeay32.dll" Name="libeay32.dll" KeyPath="yes" Source="..\GME\lib\libeay32.dll" />
+      </Component>
+
+      <Component Id="JAUT.dll" Directory='INSTALLDIR_BIN$(sys.BUILDARCH)'>
+        <File Id="JAUT.dll" Name="JAUT.dll" KeyPath="yes" Source="..\SDK\java\native\Jaut\$(var.Release)\JAUT.dll">
+          <TypeLib Id="{032D8DD2-C470-44C7-972E-4CF5EF9D1362}" Description="JAUT 1.0 Type Library" Language="0" MajorVersion="1" MinorVersion="0" />
+        </File>
+      </Component>
+
+
+      <Component Id="JavaClasses" Directory="INSTALLDIR_SDK_JAVA$(sys.BUILDARCH)">
+        <File Id="gme.jar" Name="gme.jar" KeyPath="yes" Source="..\SDK\java\gme.jar" />
+        <RegistryKey Root='HKLM' Key='Software\GME'>
+          <RegistryValue Name='JavaClassPath' Type='string' Value='[INSTALLDIR_SDK_JAVA]gme.jar'/>
+          <RegistryValue Name='JavaMemory' Type='string' Value='64M'/>
+        </RegistryKey>
+      </Component>
+
+      <Component Id="JavaCompRegister.exe" Directory="INSTALLDIR_SDK_JAVA$(sys.BUILDARCH)">
+        <File Id="JavaCompRegister.exe" Name="JavaCompRegister.exe" KeyPath="yes" Source="..\SDK\java\native\JavaCompRegister\$(var.Release)\JavaCompRegister.exe" />
+      </Component>
+
+      <Component Id="JavaCompRunner.dll" Directory="INSTALLDIR_SDK_JAVA$(sys.BUILDARCH)">
+        <File Id="JavaCompRunner.dll" Name="JavaCompRunner.dll" KeyPath="yes" Source="..\SDK\java\native\JavaCompRunner\$(var.Release)\JavaCompRunner.dll">
+          <TypeLib Id="9E10B423-9625-40E4-8956-FC4FCADFAE40" Description="MGA Interpreter TypeLibrary (JavaCompRunner)" Language="0" MajorVersion="1" MinorVersion="0">
+            <Class Id="{C97618C3-2574-4257-A6F9-6C3F497DCCED}" Context="InprocServer32" Description="MGA.Interpreter.JavaCompRunner">
+              <ProgId Id="MGA.Interpreter.JavaCompRunner" Description="MGA.Interpreter.JavaCompRunner" />
+            </Class>
+          </TypeLib>
+        </File>
+      </Component>
+
+
+      <Component Id="PatternProcessor.dll" Directory="INSTALLDIR_SDK_PATTERNPROCESSOR$(sys.BUILDARCH)">
+        <File Id="PatternProcessor.dll" Name="PatternProcessor.dll" KeyPath="yes" Source="..\SDK\PatternProcessor\$(var.Release)\PatternProcessor.dll">
+          <TypeLib Id="52B5ADE8-5572-4D32-B389-552CA6A1D367" Description="MGA Interpreter TypeLibrary (PatternProcessor)" Language="0" MajorVersion="1" MinorVersion="0">
+            <Class Id="{DF327162-DA68-4CD7-8AEB-BBECA1A65A4E}" Context="InprocServer32" Description="MGA.Interpreter.PatternProcessor">
+              <ProgId Id="MGA.Interpreter.PatternProcessor" Description="MGA.Interpreter.PatternProcessor" />
+            </Class>
+          </TypeLib>
+        </File>
+        <RegistryKey Root='HKLM' Key='Software\GME\Components\MGA.Interpreter.PatternProcessor'>
+          <RegistryValue Name='Description' Type='string' Value='PatternProcessor'/>
+          <RegistryValue Name='Paradigm' Type='string' Value='*'/>
+          <RegistryValue Name='Tooltip' Type='string' Value='PatternProcessor'/>
+          <RegistryValue Name='Type' Type='integer' Value='9'/>
+        </RegistryKey>
+      </Component>
+
+      <?endif?>
+    </ComponentGroup>
+  </Fragment>
+</Wix>

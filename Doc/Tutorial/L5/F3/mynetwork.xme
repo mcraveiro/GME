@@ -1,0 +1,789 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE project SYSTEM "mga.dtd">
+
+<project guid="{8948492A-CA19-4B81-B2D3-FDB39B833C0F}" cdate="Wed Aug 26 15:18:08 2009" mdate="Wed Aug 26 15:18:08 2009" version="" metaguid="{102691C4-86D0-48DD-BF90-74BC987B3324}" metaversion="" metaname="networking">
+	<name>mynetwork</name>
+	<comment></comment>
+	<author></author>
+	<folder id="id-006a-00000001" relid="0x1" childrelidcntr="0x2" kind="RootFolder" guid="{02d4146a-ad6d-4cf0-b467-ec8162c14e88}">
+		<name>mynetwork</name>
+		<model id="id-0065-00000001" kind="NetDiagram" guid="{7379213d-b21a-491f-b7f4-eae54be5b5bf}" relid="0x1" childrelidcntr="0x5">
+			<name>World</name>
+			<model id="id-0065-00000002" kind="NetDiagram" role="NetDiagram" guid="{379df9dc-761d-449f-8cff-21d9425f296b}" relid="0x3" childrelidcntr="0xd">
+				<name>CompanyB</name>
+				<regnode name="PartRegs" isopaque="yes">
+					<value></value>
+					<regnode name="Connectivity" isopaque="yes">
+						<value></value>
+						<regnode name="Position" isopaque="yes">
+							<value>64,182</value>
+						</regnode>
+					</regnode>
+				</regnode>
+				<model id="id-0065-00000003" kind="Router" role="Router" guid="{0920916d-cd64-416e-acdc-dcd2d3cd28e9}" relid="0xb" childrelidcntr="0x3">
+					<name>inetgwB</name>
+					<regnode name="PartRegs" isopaque="yes">
+						<value></value>
+						<regnode name="Connectivity" isopaque="yes">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>260,105</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<attribute kind="Family" status="meta">
+						<value>Other</value>
+					</attribute>
+					<atom id="id-0066-00000001" kind="Port" role="Port" guid="{9a76837e-51c2-4346-8a94-da2befd93839}" relid="0x1">
+						<name>S1</name>
+						<regnode name="PartRegs" isopaque="yes">
+							<value></value>
+							<regnode name="Connectivity" isopaque="yes">
+								<value></value>
+								<regnode name="Position" isopaque="yes">
+									<value>205,142</value>
+								</regnode>
+							</regnode>
+						</regnode>
+						<attribute kind="IFSpeed" status="meta">
+							<value>0</value>
+						</attribute>
+						<attribute kind="IFType" status="meta">
+							<value>Ethernet</value>
+						</attribute>
+						<attribute kind="IPAddress" status="meta">
+							<value>0.0.0.0</value>
+						</attribute>
+					</atom>
+					<atom id="id-0066-00000002" kind="Port" role="Port" guid="{cea8a6de-382e-4bfc-8ac0-d00bfefc3ac2}" relid="0x2">
+						<name>S0</name>
+						<regnode name="PartRegs" isopaque="yes">
+							<value></value>
+							<regnode name="Connectivity" isopaque="yes">
+								<value></value>
+								<regnode name="Position" isopaque="yes">
+									<value>205,86</value>
+								</regnode>
+							</regnode>
+						</regnode>
+						<attribute kind="IFSpeed" status="meta">
+							<value>0</value>
+						</attribute>
+						<attribute kind="IFType" status="meta">
+							<value>Ethernet</value>
+						</attribute>
+						<attribute kind="IPAddress" status="meta">
+							<value>0.0.0.0</value>
+						</attribute>
+					</atom>
+					<atom id="id-0066-00000003" kind="Port" role="Port" guid="{f819991d-84ca-4ccb-9338-ca4603d5c6a7}" relid="0x3">
+						<name>E0</name>
+						<regnode name="PartRegs" isopaque="yes">
+							<value></value>
+							<regnode name="Connectivity" isopaque="yes">
+								<value></value>
+								<regnode name="Position" isopaque="yes">
+									<value>31,81</value>
+								</regnode>
+							</regnode>
+						</regnode>
+						<attribute kind="IFSpeed" status="meta">
+							<value>0</value>
+						</attribute>
+						<attribute kind="IFType" status="meta">
+							<value>Ethernet</value>
+						</attribute>
+						<attribute kind="IPAddress" status="meta">
+							<value>0.0.0.0</value>
+						</attribute>
+					</atom>
+				</model>
+				<atom id="id-0066-00000004" kind="WSGroup" role="WSGroup" guid="{42eb2c53-3642-44b2-9bb0-50252e899dd4}" relid="0x4">
+					<name>UserPCs</name>
+					<regnode name="PartRegs" isopaque="yes">
+						<value></value>
+						<regnode name="Connectivity" isopaque="yes">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>24,25</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<attribute kind="AddressFirst" status="meta">
+						<value>0.0.0.0</value>
+					</attribute>
+					<attribute kind="AddressLast" status="meta">
+						<value>0.0.0.0</value>
+					</attribute>
+					<attribute kind="Number" status="meta">
+						<value>0</value>
+					</attribute>
+					<attribute kind="RoomLocation" status="meta">
+						<value></value>
+					</attribute>
+					<attribute kind="Workload" status="meta">
+						<value>Light</value>
+					</attribute>
+				</atom>
+				<atom id="id-0066-00000005" kind="Host" role="Host" guid="{60d621f0-91b7-493b-8481-0513ab7f4228}" relid="0x2">
+					<name>WebServer</name>
+					<regnode name="PartRegs" isopaque="yes">
+						<value></value>
+						<regnode name="Connectivity" isopaque="yes">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>164,207</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<attribute kind="IPAddress" status="meta">
+						<value>0.0.0.0</value>
+					</attribute>
+				</atom>
+				<atom id="id-0066-00000006" kind="Host" role="Host" guid="{afeedc93-7b1f-4cc2-8ee7-62f28806f1e5}" relid="0x6">
+					<name>FileServer</name>
+					<regnode name="PartRegs" isopaque="yes">
+						<value></value>
+						<regnode name="Connectivity" isopaque="yes">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>24,207</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<attribute kind="IPAddress" status="meta">
+						<value>0.0.0.0</value>
+					</attribute>
+				</atom>
+				<atom id="id-0066-00000007" kind="WSGroup" role="WSGroup" guid="{58b2fab2-7006-4656-a16f-dae3168a44c8}" relid="0xa">
+					<name>DeveloperPCs</name>
+					<regnode name="PartRegs" isopaque="yes">
+						<value></value>
+						<regnode name="Connectivity" isopaque="yes">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>164,25</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<attribute kind="AddressFirst" status="meta">
+						<value>0.0.0.0</value>
+					</attribute>
+					<attribute kind="AddressLast" status="meta">
+						<value>0.0.0.0</value>
+					</attribute>
+					<attribute kind="Number" status="meta">
+						<value>0</value>
+					</attribute>
+					<attribute kind="RoomLocation" status="meta">
+						<value></value>
+					</attribute>
+					<attribute kind="Workload" status="meta">
+						<value>Light</value>
+					</attribute>
+				</atom>
+				<atom id="id-0066-00000008" kind="Perimeter" role="Perimeter" guid="{2ef2a5fd-f80d-4fe0-93aa-a0730b7cebde}" relid="0x7">
+					<name>Perimeter</name>
+					<regnode name="PartRegs" isopaque="yes">
+						<value></value>
+						<regnode name="Connectivity" isopaque="yes">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>416,123</value>
+							</regnode>
+						</regnode>
+					</regnode>
+				</atom>
+				<atom id="id-0066-00000009" kind="Network" role="Network" guid="{096f8663-a6c3-449b-8cac-8e00049ac994}" relid="0x1">
+					<name>Intranet</name>
+					<regnode name="PartRegs" isopaque="yes">
+						<value></value>
+						<regnode name="Connectivity" isopaque="yes">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>94,123</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<attribute kind="NetMask" status="meta">
+						<value></value>
+					</attribute>
+					<attribute kind="NetworkAddress" status="meta">
+						<value></value>
+					</attribute>
+				</atom>
+				<connection id="id-0068-00000001" kind="Connection" role="Connection" guid="{949efbd7-4b88-41dc-8bc6-a9a970b7b3b2}" relid="0x9">
+					<name>Connection</name>
+					<connpoint role="src" target="id-0066-00000004"/>
+					<connpoint role="dst" target="id-0066-00000009"/>
+				</connection>
+				<connection id="id-0068-00000002" kind="Connection" role="Connection" guid="{77a40ddc-8cb0-4453-ad53-d33a9d33003e}" relid="0x3">
+					<name>Connection</name>
+					<connpoint role="src" target="id-0066-00000006"/>
+					<connpoint role="dst" target="id-0066-00000009"/>
+				</connection>
+				<connection id="id-0068-00000003" kind="Connection" role="Connection" guid="{9acbb98f-99d1-4565-bb02-5ab1c2e59890}" relid="0x5">
+					<name>Connection</name>
+					<connpoint role="src" target="id-0066-00000007"/>
+					<connpoint role="dst" target="id-0066-00000009"/>
+				</connection>
+				<connection id="id-0068-00000004" kind="Connection" role="Connection" guid="{f4045334-51cd-416b-b8ac-62faac20d6a5}" relid="0xd">
+					<name>Connection</name>
+					<connpoint role="src" target="id-0066-00000002"/>
+					<connpoint role="dst" target="id-0066-00000008"/>
+				</connection>
+				<connection id="id-0068-00000005" kind="Connection" role="Connection" guid="{575127db-8488-4ec2-b02e-21bbb1df787f}" relid="0xc">
+					<name>Connection</name>
+					<connpoint role="src" target="id-0066-00000003"/>
+					<connpoint role="dst" target="id-0066-00000009"/>
+				</connection>
+				<connection id="id-0068-00000006" kind="Connection" role="Connection" guid="{de01e505-c90e-40e8-8580-74d0241ea8c0}" relid="0x8">
+					<name>Connection</name>
+					<connpoint role="src" target="id-0066-00000005"/>
+					<connpoint role="dst" target="id-0066-00000009"/>
+				</connection>
+			</model>
+			<model id="id-0065-00000004" kind="NetDiagram" role="NetDiagram" guid="{754a2249-7992-43cc-bc45-f74467d89742}" relid="0x4" childrelidcntr="0x15">
+				<name>CompanyA</name>
+				<regnode name="PartRegs" isopaque="yes">
+					<value></value>
+					<regnode name="Connectivity" isopaque="yes">
+						<value></value>
+						<regnode name="Position" isopaque="yes">
+							<value>64,56</value>
+						</regnode>
+					</regnode>
+				</regnode>
+				<model id="id-0065-00000005" kind="NetDiagram" role="NetDiagram" guid="{bfc8162e-8034-45d1-977c-9ab9c5c4d21f}" relid="0x11" childrelidcntr="0x9">
+					<name>WorkStations</name>
+					<regnode name="PartRegs" isopaque="yes">
+						<value></value>
+						<regnode name="Connectivity" isopaque="yes">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>239,217</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<atom id="id-0066-0000000a" kind="Host" role="Host" guid="{5f422037-dc87-4f90-a2c4-d475dd697d98}" relid="0x8">
+						<name>User2</name>
+						<regnode name="PartRegs" isopaque="yes">
+							<value></value>
+							<regnode name="Connectivity" isopaque="yes">
+								<value></value>
+								<regnode name="Position" isopaque="yes">
+									<value>185,228</value>
+								</regnode>
+							</regnode>
+						</regnode>
+						<attribute kind="IPAddress" status="meta">
+							<value>0.0.0.0</value>
+						</attribute>
+					</atom>
+					<atom id="id-0066-0000000b" kind="Host" role="Host" guid="{8294ed79-5ef0-4bcb-8ca9-c1184b8b7bf3}" relid="0x5">
+						<name>CEO</name>
+						<regnode name="PartRegs" isopaque="yes">
+							<value></value>
+							<regnode name="Connectivity" isopaque="yes">
+								<value></value>
+								<regnode name="Position" isopaque="yes">
+									<value>185,18</value>
+								</regnode>
+							</regnode>
+						</regnode>
+						<attribute kind="IPAddress" status="meta">
+							<value>0.0.0.0</value>
+						</attribute>
+					</atom>
+					<atom id="id-0066-0000000c" kind="Perimeter" role="Perimeter" guid="{802dc3b8-de81-45b3-8746-f019e86cc88e}" relid="0x9">
+						<name>Intranet</name>
+						<regnode name="PartRegs" isopaque="yes">
+							<value></value>
+							<regnode name="Connectivity" isopaque="yes">
+								<value></value>
+								<regnode name="Position" isopaque="yes">
+									<value>38,123</value>
+								</regnode>
+							</regnode>
+						</regnode>
+					</atom>
+					<atom id="id-0066-0000000d" kind="Host" role="Host" guid="{81c8ce65-fb3c-4757-942f-6d5efdf2bfdd}" relid="0x4">
+						<name>Secretary</name>
+						<regnode name="PartRegs" isopaque="yes">
+							<value></value>
+							<regnode name="Connectivity" isopaque="yes">
+								<value></value>
+								<regnode name="Position" isopaque="yes">
+									<value>206,88</value>
+								</regnode>
+							</regnode>
+						</regnode>
+						<attribute kind="IPAddress" status="meta">
+							<value>0.0.0.0</value>
+						</attribute>
+					</atom>
+					<atom id="id-0066-0000000e" kind="Host" role="Host" guid="{c44e838e-98c3-4cd2-9425-4cb00d6907ac}" relid="0x7">
+						<name>User1</name>
+						<regnode name="PartRegs" isopaque="yes">
+							<value></value>
+							<regnode name="Connectivity" isopaque="yes">
+								<value></value>
+								<regnode name="Position" isopaque="yes">
+									<value>206,158</value>
+								</regnode>
+							</regnode>
+						</regnode>
+						<attribute kind="IPAddress" status="meta">
+							<value>0.0.0.0</value>
+						</attribute>
+					</atom>
+					<connection id="id-0068-00000007" kind="Connection" role="Connection" guid="{695ee36f-72f0-4dd2-a8ee-59c6bbea3fe0}" relid="0x2">
+						<name>Connection</name>
+						<connpoint role="dst" target="id-0066-0000000c"/>
+						<connpoint role="src" target="id-0066-0000000e"/>
+					</connection>
+					<connection id="id-0068-00000008" kind="Connection" role="Connection" guid="{086bb237-9001-4ccb-a3d4-69fa89f58b5c}" relid="0x3">
+						<name>Connection</name>
+						<connpoint role="src" target="id-0066-0000000b"/>
+						<connpoint role="dst" target="id-0066-0000000c"/>
+					</connection>
+					<connection id="id-0068-00000009" kind="Connection" role="Connection" guid="{2c3f2966-d4a0-4a8b-ac64-7279495da647}" relid="0x6">
+						<name>Connection</name>
+						<connpoint role="src" target="id-0066-0000000a"/>
+						<connpoint role="dst" target="id-0066-0000000c"/>
+					</connection>
+					<connection id="id-0068-0000000a" kind="Connection" role="Connection" guid="{d7085006-8bcb-4e3f-9869-069fc7af5558}" relid="0x1">
+						<name>Connection</name>
+						<connpoint role="dst" target="id-0066-0000000c"/>
+						<connpoint role="src" target="id-0066-0000000d"/>
+					</connection>
+				</model>
+				<model id="id-0065-00000006" kind="Router" role="Router" guid="{3bc29639-e736-465b-a226-e913380c1b2a}" relid="0xf" childrelidcntr="0x4">
+					<name>inetgw</name>
+					<regnode name="PartRegs" isopaque="yes">
+						<value></value>
+						<regnode name="Admin" isopaque="yes">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>232,98</value>
+							</regnode>
+						</regnode>
+						<regnode name="Connectivity" isopaque="yes">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>232,98</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<attribute kind="Family">
+						<value>C25xx</value>
+					</attribute>
+					<atom id="id-0066-0000000f" kind="Port" role="Port" guid="{1a634979-4da7-4ab6-9398-baa20cf6a349}" relid="0x4">
+						<name>S1</name>
+						<regnode name="PartRegs" isopaque="yes">
+							<value></value>
+							<regnode name="Connectivity" isopaque="yes">
+								<value></value>
+								<regnode name="Position" isopaque="yes">
+									<value>177,100</value>
+								</regnode>
+							</regnode>
+						</regnode>
+						<attribute kind="IFSpeed" status="meta">
+							<value>0</value>
+						</attribute>
+						<attribute kind="IFType" status="meta">
+							<value>Ethernet</value>
+						</attribute>
+						<attribute kind="IPAddress" status="meta">
+							<value>0.0.0.0</value>
+						</attribute>
+					</atom>
+					<atom id="id-0066-00000010" kind="Port" role="Port" guid="{ab8ce1b5-44de-4510-8d13-02de2ab9f1f1}" relid="0x2">
+						<name>E0</name>
+						<regnode name="PartRegs" isopaque="yes">
+							<value></value>
+							<regnode name="Connectivity" isopaque="yes">
+								<value></value>
+								<regnode name="Position" isopaque="yes">
+									<value>44,37</value>
+								</regnode>
+							</regnode>
+						</regnode>
+						<attribute kind="IFSpeed" status="meta">
+							<value>0</value>
+						</attribute>
+						<attribute kind="IFType" status="meta">
+							<value>Ethernet</value>
+						</attribute>
+						<attribute kind="IPAddress" status="meta">
+							<value>0.0.0.0</value>
+						</attribute>
+					</atom>
+					<atom id="id-0066-00000011" kind="Port" role="Port" guid="{eae27028-01c1-4e68-a0cb-714691ba6dba}" relid="0x3">
+						<name>E1</name>
+						<regnode name="PartRegs" isopaque="yes">
+							<value></value>
+							<regnode name="Connectivity" isopaque="yes">
+								<value></value>
+								<regnode name="Position" isopaque="yes">
+									<value>44,100</value>
+								</regnode>
+							</regnode>
+						</regnode>
+						<attribute kind="IFSpeed" status="meta">
+							<value>0</value>
+						</attribute>
+						<attribute kind="IFType" status="meta">
+							<value>Ethernet</value>
+						</attribute>
+						<attribute kind="IPAddress" status="meta">
+							<value>0.0.0.0</value>
+						</attribute>
+					</atom>
+					<atom id="id-0066-00000012" kind="Port" role="Port" guid="{ed60133a-4fee-47d7-aa4c-251c63760aad}" relid="0x1">
+						<name>S0</name>
+						<regnode name="PartRegs" isopaque="yes">
+							<value></value>
+							<regnode name="Connectivity" isopaque="yes">
+								<value></value>
+								<regnode name="Position" isopaque="yes">
+									<value>177,37</value>
+								</regnode>
+							</regnode>
+						</regnode>
+						<attribute kind="IFSpeed" status="meta">
+							<value>0</value>
+						</attribute>
+						<attribute kind="IFType" status="meta">
+							<value>Ethernet</value>
+						</attribute>
+						<attribute kind="IPAddress" status="meta">
+							<value>0.0.0.0</value>
+						</attribute>
+					</atom>
+				</model>
+				<atom id="id-0066-00000013" kind="Network" role="Network" guid="{823d42e2-4af0-4468-983b-0e227f32dcc5}" relid="0x13">
+					<name>intranet</name>
+					<regnode name="PartRegs" isopaque="yes">
+						<value></value>
+						<regnode name="Connectivity" isopaque="yes">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>146,191</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<regnode name="autorouterPref" isopaque="yes">
+						<value>eswNESW</value>
+					</regnode>
+					<attribute kind="NetMask" status="meta">
+						<value></value>
+					</attribute>
+					<attribute kind="NetworkAddress" status="meta">
+						<value></value>
+					</attribute>
+				</atom>
+				<atom id="id-0066-00000014" kind="Network" role="Network" guid="{107f3611-1f2b-4b26-a55f-a768f9debd8c}" relid="0x6">
+					<name>extranet</name>
+					<regnode name="PartRegs" isopaque="yes">
+						<value></value>
+						<regnode name="Connectivity" isopaque="yes">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>146,44</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<attribute kind="NetMask" status="meta">
+						<value></value>
+					</attribute>
+					<attribute kind="NetworkAddress" status="meta">
+						<value></value>
+					</attribute>
+				</atom>
+				<atom id="id-0066-00000015" kind="Host" role="Host" guid="{a53bd9c5-a31c-49f4-8501-e622b0298189}" relid="0x8">
+					<name>mailhost</name>
+					<regnode name="PartRegs" isopaque="yes">
+						<value></value>
+						<regnode name="Admin" isopaque="yes">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>30,9</value>
+							</regnode>
+						</regnode>
+						<regnode name="Connectivity" isopaque="yes">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>30,9</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<attribute kind="IPAddress" status="meta">
+						<value>0.0.0.0</value>
+					</attribute>
+				</atom>
+				<atom id="id-0066-00000016" kind="Host" role="Host" guid="{d8de7c2d-1a39-477f-9c95-89d2d27f15c9}" relid="0xb">
+					<name>www</name>
+					<regnode name="PartRegs" isopaque="yes">
+						<value></value>
+						<regnode name="Admin" isopaque="yes">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>30,79</value>
+							</regnode>
+						</regnode>
+						<regnode name="Connectivity" isopaque="yes">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>30,79</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<attribute kind="IPAddress" status="meta">
+						<value>0.0.0.0</value>
+					</attribute>
+				</atom>
+				<atom id="id-0066-00000017" kind="Host" role="Host" guid="{bb096f21-29f8-49ac-b997-dfed2041450e}" relid="0xd">
+					<name>novell</name>
+					<regnode name="PartRegs" isopaque="yes">
+						<value></value>
+						<regnode name="Admin" isopaque="yes">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>79,135</value>
+							</regnode>
+						</regnode>
+						<regnode name="Connectivity" isopaque="yes">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>79,135</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<attribute kind="IPAddress" status="meta">
+						<value>0.0.0.0</value>
+					</attribute>
+				</atom>
+				<atom id="id-0066-00000018" kind="Perimeter" role="Perimeter" guid="{ad1c8af0-4eeb-4afe-a1e5-ee396bbde1ec}" relid="0x4">
+					<name>Perimeter</name>
+					<regnode name="PartRegs" isopaque="yes">
+						<value></value>
+						<regnode name="Connectivity" isopaque="yes">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>382,107</value>
+							</regnode>
+						</regnode>
+					</regnode>
+				</atom>
+				<atom id="id-0066-00000019" kind="Host" role="Host" guid="{7383380a-490b-40cc-9586-f3df3007fde2}" relid="0x5">
+					<name>engineering</name>
+					<regnode name="PartRegs" isopaque="yes">
+						<value></value>
+						<regnode name="Admin" isopaque="yes">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>79,254</value>
+							</regnode>
+						</regnode>
+						<regnode name="Connectivity" isopaque="yes">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>79,254</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<attribute kind="IPAddress" status="meta">
+						<value>0.0.0.0</value>
+					</attribute>
+				</atom>
+				<atom id="id-0066-0000001a" kind="Host" role="Host" guid="{38a6f112-682e-4435-8785-5e0b77c0947e}" relid="0x12">
+					<name>accounting</name>
+					<regnode name="PartRegs" isopaque="yes">
+						<value></value>
+						<regnode name="Admin" isopaque="yes">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>30,191</value>
+							</regnode>
+						</regnode>
+						<regnode name="Connectivity" isopaque="yes">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>30,191</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<attribute kind="IPAddress" status="meta">
+						<value>0.0.0.0</value>
+					</attribute>
+				</atom>
+				<connection id="id-0068-0000000b" kind="Connection" role="Connection" guid="{bde397b6-2273-4ac5-9e15-7e29e1d9beaa}" relid="0x9">
+					<name>Connection</name>
+					<connpoint role="dst" target="id-0066-00000013"/>
+					<connpoint role="src" target="id-0066-0000001a"/>
+				</connection>
+				<connection id="id-0068-0000000c" kind="Connection" role="Connection" guid="{c420aae5-39c6-464f-a096-f08f12a2c955}" relid="0xe">
+					<name>Connection</name>
+					<connpoint role="dst" target="id-0066-00000013"/>
+					<connpoint role="src" target="id-0066-00000019"/>
+				</connection>
+				<connection id="id-0068-0000000d" kind="Connection" role="Connection" guid="{60eb0657-dc27-4637-af66-0e02e4f245b9}" relid="0x7">
+					<name>Connection</name>
+					<connpoint role="dst" target="id-0066-00000014"/>
+					<connpoint role="src" target="id-0066-00000016"/>
+				</connection>
+				<connection id="id-0068-0000000e" kind="Connection" role="Connection" guid="{d2fb5a4a-4436-4a06-ad93-5a93e4177834}" relid="0x3">
+					<name>Connection</name>
+					<connpoint role="src" target="id-0066-00000010"/>
+					<connpoint role="dst" target="id-0066-00000014"/>
+				</connection>
+				<connection id="id-0068-0000000f" kind="NetworkEquiv" role="NetworkEquiv" guid="{93443c9f-7e54-4d3e-a674-8e270363c1b0}" relid="0xc">
+					<name>NetworkEquiv</name>
+					<connpoint role="src" target="id-0066-0000000c"/>
+					<connpoint role="dst" target="id-0066-00000013"/>
+				</connection>
+				<connection id="id-0068-00000010" kind="Connection" role="Connection" guid="{64216c29-2c3d-4fd5-b036-9b632e225aa1}" relid="0x10">
+					<name>Connection</name>
+					<connpoint role="dst" target="id-0066-00000013"/>
+					<connpoint role="src" target="id-0066-00000017"/>
+				</connection>
+				<connection id="id-0068-00000011" kind="Connection" role="Connection" guid="{9d6e1c94-2b1a-49dc-b33c-e0fbc9497406}" relid="0x1">
+					<name>Connection</name>
+					<connpoint role="src" target="id-0066-00000011"/>
+					<connpoint role="dst" target="id-0066-00000013"/>
+				</connection>
+				<connection id="id-0068-00000012" kind="Connection" role="Connection" guid="{7e9c5025-4165-4e8a-bc9e-183024040588}" relid="0x2">
+					<name>Connection</name>
+					<connpoint role="dst" target="id-0066-00000014"/>
+					<connpoint role="src" target="id-0066-00000015"/>
+				</connection>
+				<connection id="id-0068-00000013" kind="Connection" role="Connection" guid="{d138f753-28ba-48d8-965a-2d9a783680bc}" relid="0xa">
+					<name>Connection</name>
+					<connpoint role="src" target="id-0066-00000012"/>
+					<connpoint role="dst" target="id-0066-00000018"/>
+				</connection>
+				<set id="id-0069-00000001" kind="Administrator" role="Administrator" guid="{1cf3b28b-04f3-4d7d-8702-a4b364209cc3}" relid="0x0" members="id-0066-00000015 id-0066-00000016">
+					<name>Alice</name>
+					<regnode name="PartRegs" isopaque="yes">
+						<value></value>
+						<regnode name="Admin" isopaque="yes">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>163,37</value>
+							</regnode>
+						</regnode>
+						<regnode name="Connectivity" isopaque="yes">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>289,23</value>
+							</regnode>
+						</regnode>
+					</regnode>
+				</set>
+				<set id="id-0069-00000002" kind="Administrator" role="Administrator" guid="{b80e3875-6ba9-4ed6-891d-07a765e32eee}" relid="0x0" members="id-0065-00000006 id-0066-00000017 id-0066-00000019 id-0066-0000001a">
+					<name>Bob</name>
+					<regnode name="PartRegs" isopaque="yes">
+						<value></value>
+						<regnode name="Admin" isopaque="yes">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>163,191</value>
+							</regnode>
+						</regnode>
+						<regnode name="Connectivity" isopaque="yes">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>352,23</value>
+							</regnode>
+						</regnode>
+					</regnode>
+				</set>
+			</model>
+			<atom id="id-0066-0000001b" kind="Network" role="Network" guid="{6f41ddff-6239-4603-baa3-55122f8a3c56}" relid="0x5">
+				<name>INTERNET</name>
+				<regnode name="PartRegs" isopaque="yes">
+					<value></value>
+					<regnode name="Connectivity" isopaque="yes">
+						<value></value>
+						<regnode name="Position" isopaque="yes">
+							<value>290,137</value>
+						</regnode>
+					</regnode>
+				</regnode>
+				<attribute kind="NetMask" status="meta">
+					<value></value>
+				</attribute>
+				<attribute kind="NetworkAddress" status="meta">
+					<value></value>
+				</attribute>
+			</atom>
+			<connection id="id-0068-00000014" kind="NetworkEquiv" role="NetworkEquiv" guid="{1acebd95-1bcd-488d-b03e-8706d6b506ed}" relid="0x1">
+				<name>NetworkEquiv</name>
+				<connpoint role="src" target="id-0066-00000018"/>
+				<connpoint role="dst" target="id-0066-0000001b"/>
+			</connection>
+			<connection id="id-0068-00000015" kind="NetworkEquiv" role="NetworkEquiv" guid="{2e820468-d0e4-427c-9baa-2c1f5c6356b6}" relid="0x2">
+				<name>NetworkEquiv</name>
+				<connpoint role="src" target="id-0066-00000008"/>
+				<connpoint role="dst" target="id-0066-0000001b"/>
+			</connection>
+		</model>
+		<model id="id-0065-00000007" kind="NetDiagram" guid="{ae7f9975-83fd-404f-a76e-cb8ab5c34f9b}" relid="0x2" childrelidcntr="0x5">
+			<name>LeasedLine1</name>
+			<atom id="id-0066-0000001c" kind="Network" role="Network" guid="{7bbc0731-bc86-4589-90e4-e303961abc03}" relid="0x1">
+				<name>Network</name>
+				<regnode name="PartRegs" isopaque="yes">
+					<value></value>
+					<regnode name="Connectivity" isopaque="yes">
+						<value></value>
+						<regnode name="Position" isopaque="yes">
+							<value>258,128</value>
+						</regnode>
+					</regnode>
+				</regnode>
+				<attribute kind="NetMask" status="meta">
+					<value></value>
+				</attribute>
+				<attribute kind="NetworkAddress" status="meta">
+					<value></value>
+				</attribute>
+			</atom>
+			<reference id="id-0067-00000001" kind="RouterRef" role="RouterRef" guid="{7ca9b694-ec7a-4a41-af3f-4279e3d629df}" relid="0x5" referred="id-0065-00000006">
+				<name>inetgw_Ref</name>
+				<regnode name="PartRegs" isopaque="yes">
+					<value></value>
+					<regnode name="Connectivity" isopaque="yes">
+						<value></value>
+						<regnode name="Position" isopaque="yes">
+							<value>50,42</value>
+						</regnode>
+					</regnode>
+				</regnode>
+			</reference>
+			<reference id="id-0067-00000002" kind="RouterRef" role="RouterRef" guid="{08231f08-d3cd-4f5a-8e90-20803eb047af}" relid="0x4" referred="id-0065-00000003">
+				<name>inetgwB_Ref</name>
+				<regnode name="PartRegs" isopaque="yes">
+					<value></value>
+					<regnode name="Connectivity" isopaque="yes">
+						<value></value>
+						<regnode name="Position" isopaque="yes">
+							<value>50,168</value>
+						</regnode>
+					</regnode>
+				</regnode>
+			</reference>
+			<connection id="id-0068-00000016" kind="Connection" role="Connection" guid="{1f681ea3-39e5-4b00-9a56-6cb476f2543e}" relid="0x2">
+				<name>Connection</name>
+				<connpoint role="src" target="id-0066-00000001" refs="id-0067-00000002"/>
+				<connpoint role="dst" target="id-0066-0000001c"/>
+			</connection>
+			<connection id="id-0068-00000017" kind="Connection" role="Connection" guid="{6415cdba-ab61-4ff4-8b83-1af55c80c9fa}" relid="0x3">
+				<name>Connection</name>
+				<connpoint role="src" target="id-0066-0000000f" refs="id-0067-00000001"/>
+				<connpoint role="dst" target="id-0066-0000001c"/>
+			</connection>
+		</model>
+	</folder>
+</project>

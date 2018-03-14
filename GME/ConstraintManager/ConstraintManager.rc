@@ -1,0 +1,457 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+#include "..\GME\GMEVersion.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (United States) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "1 TYPELIB ""ConstraintManager.tlb""\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION GME_VERSION_RC
+ PRODUCTVERSION GME_VERSION_RC
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x2L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904B0"
+        BEGIN
+            VALUE "FileDescription", "ConstraintManager Module"
+            VALUE "FileVersion", GME_VERSION_STR
+            VALUE "InternalName", "ConstraintManager"
+            VALUE "LegalCopyright", "Copyright 2002"
+            VALUE "OriginalFilename", "ConstraintManager.DLL"
+            VALUE "ProductName", "ConstraintManager Module"
+            VALUE "ProductVersion", GME_VERSION_STR
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1200
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// REGISTRY
+//
+
+IDR_CONSTRAINTMGR       REGISTRY                "ConstraintMgr.rgs"
+IDR_EXPRESSIONCHECKER   REGISTRY                "ExpressionChecker.rgs"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_SYNTAX_SEMANTIC_DIALOG DIALOGEX 0, 0, 480, 273
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION
+CAPTION "Constraint Syntax and Semantic Errors"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    PUSHBUTTON      "Close",SSD_BTNCLOSE,423,252,50,14
+    CONTROL         "List1",SSD_LSTCONSTRAINTS,"SysListView32",LVS_REPORT | LVS_SINGLESEL | LVS_SHOWSELALWAYS | LVS_SHAREIMAGELISTS | LVS_ALIGNLEFT | WS_BORDER | WS_TABSTOP,7,47,162,199,WS_EX_CLIENTEDGE
+    CONTROL         "List2",SSD_LSTERRORS,"SysListView32",LVS_REPORT | LVS_SINGLESEL | LVS_SHOWSELALWAYS | LVS_SHAREIMAGELISTS | LVS_NOSORTHEADER | WS_BORDER | WS_TABSTOP,175,172,298,74,WS_EX_CLIENTEDGE
+    CONTROL         "List2",SSD_LSTEXPRESSION,"SysListView32",LVS_REPORT | LVS_SINGLESEL | LVS_SHOWSELALWAYS | LVS_SHAREIMAGELISTS | LVS_NOLABELWRAP | LVS_NOSORTHEADER | WS_BORDER | WS_TABSTOP,175,47,298,118,WS_EX_CLIENTEDGE
+    CONTROL         "The following Constraints and ConstraintDefinitions have errors.\r\nThese Constraints and ConstraintDefinitions cannot be used and evaluated.",SSD_LBLGENERALMSG,
+                    "Static",SS_LEFTNOWORDWRAP | WS_GROUP,48,19,417,19
+    ICON            IDI_CMWARNING,SSD_ICNLARGE,19,19,16,16,0,WS_EX_TRANSPARENT
+    GROUPBOX        " Errors' description : ",SSD_FRMMESSAGE,7,7,466,34
+END
+
+IDD_VIOLATION_DIALOG DIALOGEX 0, 0, 496, 291
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Constraint Violations"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    PUSHBUTTON      "Close",CVD_BTNCLOSE,383,270,50,14,WS_DISABLED
+    PUSHBUTTON      "Abort",CVD_BTNABORT,439,270,50,14,WS_DISABLED
+    CONTROL         "List1",CVD_LSTCONSTRAINTS,"SysListView32",LVS_REPORT | LVS_SINGLESEL | LVS_SHOWSELALWAYS | LVS_SHAREIMAGELISTS | LVS_ALIGNLEFT | WS_BORDER | WS_TABSTOP,7,58,171,206,WS_EX_CLIENTEDGE
+    CONTROL         "List2",CVD_LSTERRORS,"SysListView32",LVS_REPORT | LVS_SINGLESEL | LVS_SHOWSELALWAYS | LVS_SHAREIMAGELISTS | LVS_NOLABELWRAP | LVS_NOSORTHEADER | WS_BORDER | WS_TABSTOP,185,180,304,84,WS_EX_CLIENTEDGE
+    CONTROL         "Tab1",CVD_TABCONTEXT,"SysTabControl32",0x0,185,58,304,115
+    CONTROL         "List2",CVD_LSTEXPRESSION,"SysListView32",LVS_REPORT | LVS_SINGLESEL | LVS_SHOWSELALWAYS | LVS_SHAREIMAGELISTS | LVS_NOLABELWRAP | LVS_NOSORTHEADER | WS_BORDER | WS_TABSTOP,193,78,287,88,WS_EX_CLIENTEDGE
+    PUSHBUTTON      "Collapse",CVD_BTNEXPAND,443,11,46,14
+    PUSHBUTTON      "Previous",CVD_BTNPREVIOUS,7,270,50,14
+    PUSHBUTTON      "Next",CVD_BTNNEXT,63,270,50,14
+    GROUPBOX        " Violation : ",CVD_FRMMESSAGE,7,7,430,45,BS_NOTIFY
+    LTEXT           "General Problem Description",CVD_LBLGENERALMSG,84,28,348,20
+    ICON            IDI_CMERROR,CVD_ICNLARGE,15,22,20,20,0,WS_EX_TRANSPARENT
+    CONTROL         "List2",CVD_LSTOBJECTS,"SysListView32",LVS_REPORT | LVS_SINGLESEL | LVS_SHOWSELALWAYS | LVS_SHAREIMAGELISTS | LVS_NOLABELWRAP | LVS_NOSORTHEADER | WS_BORDER | WS_TABSTOP,193,78,287,88,WS_EX_CLIENTEDGE
+    LTEXT           "Constraint :",IDC_STATIC,42,17,36,8
+    LTEXT           "Description :",IDC_STATIC,42,28,40,8
+    LTEXT           "Constraint Name",CVD_LBLCONSTRAINT,84,17,348,8
+END
+
+IDD_BROWSER_DIALOG DIALOG 0, 0, 299, 353
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION
+CAPTION "Constraint Browser"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",BRW_BTNOK,242,314,50,14
+    PUSHBUTTON      "Apply",BRW_BTNAPPLY,242,332,50,14,WS_DISABLED
+    CONTROL         "Tab1",BRW_TABENABLES,"SysTabControl32",WS_TABSTOP,7,7,227,339
+    PUSHBUTTON      "Load all",BRW_BTNLOAD,242,191,50,14,WS_DISABLED
+    PUSHBUTTON      "Add",BRW_BTNADD,242,220,50,14,WS_DISABLED
+    PUSHBUTTON      "Remove",BRW_BTNREMOVE,242,238,50,14,WS_DISABLED
+    PUSHBUTTON      "Check",BRW_BTNCHECK,242,265,50,14,WS_DISABLED
+    PUSHBUTTON      "Cancel",BRW_BTNCANCEL,242,295,50,14
+END
+
+IDD_PROGRESS_DIALOG DIALOGEX 0, 0, 232, 66
+STYLE DS_SETFONT | DS_MODALFRAME | DS_CENTER | WS_POPUP | WS_CAPTION
+CAPTION "Constraint Evaluation"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "Cancel",NOEX_BTNOK,91,46,50,14,NOT WS_VISIBLE
+    CONTROL         "Progress1",NOEX_PROGRESS,"msctls_progress32",PBS_SMOOTH | WS_BORDER,11,26,209,14,WS_EX_CLIENTEDGE
+    CTEXT           "There was no Constraint Violation found.",NOEX_LBLMESSAGE,6,9,218,12
+END
+
+IDD_PROPERTIES_EVENT_PAGE DIALOG 0, 0, 351, 197
+STYLE DS_SETFONT | WS_CHILD
+FONT 8, "MS Sans Serif"
+BEGIN
+    CONTROL         "",PEVP_CHKCREATE,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,138,38,16,8
+    CONTROL         "",PEVP_CHKCLOSEMODEL,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,287,38,16,8
+    CONTROL         "",PEVP_CHKCONNECT,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,138,53,16,8
+    CONTROL         "",PEVP_CHKDELETE,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,287,53,16,8
+    CONTROL         "",PEVP_CHKNEWCHILD,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,138,68,16,8
+    CONTROL         "",PEVP_CHKDISCONNECT,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,287,68,16,8
+    CONTROL         "",PEVP_CHKREFER,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,138,83,16,8
+    CONTROL         "",PEVP_CHKLOSTCHILD,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,287,83,16,8
+    CONTROL         "",PEVP_CHKINCLUDESET,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,138,98,16,8
+    CONTROL         "",PEVP_CHKUNREFER,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,287,98,16,8
+    CONTROL         "",PEVP_CHKDERIVE,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,138,113,16,8
+    CONTROL         "",PEVP_CHKEXCLUDESET,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,287,113,16,8
+    CONTROL         "",PEVP_CHKCHANGEPROP,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,138,128,16,8
+    CONTROL         "",PEVP_CHKMOVE,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,287,128,16,8
+    CONTROL         "",PEVP_CHKCHANGEASSOC,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,138,142,16,8
+    CONTROL         "",PEVP_CHKCHANGEATTRIB,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,287,143,16,8
+    LTEXT           "On change association:",IDC_STATIC,44,142,76,8
+    LTEXT           "On change attribute:",IDC_STATIC,193,143,66,8
+    LTEXT           "On change property:",IDC_STATIC,44,128,66,8
+    LTEXT           "On close model:",IDC_STATIC,193,38,52,8
+    LTEXT           "On connect:",IDC_STATIC,44,53,40,8
+    LTEXT           "On create:",IDC_STATIC,44,38,34,8
+    LTEXT           "On delete:",IDC_STATIC,193,53,34,8
+    LTEXT           "On derive:",IDC_STATIC,44,113,34,8
+    LTEXT           "On disconnect:",IDC_STATIC,193,68,49,8
+    LTEXT           "On exclude from set:",IDC_STATIC,193,113,66,8
+    LTEXT           "On include in set:",IDC_STATIC,44,98,56,8
+    LTEXT           "On lost child:",IDC_STATIC,193,83,42,8
+    LTEXT           "On move:",IDC_STATIC,193,128,32,8
+    LTEXT           "On new child:",IDC_STATIC,44,68,44,8
+    LTEXT           "On refer:",IDC_STATIC,44,83,28,8
+    LTEXT           "On unrefer:",IDC_STATIC,193,98,36,8
+END
+
+IDD_PROPERTIES_IDENTITY_PAGE DIALOG 0, 0, 352, 197
+STYLE DS_SETFONT | WS_CHILD | WS_VISIBLE
+FONT 8, "MS Sans Serif"
+BEGIN
+    EDITTEXT        PIDP_EDTNAME,71,19,252,15,ES_AUTOHSCROLL
+    EDITTEXT        PIDP_EDTDESCRIPTION,71,42,252,41,ES_MULTILINE | ES_AUTOHSCROLL | ES_WANTRETURN | WS_VSCROLL
+    EDITTEXT        PIDP_EDTDEFAULT,71,94,252,41,ES_MULTILINE | ES_AUTOHSCROLL | ES_WANTRETURN | WS_VSCROLL
+    COMBOBOX        PIDP_CMBPRIORITY,71,144,90,59,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        PIDP_CMBDEPTH,233,144,90,55,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Name:",IDC_STATIC,25,22,22,8
+    LTEXT           "Description:",IDC_STATIC,25,46,38,8
+    LTEXT           "Default\nParameters:",IDC_STATIC,25,97,39,20
+    LTEXT           "Priority:",IDC_STATIC,25,146,24,8
+    LTEXT           "Depth:",IDC_STATIC,187,146,22,8
+    LTEXT           "Definition:",IDC_STATIC,25,166,32,8
+    EDITTEXT        PIDP_EDTDEFINITION,71,166,252,14,ES_AUTOHSCROLL | ES_READONLY
+END
+
+IDD_PROPERTIES_EXPRESSION_PAGE DIALOG 0, 0, 351, 194
+STYLE DS_SETFONT | WS_CHILD
+FONT 8, "MS Sans Serif"
+BEGIN
+    CONTROL         "",PEXP_CMBCONTEXT,"ComboBoxEx32",CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP,69,22,253,87
+    EDITTEXT        PEXP_EDTEXPRESSION,69,42,253,133,ES_MULTILINE | ES_AUTOVSCROLL | ES_AUTOHSCROLL | ES_WANTRETURN | WS_VSCROLL | WS_HSCROLL
+    LTEXT           "Expression:",IDC_STATIC,25,46,37,8
+    LTEXT           "Context:",IDC_STATIC,25,23,27,8
+END
+
+IDD_PROPERTIES_DIALOG DIALOG 0, 0, 383, 249
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION
+CAPTION "Constraint Properties"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",CRP_BTNOK,272,228,50,14
+    PUSHBUTTON      "Cancel",CRP_BTNCANCEL,326,228,50,14
+    CONTROL         "Tab1",CRP_TABPAGES,"SysTabControl32",0x0,7,7,369,215
+END
+
+IDD_BROWSER_CONSTRAINT_PAGE DIALOGEX 0, 0, 270, 333
+STYLE DS_SETFONT | WS_CHILD
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    PUSHBUTTON      "Add",BCRP_BTNADD,9,310,50,14
+    PUSHBUTTON      "Remove",BCRP_BTNREMOVE,68,310,50,14
+    PUSHBUTTON      "Evaluate",BCRP_BTNEVALUATE,127,310,50,14
+    CONTROL         "List1",BCRP_LSTCONSTRAINT,"SysListView32",LVS_REPORT | LVS_SINGLESEL | LVS_SHOWSELALWAYS | LVS_SHAREIMAGELISTS | LVS_ALIGNLEFT | WS_BORDER | WS_TABSTOP,10,11,250,291,WS_EX_CLIENTEDGE
+END
+
+IDD_BROWSER_SETTINGS_PAGE DIALOG 0, 0, 218, 323
+STYLE DS_SETFONT | WS_CHILD
+FONT 8, "MS Sans Serif"
+BEGIN
+    CONTROL         "Enable short-circuit logical operators\nOperators (&&&&, ||, =>) can change the evaluation.",BSEP_CHKSC_LOGICAL,
+                    "Button",BS_AUTOCHECKBOX | BS_TOP | BS_MULTILINE | WS_TABSTOP,15,15,169,20
+    CONTROL         "Enable short-circuit predefined iterators.\nIterators terminates immediately after result is available.",BSEP_CHKSC_ITERATOR,
+                    "Button",BS_AUTOCHECKBOX | BS_TOP | BS_MULTILINE | WS_TABSTOP,15,37,188,20
+    CONTROL         "Enable tracking (i.e. debuging) of evaluation.\nReporting exceptions, false values returned by features.",BSEP_CHKTRACKING,
+                    "Button",BS_AUTOCHECKBOX | BS_TOP | BS_MULTILINE | WS_TABSTOP,15,79,190,20
+    CONTROL         "Evaluation ends after the first violation.",BSEP_RDVIOLFIRST,
+                    "Button",BS_AUTORADIOBUTTON | BS_MULTILINE | WS_GROUP | WS_TABSTOP,13,125,183,10
+    CONTROL         "Evaluation ends after the first violated (priority) level.",BSEP_RDLEVELFIRST,
+                    "Button",BS_AUTORADIOBUTTON | BS_MULTILINE,13,138,184,10
+    CONTROL         "Evaluation ends after",BSEP_RDVIOLCOUNT,"Button",BS_AUTORADIOBUTTON | BS_MULTILINE,13,151,81,10
+    EDITTEXT        BSEP_EDTVIOLCOUNT,95,150,27,12,ES_AUTOHSCROLL | ES_READONLY | ES_NUMBER
+    CONTROL         "Evaluation ends after all constraints evaluated.",BSEP_RDDEFAULT,
+                    "Button",BS_AUTORADIOBUTTON | BS_MULTILINE,13,164,175,10
+    CONTROL         "Evaluate only constraints of the Model",BSEP_RDZERODEPTH,
+                    "Button",BS_AUTORADIOBUTTON | BS_TOP | BS_MULTILINE | WS_GROUP | WS_TABSTOP,13,201,184,10
+    CONTROL         "Evaluate the constraints of the Model's children also",BSEP_RDONEDEPTH,
+                    "Button",BS_AUTORADIOBUTTON | BS_TOP | BS_MULTILINE,13,214,184,10
+    CONTROL         "Evaluate the constraints of the Model's not immediate\nchildren, as well",BSEP_RDANYDEPTH,
+                    "Button",BS_AUTORADIOBUTTON | BS_TOP | BS_MULTILINE,13,226,184,19
+    GROUPBOX        " Short-circuit evaluation ",IDC_STATIC,8,4,200,56
+    GROUPBOX        " Evaluation tracking ",IDC_STATIC,8,69,200,34
+    CONTROL         "violations.",IDC_STATIC,"Static",SS_LEFTNOWORDWRAP | WS_GROUP,125,152,32,8
+    GROUPBOX        " Termination of evaluation ",IDC_STATIC,8,114,200,65,WS_GROUP
+    GROUPBOX        " Depth of on demand evaluation ( Model is in focus ) ",IDC_STATIC,8,190,200,58,WS_GROUP
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO
+BEGIN
+    IDD_SYNTAX_SEMANTIC_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 473
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 266
+    END
+
+    IDD_VIOLATION_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 489
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 284
+    END
+
+    IDD_BROWSER_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 292
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 346
+    END
+
+    IDD_PROGRESS_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 225
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 59
+    END
+
+    IDD_PROPERTIES_EVENT_PAGE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 344
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 190
+    END
+
+    IDD_PROPERTIES_IDENTITY_PAGE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 345
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 190
+    END
+
+    IDD_PROPERTIES_EXPRESSION_PAGE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 344
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 187
+    END
+
+    IDD_PROPERTIES_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 376
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 242
+    END
+
+    IDD_BROWSER_CONSTRAINT_PAGE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 263
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 326
+    END
+
+    IDD_BROWSER_SETTINGS_PAGE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 211
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 316
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDB_LINEICONS           BITMAP                  "line_icons.bmp"
+IDB_CONSTRAINTICONS     BITMAP                  "constraint_icons.bmp"
+IDB_ERRORICONS          BITMAP                  "error_icons.bmp"
+IDB_CHECKICONS          BITMAP                  "check_icons.bmp"
+IDB_TREEICONS           BITMAP                  "tree_icons.bmp"
+IDB_CONSTRAINTSTATEICONS BITMAP                  "constraintstate_icons.bmp"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDI_CMERROR             ICON                    "error.ico"
+IDI_EXPAND              ICON                    "expand.ico"
+IDI_EC_CHECKALL         ICON                    "ec_icon.ico"
+IDI_CMWARNING           ICON                    "warning.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog Info
+//
+
+IDD_PROPERTIES_IDENTITY_PAGE DLGINIT
+BEGIN
+    PIDP_CMBPRIORITY, 0x403, 2, 0
+0x0031, 
+    PIDP_CMBPRIORITY, 0x403, 2, 0
+0x0032, 
+    PIDP_CMBPRIORITY, 0x403, 2, 0
+0x0033, 
+    PIDP_CMBPRIORITY, 0x403, 2, 0
+0x0034, 
+    PIDP_CMBPRIORITY, 0x403, 2, 0
+0x0035, 
+    PIDP_CMBPRIORITY, 0x403, 2, 0
+0x0036, 
+    PIDP_CMBPRIORITY, 0x403, 2, 0
+0x0037, 
+    PIDP_CMBPRIORITY, 0x403, 2, 0
+0x0038, 
+    PIDP_CMBPRIORITY, 0x403, 2, 0
+0x0039, 
+    PIDP_CMBPRIORITY, 0x403, 3, 0
+0x3031, "\000" 
+    PIDP_CMBDEPTH, 0x403, 2, 0
+0x0030, 
+    PIDP_CMBDEPTH, 0x403, 2, 0
+0x0031, 
+    PIDP_CMBDEPTH, 0x403, 4, 0
+0x6e41, 0x0079, 
+    0
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE
+BEGIN
+    IDS_PROJNAME            "ConstraintManager"
+END
+
+#endif    // English (United States) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+1 TYPELIB "ConstraintManager.tlb"
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

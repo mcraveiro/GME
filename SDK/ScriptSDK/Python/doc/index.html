@@ -1,0 +1,208 @@
+<html>
+<head>
+<title>Python GME Component Generator</title>
+<style type="text/css">
+* {font-family:Arial}
+a:link, a:visited {color:red}
+body {background-color:white}
+h3 {
+    background-color:#008000;
+    color:white;
+    padding:2px 0px 2px 8px;
+    text-align:left;
+}
+pre {
+    font-size:16;
+    font-family:Courier;
+}
+td {padding-left:4px;}
+.param {
+    width:100px;
+    vertical-align:top;
+    text-align:right;
+    padding-right:4px;
+    font-weight: bold;
+    color:black;
+    background-color:#008000;
+}
+.pointer {
+	width:100%;
+	cursor:pointer;
+	font-weight:bold;
+}
+.section-open {
+	font-size: 16;
+    padding: 4px 0px 4px 4px;
+    background:#008000 url('img/opened.gif') no-repeat right center;
+    color: white;
+}
+.section-close {
+	font-size: 16;
+    padding: 4px 0px 4px 4px;
+    background:#008000 url('img/hidden.gif') no-repeat right center;
+    color: white;
+}
+.section-content-hidden {display:none}
+.section-content-shown {
+	display:block;
+    background-color:#ddffcc;
+    padding: 12px 4px 12px 4px;
+    margin-top: -16px;
+}
+.subline {
+    background-color:white;
+    text-align:left;
+    padding-left:54px;
+    padding-bottom:8px;
+}
+</style>
+<!--[if IE]>
+<style type="text/css">
+.subline {padding-left:44px;}
+</style>
+<![endif]-->
+
+<script type="text/javascript">
+function toggleSection(node) {
+    var content = document.getElementById(node.id+'_section');
+    content.className = (node.className == 'section-close') ? 'section-content-hidden' : 'section-content-shown';
+    node.className = (node.className == 'section-close') ? 'section-open' : 'section-close';
+}
+</script>
+</head>
+<body>
+<h1><img style="padding-right:10px" border="0" src="img/pygme.bmp">
+    <span style="vertical-align:top">Python GME (PyGME) Component Generator</span></h1>
+
+<h3 class="subline"><span style="color:red">Adaptive Learning Technologies Project</span><br>
+       <span style="color:black">Institute for Software Integrated Systems, Vanderbilt University</span></h3>
+<h3 id="Overview" class="section-close" onclick="toggleSection(this)"><a class="pointer">Overview</a></h3>
+<div id="Overview_section" class="section-content-shown">
+This page describes a component generation framework that creates COM-based Python components
+for the Generic Modeling Environment (<a href="http://www.isis.vanderbilt.edu/projects/gme">GME</a>).&nbsp;
+Interpreter and addon component types are supported.&nbsp;
+Since the framework is based on PythonCOM, it is assumed that the user has the Win32 Extensions for Python,
+which are bundled with the Python distributions available from <a href="http://www.activestate.com">ActiveState</a>.
+The framework has been tested with Python 2.3 and 2.4, and it is intended for GME5 versions and higher.
+</div>
+<h3 id="Specification" class="section-close" onclick="toggleSection(this)"><a class="pointer">Component Specification</a></h3>
+<div id="Specification_section" class="section-content-shown">
+New Python GME components are specified using a small XML document,
+such as the one shown below.
+<pre>
+&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;component name="MyPython" version="1.0" type="Interpreter" paradigm="MetaGME"&gt;
+    &lt;iconpath value="Icons/pygme.ico" /&gt;
+    &lt;tooltip value="My Python Component" /&gt;
+&lt;/component&gt;
+</pre>
+<p>
+The attributes on the <b>&lt;component&gt;</b> tag are all mandatory.
+</p>
+<table>
+<tr><td class="param">name</td>
+<td>
+Gives an identity to the component.
+This name will be used to form the COM class that implements the component.
+For example, name="Foo" yields a COM class with the name "MGA.PythonInterpreter.Foo" for an interpreter and
+"MGA.PythonAddon.Foo" for an addon.
+</td></tr>
+<tr><td class="param">version</td>
+<td>
+Assigns a version designator to the COM class.
+</td></tr>
+<tr><td class="param">type</td>
+<td>
+Determines the kind of component generated, "Interpreter" for interpreters and "Addon" for addons.
+Other values result in a specification error.
+</td></tr>
+<tr><td class="param">paradigm</td>
+<td>
+Name of the GME paradigm for which the generated Python component will be registered.
+</td></tr>
+</table>
+<p>
+The <b>&lt;iconpath&gt;</b> and <b>&lt;tooltip&gt;</b> tags are optional and only relevant to interpreter components. 
+</p>
+<table>
+<tr><td class="param"><b>iconpath</b></td>
+<td>
+Path to a component icon presented in the toolbar for the component's paradigm.
+If a relative path, it is considered relative to the folder containing the XML specification file.
+(Icons are always registered as absolute paths.)
+The file must be a .ico (Windows icon) 32x32 file.
+</td></tr>
+<tr><td class="param"><b>tooltip</b></td>
+<td>
+A string that is shown when the user mouses over the component's icon in the toolbar,
+if an icon is defined.
+</td></tr>
+</table>
+</div>
+<h3 id="Generator" class="section-close" onclick="toggleSection(this)"><a class="pointer">Running the Generator</a></h3>
+<div id="Generator_section" class="section-content-shown">
+The component generator script can be run from a command prompt, or it can be opened and executed from inside
+a Python environment, like PythonWin or Komodo.
+<pre>
+    &gt; PyGME.py [-register[=&lt;system|user&gt;]] [xmlfile]
+</pre>
+<p>
+<i>Switches</i>:
+</p>
+<table>
+<tr><td class="param">-register</td>
+<td>
+Requests that the component be registered with COM and GME after generation.
+If the value given the switch is <i>user</i>, or if no value is given, then the component is registered in the
+current user's registry; otherwise, if the value is <i>system</i>, then the component is registed in the
+system-wide registry.  Administrative priviledges are required for the latter.
+</td></tr>
+</table>
+<p>
+<i>Arguments</i>:
+</p>
+<table>
+<tr><td class="param">xmlfile</td>
+<td>
+Path to a file that contains an XML specification for the component (see above).
+The default is the file 'component.xml' in the same folder as PyGME.py.
+</td></tr>
+</table>
+<br>
+The generated component is placed into the same folder as the XML specification file.
+The name is based on the <i>name</i> attribute on the <b>&lt;component&gt;</b> tag in the component's specification.
+For example, if the value of the name attribute is 'Foo', then the name of the component is
+'Foo.py'.  A class inside this module, also named 'Foo', implements the component.
+For interpeters, only the <i>InvokeEx</i> method is exposed in the generated component;
+for addons, the <i>GlobalEvent</i>, <i>ObjectEvent</i>, and <i>Initialize</i> methods are exposed.
+The remaining component methods are abstracted by the <i>GMEComComponent</i> base class.
+</div>
+<h3 id="Post" class="section-close" onclick="toggleSection(this)"><a class="pointer">Post-Generation</a></h3>
+<div id="Post_section" class="section-content-shown">
+<b style="color:red">IMPORTANT</b>: After generation, the component module, <i>GMEComComponent.py</i>, and
+<i>SelfRegistration.py</i> must reside in a folder that is on the <b>PythonPath</b>.
+<p>
+To unregister the component after registration, start a Python shell.
+Enter the following (assuming a component named 'Foo'):
+</p>
+<pre style="font-size:16;font-family:Courier">
+    &gt; from Foo import Foo
+    &gt; Foo.UnregisterSelf(systemwide)
+</pre>
+The <i>systemwide</i> parameter should be <i>2</i> (REGACCESS_SYSTEM) if the component was registered in the System registry (LocalMachine)
+and <i>1</i> (REGACCESS_USER) if the component was registered in the user registry (CurrentUser).
+The constants are defined in <i>MgaUtil.idl</i>.
+<p>
+To re-register the component, from a Python shell enter:
+</p>
+<pre>
+    &gt; from Foo import Foo
+    &gt; Foo.RegisterSelf(systemwide, iconfolder)
+</pre>
+The <i>systemwide</i> parameter is as defined above for UnregisterSelf.
+The <i>iconfolder</i> parameter is the full path to the folder that contains the component's icon.
+This parameter should be omitted for addons and interpreters that do not define an icon.
+</div>
+<center style="align:center;font-size:smaller;padding-top:8px"><b>&copy;2006 Vanderbilt University.  All Rights Reserved.</b></center>
+</body>
+</html>

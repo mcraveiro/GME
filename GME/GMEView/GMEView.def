@@ -1,0 +1,9 @@
+; GMEView.def : Declares the module parameters.
+
+LIBRARY      "GMEView.OCX"
+
+EXPORTS
+	DllCanUnloadNow     PRIVATE
+	DllGetClassObject   PRIVATE
+	DllRegisterServer   PRIVATE
+	DllUnregisterServer PRIVATE

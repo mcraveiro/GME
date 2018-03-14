@@ -1,0 +1,627 @@
+import "oaidl.idl";
+import "ocidl.idl";
+
+#include "InterfaceColl.h"
+#include "InterfaceVersion.h"
+
+// --------------------------- Core IDL
+
+// ------- Typedefs
+
+typedef short metaid_type;
+typedef long objid_type;
+typedef short attrid_type;
+typedef unsigned char valtype_type;
+typedef unsigned char locking_type;
+typedef short lockval_type;
+typedef VARIANT guid_type;		// guid(0 To 15) As Byte
+
+interface ICoreMetaProject;
+interface ICoreMetaObject;
+interface ICoreMetaObjects;
+interface ICoreMetaAttribute;
+interface ICoreMetaAttributes;
+interface ICoreProject;
+interface ICoreObject;
+interface ICoreObjects;
+interface ICoreAttribute;
+interface ICoreAttributes;
+interface ICoreTerritory;
+
+// ------- Consts
+
+const metaid_type METAID_NONE = 0;
+const metaid_type METAID_ROOT = 1;
+
+const objid_type OBJID_NONE = 0;
+const objid_type OBJID_ROOT = 1;
+
+const attrid_type ATTRID_NONE = 0;
+const attrid_type ATTRID_LOCK = 1;
+const attrid_type ATTRID_NAME = 2;
+const attrid_type ATTRID_FATHER = 3;
+const attrid_type ATTRID_COLLECTION = 10000;
+
+// ------- Enums
+
+typedef enum locking_enum
+{
+	[helpstring("No access, unlimited access for other CoreProjects")] 
+	LOCKING_NONE = 0,
+
+	[helpstring("Read access, only read access for other CoreProjects")] 
+	LOCKING_READ = 1,
+
+	[helpstring("Write access, only write access for other CoreProjects")] 
+	LOCKING_WRITE = 2,
+
+	[helpstring("Exclusive access, no access for other CoreProjects")] 
+	LOCKING_EXCLUSIVE = 3
+} locking_enum;
+
+typedef enum valtype_enum
+{
+	[helpstring("No value type")]
+	VALTYPE_NONE = 0,
+
+	[helpstring("Collection")]
+	VALTYPE_COLLECTION = 1,
+
+	[helpstring("Pointer")]
+	VALTYPE_POINTER = 2,
+
+	[helpstring("Lock value type, for access negotiation")]
+	VALTYPE_LOCK = 3,
+
+	[helpstring("Long (32 bit)")]
+	VALTYPE_LONG = 4,
+
+	[helpstring("String")] 
+	VALTYPE_STRING = 5,
+
+	[helpstring("Binary")] 
+	VALTYPE_BINARY = 6,
+
+	[helpstring("Real (double precision)")] 
+	VALTYPE_REAL = 7,
+
+	VALTYPE_DICT = 8,
+	[helpstring("Last value type")] 
+	VALTYPE_MAX = 8,
+} valtype_enum;
+
+typedef enum transtype_enum
+{
+	[helpstring("None")]
+	TRANSTYPE_NONE = 0,
+
+	[helpstring("First")] 
+	TRANSTYPE_FIRST = 1,
+
+	[helpstring("Nested")] 
+	TRANSTYPE_NESTED = 2,
+
+	[helpstring("First or Nested")] 
+	TRANSTYPE_ANY = 3,
+
+	[helpstring("Read")] 
+	TRANSTYPE_READ = 4,
+
+	[helpstring("Read First")]
+	TRANSTYPE_READFIRST = 5,
+
+	[helpstring("Read Nested")] 
+	TRANSTYPE_READNESTED = 6,
+
+	[helpstring("Read First or Nested")] 
+	TRANSTYPE_READANY = 7
+} transtype_enum;
+
+// ------- Meta
+
+[
+	object,
+	uuid(98AA02D9-2E2C-11D3-B36D-0060082DF884),
+	dual,
+	helpstring("ICoreMetaProject Interface"),
+	pointer_default(unique)
+]
+interface ICoreMetaProject : IDispatch
+{
+	[propget, helpstring("property GUID")]
+	HRESULT GUID([out, retval] guid_type *p);
+
+	[propput, helpstring("property GUID")]
+	HRESULT GUID([in] guid_type p);
+
+	// proper token
+	[propget, helpstring("property Token")]
+	HRESULT Token([out, retval] BSTR *p);
+
+	[propput, helpstring("property Token")]
+	HRESULT Token([in] BSTR p);
+
+	[propget, helpstring("property Name")]
+	HRESULT Name([out, retval] BSTR *p);
+
+	[propput, helpstring("property Name")]
+	HRESULT Name([in] BSTR p);
+
+	[propget, id(DISPID_VALUE), helpstring("property Object")]
+	HRESULT Object([in] metaid_type metaid, [out, retval] ICoreMetaObject **p);
+
+	[helpstring("getter for property Object")]
+	HRESULT GetObjectDisp([in] metaid_type metaid, [out, retval] ICoreMetaObject **p);
+
+	[propget, helpstring("property Objects")]
+	HRESULT Objects([out, retval] ICoreMetaObjects **p);
+
+	[helpstring("method AddObject")]
+	HRESULT AddObject([in] metaid_type metaid, [in] BSTR token, 
+		[in] BSTR name, [out] ICoreMetaObject **p);
+};
+
+[
+	object,
+	uuid(98AA02DB-2E2C-11D3-B36D-0060082DF884),
+	dual,
+	helpstring("ICoreMetaObject Interface"),
+	pointer_default(unique)
+]
+interface ICoreMetaObject : IDispatch
+{
+	[propget, helpstring("property Project")]
+	HRESULT Project([out, retval] ICoreMetaProject **p);
+
+	// unique in project
+	[propget, helpstring("property MetaID")]
+	HRESULT MetaID([out, retval] metaid_type *p);
+
+	// proper token
+	[propget, helpstring("property Token")]
+	HRESULT Token([out, retval] BSTR *p);
+
+	[propget, helpstring("property Name")]
+	HRESULT Name([out, retval] BSTR *p);
+
+	[propget, id(DISPID_VALUE), helpstring("property Attribute")]
+	HRESULT Attribute([in] attrid_type attrid, [out, retval] ICoreMetaAttribute **p);
+
+	[helpstring("getter for property Attribute")]
+	HRESULT GetAttributeDisp([in] attrid_type attrid, [out, retval] ICoreMetaAttribute **p);
+
+	[propget, helpstring("property Attributes")]
+	HRESULT Attributes([out, retval] ICoreMetaAttributes **p);
+
+	[propget, helpstring("property ClassIDs")]
+	HRESULT ClassIDs([out, retval] SAFEARRAY(guid_type) *p);
+
+	// p might be NULL
+	[helpstring("property AddAttribute")]
+	HRESULT AddAttribute([in] attrid_type attrid, [in] BSTR token, 
+		[in] BSTR name, [in] valtype_type valtype, 
+		[out] ICoreMetaAttribute **p);
+
+	[helpstring("property AddClassID")]
+	HRESULT AddClassID([in] guid_type classid);
+};
+
+[
+	object,
+	uuid(98AA02E1-2E2C-11D3-B36D-0060082DF884),
+	dual,
+	helpstring("ICoreMetaAttribute Interface"),
+	pointer_default(unique)
+]
+interface ICoreMetaAttribute : IDispatch
+{
+	[propget, helpstring("property Object")]
+	HRESULT Object([out, retval] ICoreMetaObject **p);
+
+	// unique in object, must return the valid attrid and S_OK
+	[propget, helpstring("property AttrID")]
+	HRESULT AttrID([out, retval] attrid_type *p);
+
+	// proper token
+	[propget, helpstring("property Token")]
+	HRESULT Token([out, retval] BSTR *p);
+
+	[propget, helpstring("property Name")]
+	HRESULT Name([out, retval] BSTR *p);
+
+	[propget, helpstring("property ValueType")]
+	HRESULT ValueType([out, retval] valtype_type *p);
+
+	[propget, helpstring("property LockAttrID")]
+	HRESULT LockAttrID([out, retval] attrid_type *p);
+
+	[propget, helpstring("property MaxSize")]
+	HRESULT MaxSize([out, retval] long *p);
+};
+
+// ------- Core
+
+[
+	object,
+	uuid(AD9DFA4E-3A3B-11D3-B36C-0060082DF884),
+	dual,
+	helpstring("ICoreStorage Interface"),
+	pointer_default(unique)
+]
+interface ICoreStorage : IDispatch
+{
+	// --- MetaProject
+
+	[propget, helpstring("property MetaProject")]
+	HRESULT MetaProject([out, retval] ICoreMetaProject **p);
+
+	[propput, helpstring("property MetaProject")]
+	HRESULT MetaProject([in] ICoreMetaProject *p);
+
+	// 0x0001	SERIAL
+	[propget, helpstring("property StorageType")]
+	HRESULT StorageType([out, retval] long *p);
+
+	// --- MetaObejct
+
+	[propget, helpstring("property MetaObject")]
+	HRESULT MetaObject([out, retval] ICoreMetaObject **p);
+
+	// slow, use MetaID
+	[propput, helpstring("property MetaObject")]
+	HRESULT MetaObject([in] ICoreMetaObject *p);
+
+	[propget, helpstring("property MetaID")]
+	HRESULT MetaID([out, retval] metaid_type *p);
+
+	[propput, helpstring("property MetaID")]
+	HRESULT MetaID([in] metaid_type p);
+
+	// --- MetaAttribute
+
+	[propget, helpstring("property MetaAttribute")]
+	HRESULT MetaAttribute([out, retval] ICoreMetaAttribute **p);
+
+	// slow, use AttrID
+	[propput, helpstring("property MetaAttribute")]
+	HRESULT MetaAttribute([in] ICoreMetaAttribute *p);
+
+	[propget, helpstring("property AttrID")]
+	HRESULT AttrID([out, retval] attrid_type *p);
+
+	[propput, helpstring("property AttrID")]
+	HRESULT AttrID([in] attrid_type p);
+
+	// --- Project
+
+	[helpstring("method OpenProject, if ro_mode is not NULL, itt will receive the read_only status")]
+	HRESULT OpenProject([in] BSTR connection, [out] VARIANT_BOOL *ro_mode);
+
+	[helpstring("method CloseProject, will not save data if abort is set")]
+	HRESULT CloseProject([in] VARIANT_BOOL abort);
+
+	[helpstring("method SaveProject, save_as_conn, if not empty specifies new name")]
+	HRESULT SaveProject([in] BSTR save_as_conn, [in, defaultvalue(0)] VARIANT_BOOL keepoldname);
+
+	[helpstring("method CreateProject")]
+	HRESULT CreateProject([in] BSTR connection);
+
+	[helpstring("method DeleteProject")]
+	HRESULT DeleteProject();
+
+	[helpstring("method BeginTransaction")]
+	HRESULT BeginTransaction();
+
+	// if fails, call it again or call abort
+	[helpstring("method CommitTransaction")]
+	HRESULT CommitTransaction();
+
+	[helpstring("method AbortTransaction")]
+	HRESULT AbortTransaction();
+
+	// --- Object
+
+	[helpstring("method OpenObject")]
+	HRESULT OpenObject([in] objid_type ObjID);
+
+	[helpstring("method CloseObject")]
+	HRESULT CloseObject();
+
+	[helpstring("method CreateObject")]
+	HRESULT CreateObject([out] objid_type *ObjID);
+
+	[helpstring("method DeleteObject")]
+	HRESULT DeleteObject();
+
+	[helpstring("method LockObejct")]
+	HRESULT LockObject();
+
+	// --- Attribute
+
+	[propget, helpstring("property AttributeValue")]
+	HRESULT AttributeValue([retval, out] VARIANT *p);
+
+	[propput, helpstring("property AttributeValue")]
+	HRESULT AttributeValue([in] VARIANT p);
+
+};
+
+[
+	object,
+	uuid(AD9DFA4E-2A3B-11D3-B36C-0060082DF884),
+	dual,
+	helpstring("ICoreProject Interface"),
+	pointer_default(unique)
+]
+interface ICoreProject : IDispatch
+{
+	[propput, helpstring("property Storage")]
+	HRESULT Storage([in] ICoreStorage *p);
+
+	[propget, helpstring("property Storage")]
+	HRESULT Storage([out, retval] ICoreStorage **p);
+
+	[propget, helpstring("property MetaProject")]
+	HRESULT MetaProject([out, retval] ICoreMetaProject **p);
+
+	// --- Private Storage
+
+	[helpstring("method OpenProject, if ro_mode is not NULL, itt will receive the read_only status")]
+	HRESULT OpenProject([in] BSTR connection, [in] ICoreMetaProject *p, 
+								[out, defaultvalue(0)] VARIANT_BOOL *ro_mode);
+
+	[helpstring("method CloseProject, will not be saved if abort is set")]
+	HRESULT CloseProject([in, defaultvalue((VARIANT_BOOL)0)] VARIANT_BOOL abort);
+
+	[helpstring("method CreateProject")]
+	HRESULT CreateProject([in] BSTR connection, [in] ICoreMetaProject *p);
+
+	[helpstring("method SaveProject")]
+	HRESULT SaveProject([in, defaultvalue("")] BSTR save_as_conn, [in, defaultvalue(0)] VARIANT_BOOL keepoldname);
+
+	[helpstring("method DeleteProject")]
+	HRESULT DeleteProject([in] BSTR connection);
+
+	[helpstring("method OpenProject, with undo size specification")]
+	HRESULT OpenProject2([in] BSTR connection, [in] long pUndoSize, [in] ICoreMetaProject *p, 
+								[out, defaultvalue(0)] VARIANT_BOOL *ro_mode);
+
+	[helpstring("method CreateProject, with undo size specification")]
+	HRESULT CreateProject2([in] BSTR connection, [in] long pUndoSize, [in] ICoreMetaProject *p);
+
+	// --- Objects
+
+	[propget, id(DISPID_VALUE), helpstring("property Object")]
+	HRESULT Object([in] metaid_type metaid, [in] objid_type ObjID, 
+		[out, retval] ICoreObject **p);
+
+	[helpstring("getter for property Object")]
+	HRESULT GetObjectDisp([in] metaid_type metaid, [in] objid_type ObjID, 
+		[out, retval] ICoreObject **p);
+
+	[helpstring("method CreateObject")]
+	HRESULT CreateObject([in] metaid_type metaid, [out] ICoreObject **p);
+
+	[propget, helpstring("property RootObject")]
+	HRESULT RootObject([out, retval] ICoreObject **p);
+
+	// --- Transaction
+
+	[helpstring("method BeginTransaction")]
+	HRESULT BeginTransaction([in, defaultvalue(TRANSTYPE_ANY)] transtype_enum transtype);
+
+	// if fails, call it again or call abort
+	[helpstring("method CommitTransaction")]
+	HRESULT CommitTransaction([in, defaultvalue(TRANSTYPE_ANY)] transtype_enum transtype);
+
+	[helpstring("method AbortTransaction")]
+	HRESULT AbortTransaction([in, defaultvalue(TRANSTYPE_ANY)] transtype_enum transtype);
+
+	[propget, helpstring("property NestedTransactionCount")]
+	HRESULT NestedTransactionCount([out, retval] short *p);
+
+	// --- Undo
+
+	[helpstring("method UndoTransaction")]
+	HRESULT UndoTransaction();
+
+	[helpstring("method RedoTransaction")]
+	HRESULT RedoTransaction();
+
+	[helpstring("method FlushUndoQueue")]
+	HRESULT FlushUndoQueue();
+
+	[helpstring("method FlushRedoQueue")]
+	HRESULT FlushRedoQueue();
+
+	[propget, helpstring("property UndoQueueSize")]
+	HRESULT UndoQueueSize([out, retval] short *p);
+
+	[propget, helpstring("property RedoQueueSize")]
+	HRESULT RedoQueueSize([out, retval] short *p);
+
+	// --- Territory
+
+	[helpstring("method CreateTerritory")]
+	HRESULT CreateTerritory([out] ICoreTerritory **p);
+
+	[helpstring("method PushTerritory")]
+	HRESULT PushTerritory([in] ICoreTerritory *p);
+
+	[helpstring("method PopTerritory")]
+	HRESULT PopTerritory();
+};
+
+[
+	object,
+	uuid(826A8736-563B-11D3-B301-005004D38590),
+	dual,
+	helpstring("ICoreObject Interface"),
+	pointer_default(unique)
+]
+interface ICoreObject : IDispatch
+{
+	[propget, helpstring("property Project")]
+	HRESULT Project([out, retval] ICoreProject **p);
+
+	[propget, helpstring("property MetaObject")]
+	HRESULT MetaObject([out, retval] ICoreMetaObject **p);
+
+	[propget, helpstring("property ObjID")]
+	HRESULT ObjID([out, retval] objid_type *p);
+
+	[propget, id(DISPID_VALUE), helpstring("property Attribute")]
+	HRESULT Attribute([in] attrid_type attrid, [out, retval] ICoreAttribute **p);
+
+	[helpstring("getter for property Attribute")]
+	HRESULT GetAttributeDisp([in] attrid_type attrid, [out, retval] ICoreAttribute **p);
+
+	[propget, helpstring("property Attributes")]
+	HRESULT Attributes([out, retval] ICoreAttributes **p);
+
+	[propget, helpstring("property AttributeValue")]
+	HRESULT AttributeValue([in] attrid_type attrid, [out, retval] VARIANT *p);
+
+	[helpstring("getter for property AttributeValue")]
+	HRESULT GetAttributeValueDisp([in] attrid_type attrid, [out, retval] VARIANT *p);
+
+	[propput, helpstring("property AttributeValue")]
+	HRESULT AttributeValue([in] attrid_type attrid, [in] VARIANT p);
+
+	[helpstring("setter for property AttributeValue")]
+	HRESULT SetAttributeValueDisp([in] attrid_type attrid, [in] VARIANT p);
+
+	[propget, helpstring("property LoadedAttrValue")]
+	HRESULT LoadedAttrValue([in] attrid_type attrid, [out, retval] VARIANT *p);
+
+	[helpstring("getter for property LoadedAttrValue")]
+	HRESULT GetLoadedAttrValueDisp([in] attrid_type attrid, [out, retval] VARIANT *p);
+
+	[propget, helpstring("property PreviousAttrValue")]
+	HRESULT PreviousAttrValue([in] attrid_type attrid, [out, retval] VARIANT *p);
+
+	[helpstring("getter for property PreviousAttrValue")]
+	HRESULT GetPreviousAttrValueDisp([in] attrid_type attrid, [out, retval] VARIANT *p);
+
+	[propget, helpstring("property PeerLockValue")]
+	HRESULT PeerLockValue([in] attrid_type attrid, [out, retval] locking_type *p);
+
+	[helpstring("getter for property PeerLockValue")]
+	HRESULT GetPeerLockValueDisp([in] attrid_type attrid, [out, retval] locking_type *p);
+
+	[helpstring("property SearchCollection")]
+	HRESULT SearchCollection([in] attrid_type coll_attrid, 
+		[in] attrid_type search_attrid, [in] VARIANT search_value, 
+		[out, retval] ICoreObject **p);
+
+	[propget, helpstring("property IsDeleted")]
+	HRESULT IsDeleted([out] VARIANT_BOOL *p);
+
+	[helpstring("method Delete")]
+	HRESULT Delete();
+
+	[helpstring("method Clone")]
+	HRESULT Clone([out] ICoreObject **p);
+};
+
+[
+	object,
+	uuid(826A8738-563B-11D3-B301-005004D38590),
+	dual,
+	helpstring("ICoreAttribute Interface"),
+	pointer_default(unique)
+]
+interface ICoreAttribute : IDispatch
+{
+	[propget, helpstring("property Object")]
+	HRESULT Object([out, retval] ICoreObject **p);
+
+	[propget, helpstring("property MetaAttribute")]
+	HRESULT MetaAttribute([out, retval] ICoreMetaAttribute **p);
+
+	[propget, id(DISPID_VALUE), helpstring("property Value")]
+	HRESULT Value([out, retval] VARIANT *p);
+
+	[propput, id(DISPID_VALUE), helpstring("property Value")]
+	HRESULT Value([in] VARIANT p);
+
+	[propget, helpstring("property LoadedValue")]
+	HRESULT LoadedValue([out, retval] VARIANT *p);
+
+	[propget, helpstring("property PreviousValue")]
+	HRESULT PreviousValue([out, retval] VARIANT *p);
+};
+
+[
+	object,
+	uuid(4C3A57C3-8DFF-11D3-B336-005004D38590),
+	dual,
+	helpstring("ICoreTerritory Interface"),
+	pointer_default(unique)
+]
+interface ICoreTerritory : IDispatch
+{
+	[propget, helpstring("property Project")]
+	HRESULT Project([out, retval] ICoreProject **p);
+
+	[propget, helpstring("property Attributes")]
+	HRESULT Attributes([out, retval] ICoreAttributes **p);
+
+	[helpstring("method Clear")]
+	HRESULT Clear();
+};
+
+MGACOLL_INTERFACE(43D12111-12CA-11D3-A6EC-0060082DF884, CoreMetaObject)
+MGACOLL_INTERFACE(43D12127-12CA-11D3-A6EC-0060082DF884, CoreMetaAttribute)
+MGACOLL_INTERFACE(43D12111-22CA-11D3-A6EC-0060082DF884, CoreObject)
+MGACOLL_INTERFACE(43D12127-22CA-11D3-A6EC-0060082DF884, CoreAttribute)
+
+// --------------------------- VersionInfo
+
+typedef enum GMEInterfaceVersion_enum
+{
+	GMEInterfaceVersion_None = 0,
+	GMEInterfaceVersion_Legacy = 4,
+	GMEInterfaceVersion_Current = INTERFACE_VERSION
+} GMEInterfaceVersion_enum;
+
+cpp_quote("#define GMEInterfaceVersion GMEInterfaceVersion_enum")
+
+[
+	oleautomation,
+	uuid(9A228010-020B-11d2-BBB3-0040051F7117),
+	helpstring("GME VersionInfo Interface")
+]
+interface IGMEVersionInfo : IUnknown
+{
+	[propget, helpstring("property version")]
+	HRESULT version([out, retval] GMEInterfaceVersion_enum *pVal);
+};
+
+[
+	object,
+	uuid(FAB8C11E-747A-45A5-BF05-1A8FB353B03B),
+	dual,
+	pointer_default(unique)
+]
+interface ICoreDictionaryAttributeValue : IDispatch
+{
+	[propget, id(DISPID_VALUE)]
+	HRESULT Value([in] BSTR Key, [out, retval] BSTR *Value);
+
+	[propput, id(DISPID_VALUE)]
+	HRESULT Value([in] BSTR Key, [in] BSTR Value);
+
+	[propget]
+	HRESULT Keys([out, retval] VARIANT *Keys);
+
+	[propget]
+	HRESULT Map([out, retval] VARIANT* Map);
+
+	[propput]
+	HRESULT Map([in] VARIANT Map);
+
+	HRESULT Clone([out] ICoreDictionaryAttributeValue** ret);
+};
+
+//-------------------------------------------------------------------------------

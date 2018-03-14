@@ -1,0 +1,9 @@
+; Mga.def : Declares the module parameters.
+
+LIBRARY      "Mga.DLL"
+
+EXPORTS
+	DllCanUnloadNow     PRIVATE
+	DllGetClassObject   PRIVATE
+	DllRegisterServer   PRIVATE
+	DllUnregisterServer	PRIVATE

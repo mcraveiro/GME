@@ -1,0 +1,62 @@
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+import "Parser.idl";
+import "Core.idl";
+import "MgaUtil.idl";
+
+// --------------------------- Parser Library
+
+[
+	uuid(70C41B15-E3CE-11D3-B37A-005004D38590),
+	version(1.1), // if changed, also change IDispatchImpls, GME_bin.wxs, DotNetPIAs.vcxproj, and add old PIAs to installer
+	helpstring("MGA Parser Type Library")
+]
+library MGAParserLib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+	importlib("CoreLib.tlb");
+	importlib("MetaLib.tlb");
+	importlib("MgaLib.tlb");
+	importlib("MgaUtilLib.tlb");
+
+	enum inserttype_enum;
+
+	[
+		uuid(70C41B25-E3CE-11D3-B37A-005004D38590),
+		helpstring("MgaMetaParser Class")
+	]
+	coclass MgaMetaParser
+	{
+		[default] interface IMgaMetaParser;
+		interface ISupportErrorInfo;
+		interface IGMEVersionInfo;
+	};
+
+	[
+		uuid(A5D0DAE7-16EE-11D4-B3C2-005004D38590),
+		helpstring("MgaDumper Class")
+	]
+	coclass MgaDumper
+	{
+		[default] interface IMgaDumper2;
+		interface IMgaDumper;
+		interface IGMEVersionInfo;
+	};
+
+	[
+		uuid(94D6FB54-1F7C-11D4-B3D0-005004D38590),
+		helpstring("MgaParser Class")
+	]
+	coclass MgaParser
+	{
+		[default] interface IMgaParser3;
+		interface IMgaParser2;
+		interface IMgaParser;
+		interface IGMEVersionInfo;
+	};
+
+};

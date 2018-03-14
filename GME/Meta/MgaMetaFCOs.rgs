@@ -1,0 +1,26 @@
+HKCR
+{
+	Mga.MgaMetaFCOs.1 = s 'MgaMetaFCOs Class'
+	{
+		CLSID = s '{c6739780-c1fd-11d3-9ad2-00aa00b6fe26}'
+	}
+	Mga.MgaMetaFCOs = s 'MgaMetaFCOs Class'
+	{
+		CLSID = s '{c6739780-c1fd-11d3-9ad2-00aa00b6fe26}'
+		CurVer = s 'Mga.MgaMetaFCOs.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {c6739780-c1fd-11d3-9ad2-00aa00b6fe26} = s 'MgaMetaFCOs Class'
+		{
+			ProgID = s 'Mga.MgaMetaFCOs.1'
+			VersionIndependentProgID = s 'Mga.MgaMetaFCOs'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			'TypeLib' = s '{0ADEEC71-D83A-11D3-B36B-005004D38590}'
+		}
+	}
+}

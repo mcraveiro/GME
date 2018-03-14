@@ -1,0 +1,6 @@
+; AutoRouter.def : Declares the module parameters for the DLL.
+
+LIBRARY      "AutoRouter"
+DESCRIPTION  'AutoRouter Windows Dynamic Link Library'
+
+EXPORTS

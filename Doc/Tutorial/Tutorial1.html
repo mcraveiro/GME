@@ -1,0 +1,264 @@
+<html>
+
+<body lang=EN-US style='tab-interval:.5in'
+      text="#000066" 
+      bgcolor="#FFFFCC" 
+      link="#0000EE" 
+      vlink="#551A8B" 
+      alink="#FF0000">
+
+
+
+
+<center>
+<b><u><font size=+2>Tutorial 1<br>
+Step by step instructions to building a simple modeling environment using GME 
+</font></u></b>
+</center>
+<p>
+<br>
+<br>
+
+<h1>Creating a metamodel</h1>
+
+<p><i>First, we will specify a simple hierarchical finite state
+machine modeling language. Our metamodel will describe states and transitions.
+States can be connected together by transitions. We also allow states to
+contain other states.</i></p>
+
+<p>Note: GME has an import/export from/to XML feature for its save
+files in the File menu. Each step producing a new GME model here is exported to
+xml in the Doc\Tutorials\T1 subfolder of the GME program folder, so that you
+may import it to check against your work to see if you are on the right track.
+Each step with a savefile will have a link to the xml file following the
+instructions.</p>
+
+<h2>Step 1: Starting GME</h2>
+
+<p>Start GME. You may have to <i>register the MetaGME
+paradigm</i>. To do so, invoke <i>File/Register Paradigms…</i> and add the GME
+built-in metamodeling environment by pressing the <i>Add from file…</i>
+button. Select the MetaGME<span style='font-family:"Courier New"'>.xmp</span>
+file in your GME program folder in Paradigms\<span style='font-family:"Courier New"'>MetaGME\</span>
+subfolder.</p>
+
+<h2>Step 2: Create an empty project</h2>
+
+<p>You have to create a new project. Invoke <i>File/New Project</i>
+from GME. A dialog box pops up to let you select the paradigm the new project
+will be based on. Since we are creating a metamodel, the paradigm will be <i>MetaGME</i>.
+Select it and press the <i>Create New...</i> button. The next dialog asks you
+to specify the kind of the data storage you want to use. Simple models are
+usually stored <i>in project files</i>, so press <i>Next</i>. The final dialog
+box allows you to<i> name your project file</i>. Enter your project file name
+(e.g. <span style='font-family:"Courier New"'>FSM-Meta.mga</span>) and press
+OK. The file type for metamodels (and models as well) is MGA.</p>
+
+<p>Now you have an empty project named FSM-Meta, based on the
+MetaGME paradigm, containing only a root folder.</p>
+
+<p><a href="T1/t1s2.xme">t1s2.xme</a></p>
+
+<h2>Step 3: Create a paradigm sheet</h2>
+
+<p><i>Add a new paradigm sheet to the root folder.</i> Right
+click on the root folder in the Browser window (usually located on the right
+hand side). If it is not shown, select <i>View/Browser</i> on the menu bar on
+the top. Your root folder’s name is the name of your project file by default.
+(In our example it is FSM-Meta.) Select the ParadigmSheet option within the <i>Insert
+New Model</i> in the context menu. A new object named NewParadigmSheet is
+created under the root folder. Double click to open it. You will see an empty
+window in the user area.</p>
+
+<p><a href="T1/t1s3.xme">t1s3.xme</a></p>
+
+<h2>Step 4: Define entities and relationships</h2>
+
+<p>First, make sure the <i>current aspect is ClassDiagram</i>.
+The available objects to define your model are in the Part Browser window.
+(Usually it is located at the bottom of the user area. If it is not shown,
+select View/Part Browser on the menu bar on the top.) The tabs show the
+available aspects, in this case the ClassDiagram tab should be selected.</p>
+
+<p>In our simple metamodel example you will need a model object
+and a connection object. <i>Drag these objects onto your paradigm sheet.</i>
+Name the model “State” by clicking on the model object and editing the name in
+the Attribute Panel and name the connection object “Transition”. If the
+Attribute Panel is not visible select <i>View/Attribute Panel</i> from the top
+(You may give another name to your object, but be aware of XML naming conventions
+and do not put white space in your object names. Names beginning with numbers
+are also not supported.)</p>
+
+<p>In GME you always have to
+declare the topmost model(s), which can be added to the root folder in the
+target environment. Set the “In root folder?” attribute of the State model by
+clicking the object and using the Attribute Panel, changing the “In root
+folder” box from false to true. </p>
+
+<p>To demonstrate clearly the direction of the flow between the
+states we want to use a directed Transition in the target FSM paradigm. So, set
+the “Line end” attribute of the Transition connection object to “Arrow”. To
+perform it, click on the Transition object and in the Attribute Panel, select
+Arrow in the combo box next to the Line End attribute.</p>
+
+<p>Our rules were: <i>States are connected together by
+transitions and states can contain other states.</i></p>
+
+<p>The specification of a connection involves three
+participants: the source, the destination and the connection itself. This type
+of relationship can be defined with the help of a <i>connector</i> object in
+GME. Drag your connector onto your sheet. <i>Create </i>three <i>connections</i>:
+(1) one from the State object to the connector object, (2) another one from the
+connector object back to the State object, (3) and a third one between the
+connector object and the Transition object. Connections are created<i> in
+Connect Mode.</i> (Select <img 
+src="./Icons/AddConnMode.gif">on the toolbar. In
+Connect Mode, when you move your mouse onto an object, its border color will
+change to red indicating that it may be selected as a participant of a
+connection. Moreover, you can determine the join point of your connection
+moving your cursor near the center of a borderline of your object. If you do
+not select any border, GME will try to optimize your connections
+automatically every time you move one of your objects.)</p>
+
+<p>GME asks you, what type of relation you would like to have
+if there are more than one options. By creating a connection between the
+Transition object and the connector object your choices are “SourceToConnector”
+and “AssociationClass”. Since we would like to have a Transition connection
+between two States in our target FSM paradigm, your choice will be
+AssociationClass.</p>
+
+<p>Another relationship we need to define is the containment of
+states by other states. This is accomplished by a containment link starting
+from and also directed to the State model object itself. States must contain
+Transitions as well, so you have to add the Transition connection object to the
+State model object.</p>
+
+<p>And there you are. You have the class diagram for the simple
+finite state machine on your screen. (See Figure
+1.)</p>
+
+<p><CENTER><img  
+src="./T1/Figure1.jpg"></CENTER></p>
+
+<p align=center><a>Figure 1</a>:
+Simple finite state machine class diagram</p>
+
+<p align=left><a href="T1/t1s4.xme">t1s4.xme</a></p>
+
+<h2>Step 5: Define an aspect</h2>
+
+<p><i>You have to define at least one aspect for your paradigm</i>.
+<i>Switch to Visualization aspect</i> by using the Aspect combo box in the
+header of your paradigm sheet window (or the tabs in the Part Browser). <i>Drag
+an aspect object onto your sheet</i> and name it (e.g. FSM). <i>Switch</i> from
+Edit Mode <i>to Set Mode</i> (select <img 
+src="./Icons/SetMode.gif"> on toolbar) and <i>right
+click on the aspect</i> object. You can include objects in your aspect by <i>left
+clicking on the desired objects</i> in your metamodel. Select both the State
+and the Transition objects in your sheet.</p>
+
+<p><i>Go to Connect Mode and</i> <i>connect your FSM aspect to
+the State model</i> specifying that States have FSM aspect. (See Figure 2.)</p>
+
+<p><center><img width=272 height=149 
+src="./T1/Figure2.jpg"></center></p>
+
+<p align=center><a>Figure 2</a>:
+FSM aspect</p>
+
+<p align=left><a href="T1/t1s5.xme">t1s5.xme</a></p>
+
+<h2>Step 6: Define attributes in your model</h2>
+
+<p>Although <i>you can interpret your model without defining
+any attributes</i>, to have our simple paradigm more realistic we define two
+attributes for the Transitions: the “Condition” and the “Output”. The Condition
+determines, which transition should be activated, and the Output tells us the
+result of this action.</p>
+
+<p><i>Switch to the Attributes aspect</i> by using the Aspect
+combo box in the header of your paradigm window.<i> Drag </i>two<i>
+FieldAttribute objects onto your sheet.</i> (Name them Condition and Output.) <i>Switch
+to Connect Mode and connect the attributes to the Transition connection object.</i>
+The new attributes will be listed in the Transition connection object. (See Figure
+3.)</p>
+
+<p align=center><a>
+ <img width=237 height=177 src="./T1/Figure3.jpg"></a></p>
+
+<p align=center><a>Figure 3</a>: Attributes
+of the Transition</p>
+
+<p><b>Note:      </b>You could define constraints, more attributes or
+objects for your metamodel. This simple tutorial demonstrates only the basic
+steps.</p>
+
+<p><a href="T1/t1s6.xme">t1s6.xme</a></p>
+
+<h2>Step 7: Interpret the metamodel and install the new paradigm</h2>
+
+<p><i>Before you can create models
+using your new paradigm you have to interpret the metamodel.</i> Create your
+paradigm by pressing the <i>i</i> button on the toolbar. In the Configure
+Aspect Mapping dialog box that pops up, you can specify aspect-mapping
+information if needed. Our example is too simple to do anything, so let’s press
+OK without any changes.</p>
+
+<p>You may <i>specify the location
+of the generated XMP file</i> containing the paradigm specifications and if no
+errors occur, you will be able to <i>register your paradigm</i> by pressing Yes
+in the dialog box that pops up. </p>
+
+<h1>Use your metamodel to create domain-specific models</h1>
+
+<h2>Step 8: Create a new project based on your new metamodel</h2>
+
+<p>Through a simplified model of an Automatic Teller Machine we
+demonstrate how to apply the created paradigm.</p>
+
+<p>Close your previous project selecting <i>File/Close Project</i>.
+Invoke <i>File/New Project</i>. In the paradigm dialog box <i>select the name
+of the paradigm</i> that you just created and press the <i>Create New...</i>
+button. The next dialog asks you to specify the kind of the data storage you
+want to use. Simple models are usually stored <i>in project files</i>, press
+Next. The final dialog box allows you to <i>name your project file</i>. Enter a
+name (e.g. ATM.mga) and press
+OK. In the Browser window, right click to <i>insert a State model into your
+root folder</i>.</p>
+
+<p>Now you can create a hierarchical finite state machine. A
+simplified Automatic Teller Machine is shown in Figure 4.</p>
+
+<p align=center><img width=576 height=341
+src="./T1/Figure4.gif" ></p>
+
+<p align=center><a>Figure </a>:
+Simplified model of an Automatic Teller Machine</p>
+
+
+
+<p align=left><a href="T1/t1s8.xme">t1s8.xme</a></p>
+
+
+
+<p><br>
+
+
+<center>
+<hr width="80%">
+<table><tr><td>
+&lt;&lt; Previous Lesson 
+</td><td width=50></td><td>
+<a href="index.html#toc2">Complete List</a> 
+</td><td width=50></td><td>
+<a href="Tutorial2.html">Next Lesson >></a>
+</td></tr></table>
+</center>
+
+<p align=left></p>
+
+
+
+</body>
+
+</html>

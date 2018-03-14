@@ -1,0 +1,21 @@
+set -e
+set -x
+
+version=1.1.0.0
+heat='/cygdrive/c/Program Files (x86)\Windows Installer XML v3.5\bin\heat'
+# for name in GME.MGA.Core GME.MGA.Meta GME.MGA GME.MGA.Parser GME.Util GME; do
+for name in GME.MGA.Parser; do
+"$heat" file C:/Windows/assembly/GAC_MSIL/${name}/${version}__f240a760fe751c2e/${name}.dll -o ${name}.wxi -gg -cg ${name}.${version} -srd -dr PIADIR -var var.PIADir
+done
+[ -f GME.wxi ] && mv GME.wxi GMEPIA.wxi
+
+# then add Assembly=".net" to <File
+# and <Condition>NETFRAMEWORK</Condition> under <Component>
+# then remove <RegistryValues from previous versions (for the same version of the typelib)
+# Add to first wxi:
+#  <DirectoryRef Id="INSTALLDIR_PARADIGMS32">
+#    <Directory Id="PIADIR.1.1.0.0" Name="PIA1.1.0.0"/>
+#  </DirectoryRef>
+# Old wxi: change Source="$(var.PIADir) to Source="$(var.PIADir.1.0.1.0)
+# For new versions, change WIX_CANDLE_ARG in tools.py
+

@@ -1,0 +1,26 @@
+HKCR
+{
+	Mga.MgaMetaPart.1 = s 'MgaMetaPart Class'
+	{
+		CLSID = s '{A70CAB46-DD94-11D3-9308-444553540000}'
+	}
+	Mga.MgaMetaPart = s 'MgaMetaPart Class'
+	{
+		CLSID = s '{A70CAB46-DD94-11D3-9308-444553540000}'
+		CurVer = s 'Mga.MgaMetaPart.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {A70CAB46-DD94-11D3-9308-444553540000} = s 'MgaMetaPart Class'
+		{
+			ProgID = s 'Mga.MgaMetaPart.1'
+			VersionIndependentProgID = s 'Mga.MgaMetaPart'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			'TypeLib' = s '{0ADEEC71-D83A-11D3-B36B-005004D38590}'
+		}
+	}
+}

@@ -1,0 +1,1054 @@
+<?xml version='1.0' encoding='windows-1252'?>
+
+
+<Wix xmlns='http://schemas.microsoft.com/wix/2006/wi' RequiredVersion='3.0.4813.0'>
+
+  <?include GME_dyn.wxi ?>
+  <?include GME_inc.wxi ?>
+  <Fragment>
+    <PropertyRef Id="NETFRAMEWORK20"/>
+    <PropertyRef Id="NETFRAMEWORK40FULL"/>
+    <PropertyRef Id="NETFRAMEWORK40CLIENT"/>
+
+    <?if $(sys.BUILDARCH)=x86 ?>
+    <ComponentGroup Id='GME_SDK$(sys.BUILDARCH)'>
+      <Component Id="MetaParadigmFiles" Guid="18535c6e-aeff-4e89-b262-f3eb0a7854ee" Directory="INSTALLDIR_PARADIGMS_METAGMEx86">
+        <File Id="MetaGME.xmp" Name="MetaGME.xmp" KeyPath="yes" Source="..\Paradigms\MetaGME\MetaGME.xmp" />
+        <File Id="MetaGME_model.xme" Name="MetaGME-model.xme" Source="..\Paradigms\MetaGME\MetaGME-model.xme" />
+      </Component>
+
+      <Component Id="CSharpDSMLGenerator.dll" Directory="INSTALLDIR_SDK_DOTNET_CSHARPDSMLGENERATOR">
+        <File Id="CSharpDSMLGenerator.dll" Name="CSharpDSMLGenerator.dll" KeyPath="yes" Source="..\SDK\DotNet\DsmlGenerator\CSharpDsmlGenerator\bin\Release\CSharpDSMLGenerator.dll" />
+        <Class Id="{78BE7B95-3564-4BA9-8FE6-8D9B91EEE0B8}" Context="InprocServer32" Description="MGA.Interpreter.CSharpDSMLGenerator" ThreadingModel="both" ForeignServer="mscoree.dll">
+          <ProgId Id="MGA.Interpreter.CSharpDSMLGenerator" Description="MGA.Interpreter.CSharpDSMLGenerator" />
+        </Class>
+        <RegistryValue Root="HKCR" Key="CLSID\{78BE7B95-3564-4BA9-8FE6-8D9B91EEE0B8}\Implemented Categories\{62C8FE65-4EBB-45e7-B440-6E39B2CDBF29}" Value="" Type="string" Action="write" />
+        <RegistryValue Root="HKCR" Key="CLSID\{78BE7B95-3564-4BA9-8FE6-8D9B91EEE0B8}\InprocServer32" Name="Class" Value="CSharpDSMLGenerator.CSharpDSMLGeneratorInterpreter" Type="string" Action="write" />
+        <RegistryValue Root="HKCR" Key="CLSID\{78BE7B95-3564-4BA9-8FE6-8D9B91EEE0B8}\InprocServer32" Name="Assembly" Value="CSharpDSMLGenerator, Version=1.0.17.1, Culture=neutral" Type="string" Action="write" />
+        <RegistryValue Root="HKCR" Key="CLSID\{78BE7B95-3564-4BA9-8FE6-8D9B91EEE0B8}\InprocServer32" Name="RuntimeVersion" Value="v4.0.30319" Type="string" Action="write" />
+        <RegistryValue Root="HKCR" Key="CLSID\{78BE7B95-3564-4BA9-8FE6-8D9B91EEE0B8}\InprocServer32" Name="CodeBase" Value="file:///[#CSharpDSMLGenerator.dll]" Type="string" Action="write" />
+        <RegistryValue Root="HKCR" Key="Component Categories\{62C8FE65-4EBB-45e7-B440-6E39B2CDBF29}" Name="0" Value=".NET Category" Type="string" Action="write" />
+        <RegistryKey Root='HKLM' Key='Software\GME\Components\MGA.Interpreter.CSharpDSMLGenerator'>
+          <RegistryValue Name='Description' Type='string' Value='CSharp (.Net) Dsml API Generator'/>
+          <RegistryValue Name='Icon' Type='string' Value='[#CSharpDSMLGenerator.ico]'/>
+          <RegistryValue Name='Paradigm' Type='string' Value='MetaGME'/>
+          <RegistryValue Name='Tooltip' Type='string' Value='CSharp (.Net) Dsml API Generator'/>
+          <RegistryValue Name='Type' Type='integer' Value='1'/>
+
+          <RegistryKey Key='Associated'>
+            <RegistryValue Name='MetaGME' Type='string' Value=''/>
+          </RegistryKey>
+        </RegistryKey>
+      </Component>
+      <Component Directory="INSTALLDIR_SDK_DOTNET_CSHARPDSMLGENERATOR">
+        <File Source="..\SDK\DotNet\DsmlGenerator\CSharpDsmlGenerator\CSharpDSMLGenerator.ico" />
+      </Component>
+      <Component Directory="INSTALLDIR_SDK_DOTNET_CSHARPDSMLGENERATOR" Guid="{AEE769E8-E82D-46AF-AF94-F61B2C41DF5A}" Permanent="yes">
+        <File Source="..\SDK\DotNet\DsmlGenerator\CSharpDsmlGenerator\bin\Release\ISIS.GME.Common.dll" KeyPath="yes" Assembly=".net"/>
+        <Condition>NETFRAMEWORK40</Condition>
+      </Component>
+      <Component Id="ISIS.GME.Common.dll.1.0.4.0" Directory="INSTALLDIR_SDK_DOTNET_CSHARPDSMLGENERATOR_1_0_4_0" Guid="{C627CFC3-A8D1-47EB-AFF9-D1309EE08DC6}" Permanent="yes">
+        <File Id="ISIS.GME.Common.dll.1.0.4.0" Source="..\SDK\DotNet\DsmlGenerator\ISIS.GME.Common\1.0.4.0\ISIS.GME.Common.dll" KeyPath="yes" Assembly=".net"/>
+        <Condition>NETFRAMEWORK40</Condition>
+      </Component>
+      <Component Directory="INSTALLDIR_SDK_DOTNET_CSHARPDSMLGENERATOR">
+        <File Source="..\SDK\DotNet\DsmlGenerator\CSharpDsmlGenerator\bin\Release\MgaMeta.dll" />
+      </Component>
+
+      <Component Id="BON2SFInterpreter.dll" Directory="INSTALLDIR_PARADIGMS_SF">
+        <File Id="BON2SFInterpreter.dll" Name="BON2SFInterpreter.dll" KeyPath="yes" Source="..\Paradigms\SF\BON2SFInterpreter\$(var.Release)\BON2SFInterpreter.dll">
+          <TypeLib Id="34ADD188-D227-43A3-82DD-F920A2081424" Description="MGA Interpreter TypeLibrary (BON2SFInterpreter)" Language="0" MajorVersion="1" MinorVersion="0">
+            <Class Id="{257C467E-C7F2-4E70-8B44-817E40C8DE51}" Context="InprocServer32" Description="MGA.Interpreter.BON2SFInterpreter">
+              <ProgId Id="MGA.Interpreter.BON2SFInterpreter" Description="MGA.Interpreter.BON2SFInterpreter" />
+            </Class>
+          </TypeLib>
+        </File>
+        <RegistryKey Root='HKLM' Key='Software\GME\Components\MGA.Interpreter.BON2SFInterpreter'>
+          <RegistryValue Name='Description' Type='string' Value='BON2SFInterpreter'/>
+          <RegistryValue Name='Icon' Type='string' Value=',IDI_COMPICON'/>
+          <RegistryValue Name='Paradigm' Type='string' Value='SF'/>
+          <RegistryValue Name='Tooltip' Type='string' Value='SignalFlow Interpreter'/>
+          <RegistryValue Name='Type' Type='integer' Value='1'/>
+          <RegistryKey Key='Associated'>
+            <RegistryValue Name='SF' Type='string' Value=''/>
+          </RegistryKey>
+        </RegistryKey>
+      </Component>
+
+      <Component Id="Interfaces" Guid="fde16217-618a-46ad-ab96-ee0a08c8ddba" Directory="INSTALLDIR_INTERFACES">
+        <File Id="InterfaceVersion.h" Name="InterfaceVersion.h" KeyPath="yes" Source="..\GME\Interfaces\InterfaceVersion.h" />
+        <File Id="InterfaceColl.h" Name="InterfaceColl.h" Source="..\GME\Interfaces\InterfaceColl.h" />
+        <File Id="GMEVersion.h" Name="GMEVersion.h" Source="..\GME\Gme\GMEVersion.h" />
+        <File Id="Core.idl" Name="Core.idl" Source="..\GME\Interfaces\Core.idl" />
+        <File Id="Core.h" Name="Core.h" Source="..\GME\Interfaces\Core.h" />
+        <File Id="Core_i.c" Name="Core_i.c" Source="..\GME\Interfaces\Core_i.c" />
+        <File Id="Gme.idl" Name="Gme.idl" Source="..\GME\Interfaces\Gme.idl" />
+        <File Id="Gme.h" Name="Gme.h" Source="..\GME\Interfaces\Gme.h" />
+        <File Id="Gme_i.c" Name="Gme_i.c" Source="..\GME\Interfaces\Gme_i.c" />
+        <File Id="Meta.idl" Name="Meta.idl" Source="..\GME\Interfaces\Meta.idl" />
+        <File Id="Meta.h" Name="Meta.h" Source="..\GME\Interfaces\Meta.h" />
+        <File Id="Meta_i.c" Name="Meta_i.c" Source="..\GME\Interfaces\Meta_i.c" />
+        <File Id="Mga.idl" Name="Mga.idl" Source="..\GME\Interfaces\Mga.idl" />
+        <File Id="Mga.h" Name="Mga.h" Source="..\GME\Interfaces\Mga.h" />
+        <File Id="Mga_i.c" Name="Mga_i.c" Source="..\GME\Interfaces\Mga_i.c" />
+        <File Id="MgaUtil.idl" Name="MgaUtil.idl" Source="..\GME\Interfaces\MgaUtil.idl" />
+        <File Id="MgaUtil.h" Name="MgaUtil.h" Source="..\GME\Interfaces\MgaUtil.h" />
+        <File Id="MgaUtil_i.c" Name="MgaUtil_i.c" Source="..\GME\Interfaces\MgaUtil_i.c" />
+        <File Id="Parser.idl" Name="Parser.idl" Source="..\GME\Interfaces\Parser.idl" />
+        <File Id="Parser.h" Name="Parser.h" Source="..\GME\Interfaces\Parser.h" />
+        <File Id="Parser_i.c" Name="Parser_i.c" Source="..\GME\Interfaces\Parser_i.c" />
+      </Component>
+
+      <Component Id="BON2SFInterpreterSource" Guid="{cffb44fa-c59c-4695-9db7-ca410d6bdca0}" Directory="INSTALLDIR_PARADIGMS_SF_BON2SFINTERPRETER">
+        <File Id="BON2SFInterpreterSource_BON2Component.cpp" Name="BON2Component.cpp" Source="..\Paradigms\SF\BON2SFInterpreter\BON2Component.cpp" />
+        <File Id="BON2SFInterpreterSource_BON2Component.h" Name="BON2Component.h"  Source="..\Paradigms\SF\BON2SFInterpreter\BON2Component.h" />
+        <File Id="BON2SFInterpreter.sln" Name="BON2SFInterpreter.sln" KeyPath="yes" Source="..\Paradigms\SF\BON2SFInterpreter\BON2SFInterpreter.sln" />
+        <File Id="BON2SFInterpreter.vcxproj" Name="BON2SFInterpreter.vcxproj"  Source="..\Paradigms\SF\BON2SFInterpreter\BON2SFInterpreter.vcxproj" />
+        <File Id="BON2SFInterpreter.vcxproj.filters" Name="BON2SFInterpreter.vcxproj.filters"  Source="..\Paradigms\SF\BON2SFInterpreter\BON2SFInterpreter.vcxproj.filters" />
+        <File Id="BON2SFInterpreterSource_CompIcon.ico" Name="CompIcon.ico"  Source="..\Paradigms\SF\BON2SFInterpreter\CompIcon.ico" />
+        <File Id="BON2SFInterpreterSource_Component.def" Name="Component.def"  Source="..\Paradigms\SF\BON2SFInterpreter\Component.def" />
+        <File Id="BON2SFInterpreterSource_Component.rc" Name="Component.rc"  Source="..\Paradigms\SF\BON2SFInterpreter\Component.rc" />
+        <File Id="BON2SFInterpreterSource_ComponentConfig.h" Name="ComponentConfig.h"  Source="..\Paradigms\SF\BON2SFInterpreter\ComponentConfig.h" />
+        <File Id="BON2SFInterpreterSource_Resource.h" Name="Resource.h"  Source="..\Paradigms\SF\BON2SFInterpreter\Resource.h" />
+        <File Id="BON2SFInterpreterSource_StdAfx.cpp" Name="StdAfx.cpp"  Source="..\Paradigms\SF\BON2SFInterpreter\StdAfx.cpp" />
+        <File Id="BON2SFInterpreterSource_StdAfx.h" Name="StdAfx.h"  Source="..\Paradigms\SF\BON2SFInterpreter\StdAfx.h" />
+        <File Id="SFVisitor.h" Name="SFVisitor.h"  Source="..\Paradigms\SF\BON2SFInterpreter\SFVisitor.h" />
+        <File Id="SFVisitor.cpp" Name="SFVisitor.cpp"  Source="..\Paradigms\SF\BON2SFInterpreter\SFVisitor.cpp" />
+        <File Id="BON2SFInterpreterSource_PrintDlg.h" Name="PrintDlg.h"  Source="..\Paradigms\SF\BON2SFInterpreter\PrintDlg.h" />
+        <File Id="BON2SFInterpreterSource_PrintDlg.cpp" Name="PrintDlg.cpp"  Source="..\Paradigms\SF\BON2SFInterpreter\PrintDlg.cpp" />
+        <File Id="SFBonExtension.cpp" Name="SFBonExtension.cpp"  Source="..\Paradigms\SF\BON2SFInterpreter\SFBonExtension.cpp" />
+        <File Id="SFBonExtension.h" Name="SFBonExtension.h"  Source="..\Paradigms\SF\BON2SFInterpreter\SFBonExtension.h" />
+        <File Id="SFBonUserExtension.cpp" Name="SFBonUserExtension.cpp"  Source="..\Paradigms\SF\BON2SFInterpreter\SFBonUserExtension.cpp" />
+      </Component>
+
+      <Component Id="BON2SFSample.dll" Directory="INSTALLDIR_PARADIGMS_SF">
+        <File Id="BON2SFSample.dll" Name="BON2SFSample.dll" KeyPath="yes" Source="..\Paradigms\SF\BON2SFSample\$(var.Release)\BON2SFSample.dll">
+          <TypeLib Id="55BC0291-4034-4185-8E9D-0909CF06C983" Description="MGA Interpreter TypeLibrary (BON2SFSample)" Language="0" MajorVersion="1" MinorVersion="0">
+            <Class Id="{71B6B8C2-00B1-4D23-BE17-D6172C271AA8}" Context="InprocServer32" Description="MGA.Interpreter.BON2SFSample">
+              <ProgId Id="MGA.Interpreter.BON2SFSample" Description="MGA.Interpreter.BON2SFSample" />
+            </Class>
+          </TypeLib>
+        </File>
+        <RegistryKey Root='HKLM' Key='Software\GME\Components\MGA.Interpreter.BON2SFSample'>
+          <RegistryValue Name='Description' Type='string' Value='BON2SFSample'/>
+          <RegistryValue Name='Icon' Type='string' Value=',IDI_COMPICON'/>
+          <RegistryValue Name='Paradigm' Type='string' Value='SF'/>
+          <RegistryValue Name='Tooltip' Type='string' Value='BON2SFSample Interpreter'/>
+          <RegistryValue Name='Type' Type='integer' Value='1'/>
+          <RegistryKey Key='Associated'>
+            <RegistryValue Name='SF' Type='string' Value=''/>
+          </RegistryKey>
+        </RegistryKey>
+      </Component>
+
+      <Component Id="BON2SFSampleSource" Guid="d5166390-ad67-4bc9-b315-267c0ceda262" Directory="INSTALLDIR_PARADIGMS_SF_BON2SFSAMPLE">
+        <File Id="BON2SFSample.sln" Name="BON2SFSample.sln" KeyPath="yes" Source="..\Paradigms\SF\BON2SFSample\BON2SFSample.sln" />
+        <File Id="BON2SFSampleSource_BON2Component.cpp" Name="BON2Component.cpp" Source="..\Paradigms\SF\BON2SFSample\BON2Component.cpp" />
+        <File Id="BON2SFSampleSource_BON2Component.h" Name="BON2Component.h" Source="..\Paradigms\SF\BON2SFSample\BON2Component.h" />
+        <File Id="BON2SFSample.vcxproj" Name="BON2SFSample.vcxproj" Source="..\Paradigms\SF\BON2SFSample\BON2SFSample.vcxproj" />
+        <File Id="BON2SFSample.vcxproj.filters" Name="BON2SFSample.vcxproj.filters" Source="..\Paradigms\SF\BON2SFSample\BON2SFSample.vcxproj.filters" />
+        <File Id="BON2SFSampleSource_CompIcon.ico" Name="CompIcon.ico" Source="..\Paradigms\SF\BON2SFSample\CompIcon.ico" />
+        <File Id="BON2SFSampleSource_Component.def" Name="Component.def" Source="..\Paradigms\SF\BON2SFSample\Component.def" />
+        <File Id="BON2SFSampleSource_Component.rc" Name="Component.rc" Source="..\Paradigms\SF\BON2SFSample\Component.rc" />
+        <File Id="BON2SFSampleSource_ComponentConfig.h" Name="ComponentConfig.h" Source="..\Paradigms\SF\BON2SFSample\ComponentConfig.h" />
+        <File Id="BON2SFSampleSource_PrintDlg.cpp" Name="PrintDlg.cpp" Source="..\Paradigms\SF\BON2SFSample\PrintDlg.cpp" />
+        <File Id="BON2SFSampleSource_PrintDlg.h" Name="PrintDlg.h" Source="..\Paradigms\SF\BON2SFSample\PrintDlg.h" />
+        <File Id="BON2SFSampleSource_Resource.h" Name="Resource.h" Source="..\Paradigms\SF\BON2SFSample\Resource.h" />
+        <File Id="BON2SFSampleSource_StdAfx.cpp" Name="StdAfx.cpp" Source="..\Paradigms\SF\BON2SFSample\StdAfx.cpp" />
+        <File Id="BON2SFSampleSource_StdAfx.h" Name="StdAfx.h" Source="..\Paradigms\SF\BON2SFSample\StdAfx.h" />
+      </Component>
+
+      <Component Id="HFSMIcons" Guid="9bfd7482-92b5-4500-870a-a35d859145bd" Directory="INSTALLDIR_PARADIGMS_HFSM_ICONS">
+        <File Id="focusstate.bmp" Name="focusstate.bmp" KeyPath="yes" Source="..\Paradigms\HFSM\icons\focusstate.bmp" />
+        <File Id="defaultstate.bmp" Name="defaultstate.bmp" Source="..\Paradigms\HFSM\icons\defaultstate.bmp" />
+        <File Id="event.bmp" Name="event.bmp" Source="..\Paradigms\HFSM\icons\event.bmp" />
+        <File Id="eventsel.bmp" Name="eventsel.bmp" Source="..\Paradigms\HFSM\icons\eventsel.bmp" />
+      </Component>
+
+      <Component Id="HFSMSimulator.dll" Directory="INSTALLDIR_PARADIGMS_HFSM">
+        <File Id="HFSMSimulator.dll" Name="HFSMSimulator.dll" KeyPath="yes" Source="..\Paradigms\HFSM\HFSMSimulator\$(var.Release)\HFSMSimulator.dll">
+          <TypeLib Id="69653354-C8DE-4331-9CF1-F6B73AF6B09D" Description="MGA Interpreter TypeLibrary (HFSMSimulator)" Language="0" MajorVersion="1" MinorVersion="0">
+            <Class Id="{3E52908A-15DB-47CC-A569-4F852ED56C5E}" Context="InprocServer32" Description="MGA.Interpreter.HFSMSimulator">
+              <ProgId Id="MGA.Interpreter.HFSMSimulator" Description="MGA.Interpreter.HFSMSimulator" />
+            </Class>
+          </TypeLib>
+        </File>
+        <RegistryKey Root='HKLM' Key='Software\GME\Components\MGA.Interpreter.HFSMSimulator'>
+          <RegistryValue Name='Description' Type='string' Value='HFSMSimulator'/>
+          <RegistryValue Name='Icon' Type='string' Value=',IDI_COMPICON'/>
+          <RegistryValue Name='Paradigm' Type='string' Value='HFSM'/>
+          <RegistryValue Name='Tooltip' Type='string' Value='HFSM Simulator'/>
+          <RegistryValue Name='Type' Type='integer' Value='1'/>
+          <RegistryKey Key='Associated'>
+            <RegistryValue Name='HFSM' Type='string' Value=''/>
+          </RegistryKey>
+        </RegistryKey>
+      </Component>
+
+
+      <Component Id="HFSMSimulatorSource" Guid="{C47EFE8D-DDEF-41FE-A987-41D7EC381E6E}" Directory="INSTALLDIR_PARADIGMS_HFSM_HFSMSIMULATOR">
+        <File Id="HFSMSimulatorSource_BONComponent.cpp" Name="BONComponent.cpp" Source="..\Paradigms\HFSM\HFSMSimulator\BONComponent.cpp" />
+        <File Id="HFSMSimulatorSource_BONComponent.h" Name="BONComponent.h"  Source="..\Paradigms\HFSM\HFSMSimulator\BONComponent.h" />
+        <File Id="HFSMSimulatorSource_CompIcon.ico" Name="CompIcon.ico"  Source="..\Paradigms\HFSM\HFSMSimulator\CompIcon.ico" />
+        <File Id="HFSMSimulatorSource_Component.def" Name="Component.def"  Source="..\Paradigms\HFSM\HFSMSimulator\Component.def" />
+        <File Id="HFSMSimulatorSource_Component.rc" Name="Component.rc"  Source="..\Paradigms\HFSM\HFSMSimulator\Component.rc" />
+        <File Id="HFSMSimulatorSource_ComponentConfig.h" Name="ComponentConfig.h"  Source="..\Paradigms\HFSM\HFSMSimulator\ComponentConfig.h" />
+        <File Id="HFSMSimulator.sln" Name="HFSMSimulator.sln" KeyPath="yes" Source="..\Paradigms\HFSM\HFSMSimulator\HFSMSimulator.sln" />
+        <File Id="HFSMSimulator.vcxproj" Name="HFSMSimulator.vcxproj"  Source="..\Paradigms\HFSM\HFSMSimulator\HFSMSimulator.vcxproj" />
+        <File Id="HFSMSimulator.vcxproj.filters" Name="HFSMSimulator.vcxproj.filters"  Source="..\Paradigms\HFSM\HFSMSimulator\HFSMSimulator.vcxproj.filters" />
+        <File Id="HFSMSimulatorSource_Resource.h" Name="Resource.h"  Source="..\Paradigms\HFSM\HFSMSimulator\Resource.h" />
+        <File Id="HFSMSimulatorSource_StdAfx.cpp" Name="StdAfx.cpp"  Source="..\Paradigms\HFSM\HFSMSimulator\StdAfx.cpp" />
+        <File Id="HFSMSimulatorSource_StdAfx.h" Name="StdAfx.h"  Source="..\Paradigms\HFSM\HFSMSimulator\StdAfx.h" />
+      </Component>
+
+      <Component Id="HFSMParadigmFiles" Guid="{F0FC5FD0-32AF-4314-A7F9-AC3A6E6967A8}" Directory="INSTALLDIR_PARADIGMS_HFSM">
+        <File Id="HFSM_Demo01.mga" Name="HFSM-Demo01.mga" Source="..\Paradigms\HFSM\HFSM-Demo01.mga" />
+        <File Id="HFSM_Demo01.xme" Name="HFSM-Demo01.xme"  Source="..\Paradigms\HFSM\HFSM-Demo01.xme" />
+        <File Id="HFSM_Demo02.mga" Name="HFSM-Demo02.mga"  Source="..\Paradigms\HFSM\HFSM-Demo02.mga" />
+        <File Id="HFSM_Demo02.xme" Name="HFSM-Demo02.xme"  Source="..\Paradigms\HFSM\HFSM-Demo02.xme" />
+        <File Id="HFSM_Meta.mga" Name="HFSM-Meta.mga"  Source="..\Paradigms\HFSM\HFSM-Meta.mga" />
+        <File Id="HFSM_Meta.xme" Name="HFSM-Meta.xme"  Source="..\Paradigms\HFSM\HFSM-Meta.xme" />
+        <File Id="HFSM.mta" Name="HFSM.mta"  Source="..\Paradigms\HFSM\HFSM.mta" />
+        <File Id="HFSM.xmp" Name="HFSM.xmp"  KeyPath="yes" Source="..\Paradigms\HFSM\HFSM.xmp" />
+        <File Id="HFSMParadigmFiles_Readme.txt" Name="Readme.txt"  Source="..\Paradigms\HFSM\Readme.txt" />
+        <RegistryKey Root='HKLM' Key='Software\GME\Paradigms\HFSM'>
+          <RegistryValue Name='CurrentVersion' Type='string' Value='$(var.GUIDSTRHFSM)'/>
+          <RegistryKey Key='$(var.GUIDSTRHFSM)'>
+            <RegistryValue Name='ConnStr' Type='string' Value='MGA=[INSTALLDIR_PARADIGMS_HFSM]HFSM.mta'/>
+          </RegistryKey>
+        </RegistryKey>
+      </Component>
+
+      <Component Id="JavaBONSFExample" Guid="{DADD2807-D77B-4C25-9138-ACE483C929FD}" Directory="INSTALLDIR_PARADIGMS_SF_JAVABONSFEXAMPLE_SFINTERPRETER">
+        <File Id="SFBONComponent.java" Name="SFBONComponent.java" KeyPath="yes" Source="..\Paradigms\SF\JavaBONSFExample\sfInterpreter\SFBONComponent.java" />
+        <File Id="SFCompound.java" Name="SFCompound.java"  Source="..\Paradigms\SF\JavaBONSFExample\sfInterpreter\SFCompound.java" />
+        <File Id="SFDataflowConn.java" Name="SFDataflowConn.java"  Source="..\Paradigms\SF\JavaBONSFExample\sfInterpreter\SFDataflowConn.java" />
+        <File Id="SFInputParam.java" Name="SFInputParam.java"  Source="..\Paradigms\SF\JavaBONSFExample\sfInterpreter\SFInputParam.java" />
+        <File Id="SFInputSignal.java" Name="SFInputSignal.java"  Source="..\Paradigms\SF\JavaBONSFExample\sfInterpreter\SFInputSignal.java" />
+        <File Id="SFOutputParam.java" Name="SFOutputParam.java"  Source="..\Paradigms\SF\JavaBONSFExample\sfInterpreter\SFOutputParam.java" />
+        <File Id="SFOutputSignal.java" Name="SFOutputSignal.java"  Source="..\Paradigms\SF\JavaBONSFExample\sfInterpreter\SFOutputSignal.java" />
+        <File Id="SFParam.java" Name="SFParam.java"  Source="..\Paradigms\SF\JavaBONSFExample\sfInterpreter\SFParam.java" />
+        <File Id="SFParameterBase.java" Name="SFParameterBase.java"  Source="..\Paradigms\SF\JavaBONSFExample\sfInterpreter\SFParameterBase.java" />
+        <File Id="SFParameterConn.java" Name="SFParameterConn.java"  Source="..\Paradigms\SF\JavaBONSFExample\sfInterpreter\SFParameterConn.java" />
+        <File Id="SFPrimitive.java" Name="SFPrimitive.java"  Source="..\Paradigms\SF\JavaBONSFExample\sfInterpreter\SFPrimitive.java" />
+        <File Id="SFProcessing.java" Name="SFProcessing.java"  Source="..\Paradigms\SF\JavaBONSFExample\sfInterpreter\SFProcessing.java" />
+        <File Id="SFSignal.java" Name="SFSignal.java"  Source="..\Paradigms\SF\JavaBONSFExample\sfInterpreter\SFSignal.java" />
+      </Component>
+
+      <Component Id="SFDemo" Guid="{F9C50B52-EE34-457E-8124-FEB1AF02919E}" Directory="INSTALLDIR_PARADIGMS_SF_DEMO">
+        <File Id="FFT.c" Name="FFT.c" Source="..\Paradigms\SF\demo\FFT.c" />
+        <File Id="FFT.h" Name="FFT.h"  Source="..\Paradigms\SF\demo\FFT.h" />
+        <File Id="Generator.c" Name="Generator.c"  Source="..\Paradigms\SF\demo\Generator.c" />
+        <File Id="Generator.h" Name="Generator.h"  Source="..\Paradigms\SF\demo\Generator.h" />
+        <File Id="lpfilter.c" Name="lpfilter.c"  Source="..\Paradigms\SF\demo\lpfilter.c" />
+        <File Id="lpfilter.h" Name="lpfilter.h"  Source="..\Paradigms\SF\demo\lpfilter.h" />
+        <File Id="main.c" Name="main.c"  Source="..\Paradigms\SF\demo\main.c" />
+        <File Id="mdemo.sln" Name="mdemo.sln"  Source="..\Paradigms\SF\demo\mdemo.sln" />
+        <File Id="mdemo.vcpxroj" Name="mdemo.vcxproj"  Source="..\Paradigms\SF\demo\mdemo.vcxproj" />
+        <File Id="ui.cfg" Name="ui.cfg"  Source="..\Paradigms\SF\demo\ui.cfg" />
+      </Component>
+
+      <Component Id="SFDemoInclude" Guid="{A0844E53-B230-4AF9-BE22-D78E948B95FB}" Directory="INSTALLDIR_PARADIGMS_SF_DEMO_INCLUDE">
+        <File Id="mgk60.h" Name="mgk60.h" KeyPath="yes" Source="..\Paradigms\SF\demo\include\mgk60.h" />
+        <File Id="simgui.h" Name="simgui.h"  Source="..\Paradigms\SF\demo\include\simgui.h" />
+      </Component>
+
+      <Component Id="SFDemoLib" Guid="{2F45BE36-9B7F-45B6-B7BC-8958666A6B3C}" Directory="INSTALLDIR_PARADIGMS_SF_DEMO_LIB">
+        <File Id="gplotw32.lib" Name="gplotw32.lib" KeyPath="yes" Source="..\Paradigms\SF\demo\lib\gplotw32.lib" />
+        <File Id="gui20w32.lib" Name="gui20w32.lib"  Source="..\Paradigms\SF\demo\lib\gui20w32.lib" />
+        <File Id="mgk60.lib" Name="mgk60.lib"  Source="..\Paradigms\SF\demo\lib\mgk60.lib" />
+        <File Id="mgk60_d.lib" Name="mgk60_d.lib"  Source="..\Paradigms\SF\demo\lib\mgk60_d.lib" />
+        <File Id="simuiw32.lib" Name="simuiw32.lib"  Source="..\Paradigms\SF\demo\lib\simuiw32.lib" />
+        <File Id="simuiw32_d.lib" Name="simuiw32_d.lib"  Source="..\Paradigms\SF\demo\lib\simuiw32_d.lib" />
+      </Component>
+
+      <Component Id="SFDemoScripts" Guid="{5112DC25-CFB6-4CD6-B06B-96C7F8AAD039}" Directory="INSTALLDIR_PARADIGMS_SF_DEMO_SCRIPTS">
+        <File Id="abs_phas.c" Name="abs_phas.c" KeyPath="yes" Source="..\Paradigms\SF\demo\scripts\abs_phas.c" />
+        <File Id="datagen.c" Name="datagen.c"  Source="..\Paradigms\SF\demo\scripts\datagen.c" />
+        <File Id="dbsetup.c" Name="dbsetup.c"  Source="..\Paradigms\SF\demo\scripts\dbsetup.c" />
+        <File Id="envelope.c" Name="envelope.c"  Source="..\Paradigms\SF\demo\scripts\envelope.c" />
+        <File Id="fft_scr.c" Name="fft_scr.c"  Source="..\Paradigms\SF\demo\scripts\fft_scr.c" />
+        <File Id="guisetup.c" Name="guisetup.c"  Source="..\Paradigms\SF\demo\scripts\guisetup.c" />
+        <File Id="SFDemoScripts_lpfilter.c" Name="lpfilter.c"  Source="..\Paradigms\SF\demo\scripts\lpfilter.c" />
+        <File Id="plotter.c" Name="plotter.c"  Source="..\Paradigms\SF\demo\scripts\plotter.c" />
+        <File Id="real2cpx.c" Name="real2cpx.c"  Source="..\Paradigms\SF\demo\scripts\real2cpx.c" />
+        <File Id="scripts.c" Name="scripts.c"  Source="..\Paradigms\SF\demo\scripts\scripts.c" />
+        <File Id="scripts.h" Name="scripts.h"  Source="..\Paradigms\SF\demo\scripts\scripts.h" />
+        <File Id="splitter.c" Name="splitter.c"  Source="..\Paradigms\SF\demo\scripts\splitter.c" />
+        <File Id="template.c" Name="template.c"  Source="..\Paradigms\SF\demo\scripts\template.c" />
+      </Component>
+
+      <Component Id="SFIcons" Guid="{338B4AAD-6D0C-4954-A340-C304551AD035}" Directory="INSTALLDIR_PARADIGMS_SF_ICONS">
+        <File Id="inparam_atom.bmp" Name="inparam-atom.bmp" KeyPath="yes" Source="..\Paradigms\SF\icons\inparam-atom.bmp" />
+        <File Id="inparam_port.bmp" Name="inparam-port.bmp"  Source="..\Paradigms\SF\icons\inparam-port.bmp" />
+        <File Id="isig_atom.bmp" Name="isig-atom.bmp"  Source="..\Paradigms\SF\icons\isig-atom.bmp" />
+        <File Id="isig_port.bmp" Name="isig-port.bmp"  Source="..\Paradigms\SF\icons\isig-port.bmp" />
+        <File Id="osig_atom.bmp" Name="osig-atom.bmp"  Source="..\Paradigms\SF\icons\osig-atom.bmp" />
+        <File Id="osig_port.bmp" Name="osig-port.bmp"  Source="..\Paradigms\SF\icons\osig-port.bmp" />
+        <File Id="outparam_atom.bmp" Name="outparam-atom.bmp"  Source="..\Paradigms\SF\icons\outparam-atom.bmp" />
+        <File Id="outparam_port.bmp" Name="outparam-port.bmp"  Source="..\Paradigms\SF\icons\outparam-port.bmp" />
+        <File Id="param.bmp" Name="param.bmp"  Source="..\Paradigms\SF\icons\param.bmp" />
+      </Component>
+
+      <Component Id="SFInterpreter.dll" Directory="INSTALLDIR_PARADIGMS_SF">
+        <File Id="SFInterpreter.dll" Name="SFInterpreter.dll" KeyPath="yes" Source="..\Paradigms\SF\SFInterpreter\$(var.Release)\SFInterpreter.dll">
+          <TypeLib Id="C82BDC79-7F10-4A22-B91B-2CF6C39B844E" Description="MGA Interpreter TypeLibrary (SFInterpreter)" Language="0" MajorVersion="1" MinorVersion="0">
+            <Class Id="{980075B4-C664-462B-BDD4-6E875CD1EC41}" Context="InprocServer32" Description="MGA.Interpreter.SFInterpreter">
+              <ProgId Id="MGA.Interpreter.SFInterpreter" Description="MGA.Interpreter.SFInterpreter" />
+            </Class>
+          </TypeLib>
+        </File>
+        <RegistryKey Root='HKLM' Key='Software\GME\Components\MGA.Interpreter.SFInterpreter'>
+          <RegistryValue Name='Description' Type='string' Value='SFInterpreter'/>
+          <RegistryValue Name='Icon' Type='string' Value=',IDI_COMPICON'/>
+          <RegistryValue Name='Paradigm' Type='string' Value='SF'/>
+          <RegistryValue Name='Tooltip' Type='string' Value='SignalFlow Interpreter'/>
+          <RegistryValue Name='Type' Type='integer' Value='1'/>
+          <RegistryKey Key='Associated'>
+            <RegistryValue Name='SF' Type='string' Value=''/>
+          </RegistryKey>
+        </RegistryKey>
+      </Component>
+
+      <Component Id="SFInterpreterSource" Guid="{A08E1C4E-25E5-4D55-929E-8FD9A6CF1604}" Directory="INSTALLDIR_PARADIGMS_SF_SFINTERPRETER">
+        <File Id="SFInterpreterSource_BONComponent.cpp" Name="BONComponent.cpp" Source="..\Paradigms\SF\SFInterpreter\BONComponent.cpp" />
+        <File Id="SFInterpreterSource_BONComponent.h" Name="BONComponent.h"  Source="..\Paradigms\SF\SFInterpreter\BONComponent.h" />
+        <File Id="SFInterpreterSource_CompIcon.ico" Name="CompIcon.ico"  Source="..\Paradigms\SF\SFInterpreter\CompIcon.ico" />
+        <File Id="SFInterpreterSource_Component.def" Name="Component.def"  Source="..\Paradigms\SF\SFInterpreter\Component.def" />
+        <File Id="SFInterpreterSource_Component.rc" Name="Component.rc"  Source="..\Paradigms\SF\SFInterpreter\Component.rc" />
+        <File Id="SFInterpreterSource_ComponentConfig.h" Name="ComponentConfig.h"  Source="..\Paradigms\SF\SFInterpreter\ComponentConfig.h" />
+        <File Id="Guardian.cpp" Name="Guardian.cpp"  Source="..\Paradigms\SF\SFInterpreter\Guardian.cpp" />
+        <File Id="Guardian.h" Name="Guardian.h"  Source="..\Paradigms\SF\SFInterpreter\Guardian.h" />
+        <File Id="SFInterpreterSource_Resource.h" Name="Resource.h"  Source="..\Paradigms\SF\SFInterpreter\Resource.h" />
+        <File Id="SFInterpreter.sln" Name="SFInterpreter.sln" KeyPath="yes" Source="..\Paradigms\SF\SFInterpreter\SFInterpreter.sln" />
+        <File Id="SFInterpreter.vcxproj" Name="SFInterpreter.vcxproj"  Source="..\Paradigms\SF\SFInterpreter\SFInterpreter.vcxproj" />
+        <File Id="SFInterpreter.vcxproj.filters" Name="SFInterpreter.vcxproj.filters"  Source="..\Paradigms\SF\SFInterpreter\SFInterpreter.vcxproj.filters" />
+        <File Id="SFInterpreterSource_StdAfx.cpp" Name="StdAfx.cpp"  Source="..\Paradigms\SF\SFInterpreter\StdAfx.cpp" />
+        <File Id="SFInterpreterSource_StdAfx.h" Name="StdAfx.h"  Source="..\Paradigms\SF\SFInterpreter\StdAfx.h" />
+      </Component>
+
+      <Component Id="SFParadigmFiles" Guid="{2FBE476E-B813-48DB-9BB0-0F6DE025463A}" Directory="INSTALLDIR_PARADIGMS_SF">
+        <File Id="SF.mta" Name="SF.mta"  Source="..\Paradigms\SF\SF.mta" />
+        <File Id="SF.xmp" Name="SF.xmp" KeyPath="yes" Source="..\Paradigms\SF\SF.xmp" />
+        <File Id="SFDemo.mga" Name="SFDemo.mga"  Source="..\Paradigms\SF\SFDemo.mga" />
+        <File Id="SFDemo.xme" Name="SFDemo.xme"  Source="..\Paradigms\SF\SFDemo.xme" />
+        <File Id="SFMeta.mga" Name="SFMeta.mga"  Source="..\Paradigms\SF\SFMeta.mga" />
+        <File Id="SFMeta.xme" Name="SFMeta.xme"  Source="..\Paradigms\SF\SFMeta.xme" />
+        <RegistryKey Root='HKLM' Key='Software\GME\Paradigms\SF'>
+          <RegistryValue Name='CurrentVersion' Type='string' Value='$(var.GUIDSTRSF)'/>
+          <RegistryKey Key='$(var.GUIDSTRSF)'>
+            <RegistryValue Name='ConnStr' Type='string' Value='MGA=[INSTALLDIR_PARADIGMS_SF]SF.mta'/>
+          </RegistryKey>
+        </RegistryKey>
+      </Component>
+
+      <Component Id="SFxslt" Guid="{A93D4FEE-4049-4D9A-AA60-4B02953A5286}" Directory="INSTALLDIR_PARADIGMS_SF_XSLT">
+        <File Id="Basic2Primitive.xsl" Name="Basic2Primitive.xsl" KeyPath="yes" Source="..\Paradigms\SF\xslt\Basic2Primitive.xsl" />
+        <File Id="Primitive2Basic.xsl" Name="Primitive2Basic.xsl"  Source="..\Paradigms\SF\xslt\Primitive2Basic.xsl" />
+        <File Id="SFDemoWithMetaChanged.xme" Name="SFDemoWithMetaChanged.xme"  Source="..\Paradigms\SF\xslt\SFDemoWithMetaChanged.xme" />
+        <File Id="SFxslt_mga.dtd" Name="mga.dtd"  Source="..\GME\Parser\mga.dtd" />
+      </Component>
+
+      <Component Id="UMLDecoratorSource" Guid="{3E974827-B233-45F4-82CE-512387924349}" Directory="INSTALLDIR_PARADIGMS_UML_DECORATOR">
+        <File Id="UMLDecoratorSource_DecoratorConfig.h" Name="DecoratorConfig.h" Source="..\Paradigms\UML\decorator\DecoratorConfig.h" />
+        <File Id="UMLDecoratorSource_DecoratorStd.h" Name="DecoratorStd.h"  Source="..\Paradigms\UML\decorator\DecoratorStd.h" />
+        <File Id="UMLDecoratorSource_Resource.h" Name="Resource.h"  Source="..\Paradigms\UML\decorator\Resource.h" />
+        <File Id="UMLDecoratorSource_StdAfx.cpp" Name="StdAfx.cpp"  Source="..\Paradigms\UML\decorator\StdAfx.cpp" />
+        <File Id="UMLDecoratorSource_StdAfx.h" Name="StdAfx.h"  Source="..\Paradigms\UML\decorator\StdAfx.h" />
+        <File Id="UMLDecoratorSource_targetver.h" Name="targetver.h"  Source="..\Paradigms\UML\decorator\targetver.h" />
+        <File Id="UMLDecoratorSource_TokenEx.cpp" Name="TokenEx.cpp"  Source="..\Paradigms\UML\decorator\TokenEx.cpp" />
+        <File Id="UMLDecoratorSource_TokenEx.h" Name="TokenEx.h"  Source="..\Paradigms\UML\decorator\TokenEx.h" />
+        <File Id="UMLAttributePart.cpp" Name="UMLAttributePart.cpp"  Source="..\Paradigms\UML\decorator\UMLAttributePart.cpp" />
+        <File Id="UMLAttributePart.h" Name="UMLAttributePart.h"  Source="..\Paradigms\UML\decorator\UMLAttributePart.h" />
+        <File Id="UMLClassPart.cpp" Name="UMLClassPart.cpp"  Source="..\Paradigms\UML\decorator\UMLClassPart.cpp" />
+        <File Id="UMLClassPart.h" Name="UMLClassPart.h"  Source="..\Paradigms\UML\decorator\UMLClassPart.h" />
+        <File Id="UMLCompositePart.cpp" Name="UMLCompositePart.cpp"  Source="..\Paradigms\UML\decorator\UMLCompositePart.cpp" />
+        <File Id="UMLCompositePart.h" Name="UMLCompositePart.h"  Source="..\Paradigms\UML\decorator\UMLCompositePart.h" />
+        <File Id="UMLDecorator.cpp" Name="UMLDecorator.cpp"  Source="..\Paradigms\UML\decorator\UMLDecorator.cpp" />
+        <File Id="UMLDecorator.h" Name="UMLDecorator.h"  Source="..\Paradigms\UML\decorator\UMLDecorator.h" />
+        <File Id="UMLDecorator.rc" Name="UMLDecorator.rc"  Source="..\Paradigms\UML\decorator\UMLDecorator.rc" />
+        <File Id="UMLDecorator.rgs" Name="UMLDecorator.rgs"  Source="..\Paradigms\UML\decorator\UMLDecorator.rgs" />
+        <File Id="UMLDecorator.sln" Name="UMLDecorator.sln" KeyPath="yes" Source="..\Paradigms\UML\decorator\UMLDecorator.sln" />
+        <File Id="UMLDecorator.vcxproj" Name="UMLDecorator.vcxproj"  Source="..\Paradigms\UML\decorator\UMLDecorator.vcxproj" />
+        <File Id="UMLDecorator.vcxproj.filters" Name="UMLDecorator.vcxproj.filters"  Source="..\Paradigms\UML\decorator\UMLDecorator.vcxproj.filters" />
+        <File Id="UMLDecoratorApp.cpp" Name="UMLDecoratorApp.cpp"  Source="..\Paradigms\UML\decorator\UMLDecoratorApp.cpp" />
+        <File Id="UMLDecoratorApp.def" Name="UMLDecoratorApp.def"  Source="..\Paradigms\UML\decorator\UMLDecoratorApp.def" />
+        <File Id="UMLDecoratorImpl.cpp" Name="UMLDecoratorImpl.cpp" Source="..\Paradigms\UML\decorator\UMLDecoratorImpl.cpp" />
+        <File Id="UMLDecoratorImpl.h" Name="UMLDecoratorImpl.h" Source="..\Paradigms\UML\decorator\UMLDecoratorImpl.h" />
+        <File Id="UMLDecoratorLib.idl" Name="UMLDecoratorLib.idl"  Source="..\Paradigms\UML\decorator\UMLDecoratorLib.idl" />
+        <File Id="UMLStereoLabelPart.cpp" Name="UMLStereoLabelPart.cpp"  Source="..\Paradigms\UML\decorator\UMLStereoLabelPart.cpp" />
+        <File Id="UMLStereoLabelPart.h" Name="UMLStereoLabelPart.h"  Source="..\Paradigms\UML\decorator\UMLStereoLabelPart.h" />
+      </Component>
+
+      <Component Id="UMLDecoratorSourceResources" Directory="INSTALLDIR_PARADIGMS_UML_DECORATOR_RES">
+        <File Id="UMLDecoratorSourceResources_referencesign.bmp" Name="referencesign.bmp" KeyPath="yes" Source="..\Paradigms\UML\decorator\res\referencesign.bmp" />
+      </Component>
+
+      <Component Id="UMLParadigmFiles" Guid="{28AC87D2-47D6-423E-86E5-36A879A0794E}" Directory="INSTALLDIR_PARADIGMS_UML">
+        <File Id="UML.xmp" Name="UML.xmp" KeyPath="yes" Source="..\Paradigms\UML\UML.xmp" />
+        <File Id="UMLMeta.mga" Name="UMLMeta.mga"  Source="..\Paradigms\UML\UMLMeta.mga" />
+        <File Id="UMLMeta.xme" Name="UMLMeta.xme"  Source="..\Paradigms\UML\UMLMeta.xme" />
+      </Component>
+
+      <Component Id="MiniTutorials" Guid="{8D9A039F-B93C-4791-9116-17D27907F4DB}" Directory="INSTALLDIR_DOC_TUTORIALS">
+        <File Id="Tutorial1.html" Name="Tutorial1.html" KeyPath="yes" Source="..\Doc\Tutorial\Tutorial1.html">
+          <Shortcut Id='MiniTutorialShortcut' Name='Mini Tutorial'
+        Description='Quickstart tutorial in HTML' Directory='ShortcutTutorialsFolder'/>
+        </File>
+        <File Id="Tutorial2.html" Name="Tutorial2.html"  Source="..\Doc\Tutorial\Tutorial2.html" />
+        <File Id="Tutorial3.html" Name="Tutorial3.html"  Source="..\Doc\Tutorial\Tutorial3.html" />
+      </Component>
+
+      <Component Id="MiniTutorialsT1" Guid="{EDA6A799-E497-4EA0-8C90-FF2BD555DD02}" Directory="INSTALLDIR_DOC_TUTORIALS_T1">
+        <File Id="MiniTutorialsT1_Figure1.jpg" Name="Figure1.jpg" KeyPath="yes" Source="..\Doc\Tutorial\T1\Figure1.jpg" />
+        <File Id="MiniTutorialsT1_Figure2.jpg" Name="Figure2.jpg"  Source="..\Doc\Tutorial\T1\Figure2.jpg" />
+        <File Id="MiniTutorialsT1_Figure3.jpg" Name="Figure3.jpg"  Source="..\Doc\Tutorial\T1\Figure3.jpg" />
+        <File Id="MiniTutorialsT1_Figure4.gif" Name="Figure4.gif"  Source="..\Doc\Tutorial\T1\Figure4.gif" />
+        <File Id="t1s2.xme" Name="t1s2.xme"  Source="..\Doc\Tutorial\T1\t1s2.xme" />
+        <File Id="t1s3.xme" Name="t1s3.xme"  Source="..\Doc\Tutorial\T1\t1s3.xme" />
+        <File Id="t1s4.xme" Name="t1s4.xme"  Source="..\Doc\Tutorial\T1\t1s4.xme" />
+        <File Id="t1s5.xme" Name="t1s5.xme"  Source="..\Doc\Tutorial\T1\t1s5.xme" />
+        <File Id="t1s6.xme" Name="t1s6.xme"  Source="..\Doc\Tutorial\T1\t1s6.xme" />
+        <File Id="t1s8.xme" Name="t1s8.xme"  Source="..\Doc\Tutorial\T1\t1s8.xme" />
+      </Component>
+
+      <Component Id="MiniTutorialsT2" Guid="{16BAC367-4028-40E6-8A14-6A7D09C67EA9}" Directory="INSTALLDIR_DOC_TUTORIALS_T2">
+        <File Id="MiniTutorialsT2_Figure1.jpg" Name="Figure1.jpg" KeyPath="yes" Source="..\Doc\Tutorial\T2\Figure1.jpg" />
+        <File Id="MiniTutorialsT2_Figure2.jpg" Name="Figure2.jpg"  Source="..\Doc\Tutorial\T2\Figure2.jpg" />
+        <File Id="MiniTutorialsT2_Figure3.jpg" Name="Figure3.jpg"  Source="..\Doc\Tutorial\T2\Figure3.jpg" />
+        <File Id="MiniTutorialsT2_Figure4.jpg" Name="Figure4.jpg"  Source="..\Doc\Tutorial\T2\Figure4.jpg" />
+        <File Id="MiniTutorialsT2_Figure5.jpg" Name="Figure5.jpg"  Source="..\Doc\Tutorial\T2\Figure5.jpg" />
+        <File Id="MiniTutorialsT2_Figure6.jpg" Name="Figure6.jpg"  Source="..\Doc\Tutorial\T2\Figure6.jpg" />
+        <File Id="MiniTutorialsT2_Figure7.gif" Name="Figure7.gif"  Source="..\Doc\Tutorial\T2\Figure7.gif" />
+        <File Id="MiniTutorialsT2_Figure8.gif" Name="Figure8.gif"  Source="..\Doc\Tutorial\T2\Figure8.gif" />
+        <File Id="inheritance.gif" Name="inheritance.gif"  Source="..\Doc\Tutorial\T2\inheritance.gif" />
+        <File Id="t2Hybrid.xme" Name="t2Hybrid.xme"  Source="..\Doc\Tutorial\T2\t2Hybrid.xme" />
+        <File Id="t2SF.xme" Name="t2SF.xme"  Source="..\Doc\Tutorial\T2\t2SF.xme" />
+      </Component>
+
+      <Component Id="MiniTutorialsT3" Guid="{88DCF5D2-E06B-4FB7-8DF2-68D6000CC626}" Directory="INSTALLDIR_DOC_TUTORIALS_T3">
+        <File Id="constraint.gif" Name="constraint.gif" KeyPath="yes" Source="..\Doc\Tutorial\T3\constraint.gif" />
+        <File Id="MiniTutorialsT3_Figure1.gif" Name="Figure1.gif"  Source="..\Doc\Tutorial\T3\Figure1.gif" />
+        <File Id="MiniTutorialsT3_Figure10.gif" Name="Figure10.gif"  Source="..\Doc\Tutorial\T3\Figure10.gif" />
+        <File Id="MiniTutorialsT3_Figure2.gif" Name="Figure2.gif"  Source="..\Doc\Tutorial\T3\Figure2.gif" />
+        <File Id="MiniTutorialsT3_Figure3.jpg" Name="Figure3.jpg"  Source="..\Doc\Tutorial\T3\Figure3.jpg" />
+        <File Id="MiniTutorialsT3_Figure4.gif" Name="Figure4.gif"  Source="..\Doc\Tutorial\T3\Figure4.gif" />
+        <File Id="MiniTutorialsT3_Figure5.jpg" Name="Figure5.jpg"  Source="..\Doc\Tutorial\T3\Figure5.jpg" />
+        <File Id="MiniTutorialsT3_Figure6.gif" Name="Figure6.gif"  Source="..\Doc\Tutorial\T3\Figure6.gif" />
+        <File Id="MiniTutorialsT3_Figure7.gif" Name="Figure7.gif"  Source="..\Doc\Tutorial\T3\Figure7.gif" />
+        <File Id="MiniTutorialsT3_Figure8.gif" Name="Figure8.gif"  Source="..\Doc\Tutorial\T3\Figure8.gif" />
+        <File Id="MiniTutorialsT3_Figure9.gif" Name="Figure9.gif"  Source="..\Doc\Tutorial\T3\Figure9.gif" />
+        <File Id="inheritence.jpg" Name="inheritence.jpg"  Source="..\Doc\Tutorial\T3\inheritence.jpg" />
+        <File Id="t3Circuit.xme" Name="t3Circuit.xme"  Source="..\Doc\Tutorial\T3\t3Circuit.xme" />
+        <File Id="t3OR.xme" Name="t3OR.xme"  Source="..\Doc\Tutorial\T3\t3OR.xme" />
+        <File Id="type.jpg" Name="type.jpg"  Source="..\Doc\Tutorial\T3\type.jpg" />
+      </Component>
+
+      <Component Id="Tutorial" Guid="{E63A315C-9884-4AF0-B832-3765839CF68B}" Directory="INSTALLDIR_DOC_TUTORIALS">
+        <File Id="index.html" Name="index.html" KeyPath="yes" Source="..\Doc\Tutorial\index.html">
+          <Shortcut Id='TutorialShortcut' Name='Tutorial'
+        Description='Comprehensive tutorial in HTML' Directory='ShortcutTutorialsFolder'/>
+        </File>
+        <File Id="Lesson1.html" Name="Lesson1.html"  Source="..\Doc\Tutorial\Lesson1.html" />
+        <File Id="Lesson2.html" Name="Lesson2.html"  Source="..\Doc\Tutorial\Lesson2.html" />
+        <File Id="Lesson3.html" Name="Lesson3.html"  Source="..\Doc\Tutorial\Lesson3.html" />
+        <File Id="Lesson4.html" Name="Lesson4.html"  Source="..\Doc\Tutorial\Lesson4.html" />
+        <File Id="Lesson5.html" Name="Lesson5.html"  Source="..\Doc\Tutorial\Lesson5.html" />
+        <File Id="Lesson6.html" Name="Lesson6.html"  Source="..\Doc\Tutorial\Lesson6.html" />
+        <File Id="Lesson7.html" Name="Lesson7.html"  Source="..\Doc\Tutorial\Lesson7.html" />
+        <File Id="Lesson8.html" Name="Lesson8.html"  Source="..\Doc\Tutorial\Lesson8.html" />
+        <RemoveFolder Id='RemoveShortcutTutorialsFolder' On='uninstall' Directory='ShortcutTutorialsFolder'/>
+      </Component>
+
+      <Component Id="TutorialIcons" Guid="{12811C83-2BAF-4F56-B1FC-288F044251E4}" Directory="INSTALLDIR_DOC_TUTORIALS_ICONS">
+        <File Id="AddConnMode.gif" Name="AddConnMode.gif" KeyPath="yes" Source="..\Doc\Tutorial\Icons\AddConnMode.gif" />
+        <File Id="Admin.bmp" Name="Admin.bmp"  Source="..\Doc\Tutorial\Icons\Admin.bmp" />
+        <File Id="ConnCursor1.gif" Name="ConnCursor1.gif"  Source="..\Doc\Tutorial\Icons\ConnCursor1.gif" />
+        <File Id="ConnCursor2.gif" Name="ConnCursor2.gif"  Source="..\Doc\Tutorial\Icons\ConnCursor2.gif" />
+        <File Id="ConnectorDot.gif" Name="ConnectorDot.gif"  Source="..\Doc\Tutorial\Icons\ConnectorDot.gif" />
+        <File Id="DelConnMode.gif" Name="DelConnMode.gif"  Source="..\Doc\Tutorial\Icons\DelConnMode.gif" />
+        <File Id="Host.bmp" Name="Host.bmp"  Source="..\Doc\Tutorial\Icons\Host.bmp" />
+        <File Id="host1.jpg" Name="host1.jpg"  Source="..\Doc\Tutorial\Icons\host1.jpg" />
+        <File Id="host2.gif" Name="host2.gif"  Source="..\Doc\Tutorial\Icons\host2.gif" />
+        <File Id="Interpret.gif" Name="Interpret.gif"  Source="..\Doc\Tutorial\Icons\Interpret.gif" />
+        <File Id="MGAInterpreter.gif" Name="MGAInterpreter.gif"  Source="..\Doc\Tutorial\Icons\MGAInterpreter.gif" />
+        <File Id="Network.bmp" Name="Network.bmp"  Source="..\Doc\Tutorial\Icons\Network.bmp" />
+        <File Id="NormMode.gif" Name="NormMode.gif"  Source="..\Doc\Tutorial\Icons\NormMode.gif" />
+        <File Id="Perimeter.bmp" Name="Perimeter.bmp"  Source="..\Doc\Tutorial\Icons\Perimeter.bmp" />
+        <File Id="PerimeterSmall.bmp" Name="PerimeterSmall.bmp"  Source="..\Doc\Tutorial\Icons\PerimeterSmall.bmp" />
+        <File Id="Port.bmp" Name="Port.bmp"  Source="..\Doc\Tutorial\Icons\Port.bmp" />
+        <File Id="PortSmall.bmp" Name="PortSmall.bmp"  Source="..\Doc\Tutorial\Icons\PortSmall.bmp" />
+        <File Id="Router.bmp" Name="Router.bmp"  Source="..\Doc\Tutorial\Icons\Router.bmp" />
+        <File Id="SetMode.gif" Name="SetMode.gif"  Source="..\Doc\Tutorial\Icons\SetMode.gif" />
+        <File Id="syncasp.jpg" Name="syncasp.jpg"  Source="..\Doc\Tutorial\Icons\syncasp.jpg" />
+        <File Id="WSGroup.bmp" Name="WSGroup.bmp"  Source="..\Doc\Tutorial\Icons\WSGroup.bmp" />
+      </Component>
+
+      <Component Id="TutorialL1F1" Guid="{AB118D9D-F844-4007-BD22-51F6294223BD}" Directory="INSTALLDIR_DOC_TUTORIALS_L1_F1">
+        <File Id="Fig1_1.png" Name="Fig1_1.png" KeyPath="yes" Source="..\Doc\Tutorial\L1\F1\Fig1_1.png" />
+        <File Id="TutorialL1F1_networking.xme" Name="networking.xme"  Source="..\Doc\Tutorial\L1\F1\networking.xme" />
+      </Component>
+
+      <Component Id="TutorialL1F2" Guid="{8EDDA785-6349-45B7-8EF8-D10096730369}" Directory="INSTALLDIR_DOC_TUTORIALS_L1_F2">
+        <File Id="Fig1_2.png" Name="Fig1_2.png" KeyPath="yes" Source="..\Doc\Tutorial\L1\F2\Fig1_2.png" />
+        <File Id="TutorialL1F2_networking.xme" Name="networking.xme"  Source="..\Doc\Tutorial\L1\F2\networking.xme" />
+      </Component>
+
+      <Component Id="TutorialL1F3" Guid="{ADF1EA9D-E4F4-4C92-A008-7321907AC741}" Directory="INSTALLDIR_DOC_TUTORIALS_L1_F3">
+        <File Id="Fig1_3.png" Name="Fig1_3.png" KeyPath="yes" Source="..\Doc\Tutorial\L1\F3\Fig1_3.png" />
+      </Component>
+
+      <Component Id="TutorialL1F4" Guid="{274A63A9-331C-4F57-B158-F0BE9A3F98A0}" Directory="INSTALLDIR_DOC_TUTORIALS_L1_F4">
+        <File Id="Fig1_4.png" Name="Fig1_4.png" KeyPath="yes" Source="..\Doc\Tutorial\L1\F4\Fig1_4.png" />
+        <File Id="TutorialL1F4_networking.xme" Name="networking.xme"  Source="..\Doc\Tutorial\L1\F4\networking.xme" />
+      </Component>
+
+      <Component Id="TutorialL1F5" Guid="{1677B6BD-444D-4B32-8A46-318593C0F5FA}" Directory="INSTALLDIR_DOC_TUTORIALS_L1_F5">
+        <File Id="Fig1_5.png" Name="Fig1_5.png" KeyPath="yes" Source="..\Doc\Tutorial\L1\F5\Fig1_5.png" />
+        <File Id="TutorialL1F5_networking.xme" Name="networking.xme"  Source="..\Doc\Tutorial\L1\F5\networking.xme" />
+      </Component>
+
+      <Component Id="TutorialL1F6" Guid="{0B724163-332A-4406-9544-05B97CF82477}" Directory="INSTALLDIR_DOC_TUTORIALS_L1_F6">
+        <File Id="Fig1_6.png" Name="Fig1_6.png" KeyPath="yes" Source="..\Doc\Tutorial\L1\F6\Fig1_6.png" />
+        <File Id="TutorialL1F6_mynetwork.xme" Name="mynetwork.xme"  Source="..\Doc\Tutorial\L1\F6\mynetwork.xme" />
+      </Component>
+
+      <Component Id="TutorialL1F7" Guid="{EA7C682C-5BFA-4F86-995C-EAB1325F41D9}" Directory="INSTALLDIR_DOC_TUTORIALS_L1_F7">
+        <File Id="Fig1_7.png" Name="Fig1_7.png" KeyPath="yes" Source="..\Doc\Tutorial\L1\F7\Fig1_7.png" />
+        <File Id="TutorialL1F7_mynetwork.xme" Name="mynetwork.xme"  Source="..\Doc\Tutorial\L1\F7\mynetwork.xme" />
+        <File Id="TutorialL1F7_networking.xme" Name="networking.xme"  Source="..\Doc\Tutorial\L1\F7\networking.xme" />
+      </Component>
+
+      <Component Id="TutorialL2F1" Guid="{98A9EDA2-864C-480A-B1D0-AB2388669926}" Directory="INSTALLDIR_DOC_TUTORIALS_L2_F1">
+        <File Id="Fig2_1.png" Name="Fig2_1.png" KeyPath="yes" Source="..\Doc\Tutorial\L2\F1\Fig2_1.png" />
+        <File Id="TutorialL2F1_networking.xme" Name="networking.xme"  Source="..\Doc\Tutorial\L2\F1\networking.xme" />
+      </Component>
+
+      <Component Id="TutorialL2F2" Guid="{14B54F34-BFD6-4784-96C6-174E937CB3CE}" Directory="INSTALLDIR_DOC_TUTORIALS_L2_F2">
+        <File Id="Fig2_2.png" Name="Fig2_2.png" KeyPath="yes" Source="..\Doc\Tutorial\L2\F2\Fig2_2.png" />
+        <File Id="TutorialL2F2_mynetwork.xme" Name="mynetwork.xme"  Source="..\Doc\Tutorial\L2\F2\mynetwork.xme" />
+      </Component>
+
+      <Component Id="TutorialL2F3" Guid="{33B82F23-C80C-4455-BCFE-D946126DEB04}" Directory="INSTALLDIR_DOC_TUTORIALS_L2_F3">
+        <File Id="Fig2_3.png" Name="Fig2_3.png" KeyPath="yes" Source="..\Doc\Tutorial\L2\F3\Fig2_3.png" />
+        <File Id="TutorialL2F3_mynetwork.xme" Name="mynetwork.xme"  Source="..\Doc\Tutorial\L2\F3\mynetwork.xme" />
+        <File Id="TutorialL2F3_networking.xme" Name="networking.xme"  Source="..\Doc\Tutorial\L2\F3\networking.xme" />
+      </Component>
+
+      <Component Id="TutorialL3" Guid="{81FBBA0B-91ED-42A3-8C93-B78468C3AA4D}" Directory="INSTALLDIR_DOC_TUTORIALS_L3">
+        <File Id="BON_classes.png" Name="BON classes.png" KeyPath="yes" Source="..\Doc\Tutorial\L3\BON classes.png" />
+        <File Id="networking_meta.png" Name="networking meta.png"  Source="..\Doc\Tutorial\L3\networking meta.png" />
+        <File Id="BON_Extender_interpreter_dialog.png" Name="BON Extender interpreter dialog.png"  Source="..\Doc\Tutorial\L3\BON Extender interpreter dialog.png" />
+        <File Id="Default_Interpreter_Icon.png" Name="Default Interpreter Icon.png"  Source="..\Doc\Tutorial\L3\Default Interpreter Icon.png" />
+        <File Id="VS_empty_BON1_project.png" Name="VS empty BON1 project.png"  Source="..\Doc\Tutorial\L3\VS empty BON1 project.png" />
+        <File Id="VS_GME_Component_wizard.png" Name="VS GME Component wizard.png"  Source="..\Doc\Tutorial\L3\VS GME Component wizard.png" />
+      </Component>
+
+      <Component Id="TutorialL3BON1" Guid="{3834D745-CC0A-4627-862F-7C0AC74FD24B}" Directory="INSTALLDIR_DOC_TUTORIALS_L3_BON1">
+        <File Id="TutorialL3BON1_BONComponent.cpp" Name="BONComponent.cpp" KeyPath="yes" Source="..\Doc\Tutorial\L3\BON1\BONComponent.cpp" />
+        <File Id="TutorialL3BON1_BONComponent.h" Name="BONComponent.h" Source="..\Doc\Tutorial\L3\BON1\BONComponent.h" />
+      </Component>
+
+      <Component Id="TutorialL3BON2" Guid="{E25E2A01-CD17-40EA-9092-FA2419BA3103}" Directory="INSTALLDIR_DOC_TUTORIALS_L3_BON2">
+        <File Id="TutorialL3BON2_BON2Component.cpp" Name="BON2Component.cpp" KeyPath="yes" Source="..\Doc\Tutorial\L3\BON2\BON2Component.cpp" />
+        <File Id="TutorialL3BON2_BON2Component.h" Name="BON2Component.h" Source="..\Doc\Tutorial\L3\BON2\BON2Component.h" />
+      </Component>
+
+      <Component Id="TutorialL3BON2Ex" Guid="{75C09DE0-9E3B-4876-BD1C-39C8F6503F15}" Directory="INSTALLDIR_DOC_TUTORIALS_L3_BON2Ex">
+        <File Id="TutorialL3BON2Ex_BON2Component.cpp" Name="BON2Component.cpp" KeyPath="yes" Source="..\Doc\Tutorial\L3\BON2Ex\BON2Component.cpp" />
+        <File Id="TutorialL3BON2Ex_BON2Component.h" Name="BON2Component.h" Source="..\Doc\Tutorial\L3\BON2Ex\BON2Component.h" />
+      </Component>
+
+      <Component Id="TutorialL4F1" Guid="{4B5D78C7-F693-4236-82BD-41D704921AFD}" Directory="INSTALLDIR_DOC_TUTORIALS_L4_F1">
+        <File Id="Fig4_1.gif" Name="Fig4_1.gif" KeyPath="yes" Source="..\Doc\Tutorial\L4\F1\Fig4_1.gif" />
+      </Component>
+
+      <Component Id="TutorialL4F2" Guid="{22B72896-E159-4CFC-B98C-718F451A029C}" Directory="INSTALLDIR_DOC_TUTORIALS_L4_F2">
+        <File Id="Fig4_2.gif" Name="Fig4_2.gif" KeyPath="yes" Source="..\Doc\Tutorial\L4\F2\Fig4_2.gif" />
+      </Component>
+
+      <Component Id="TutorialL4F3" Guid="{D278E71F-5082-43D2-A52F-6CB1A0148B8F}" Directory="INSTALLDIR_DOC_TUTORIALS_L4_F3">
+        <File Id="Fig4_3.gif" Name="Fig4_3.gif" KeyPath="yes" Source="..\Doc\Tutorial\L4\F3\Fig4_3.gif" />
+      </Component>
+
+      <Component Id="TutorialL4F4" Guid="{006810E2-09A3-4BAF-A84C-7D81BE207FC9}" Directory="INSTALLDIR_DOC_TUTORIALS_L4_F4">
+        <File Id="Fig4_4.png" Name="Fig4_4.png" KeyPath="yes" Source="..\Doc\Tutorial\L4\F4\Fig4_4.png" />
+        <File Id="TutorialL4F4_networking.xme" Name="networking.xme"  Source="..\Doc\Tutorial\L4\F4\networking.xme" />
+      </Component>
+
+      <Component Id="TutorialL4F5" Guid="{DAAFC8CB-0F28-4383-B838-01A00D357E1A}" Directory="INSTALLDIR_DOC_TUTORIALS_L4_F5">
+        <File Id="Fig4_5.png" Name="Fig4_5.png" KeyPath="yes" Source="..\Doc\Tutorial\L4\F5\Fig4_5.png" />
+        <File Id="TutorialL4F5_mynetwork.xme" Name="mynetwork.xme"  Source="..\Doc\Tutorial\L4\F5\mynetwork.xme" />
+      </Component>
+
+      <Component Id="TutorialL4F6" Guid="{EBC3BDD8-CE0B-4FCF-99D9-8FF7D4ABA792}" Directory="INSTALLDIR_DOC_TUTORIALS_L4_F6">
+        <File Id="Fig4_6.png" Name="Fig4_6.png" KeyPath="yes" Source="..\Doc\Tutorial\L4\F6\Fig4_6.png" />
+        <File Id="TutorialL4F6_networking.xme" Name="networking.xme"  Source="..\Doc\Tutorial\L4\F6\networking.xme" />
+      </Component>
+
+      <Component Id="TutorialL4F7" Guid="{D51CC5AE-594A-432F-8F8F-A0E0BE5863AE}" Directory="INSTALLDIR_DOC_TUTORIALS_L4_F7">
+        <File Id="Fig4_7.png" Name="Fig4_7.png" KeyPath="yes" Source="..\Doc\Tutorial\L4\F7\Fig4_7.png" />
+        <File Id="TutorialL4F7_mynetwork.xme" Name="mynetwork.xme"  Source="..\Doc\Tutorial\L4\F7\mynetwork.xme" />
+      </Component>
+
+      <Component Id="TutorialL5F1" Guid="{F0EEB0B0-3042-4656-A950-44D1160FDDD9}" Directory="INSTALLDIR_DOC_TUTORIALS_L5_F1">
+        <File Id="Fig5_1.png" Name="Fig5_1.png" KeyPath="yes" Source="..\Doc\Tutorial\L5\F1\Fig5_1.png" />
+        <File Id="TutorialL5F1_networking.xme" Name="networking.xme"  Source="..\Doc\Tutorial\L5\F1\networking.xme" />
+      </Component>
+
+      <Component Id="TutorialL5F2" Guid="{630A3409-8318-4874-8CB6-257A2835CF97}" Directory="INSTALLDIR_DOC_TUTORIALS_L5_F2">
+        <File Id="Fig5_2.png" Name="Fig5_2.png" KeyPath="yes" Source="..\Doc\Tutorial\L5\F2\Fig5_2.png" />
+        <File Id="Fig5_2_new.JPG" Name="Fig5_2_new.JPG"  Source="..\Doc\Tutorial\L5\F2\Fig5_2_new.JPG" />
+      </Component>
+
+      <Component Id="TutorialL5F3" Guid="{21E539C2-DE90-4ADF-AF75-57670191C0C2}" Directory="INSTALLDIR_DOC_TUTORIALS_L5_F3">
+        <File Id="Fig5_3_1.png" Name="Fig5_3_1.png" KeyPath="yes" Source="..\Doc\Tutorial\L5\F3\Fig5_3_1.png" />
+        <File Id="Fig5_3_2.png" Name="Fig5_3_2.png"  Source="..\Doc\Tutorial\L5\F3\Fig5_3_2.png" />
+        <File Id="TutorialL5F3_mynetwork.xme" Name="mynetwork.xme"  Source="..\Doc\Tutorial\L5\F3\mynetwork.xme" />
+      </Component>
+
+      <Component Id="TutorialL5F4" Guid="{37E07785-AC30-4AE1-9AD6-54E413A1656A}" Directory="INSTALLDIR_DOC_TUTORIALS_L5_F4">
+        <File Id="Fig5_4.png" Name="Fig5_4.png" KeyPath="yes" Source="..\Doc\Tutorial\L5\F4\Fig5_4.png" />
+        <File Id="TutorialL5F4_mynetwork.xme" Name="mynetwork.xme"  Source="..\Doc\Tutorial\L5\F4\mynetwork.xme" />
+        <File Id="TutorialL5F4_networking.xme" Name="networking.xme"  Source="..\Doc\Tutorial\L5\F4\networking.xme" />
+      </Component>
+
+      <Component Id="TutorialL5F5" Guid="{EB35E41F-6E1E-4C62-9169-DC62B7A9D4F2}" Directory="INSTALLDIR_DOC_TUTORIALS_L5_F5">
+        <File Id="Fig5_5_1.png" Name="Fig5_5_1.png" KeyPath="yes" Source="..\Doc\Tutorial\L5\F5\Fig5_5_1.png" />
+        <File Id="Fig5_5_2.png" Name="Fig5_5_2.png"  Source="..\Doc\Tutorial\L5\F5\Fig5_5_2.png" />
+        <File Id="Fig5_5_3.png" Name="Fig5_5_3.png"  Source="..\Doc\Tutorial\L5\F5\Fig5_5_3.png" />
+        <File Id="TutorialL5F5_mynetwork.xme" Name="mynetwork.xme"  Source="..\Doc\Tutorial\L5\F5\mynetwork.xme" />
+      </Component>
+
+      <Component Id="TutorialL6F1" Guid="{1FD84808-AAEB-49E5-9686-39E30D9ED321}" Directory="INSTALLDIR_DOC_TUTORIALS_L6_F1">
+        <File Id="Fig6_1.png" Name="Fig6_1.png" KeyPath="yes" Source="..\Doc\Tutorial\L6\F1\Fig6_1.png" />
+        <File Id="TutorialL6F1_networking.xme" Name="networking.xme"  Source="..\Doc\Tutorial\L6\F1\networking.xme" />
+      </Component>
+
+      <Component Id="TutorialL6F2" Guid="{DECEADE2-4656-4BE4-9E78-26216E354828}" Directory="INSTALLDIR_DOC_TUTORIALS_L6_F2">
+        <File Id="Fig6_2.png" Name="Fig6_2.png" KeyPath="yes" Source="..\Doc\Tutorial\L6\F2\Fig6_2.png" />
+        <File Id="TutorialL6F2_networking.xme" Name="networking.xme"  Source="..\Doc\Tutorial\L6\F2\networking.xme" />
+      </Component>
+
+      <Component Id="TutorialL7" Guid="{DFCA5588-2BCA-4314-87D2-53D20E05283C}" Directory="INSTALLDIR_DOC_TUTORIALS_L7">
+        <File Id="NetDiagDumper.pat" Name="NetDiagDumper.pat" KeyPath="yes" Source="..\Doc\Tutorial\L7\NetDiagDumper.pat" />
+        <File Id="networking.pat" Name="networking.pat"  Source="..\Doc\Tutorial\L7\networking.pat" />
+        <File Id="sf.pat" Name="sf.pat"  Source="..\Doc\Tutorial\L7\sf.pat" />
+      </Component>
+
+      <Component Id="TutorialL7F1" Guid="{7D85D0FE-FF14-4BF9-9EC6-64CAB6372B0F}" Directory="INSTALLDIR_DOC_TUTORIALS_L7_F1">
+        <File Id="Fig7_1.gif" Name="Fig7_1.gif" KeyPath="yes" Source="..\Doc\Tutorial\L7\F1\Fig7_1.gif" />
+        <File Id="singsing.xme" Name="singsing.xme"  Source="..\Doc\Tutorial\L7\F1\singsing.xme" />
+        <File Id="tmeta.xme" Name="tmeta.xme"  Source="..\Doc\Tutorial\L7\F1\tmeta.xme" />
+      </Component>
+
+      <Component Id="TutorialL8" Guid="{8FCEC784-DDBD-49BA-88BB-9BE77815EB27}" Directory="INSTALLDIR_DOC_TUTORIALS_L8">
+        <File Id="JavaCompRegister.png" Name="JavaCompRegister.png" KeyPath="yes" Source="..\Doc\Tutorial\L8\JavaCompRegister.png" />
+        <File Id="Register_Components.png" Name="Register Components.png" Source="..\Doc\Tutorial\L8\Register Components.png" />
+        <File Id="Running.png" Name="Running.png" Source="..\Doc\Tutorial\L8\Running.png" />
+      </Component>
+
+      <Component Id="IntroductionDoc" Directory="INSTALLDIR_DOC">
+        <File Id="The_Generic_Modeling_Environment.pdf" Name="The Generic Modeling Environment.pdf" KeyPath="yes" Source="..\Doc\The Generic Modeling Environment.pdf">
+          <Shortcut Id="IntroductionShortcut" Name="The Generic Modeling Environment" Description="Introduction to the Generic Modeling Environment" Directory="ShortcutDocFolder" />
+        </File>
+      </Component>
+      <Component Id="MGADoc" Directory="INSTALLDIR_DOC">
+        <File Id="Mga.pdf" Name="Mga.pdf" KeyPath="yes" Source="..\Doc\Developer\Mga.pdf">
+          <Shortcut Id="MGADocShortcut" Name="MGA Library" Description="MGA Library documentation for component developers" Directory="ShortcutDocFolder" />
+        </File>
+      </Component>
+      <Component Id="UserManual" Directory="INSTALLDIR_DOC">
+        <File Id="GME_Manual_and_User_Guide.pdf" Name="GME Manual and User Guide.pdf" KeyPath="yes" Source="..\Doc\GME Manual and User Guide\GME Manual and User Guide.pdf">
+          <Shortcut Id="UserManualShortcut" Name="GME Manual and User Guide" Description="GME User Manual in PDF format" Directory="ShortcutDocFolder" />
+        </File>
+        <RemoveFolder Id='RemoveShortcutDocFolder' On='uninstall' Directory='ShortcutDocFolder'/>
+      </Component>
+
+      <Component Id="BONCommonFiles" Guid="{7ED84614-6AA8-470C-A433-2F3F1C8AFDEA}" Directory="INSTALLDIR_SDK_BON_COMMON">
+        <File Id="BON.cpp" Name="BON.cpp" KeyPath="yes" Source="..\SDK\BON\Common\BON.cpp" />
+        <File Id="BON.h" Name="BON.h"  Source="..\SDK\BON\Common\BON.h" />
+        <File Id="BONImpl.cpp" Name="BONImpl.cpp"  Source="..\SDK\BON\Common\BONImpl.cpp" />
+        <File Id="BONImpl.h" Name="BONImpl.h"  Source="..\SDK\BON\Common\BONImpl.h" />
+        <File Id="Builder.cpp" Name="Builder.cpp"  Source="..\SDK\BON\Common\Builder.cpp" />
+        <File Id="Builder.h" Name="Builder.h"  Source="..\SDK\BON\Common\Builder.h" />
+        <File Id="ComHelp.cpp" Name="ComHelp.cpp"  Source="..\SDK\BON\Common\ComHelp.cpp" />
+        <File Id="ComHelp.h" Name="ComHelp.h"  Source="..\SDK\BON\Common\ComHelp.h" />
+        <File Id="Common.cpp" Name="Common.cpp"  Source="..\SDK\BON\Common\Common.cpp" />
+        <File Id="Common.h" Name="Common.h"  Source="..\SDK\BON\Common\Common.h" />
+        <File Id="ComponentDll.cpp" Name="ComponentDll.cpp"  Source="..\SDK\BON\Common\ComponentDll.cpp" />
+        <File Id="ComponentDll.h" Name="ComponentDll.h"  Source="..\SDK\BON\Common\ComponentDll.h" />
+        <File Id="ComponentLib.idl" Name="ComponentLib.idl"  Source="..\SDK\BON\Common\ComponentLib.idl" />
+        <File Id="ComponentObj.cpp" Name="ComponentObj.cpp"  Source="..\SDK\BON\Common\ComponentObj.cpp" />
+        <File Id="ComponentObj.h" Name="ComponentObj.h"  Source="..\SDK\BON\Common\ComponentObj.h" />
+        <File Id="Console.cpp" Name="Console.cpp"  Source="..\SDK\BON\Common\Console.cpp" />
+        <File Id="Console.h" Name="Console.h"  Source="..\SDK\BON\Common\Console.h" />
+        <File Id="Events.cpp" Name="Events.cpp"  Source="..\SDK\BON\Common\Events.cpp" />
+        <File Id="Events.h" Name="Events.h"  Source="..\SDK\BON\Common\Events.h" />
+        <File Id="Exceptions.cpp" Name="Exceptions.cpp"  Source="..\SDK\BON\Common\Exceptions.cpp" />
+        <File Id="Exceptions.h" Name="Exceptions.h"  Source="..\SDK\BON\Common\Exceptions.h" />
+        <File Id="Extensions.cpp" Name="Extensions.cpp"  Source="..\SDK\BON\Common\Extensions.cpp" />
+        <File Id="Extensions.h" Name="Extensions.h"  Source="..\SDK\BON\Common\Extensions.h" />
+        <File Id="Formatter.cpp" Name="Formatter.cpp"  Source="..\SDK\BON\Common\Formatter.cpp" />
+        <File Id="Formatter.h" Name="Formatter.h"  Source="..\SDK\BON\Common\Formatter.h" />
+        <File Id="GMECOM.H" Name="GMECOM.H"  Source="..\SDK\BON\Common\GMECOM.H" />
+        <File Id="GMEInterpreter.props" Name="GMEInterpreter.props"  Source="..\SDK\BON\Common\GMEInterpreter.props" />
+        <File Id="MON.cpp" Name="MON.cpp"  Source="..\SDK\BON\Common\MON.cpp" />
+        <File Id="MON.h" Name="MON.h"  Source="..\SDK\BON\Common\MON.h" />
+        <File Id="MONImpl.cpp" Name="MONImpl.cpp"  Source="..\SDK\BON\Common\MONImpl.cpp" />
+        <File Id="MONImpl.h" Name="MONImpl.h"  Source="..\SDK\BON\Common\MONImpl.h" />
+        <File Id="BONCommonFiles_targetver.h" Name="targetver.h"  Source="..\SDK\BON\Common\targetver.h" />
+        <File Id="Utils.cpp" Name="Utils.cpp"  Source="..\SDK\BON\Common\Utils.cpp" />
+        <File Id="Utils.h" Name="Utils.h"  Source="..\SDK\BON\Common\Utils.h" />
+      </Component>
+
+      <Component Id="BONExtender.dll" Directory="INSTALLDIR_PARADIGMS_METAGME">
+        <File Id="BONExtender.dll" Name="BONExtender.dll" KeyPath="yes" Source="..\Paradigms\MetaGME\$(var.Release)\BONExtender.dll">
+          <TypeLib Id="9EB1F214-EFE1-4B6D-BDA9-7BCD498F2E2C" Description="MGA Interpreter TypeLibrary (BONExtender)" Language="0" MajorVersion="1" MinorVersion="0">
+            <Class Id="{EE00B878-7208-44AB-8106-1A8320C019A3}" Context="InprocServer32" Description="MGA.Interpreter.BONExtender">
+              <ProgId Id="MGA.Interpreter.BONExtender" Description="MGA.Interpreter.BONExtender" />
+            </Class>
+          </TypeLib>
+        </File>
+        <RegistryKey Root='HKLM' Key='Software\GME\Components\MGA.Interpreter.BONExtender'>
+          <RegistryValue Name='Description' Type='string' Value='BON Extender'/>
+          <RegistryValue Name='Icon' Type='string' Value=',IDI_COMPICON'/>
+          <RegistryValue Name='Paradigm' Type='string' Value='MetaGME'/>
+          <RegistryValue Name='Tooltip' Type='string' Value='BON Extender Interpreter'/>
+          <RegistryValue Name='Type' Type='integer' Value='1'/>
+          <RegistryKey Key='Associated'>
+            <RegistryValue Name='MetaGME' Type='string' Value=''/>
+          </RegistryKey>
+        </RegistryKey>
+      </Component>
+
+      <Component Id="BONWizardFiles" Guid="{0D201E7D-99DE-4B2C-ADD3-AD3308FB5621}" Directory="INSTALLDIR_SDK_BON_WIZARD">
+        <File Id="BON2Component.ico" Name="BON2Component.ico" Source="..\SDK\BON\Wizard\BON2Component.ico" />
+        <File Id="BON2Component.vsz" Name="BON2Component.vsz"  Source="..\SDK\BON\Wizard\BON2Component.vsz" />
+        <File Id="BONComponent.ico" Name="BONComponent.ico"  Source="..\SDK\BON\Wizard\BONComponent.ico" />
+        <File Id="BONComponent.vsz" Name="BONComponent.vsz"  Source="..\SDK\BON\Wizard\BONComponent.vsz" />
+        <File Id="ComponentWizard.vsdir" Name="ComponentWizard.vsdir" KeyPath="yes" Source="..\SDK\BON\Wizard\ComponentWizard.vsdir" />
+        <File Id="default.vcproj" Name="default.vcproj"  Source="..\SDK\BON\Wizard\default.vcproj" />
+        <File Id="RawComponent.ico" Name="RawComponent.ico"  Source="..\SDK\BON\Wizard\RawComponent.ico" />
+        <File Id="RawComponent.vsz" Name="RawComponent.vsz"  Source="..\SDK\BON\Wizard\RawComponent.vsz" />
+        <File Id="setup90.js" Name="setup90.js"  Source="..\SDK\BON\Wizard\setup90.js" />
+        <File Id="setup100.js" Name="setup100.js"  Source="..\SDK\BON\Wizard\setup100.js" />
+        <File Id="setup110.js" Name="setup11.js"  Source="..\SDK\BON\Wizard\setup11.js" />
+        <File Id="setup12.js" Name="setup12.js"  Source="..\SDK\BON\Wizard\setup12.js" />
+        <File Id="setup14.js" Name="setup14.js"  Source="..\SDK\BON\Wizard\setup14.js" />
+      </Component>
+
+      <Component Id="BONWizard1033Files" Guid="{3183F8EB-28B7-433A-B645-E8BB483F7021}" Directory="INSTALLDIR_SDK_BON_WIZARD_1033">
+        <File Id="ComponentWizard.css" Name="ComponentWizard.css" KeyPath="yes" Source="..\SDK\BON\Wizard\1033\ComponentWizard.css" />
+      </Component>
+
+      <Component Id="BONWizard1033ImageFiles" Guid="{20777D70-CC74-4162-B6B2-C117A1CB31C2}" Directory="INSTALLDIR_SDK_BON_WIZARD_1033_IMAGES">
+        <File Id="DottedHori.gif" Name="DottedHori.gif" KeyPath="yes" Source="..\SDK\BON\Wizard\1033\Images\DottedHori.gif" />
+        <File Id="DottedVert.gif" Name="DottedVert.gif"  Source="..\SDK\BON\Wizard\1033\Images\DottedVert.gif" />
+        <File Id="spacer.gif" Name="spacer.gif"  Source="..\SDK\BON\Wizard\1033\Images\spacer.gif" />
+      </Component>
+
+      <Component Id="BONWizardHTML1033Files" Guid="{D719B394-349C-4D95-817D-BFC201177D74}" Directory="INSTALLDIR_SDK_BON_WIZARD_HTML_1033">
+        <File Id="Advanced.htm" Name="Advanced.htm" Source="..\SDK\BON\Wizard\HTML\1033\Advanced.htm" />
+        <File Id="Basic.htm" Name="Basic.htm"  Source="..\SDK\BON\Wizard\HTML\1033\Basic.htm" />
+        <File Id="default.htm" Name="default.htm" KeyPath="yes" Source="..\SDK\BON\Wizard\HTML\1033\default.htm" />
+      </Component>
+
+      <Component Id="BONWizardImageFiles" Guid="{7D1E07B3-D51C-4D81-875D-632E7F48A394}" Directory="INSTALLDIR_SDK_BON_WIZARD_IMAGES">
+        <File Id="ComponentWizard.gif" Name="ComponentWizard.gif" KeyPath="yes" Source="..\SDK\BON\Wizard\Images\ComponentWizard.gif" />
+        <File Id="ComponentWizard_Background.gif" Name="ComponentWizard_Background.gif"  Source="..\SDK\BON\Wizard\Images\ComponentWizard_Background.gif" />
+      </Component>
+
+      <Component Id="BONWizardScripts1033Files" Guid="{B1111008-F040-4EAD-87D5-08EFB18372D2}" Directory="INSTALLDIR_SDK_BON_WIZARD_SCRIPTS_1033">
+        <File Id="default.js" Name="default.js" KeyPath="yes" Source="..\SDK\BON\Wizard\Scripts\1033\default.js" />
+      </Component>
+
+      <Component Id="BONWizardTemplates1033Files" Guid="{D3A13829-3C8D-4F69-8B57-184B7FCD2AB2}" Directory="INSTALLDIR_SDK_BON_WIZARD_TEMPLATES_1033">
+        <File Id="BONWizardTemplates1033Files_BON2Component.cpp" Name="BON2Component.cpp" KeyPath="yes" Source="..\SDK\BON\Wizard\Templates\1033\BON2Component.cpp" />
+        <File Id="BONWizardTemplates1033Files_BON2Component.h" Name="BON2Component.h"  Source="..\SDK\BON\Wizard\Templates\1033\BON2Component.h" />
+        <File Id="BONWizardTemplates1033Files_BONComponent.cpp" Name="BONComponent.cpp"  Source="..\SDK\BON\Wizard\Templates\1033\BONComponent.cpp" />
+        <File Id="BONWizardTemplates1033Files_BONComponent.h" Name="BONComponent.h"  Source="..\SDK\BON\Wizard\Templates\1033\BONComponent.h" />
+        <File Id="Common.inf" Name="Common.inf"  Source="..\SDK\BON\Wizard\Templates\1033\Common.inf" />
+        <File Id="BONWizardTemplates1033Files_CompIcon.ico" Name="CompIcon.ico"  Source="..\SDK\BON\Wizard\Templates\1033\CompIcon.ico" />
+        <File Id="BONWizardTemplates1033Files_Component.def" Name="Component.def"  Source="..\SDK\BON\Wizard\Templates\1033\Component.def" />
+        <File Id="BONWizardTemplates1033Files_Component.rc" Name="Component.rc"  Source="..\SDK\BON\Wizard\Templates\1033\Component.rc" />
+        <File Id="BONWizardTemplates1033Files_ComponentConfig.h" Name="ComponentConfig.h"  Source="..\SDK\BON\Wizard\Templates\1033\ComponentConfig.h" />
+        <File Id="BONWizardTemplates1033Files_RawComponent.cpp" Name="RawComponent.cpp"  Source="..\SDK\BON\Wizard\Templates\1033\RawComponent.cpp" />
+        <File Id="BONWizardTemplates1033Files_RawComponent.h" Name="RawComponent.h"  Source="..\SDK\BON\Wizard\Templates\1033\RawComponent.h" />
+        <File Id="BONWizardTemplates1033Files_Resource.h" Name="Resource.h"  Source="..\SDK\BON\Wizard\Templates\1033\Resource.h" />
+        <File Id="BONWizardTemplates1033Files_StdAfx.cpp" Name="StdAfx.cpp"  Source="..\SDK\BON\Wizard\Templates\1033\StdAfx.cpp" />
+        <File Id="BONWizardTemplates1033Files_StdAfx.h" Name="StdAfx.h"  Source="..\SDK\BON\Wizard\Templates\1033\StdAfx.h" />
+        <File Id="Templates.inf" Name="Templates.inf"  Source="..\SDK\BON\Wizard\Templates\1033\Templates.inf" />
+      </Component>
+
+      <Component Id="DecoratorLib" Guid="{C8C3EC1B-DD30-475E-84DC-3A874C6909E4}" Directory="INSTALLDIR_SDK_DECORATORLIB">
+        <File Id="AtomBitmapPart.cpp" Name="AtomBitmapPart.cpp"  Source="..\SDK\DecoratorLib\AtomBitmapPart.cpp" />
+        <File Id="AtomBitmapPart.h" Name="AtomBitmapPart.h"  Source="..\SDK\DecoratorLib\AtomBitmapPart.h" />
+        <File Id="AttributePart.cpp" Name="AttributePart.cpp"  Source="..\SDK\DecoratorLib\AttributePart.cpp" />
+        <File Id="AttributePart.h" Name="AttributePart.h"  Source="..\SDK\DecoratorLib\AttributePart.h" />
+        <File Id="BitmapPart.cpp" Name="BitmapPart.cpp"  Source="..\SDK\DecoratorLib\BitmapPart.cpp" />
+        <File Id="BitmapPart.h" Name="BitmapPart.h"  Source="..\SDK\DecoratorLib\BitmapPart.h" />
+        <File Id="BitmapUtil.cpp" Name="BitmapUtil.cpp"  Source="..\SDK\DecoratorLib\BitmapUtil.cpp" />
+        <File Id="BitmapUtil.h" Name="BitmapUtil.h"  Source="..\SDK\DecoratorLib\BitmapUtil.h" />
+        <File Id="BoxCompositePart.cpp" Name="BoxCompositePart.cpp"  Source="..\SDK\DecoratorLib\BoxCompositePart.cpp" />
+        <File Id="BoxCompositePart.h" Name="BoxCompositePart.h"  Source="..\SDK\DecoratorLib\BoxCompositePart.h" />
+        <File Id="ClassComplexPart.cpp" Name="ClassComplexPart.cpp"  Source="..\SDK\DecoratorLib\ClassComplexPart.cpp" />
+        <File Id="ClassComplexPart.h" Name="ClassComplexPart.h"  Source="..\SDK\DecoratorLib\ClassComplexPart.h" />
+        <File Id="ClassLabelPart.cpp" Name="ClassLabelPart.cpp"  Source="..\SDK\DecoratorLib\ClassLabelPart.cpp" />
+        <File Id="ClassLabelPart.h" Name="ClassLabelPart.h"  Source="..\SDK\DecoratorLib\ClassLabelPart.h" />
+        <File Id="CompositePart.cpp" Name="CompositePart.cpp"  Source="..\SDK\DecoratorLib\CompositePart.cpp" />
+        <File Id="CompositePart.h" Name="CompositePart.h"  Source="..\SDK\DecoratorLib\CompositePart.h" />
+        <File Id="ConnectorVectorPart.cpp" Name="ConnectorVectorPart.cpp"  Source="..\SDK\DecoratorLib\ConnectorVectorPart.cpp" />
+        <File Id="ConnectorVectorPart.h" Name="ConnectorVectorPart.h"  Source="..\SDK\DecoratorLib\ConnectorVectorPart.h" />
+        <File Id="ConstraintFunctionVectorPart.cpp" Name="ConstraintFunctionVectorPart.cpp"  Source="..\SDK\DecoratorLib\ConstraintFunctionVectorPart.cpp" />
+        <File Id="ConstraintFunctionVectorPart.h" Name="ConstraintFunctionVectorPart.h"  Source="..\SDK\DecoratorLib\ConstraintFunctionVectorPart.h" />
+        <File Id="ConstraintVectorPart.cpp" Name="ConstraintVectorPart.cpp"  Source="..\SDK\DecoratorLib\ConstraintVectorPart.cpp" />
+        <File Id="ConstraintVectorPart.h" Name="ConstraintVectorPart.h"  Source="..\SDK\DecoratorLib\ConstraintVectorPart.h" />
+        <File Source="..\SDK\DecoratorLib\Decorator.props" />
+        <File Id="DecoratorDefs.cpp" Name="DecoratorDefs.cpp"  Source="..\SDK\DecoratorLib\DecoratorDefs.cpp" />
+        <File Id="DecoratorDefs.h" Name="DecoratorDefs.h"  Source="..\SDK\DecoratorLib\DecoratorDefs.h" />
+        <File Id="DecoratorError.cpp" Name="DecoratorError.cpp"  Source="..\SDK\DecoratorLib\DecoratorError.cpp" />
+        <File Id="DecoratorError.h" Name="DecoratorError.h"  Source="..\SDK\DecoratorLib\DecoratorError.h" />
+        <File Id="DecoratorExceptions.cpp" Name="DecoratorExceptions.cpp"  Source="..\SDK\DecoratorLib\DecoratorExceptions.cpp" />
+        <File Id="DecoratorExceptions.h" Name="DecoratorExceptions.h"  Source="..\SDK\DecoratorLib\DecoratorExceptions.h" />
+        <File Id="DecoratorInterface.cpp" Name="DecoratorInterface.cpp"  Source="..\SDK\DecoratorLib\DecoratorInterface.cpp" />
+        <File Id="DecoratorInterface.h" Name="DecoratorInterface.h"  Source="..\SDK\DecoratorLib\DecoratorInterface.h" />
+        <File Id="DecoratorLib.ico" Name="DecoratorLib.ico"  Source="..\SDK\DecoratorLib\DecoratorLib.ico" />
+        <File Id="DecoratorLib.rc" Name="DecoratorLib.rc"  Source="..\SDK\DecoratorLib\DecoratorLib.rc" />
+        <File Id="DecoratorLib.sln" Name="DecoratorLib.sln" KeyPath="yes" Source="..\SDK\DecoratorLib\DecoratorLib.sln" />
+        <File Id="DecoratorLib.vcxproj" Name="DecoratorLib.vcxproj"  Source="..\SDK\DecoratorLib\DecoratorLib.vcxproj" />
+        <File Id="DecoratorLib.vcxproj.filters" Name="DecoratorLib.vcxproj.filters"  Source="..\SDK\DecoratorLib\DecoratorLib.vcxproj.filters" />
+        <File Id="DecoratorMfc.cpp" Name="DecoratorMfc.cpp"  Source="..\SDK\DecoratorLib\DecoratorMfc.cpp" />
+        <File Id="DecoratorMfc.h" Name="DecoratorMfc.h"  Source="..\SDK\DecoratorLib\DecoratorMfc.h" />
+        <File Id="DecoratorSmart.cpp" Name="DecoratorSmart.cpp"  Source="..\SDK\DecoratorLib\DecoratorSmart.cpp" />
+        <File Id="DecoratorSmart.h" Name="DecoratorSmart.h"  Source="..\SDK\DecoratorLib\DecoratorSmart.h" />
+        <File Id="DecoratorUtil.cpp" Name="DecoratorUtil.cpp"  Source="..\SDK\DecoratorLib\DecoratorUtil.cpp" />
+        <File Id="DecoratorUtil.h" Name="DecoratorUtil.h"  Source="..\SDK\DecoratorLib\DecoratorUtil.h" />
+        <File Id="DialogTemplate.cpp" Name="DialogTemplate.cpp"  Source="..\SDK\DecoratorLib\DialogTemplate.cpp" />
+        <File Id="DialogTemplate.h" Name="DialogTemplate.h"  Source="..\SDK\DecoratorLib\DialogTemplate.h" />
+        <File Id="DiamondVectorPart.cpp" Name="DiamondVectorPart.cpp"  Source="..\SDK\DecoratorLib\DiamondVectorPart.cpp" />
+        <File Id="DiamondVectorPart.h" Name="DiamondVectorPart.h"  Source="..\SDK\DecoratorLib\DiamondVectorPart.h" />
+        <File Id="DecoratorLib_Dibapi.cpp" Name="Dibapi.cpp"  Source="..\SDK\DecoratorLib\Dibapi.cpp" />
+        <File Id="DecoratorLib_DIBAPI.H" Name="DIBAPI.H"  Source="..\SDK\DecoratorLib\DIBAPI.H" />
+        <File Id="DecoratorLib_DIBRead.cpp" Name="DIBRead.cpp"  Source="..\SDK\DecoratorLib\DIBRead.cpp" />
+        <File Id="EllipseVectorPart.cpp" Name="EllipseVectorPart.cpp"  Source="..\SDK\DecoratorLib\EllipseVectorPart.cpp" />
+        <File Id="EllipseVectorPart.h" Name="EllipseVectorPart.h"  Source="..\SDK\DecoratorLib\EllipseVectorPart.h" />
+        <File Source="..\SDK\DecoratorLib\GmeApi.h" />
+        <File Id="InheritanceVectorPart.cpp" Name="InheritanceVectorPart.cpp"  Source="..\SDK\DecoratorLib\InheritanceVectorPart.cpp" />
+        <File Id="InheritanceVectorPart.h" Name="InheritanceVectorPart.h"  Source="..\SDK\DecoratorLib\InheritanceVectorPart.h" />
+        <File Id="InPlaceEditDialog.cpp" Name="InPlaceEditDialog.cpp"  Source="..\SDK\DecoratorLib\InPlaceEditDialog.cpp" />
+        <File Id="InPlaceEditDialog.h" Name="InPlaceEditDialog.h"  Source="..\SDK\DecoratorLib\InPlaceEditDialog.h" />
+        <File Id="LabelPart.cpp" Name="LabelPart.cpp"  Source="..\SDK\DecoratorLib\LabelPart.cpp" />
+        <File Id="LabelPart.h" Name="LabelPart.h"  Source="..\SDK\DecoratorLib\LabelPart.h" />
+        <File Id="MaskedBitmapPart.cpp" Name="MaskedBitmapPart.cpp"  Source="..\SDK\DecoratorLib\MaskedBitmapPart.cpp" />
+        <File Id="MaskedBitmapPart.h" Name="MaskedBitmapPart.h"  Source="..\SDK\DecoratorLib\MaskedBitmapPart.h" />
+        <File Id="ModelComplexPart.cpp" Name="ModelComplexPart.cpp"  Source="..\SDK\DecoratorLib\ModelComplexPart.cpp" />
+        <File Id="ModelComplexPart.h" Name="ModelComplexPart.h"  Source="..\SDK\DecoratorLib\ModelComplexPart.h" />
+        <File Id="ModelSwitchButtonPart.cpp" Name="ModelSwitchButtonPart.cpp"  Source="..\SDK\DecoratorLib\ModelSwitchButtonPart.cpp" />
+        <File Id="ModelSwitchButtonPart.h" Name="ModelSwitchButtonPart.h"  Source="..\SDK\DecoratorLib\ModelSwitchButtonPart.h" />
+        <File Id="ModelSwitchPart.cpp" Name="ModelSwitchPart.cpp"  Source="..\SDK\DecoratorLib\ModelSwitchPart.cpp" />
+        <File Id="ModelSwitchPart.h" Name="ModelSwitchPart.h"  Source="..\SDK\DecoratorLib\ModelSwitchPart.h" />
+        <File Id="ModelTransparentPart.cpp" Name="ModelTransparentPart.cpp"  Source="..\SDK\DecoratorLib\ModelTransparentPart.cpp" />
+        <File Id="ModelTransparentPart.h" Name="ModelTransparentPart.h"  Source="..\SDK\DecoratorLib\ModelTransparentPart.h" />
+        <File Id="ObjectAndTextPart.cpp" Name="ObjectAndTextPart.cpp"  Source="..\SDK\DecoratorLib\ObjectAndTextPart.cpp" />
+        <File Id="ObjectAndTextPart.h" Name="ObjectAndTextPart.h"  Source="..\SDK\DecoratorLib\ObjectAndTextPart.h" />
+        <File Id="PartBase.cpp" Name="PartBase.cpp"  Source="..\SDK\DecoratorLib\PartBase.cpp" />
+        <File Id="PartBase.h" Name="PartBase.h"  Source="..\SDK\DecoratorLib\PartBase.h" />
+        <File Id="PartInterface.cpp" Name="PartInterface.cpp"  Source="..\SDK\DecoratorLib\PartInterface.cpp" />
+        <File Id="PartInterface.h" Name="PartInterface.h"  Source="..\SDK\DecoratorLib\PartInterface.h" />
+        <File Source="..\SDK\DecoratorLib\PathUtil.h" />
+        <File Id="PortBitmapPart.cpp" Name="PortBitmapPart.cpp"  Source="..\SDK\DecoratorLib\PortBitmapPart.cpp" />
+        <File Id="PortBitmapPart.h" Name="PortBitmapPart.h"  Source="..\SDK\DecoratorLib\PortBitmapPart.h" />
+        <File Id="PortLabelPart.cpp" Name="PortLabelPart.cpp"  Source="..\SDK\DecoratorLib\PortLabelPart.cpp" />
+        <File Id="PortLabelPart.h" Name="PortLabelPart.h"  Source="..\SDK\DecoratorLib\PortLabelPart.h" />
+        <File Id="PortPart.cpp" Name="PortPart.cpp"  Source="..\SDK\DecoratorLib\PortPart.cpp" />
+        <File Id="PortPart.h" Name="PortPart.h"  Source="..\SDK\DecoratorLib\PortPart.h" />
+        <File Id="PreferenceVariant.cpp" Name="PreferenceVariant.cpp"  Source="..\SDK\DecoratorLib\PreferenceVariant.cpp" />
+        <File Id="PreferenceVariant.h" Name="PreferenceVariant.h"  Source="..\SDK\DecoratorLib\PreferenceVariant.h" />
+        <File Id="ReferenceBitmapPart.cpp" Name="ReferenceBitmapPart.cpp"  Source="..\SDK\DecoratorLib\ReferenceBitmapPart.cpp" />
+        <File Id="ReferenceBitmapPart.h" Name="ReferenceBitmapPart.h"  Source="..\SDK\DecoratorLib\ReferenceBitmapPart.h" />
+        <File Id="ResizablePart.cpp" Name="ResizablePart.cpp"  Source="..\SDK\DecoratorLib\ResizablePart.cpp" />
+        <File Id="ResizablePart.h" Name="ResizablePart.h"  Source="..\SDK\DecoratorLib\ResizablePart.h" />
+        <File Id="ResizeLogic.cpp" Name="ResizeLogic.cpp"  Source="..\SDK\DecoratorLib\ResizeLogic.cpp" />
+        <File Id="ResizeLogic.h" Name="ResizeLogic.h"  Source="..\SDK\DecoratorLib\ResizeLogic.h" />
+        <File Id="DecoratorLibResource.h" Name="DecoratorLibResource.h"  Source="..\SDK\DecoratorLib\DecoratorLibResource.h" />
+        <File Id="SetBitmapPart.cpp" Name="SetBitmapPart.cpp"  Source="..\SDK\DecoratorLib\SetBitmapPart.cpp" />
+        <File Id="SetBitmapPart.h" Name="SetBitmapPart.h"  Source="..\SDK\DecoratorLib\SetBitmapPart.h" />
+        <File Id="DecoratorLib_Stdafx.cpp" Name="Stdafx.cpp"  Source="..\SDK\DecoratorLib\Stdafx.cpp" />
+        <File Id="DecoratorLib_Stdafx.h" Name="Stdafx.h"  Source="..\SDK\DecoratorLib\Stdafx.h" />
+        <File Id="StereoLabelPart.cpp" Name="StereoLabelPart.cpp"  Source="..\SDK\DecoratorLib\StereoLabelPart.cpp" />
+        <File Id="StereoLabelPart.h" Name="StereoLabelPart.h"  Source="..\SDK\DecoratorLib\StereoLabelPart.h" />
+        <File Id="SetSizeDialog.cpp" Name="SetSizeDialog.cpp"  Source="..\SDK\DecoratorLib\SetSizeDialog.cpp" />
+        <File Id="SetSizeDialog.h" Name="SetSizeDialog.h"  Source="..\SDK\DecoratorLib\SetSizeDialog.h" />
+        <File Id="SizeTrackerDialog.cpp" Name="SizeTrackerDialog.cpp"  Source="..\SDK\DecoratorLib\SizeTrackerDialog.cpp" />
+        <File Id="SizeTrackerDialog.h" Name="SizeTrackerDialog.h"  Source="..\SDK\DecoratorLib\SizeTrackerDialog.h" />
+        <File Id="DecoratorLib_targetver.h" Name="targetver.h"  Source="..\SDK\DecoratorLib\targetver.h" />
+        <File Id="TextPart.cpp" Name="TextPart.cpp"  Source="..\SDK\DecoratorLib\TextPart.cpp" />
+        <File Id="TextPart.h" Name="TextPart.h"  Source="..\SDK\DecoratorLib\TextPart.h" />
+        <File Id="TriangleVectorPart.cpp" Name="TriangleVectorPart.cpp"  Source="..\SDK\DecoratorLib\TriangleVectorPart.cpp" />
+        <File Id="TriangleVectorPart.h" Name="TriangleVectorPart.h"  Source="..\SDK\DecoratorLib\TriangleVectorPart.h" />
+        <File Id="TypeableBitmapPart.cpp" Name="TypeableBitmapPart.cpp"  Source="..\SDK\DecoratorLib\TypeableBitmapPart.cpp" />
+        <File Id="TypeableBitmapPart.h" Name="TypeableBitmapPart.h"  Source="..\SDK\DecoratorLib\TypeableBitmapPart.h" />
+        <File Id="TypeableLabelPart.cpp" Name="TypeableLabelPart.cpp"  Source="..\SDK\DecoratorLib\TypeableLabelPart.cpp" />
+        <File Id="TypeableLabelPart.h" Name="TypeableLabelPart.h"  Source="..\SDK\DecoratorLib\TypeableLabelPart.h" />
+        <File Id="VectorAndLabelPart.cpp" Name="VectorAndLabelPart.cpp"  Source="..\SDK\DecoratorLib\VectorAndLabelPart.cpp" />
+        <File Id="VectorAndLabelPart.h" Name="VectorAndLabelPart.h"  Source="..\SDK\DecoratorLib\VectorAndLabelPart.h" />
+        <File Id="VectorPart.cpp" Name="VectorPart.cpp"  Source="..\SDK\DecoratorLib\VectorPart.cpp" />
+        <File Id="VectorPart.h" Name="VectorPart.h"  Source="..\SDK\DecoratorLib\VectorPart.h" />
+      </Component>
+
+      <Component Id="DecoratorLibResources" Guid="{F676A777-7C0C-44E8-ABB0-5FE06B27BCF2}" Directory="INSTALLDIR_SDK_DECORATORLIB_RES">
+        <File Id="atom.bmp" Name="atom.bmp" KeyPath="yes" Source="..\SDK\DecoratorLib\res\atom.bmp" />
+        <File Id="atomport.bmp" Name="atomport.bmp"  Source="..\SDK\DecoratorLib\res\atomport.bmp" />
+        <File Id="collapsesign.bmp" Name="collapsesign.bmp"  Source="..\SDK\DecoratorLib\res\collapsesign.bmp" />
+        <File Id="defaults.psd" Name="defaults.psd"  Source="..\SDK\DecoratorLib\res\defaults.psd" />
+        <File Id="expandsign.bmp" Name="expandsign.bmp"  Source="..\SDK\DecoratorLib\res\expandsign.bmp" />
+        <File Id="icon_instance.bmp" Name="icon_instance.bmp"  Source="..\SDK\DecoratorLib\res\icon_instance.bmp" />
+        <File Id="icon_instance_disabled.bmp" Name="icon_instance_disabled.bmp"  Source="..\SDK\DecoratorLib\res\icon_instance_disabled.bmp" />
+        <File Id="icon_reference.bmp" Name="icon_reference.bmp"  Source="..\SDK\DecoratorLib\res\icon_reference.bmp" />
+        <File Id="icon_reference_disabled.bmp" Name="icon_reference_disabled.bmp"  Source="..\SDK\DecoratorLib\res\icon_reference_disabled.bmp" />
+        <File Id="icon_subtype.bmp" Name="icon_subtype.bmp"  Source="..\SDK\DecoratorLib\res\icon_subtype.bmp" />
+        <File Id="icon_subtype_disabled.bmp" Name="icon_subtype_disabled.bmp"  Source="..\SDK\DecoratorLib\res\icon_subtype_disabled.bmp" />
+        <File Id="icon_type.bmp" Name="icon_type.bmp"  Source="..\SDK\DecoratorLib\res\icon_type.bmp" />
+        <File Id="icon_type_disabled.bmp" Name="icon_type_disabled.bmp"  Source="..\SDK\DecoratorLib\res\icon_type_disabled.bmp" />
+        <File Id="model.bmp" Name="model.bmp"  Source="..\SDK\DecoratorLib\res\model.bmp" />
+        <File Id="modelport.bmp" Name="modelport.bmp"  Source="..\SDK\DecoratorLib\res\modelport.bmp" />
+        <File Id="reference.bmp" Name="reference.bmp"  Source="..\SDK\DecoratorLib\res\reference.bmp" />
+        <File Id="referenceport.bmp" Name="referenceport.bmp"  Source="..\SDK\DecoratorLib\res\referenceport.bmp" />
+        <File Id="referencesign.bmp" Name="referencesign.bmp"  Source="..\SDK\DecoratorLib\res\referencesign.bmp" />
+        <File Id="set.bmp" Name="set.bmp"  Source="..\SDK\DecoratorLib\res\set.bmp" />
+        <File Id="setport.bmp" Name="setport.bmp"  Source="..\SDK\DecoratorLib\res\setport.bmp" />
+      </Component>
+
+      <Component Id="DecoratorWizardFiles" Guid="{7A86D167-09F3-41a9-9691-E2CC9E6E52B7}" Directory="INSTALLDIR_SDK_DECORATOR_WIZARD">
+        <File Id="Decorator.ico" Name="Decorator.ico" Source="..\SDK\DecoratorWizard\Decorator.ico" />
+        <File Id="Decorator.vsz" Name="Decorator.vsz"  Source="..\SDK\DecoratorWizard\Decorator.vsz" />
+        <File Id="DecoratorWizard.vsdir" Name="DecoratorWizard.vsdir" KeyPath="yes" Source="..\SDK\DecoratorWizard\DecoratorWizard.vsdir" />
+        <File Id="DecoratorWizard_default.vcproj" Name="default.vcproj"  Source="..\SDK\DecoratorWizard\default.vcproj" />
+        <File Id="DecoratorWizard_setup100.js" Name="setup100.js"  Source="..\SDK\DecoratorWizard\setup100.js" />
+      </Component>
+
+      <Component Id="DecoratorWizard1033Files" Guid="{FD5EDE74-DB08-4405-9FF8-DDDD23D0C4CE}" Directory="INSTALLDIR_SDK_DECORATOR_WIZARD_1033">
+        <File Id="DecoratorWizard.css" Name="DecoratorWizard.css" KeyPath="yes" Source="..\SDK\DecoratorWizard\1033\DecoratorWizard.css" />
+      </Component>
+
+      <Component Id="DecoratorWizard1033ImageFiles" Guid="{397E64F4-C55D-4558-878B-18D28FBF8461}" Directory="INSTALLDIR_SDK_DECORATOR_WIZARD_1033_IMAGES">
+        <File Id="DecoratorWizard_DottedHori.gif" Name="DottedHori.gif" KeyPath="yes" Source="..\SDK\DecoratorWizard\1033\Images\DottedHori.gif" />
+        <File Id="DecoratorWizard_DottedVert.gif" Name="DottedVert.gif"  Source="..\SDK\DecoratorWizard\1033\Images\DottedVert.gif" />
+        <File Id="DecoratorWizard_spacer.gif" Name="spacer.gif"  Source="..\SDK\DecoratorWizard\1033\Images\spacer.gif" />
+      </Component>
+
+
+      <Component Id="DecoratorWizardHTML1033Files" Guid="{84C178D1-8A88-435d-BBC6-A785DF226F69}" Directory="INSTALLDIR_SDK_DECORATOR_WIZARD_HTML_1033">
+        <File Id="DecoratorWizard_default.htm" Name="default.htm" KeyPath="yes" Source="..\SDK\DecoratorWizard\HTML\1033\default.htm" />
+        <File Id="Settings.htm" Name="Settings.htm" Source="..\SDK\DecoratorWizard\HTML\1033\Settings.htm" />
+      </Component>
+
+      <Component Id="DecoratorWizardImageFiles" Guid="{E7599C06-7384-49e1-B0A7-272B8425BAB9}" Directory="INSTALLDIR_SDK_DECORATOR_WIZARD_IMAGES">
+        <File Id="DecoratorWizard.gif" Name="DecoratorWizard.gif" KeyPath="yes" Source="..\SDK\DecoratorWizard\Images\DecoratorWizard.gif" />
+        <File Id="DecoratorWizard_Background.gif" Name="DecoratorWizard_Background.gif"  Source="..\SDK\DecoratorWizard\Images\DecoratorWizard_Background.gif" />
+      </Component>
+
+      <Component Id="DecoratorWizardScripts1033Files" Guid="{5190D806-B76A-40dc-8B6E-30C9CB4EE9C2}" Directory="INSTALLDIR_SDK_DECORATOR_WIZARD_SCRIPTS_1033">
+        <File Id="DecoratorWizard_default.js" Name="default.js" KeyPath="yes" Source="..\SDK\DecoratorWizard\Scripts\1033\default.js" />
+      </Component>
+
+      <Component Id="DecoratorWizardTemplates1033Files" Guid="{9FA284BB-FA1F-4cbf-A939-21C9DE413B91}" Directory="INSTALLDIR_SDK_DECORATOR_WIZARD_TEMPLATES_1033">
+        <File Id="DecoratorWizard_Decorator.cpp" Name="Decorator.cpp" Source="..\SDK\DecoratorWizard\Templates\1033\Decorator.cpp" />
+        <File Id="DecoratorWizard_Decorator.h" Name="Decorator.h" Source="..\SDK\DecoratorWizard\Templates\1033\Decorator.h" />
+        <File Id="DecoratorWizard_Decorator.rc" Name="Decorator.rc" KeyPath="yes" Source="..\SDK\DecoratorWizard\Templates\1033\Decorator.rc" />
+        <File Id="DecoratorWizard_Decorator.rgs" Name="Decorator.rgs" Source="..\SDK\DecoratorWizard\Templates\1033\Decorator.rgs" />
+        <File Id="DecoratorWizard_Decorator.sln" Name="Decorator.sln" Source="..\SDK\DecoratorWizard\Templates\1033\Decorator.sln" />
+        <File Id="DecoratorWizard_Decorator.vcproj" Name="Decorator.vcproj" Source="..\SDK\DecoratorWizard\Templates\1033\Decorator.vcproj" />
+        <File Id="DecoratorWizard_DecoratorApp.cpp" Name="DecoratorApp.cpp" Source="..\SDK\DecoratorWizard\Templates\1033\DecoratorApp.cpp" />
+        <File Id="DecoratorWizard_DecoratorApp.def" Name="DecoratorApp.def" Source="..\SDK\DecoratorWizard\Templates\1033\DecoratorApp.def" />
+        <File Id="DecoratorWizard_DecoratorCompositePart.cpp" Name="DecoratorCompositePart.cpp" Source="..\SDK\DecoratorWizard\Templates\1033\DecoratorCompositePart.cpp" />
+        <File Id="DecoratorWizard_DecoratorCompositePart.h" Name="DecoratorCompositePart.h" Source="..\SDK\DecoratorWizard\Templates\1033\DecoratorCompositePart.h" />
+        <File Id="DecoratorWizard_DecoratorConfig.h" Name="DecoratorConfig.h" Source="..\SDK\DecoratorWizard\Templates\1033\DecoratorConfig.h" />
+        <File Id="DecoratorWizard_DecoratorImpl.cpp" Name="DecoratorImpl.cpp" Source="..\SDK\DecoratorWizard\Templates\1033\DecoratorImpl.cpp" />
+        <File Id="DecoratorWizard_DecoratorImpl.h" Name="DecoratorImpl.h" Source="..\SDK\DecoratorWizard\Templates\1033\DecoratorImpl.h" />
+        <File Id="DecoratorWizard_DecoratorLib.idl" Name="DecoratorLib.idl" Source="..\SDK\DecoratorWizard\Templates\1033\DecoratorLib.idl" />
+        <File Id="DecoratorWizard_GMEOLEData.cpp" Name="GMEOLEData.cpp" Source="..\SDK\DecoratorWizard\Templates\1033\GMEOLEData.cpp" />
+        <File Id="DecoratorWizard_GMEOLEData.h" Name="GMEOLEData.h" Source="..\SDK\DecoratorWizard\Templates\1033\GMEOLEData.h" />
+        <File Id="DecoratorWizard_mfcdual.cpp" Name="mfcdual.cpp" Source="..\SDK\DecoratorWizard\Templates\1033\mfcdual.cpp" />
+        <File Id="DecoratorWizard_mfcdual.h" Name="mfcdual.h" Source="..\SDK\DecoratorWizard\Templates\1033\mfcdual.h" />
+        <File Id="DecoratorWizard_resource.h" Name="resource.h" Source="..\SDK\DecoratorWizard\Templates\1033\resource.h" />
+        <File Id="DecoratorWizard_StdAfx.cpp" Name="StdAfx.cpp" Source="..\SDK\DecoratorWizard\Templates\1033\StdAfx.cpp" />
+        <File Id="DecoratorWizard_StdAfx.h" Name="StdAfx.h" Source="..\SDK\DecoratorWizard\Templates\1033\StdAfx.h" />
+        <File Id="DecoratorWizard_Templates.inf" Name="Templates.inf"  Source="..\SDK\DecoratorWizard\Templates\1033\Templates.inf" />
+      </Component>
+
+      <Component Id="DecoratorExamplesNewSample" Guid="{1E84229B-F4DE-48f7-B762-D9C50874B855}" Directory="INSTALLDIR_SDK_DECORATOREXAMPLES_NEWSAMPLE">
+        <File Id="DecoratorExamplesNewSample_Decorator.cpp" Name="Decorator.cpp" Source="..\SDK\Decorator Examples\NewSample\Decorator.cpp" />
+        <File Id="DecoratorExamplesNewSample_Decorator.h" Name="Decorator.h" Source="..\SDK\Decorator Examples\NewSample\Decorator.h" />
+        <File Id="DecoratorExamplesNewSample_Decorator.rc" Name="Decorator.rc" KeyPath="yes" Source="..\SDK\Decorator Examples\NewSample\Decorator.rc" />
+        <File Id="DecoratorExamplesNewSample_Decorator.rgs" Name="Decorator.rgs" Source="..\SDK\Decorator Examples\NewSample\Decorator.rgs" />
+        <File Id="DecoratorExamplesNewSample_Decorator.sln" Name="Decorator.sln" Source="..\SDK\Decorator Examples\NewSample\Decorator.sln" />
+        <File Id="DecoratorExamplesNewSample_Decorator.vcxproj" Name="Decorator.vcxproj" Source="..\SDK\Decorator Examples\NewSample\Decorator.vcxproj" />
+        <File Id="DecoratorExamplesNewSample_Decorator.vcxproj.filters" Name="Decorator.vcxproj.filters" Source="..\SDK\Decorator Examples\NewSample\Decorator.vcxproj.filters" />
+        <File Id="DecoratorExamplesNewSample_DecoratorApp.cpp" Name="DecoratorApp.cpp" Source="..\SDK\Decorator Examples\NewSample\DecoratorApp.cpp" />
+        <File Id="DecoratorExamplesNewSample_DecoratorApp.def" Name="DecoratorApp.def" Source="..\SDK\Decorator Examples\NewSample\DecoratorApp.def" />
+        <File Id="DecoratorExamplesNewSample_DecoratorCompositePart.cpp" Name="DecoratorCompositePart.cpp" Source="..\SDK\Decorator Examples\NewSample\DecoratorCompositePart.cpp" />
+        <File Id="DecoratorExamplesNewSample_DecoratorCompositePart.h" Name="DecoratorCompositePart.h" Source="..\SDK\Decorator Examples\NewSample\DecoratorCompositePart.h" />
+        <File Id="DecoratorExamplesNewSample_DecoratorConfig.h" Name="DecoratorConfig.h" Source="..\SDK\Decorator Examples\NewSample\DecoratorConfig.h" />
+        <File Id="DecoratorExamplesNewSample_DecoratorImpl.cpp" Name="DecoratorImpl.cpp" Source="..\SDK\Decorator Examples\NewSample\DecoratorImpl.cpp" />
+        <File Id="DecoratorExamplesNewSample_DecoratorImpl.h" Name="DecoratorImpl.h" Source="..\SDK\Decorator Examples\NewSample\DecoratorImpl.h" />
+        <File Id="DecoratorExamplesNewSample_DecoratorLib.idl" Name="DecoratorLib.idl" Source="..\SDK\Decorator Examples\NewSample\DecoratorLib.idl" />
+        <File Id="DecoratorExamplesNewSample_GMEOLEData.cpp" Name="GMEOLEData.cpp" Source="..\SDK\Decorator Examples\NewSample\GMEOLEData.cpp" />
+        <File Id="DecoratorExamplesNewSample_GMEOLEData.h" Name="GMEOLEData.h" Source="..\SDK\Decorator Examples\NewSample\GMEOLEData.h" />
+        <File Id="DecoratorExamplesNewSample_mfcdual.cpp" Name="mfcdual.cpp" Source="..\SDK\Decorator Examples\NewSample\mfcdual.cpp" />
+        <File Id="DecoratorExamplesNewSample_mfcdual.h" Name="mfcdual.h" Source="..\SDK\Decorator Examples\NewSample\mfcdual.h" />
+        <File Id="DecoratorExamplesNewSample_resource.h" Name="resource.h" Source="..\SDK\Decorator Examples\NewSample\resource.h" />
+        <File Id="DecoratorExamplesNewSample_StdAfx.cpp" Name="StdAfx.cpp" Source="..\SDK\Decorator Examples\NewSample\StdAfx.cpp" />
+        <File Id="DecoratorExamplesNewSample_StdAfx.h" Name="StdAfx.h" Source="..\SDK\Decorator Examples\NewSample\StdAfx.h" />
+      </Component>
+
+      <Component Id="DecoratorExamplesPlainSample" Guid="{A8F5CCA0-3BAE-4089-9A6F-54E46FA89173}" Directory="INSTALLDIR_SDK_DECORATOREXAMPLES_PLAINSAMPLE">
+        <File Id="DecoratorExamplesPlainSample_CommonError.cpp" Name="CommonError.cpp" KeyPath="yes" Source="..\SDK\Decorator Examples\PlainSample\CommonError.cpp" />
+        <File Id="DecoratorExamplesPlainSample_CommonError.h" Name="CommonError.h" Source="..\SDK\Decorator Examples\PlainSample\CommonError.h" />
+        <File Id="DecoratorExamplesPlainSample_CommonSmart.h" Name="CommonSmart.h" Source="..\SDK\Decorator Examples\PlainSample\CommonSmart.h" />
+        <File Id="DecoratorExamplesPlainSample_Decorator.cpp" Name="Decorator.cpp" Source="..\SDK\Decorator Examples\PlainSample\Decorator.cpp" />
+        <File Id="DecoratorExamplesPlainSample_Decorator.h" Name="Decorator.h" Source="..\SDK\Decorator Examples\PlainSample\Decorator.h" />
+        <File Id="DecoratorExamplesPlainSample_Decorator.rc" Name="Decorator.rc" Source="..\SDK\Decorator Examples\PlainSample\Decorator.rc" />
+        <File Id="DecoratorExamplesPlainSample_Decorator.rgs" Name="Decorator.rgs" Source="..\SDK\Decorator Examples\PlainSample\Decorator.rgs" />
+        <File Id="DecoratorExamplesPlainSample_Decorator.sln" Name="Decorator.sln" Source="..\SDK\Decorator Examples\PlainSample\Decorator.sln" />
+        <File Id="DecoratorExamplesPlainSample_Decorator.vcxproj" Name="Decorator.vcxproj" Source="..\SDK\Decorator Examples\PlainSample\Decorator.vcxproj" />
+        <File Id="DecoratorExamplesPlainSample_DecoratorApp.cpp" Name="DecoratorApp.cpp" Source="..\SDK\Decorator Examples\PlainSample\DecoratorApp.cpp" />
+        <File Id="DecoratorExamplesPlainSample_DecoratorApp.def" Name="DecoratorApp.def" Source="..\SDK\Decorator Examples\PlainSample\DecoratorApp.def" />
+        <File Id="DecoratorExamplesPlainSample_DecoratorConfig.h" Name="DecoratorConfig.h" Source="..\SDK\Decorator Examples\PlainSample\DecoratorConfig.h" />
+        <File Id="DecoratorExamplesPlainSample_DecoratorDefs.h" Name="DecoratorDefs.h" Source="..\SDK\Decorator Examples\PlainSample\DecoratorDefs.h" />
+        <File Id="DecoratorExamplesPlainSample_DecoratorLib.idl" Name="DecoratorLib.idl" Source="..\SDK\Decorator Examples\PlainSample\DecoratorLib.idl" />
+        <File Id="DecoratorExamplesPlainSample_resource.h" Name="resource.h" Source="..\SDK\Decorator Examples\PlainSample\resource.h" />
+        <File Id="DecoratorExamplesPlainSample_StdAfx.cpp" Name="StdAfx.cpp" Source="..\SDK\Decorator Examples\PlainSample\StdAfx.cpp" />
+        <File Id="DecoratorExamplesPlainSample_StdAfx.h" Name="StdAfx.h" Source="..\SDK\Decorator Examples\PlainSample\StdAfx.h" />
+      </Component>
+
+      <Component Directory="INSTALLDIR_SDK_DECORATOREXAMPLES">
+        <File Source="..\SDK\Decorator Examples\SampleDecorator.cs" />
+      </Component>
+
+      <Component Id="CSharpComponentWizard.exe" Guid="DB3B2614-7590-4F6D-8BCA-AEB8EB9A47FC" Directory="INSTALLDIR_SDK_DOTNET">
+        <File Id="CSharpComponentWizard.exe" Source="..\SDK\DotNet\CSharpComponentWizard\bin\Release\CSharpComponentWizard.exe"/>
+      </Component>
+
+      <Component Id="JavaDocs" Guid="501a65f3-9394-4da8-bec1-99cfff03ccb8" Directory="INSTALLDIR_DOC">
+        <File Id="javagmedoc.zip" Name="javagmedoc.zip" KeyPath="yes" Source="..\SDK\java\javagmedoc.zip" />
+        <File Id="GME_JavaInterface_Users_Manual.pdf" Name="GME_JavaInterface - Users Manual.pdf" Source="..\Doc\Developer\GME_JavaInterface - Users Manual.pdf" />
+      </Component>
+
+      <Component Id="Scripts" Guid="{8321FCA0-1DA5-48C7-B0C1-F5435759C32B}" Directory="INSTALLDIR_SDK_SCRIPTS">
+        <File Id="GMEModelBuilder.py" Name="GMEModelBuilder.py" KeyPath="yes" Source="..\SDK\Scripts\GMEModelBuilder.py" />
+        <File Id="GMEObjectQuery.js" Name="GMEObjectQuery.js"  Source="..\SDK\Scripts\GMEObjectQuery.js" />
+        <File Id="GMEObjectQuery.py" Name="GMEObjectQuery.py"  Source="..\SDK\Scripts\GMEObjectQuery.py" />
+        <File Id="GMETraversor.js" Name="GMETraversor.js"  Source="..\SDK\Scripts\GMETraversor.js" />
+        <File Id="GMETraversor.py" Name="GMETraversor.py"  Source="..\SDK\Scripts\GMETraversor.py" />
+        <File Id="GMETraversor.vbs" Name="GMETraversor.vbs"  Source="..\SDK\Scripts\GMETraversor.vbs" />
+      </Component>
+
+      <Component Id="ScriptSDK.zip" Guid="{0fe37757-8f9c-4488-a0bc-5fa42ed22b6c}" Directory="INSTALLDIR_SDK">
+        <File Id="ScriptSDK.zip" Name="ScriptSDK.zip" KeyPath="yes" Source="..\SDK\ScriptSDK\ScriptSDK.zip" />
+      </Component>
+      <?endif?>
+    </ComponentGroup>
+  </Fragment>
+</Wix>

@@ -1,0 +1,250 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{74844b51-e870-424b-9595-0bdf830bd670}</UniqueIdentifier>
+      <Extensions>cpp;c;cxx;rc;def;r;odl;idl;hpj;bat</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{f2c8f2e9-b534-4774-a48c-10f1c90603d1}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{3403db3f-f4ee-450a-90ad-9eb639c40fcd}</UniqueIdentifier>
+      <Extensions>ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe</Extensions>
+    </Filter>
+    <Filter Include="Documentation Files">
+      <UniqueIdentifier>{4e3a4940-08e1-456c-b424-4fdc1743ced4}</UniqueIdentifier>
+      <Extensions>txt</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\Common\CommonError.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Common\CommonSmart.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CoreMetaDefines.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Meta.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MetaUtilities.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MgaMetaAspect.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MgaMetaAtom.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MgaMetaAttribute.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MgaMetaBase.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MgaMetaConnection.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MgaMetaConnJoint.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MgaMetaConstraint.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MgaMetaEnumItem.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MgaMetaFCO.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MgaMetaFolder.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MgaMetaModel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MgaMetaPart.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MgaMetaPointerItem.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MgaMetaPointerSpec.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MgaMetaProject.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MgaMetaReference.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MgaMetaRegNode.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MgaMetaRole.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MgaMetaSet.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="StdAfx.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Meta.def">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="MgaMetaAspect.rgs">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="MgaMetaAtom.rgs">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="MgaMetaAttribute.rgs">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="MgaMetaConnection.rgs">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="MgaMetaConnJoint.rgs">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="MgaMetaConstraint.rgs">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="MgaMetaEnumItem.rgs">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="MgaMetaFCOs.rgs">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="MgaMetaFolder.rgs">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="MgaMetaModel.rgs">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="MgaMetaPart.rgs">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="MgaMetaPointerItem.rgs">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="MgaMetaPointerSpec.rgs">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="MgaMetaProject.rgs">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="MgaMetaReference.rgs">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="MgaMetaRegNode.rgs">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="MgaMetaRole.rgs">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="MgaMetaRoles.rgs">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="MgaMetaSet.rgs">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Meta.txt">
+      <Filter>Documentation Files</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Meta.rc">
+      <Filter>Source Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="CoreMetaDefines.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MetaUtilities.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MgaMetaAspect.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MgaMetaAtom.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MgaMetaAttribute.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MgaMetaBase.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MgaMetaConnection.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MgaMetaConnJoint.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MgaMetaConstraint.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MgaMetaEnumItem.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MgaMetaFCO.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MgaMetaFolder.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MgaMetaModel.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MgaMetaPart.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MgaMetaPointerItem.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MgaMetaPointerSpec.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MgaMetaProject.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MgaMetaReference.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MgaMetaRegNode.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MgaMetaRole.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MgaMetaSet.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Resource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="StdAfx.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\CommonImport.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Manifest Include="Meta.dll.manifest">
+      <Filter>Resource Files</Filter>
+    </Manifest>
+  </ItemGroup>
+</Project>

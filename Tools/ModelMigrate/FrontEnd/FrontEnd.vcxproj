@@ -1,0 +1,239 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectName>ModelMigrate</ProjectName>
+    <ProjectGuid>{73E065E0-27FD-4D46-A483-EFB75438F74E}</ProjectGuid>
+    <RootNamespace>ModelMigrate</RootNamespace>
+    <Keyword>MFCProj</Keyword>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseOfMfc>Dynamic</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseOfMfc>Static</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC71.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC71.props" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.40219.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Debug\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Debug\</IntDir>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</LinkIncremental>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Release\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Release\</IntDir>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Midl>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MkTypLibCompatible>false</MkTypLibCompatible>
+    </Midl>
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>true</MinimalRebuild>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <AdditionalIncludeDirectories>$(GME_ROOT)\Interfaces;$(GME_ROOT)\Gme\Interfaces;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0409</Culture>
+      <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Link>
+      <AdditionalDependencies>ole32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <RandomizedBaseAddress>false</RandomizedBaseAddress>
+      <DataExecutionPrevention>
+      </DataExecutionPrevention>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Midl>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MkTypLibCompatible>false</MkTypLibCompatible>
+    </Midl>
+    <ClCompile>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <PreprocessorDefinitions>_AFXDLL;WIN32;_WINDOWS;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>false</MinimalRebuild>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <AdditionalIncludeDirectories>$(GME_ROOT)\Interfaces;$(GME_ROOT)\Gme\Interfaces;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0409</Culture>
+      <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <RandomizedBaseAddress>false</RandomizedBaseAddress>
+      <DataExecutionPrevention>
+      </DataExecutionPrevention>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="AboutDlg.cpp" />
+    <ClCompile Include="AttrGlobalDlg.cpp" />
+    <ClCompile Include="AttrNameDlg.cpp" />
+    <ClCompile Include="AttrTypeChangeDlg.cpp" />
+    <ClCompile Include="CMgaXslt.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">/showIncludes %(AdditionalOptions)</AdditionalOptions>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="EnumAttrValueDlg.cpp" />
+    <ClCompile Include="Extractor.cpp" />
+    <ClCompile Include="FileListCtrl.cpp" />
+    <ClCompile Include="FileTransDlg.cpp" />
+    <ClCompile Include="Log.cpp" />
+    <ClCompile Include="ModelMigrate.cpp" />
+    <ClCompile Include="MoveDownElem.cpp" />
+    <ClCompile Include="MoveUpElem.cpp" />
+    <ClCompile Include="NewRuleDlg.cpp" />
+    <ClCompile Include="OptionsDlg.cpp" />
+    <ClCompile Include="RemoveDlg.cpp" />
+    <ClCompile Include="RemoveLocAttrDlg.cpp" />
+    <ClCompile Include="Rule.cpp" />
+    <ClCompile Include="RuleEditorDlg.cpp" />
+    <ClCompile Include="RuleListCtrl.cpp" />
+    <ClCompile Include="Script.cpp" />
+    <ClCompile Include="ScriptAbs.cpp" />
+    <ClCompile Include="ScriptAttrName.cpp" />
+    <ClCompile Include="ScriptAttrType.cpp" />
+    <ClCompile Include="ScriptCmplx.cpp" />
+    <ClCompile Include="ScriptEnumAttrValue.cpp" />
+    <ClCompile Include="ScriptListCtrl.cpp" />
+    <ClCompile Include="ScriptMoveDown.cpp" />
+    <ClCompile Include="ScriptMoveUp.cpp" />
+    <ClCompile Include="SimpleRepl.cpp" />
+    <ClCompile Include="stdafx.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="StereotypeCastDlg.cpp" />
+    <ClCompile Include="Validator.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="AboutDlg.h" />
+    <ClInclude Include="AttrGlobalDlg.h" />
+    <ClInclude Include="AttrNameDlg.h" />
+    <ClInclude Include="AttrTypeChangeDlg.h" />
+    <ClInclude Include="CMgaXslt.h" />
+    <ClInclude Include="EnumAttrValueDlg.h" />
+    <ClInclude Include="Extractor.h" />
+    <ClInclude Include="FileListCtrl.h" />
+    <ClInclude Include="FileTransDlg.h" />
+    <ClInclude Include="Log.h" />
+    <ClInclude Include="ModelMigrate.h" />
+    <ClInclude Include="MoveDownElem.h" />
+    <ClInclude Include="MoveUpElem.h" />
+    <ClInclude Include="NewRuleDlg.h" />
+    <ClInclude Include="OptionsDlg.h" />
+    <ClInclude Include="RemoveDlg.h" />
+    <ClInclude Include="RemoveLocAttrDlg.h" />
+    <ClInclude Include="Resource.h" />
+    <ClInclude Include="Rule.h" />
+    <ClInclude Include="RuleEditorDlg.h" />
+    <ClInclude Include="RuleListCtrl.h" />
+    <ClInclude Include="Script.h" />
+    <ClInclude Include="ScriptAbs.h" />
+    <ClInclude Include="ScriptAttrName.h" />
+    <ClInclude Include="ScriptAttrType.h" />
+    <ClInclude Include="ScriptCmplx.h" />
+    <ClInclude Include="ScriptEnumAttrValue.h" />
+    <ClInclude Include="ScriptListCtrl.h" />
+    <ClInclude Include="ScriptMoveDown.h" />
+    <ClInclude Include="ScriptMoveUp.h" />
+    <ClInclude Include="SimpleRepl.h" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="StereotypeCastDlg.h" />
+    <ClInclude Include="Validator.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="res\FrontEnd.ico" />
+    <None Include="res\FrontEnd.rc2" />
+    <None Include="res\toolbar1.bmp" />
+    <None Include="res\header.xsl" />
+    <None Include="res\tail.xsl" />
+    <None Include="res\TAtom2Model.xsl" />
+    <None Include="res\TAttrNameChange.xsl" />
+    <None Include="res\TAttrTypeChange.xsl" />
+    <None Include="res\TAttrTypeCheck2Text.xsl" />
+    <None Include="res\TEnumAttrValueChange.xsl" />
+    <None Include="res\TKindNameChange.xsl" />
+    <None Include="res\TModel2Atom.xsl" />
+    <None Include="res\TParadigmGUIDChange.xsl" />
+    <None Include="res\TParadigmNameChange.xsl" />
+    <None Include="res\TParadigmVersionChange.xsl" />
+    <None Include="res\TRemoveGlobalAttr.xsl" />
+    <None Include="res\TRemoveKind.xsl" />
+    <None Include="res\TRemoveLocalAttr.xsl" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="FrontEnd.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Manifest Include="res\FrontEnd.manifest" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\IDLComp\IDLComp.vcxproj">
+      <Project>{0ed4c2ea-5ea6-4bac-a152-489bc3420043}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <Private>true</Private>
+      <CopyLocalSatelliteAssemblies>false</CopyLocalSatelliteAssemblies>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+      <UseLibraryDependencyInputs>false</UseLibraryDependencyInputs>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+  <ProjectExtensions>
+    <VisualStudio>
+      <UserProperties RESOURCE_FILE="FrontEnd.rc" />
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

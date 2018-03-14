@@ -1,0 +1,14 @@
+HKCR
+{
+	NoRemove AppID
+	{
+		{461F30AF-3BF0-11D4-B3F0-005004D38590} = s 'MgaUtil' 
+		{
+			val DllSurrogate = s ''
+		}	
+		'MgaUtil.DLL'
+		{
+			val AppID = s {461F30AF-3BF0-11D4-B3F0-005004D38590}
+		}
+	}
+}

@@ -1,0 +1,9 @@
+; GMEActiveBrowser.def : Declares the module parameters.
+
+LIBRARY      "GMEACTIVEBROWSER.OCX"
+
+EXPORTS
+	DllCanUnloadNow     PRIVATE
+	DllGetClassObject   PRIVATE
+	DllRegisterServer   PRIVATE
+	DllUnregisterServer PRIVATE

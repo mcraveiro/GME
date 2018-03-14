@@ -1,0 +1,270 @@
+<html><head><META http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>Building Interpreters</title><link href="docbook-xslt-style.css" rel="stylesheet" type="text/css"><meta content="DocBook XSL Stylesheets V1.75.1" name="generator"><link rel="home" href="#N10004" title="Building Interpreters"><link rel="next" href="#N1001D" title="Introduction"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="article" title="Building Interpreters"><div class="titlepage"><div><div><h2 class="title"><a name="N10004"></a>Building Interpreters</h2></div><div><div class="author"><h3 class="author"><span class="firstname">Kevin</span> <span class="surname">Smyth</span></h3><div class="affiliation"><span class="orgname">ISIS<br></span></div></div></div><div><div class="author"><h3 class="author"><span class="firstname">Arpad</span> <span class="surname">Bakay</span></h3><div class="affiliation"><span class="orgname">ISIS<br></span></div></div></div></div><hr></div><div class="toc"><p><b>Table of Contents</b></p><dl><dt><span class="section"><a href="#N1001D">Introduction</a></span></dt><dt><span class="section"><a href="#N1004F">The Builder Object Network</a></span></dt><dd><dl><dt><span class="section"><a href="#sect-gen-workspace">Generate a workspace</a></span></dt><dt><span class="section"><a href="#N1013A">Writing the interpreter code</a></span></dt></dl></dd><dt><span class="section"><a href="#N1022A">The Builder Object Network 2</a></span></dt><dt><span class="section"><a href="#N1027C">BON2 Extended</a></span></dt></dl></div><div class="section" title="Introduction"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N1001D"></a>Introduction</h2></div></div></div><p>For some GME applications, the only motivation for a modeling
+    project is the desire to describe a system in a structured way and to use
+    the description as a form of interpersonal communication. Usually,
+    however, we also want the computer to be able to process data from the
+    model automatically. Typical processing tasks range from the simple to the
+    sophisticated: </p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p>running queries, generating lists, and writing reports based
+          on the contents of the model</p></li><li class="listitem"><p>generating program code or system configuration</p></li><li class="listitem"><p>building models automatically from information provided by
+          another data source (e.g. a database)</p></li><li class="listitem"><p>using the models as a data exchange format to integrate tools
+          that are incompatible with each other</p></li></ul></div><p>A common theme for all these applications is that they require
+    programmatic access to the GME model information. To meet this
+    requirement, GME provides several ways to create programs that access its
+    data. The most popular technique is writing a GME interpreter.
+    Interpreters are not standalone progams; they are components (usually
+    DLLs) that are loaded and executed by GME upon a user's request. Other
+    types of programs that can access model data are <span class="emphasis"><em>standalone
+    applications</em></span> (which can be executed without the GME GUI) and
+    other integrated components that serve different purposes
+    (<span class="emphasis"><em>Plugins</em></span> and <span class="emphasis"><em>AddOns</em></span>).</p><p>There are also different technologies available to access GME data:
+    </p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p>Most GME components are built for the Builder Object Network
+          (BON), a framework which is relatively easy to use and is still
+          powerful enough for most applications. BON provides a network of C++
+          objects. Each of these represents an object in the GME model
+          database. C++ methods provide convenient read/write access to the
+          objects' properties, attributes, and relations.</p></li><li class="listitem"><p>GME is a COM/DCOM-based architecture. Therefore, COM is the
+          primary interface used to access GME data. It is also the most
+          efficient interface. However, in addition to COM programming,
+          writing a raw COM component requires taking care of the full GME
+          interface protocol, including transactions, territories, event
+          handling, etc.</p></li><li class="listitem"><p>The GME Unified Data Model module (UDM-GME) creates
+          interpreters that use an automatically generated paradigm-dependent
+          programmatic interface.</p></li><li class="listitem"><p>Builder Object Network II (BON II) is a newer way to write C++
+          based interpreters. BON II scales better than BON in case of large
+          models, because an intelligent fetch mechanism only fetch objects
+          just one time and on-demand.</p></li></ul></div><p>This lesson discusses the process of building a Builder Object
+    Network-based interpreter (not the BON II). The application domain and
+    paradigm are those used in the <a class="ulink" href="Lesson2.html" target="_top">previous
+    lesson</a>. Our interpreter will complete a simple task: it will print
+    out a list of all routers, along with their ports and IP addresses.</p></div><div class="section" title="The Builder Object Network"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N1004F"></a>The Builder Object Network</h2></div></div></div><p>As mentioned above, the job of the Builder Object Network is to
+    instantiate C++ objects for each of the objects in the GME model tree.
+    Access to the objects, and to the relationships between them, are
+    available through methods that act on these objects. Class names and
+    method names are often self-explanatory: <code class="code">CBuilderAtom</code>,
+    <code class="code">CBuilderConnection</code>, <code class="code">GetAttribute( )</code>,
+    <code class="code">SetAttribute( )</code>, <code class="code">GetChildren( )</code>,
+    <code class="code">GetParent( )</code>, <code class="code">CreateNewAtom( )</code>, etc. The main
+    BON header file, <code class="filename">Builder.h</code>, is the authentic
+    repository of the BON interfaces.</p><div class="figure"><a name="BON-classes"></a><p class="title"><b>Figure&nbsp;1.&nbsp;Classes in the Builder Object Network</b></p><div class="figure-contents"><div class="mediaobject"><img src="L3/BON classes.png" alt="Classes in the Builder Object Network"></div></div></div><br class="figure-break"><p>The BON class hierarchy is shown in <a class="xref" href="#BON-classes" title="Figure&nbsp;1.&nbsp;Classes in the Builder Object Network">Figure&nbsp;1, &ldquo;Classes in the Builder Object Network&rdquo;</a>.
+    Many of the classes are organized into a hierarchy with the common
+    baseclass <code class="code">CBuilderObject</code>. This class represents the common
+    functionality available for all FCOs, while the specialized versions
+    provide object-type specific methods. <code class="code">CBuilderAtom</code>,
+    <code class="code">CBuilderModel</code>, and <code class="code">CBuilderConnection</code> represent
+    <span class="emphasis"><em>atoms</em></span>, <span class="emphasis"><em>models</em></span>, and
+    <span class="emphasis"><em>connections</em></span>, all well-known from the previous
+    lessons. <code class="code">CBuilderReference</code> (along with the specialized
+    versions, <code class="code">CBuilderAtomReference</code> and
+    <code class="code">CBuilderModelReference</code>) and <code class="code">CBuilderSet</code>
+    represent <span class="emphasis"><em>references</em></span> and <span class="emphasis"><em>sets</em></span>,
+    which are discussed in <a class="ulink" href="Lesson4.html" target="_top">Lesson 4</a>.
+    <code class="code">CBuilderReferencePort</code> is a pseudo-object that is only present
+    in the BON.</p><p>Two other classes are "outsiders" to the <code class="code">CBuilderObject</code>
+    hierarchy. <code class="code">CBuilder</code> represents the modeling project as a
+    whole. It provides access to the root folder and to other folders, as well
+    as to project-wide settings (such as <code class="code">GetProjectName( )</code>).
+    <code class="code">CBuilderFolder</code> represents folders and is capable of
+    navigating the folder hierarchy and accessing root FCOs.</p><p>This tutorial does not attempt to explain the entire BON interface.
+    Most methods listed in <code class="filename">Builder.h</code> are
+    self-explanatory. However, the GME User's Manual does contain a detailed
+    description of the Builder Object Network.</p><p>Looking at the <code class="filename">Builder.h</code> file, it is obvious
+    that this framework relies quite heavily on certain data types and
+    templates not listed in Fig 3.1, such as <code class="code">CString</code>,
+    <code class="code">CTypedPtrList&lt;&gt;</code>, <code class="code">CTypedPtrMap&lt;&gt;</code>,
+    etc. These are not defined by the BON framework, but by MFC, a popular
+    class library provided with Microsoft Visual Studio. Please consult the MS
+    Visual Studio / MFC documentation for help with these data types. Also,
+    you will notice that a typical instruction pattern is used to navigate the
+    collection attributes:</p><pre class="programlisting">POSITION pos = list.GetHeadPosition(); while(pos) { process(list.GetNext(pos)); } </pre><p>The Builder Object Network also provides an optional user-defined
+    subclassing mechanism based on the factory design pattern. BON classes
+    allow subclassing, and user-defined subclasses can be registered into the
+    BON <span class="emphasis"><em>class factory</em></span>. When this happens, the object
+    network is not built from the predefined classes in Fig 3.1, but from the
+    user's own subclasses, which include additional functionality.</p><p>The Builder Object Network is provided as part of a convenient
+    framework, which includes a set of tools (or "wizards") that help the user
+    to set up a component development project. Thanks to this framework, the
+    process of creating an interpreter is both easy and quick. Even casual
+    component developers can build meaningful interpreters within 30-60
+    minutes.</p><div class="section" title="Generate a workspace"><div class="titlepage"><div><div><h3 class="title"><a name="sect-gen-workspace"></a>Generate a workspace</h3></div></div></div><p>The first time you wish to create a BON interpreter, you must run
+      <code class="filename">C:\Program Files\GME\SDK\BON\Wizard\setup90.js</code>.
+      This registers the GME project types in Visual Studio.</p><p>To create a BON project, open Visual Studio. Go to
+      <span class="guimenu">File</span> <span class="guisubmenu">New</span>
+      <span class="guimenuitem">Project</span>. Under <span class="guimenu">Visual C++</span>,
+      select <span class="guisubmenu">GME</span>, then <span class="guilabel">GME BON
+      Component</span>. Give the project a name (in this case
+      <span class="emphasis"><em>networkingTraverser)</em></span>, then hit
+      <span class="guilabel">OK</span>. Hit <span class="guilabel">Next &gt;</span>. Under
+      <span class="guilabel">Paradigms</span>, enter the name of the metamodel,
+      <span class="emphasis"><em>networking</em></span>.</p><div class="figure"><a name="N1010C"></a><p class="title"><b>Figure&nbsp;2.&nbsp;GME BON Component New Project Wizard</b></p><div class="figure-contents"><div class="mediaobject"><img src="L3/VS GME Component wizard.png" alt="GME BON Component New Project Wizard"></div></div></div><p><br class="figure-break">Hit <span class="guilabel">Finish</span>. You now have a GME BON
+      interpreter; go ahead and build it. As part of the build process, the
+      interpreter will be registered.</p><div class="figure"><a name="N10119"></a><p class="title"><b>Figure&nbsp;3.&nbsp;Empty GME BON interpreter</b></p><div class="figure-contents"><div class="mediaobject"><img src="L3/VS empty BON1 project.png" alt="Empty GME BON interpreter"></div></div></div><p><br class="figure-break"></p><p>Now, run GME and open a <span class="emphasis"><em>networking</em></span> model.
+      There should be an icon for the interpreter in the
+      <span class="guilabel">Components</span> toolbar next to the general Interpret
+      ('i") button. You may also run the interpreter by right-clicking a model
+      in the <span class="guilabel">Model Browser</span> and clicking
+      <span class="guisubmenu">Interpret</span>.</p><div class="figure"><a name="N10132"></a><p class="title"><b>Figure&nbsp;4.&nbsp;Default Interpreter Icon</b></p><div class="figure-contents"><div class="mediaobject"><img src="L3/Default Interpreter Icon.png" alt="Default Interpreter Icon"></div></div></div><p><br class="figure-break"></p></div><div class="section" title="Writing the interpreter code"><div class="titlepage"><div><div><h3 class="title"><a name="N1013A"></a>Writing the interpreter code</h3></div></div></div><p>Our final task consists of writing the crucial portion of the
+      interpreter code. Like any other program, the difficulty of this task
+      depends on the complexity of the functionality. Most interpreters
+      implement at least two typical functions:</p><div class="variablelist"><dl><dt><span class="term">Navigating the object network</span></dt><dd><p>usually, traversing all or part of the tree. Containment
+              is the most frequently used relationship for traversal, although
+              other relationships (inheritance, references, or connections)
+              also provide the ability to navigate in both directions. If the
+              paradigm is recursive, traversal is also implemented by a
+              potentially recursive chain of method calls.</p><p>Navigation can begin from several different points, all of
+              which are passed to <code class="code">CComponent::InvokeEx</code> as
+              parameters. These points are:</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p>The <code class="code">CBuilder</code> object, which represents
+                    the entire project and provides access to the root folder,
+                    the hierarchy of subfolders (see Lesson 4), and the FCOs
+                    contained in them.</p></li><li class="listitem"><p>The focus object (if non-null), i.e. the model from
+                    which the interpreter was executed.</p></li><li class="listitem"><p>The list of selected objects, which is created only
+                    when the interpreter is started from the context menu;
+                    otherwise, the list is empty.</p></li></ul></div><p>The most frequently used methods for navigation are:
+              </p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p><code class="code">GetRootFolder( )</code>, <code class="code">GetFolders(
+                    )</code>, and <code class="code">GetFolder(name)</code> in the
+                    <code class="code">CBuilder</code> class</p></li><li class="listitem"><p><code class="code">GetSubFolders( )</code>, <code class="code">GetRootModels(
+                    )</code>, and <code class="code">GetRootModel(name)</code> in the
+                    <code class="code">CBuilderFolder</code> class</p></li><li class="listitem"><p><code class="code">GetChildren( )</code>, <code class="code">GetAtoms(
+                    )</code>, <code class="code">GetModels( )</code>, <code class="code">GetReferences(
+                    )</code>, <code class="code">GetSets( )</code>, and
+                    <code class="code">GetConnections( )</code> in the
+                    <code class="code">CBuilderModel</code> class, along with the
+                    variations on these methods that filter the objects by
+                    kindname</p></li><li class="listitem"><p><code class="code">GetInConnections( )</code>,
+                    <code class="code">GetInConnectedObjects( )</code>,
+                    <code class="code">GetDirectInConnections( )</code>, and similar
+                    functions for navigating connections, plus <code class="code">GetType(
+                    )</code> and <code class="code">GetDerivedObjects( )</code> for
+                    navigating inheritance, all in the
+                    <code class="code">CBuilderObject</code> class</p></li></ul></div><p>Consult <code class="filename">Builder.h</code> for a full list of
+              methods.</p></dd><dt><span class="term">Querying or modifying individual objects</span></dt><dd><p>accessing object properties (e.g. name, position),
+              attributes, metainformation, or associations. The function of
+              interpreters typically involves printing out object data in some
+              particular order and format, just like this example. The most
+              frequently used methods for this function are in the
+              <code class="code">CBuilderObject</code> class. They are: </p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p><code class="code">GetAttribute( )</code> and <code class="code">SetAttribute(
+                    )</code> in several variations, depending on attribute
+                    data type</p></li><li class="listitem"><p><code class="code">GetName( )</code>, <code class="code">SetName( ),</code>
+                    <code class="code">GetLocation( )</code>, and <code class="code">SetLocation(
+                    )</code> for accessing properties</p></li><li class="listitem"><p><code class="code">GetRegistryValue( )</code> and
+                    <code class="code">SetRegistryValue( )</code> for accessing
+                    visualization information</p></li><li class="listitem"><p><code class="code">GetKindName( )</code>, <code class="code">GetPartName(
+                    )</code>, and <code class="code">GetAttributeNames( )</code> for
+                    accessing metainformation</p></li></ul></div></dd></dl></div><p>The operation of this particular interpreter should not depend on
+      the focus object or on selected objects (which may be <code class="code">NULL</code>
+      in certain situations). Therefore, we must traverse the object tree
+      through the root of the object hierarchy. The paradigm does not allow
+      subfolders, so it is relatively easy to travel through all the root
+      models in the diagram.</p><div class="figure"><a name="N101E0"></a><p class="title"><b>Figure&nbsp;5.&nbsp;<span class="emphasis"><em>Networking</em></span> metamodel</b></p><div class="figure-contents"><div class="mediaobject"><img src="L3/networking meta.png" alt="Networking metamodel"></div></div></div><br class="figure-break"><p>In <code class="filename">BONComponent.cpp</code>, insert:</p><pre class="programlisting">void CComponent::InvokeEx(CBuilder &amp;builder,CBuilderObject *focus, CBuilderObjectList &amp;selected, long param) 
+{
+  using namespace GMEConsole;
+  Console::Out::WriteLine("Interpreter started...");
+
+  Console::Out::WriteLine(CString("Router list for network") + builder.GetRootFolder()-&gt;GetName()); 
+  const CBuilderModelList *diags = builder.GetRootFolder()-&gt;GetRootModels(); 
+  POSITION pos = diags-&gt;GetHeadPosition(); 
+  while(pos) 
+  { 
+    CBuilderModel *diagram = diags-&gt;GetNext(pos); 
+    ProcessDiagram(diagram); 
+  } 
+}</pre><p><code class="code">InvokeEx</code> demonstrates the basic tricks of traversing
+      the BON network: accessing child objects and iterating through
+      collections. The only difference between it and
+      <code class="code">CComponent::ProcessDiagram</code> is that the latter is recursive
+      and processes different children in a different way.</p><pre class="programlisting">void CComponent::ProcessDiagram(CBuilderModel *d) 
+{ 
+  using namespace GMEConsole;
+  ASSERT(d-&gt;GetKindName() == "NetDiagram"); 
+  const CBuilderModelList *diags = d-&gt;GetModels("NetDiagram"); 
+  POSITION pos = diags-&gt;GetHeadPosition(); 
+  while(pos) ProcessDiagram(diags-&gt;GetNext(pos)); // recursion 
+
+  const CBuilderModelList *routers = d-&gt;GetModels("Router"); 
+  pos = routers-&gt;GetHeadPosition(); 
+  while(pos) ProcessRouter(routers-&gt;GetNext(pos)); 
+} </pre><p><code class="code">ProcessDiagram</code> is fairly complex, even though we
+      managed to squeeze the iteration loops into a single line. Together, the
+      two methods above provide a nearly complete implementation of the
+      <span class="emphasis"><em>traversal</em></span> function of the interpreter, the part
+      that locates routers in the hierarchy. The <code class="code">ProcessRouter</code>
+      method takes care of the rest; it implements the <span class="emphasis"><em>node
+      processing</em></span> function, as well as some minimal traversal into
+      the ports of a router.</p><pre class="programlisting">void CComponent::ProcessRouter(CBuilderModel *r) 
+{ 
+  ASSERT(r-&gt;GetKindName() == "Router"); 
+  CString fam; 
+  r-&gt;GetAttribute("Family", fam); 
+  Console::Out::WriteLine(CString("\tRouter ") + r-&gt;GetName() + " (" + fam + ")");
+
+  const CBuilderAtomList *ports = r-&gt;GetAtoms("Port"); 
+  POSITION pos = ports-&gt;GetHeadPosition(); 
+  while(pos) 
+  {
+    CBuilderAtom *port = ports-&gt;GetNext(pos); 
+    CString iftype, ipaddr; 
+    int ifspeed; 
+    port-&gt;GetAttribute("IFType", iftype); 
+    port-&gt;GetAttribute("IFSpeed", ifspeed); 
+    port-&gt;GetAttribute("IPAddress", ipaddr);
+    Console::Out::WriteLine(CString("    \t\tPort ") + Formatter::MakeObjectHyperlink(port-&gt;GetName(), port-&gt;GetObjId()) + 
+      "(" + iftype + "; " + CComVariant(ifspeed) + "Kbps), Addr: " + ipaddr );
+  } 
+}</pre><p>Do not forget to add <code class="code">ProcessDiagram</code> and
+      <code class="code">ProcessRouter</code> to the <code class="code">CComponent</code> declaration in
+      <code class="filename">BONComponent.h</code>. Add #include "Formatter.h" to BONComponent.cpp</p><p>The compilation should run smoothly unless there are typos in your
+      code. If you encounter assertions when running the interpreter for the
+      first time, make sure that you used the exact same names (kindnames,
+      rolenames and attribute names) in your paradigm that you are using in
+      your interpreter code. For reference, here are my copies of <a class="ulink" href="L3/BON1/BONComponent.cpp" target="_top"><code class="filename">BONComponent.cpp</code></a>
+      and <a class="ulink" href="L3/BON1/BONComponent.h" target="_top"><code class="filename">BONComponent.h</code></a>.</p></div></div><div class="section" title="The Builder Object Network 2"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N1022A"></a>The Builder Object Network 2</h2></div></div></div><p>To create a BON2 project, follow the directions in <a class="xref" href="#sect-gen-workspace" title="Generate a workspace">the section called &ldquo;Generate a workspace&rdquo;</a>, but select BON2 project instead of
+    BON.</p><p>Frequently-used methods for navigation are:</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p><code class="code">project-&gt;getRootFolder()-&gt;getRootFCOs()</code>:
+          returns a <code class="code">std::set&lt;BON::FCO&gt;</code>, the FCOs in the
+          top-level folder (commonly models)</p></li><li class="listitem"><p><code class="code">getChildFolders()</code>, <code class="code">getChildAtoms()</code>,
+          <code class="code">getChildModels()</code> in <code class="code">BON::FolderImpl</code></p></li><li class="listitem"><p><code class="code">getChild*s</code> in <code class="code">BON::ModelImpl</code></p></li><li class="listitem"><p><code class="code">getReferred()</code> in
+          <code class="code">BON::ReferenceImpl</code></p></li><li class="listitem"><p><code class="code">getMembers()</code> in <code class="code">BON::SetImpl</code></p></li><li class="listitem"><p><code class="code">getSrc()</code>, <code class="code">getDst()</code> in
+          <code class="code">BON::ConnectionImpl</code></p></li></ul></div><p>The <code class="code">get*s()</code> methods return STL collections.</p><p>Here are example files: <a class="ulink" href="L3/BON2/BON2Component.cpp" target="_top"><code class="filename">BON2Component.cpp</code></a>
+    and <a class="ulink" href="L3/BON2/BON2Component.h" target="_top"><code class="filename">BON2Component.h</code></a>.</p></div><div class="section" title="BON2 Extended"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N1027C"></a>BON2 Extended</h2></div></div></div><p>BON2 Extended allows you to write paradigm-specific interpreters
+    more easily. Classes are generated for model elements using the
+    BONExtender interpreter.</p><p>To start, create a project as you did with BON2. Create a copy of
+    the paradigm (<code class="filename">networking.mga</code>) in the directory with
+    the source files. Then open the paradigm in GME and use the BONExtender
+    interpreter (<span class="emphasis"><em>X</em></span> icon).</p><div class="figure"><a name="N1028A"></a><p class="title"><b>Figure&nbsp;6.&nbsp;BONExtender interpreter dialog</b></p><div class="figure-contents"><div class="mediaobject"><img src="L3/BON Extender interpreter dialog.png" alt="BONExtender interpreter dialog"></div></div></div><br class="figure-break"><p>Add the generated files <code class="filename">networkingBonX.cpp</code>,
+    <code class="filename">networkingBonX.h</code>,
+    <code class="filename">networkingVisitor.cpp</code>, and
+    <code class="filename">networkingVisitor.h</code> to the Visual Studio
+    project.</p><p>With BON2, you can extend the classes (e.g. NetDiagram) with
+    domain-specific functions. The BONExtender interpreter can also generate
+    visitor code which simplifies the traversal of the model.</p><div class="figure"><a name="N102A6"></a><p class="title"><b>Figure&nbsp;7.&nbsp;<span class="emphasis"><em>Networking</em></span> metamodel</b></p><div class="figure-contents"><div class="mediaobject"><img src="L3/networking meta.png" alt="Networking metamodel"></div></div></div><br class="figure-break"><p>The following code iterates through the top-level models (i.e. the
+    models under the root folder):</p><pre class="programlisting">std::set&lt;BON::Model&gt; rootModels = project-&gt;getRootFolder()-&gt;getChildModels();
+for (std::set&lt;BON::Model&gt;::iterator it = rootModels.begin(); it != rootModels.end(); it++) {
+}
+
+</pre><p>Child FCOs can be retrieved from a model by type:</p><pre class="programlisting">BON::Model diagram;
+std::set&lt;BON::FCO&gt; childModels = diagram-&gt;getChildFCOs("Router");
+for (std::set&lt;BON::FCO&gt;::iterator it = childModels.begin(); it != childModels.end(); it++) {
+ ProcessRouter(BON::Model(*it));
+}
+
+</pre><p>Attributes:</p><pre class="programlisting">BON::Atom port;
+std::string iftype = port-&gt;getAttribute("IFType")-&gt;getStringValue();
+int ifspeed = port-&gt;getAttribute("IFSpeed")-&gt;getIntegerValue();
+std::string ipaddr = port-&gt;getAttribute("IPAddress")-&gt;getStringValue();
+
+</pre><p>Connections:</p><pre class="programlisting">BON::Atom port;
+// Print the other end of all Connections
+std::set&lt;BON::Connection&gt; conns = port-&gt;getConnLinks();
+for (std::set&lt;BON::Connection&gt;::iterator it2 = conns.begin(); it2 != conns.end(); it2++) {
+ BON::ConnectionEnd other;
+ if ((*it2)-&gt;getDst() == *it) {
+  other = (*it2)-&gt;getSrc();
+ } else {
+  other = (*it2)-&gt;getDst();
+ }
+ // A ConnectionEnd is either an FCO or a ReferencePort
+ if (BON::FCO(other)) {
+  BON::FCO otherFCO(other);
+  Console::Out::WriteLine(CString("&amp;nbsp;&amp;nbsp;&amp;nbsp;Connected to ") + 
+  otherFCO-&gt;getObjectMeta().name() + " " + MakeHyperlink(otherFCO));
+ }
+}</pre><p>Here are example files: <a class="ulink" href="L3/BON2Ex/BON2Component.cpp" target="_top"><code class="filename">BON2Component.cpp</code></a>
+    and <a class="ulink" href="L3/BON2Ex/BON2Component.h" target="_top"><code class="filename">BON2Component.h</code></a>.</p><p><a class="ulink" href="Lesson2.html" target="_top">&lt;&lt; Previous Lesson</a></p><p><a class="ulink" href="index.html#toc" target="_top">Complete List</a></p><p><a class="ulink" href="Lesson4.html" target="_top">Next Lesson
+    &gt;&gt;</a></p></div></div></body></html>

@@ -1,0 +1,27 @@
+HKCR
+{
+	Mga.MgaProject.1 = s 'MgaProject Class'
+	{
+		CLSID = s '{270B4F93-B17C-11D3-9AD1-00AA00B6FE26}'
+	}
+	Mga.MgaProject = s 'MgaProject Class'
+	{
+		CLSID = s '{270B4F93-B17C-11D3-9AD1-00AA00B6FE26}'
+		CurVer = s 'Mga.MgaProject.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {270B4F93-B17C-11D3-9AD1-00AA00B6FE26} = s 'MgaProject Class'
+		{
+			ProgID = s 'Mga.MgaProject.1'
+			VersionIndependentProgID = s 'Mga.MgaProject'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			val AppID = s '{461F30AF-3BF0-11D4-B3F0-005004D38590}'
+			'TypeLib' = s '{270B4F86-B17C-11D3-9AD1-00AA00B6FE26}'
+		}
+	}
+}

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin
+   id="org.isis.gme.GmePlugin"
+   name="GME Plug-in"
+   version="1.0.0"
+   provider-name="ISIS Vanderbilt"
+   class="org.isis.gme.plugin.GmePlugin">
+
+   <runtime>
+      <library name="GmePlugin.jar"/>
+   </runtime>
+   <requires>
+      <import plugin="org.eclipse.core.resources"/>
+      <import plugin="org.eclipse.ui"/>
+      <import plugin="org.eclipse.gef" version="2.1.1"/>
+   </requires>
+
+   <extension 
+       point="org.eclipse.ui.perspectives">
+       <perspective
+           id="org.isis.gme.plugin.GmePerspective"
+           name="GME"
+           icon="icons/gme_perspective.gif"
+           class="org.isis.gme.plugin.GmePerspectiveFactory">
+       </perspective>
+   </extension>
+
+   <extension
+         point="org.eclipse.ui.editors">
+      <editor            
+	        name="GME Model Editor43"
+            default="true"
+            icon="icons/gme_perspective.GIF"
+            extensions="logic"
+            class="org.isis.gme.modeleditor.ModelEditor"
+            id="org.isis.gme.modeleditor.ModelEditor">
+      </editor>
+   </extension>   
+  
+   <extension
+         point="org.eclipse.ui.views">
+      <category
+            name="GME"
+            id="org.isis.gme">
+      </category>
+      <view
+            name="GME Model Explorer"
+            icon="icons/sample.gif"
+            category="org.isis.gme"
+            class="org.isis.gme.modelexplorer.ModelExplorer"
+            id="org.isis.gme.modelexplorer.ModelExplorer">
+      </view>
+   </extension>   
+   
+   <extension
+         point="org.eclipse.ui.views">
+      <category
+            name="GME"
+            id="org.isis.gme">
+      </category>
+      <view
+            name="GME Attribute Viewer"
+            icon="icons/sample.gif"
+            category="org.isis.gme"
+            class="org.isis.gme.attributeview.AttributeView"
+            id="org.isis.gme.attributeview.AttributeView">
+      </view>
+   </extension>   
+   
+   <extension
+         point="org.eclipse.ui.views">
+      <category
+            name="GME"
+            id="org.isis.gme">
+      </category>
+      <view
+            name="GME Part Browser"
+            icon="icons/sample.gif"
+            category="org.isis.gme"
+            class="org.isis.gme.partbrowser.PartBrowser"
+            id="org.isis.gme.partbrowser.PartBrowser">
+      </view>
+   </extension>   
+  
+</plugin>

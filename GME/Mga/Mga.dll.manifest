@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<assembly xmlns="urn:schemas-microsoft-com:asm.v1" manifestVersion="1.0">
+  <assemblyIdentity type="win32" name="Mga" version="1.0.0.0" />
+
+  <dependency>
+    <dependentAssembly>
+      <assemblyIdentity type="win32" name="Core" version="1.0.0.0" language="*"></assemblyIdentity>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly>
+      <assemblyIdentity type="win32" name="Meta" version="1.0.0.0" language="*"></assemblyIdentity>
+    </dependentAssembly>
+  </dependency>
+
+  <file name="Mga.dll" hashalg="SHA1">
+    <comClass progid="Mga.MgaProject" clsid="{270B4F93-B17C-11D3-9AD1-00AA00B6FE26}" tlbid="{270B4F86-B17C-11D3-9AD1-00AA00B6FE26}" description="MgaProject Class" threadingModel="Apartment"/>
+    <comClass progid="Mga.MgaTerritory" clsid="{32D1F3A4-D276-11D3-9AD5-00AA00B6FE26}" tlbid="{270B4F86-B17C-11D3-9AD1-00AA00B6FE26}" description="IMgaTerritory Class" threadingModel="Apartment"/>
+    <comClass progid="Mga.MgaAddon" clsid="{80A6D662-D411-11D3-9AD5-00AA00B6FE26}" tlbid="{270B4F86-B17C-11D3-9AD1-00AA00B6FE26}" description="MgaAddOn Class" threadingModel="Apartment"/>
+    <comClass clsid="{32D1F3A8-D276-11D3-9AD5-00AA00B6FE26}" tlbid="{270B4F86-B17C-11D3-9AD1-00AA00B6FE26}" description="MgaObject Class" threadingModel="Apartment"/>
+    <comClass clsid="{270B4F97-B17C-11D3-9AD1-00AA00B6FE26}" tlbid="{270B4F86-B17C-11D3-9AD1-00AA00B6FE26}" description="MgaFolder Class" threadingModel="Apartment"/>
+    <comClass clsid="{270B4F99-B17C-11D3-9AD1-00AA00B6FE26}" tlbid="{270B4F86-B17C-11D3-9AD1-00AA00B6FE26}" description="MgaFCO Class" threadingModel="Apartment"/>
+    <comClass clsid="{270B4F9B-B17C-11D3-9AD1-00AA00B6FE26}" tlbid="{270B4F86-B17C-11D3-9AD1-00AA00B6FE26}" description="MgaModel Class" threadingModel="Apartment"/>
+    <comClass clsid="{270B4F9D-B17C-11D3-9AD1-00AA00B6FE26}" tlbid="{270B4F86-B17C-11D3-9AD1-00AA00B6FE26}" description="MgaAtom Class" threadingModel="Apartment"/>
+    <comClass clsid="{270B4F9F-B17C-11D3-9AD1-00AA00B6FE26}" tlbid="{270B4F86-B17C-11D3-9AD1-00AA00B6FE26}" description="MgaPart Class" threadingModel="Apartment"/>
+    <comClass clsid="{270B4FA1-B17C-11D3-9AD1-00AA00B6FE26}" tlbid="{270B4F86-B17C-11D3-9AD1-00AA00B6FE26}" description="MgaConnection Class" threadingModel="Apartment"/>
+    <comClass clsid="{83BA3234-B758-11D3-ABAE-000000000000}" tlbid="{270B4F86-B17C-11D3-9AD1-00AA00B6FE26}" description="MgaReference Class" threadingModel="Apartment"/>
+    <comClass clsid="{83BA3236-B758-11D3-ABAE-000000000000}" tlbid="{270B4F86-B17C-11D3-9AD1-00AA00B6FE26}" description="MgaSet Class" threadingModel="Apartment"/>
+    <comClass clsid="{83BA3238-B758-11D3-ABAE-000000000000}" tlbid="{270B4F86-B17C-11D3-9AD1-00AA00B6FE26}" description="MgaSimpleConnection Class" threadingModel="Apartment"/>
+    <comClass clsid="{CB64D6C0-C1FD-11D3-9AD2-00AA00B6FE26}" tlbid="{270B4F86-B17C-11D3-9AD1-00AA00B6FE26}" description="MgaConnPoint Class" threadingModel="Apartment"/>
+    <comClass progid="Mga.MgaFilter" clsid="{83BA323A-B758-11D3-ABAE-000000000000}" tlbid="{270B4F86-B17C-11D3-9AD1-00AA00B6FE26}" description="MgaFilter Class" threadingModel="Apartment"/>
+    <comClass clsid="{CBF20085-BD43-11D3-9AD2-00AA00B6FE26}" tlbid="{270B4F86-B17C-11D3-9AD1-00AA00B6FE26}" description="MgaAttribute Class" threadingModel="Apartment"/>
+    <comClass clsid="{15ABD2C3-65C9-4B9A-8D01-A03D0BB794EB}" tlbid="{270B4F86-B17C-11D3-9AD1-00AA00B6FE26}" description="MgaRegNode Class" threadingModel="Apartment"/>
+    <comClass clsid="{63379445-4F8D-4DAA-8687-2933DC679BCF}" tlbid="{270B4F86-B17C-11D3-9AD1-00AA00B6FE26}" description="MgaConstraint Class" threadingModel="Apartment"/>
+    <comClass clsid="{1DF52E42-BCC0-4439-B3CD-75610AC372A3}" tlbid="{270B4F86-B17C-11D3-9AD1-00AA00B6FE26}" description="MgaO Class -- for internal use by the Core module only" threadingModel="Apartment"/>
+    <comClass progid="Mga.MgaClient" clsid="{320279F8-EBA2-41C5-ACA5-EA1C9E71217A}" tlbid="{270B4F86-B17C-11D3-9AD1-00AA00B6FE26}" description="MgaClient Class" threadingModel="Apartment"/>
+    <comClass progid="Mga.MgaFolders" clsid="{C592F6F0-C1FD-11D3-9AD2-00AA00B6FE26}" tlbid="{270B4F86-B17C-11D3-9AD1-00AA00B6FE26}" description="MgaFolders Class" threadingModel="Apartment"/>
+    <comClass progid="Mga.MgaFCOs" clsid="{C81DECD0-C1FD-11D3-9AD2-00AA00B6FE26}" tlbid="{270B4F86-B17C-11D3-9AD1-00AA00B6FE26}" description="MgaFCOs Class" threadingModel="Apartment"/>
+    <comClass progid="Mga.MgaAttributes" clsid="{C6EAC820-C1FD-11D3-9AD2-00AA00B6FE26}" tlbid="{270B4F86-B17C-11D3-9AD1-00AA00B6FE26}" description="MgaAttributes Class" threadingModel="Apartment"/>
+    <comClass progid="Mga.MgaParts" clsid="{C7128300-C1FD-11D3-9AD2-00AA00B6FE26}" tlbid="{270B4F86-B17C-11D3-9AD1-00AA00B6FE26}" description="MgaParts Class" threadingModel="Apartment"/>
+    <comClass progid="Mga.MgaConnPoints" clsid="{C7E87140-C1FD-11D3-9AD2-00AA00B6FE26}" tlbid="{270B4F86-B17C-11D3-9AD1-00AA00B6FE26}" description="MgaConnPoints Class" threadingModel="Apartment"/>
+    <comClass progid="Mga.MgaRegNodes" clsid="{C795ED20-C1FD-11D3-9AD2-00AA00B6FE26}" tlbid="{270B4F86-B17C-11D3-9AD1-00AA00B6FE26}" description="MgaRegNodes Class" threadingModel="Apartment"/>
+    <comClass progid="Mga.MgaAddOns" clsid="{C848B610-C1FD-11D3-9AD2-00AA00B6FE26}" tlbid="{270B4F86-B17C-11D3-9AD1-00AA00B6FE26}" description="MgaAddOns Class" threadingModel="Apartment"/>
+    <comClass progid="Mga.MgaTerritories" clsid="{C871F820-C1FD-11D3-9AD2-00AA00B6FE26}" tlbid="{270B4F86-B17C-11D3-9AD1-00AA00B6FE26}" description="MgaTerritories Class" threadingModel="Apartment"/>
+    <comClass progid="Mga.MgaComponents" clsid="{C89B3A30-C1FD-11D3-9AD2-00AA00B6FE26}" tlbid="{270B4F86-B17C-11D3-9AD1-00AA00B6FE26}" description="MgaComponents Class" threadingModel="Apartment"/>
+    <comClass progid="Mga.MgaClients" clsid="{850C4A97-C1FD-11D3-9AD2-00AA00B6FE26}" tlbid="{270B4F86-B17C-11D3-9AD1-00AA00B6FE26}" description="MgaClients Class" threadingModel="Apartment"/>
+    <comClass progid="Mga.MgaObjects" clsid="{C996E971-C1FD-11D3-9AD2-00AA00B6FE26}" tlbid="{270B4F86-B17C-11D3-9AD1-00AA00B6FE26}" description="MgaObjects Class" threadingModel="Apartment"/>
+    <typelib tlbid="{270B4F86-B17C-11D3-9AD1-00AA00B6FE26}" resourceid="1" version="1.0" helpdir="" flags="HASDISKIMAGE"></typelib>
+  </file>
+  <comInterfaceExternalProxyStub name="IMgaComponent" iid="{11BB02D9-2E2C-11D3-B36D-0060082DF884}" tlbid="{270B4F86-B17C-11D3-9AD1-00AA00B6FE26}" proxyStubClsid32="{00020424-0000-0000-C000-000000000046}"></comInterfaceExternalProxyStub>
+  <comInterfaceExternalProxyStub name="IMgaProject" iid="{270B4F92-B17C-11D3-9AD1-00AA00B6FE26}" tlbid="{270B4F86-B17C-11D3-9AD1-00AA00B6FE26}" proxyStubClsid32="{00020424-0000-0000-C000-000000000046}"></comInterfaceExternalProxyStub>
+  <comInterfaceExternalProxyStub name="IMgaEventSink" iid="{32D1F3A5-D276-11D3-9AD5-00AA00B6FE26}" tlbid="{270B4F86-B17C-11D3-9AD1-00AA00B6FE26}" proxyStubClsid32="{00020424-0000-0000-C000-000000000046}"></comInterfaceExternalProxyStub>
+  <comInterfaceExternalProxyStub name="IMgaObject" iid="{32D1F3A7-D276-11D3-9AD5-00AA00B6FE26}" tlbid="{270B4F86-B17C-11D3-9AD1-00AA00B6FE26}" proxyStubClsid32="{00020424-0000-0000-C000-000000000046}"></comInterfaceExternalProxyStub>
+  <comInterfaceExternalProxyStub name="IMgaTerritory" iid="{32D1F3A3-D276-11D3-9AD5-00AA00B6FE26}" tlbid="{270B4F86-B17C-11D3-9AD1-00AA00B6FE26}" proxyStubClsid32="{00020424-0000-0000-C000-000000000046}"></comInterfaceExternalProxyStub>
+  <comInterfaceExternalProxyStub name="IMgaFCO" iid="{270B4F98-B17C-11D3-9AD1-00AA00B6FE26}" tlbid="{270B4F86-B17C-11D3-9AD1-00AA00B6FE26}" proxyStubClsid32="{00020424-0000-0000-C000-000000000046}"></comInterfaceExternalProxyStub>
+  <comInterfaceExternalProxyStub name="IMgaModel" iid="{270B4F9A-B17C-11D3-9AD1-00AA00B6FE26}" tlbid="{270B4F86-B17C-11D3-9AD1-00AA00B6FE26}" proxyStubClsid32="{00020424-0000-0000-C000-000000000046}"></comInterfaceExternalProxyStub>
+  <comInterfaceExternalProxyStub name="IMgaParts" iid="{C71A26F0-C1FD-11D3-9AD2-00AA00B6FE26}" tlbid="{270B4F86-B17C-11D3-9AD1-00AA00B6FE26}" proxyStubClsid32="{00020424-0000-0000-C000-000000000046}"></comInterfaceExternalProxyStub>
+  <comInterfaceExternalProxyStub name="IMgaPart" iid="{270B4F9E-B17C-11D3-9AD1-00AA00B6FE26}" tlbid="{270B4F86-B17C-11D3-9AD1-00AA00B6FE26}" proxyStubClsid32="{00020424-0000-0000-C000-000000000046}"></comInterfaceExternalProxyStub>
+  <comInterfaceExternalProxyStub name="IMgaRegNode" iid="{83BA323D-B758-11D3-ABAE-000000000000}" tlbid="{270B4F86-B17C-11D3-9AD1-00AA00B6FE26}" proxyStubClsid32="{00020424-0000-0000-C000-000000000046}"></comInterfaceExternalProxyStub>
+  <comInterfaceExternalProxyStub name="IMgaRegNodes" iid="{C79F1840-C1FD-11D3-9AD2-00AA00B6FE26}" tlbid="{270B4F86-B17C-11D3-9AD1-00AA00B6FE26}" proxyStubClsid32="{00020424-0000-0000-C000-000000000046}"></comInterfaceExternalProxyStub>
+  <comInterfaceExternalProxyStub name="IMgaFCOs" iid="{C5F4C2F0-C1FD-11D3-9AD2-00AA00B6FE26}" tlbid="{270B4F86-B17C-11D3-9AD1-00AA00B6FE26}" proxyStubClsid32="{00020424-0000-0000-C000-000000000046}"></comInterfaceExternalProxyStub>
+  <comInterfaceExternalProxyStub name="IMgaFilter" iid="{C8F6E970-C1FD-11D3-9AD2-00AA00B6FE26}" tlbid="{270B4F86-B17C-11D3-9AD1-00AA00B6FE26}" proxyStubClsid32="{00020424-0000-0000-C000-000000000046}"></comInterfaceExternalProxyStub>
+  <comInterfaceExternalProxyStub name="IMgaFolder" iid="{270B4F96-B17C-11D3-9AD1-00AA00B6FE26}" tlbid="{270B4F86-B17C-11D3-9AD1-00AA00B6FE26}" proxyStubClsid32="{00020424-0000-0000-C000-000000000046}"></comInterfaceExternalProxyStub>
+  <comInterfaceExternalProxyStub name="IMgaFolders" iid="{C59C2210-C1FD-11D3-9AD2-00AA00B6FE26}" tlbid="{270B4F86-B17C-11D3-9AD1-00AA00B6FE26}" proxyStubClsid32="{00020424-0000-0000-C000-000000000046}"></comInterfaceExternalProxyStub>
+  <comInterfaceExternalProxyStub name="IMgaAttributes" iid="{C6F3F340-C1FD-11D3-9AD2-00AA00B6FE26}" tlbid="{270B4F86-B17C-11D3-9AD1-00AA00B6FE26}" proxyStubClsid32="{00020424-0000-0000-C000-000000000046}"></comInterfaceExternalProxyStub>
+  <comInterfaceExternalProxyStub name="IMgaAttribute" iid="{CBF20084-BD43-11D3-9AD2-00AA00B6FE26}" tlbid="{270B4F86-B17C-11D3-9AD1-00AA00B6FE26}" proxyStubClsid32="{00020424-0000-0000-C000-000000000046}"></comInterfaceExternalProxyStub>
+  <comInterfaceExternalProxyStub name="IMgaConnPoints" iid="{C7F19C60-C1FD-11D3-9AD2-00AA00B6FE26}" tlbid="{270B4F86-B17C-11D3-9AD1-00AA00B6FE26}" proxyStubClsid32="{00020424-0000-0000-C000-000000000046}"></comInterfaceExternalProxyStub>
+  <comInterfaceExternalProxyStub name="IMgaConnPoint" iid="{CB8FA000-C1FD-11D3-9AD2-00AA00B6FE26}" tlbid="{270B4F86-B17C-11D3-9AD1-00AA00B6FE26}" proxyStubClsid32="{00020424-0000-0000-C000-000000000046}"></comInterfaceExternalProxyStub>
+  <comInterfaceExternalProxyStub name="IMgaConnection" iid="{270B4FA0-B17C-11D3-9AD1-00AA00B6FE26}" tlbid="{270B4F86-B17C-11D3-9AD1-00AA00B6FE26}" proxyStubClsid32="{00020424-0000-0000-C000-000000000046}"></comInterfaceExternalProxyStub>
+  <comInterfaceExternalProxyStub name="IMgaObjects" iid="{C5AAC2F0-C1FD-11D3-9AD2-00AA00B6FE26}" tlbid="{270B4F86-B17C-11D3-9AD1-00AA00B6FE26}" proxyStubClsid32="{00020424-0000-0000-C000-000000000046}"></comInterfaceExternalProxyStub>
+  <comInterfaceExternalProxyStub name="IMgaAddOn" iid="{80A6D661-D411-11D3-9AD5-00AA00B6FE26}" tlbid="{270B4F86-B17C-11D3-9AD1-00AA00B6FE26}" proxyStubClsid32="{00020424-0000-0000-C000-000000000046}"></comInterfaceExternalProxyStub>
+  <comInterfaceExternalProxyStub name="IMgaAddOns" iid="{C8A5EC80-C1FD-11D3-9AD2-00AA00B6FE26}" tlbid="{270B4F86-B17C-11D3-9AD1-00AA00B6FE26}" proxyStubClsid32="{00020424-0000-0000-C000-000000000046}"></comInterfaceExternalProxyStub>
+  <comInterfaceExternalProxyStub name="IMgaTerritories" iid="{C87CAA70-C1FD-11D3-9AD2-00AA00B6FE26}" tlbid="{270B4F86-B17C-11D3-9AD1-00AA00B6FE26}" proxyStubClsid32="{00020424-0000-0000-C000-000000000046}"></comInterfaceExternalProxyStub>
+  <comInterfaceExternalProxyStub name="IMgaComponents" iid="{C8CDA760-C1FD-11D3-9AD2-00AA00B6FE26}" tlbid="{270B4F86-B17C-11D3-9AD1-00AA00B6FE26}" proxyStubClsid32="{00020424-0000-0000-C000-000000000046}"></comInterfaceExternalProxyStub>
+  <comInterfaceExternalProxyStub name="IMgaClients" iid="{C9D8DF93-C1FD-11D3-9AD2-00AA00B6FE26}" tlbid="{270B4F86-B17C-11D3-9AD1-00AA00B6FE26}" proxyStubClsid32="{00020424-0000-0000-C000-000000000046}"></comInterfaceExternalProxyStub>
+  <comInterfaceExternalProxyStub name="IMgaClient" iid="{F07EE1A2-2D53-449B-A2DA-45A1A9110E53}" tlbid="{270B4F86-B17C-11D3-9AD1-00AA00B6FE26}" proxyStubClsid32="{00020424-0000-0000-C000-000000000046}"></comInterfaceExternalProxyStub>
+  <comInterfaceExternalProxyStub name="IMgaComponentEx" iid="{11BB44D9-2E2C-11D3-B36D-0060082DF884}" tlbid="{270B4F86-B17C-11D3-9AD1-00AA00B6FE26}" proxyStubClsid32="{00020424-0000-0000-C000-000000000046}"></comInterfaceExternalProxyStub>
+  <comInterfaceExternalProxyStub name="IMgaAtom" iid="{270B4F9C-B17C-11D3-9AD1-00AA00B6FE26}" tlbid="{270B4F86-B17C-11D3-9AD1-00AA00B6FE26}" proxyStubClsid32="{00020424-0000-0000-C000-000000000046}"></comInterfaceExternalProxyStub>
+  <comInterfaceExternalProxyStub name="IMgaReference" iid="{83BA3233-B758-11D3-ABAE-000000000000}" tlbid="{270B4F86-B17C-11D3-9AD1-00AA00B6FE26}" proxyStubClsid32="{00020424-0000-0000-C000-000000000046}"></comInterfaceExternalProxyStub>
+  <comInterfaceExternalProxyStub name="IMgaSet" iid="{83BA3235-B758-11D3-ABAE-000000000000}" tlbid="{270B4F86-B17C-11D3-9AD1-00AA00B6FE26}" proxyStubClsid32="{00020424-0000-0000-C000-000000000046}"></comInterfaceExternalProxyStub>
+  <comInterfaceExternalProxyStub name="IMgaSimpleConnection" iid="{83BA3237-B758-11D3-ABAE-000000000000}" tlbid="{270B4F86-B17C-11D3-9AD1-00AA00B6FE26}" proxyStubClsid32="{00020424-0000-0000-C000-000000000046}"></comInterfaceExternalProxyStub>
+  <comInterfaceExternalProxyStub name="IMgaO" iid="{C356B135-961D-4B6C-8B1F-257E19117CC1}" tlbid="{270B4F86-B17C-11D3-9AD1-00AA00B6FE26}" proxyStubClsid32="{00020424-0000-0000-C000-000000000046}"></comInterfaceExternalProxyStub>
+</assembly>

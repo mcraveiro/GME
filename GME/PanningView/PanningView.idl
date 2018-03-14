@@ -1,0 +1,64 @@
+#include <olectl.h>
+#include <idispids.h>
+
+[ uuid(B6ED16CA-512F-48B7-B5DB-1C064821F7DB), version(1.0),
+  helpfile("PanningView.hlp"),
+  helpstring("PanningView ActiveX Control module"),
+  control ]
+library PanningViewLib
+{
+	importlib(STDOLE_TLB);
+
+	//  Primary dispatch interface for CPanningViewCtrl
+
+	[ uuid(3055658C-DEFE-4B68-9BC3-21B136BDBBDB),
+	  helpstring("Dispatch interface for PanningView Control")]
+	dispinterface _DPanningView
+	{
+		properties:
+			// NOTE - ClassWizard will maintain property information here.
+			//    Use extreme caution when editing this section.
+			//{{AFX_ODL_PROP(CPanningViewCtrl)
+			//}}AFX_ODL_PROP
+
+		methods:
+			// NOTE - ClassWizard will maintain property information here.
+			//    Use extreme caution when editing this section.
+			//{{AFX_ODL_METHOD(CPanningViewCtrl)
+			[id(1), helpstring("method SetBitmapDC")] void SetBitmapDC([in] ULONGLONG ownerWnd, [in] ULONGLONG bDC, [in] ULONGLONG oldBmp,
+																		[in] LONG orix, [in] LONG oriy, [in] LONG oriw, [in] LONG orih,
+																		[in] LONG rx, [in] LONG ry, [in] LONG rw, [in] LONG rh,
+																		[in] OLE_COLOR bkgrnd);
+			[id(2), helpstring("method SetViewRect")] void SetViewRect([in] LONG vrx, [in] LONG vry, [in] LONG vrw, [in] LONG vrh);
+			//}}AFX_ODL_METHOD
+
+			[id(DISPID_ABOUTBOX)] void AboutBox();
+	};
+
+	//  Event dispatch interface for CPanningViewCtrl
+
+	[ uuid(BD4F784C-A79F-48F6-818D-0B829A061CC0),
+	  helpstring("Event interface for PanningView Control") ]
+	dispinterface _DPanningViewEvents
+	{
+		properties:
+			//  Event interface has no properties
+
+		methods:
+			// NOTE - ClassWizard will maintain event information here.
+			//    Use extreme caution when editing this section.
+			//{{AFX_ODL_EVENT(CPanningViewCtrl)
+			//}}AFX_ODL_EVENT
+	};
+
+	//  Class information for CPanningViewCtrl
+
+	[ uuid(B0C28BAA-7E44-404C-BEAD-83735356F1D2),
+	  helpstring("PanningView Control"), control ]
+	coclass PanningView
+	{
+		[default] dispinterface _DPanningView;
+		[default, source] dispinterface _DPanningViewEvents;
+	};
+
+};

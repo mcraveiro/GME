@@ -1,0 +1,16 @@
+set -e
+
+version=1.0.1.0
+heat='/c/Program Files (x86)\Windows Installer XML v3.5\bin\heat'
+for name in GME.MGA.Core GME.MGA.Meta GME.MGA GME.MGA.Parser GME.Util GME; do
+"$heat" file C:/Windows/assembly/GAC_MSIL/${name}/${version}__f240a760fe751c2e/${name}.dll -o ${name}.wxi -gg -cg ${name}.${version} -srd -dr PIADIR.${version} -var var.PIADir.${version}
+done
+mv GME.wxi GMEPIA.wxi
+
+# then add Assembly=".net" to <File
+# and <Condition>NETFRAMEWORK</Condition> under <Component>
+# then remove <RegistryValues from previous versions (for the same version of the typelib)
+#  <DirectoryRef Id="INSTALLDIR_BIN">
+#<Directory Id="PIADIR.1.0.1.0" Name="PIA1.0.1.0"/>
+#        </DirectoryRef>
+

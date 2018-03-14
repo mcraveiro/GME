@@ -1,0 +1,44 @@
+import "oaidl.idl";
+import "ocidl.idl";
+
+import "Mga.idl";
+import "Core.idl";
+
+[
+	uuid(D69D91D0-4550-4A5D-848C-9BBA92693D22),
+	version(1.0),
+	helpstring("ConstraintManager 1.0 Type Library")
+]
+library CONSTRAINTMANAGERLib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+	importlib("CoreLib.tlb");
+	importlib("MetaLib.tlb");
+	importlib("MgaLib.tlb");
+
+	[
+		uuid(44055854-A45B-4357-9D2C-FC66D6C0DFFA),
+		helpstring("ConstraintManager Class")
+	]
+	coclass ConstraintManager
+	{
+		[default] interface IMgaComponentEx;
+		interface IMgaEventSink;
+		interface ISupportErrorInfo;
+		interface IGMEVersionInfo;
+
+	};
+	[
+		uuid(74A06CAE-A3CF-4C7B-B4CB-C0A3C3C654B9),
+		helpstring("ExpressionChecker Class")
+	]
+	coclass ExpressionChecker
+	{
+		[default] interface IMgaComponentEx;
+		interface IMgaEventSink;
+		interface ISupportErrorInfo;
+		interface IGMEVersionInfo;
+	};
+};

@@ -1,0 +1,151 @@
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="Author" content="Arpad Bakay">
+   <meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+   <title>Lesson 8 -- Building Java Based Interpreters</title>
+</head>
+<body text="#000066" 
+      bgcolor="#FFFFCC" 
+      link="#0000EE" 
+      vlink="#551A8B" 
+      alink="#FF0000">
+
+<center>
+<b><u><font size=+2>Lesson 8
+<br>Building Java Based Interpreters
+</font></u></b>
+</center>
+<p>
+
+<br><a href="#intro">Introduction to Lesson 8</a>
+<br><a href="#8.1">8.1 Creating and Registering a Java component</a>
+<br><a href="#8.2">8.2 Writing and Running the interpreter</a>
+<p><br>
+
+
+<a name=intro></a>
+<b><u><font size="+1">Introduction to Lesson 8</font></u></b>
+<p>
+
+The BON, Builder Object Network, was originally implemented in C++. 
+However, some GME users may not be able to program in C++ or might
+not have Microsoft's Visual Studio to compile a BON interpreter. Also, 
+a particular problem might be easier to solve in Java than in C++. For 
+many reasons such as these, a Java COM interface to GME and Java version 
+of the BON have been created.
+
+<p>
+
+This lesson discusses the process of building a Java based 
+interpreter. The example interpreter will be domain independent. 
+The paradigm used to test the interpreter will be that from 
+<a href="Lesson4.html">Lesson 4</a>. Our interpreter will simply display 
+a message box showing set and reference information from the list of 
+currently selected FCOs.
+<p><br>
+
+
+
+<hr width="80%">
+<br><a name="8.1"></a>
+<b><u><font size=+1>8.1 Creating a Java Component</font></u></b>
+<p>
+
+To use the Java interface to GME, one needs to have the latest version 
+of GME installed which includes JAUT.dll and JavaCompRegister.exe in addition 
+to having the latest JRE or JDK installed on their machine. The packages 
+that will be used are:
+
+<ul>
+ <li>
+  org.isis.gme.mga
+ <li>
+  org.isis.gme.meta
+ <li>
+  org.isis.gme.bon
+</ul>
+<p>
+
+First create a class that implements either the BONComponent or Component Interfaces in the bon package.
+Implementing BONComponent will give access to GME through the BON, whereas implementing 
+Component will give access through a Java Raw COM implementation.  
+There is a TestBONComponent.java and TestComponent.java included in the bon package as 
+examples. This tutorial uses TestBONComponent. Now run JavaCompRegister.exe:
+<p><br>
+
+<center>
+<img SRC="L8/JavaCompRegister.png">
+<br><b>Fig 8.1 Registering a Java Component</b>
+</center>
+<p><br>
+
+
+Notice that the ClassPath is the path to the package and the Class entry needs 
+the class name including the package it is contained in. After Registering the 
+Java Component, it will become available inside GME. 
+<p>
+
+<center>
+<img SRC="L8/Register Components.png">
+<br><b>Fig 8.2 Tools -> Register Components</b>
+</center>
+<p><br>
+
+
+<hr width="80%">
+<br><a name="8.2"></a>
+<b><u><font size=+1>8.2 Writing and Running the Interpreter</font></u></b>
+<p>
+
+The class hierarchy for the Java BON replicates the hierarchy for the original C++ BON, 
+with the exception that all classnames that are prefixed with a "C" now start with a "J". 
+The Java BON also behaves like the original BON by creating Java Objects corresponding 
+to the GME objects found within the project being interpreted. The function names have only 
+been changed to reflect the Java convention of function names starting with lower case letters. 
+The Java BON is instantiated through a class factory that will instantiate user created 
+Custom classes. The example interpreter here will not utilize that functionality. Please see 
+the Java interpreter included with the SF paradigm to see an example using the JBuilderFactory.
+<p>
+
+The example interpreter here implements the BONComponent Interface. Therefore the invokeEx() and 
+registerCustomClasses() functions must be implemented. Because the Factory will not be used, the 
+registerCustomClasses() functions can be left empty. The invokeEx() function will take the 
+selected objects Collection, iterating through it, looking for Sets and References. It will build 
+up a message string that will display the names and contents of sets, and the names and objects referred 
+to by References. If the Reference is for a Model, it will find out what the ports are connected to 
+in the Reference, and in the Model Referred to.
+<p>
+
+After writing the code (which can be found in the Java class org.isis.gme.TestBONComponent) 
+Run GME, enable the component registered at the beginning of this chapter for a paradigm. 
+Notice there is now a Java Coffee cup emblem on a button in the components list. The tooltip 
+should read what was entered during the registration step. To run, select some objects and 
+click on the Java cup:
+<p>
+<br>
+
+<center>
+<img SRC="L8/Running.png">
+<br><b>Fig 8.3 Running a Java Component</b>
+</center>
+<p><br>
+
+So now you are able to interpret your GME projects using Java.
+<p>
+<br>
+
+
+<center>
+<hr width="80%">
+<table><tr><td>
+<a href="Lesson7.html">&lt;&lt; Previous Lesson</a>
+</td><td width=50></td><td>
+<a href="index.html#toc">Complete List</a>
+</td><td width=50></td><td>
+Next Lesson >>
+</td></tr></table>
+</center>
+
+</body>
+</html>

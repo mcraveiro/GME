@@ -1,0 +1,253 @@
+import "oaidl.idl";
+import "ocidl.idl";
+
+import "Core.idl";
+import "Mga.idl";
+
+
+#include "InterfaceColl.h"
+
+// --------------------------- Mga Library
+
+[
+	uuid(270B4F86-B17C-11D3-9AD1-00AA00B6FE26),
+	version(1.0),
+	helpstring("MGA Mga Type Library")
+]
+library MGALib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+	importlib("MetaLib.tlb");
+	importlib("CoreLib.tlb");
+
+	// Component interfaces (listed here to include them in typelib)
+	interface IMgaComponent;
+	interface IMgaComponentEx;
+
+	enum accesstype_enum;
+	enum transactiontype_enum;
+	enum attstatus_enum;
+	enum openmode;
+	enum globalevent_enum;
+	enum objectevent_enum;
+	enum objectstatus_enum;
+	enum preference_flags;
+	enum opmask_codes;
+	enum opmask_shifts;
+	enum GMEInterfaceVersion_enum;
+	enum mgaerrors;
+	enum component_startmode_enum;
+
+	[
+		uuid(270B4F93-B17C-11D3-9AD1-00AA00B6FE26),
+		helpstring("MgaProject Class")
+	]
+	coclass MgaProject
+	{
+		[default] interface IMgaProject;
+		interface ISupportErrorInfo;
+		interface IGMEVersionInfo;
+	};
+
+	[
+		uuid(32D1F3A4-D276-11D3-9AD5-00AA00B6FE26),
+		helpstring("IMgaTerritory Class")
+	]
+	coclass MgaTerritory
+	{
+		[default] interface IMgaTerritory;
+		dispinterface IMgaEventSink;
+		interface ISupportErrorInfo;
+	};
+
+	[
+		uuid(80A6D662-D411-11D3-9AD5-00AA00B6FE26),
+		helpstring("MgaAddOn Class")
+	]
+	coclass MgaAddOn
+	{
+		[default] interface IMgaAddOn;
+		dispinterface IMgaEventSink;
+		interface ISupportErrorInfo;
+	};
+
+	[
+		uuid(32D1F3A8-D276-11D3-9AD5-00AA00B6FE26),
+		helpstring("MgaObject Class")
+	]
+	coclass MgaObject
+	{
+		[default] interface IMgaObject;
+		interface ISupportErrorInfo;
+	};
+/*
+	[
+		uuid(270B4F95-B17C-11D3-9AD1-00AA00B6FE26),
+		helpstring("MgaContainer Class")
+	]
+	coclass MgaContainer
+	{
+		[default] interface IMgaContainer;
+	};
+*/
+
+	[
+		uuid(270B4F97-B17C-11D3-9AD1-00AA00B6FE26),
+		helpstring("MgaFolder Class")
+	]
+	coclass MgaFolder
+	{
+		[default] interface IMgaFolder;
+		interface ISupportErrorInfo;
+	};
+	[
+		uuid(270B4F99-B17C-11D3-9AD1-00AA00B6FE26),
+		helpstring("MgaFCO Class")
+	]
+	coclass MgaFCO
+	{
+		[default] interface IMgaFCO;
+		interface ISupportErrorInfo;
+	};
+	[
+		uuid(270B4F9B-B17C-11D3-9AD1-00AA00B6FE26),
+		helpstring("MgaModel Class")
+	]
+	coclass MgaModel
+	{
+		[default] interface IMgaModel;
+		interface ISupportErrorInfo;
+	};
+	[
+		uuid(270B4F9D-B17C-11D3-9AD1-00AA00B6FE26),
+		helpstring("MgaAtom Class")
+	]
+	coclass MgaAtom
+	{
+		[default] interface IMgaAtom;
+		interface ISupportErrorInfo;
+	};
+	[
+		uuid(270B4F9F-B17C-11D3-9AD1-00AA00B6FE26),
+		helpstring("MgaPart Class")
+	]
+	coclass MgaPart
+	{
+		[default] interface IMgaPart;
+		interface ISupportErrorInfo;
+	};
+	[
+		uuid(270B4FA1-B17C-11D3-9AD1-00AA00B6FE26),
+		helpstring("MgaConnection Class")
+	]
+	coclass MgaConnection
+	{
+		[default] interface IMgaConnection;
+		interface ISupportErrorInfo;
+	};
+	[
+		uuid(83BA3234-B758-11D3-ABAE-000000000000),
+		helpstring("MgaReference Class")
+	]
+	coclass MgaReference
+	{
+		[default] interface IMgaReference;
+		interface ISupportErrorInfo;
+	};
+	[
+		uuid(83BA3236-B758-11D3-ABAE-000000000000),
+		helpstring("MgaSet Class")
+	]
+	coclass MgaSet
+	{
+		[default] interface IMgaSet;
+		interface ISupportErrorInfo;
+	};
+	[
+		uuid(83BA3238-B758-11D3-ABAE-000000000000),
+		helpstring("MgaSimpleConnection Class")
+	]
+	coclass MgaSimpleConnection
+	{
+		[default] interface IMgaSimpleConnection;
+		interface ISupportErrorInfo;
+	};
+	[
+		uuid(cb64d6c0-c1fd-11d3-9ad2-00aa00b6fe26),
+		helpstring("MgaConnPoint Class")
+	]
+	coclass MgaConnPoint
+	{
+		[default] interface IMgaConnPoint;
+		interface ISupportErrorInfo;
+	};
+	[
+		uuid(83BA323A-B758-11D3-ABAE-000000000000),
+		helpstring("MgaFilter Class")
+	]
+	coclass MgaFilter
+	{
+		[default] interface IMgaFilter;
+		interface ISupportErrorInfo;
+	};
+	[
+		uuid(CBF20085-BD43-11D3-9AD2-00AA00B6FE26),
+		helpstring("MgaAttribute Class")
+	]
+	coclass MgaAttribute
+	{
+		[default] interface IMgaAttribute;
+		interface ISupportErrorInfo;
+	};
+	[
+		uuid(15ABD2C3-65C9-4B9A-8D01-A03D0BB794EB),
+		helpstring("MgaRegNode Class")
+	]
+	coclass MgaRegNode
+	{
+		[default] interface IMgaRegNode;
+		interface ISupportErrorInfo;
+	};
+	[
+		uuid(63379445-4F8D-4DAA-8687-2933DC679BCF),
+		helpstring("MgaConstraint Class")
+	]
+	coclass MgaConstraint
+	{
+		[default] interface IMgaConstraint;
+		interface ISupportErrorInfo;
+	};
+
+	[
+		uuid(1DF52E42-BCC0-4439-B3CD-75610AC372A3),
+		helpstring("MgaO Class -- for internal use by the Core module only")
+	]
+	coclass MgaO
+	{
+		[default] interface IMgaO;
+	};
+
+	[
+		uuid(320279F8-EBA2-41C5-ACA5-EA1C9E71217A),
+		helpstring("MgaClient Class")
+	]
+	coclass MgaClient
+	{
+		[default] interface IMgaClient;
+	};
+
+	MGACOLL_COCLASS(c592f6f0-c1fd-11d3-9ad2-00aa00b6fe26, MgaFolder)
+	MGACOLL_COCLASS(c81decd0-c1fd-11d3-9ad2-00aa00b6fe26, MgaFCO)
+	MGACOLL_COCLASS(c6eac820-c1fd-11d3-9ad2-00aa00b6fe26, MgaAttribute)
+	MGACOLL_COCLASS(c7128300-c1fd-11d3-9ad2-00aa00b6fe26, MgaPart)
+	MGACOLL_COCLASS(c7e87140-c1fd-11d3-9ad2-00aa00b6fe26, MgaConnPoint)
+	MGACOLL_COCLASS(c795ed20-c1fd-11d3-9ad2-00aa00b6fe26, MgaRegNode)
+	MGACOLL_COCLASS(c848b610-c1fd-11d3-9ad2-00aa00b6fe26, MgaAddOn)
+	MGACOLL_COCLASS2(c871f820-c1fd-11d3-9ad2-00aa00b6fe26, MgaTerritories, IMgaTerritory)
+	MGACOLL_COCLASS(c89b3a30-c1fd-11d3-9ad2-00aa00b6fe26, MgaComponent)
+	MGACOLL_COCLASS(850c4a97-c1fd-11d3-9ad2-00aa00b6fe26, MgaClient)
+	MGACOLL_COCLASS(c996e971-c1fd-11d3-9ad2-00aa00b6fe26, MgaObject)
+
+};

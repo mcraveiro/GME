@@ -1,0 +1,224 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{6c94792b-cf10-4591-aaf2-d4dbebd06509}</UniqueIdentifier>
+      <Extensions>cpp;c;cxx;rc;def;r;odl;idl;hpj;bat</Extensions>
+    </Filter>
+    <Filter Include="Source Files\SVNCode">
+      <UniqueIdentifier>{91f7256b-e930-45b6-938b-7d7de31763e1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{c496cca3-dedd-415b-92fa-909a6c155ccc}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl</Extensions>
+    </Filter>
+    <Filter Include="Header Files\SVNHead">
+      <UniqueIdentifier>{1bbccb3a-1305-4958-8991-51207ca3649d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{4523b31f-79ab-4ead-8979-8b0a16046cec}</UniqueIdentifier>
+      <Extensions>ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <Midl Include="XmlBackEnd.idl">
+      <Filter>Source Files</Filter>
+    </Midl>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="CertificateDlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CommitDialog.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Common\CommonError.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Common\CommonSmart.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CoreXmlFile.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CredentialDlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DirSupplier.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DOMErrorPrinter.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FileHelp.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FilesInUseDetailsDlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FilesInUseDlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MsgConsole.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="OperOptions.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ProgressWindow.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="StdAfx.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SvnLoginDlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SvnTestDlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Transcoder.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="XmlBackEnd.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SVNCode\CallLogger.cpp">
+      <Filter>Source Files\SVNCode</Filter>
+    </ClCompile>
+    <ClCompile Include="SVNCode\Client.cpp">
+      <Filter>Source Files\SVNCode</Filter>
+    </ClCompile>
+    <ClCompile Include="SVNCode\HiClient.cpp">
+      <Filter>Source Files\SVNCode</Filter>
+    </ClCompile>
+    <ClCompile Include="SVNCode\Path.cpp">
+      <Filter>Source Files\SVNCode</Filter>
+    </ClCompile>
+    <ClCompile Include="SVNCode\Pool.cpp">
+      <Filter>Source Files\SVNCode</Filter>
+    </ClCompile>
+    <ClCompile Include="SVNCode\Prompter.cpp">
+      <Filter>Source Files\SVNCode</Filter>
+    </ClCompile>
+    <ClCompile Include="SVNCode\Revision.cpp">
+      <Filter>Source Files\SVNCode</Filter>
+    </ClCompile>
+    <ClCompile Include="SVNCode\Targets.cpp">
+      <Filter>Source Files\SVNCode</Filter>
+    </ClCompile>
+    <ClCompile Include="SVNCode\Util.cpp">
+      <Filter>Source Files\SVNCode</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Core\CoreDictionaryAttributeValue.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="XmlBackEnd.def">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="CoreXmlFile.rgs">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="edf.dtd" />
+    <None Include="xmga.dtd" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="XmlBackEnd.rc">
+      <Filter>Source Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="CertificateDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CommitDialog.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CoreXmlFile.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CredentialDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DirSupplier.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DOMErrorPrinter.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FileHelp.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FilesInUseDetailsDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FilesInUseDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MsgConsole.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="OperOptions.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ProgressWindow.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Resource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="StdAfx.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SvnConfig.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SvnLoginDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SvnTestDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Transcoder.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SVNCode\CallLogger.h">
+      <Filter>Header Files\SVNHead</Filter>
+    </ClInclude>
+    <ClInclude Include="SVNCode\Client.h">
+      <Filter>Header Files\SVNHead</Filter>
+    </ClInclude>
+    <ClInclude Include="SVNCode\ClientUtil.h">
+      <Filter>Header Files\SVNHead</Filter>
+    </ClInclude>
+    <ClInclude Include="SVNCode\HiClient.h">
+      <Filter>Header Files\SVNHead</Filter>
+    </ClInclude>
+    <ClInclude Include="SVNCode\Path.h">
+      <Filter>Header Files\SVNHead</Filter>
+    </ClInclude>
+    <ClInclude Include="SVNCode\Pool.h">
+      <Filter>Header Files\SVNHead</Filter>
+    </ClInclude>
+    <ClInclude Include="SVNCode\Prompter.h">
+      <Filter>Header Files\SVNHead</Filter>
+    </ClInclude>
+    <ClInclude Include="SVNCode\Revision.h">
+      <Filter>Header Files\SVNHead</Filter>
+    </ClInclude>
+    <ClInclude Include="SVNCode\Targets.h">
+      <Filter>Header Files\SVNHead</Filter>
+    </ClInclude>
+    <ClInclude Include="SVNCode\Util.h">
+      <Filter>Header Files\SVNHead</Filter>
+    </ClInclude>
+    <ClInclude Include="xml_smart_ptr.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,27 @@
+HKCR
+{
+	Mga.MgaLauncher.1 = s 'MgaLauncher Class'
+	{
+		CLSID = s '{D03EC327-447B-11D4-B3F6-005004D38590}'
+	}
+	Mga.MgaLauncher = s 'MgaLauncher Class'
+	{
+		CLSID = s '{D03EC327-447B-11D4-B3F6-005004D38590}'
+		CurVer = s 'Mga.MgaLauncher.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {D03EC327-447B-11D4-B3F6-005004D38590} = s 'MgaLauncher Class'
+		{
+			ProgID = s 'Mga.MgaLauncher.1'
+			VersionIndependentProgID = s 'Mga.MgaLauncher'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			val AppID = s '{461F30AF-3BF0-11D4-B3F0-005004D38590}'
+			'TypeLib' = s '{461F30AE-3BF0-11D4-B3F0-005004D38590}'
+		}
+	}
+}

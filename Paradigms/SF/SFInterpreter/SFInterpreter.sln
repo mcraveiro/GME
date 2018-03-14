@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SFInterpreter", "SFInterpreter.vcxproj", "{D125AF7B-4D79-48E4-8AB3-EEBE9B81BEFE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D125AF7B-4D79-48E4-8AB3-EEBE9B81BEFE}.Debug|Win32.ActiveCfg = Debug|Win32
+		{D125AF7B-4D79-48E4-8AB3-EEBE9B81BEFE}.Debug|Win32.Build.0 = Debug|Win32
+		{D125AF7B-4D79-48E4-8AB3-EEBE9B81BEFE}.Release|Win32.ActiveCfg = Release|Win32
+		{D125AF7B-4D79-48E4-8AB3-EEBE9B81BEFE}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

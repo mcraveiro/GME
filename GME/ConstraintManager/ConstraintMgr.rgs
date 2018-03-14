@@ -1,0 +1,26 @@
+HKCR
+{
+	Mga.AddOn.ConstraintManager.1 = s 'ConstraintManager Class'
+	{
+		CLSID = s '{44055854-A45B-4357-9D2C-FC66D6C0DFFA}'
+	}
+	Mga.AddOn.ConstraintManager = s 'ConstraintManager Class'
+	{
+		CLSID = s '{44055854-A45B-4357-9D2C-FC66D6C0DFFA}'
+		CurVer = s 'Mga.AddOn.ConstraintManager.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {44055854-A45B-4357-9D2C-FC66D6C0DFFA} = s 'ConstraintManager Class'
+		{
+			ProgID = s 'Mga.AddOn.ConstraintManager.1'
+			VersionIndependentProgID = s 'Mga.AddOn.ConstraintManager'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			'TypeLib' = s '{D69D91D0-4550-4A5D-848C-9BBA92693D22}'
+		}
+	}
+}

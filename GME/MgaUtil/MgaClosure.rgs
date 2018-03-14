@@ -1,0 +1,26 @@
+HKCR
+{
+	Mga.MgaClosure.1 = s 'MgaClosure Class'
+	{
+		CLSID = s '{D6F2FBC5-3405-40fd-8880-7E99DD10F0BA}'
+	}
+	Mga.MgaClosure = s 'MgaClosure Class'
+	{
+		CLSID = s '{D6F2FBC5-3405-40fd-8880-7E99DD10F0BA}'
+		CurVer = s 'Mga.MgaClosure.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {D6F2FBC5-3405-40fd-8880-7E99DD10F0BA} = s 'MgaClosure Class'
+		{
+			ProgID = s 'Mga.MgaClosure.1'
+			VersionIndependentProgID = s 'Mga.MgaClosure'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			'TypeLib' = s '{461F30AE-3BF0-11D4-B3F0-005004D38590}'
+		}
+	}
+}

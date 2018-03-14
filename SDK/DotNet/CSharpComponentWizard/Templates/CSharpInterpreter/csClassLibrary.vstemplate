@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<VSTemplate Version="3.0.0" Type="Project" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005">
+  <TemplateData>
+	<Name>CSharpInterpreterTemplate</Name>
+    <Description>GME CSharp Addon Template</Description>    
+	<ProjectType>CSharp</ProjectType>
+	<ProjectSubType>
+    </ProjectSubType>
+    <SortOrder>20</SortOrder>
+    <CreateNewFolder>true</CreateNewFolder>
+    <DefaultName>Simple</DefaultName>
+    <ProvideDefaultName>true</ProvideDefaultName>
+    <LocationField>Enabled</LocationField>
+    <EnableLocationBrowseButton>true</EnableLocationBrowseButton>
+    <Icon>__TemplateIcon.ico</Icon>
+  </TemplateData>
+  <TemplateContent>
+    <Project File="ClassLibrary.csproj" ReplaceParameters="true">
+      <ProjectItem ReplaceParameters="true" TargetFileName="Properties\AssemblyInfo.cs">AssemblyInfo.cs</ProjectItem>
+      <ProjectItem ReplaceParameters="false" OpenInEditor="true">ComponentConfig.cs</ProjectItem>
+	  <ProjectItem ReplaceParameters="false" OpenInEditor="true">MyInterpreter.cs</ProjectItem>
+	  <ProjectItem ReplaceParameters="false" OpenInEditor="true">Registrar.cs</ProjectItem>
+	  <ProjectItem ReplaceParameters="false" OpenInEditor="true">MgaGateway.cs</ProjectItem>
+	  <ProjectItem ReplaceParameters="false" OpenInEditor="true">GMEConsole.cs</ProjectItem>
+	  <ProjectItem ReplaceParameters="false" OpenInEditor="true">Component.ico</ProjectItem>
+    </Project>
+  </TemplateContent>
+</VSTemplate>

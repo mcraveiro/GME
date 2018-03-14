@@ -1,0 +1,17 @@
+CommonError.cpp
+CommonError.h
+CommonSmart.h
+Decorator.cpp
+Decorator.h
+Decorator.rc
+Decorator.rgs
+Decorator.sln
+Decorator.vcproj
+DecoratorApp.cpp
+DecoratorApp.def
+DecoratorConfig.h
+DecoratorDefs.h
+DecoratorLib.idl
+resource.h
+StdAfx.cpp
+StdAfx.h

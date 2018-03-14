@@ -1,0 +1,144 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "winres.h"
+#include "..\GME\GMEVersion.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""winres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "1 TYPELIB ""MetaLib.tlb""\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+#ifndef _MAC
+2 RT_MANIFEST "Meta.dll.manifest"
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION GME_VERSION_RC
+ PRODUCTVERSION GME_VERSION_RC
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x2L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904B0"
+        BEGIN
+            VALUE "CompanyName", "ISIS, Vanderbilt University"
+            VALUE "FileDescription", "Meta Module\0"
+            VALUE "FileVersion", GME_VERSION_STR
+            VALUE "InternalName", "Meta\0"
+            VALUE "LegalCopyright", "Copyright 2000-2004\0"
+            VALUE "OriginalFilename", "Meta.DLL\0"
+            VALUE "ProductName", "Meta Module\0"
+            VALUE "ProductVersion", GME_VERSION_STR
+            VALUE "OLESelfRegister", "\0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1200
+    END
+END
+
+#endif    // !_MAC
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// REGISTRY
+//
+
+IDR_MGAMETAPROJECT      REGISTRY DISCARDABLE    "MgaMetaProject.rgs"
+IDR_MGAMETAFOLDER       REGISTRY DISCARDABLE    "MgaMetaFolder.rgs"
+IDR_MGAMETAMODEL        REGISTRY DISCARDABLE    "MgaMetaModel.rgs"
+IDR_MGAMETAASPECT       REGISTRY DISCARDABLE    "MgaMetaAspect.rgs"
+IDR_MGAMETAROLE         REGISTRY DISCARDABLE    "MgaMetaRole.rgs"
+IDR_MGAMETAATOM         REGISTRY DISCARDABLE    "MgaMetaAtom.rgs"
+IDR_MGAMETAREFERENCE    REGISTRY DISCARDABLE    "MgaMetaReference.rgs"
+IDR_MGAMETASET          REGISTRY DISCARDABLE    "MgaMetaSet.rgs"
+IDR_MGAMETACONNECTION   REGISTRY DISCARDABLE    "MgaMetaConnection.rgs"
+IDR_MGAMETACONNJOINT    REGISTRY DISCARDABLE    "MgaMetaConnJoint.rgs"
+IDR_MGAMETAATTRIBUTE    REGISTRY DISCARDABLE    "MgaMetaAttribute.rgs"
+IDR_MGAMETAPOINTERSPEC  REGISTRY DISCARDABLE    "MgaMetaPointerSpec.rgs"
+IDR_MGAMETAPOINTERITEM  REGISTRY DISCARDABLE    "MgaMetaPointerItem.rgs"
+IDR_MGAMETAPART         REGISTRY DISCARDABLE    "MgaMetaPart.rgs"
+IDR_MGAMETAREGNODE      REGISTRY DISCARDABLE    "MgaMetaRegNode.rgs"
+IDR_MGAMETAENUMITEM     REGISTRY DISCARDABLE    "MgaMetaEnumItem.rgs"
+IDR_MGAMETACONSTRAINT   REGISTRY DISCARDABLE    "MgaMetaConstraint.rgs"
+IDR_MGAMETAROLES        REGISTRY DISCARDABLE    "MgaMetaRoles.rgs"
+IDR_MGAMETAFCOS         REGISTRY DISCARDABLE    "MgaMetaFCOs.rgs"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_PROJNAME            "Meta"
+END
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+1 TYPELIB "MetaLib.tlb"
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

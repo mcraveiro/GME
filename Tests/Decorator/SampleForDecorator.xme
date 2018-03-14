@@ -1,0 +1,3791 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE project SYSTEM "mga.dtd">
+
+<project guid="{65D3B9EC-D65A-49DD-BF8D-FF3740ADCE75}" cdate="Tue Feb 17 17:59:48 2015" mdate="Tue Feb 17 17:59:48 2015" version="" metaguid="{5775B4F5-E220-4C97-8568-28F5E860F40D}" metaversion="" metaname="GenericLanguage">
+	<name>RootFolder</name>
+	<comment></comment>
+	<author></author>
+	<folder id="id-006a-00000001" relid="0x1" childrelidcntr="0x1" kind="RootFolder" guid="{5a5e976b-1982-4ac8-aae9-31b53cc31585}">
+		<name>RootFolder</name>
+		<folder id="id-006a-00000002" relid="0x1" childrelidcntr="0x7" kind="Folder" guid="{57ba6c54-d30d-4940-b492-9e264fc2463c}">
+			<name>Folder</name>
+			<model id="id-0065-00000001" kind="Model" guid="{a3975623-1433-4264-a9b0-1fb5b2e7d260}" relid="0x1" childrelidcntr="0x20">
+				<name>IconTypes</name>
+				<model id="id-0065-00000003" kind="Model" role="Model" guid="{35119bc6-731b-45f6-9a63-745b16b502b5}" relid="0x8" childrelidcntr="0x0">
+					<name>Model</name>
+					<regnode name="PartRegs" status="undefined">
+						<value></value>
+						<regnode name="Aspect" status="undefined">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>63,119</value>
+							</regnode>
+						</regnode>
+					</regnode>
+				</model>
+				<model id="id-0065-00000004" kind="Model" role="Model" guid="{7bb06e97-3852-490b-b005-3cd01339c1c9}" relid="0xc" childrelidcntr="0x0">
+					<name>Model</name>
+					<regnode name="PartRegs" status="undefined">
+						<value></value>
+						<regnode name="Aspect" status="undefined">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>259,119</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<regnode name="icon" isopaque="yes">
+						<value>Sample.png</value>
+					</regnode>
+				</model>
+				<model id="id-0065-00000005" kind="Model" role="Model" guid="{4be1dfef-8509-451a-9678-48b492febce7}" relid="0xd" childrelidcntr="0x0">
+					<name>Model</name>
+					<regnode name="PartRegs" status="undefined">
+						<value></value>
+						<regnode name="Aspect" status="undefined">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>441,119</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<regnode name="icon" isopaque="yes">
+						<value>Sample.jpg</value>
+					</regnode>
+				</model>
+				<model id="id-0065-00000006" kind="Model" role="Model" guid="{ef4c242a-a593-4896-a702-7323b326a3d4}" relid="0x11" childrelidcntr="0x0">
+					<name>Model</name>
+					<regnode name="PartRegs" status="undefined">
+						<value></value>
+						<regnode name="Aspect" status="undefined">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>616,119</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<regnode name="icon" isopaque="yes">
+						<value>Sample.gif</value>
+					</regnode>
+				</model>
+				<model id="id-0065-00000007" kind="Model" role="Model" guid="{caa8bf9b-e839-49a0-af36-9b9b9f5e0556}" relid="0x15" childrelidcntr="0x0">
+					<name>Model</name>
+					<regnode name="PartRegs" status="undefined">
+						<value></value>
+						<regnode name="Aspect" status="undefined">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>777,119</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<regnode name="icon" isopaque="yes">
+						<value>Sample.bmp</value>
+					</regnode>
+				</model>
+				<model id="id-0065-00000045" kind="Model" role="Model" guid="{38434d34-8f3a-4ad9-abb8-34c24338a4e5}" relid="0x1b" childrelidcntr="0x0">
+					<name>Model</name>
+					<regnode name="PartRegs" status="undefined">
+						<value></value>
+						<regnode name="Aspect" status="undefined">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>973,126</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<regnode name="icon" isopaque="yes">
+						<value>Sample.tiff</value>
+					</regnode>
+				</model>
+				<model id="id-0065-00000046" kind="Model" role="Model" guid="{bb6d4a39-2dd1-4d4c-b7e1-1a4b31336dca}" relid="0x1f" childrelidcntr="0x0">
+					<name>Model</name>
+					<regnode name="PartRegs" status="undefined">
+						<value></value>
+						<regnode name="Aspect" status="undefined">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>434,448</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<regnode name="icon" isopaque="yes">
+						<value>SampleBig.png</value>
+					</regnode>
+				</model>
+				<model id="id-0065-00000048" kind="Model" role="Model" guid="{87746085-4395-4bd5-9e64-20f8983fc6c3}" relid="0x20" childrelidcntr="0x0">
+					<name>Model</name>
+					<regnode name="PartRegs" status="undefined">
+						<value></value>
+						<regnode name="Aspect" status="undefined">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>756,448</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<regnode name="fillColor" isopaque="yes">
+						<value>0xc4d7f2</value>
+					</regnode>
+					<regnode name="icon" isopaque="yes">
+						<value>SampleBig.png</value>
+					</regnode>
+				</model>
+				<atom id="id-0066-00000001" kind="Atom" role="Atom" guid="{330195cb-8b30-4ca4-83cf-d1ab2acb90f4}" relid="0x1">
+					<name>Atom</name>
+					<regnode name="PartRegs" status="undefined">
+						<value></value>
+						<regnode name="Aspect" status="undefined">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>105,35</value>
+							</regnode>
+						</regnode>
+					</regnode>
+				</atom>
+				<atom id="id-0066-00000003" kind="Atom" role="Atom" guid="{4f572372-87fb-4579-9105-14e07c0dbd44}" relid="0x9">
+					<name>Atom</name>
+					<regnode name="PartRegs" status="undefined">
+						<value></value>
+						<regnode name="Aspect" status="undefined">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>301,35</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<regnode name="icon" isopaque="yes">
+						<value>Sample.png</value>
+					</regnode>
+				</atom>
+				<atom id="id-0066-00000004" kind="Atom" role="Atom" guid="{154457c6-ad54-4a8c-9a13-5a5a717d55a1}" relid="0xe">
+					<name>Atom</name>
+					<regnode name="PartRegs" status="undefined">
+						<value></value>
+						<regnode name="Aspect" status="undefined">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>483,35</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<regnode name="icon" isopaque="yes">
+						<value>Sample.jpg</value>
+					</regnode>
+				</atom>
+				<atom id="id-0066-00000005" kind="Atom" role="Atom" guid="{6f51f568-100d-492f-8b55-0ba66153e449}" relid="0x14">
+					<name>Atom</name>
+					<regnode name="PartRegs" status="undefined">
+						<value></value>
+						<regnode name="Aspect" status="undefined">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>658,35</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<regnode name="icon" isopaque="yes">
+						<value>Sample.gif</value>
+					</regnode>
+				</atom>
+				<atom id="id-0066-00000006" kind="Atom" role="Atom" guid="{09c63a2d-9639-4475-9c76-d1045522b7a2}" relid="0x17">
+					<name>Atom</name>
+					<regnode name="PartRegs" status="undefined">
+						<value></value>
+						<regnode name="Aspect" status="undefined">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>819,35</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<regnode name="icon" isopaque="yes">
+						<value>Sample.bmp</value>
+					</regnode>
+				</atom>
+				<atom id="id-0066-00000034" kind="Atom" role="Atom" guid="{573d3694-635b-41d8-a5cb-4f6f939cdce8}" relid="0x1a">
+					<name>Atom</name>
+					<regnode name="PartRegs" status="undefined">
+						<value></value>
+						<regnode name="Aspect" status="undefined">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>1015,42</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<regnode name="icon" isopaque="yes">
+						<value>Sample.tiff</value>
+					</regnode>
+				</atom>
+				<atom id="id-0066-00000035" kind="Atom" role="Atom" guid="{a7422acb-4651-4905-911c-cdf9c665139e}" relid="0x1e">
+					<name>Atom</name>
+					<regnode name="PartRegs" status="undefined">
+						<value></value>
+						<regnode name="Aspect" status="undefined">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>56,448</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<regnode name="icon" isopaque="yes">
+						<value>SampleBig.png</value>
+					</regnode>
+				</atom>
+				<reference id="id-0067-00000001" kind="Reference" role="Reference" guid="{a1a3456c-c014-48e5-9913-ce5ab4f5190a}" relid="0x3">
+					<name>Reference</name>
+					<regnode name="PartRegs" status="undefined">
+						<value></value>
+						<regnode name="Aspect" status="undefined">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>105,231</value>
+							</regnode>
+						</regnode>
+					</regnode>
+				</reference>
+				<reference id="id-0067-00000003" kind="Reference" role="Reference" guid="{c620e86a-58e8-43ea-adf4-1763c90757c3}" relid="0xb">
+					<name>Reference</name>
+					<regnode name="PartRegs" status="undefined">
+						<value></value>
+						<regnode name="Aspect" status="undefined">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>301,231</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<regnode name="icon" isopaque="yes">
+						<value>Sample.png</value>
+					</regnode>
+				</reference>
+				<reference id="id-0067-00000004" kind="Reference" role="Reference" guid="{2bc55dfa-b72b-4fc4-925f-12ae3605d069}" relid="0xf">
+					<name>Reference</name>
+					<regnode name="PartRegs" status="undefined">
+						<value></value>
+						<regnode name="Aspect" status="undefined">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>483,231</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<regnode name="icon" isopaque="yes">
+						<value>Sample.jpg</value>
+					</regnode>
+				</reference>
+				<reference id="id-0067-00000005" kind="Reference" role="Reference" guid="{8148fd7a-8840-474e-890c-f26dba937433}" relid="0x12">
+					<name>Reference</name>
+					<regnode name="PartRegs" status="undefined">
+						<value></value>
+						<regnode name="Aspect" status="undefined">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>658,231</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<regnode name="icon" isopaque="yes">
+						<value>Sample.gif</value>
+					</regnode>
+				</reference>
+				<reference id="id-0067-00000006" kind="Reference" role="Reference" guid="{d2a41591-07be-4ac6-abd7-bf0abe3eee9a}" relid="0x18">
+					<name>Reference</name>
+					<regnode name="PartRegs" status="undefined">
+						<value></value>
+						<regnode name="Aspect" status="undefined">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>819,231</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<regnode name="icon" isopaque="yes">
+						<value>Sample.bmp</value>
+					</regnode>
+				</reference>
+				<reference id="id-0067-00000061" kind="Reference" role="Reference" guid="{a6043803-6b21-4bab-bb9c-4ffb6e717e48}" relid="0x1d">
+					<name>Reference</name>
+					<regnode name="PartRegs" status="undefined">
+						<value></value>
+						<regnode name="Aspect" status="undefined">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>1015,238</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<regnode name="icon" isopaque="yes">
+						<value>Sample.tiff</value>
+					</regnode>
+				</reference>
+				<set id="id-0069-00000001" kind="Set" role="Set" guid="{8d46b3af-90b5-442b-bf1f-83f67b4f0d42}" relid="0x4">
+					<name>Set</name>
+					<regnode name="PartRegs" status="undefined">
+						<value></value>
+						<regnode name="Aspect" status="undefined">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>105,315</value>
+							</regnode>
+						</regnode>
+					</regnode>
+				</set>
+				<set id="id-0069-00000003" kind="Set" role="Set" guid="{fe8dc025-0294-4a6d-a291-8647d5b704a1}" relid="0xa">
+					<name>Set</name>
+					<regnode name="PartRegs" status="undefined">
+						<value></value>
+						<regnode name="Aspect" status="undefined">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>301,315</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<regnode name="icon" isopaque="yes">
+						<value>Sample.png</value>
+					</regnode>
+				</set>
+				<set id="id-0069-00000004" kind="Set" role="Set" guid="{8e8de886-db53-405c-af53-6a5cc6d22312}" relid="0x10">
+					<name>Set</name>
+					<regnode name="PartRegs" status="undefined">
+						<value></value>
+						<regnode name="Aspect" status="undefined">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>483,315</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<regnode name="icon" isopaque="yes">
+						<value>Sample.jpg</value>
+					</regnode>
+				</set>
+				<set id="id-0069-00000005" kind="Set" role="Set" guid="{e5fa04c7-5e68-48a1-8e0c-0fb3b2e71d53}" relid="0x13">
+					<name>Set</name>
+					<regnode name="PartRegs" status="undefined">
+						<value></value>
+						<regnode name="Aspect" status="undefined">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>658,315</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<regnode name="icon" isopaque="yes">
+						<value>Sample.gif</value>
+					</regnode>
+				</set>
+				<set id="id-0069-00000006" kind="Set" role="Set" guid="{f33fb040-e372-4076-a382-93448b9d3fd7}" relid="0x16">
+					<name>Set</name>
+					<regnode name="PartRegs" status="undefined">
+						<value></value>
+						<regnode name="Aspect" status="undefined">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>819,315</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<regnode name="icon" isopaque="yes">
+						<value>Sample.bmp</value>
+					</regnode>
+				</set>
+				<set id="id-0069-0000002f" kind="Set" role="Set" guid="{c2a10b45-9db3-449c-b7df-db60340edb40}" relid="0x1c">
+					<name>Set</name>
+					<regnode name="PartRegs" status="undefined">
+						<value></value>
+						<regnode name="Aspect" status="undefined">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>1015,322</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<regnode name="icon" isopaque="yes">
+						<value>Sample.tiff</value>
+					</regnode>
+				</set>
+			</model>
+			<model id="id-0065-00000008" kind="Model" guid="{58004fca-0a77-414f-a484-cbf6d42aa2aa}" relid="0x2" childrelidcntr="0x0">
+				<name>InstancesAndSubtypes</name>
+			</model>
+			<model id="id-0065-00000009" kind="Model" guid="{0e7f6933-7e04-44bf-8238-62c4d509758a}" relid="0x3" childrelidcntr="0x1e">
+				<name>ContainmentAndReference1</name>
+				<model id="id-0065-0000000a" kind="Model" role="Model" guid="{b2bfc3fe-d297-4ce9-84af-00289592e6d5}" relid="0x2" childrelidcntr="0x0">
+					<name>Model</name>
+					<regnode name="PartRegs" status="undefined">
+						<value></value>
+						<regnode name="Aspect" status="undefined">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>63,35</value>
+							</regnode>
+						</regnode>
+					</regnode>
+				</model>
+				<model id="id-0065-0000000b" kind="Model" role="Model" guid="{1056e428-d870-45b7-87d9-d45cbae256b3}" relid="0x3" childrelidcntr="0x0">
+					<name>Model</name>
+					<regnode name="PartRegs" status="undefined">
+						<value></value>
+						<regnode name="Aspect" status="undefined">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>777,35</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<regnode name="icon" isopaque="yes">
+						<value>Sample.bmp</value>
+					</regnode>
+				</model>
+				<model id="id-0065-0000000c" kind="Model" role="Model" guid="{ac968294-56a1-4339-9579-5d18ff59f756}" relid="0x7" childrelidcntr="0x0">
+					<name>Model</name>
+					<regnode name="PartRegs" status="undefined">
+						<value></value>
+						<regnode name="Aspect" status="undefined">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>616,35</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<regnode name="icon" isopaque="yes">
+						<value>Sample.gif</value>
+					</regnode>
+				</model>
+				<model id="id-0065-0000000d" kind="Model" role="Model" guid="{c3ec494f-52f2-478f-a892-cfeca5c6ad33}" relid="0x8" childrelidcntr="0x0">
+					<name>Model</name>
+					<regnode name="PartRegs" status="undefined">
+						<value></value>
+						<regnode name="Aspect" status="undefined">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>441,35</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<regnode name="icon" isopaque="yes">
+						<value>Sample.jpg</value>
+					</regnode>
+				</model>
+				<model id="id-0065-0000000e" kind="Model" role="Model" guid="{45647d0f-1551-44a0-b481-6e6743578a3b}" relid="0xa" childrelidcntr="0x0">
+					<name>Model</name>
+					<regnode name="PartRegs" status="undefined">
+						<value></value>
+						<regnode name="Aspect" status="undefined">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>259,35</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<regnode name="icon" isopaque="yes">
+						<value>Sample.png</value>
+					</regnode>
+				</model>
+				<reference id="id-0067-00000007" kind="Reference" role="Reference" guid="{0bdf5157-8825-4419-9829-b4f805fbe8fe}" relid="0x1" referred="id-0065-0000000a">
+					<name>Reference</name>
+					<regnode name="PartRegs" status="undefined">
+						<value></value>
+						<regnode name="Aspect" status="undefined">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>63,161</value>
+							</regnode>
+						</regnode>
+					</regnode>
+				</reference>
+				<reference id="id-0067-00000008" kind="Reference" role="Reference" guid="{5b3397aa-9614-4a70-9c89-a5c6e5ed572f}" relid="0x4" referred="id-0065-0000000b">
+					<name>Reference</name>
+					<regnode name="PartRegs" status="undefined">
+						<value></value>
+						<regnode name="Aspect" status="undefined">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>791,161</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<regnode name="icon" isopaque="yes">
+						<value>Sample.bmp</value>
+					</regnode>
+				</reference>
+				<reference id="id-0067-00000009" kind="Reference" role="Reference" guid="{169dc3c7-c45e-4bd8-8357-c9355594476f}" relid="0x5" referred="id-0065-0000000e">
+					<name>Reference</name>
+					<regnode name="PartRegs" status="undefined">
+						<value></value>
+						<regnode name="Aspect" status="undefined">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>259,161</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<regnode name="icon" isopaque="yes">
+						<value>Sample.png</value>
+					</regnode>
+				</reference>
+				<reference id="id-0067-0000000a" kind="Reference" role="Reference" guid="{c0a66009-5fa3-4bc8-8fa2-b02bae14d9fe}" relid="0x6" referred="id-0065-0000000d">
+					<name>Reference</name>
+					<regnode name="PartRegs" status="undefined">
+						<value></value>
+						<regnode name="Aspect" status="undefined">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>441,161</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<regnode name="icon" isopaque="yes">
+						<value>Sample.jpg</value>
+					</regnode>
+				</reference>
+				<reference id="id-0067-0000000b" kind="Reference" role="Reference" guid="{44ce997c-bcec-4307-a038-1127db7aecc6}" relid="0x9" referred="id-0065-0000000c">
+					<name>Reference</name>
+					<regnode name="PartRegs" status="undefined">
+						<value></value>
+						<regnode name="Aspect" status="undefined">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>623,161</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<regnode name="icon" isopaque="yes">
+						<value>Sample.gif</value>
+					</regnode>
+				</reference>
+				<reference id="id-0067-0000000c" kind="Reference" role="Reference" guid="{a3b8e6b3-5f14-4f48-9e16-66ff621613e4}" relid="0xb" referred="id-0067-00000007">
+					<name>Reference</name>
+					<regnode name="PartRegs" status="undefined">
+						<value></value>
+						<regnode name="Aspect" status="undefined">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>56,294</value>
+							</regnode>
+						</regnode>
+					</regnode>
+				</reference>
+				<reference id="id-0067-0000000d" kind="Reference" role="Reference" guid="{cc8c8456-32d5-4ea3-95c3-e33c04320e5f}" relid="0xc" referred="id-0067-00000009">
+					<name>Reference</name>
+					<regnode name="PartRegs" status="undefined">
+						<value></value>
+						<regnode name="Aspect" status="undefined">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>252,294</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<regnode name="icon" isopaque="yes">
+						<value>Sample.png</value>
+					</regnode>
+				</reference>
+				<reference id="id-0067-0000000e" kind="Reference" role="Reference" guid="{3538cdbf-5d76-437f-af26-397e285e59ea}" relid="0xd" referred="id-0067-0000000b">
+					<name>Reference</name>
+					<regnode name="PartRegs" status="undefined">
+						<value></value>
+						<regnode name="Aspect" status="undefined">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>616,294</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<regnode name="icon" isopaque="yes">
+						<value>Sample.gif</value>
+					</regnode>
+				</reference>
+				<reference id="id-0067-0000000f" kind="Reference" role="Reference" guid="{aa2c0ef1-3af8-4dc2-bcd5-22931edf361c}" relid="0xe" referred="id-0067-00000008">
+					<name>Reference</name>
+					<regnode name="PartRegs" status="undefined">
+						<value></value>
+						<regnode name="Aspect" status="undefined">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>784,294</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<regnode name="icon" isopaque="yes">
+						<value>Sample.bmp</value>
+					</regnode>
+				</reference>
+				<reference id="id-0067-00000010" kind="Reference" role="Reference" guid="{39e1f7da-34da-4068-87d4-186866bb3c7f}" relid="0xf" referred="id-0067-0000000a">
+					<name>Reference</name>
+					<regnode name="PartRegs" status="undefined">
+						<value></value>
+						<regnode name="Aspect" status="undefined">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>434,294</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<regnode name="icon" isopaque="yes">
+						<value>Sample.jpg</value>
+					</regnode>
+				</reference>
+			</model>
+			<model id="id-0065-00000014" kind="Model" guid="{0bbe22ba-e6ff-430f-8def-0345c62e27a3}" relid="0x4" childrelidcntr="0x1e">
+				<name>ContainmentAndReference2</name>
+				<model id="id-0065-00000015" kind="Model" role="Model" guid="{4ff09149-2b2f-4733-b114-ef0efea5baec}" relid="0x8" childrelidcntr="0x5">
+					<name>Model</name>
+					<regnode name="PartRegs" status="undefined">
+						<value></value>
+						<regnode name="Aspect" status="undefined">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>532,35</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<regnode name="icon" isopaque="yes">
+						<value>Sample.jpg</value>
+					</regnode>
+					<model id="id-0065-0000001c" kind="Model" role="Model" guid="{fb5ef5f6-4251-44e7-acd9-d62b45631231}" relid="0x3" childrelidcntr="0x0">
+						<name>Model</name>
+						<regnode name="PartRegs" status="undefined">
+							<value></value>
+							<regnode name="Aspect" status="undefined">
+								<value></value>
+								<regnode name="Position" isopaque="yes">
+									<value>14,112</value>
+								</regnode>
+							</regnode>
+						</regnode>
+					</model>
+					<atom id="id-0066-0000000b" kind="Atom" role="Atom" guid="{37257594-3bdc-4904-abdf-e54de4fac8a9}" relid="0x1">
+						<name>Atom</name>
+						<regnode name="PartRegs" status="undefined">
+							<value></value>
+							<regnode name="Aspect" status="undefined">
+								<value></value>
+								<regnode name="Position" isopaque="yes">
+									<value>42,28</value>
+								</regnode>
+							</regnode>
+						</regnode>
+					</atom>
+					<atom id="id-0066-0000000c" kind="Atom" role="Atom" guid="{1d956d5b-f7b1-40c4-b106-17730baadf79}" relid="0x5">
+						<name>Atom</name>
+						<regnode name="PartRegs" status="undefined">
+							<value></value>
+							<regnode name="Aspect" status="undefined">
+								<value></value>
+								<regnode name="Position" isopaque="yes">
+									<value>364,91</value>
+								</regnode>
+							</regnode>
+						</regnode>
+					</atom>
+					<reference id="id-0067-00000027" kind="Reference" role="Reference" guid="{d9f8d6db-9ef0-46ba-9151-0c7815c1909f}" relid="0x2">
+						<name>Reference</name>
+						<regnode name="PartRegs" status="undefined">
+							<value></value>
+							<regnode name="Aspect" status="undefined">
+								<value></value>
+								<regnode name="Position" isopaque="yes">
+									<value>42,231</value>
+								</regnode>
+							</regnode>
+						</regnode>
+					</reference>
+					<set id="id-0069-00000009" kind="Set" role="Set" guid="{14de3dbd-6fea-43c9-9406-a4a80f4d2d90}" relid="0x4">
+						<name>Set</name>
+						<regnode name="PartRegs" status="undefined">
+							<value></value>
+							<regnode name="Aspect" status="undefined">
+								<value></value>
+								<regnode name="Position" isopaque="yes">
+									<value>42,315</value>
+								</regnode>
+							</regnode>
+						</regnode>
+					</set>
+				</model>
+				<model id="id-0065-00000016" kind="Model" role="Model" guid="{d386c42e-0760-4318-bd4f-0692e0a8a4dd}" relid="0x7" childrelidcntr="0x5">
+					<name>Model</name>
+					<regnode name="PartRegs" status="undefined">
+						<value></value>
+						<regnode name="Aspect" status="undefined">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>770,35</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<regnode name="icon" isopaque="yes">
+						<value>Sample.gif</value>
+					</regnode>
+					<model id="id-0065-0000001d" kind="Model" role="Model" guid="{d485fc1b-36c7-44cd-aaea-5703281db8ac}" relid="0x3" childrelidcntr="0x0">
+						<name>Model</name>
+						<regnode name="PartRegs" status="undefined">
+							<value></value>
+							<regnode name="Aspect" status="undefined">
+								<value></value>
+								<regnode name="Position" isopaque="yes">
+									<value>14,112</value>
+								</regnode>
+							</regnode>
+						</regnode>
+					</model>
+					<atom id="id-0066-0000000d" kind="Atom" role="Atom" guid="{576d47eb-2f6b-49e6-a4a8-67e64b756029}" relid="0x1">
+						<name>Atom</name>
+						<regnode name="PartRegs" status="undefined">
+							<value></value>
+							<regnode name="Aspect" status="undefined">
+								<value></value>
+								<regnode name="Position" isopaque="yes">
+									<value>42,28</value>
+								</regnode>
+							</regnode>
+						</regnode>
+					</atom>
+					<atom id="id-0066-0000000e" kind="Atom" role="Atom" guid="{44aa2fa1-1cb2-41c6-baf8-1bfe284fe9ce}" relid="0x5">
+						<name>Atom</name>
+						<regnode name="PartRegs" status="undefined">
+							<value></value>
+							<regnode name="Aspect" status="undefined">
+								<value></value>
+								<regnode name="Position" isopaque="yes">
+									<value>364,91</value>
+								</regnode>
+							</regnode>
+						</regnode>
+					</atom>
+					<reference id="id-0067-00000028" kind="Reference" role="Reference" guid="{6571105d-3f50-4ecf-93c1-c3d3966e3170}" relid="0x2">
+						<name>Reference</name>
+						<regnode name="PartRegs" status="undefined">
+							<value></value>
+							<regnode name="Aspect" status="undefined">
+								<value></value>
+								<regnode name="Position" isopaque="yes">
+									<value>42,231</value>
+								</regnode>
+							</regnode>
+						</regnode>
+					</reference>
+					<set id="id-0069-0000000a" kind="Set" role="Set" guid="{3421cd1c-c855-49a8-942d-3724dd1627e3}" relid="0x4">
+						<name>Set</name>
+						<regnode name="PartRegs" status="undefined">
+							<value></value>
+							<regnode name="Aspect" status="undefined">
+								<value></value>
+								<regnode name="Position" isopaque="yes">
+									<value>42,315</value>
+								</regnode>
+							</regnode>
+						</regnode>
+					</set>
+				</model>
+				<model id="id-0065-00000017" kind="Model" role="Model" guid="{96d763b9-a899-45dd-b0c4-e16dcbc35b73}" relid="0xa" childrelidcntr="0x5">
+					<name>Model</name>
+					<regnode name="PartRegs" status="undefined">
+						<value></value>
+						<regnode name="Aspect" status="undefined">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>273,35</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<regnode name="icon" isopaque="yes">
+						<value>Sample.png</value>
+					</regnode>
+					<model id="id-0065-0000001b" kind="Model" role="Model" guid="{b2ad9569-1321-4135-8fb2-e2bf09a0ceff}" relid="0x3" childrelidcntr="0x0">
+						<name>Model</name>
+						<regnode name="PartRegs" status="undefined">
+							<value></value>
+							<regnode name="Aspect" status="undefined">
+								<value></value>
+								<regnode name="Position" isopaque="yes">
+									<value>14,112</value>
+								</regnode>
+							</regnode>
+						</regnode>
+					</model>
+					<atom id="id-0066-00000009" kind="Atom" role="Atom" guid="{68d37063-2efd-4d5c-80f0-d22d283cbac1}" relid="0x1">
+						<name>Atom</name>
+						<regnode name="PartRegs" status="undefined">
+							<value></value>
+							<regnode name="Aspect" status="undefined">
+								<value></value>
+								<regnode name="Position" isopaque="yes">
+									<value>42,28</value>
+								</regnode>
+							</regnode>
+						</regnode>
+					</atom>
+					<atom id="id-0066-0000000a" kind="Atom" role="Atom" guid="{751f1517-5134-4d3b-97af-192b574151e7}" relid="0x5">
+						<name>Atom</name>
+						<regnode name="PartRegs" status="undefined">
+							<value></value>
+							<regnode name="Aspect" status="undefined">
+								<value></value>
+								<regnode name="Position" isopaque="yes">
+									<value>364,91</value>
+								</regnode>
+							</regnode>
+						</regnode>
+					</atom>
+					<reference id="id-0067-00000026" kind="Reference" role="Reference" guid="{71a77a19-70f7-40e4-b4f1-48fa0f040583}" relid="0x2">
+						<name>Reference</name>
+						<regnode name="PartRegs" status="undefined">
+							<value></value>
+							<regnode name="Aspect" status="undefined">
+								<value></value>
+								<regnode name="Position" isopaque="yes">
+									<value>42,231</value>
+								</regnode>
+							</regnode>
+						</regnode>
+					</reference>
+					<set id="id-0069-00000008" kind="Set" role="Set" guid="{36ed5585-7396-416b-8ba5-9e4ca3cd75d6}" relid="0x4">
+						<name>Set</name>
+						<regnode name="PartRegs" status="undefined">
+							<value></value>
+							<regnode name="Aspect" status="undefined">
+								<value></value>
+								<regnode name="Position" isopaque="yes">
+									<value>42,315</value>
+								</regnode>
+							</regnode>
+						</regnode>
+					</set>
+				</model>
+				<model id="id-0065-00000018" kind="Model" role="Model" guid="{30dadb53-aece-4bec-ba41-4b20a7afdf28}" relid="0x3" childrelidcntr="0x5">
+					<name>Model</name>
+					<regnode name="PartRegs" status="undefined">
+						<value></value>
+						<regnode name="Aspect" status="undefined">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>1008,35</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<regnode name="icon" isopaque="yes">
+						<value>Sample.bmp</value>
+					</regnode>
+					<model id="id-0065-0000001e" kind="Model" role="Model" guid="{ebbfeb4b-15f4-4feb-84a9-4ff4528c5ebc}" relid="0x3" childrelidcntr="0x0">
+						<name>Model</name>
+						<regnode name="PartRegs" status="undefined">
+							<value></value>
+							<regnode name="Aspect" status="undefined">
+								<value></value>
+								<regnode name="Position" isopaque="yes">
+									<value>14,112</value>
+								</regnode>
+							</regnode>
+						</regnode>
+					</model>
+					<atom id="id-0066-0000000f" kind="Atom" role="Atom" guid="{5dddf07c-eb7f-4341-b1dc-3c94ecd62341}" relid="0x1">
+						<name>Atom</name>
+						<regnode name="PartRegs" status="undefined">
+							<value></value>
+							<regnode name="Aspect" status="undefined">
+								<value></value>
+								<regnode name="Position" isopaque="yes">
+									<value>42,28</value>
+								</regnode>
+							</regnode>
+						</regnode>
+					</atom>
+					<atom id="id-0066-00000010" kind="Atom" role="Atom" guid="{c3c52213-acc9-4415-a9a4-3fa24e450254}" relid="0x5">
+						<name>Atom</name>
+						<regnode name="PartRegs" status="undefined">
+							<value></value>
+							<regnode name="Aspect" status="undefined">
+								<value></value>
+								<regnode name="Position" isopaque="yes">
+									<value>364,91</value>
+								</regnode>
+							</regnode>
+						</regnode>
+					</atom>
+					<reference id="id-0067-00000029" kind="Reference" role="Reference" guid="{a48eee0b-bcde-44b3-ba9e-674de14caebe}" relid="0x2">
+						<name>Reference</name>
+						<regnode name="PartRegs" status="undefined">
+							<value></value>
+							<regnode name="Aspect" status="undefined">
+								<value></value>
+								<regnode name="Position" isopaque="yes">
+									<value>42,231</value>
+								</regnode>
+							</regnode>
+						</regnode>
+					</reference>
+					<set id="id-0069-0000000b" kind="Set" role="Set" guid="{183ab00d-d26f-493b-9e9b-f771354fc8ac}" relid="0x4">
+						<name>Set</name>
+						<regnode name="PartRegs" status="undefined">
+							<value></value>
+							<regnode name="Aspect" status="undefined">
+								<value></value>
+								<regnode name="Position" isopaque="yes">
+									<value>42,315</value>
+								</regnode>
+							</regnode>
+						</regnode>
+					</set>
+				</model>
+				<model id="id-0065-00000019" kind="Model" role="Model" guid="{a868302c-abad-4ac8-955d-42406a717259}" relid="0x2" childrelidcntr="0x5">
+					<name>Model</name>
+					<regnode name="PartRegs" status="undefined">
+						<value></value>
+						<regnode name="Aspect" status="undefined">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>35,28</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<model id="id-0065-0000001a" kind="Model" role="Model" guid="{f5047807-20e1-4fc1-9ac2-9ec4249f9866}" relid="0x3" childrelidcntr="0x0">
+						<name>Model</name>
+						<regnode name="PartRegs" status="undefined">
+							<value></value>
+							<regnode name="Aspect" status="undefined">
+								<value></value>
+								<regnode name="Position" isopaque="yes">
+									<value>14,112</value>
+								</regnode>
+							</regnode>
+						</regnode>
+					</model>
+					<atom id="id-0066-00000007" kind="Atom" role="Atom" guid="{a6c613ad-a20e-46d9-baf4-3baacf8bfff7}" relid="0x1">
+						<name>Atom</name>
+						<regnode name="PartRegs" status="undefined">
+							<value></value>
+							<regnode name="Aspect" status="undefined">
+								<value></value>
+								<regnode name="Position" isopaque="yes">
+									<value>42,28</value>
+								</regnode>
+							</regnode>
+						</regnode>
+					</atom>
+					<atom id="id-0066-00000008" kind="Atom" role="Atom" guid="{a85ced4d-efac-423a-be27-405536f39b01}" relid="0x5">
+						<name>Atom</name>
+						<regnode name="PartRegs" status="undefined">
+							<value></value>
+							<regnode name="Aspect" status="undefined">
+								<value></value>
+								<regnode name="Position" isopaque="yes">
+									<value>364,91</value>
+								</regnode>
+							</regnode>
+						</regnode>
+					</atom>
+					<reference id="id-0067-00000025" kind="Reference" role="Reference" guid="{5cca2c67-59dd-402b-9842-4e73e58c8fb7}" relid="0x2">
+						<name>Reference</name>
+						<regnode name="PartRegs" status="undefined">
+							<value></value>
+							<regnode name="Aspect" status="undefined">
+								<value></value>
+								<regnode name="Position" isopaque="yes">
+									<value>42,231</value>
+								</regnode>
+							</regnode>
+						</regnode>
+					</reference>
+					<set id="id-0069-00000007" kind="Set" role="Set" guid="{edbb2c47-73fc-4503-9cd5-2abc689ba1b0}" relid="0x4">
+						<name>Set</name>
+						<regnode name="PartRegs" status="undefined">
+							<value></value>
+							<regnode name="Aspect" status="undefined">
+								<value></value>
+								<regnode name="Position" isopaque="yes">
+									<value>42,315</value>
+								</regnode>
+							</regnode>
+						</regnode>
+					</set>
+				</model>
+				<reference id="id-0067-0000001b" kind="Reference" role="Reference" guid="{ac99efec-e37e-4328-a300-085660ab6265}" relid="0x5" referred="id-0065-00000017">
+					<name>Reference</name>
+					<regnode name="PartRegs" status="undefined">
+						<value></value>
+						<regnode name="Aspect" status="undefined">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>273,196</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<regnode name="icon" isopaque="yes">
+						<value>Sample.png</value>
+					</regnode>
+				</reference>
+				<reference id="id-0067-0000001c" kind="Reference" role="Reference" guid="{3b90c3d2-2464-4e81-9df2-cd64e84908aa}" relid="0xc" referred="id-0067-0000001b">
+					<name>Reference</name>
+					<regnode name="PartRegs" status="undefined">
+						<value></value>
+						<regnode name="Aspect" status="undefined">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>280,413</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<regnode name="icon" isopaque="yes">
+						<value>Sample.png</value>
+					</regnode>
+				</reference>
+				<reference id="id-0067-0000001d" kind="Reference" role="Reference" guid="{654e94a8-c9dc-4f84-a751-bc900b118041}" relid="0x9" referred="id-0065-00000016">
+					<name>Reference</name>
+					<regnode name="PartRegs" status="undefined">
+						<value></value>
+						<regnode name="Aspect" status="undefined">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>777,203</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<regnode name="icon" isopaque="yes">
+						<value>Sample.gif</value>
+					</regnode>
+				</reference>
+				<reference id="id-0067-0000001e" kind="Reference" role="Reference" guid="{d31c37e1-ce83-4ad6-93e1-34592d52dcee}" relid="0xe" referred="id-0067-00000020">
+					<name>Reference</name>
+					<regnode name="PartRegs" status="undefined">
+						<value></value>
+						<regnode name="Aspect" status="undefined">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>1022,413</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<regnode name="icon" isopaque="yes">
+						<value>Sample.bmp</value>
+					</regnode>
+				</reference>
+				<reference id="id-0067-0000001f" kind="Reference" role="Reference" guid="{d824341c-bf34-4f5c-96f4-50f25ad2920d}" relid="0xf" referred="id-0067-00000021">
+					<name>Reference</name>
+					<regnode name="PartRegs" status="undefined">
+						<value></value>
+						<regnode name="Aspect" status="undefined">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>539,413</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<regnode name="icon" isopaque="yes">
+						<value>Sample.jpg</value>
+					</regnode>
+				</reference>
+				<reference id="id-0067-00000020" kind="Reference" role="Reference" guid="{de4b2a12-5096-43ef-9ea2-543c010ea922}" relid="0x4" referred="id-0065-00000018">
+					<name>Reference</name>
+					<regnode name="PartRegs" status="undefined">
+						<value></value>
+						<regnode name="Aspect" status="undefined">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>1022,203</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<regnode name="icon" isopaque="yes">
+						<value>Sample.bmp</value>
+					</regnode>
+				</reference>
+				<reference id="id-0067-00000021" kind="Reference" role="Reference" guid="{be9bab16-da24-44b9-ba32-b9c1a25e0edf}" relid="0x6" referred="id-0065-00000015">
+					<name>Reference</name>
+					<regnode name="PartRegs" status="undefined">
+						<value></value>
+						<regnode name="Aspect" status="undefined">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>532,203</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<regnode name="icon" isopaque="yes">
+						<value>Sample.jpg</value>
+					</regnode>
+				</reference>
+				<reference id="id-0067-00000022" kind="Reference" role="Reference" guid="{f6e6fa2d-178d-4937-9e70-03c8328a259a}" relid="0xb" referred="id-0067-00000023">
+					<name>Reference</name>
+					<regnode name="PartRegs" status="undefined">
+						<value></value>
+						<regnode name="Aspect" status="undefined">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>28,413</value>
+							</regnode>
+						</regnode>
+					</regnode>
+				</reference>
+				<reference id="id-0067-00000023" kind="Reference" role="Reference" guid="{deb331bf-d640-4a1b-8374-4fb602df621c}" relid="0x1" referred="id-0065-00000019">
+					<name>Reference</name>
+					<regnode name="PartRegs" status="undefined">
+						<value></value>
+						<regnode name="Aspect" status="undefined">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>35,203</value>
+							</regnode>
+						</regnode>
+					</regnode>
+				</reference>
+				<reference id="id-0067-00000024" kind="Reference" role="Reference" guid="{40d78d34-7e61-4347-84d4-e9c92e032d8e}" relid="0xd" referred="id-0067-0000001d">
+					<name>Reference</name>
+					<regnode name="PartRegs" status="undefined">
+						<value></value>
+						<regnode name="Aspect" status="undefined">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>777,413</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<regnode name="icon" isopaque="yes">
+						<value>Sample.gif</value>
+					</regnode>
+				</reference>
+			</model>
+			<model id="id-0065-0000001f" kind="Model" guid="{f2fd22f3-e1b4-4f6d-9038-37e3c8035e12}" relid="0x5" childrelidcntr="0x1e">
+				<name>ContainmentAndReference3</name>
+				<model id="id-0065-00000020" kind="Model" role="Model" guid="{47db2979-2eec-47f3-b250-12a17def339b}" relid="0x2" childrelidcntr="0xb">
+					<name>Model</name>
+					<regnode name="PartRegs" status="undefined">
+						<value></value>
+						<regnode name="Aspect" status="undefined">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>35,28</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<model id="id-0065-00000021" kind="Model" role="Model" guid="{250682cb-1b76-48dc-b735-0c1f7b310f0d}" relid="0x3" childrelidcntr="0x0">
+						<name>Model</name>
+						<regnode name="PartRegs" status="undefined">
+							<value></value>
+							<regnode name="Aspect" status="undefined">
+								<value></value>
+								<regnode name="Position" isopaque="yes">
+									<value>14,112</value>
+								</regnode>
+							</regnode>
+						</regnode>
+					</model>
+					<model id="id-0065-0000002a" kind="Model" role="Model" guid="{364272f3-3f9c-4264-a804-9d9867f54008}" relid="0x7" childrelidcntr="0x0">
+						<name>Model</name>
+						<regnode name="PartRegs" status="undefined">
+							<value></value>
+							<regnode name="Aspect" status="undefined">
+								<value></value>
+								<regnode name="Position" isopaque="yes">
+									<value>21,483</value>
+								</regnode>
+							</regnode>
+						</regnode>
+					</model>
+					<atom id="id-0066-00000011" kind="Atom" role="Atom" guid="{c97cc062-5998-453b-b863-a8d23ff783db}" relid="0x1">
+						<name>Atom</name>
+						<regnode name="PartRegs" status="undefined">
+							<value></value>
+							<regnode name="Aspect" status="undefined">
+								<value></value>
+								<regnode name="Position" isopaque="yes">
+									<value>42,28</value>
+								</regnode>
+							</regnode>
+						</regnode>
+					</atom>
+					<atom id="id-0066-00000012" kind="Atom" role="Atom" guid="{029f61f5-a87d-4660-88b5-d487a42af77c}" relid="0x5">
+						<name>Atom</name>
+						<regnode name="PartRegs" status="undefined">
+							<value></value>
+							<regnode name="Aspect" status="undefined">
+								<value></value>
+								<regnode name="Position" isopaque="yes">
+									<value>364,91</value>
+								</regnode>
+							</regnode>
+						</regnode>
+					</atom>
+					<atom id="id-0066-0000001b" kind="Atom" role="Atom" guid="{e1cd4342-089b-42af-a7c3-903b1ae43959}" relid="0x6">
+						<name>Atom</name>
+						<regnode name="PartRegs" status="undefined">
+							<value></value>
+							<regnode name="Aspect" status="undefined">
+								<value></value>
+								<regnode name="Position" isopaque="yes">
+									<value>49,399</value>
+								</regnode>
+							</regnode>
+						</regnode>
+					</atom>
+					<reference id="id-0067-0000002a" kind="Reference" role="Reference" guid="{09bc5728-8404-4c24-9398-7bb9ec0bf072}" relid="0x2">
+						<name>Reference</name>
+						<regnode name="PartRegs" status="undefined">
+							<value></value>
+							<regnode name="Aspect" status="undefined">
+								<value></value>
+								<regnode name="Position" isopaque="yes">
+									<value>42,231</value>
+								</regnode>
+							</regnode>
+						</regnode>
+					</reference>
+					<reference id="id-0067-00000039" kind="Reference" role="Reference" guid="{2f7a094d-1f95-4476-a718-b1a8de0ff12f}" relid="0x9">
+						<name>Reference</name>
+						<regnode name="PartRegs" status="undefined">
+							<value></value>
+							<regnode name="Aspect" status="undefined">
+								<value></value>
+								<regnode name="Position" isopaque="yes">
+									<value>49,602</value>
+								</regnode>
+							</regnode>
+						</regnode>
+					</reference>
+					<reference id="id-0067-0000003a" kind="Reference" role="Reference" guid="{b3ed8971-0671-45c7-a3bf-fa299eba3537}" relid="0xa">
+						<name>Reference</name>
+						<regnode name="PartRegs" status="undefined">
+							<value></value>
+							<regnode name="Aspect" status="undefined">
+								<value></value>
+								<regnode name="Position" isopaque="yes">
+									<value>126,735</value>
+								</regnode>
+							</regnode>
+						</regnode>
+					</reference>
+					<set id="id-0069-0000000c" kind="Set" role="Set" guid="{32d78686-e1c8-488f-a02c-8b2bc0184ed4}" relid="0x4">
+						<name>Set</name>
+						<regnode name="PartRegs" status="undefined">
+							<value></value>
+							<regnode name="Aspect" status="undefined">
+								<value></value>
+								<regnode name="Position" isopaque="yes">
+									<value>42,315</value>
+								</regnode>
+							</regnode>
+						</regnode>
+					</set>
+					<set id="id-0069-00000011" kind="Set" role="Set" guid="{c711980f-9870-4f53-be12-80eff22fc217}" relid="0x8">
+						<name>Set</name>
+						<regnode name="PartRegs" status="undefined">
+							<value></value>
+							<regnode name="Aspect" status="undefined">
+								<value></value>
+								<regnode name="Position" isopaque="yes">
+									<value>49,686</value>
+								</regnode>
+							</regnode>
+						</regnode>
+					</set>
+					<set id="id-0069-00000012" kind="Set" role="Set" guid="{a3ae9da7-66a8-4f41-a430-b3959e05fdde}" relid="0xb">
+						<name>Set</name>
+						<regnode name="PartRegs" status="undefined">
+							<value></value>
+							<regnode name="Aspect" status="undefined">
+								<value></value>
+								<regnode name="Position" isopaque="yes">
+									<value>126,819</value>
+								</regnode>
+							</regnode>
+						</regnode>
+					</set>
+				</model>
+				<model id="id-0065-00000022" kind="Model" role="Model" guid="{1a3eadd7-7898-4fab-9c23-cf874a50e969}" relid="0xa" childrelidcntr="0xb">
+					<name>Model</name>
+					<regnode name="PartRegs" status="undefined">
+						<value></value>
+						<regnode name="Aspect" status="undefined">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>273,28</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<regnode name="icon" isopaque="yes">
+						<value>Sample.png</value>
+					</regnode>
+					<model id="id-0065-00000023" kind="Model" role="Model" guid="{4fa92b8f-032b-49ed-9f14-b8d3afb2ae4a}" relid="0x3" childrelidcntr="0x0">
+						<name>Model</name>
+						<regnode name="PartRegs" status="undefined">
+							<value></value>
+							<regnode name="Aspect" status="undefined">
+								<value></value>
+								<regnode name="Position" isopaque="yes">
+									<value>14,112</value>
+								</regnode>
+							</regnode>
+						</regnode>
+					</model>
+					<model id="id-0065-0000002b" kind="Model" role="Model" guid="{53093f78-0ba8-4bd0-aa88-e0d8a3944309}" relid="0x8" childrelidcntr="0x0">
+						<name>Model</name>
+						<regnode name="PartRegs" status="undefined">
+							<value></value>
+							<regnode name="Aspect" status="undefined">
+								<value></value>
+								<regnode name="Position" isopaque="yes">
+									<value>21,483</value>
+								</regnode>
+							</regnode>
+						</regnode>
+					</model>
+					<atom id="id-0066-00000013" kind="Atom" role="Atom" guid="{ddf8af3c-25f4-4760-9775-df4717500028}" relid="0x1">
+						<name>Atom</name>
+						<regnode name="PartRegs" status="undefined">
+							<value></value>
+							<regnode name="Aspect" status="undefined">
+								<value></value>
+								<regnode name="Position" isopaque="yes">
+									<value>42,28</value>
+								</regnode>
+							</regnode>
+						</regnode>
+					</atom>
+					<atom id="id-0066-00000014" kind="Atom" role="Atom" guid="{8ff47aff-f3d1-4917-bf8a-8f231c646f77}" relid="0x5">
+						<name>Atom</name>
+						<regnode name="PartRegs" status="undefined">
+							<value></value>
+							<regnode name="Aspect" status="undefined">
+								<value></value>
+								<regnode name="Position" isopaque="yes">
+									<value>364,91</value>
+								</regnode>
+							</regnode>
+						</regnode>
+					</atom>
+					<atom id="id-0066-0000001c" kind="Atom" role="Atom" guid="{2fb31f8d-9f83-4a98-970e-4c42d0cc7d28}" relid="0x7">
+						<name>Atom</name>
+						<regnode name="PartRegs" status="undefined">
+							<value></value>
+							<regnode name="Aspect" status="undefined">
+								<value></value>
+								<regnode name="Position" isopaque="yes">
+									<value>49,399</value>
+								</regnode>
+							</regnode>
+						</regnode>
+					</atom>
+					<reference id="id-0067-0000002e" kind="Reference" role="Reference" guid="{790fd0ab-e62c-4852-9d71-969817b3a51f}" relid="0x2">
+						<name>Reference</name>
+						<regnode name="PartRegs" status="undefined">
+							<value></value>
+							<regnode name="Aspect" status="undefined">
+								<value></value>
+								<regnode name="Position" isopaque="yes">
+									<value>42,231</value>
+								</regnode>
+							</regnode>
+						</regnode>
+					</reference>
+					<reference id="id-0067-0000003b" kind="Reference" role="Reference" guid="{e9e2a80b-32cd-450a-8f30-618752fa559d}" relid="0x6">
+						<name>Reference</name>
+						<regnode name="PartRegs" status="undefined">
+							<value></value>
+							<regnode name="Aspect" status="undefined">
+								<value></value>
+								<regnode name="Position" isopaque="yes">
+									<value>49,602</value>
+								</regnode>
+							</regnode>
+						</regnode>
+					</reference>
+					<reference id="id-0067-0000003c" kind="Reference" role="Reference" guid="{15b88749-b6f0-4eeb-bc80-4bc7fff9554e}" relid="0xa">
+						<name>Reference</name>
+						<regnode name="PartRegs" status="undefined">
+							<value></value>
+							<regnode name="Aspect" status="undefined">
+								<value></value>
+								<regnode name="Position" isopaque="yes">
+									<value>126,735</value>
+								</regnode>
+							</regnode>
+						</regnode>
+					</reference>
+					<set id="id-0069-0000000d" kind="Set" role="Set" guid="{8dbabcf4-ac8b-409e-81f8-b31a92dd1498}" relid="0x4">
+						<name>Set</name>
+						<regnode name="PartRegs" status="undefined">
+							<value></value>
+							<regnode name="Aspect" status="undefined">
+								<value></value>
+								<regnode name="Position" isopaque="yes">
+									<value>42,315</value>
+								</regnode>
+							</regnode>
+						</regnode>
+					</set>
+					<set id="id-0069-00000013" kind="Set" role="Set" guid="{e502df11-e9f2-40ce-ad37-a3f5c95bf4ca}" relid="0x9">
+						<name>Set</name>
+						<regnode name="PartRegs" status="undefined">
+							<value></value>
+							<regnode name="Aspect" status="undefined">
+								<value></value>
+								<regnode name="Position" isopaque="yes">
+									<value>126,819</value>
+								</regnode>
+							</regnode>
+						</regnode>
+					</set>
+					<set id="id-0069-00000014" kind="Set" role="Set" guid="{5cd5ee40-4a05-4b5e-852e-c8278080fe7d}" relid="0xb">
+						<name>Set</name>
+						<regnode name="PartRegs" status="undefined">
+							<value></value>
+							<regnode name="Aspect" status="undefined">
+								<value></value>
+								<regnode name="Position" isopaque="yes">
+									<value>49,686</value>
+								</regnode>
+							</regnode>
+						</regnode>
+					</set>
+				</model>
+				<model id="id-0065-00000024" kind="Model" role="Model" guid="{f31c4e2d-2527-486a-ab3b-36e2f7d22c63}" relid="0x3" childrelidcntr="0xb">
+					<name>Model</name>
+					<regnode name="PartRegs" status="undefined">
+						<value></value>
+						<regnode name="Aspect" status="undefined">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>1008,28</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<regnode name="icon" isopaque="yes">
+						<value>Sample.bmp</value>
+					</regnode>
+					<model id="id-0065-00000025" kind="Model" role="Model" guid="{b177a3ce-f6e5-4908-bc7b-f338b0897be9}" relid="0x3" childrelidcntr="0x0">
+						<name>Model</name>
+						<regnode name="PartRegs" status="undefined">
+							<value></value>
+							<regnode name="Aspect" status="undefined">
+								<value></value>
+								<regnode name="Position" isopaque="yes">
+									<value>14,112</value>
+								</regnode>
+							</regnode>
+						</regnode>
+					</model>
+					<model id="id-0065-0000002e" kind="Model" role="Model" guid="{0f53d841-12b1-4a88-8525-ead6b2a184e5}" relid="0x8" childrelidcntr="0x0">
+						<name>Model</name>
+						<regnode name="PartRegs" status="undefined">
+							<value></value>
+							<regnode name="Aspect" status="undefined">
+								<value></value>
+								<regnode name="Position" isopaque="yes">
+									<value>21,483</value>
+								</regnode>
+							</regnode>
+						</regnode>
+					</model>
+					<atom id="id-0066-00000015" kind="Atom" role="Atom" guid="{dc89020d-7bf0-4978-860a-61c2b84d22cd}" relid="0x5">
+						<name>Atom</name>
+						<regnode name="PartRegs" status="undefined">
+							<value></value>
+							<regnode name="Aspect" status="undefined">
+								<value></value>
+								<regnode name="Position" isopaque="yes">
+									<value>364,91</value>
+								</regnode>
+							</regnode>
+						</regnode>
+					</atom>
+					<atom id="id-0066-00000016" kind="Atom" role="Atom" guid="{ad988ffc-2843-4d65-b2e0-4c549248527a}" relid="0x1">
+						<name>Atom</name>
+						<regnode name="PartRegs" status="undefined">
+							<value></value>
+							<regnode name="Aspect" status="undefined">
+								<value></value>
+								<regnode name="Position" isopaque="yes">
+									<value>42,28</value>
+								</regnode>
+							</regnode>
+						</regnode>
+					</atom>
+					<atom id="id-0066-0000001f" kind="Atom" role="Atom" guid="{282d2c5c-9937-4c77-9c75-3b4699a413aa}" relid="0x7">
+						<name>Atom</name>
+						<regnode name="PartRegs" status="undefined">
+							<value></value>
+							<regnode name="Aspect" status="undefined">
+								<value></value>
+								<regnode name="Position" isopaque="yes">
+									<value>49,399</value>
+								</regnode>
+							</regnode>
+						</regnode>
+					</atom>
+					<reference id="id-0067-0000002f" kind="Reference" role="Reference" guid="{4add1674-7b3e-4bcf-9e2e-7c72b4315d11}" relid="0x2">
+						<name>Reference</name>
+						<regnode name="PartRegs" status="undefined">
+							<value></value>
+							<regnode name="Aspect" status="undefined">
+								<value></value>
+								<regnode name="Position" isopaque="yes">
+									<value>42,231</value>
+								</regnode>
+							</regnode>
+						</regnode>
+					</reference>
+					<reference id="id-0067-00000041" kind="Reference" role="Reference" guid="{d8c85fd1-6670-4562-b1cf-784ccc74e96d}" relid="0x6">
+						<name>Reference</name>
+						<regnode name="PartRegs" status="undefined">
+							<value></value>
+							<regnode name="Aspect" status="undefined">
+								<value></value>
+								<regnode name="Position" isopaque="yes">
+									<value>49,602</value>
+								</regnode>
+							</regnode>
+						</regnode>
+					</reference>
+					<reference id="id-0067-00000042" kind="Reference" role="Reference" guid="{eeb74baa-d88c-4304-a5e3-fd720027cfac}" relid="0xa">
+						<name>Reference</name>
+						<regnode name="PartRegs" status="undefined">
+							<value></value>
+							<regnode name="Aspect" status="undefined">
+								<value></value>
+								<regnode name="Position" isopaque="yes">
+									<value>126,735</value>
+								</regnode>
+							</regnode>
+						</regnode>
+					</reference>
+					<set id="id-0069-0000000e" kind="Set" role="Set" guid="{7edc7d80-5d84-4fee-a981-f7c755b042b9}" relid="0x4">
+						<name>Set</name>
+						<regnode name="PartRegs" status="undefined">
+							<value></value>
+							<regnode name="Aspect" status="undefined">
+								<value></value>
+								<regnode name="Position" isopaque="yes">
+									<value>42,315</value>
+								</regnode>
+							</regnode>
+						</regnode>
+					</set>
+					<set id="id-0069-00000019" kind="Set" role="Set" guid="{9fdbf922-28ec-4a5b-ba0e-dbf055f005b5}" relid="0x9">
+						<name>Set</name>
+						<regnode name="PartRegs" status="undefined">
+							<value></value>
+							<regnode name="Aspect" status="undefined">
+								<value></value>
+								<regnode name="Position" isopaque="yes">
+									<value>126,819</value>
+								</regnode>
+							</regnode>
+						</regnode>
+					</set>
+					<set id="id-0069-0000001a" kind="Set" role="Set" guid="{502f8386-1e36-42cc-9174-deacf1699311}" relid="0xb">
+						<name>Set</name>
+						<regnode name="PartRegs" status="undefined">
+							<value></value>
+							<regnode name="Aspect" status="undefined">
+								<value></value>
+								<regnode name="Position" isopaque="yes">
+									<value>49,686</value>
+								</regnode>
+							</regnode>
+						</regnode>
+					</set>
+				</model>
+				<model id="id-0065-00000026" kind="Model" role="Model" guid="{279d8f2d-22bf-4eef-86a4-d9426d17499e}" relid="0x7" childrelidcntr="0xb">
+					<name>Model</name>
+					<regnode name="PartRegs" status="undefined">
+						<value></value>
+						<regnode name="Aspect" status="undefined">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>770,28</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<regnode name="icon" isopaque="yes">
+						<value>Sample.gif</value>
+					</regnode>
+					<model id="id-0065-00000027" kind="Model" role="Model" guid="{0bf8cbf7-f52b-4a0d-94b3-6079c0d56b40}" relid="0x3" childrelidcntr="0x0">
+						<name>Model</name>
+						<regnode name="PartRegs" status="undefined">
+							<value></value>
+							<regnode name="Aspect" status="undefined">
+								<value></value>
+								<regnode name="Position" isopaque="yes">
+									<value>14,112</value>
+								</regnode>
+							</regnode>
+						</regnode>
+					</model>
+					<model id="id-0065-0000002d" kind="Model" role="Model" guid="{eed2a453-d6fd-41f2-92c0-8183ac1e2f3c}" relid="0x8" childrelidcntr="0x0">
+						<name>Model</name>
+						<regnode name="PartRegs" status="undefined">
+							<value></value>
+							<regnode name="Aspect" status="undefined">
+								<value></value>
+								<regnode name="Position" isopaque="yes">
+									<value>21,483</value>
+								</regnode>
+							</regnode>
+						</regnode>
+					</model>
+					<atom id="id-0066-00000017" kind="Atom" role="Atom" guid="{6627f224-a3d3-4144-ad85-f5c7852dd03e}" relid="0x5">
+						<name>Atom</name>
+						<regnode name="PartRegs" status="undefined">
+							<value></value>
+							<regnode name="Aspect" status="undefined">
+								<value></value>
+								<regnode name="Position" isopaque="yes">
+									<value>364,91</value>
+								</regnode>
+							</regnode>
+						</regnode>
+					</atom>
+					<atom id="id-0066-00000018" kind="Atom" role="Atom" guid="{625b2d2d-18bc-4d35-aebc-dcd4c6bdb7e4}" relid="0x1">
+						<name>Atom</name>
+						<regnode name="PartRegs" status="undefined">
+							<value></value>
+							<regnode name="Aspect" status="undefined">
+								<value></value>
+								<regnode name="Position" isopaque="yes">
+									<value>42,28</value>
+								</regnode>
+							</regnode>
+						</regnode>
+					</atom>
+					<atom id="id-0066-0000001e" kind="Atom" role="Atom" guid="{c9e862a0-d86b-470b-a866-fadf6749bd04}" relid="0x7">
+						<name>Atom</name>
+						<regnode name="PartRegs" status="undefined">
+							<value></value>
+							<regnode name="Aspect" status="undefined">
+								<value></value>
+								<regnode name="Position" isopaque="yes">
+									<value>49,399</value>
+								</regnode>
+							</regnode>
+						</regnode>
+					</atom>
+					<reference id="id-0067-00000037" kind="Reference" role="Reference" guid="{c7dc6718-575f-49fb-b45b-c6ee39e0d249}" relid="0x2">
+						<name>Reference</name>
+						<regnode name="PartRegs" status="undefined">
+							<value></value>
+							<regnode name="Aspect" status="undefined">
+								<value></value>
+								<regnode name="Position" isopaque="yes">
+									<value>42,231</value>
+								</regnode>
+							</regnode>
+						</regnode>
+					</reference>
+					<reference id="id-0067-0000003f" kind="Reference" role="Reference" guid="{74e5f9cd-a765-437a-b309-f6b44485d0c6}" relid="0x6">
+						<name>Reference</name>
+						<regnode name="PartRegs" status="undefined">
+							<value></value>
+							<regnode name="Aspect" status="undefined">
+								<value></value>
+								<regnode name="Position" isopaque="yes">
+									<value>49,602</value>
+								</regnode>
+							</regnode>
+						</regnode>
+					</reference>
+					<reference id="id-0067-00000040" kind="Reference" role="Reference" guid="{f3e49fc7-456d-4613-87cd-94583d09b148}" relid="0xa">
+						<name>Reference</name>
+						<regnode name="PartRegs" status="undefined">
+							<value></value>
+							<regnode name="Aspect" status="undefined">
+								<value></value>
+								<regnode name="Position" isopaque="yes">
+									<value>126,735</value>
+								</regnode>
+							</regnode>
+						</regnode>
+					</reference>
+					<set id="id-0069-0000000f" kind="Set" role="Set" guid="{eade07b2-0644-47cd-b64a-28910096c147}" relid="0x4">
+						<name>Set</name>
+						<regnode name="PartRegs" status="undefined">
+							<value></value>
+							<regnode name="Aspect" status="undefined">
+								<value></value>
+								<regnode name="Position" isopaque="yes">
+									<value>42,315</value>
+								</regnode>
+							</regnode>
+						</regnode>
+					</set>
+					<set id="id-0069-00000017" kind="Set" role="Set" guid="{90fdc13a-7a65-4d3c-a88e-04d685a74225}" relid="0x9">
+						<name>Set</name>
+						<regnode name="PartRegs" status="undefined">
+							<value></value>
+							<regnode name="Aspect" status="undefined">
+								<value></value>
+								<regnode name="Position" isopaque="yes">
+									<value>126,819</value>
+								</regnode>
+							</regnode>
+						</regnode>
+					</set>
+					<set id="id-0069-00000018" kind="Set" role="Set" guid="{b3fdc240-b04f-4249-8922-391f52c95b8c}" relid="0xb">
+						<name>Set</name>
+						<regnode name="PartRegs" status="undefined">
+							<value></value>
+							<regnode name="Aspect" status="undefined">
+								<value></value>
+								<regnode name="Position" isopaque="yes">
+									<value>49,686</value>
+								</regnode>
+							</regnode>
+						</regnode>
+					</set>
+				</model>
+				<model id="id-0065-00000028" kind="Model" role="Model" guid="{db83065b-13e9-41c7-a5ae-c2e01d66336f}" relid="0x8" childrelidcntr="0xb">
+					<name>Model</name>
+					<regnode name="PartRegs" status="undefined">
+						<value></value>
+						<regnode name="Aspect" status="undefined">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>532,28</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<regnode name="icon" isopaque="yes">
+						<value>Sample.jpg</value>
+					</regnode>
+					<model id="id-0065-00000029" kind="Model" role="Model" guid="{8522bd24-8192-4fee-8a00-c5dfb32eb3e8}" relid="0x3" childrelidcntr="0x0">
+						<name>Model</name>
+						<regnode name="PartRegs" status="undefined">
+							<value></value>
+							<regnode name="Aspect" status="undefined">
+								<value></value>
+								<regnode name="Position" isopaque="yes">
+									<value>14,112</value>
+								</regnode>
+							</regnode>
+						</regnode>
+					</model>
+					<model id="id-0065-0000002c" kind="Model" role="Model" guid="{5fc9ae8e-70b1-4b04-a0c1-89894c780e6c}" relid="0x8" childrelidcntr="0x0">
+						<name>Model</name>
+						<regnode name="PartRegs" status="undefined">
+							<value></value>
+							<regnode name="Aspect" status="undefined">
+								<value></value>
+								<regnode name="Position" isopaque="yes">
+									<value>21,483</value>
+								</regnode>
+							</regnode>
+						</regnode>
+					</model>
+					<atom id="id-0066-00000019" kind="Atom" role="Atom" guid="{ec238c35-6958-42ac-ae3f-467e0d610dc5}" relid="0x5">
+						<name>Atom</name>
+						<regnode name="PartRegs" status="undefined">
+							<value></value>
+							<regnode name="Aspect" status="undefined">
+								<value></value>
+								<regnode name="Position" isopaque="yes">
+									<value>364,91</value>
+								</regnode>
+							</regnode>
+						</regnode>
+					</atom>
+					<atom id="id-0066-0000001a" kind="Atom" role="Atom" guid="{94ff3d0e-0c60-4a65-80ba-3efe22659a67}" relid="0x1">
+						<name>Atom</name>
+						<regnode name="PartRegs" status="undefined">
+							<value></value>
+							<regnode name="Aspect" status="undefined">
+								<value></value>
+								<regnode name="Position" isopaque="yes">
+									<value>42,28</value>
+								</regnode>
+							</regnode>
+						</regnode>
+					</atom>
+					<atom id="id-0066-0000001d" kind="Atom" role="Atom" guid="{f9998426-baa8-4fcb-baa6-8a1a70ab79dc}" relid="0x7">
+						<name>Atom</name>
+						<regnode name="PartRegs" status="undefined">
+							<value></value>
+							<regnode name="Aspect" status="undefined">
+								<value></value>
+								<regnode name="Position" isopaque="yes">
+									<value>49,399</value>
+								</regnode>
+							</regnode>
+						</regnode>
+					</atom>
+					<reference id="id-0067-00000038" kind="Reference" role="Reference" guid="{879fc5b0-68e5-4356-babe-433eb595b3cf}" relid="0x2">
+						<name>Reference</name>
+						<regnode name="PartRegs" status="undefined">
+							<value></value>
+							<regnode name="Aspect" status="undefined">
+								<value></value>
+								<regnode name="Position" isopaque="yes">
+									<value>42,231</value>
+								</regnode>
+							</regnode>
+						</regnode>
+					</reference>
+					<reference id="id-0067-0000003d" kind="Reference" role="Reference" guid="{4104911e-0515-4f2c-84a4-76a729071c08}" relid="0x6">
+						<name>Reference</name>
+						<regnode name="PartRegs" status="undefined">
+							<value></value>
+							<regnode name="Aspect" status="undefined">
+								<value></value>
+								<regnode name="Position" isopaque="yes">
+									<value>49,602</value>
+								</regnode>
+							</regnode>
+						</regnode>
+					</reference>
+					<reference id="id-0067-0000003e" kind="Reference" role="Reference" guid="{198f3e95-ae9c-437c-b01e-240a5699df98}" relid="0xa">
+						<name>Reference</name>
+						<regnode name="PartRegs" status="undefined">
+							<value></value>
+							<regnode name="Aspect" status="undefined">
+								<value></value>
+								<regnode name="Position" isopaque="yes">
+									<value>126,735</value>
+								</regnode>
+							</regnode>
+						</regnode>
+					</reference>
+					<set id="id-0069-00000010" kind="Set" role="Set" guid="{f3394ef8-581e-40f9-96b7-e2ee4d92005f}" relid="0x4">
+						<name>Set</name>
+						<regnode name="PartRegs" status="undefined">
+							<value></value>
+							<regnode name="Aspect" status="undefined">
+								<value></value>
+								<regnode name="Position" isopaque="yes">
+									<value>42,315</value>
+								</regnode>
+							</regnode>
+						</regnode>
+					</set>
+					<set id="id-0069-00000015" kind="Set" role="Set" guid="{17614a6e-d23e-48f8-88a5-ba7d1d23d7d9}" relid="0x9">
+						<name>Set</name>
+						<regnode name="PartRegs" status="undefined">
+							<value></value>
+							<regnode name="Aspect" status="undefined">
+								<value></value>
+								<regnode name="Position" isopaque="yes">
+									<value>126,819</value>
+								</regnode>
+							</regnode>
+						</regnode>
+					</set>
+					<set id="id-0069-00000016" kind="Set" role="Set" guid="{037a32b3-c043-457a-ac45-0fb4d1694582}" relid="0xb">
+						<name>Set</name>
+						<regnode name="PartRegs" status="undefined">
+							<value></value>
+							<regnode name="Aspect" status="undefined">
+								<value></value>
+								<regnode name="Position" isopaque="yes">
+									<value>49,686</value>
+								</regnode>
+							</regnode>
+						</regnode>
+					</set>
+				</model>
+				<reference id="id-0067-0000002b" kind="Reference" role="Reference" guid="{ec62894b-a6eb-4862-8dc5-5b838cfd01bd}" relid="0x1" referred="id-0065-00000020">
+					<name>Reference</name>
+					<regnode name="PartRegs" status="undefined">
+						<value></value>
+						<regnode name="Aspect" status="undefined">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>35,203</value>
+							</regnode>
+						</regnode>
+					</regnode>
+				</reference>
+				<reference id="id-0067-0000002c" kind="Reference" role="Reference" guid="{ef1d3222-57f0-4f9b-829b-ec8ca42d7997}" relid="0xb" referred="id-0067-0000002b">
+					<name>Reference</name>
+					<regnode name="PartRegs" status="undefined">
+						<value></value>
+						<regnode name="Aspect" status="undefined">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>28,413</value>
+							</regnode>
+						</regnode>
+					</regnode>
+				</reference>
+				<reference id="id-0067-0000002d" kind="Reference" role="Reference" guid="{38bb71b6-73b0-45b7-bf89-8bf1fc4c8bc0}" relid="0x4" referred="id-0065-00000024">
+					<name>Reference</name>
+					<regnode name="PartRegs" status="undefined">
+						<value></value>
+						<regnode name="Aspect" status="undefined">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>1022,203</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<regnode name="icon" isopaque="yes">
+						<value>Sample.bmp</value>
+					</regnode>
+				</reference>
+				<reference id="id-0067-00000030" kind="Reference" role="Reference" guid="{cbf78e53-9b8f-42e6-babe-365cfa6ee9d0}" relid="0xc" referred="id-0067-00000036">
+					<name>Reference</name>
+					<regnode name="PartRegs" status="undefined">
+						<value></value>
+						<regnode name="Aspect" status="undefined">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>273,413</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<regnode name="icon" isopaque="yes">
+						<value>Sample.png</value>
+					</regnode>
+				</reference>
+				<reference id="id-0067-00000031" kind="Reference" role="Reference" guid="{0a925ff3-3421-4535-9cb4-5f3ff412c2f7}" relid="0x6" referred="id-0065-00000028">
+					<name>Reference</name>
+					<regnode name="PartRegs" status="undefined">
+						<value></value>
+						<regnode name="Aspect" status="undefined">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>532,203</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<regnode name="icon" isopaque="yes">
+						<value>Sample.jpg</value>
+					</regnode>
+				</reference>
+				<reference id="id-0067-00000032" kind="Reference" role="Reference" guid="{bce66a6a-2096-45af-871d-15f2223353ec}" relid="0xd" referred="id-0067-00000035">
+					<name>Reference</name>
+					<regnode name="PartRegs" status="undefined">
+						<value></value>
+						<regnode name="Aspect" status="undefined">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>777,413</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<regnode name="icon" isopaque="yes">
+						<value>Sample.gif</value>
+					</regnode>
+				</reference>
+				<reference id="id-0067-00000033" kind="Reference" role="Reference" guid="{a32cf042-b324-4d72-ae8c-41db217a32dc}" relid="0xf" referred="id-0067-00000031">
+					<name>Reference</name>
+					<regnode name="PartRegs" status="undefined">
+						<value></value>
+						<regnode name="Aspect" status="undefined">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>539,413</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<regnode name="icon" isopaque="yes">
+						<value>Sample.jpg</value>
+					</regnode>
+				</reference>
+				<reference id="id-0067-00000034" kind="Reference" role="Reference" guid="{7e79b3ba-3a57-4ea1-aaf8-cfd7675b0204}" relid="0xe" referred="id-0067-0000002d">
+					<name>Reference</name>
+					<regnode name="PartRegs" status="undefined">
+						<value></value>
+						<regnode name="Aspect" status="undefined">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>1022,413</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<regnode name="icon" isopaque="yes">
+						<value>Sample.bmp</value>
+					</regnode>
+				</reference>
+				<reference id="id-0067-00000035" kind="Reference" role="Reference" guid="{314ac978-09c4-46f2-a751-1c83f8a1d5ca}" relid="0x9" referred="id-0065-00000026">
+					<name>Reference</name>
+					<regnode name="PartRegs" status="undefined">
+						<value></value>
+						<regnode name="Aspect" status="undefined">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>777,203</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<regnode name="icon" isopaque="yes">
+						<value>Sample.gif</value>
+					</regnode>
+				</reference>
+				<reference id="id-0067-00000036" kind="Reference" role="Reference" guid="{c5af5943-f05a-4fc6-9c25-8d6aa5add663}" relid="0x5" referred="id-0065-00000022">
+					<name>Reference</name>
+					<regnode name="PartRegs" status="undefined">
+						<value></value>
+						<regnode name="Aspect" status="undefined">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>273,203</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<regnode name="icon" isopaque="yes">
+						<value>Sample.png</value>
+					</regnode>
+				</reference>
+			</model>
+			<model id="id-0065-0000002f" kind="Model" guid="{ed7187d9-8273-4378-8600-cd46b99a4558}" relid="0x6" childrelidcntr="0x1e">
+				<name>ContainmentAndReference4</name>
+				<model id="id-0065-00000030" kind="Model" role="Model" guid="{5213b137-30e5-4c40-b8be-116e6c75df2a}" relid="0x8" childrelidcntr="0xb">
+					<name>Model</name>
+					<regnode name="PartRegs" status="undefined">
+						<value></value>
+						<regnode name="Aspect" status="undefined">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>756,28</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<regnode name="icon" isopaque="yes">
+						<value>Sample.jpg</value>
+					</regnode>
+					<regnode name="portLabelLength" isopaque="yes">
+						<value>0</value>
+					</regnode>
+					<model id="id-0065-00000031" kind="Model" role="Model" guid="{c3b4f9d4-64f4-453c-96ef-03ba16b5763d}" relid="0x3" childrelidcntr="0x0">
+						<name>Model</name>
+						<regnode name="PartRegs" status="undefined">
+							<value></value>
+							<regnode name="Aspect" status="undefined">
+								<value></value>
+								<regnode name="Position" isopaque="yes">
+									<value>14,112</value>
+								</regnode>
+							</regnode>
+						</regnode>
+					</model>
+					<model id="id-0065-00000032" kind="Model" role="Model" guid="{f942a1b9-04be-4b28-8d64-d6caf9f02814}" relid="0x8" childrelidcntr="0x0">
+						<name>Model</name>
+						<regnode name="PartRegs" status="undefined">
+							<value></value>
+							<regnode name="Aspect" status="undefined">
+								<value></value>
+								<regnode name="Position" isopaque="yes">
+									<value>21,483</value>
+								</regnode>
+							</regnode>
+						</regnode>
+					</model>
+					<atom id="id-0066-00000020" kind="Atom" role="Atom" guid="{1af6db83-a0d8-4409-ad8c-20acc80ca1ca}" relid="0x1">
+						<name>Atom</name>
+						<regnode name="PartRegs" status="undefined">
+							<value></value>
+							<regnode name="Aspect" status="undefined">
+								<value></value>
+								<regnode name="Position" isopaque="yes">
+									<value>42,28</value>
+								</regnode>
+							</regnode>
+						</regnode>
+					</atom>
+					<atom id="id-0066-00000021" kind="Atom" role="Atom" guid="{c7e46830-27eb-4d7c-b90a-1dfa65439d3b}" relid="0x5">
+						<name>Atom</name>
+						<regnode name="PartRegs" status="undefined">
+							<value></value>
+							<regnode name="Aspect" status="undefined">
+								<value></value>
+								<regnode name="Position" isopaque="yes">
+									<value>364,91</value>
+								</regnode>
+							</regnode>
+						</regnode>
+					</atom>
+					<atom id="id-0066-00000022" kind="Atom" role="Atom" guid="{7ccedf29-9d7d-4b2a-8e77-eb080be62b9c}" relid="0x7">
+						<name>Atom</name>
+						<regnode name="PartRegs" status="undefined">
+							<value></value>
+							<regnode name="Aspect" status="undefined">
+								<value></value>
+								<regnode name="Position" isopaque="yes">
+									<value>49,399</value>
+								</regnode>
+							</regnode>
+						</regnode>
+					</atom>
+					<reference id="id-0067-0000004c" kind="Reference" role="Reference" guid="{adb0c500-3987-468c-b212-5508e7f4c9b0}" relid="0x2">
+						<name>Reference</name>
+						<regnode name="PartRegs" status="undefined">
+							<value></value>
+							<regnode name="Aspect" status="undefined">
+								<value></value>
+								<regnode name="Position" isopaque="yes">
+									<value>42,231</value>
+								</regnode>
+							</regnode>
+						</regnode>
+					</reference>
+					<reference id="id-0067-0000004d" kind="Reference" role="Reference" guid="{f10b51fe-93cc-42f0-81da-1493f9912228}" relid="0xa">
+						<name>Reference</name>
+						<regnode name="PartRegs" status="undefined">
+							<value></value>
+							<regnode name="Aspect" status="undefined">
+								<value></value>
+								<regnode name="Position" isopaque="yes">
+									<value>126,735</value>
+								</regnode>
+							</regnode>
+						</regnode>
+					</reference>
+					<reference id="id-0067-0000004e" kind="Reference" role="Reference" guid="{824123cc-7ec2-4b7a-9362-f7c855db347e}" relid="0x6">
+						<name>Reference</name>
+						<regnode name="PartRegs" status="undefined">
+							<value></value>
+							<regnode name="Aspect" status="undefined">
+								<value></value>
+								<regnode name="Position" isopaque="yes">
+									<value>49,602</value>
+								</regnode>
+							</regnode>
+						</regnode>
+					</reference>
+					<set id="id-0069-0000001b" kind="Set" role="Set" guid="{5a506a0d-237b-451e-bffb-97214565684a}" relid="0x4">
+						<name>Set</name>
+						<regnode name="PartRegs" status="undefined">
+							<value></value>
+							<regnode name="Aspect" status="undefined">
+								<value></value>
+								<regnode name="Position" isopaque="yes">
+									<value>42,315</value>
+								</regnode>
+							</regnode>
+						</regnode>
+					</set>
+					<set id="id-0069-0000001c" kind="Set" role="Set" guid="{7961b75b-7ea4-49a1-833b-adccdd549f50}" relid="0x9">
+						<name>Set</name>
+						<regnode name="PartRegs" status="undefined">
+							<value></value>
+							<regnode name="Aspect" status="undefined">
+								<value></value>
+								<regnode name="Position" isopaque="yes">
+									<value>126,819</value>
+								</regnode>
+							</regnode>
+						</regnode>
+					</set>
+					<set id="id-0069-0000001d" kind="Set" role="Set" guid="{760dfff8-ccdd-4684-9a60-60c96042840c}" relid="0xb">
+						<name>Set</name>
+						<regnode name="PartRegs" status="undefined">
+							<value></value>
+							<regnode name="Aspect" status="undefined">
+								<value></value>
+								<regnode name="Position" isopaque="yes">
+									<value>49,686</value>
+								</regnode>
+							</regnode>
+						</regnode>
+					</set>
+				</model>
+				<model id="id-0065-00000033" kind="Model" role="Model" guid="{6bfe9237-a75b-48f8-a770-19cffaa08339}" relid="0x7" childrelidcntr="0xb">
+					<name>Model</name>
+					<regnode name="PartRegs" status="undefined">
+						<value></value>
+						<regnode name="Aspect" status="undefined">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>1113,28</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<regnode name="icon" isopaque="yes">
+						<value>Sample.gif</value>
+					</regnode>
+					<regnode name="portLabelLength" isopaque="yes">
+						<value>0</value>
+					</regnode>
+					<model id="id-0065-00000034" kind="Model" role="Model" guid="{ca5b0568-3d77-45aa-93f0-ee59997eda81}" relid="0x3" childrelidcntr="0x0">
+						<name>Model</name>
+						<regnode name="PartRegs" status="undefined">
+							<value></value>
+							<regnode name="Aspect" status="undefined">
+								<value></value>
+								<regnode name="Position" isopaque="yes">
+									<value>14,112</value>
+								</regnode>
+							</regnode>
+						</regnode>
+					</model>
+					<model id="id-0065-00000035" kind="Model" role="Model" guid="{e4cc8cdb-ec4a-480a-9a84-5691046a610a}" relid="0x8" childrelidcntr="0x0">
+						<name>Model</name>
+						<regnode name="PartRegs" status="undefined">
+							<value></value>
+							<regnode name="Aspect" status="undefined">
+								<value></value>
+								<regnode name="Position" isopaque="yes">
+									<value>21,483</value>
+								</regnode>
+							</regnode>
+						</regnode>
+					</model>
+					<atom id="id-0066-00000023" kind="Atom" role="Atom" guid="{22b261d4-2c33-4db1-8d56-af93910faab7}" relid="0x1">
+						<name>Atom</name>
+						<regnode name="PartRegs" status="undefined">
+							<value></value>
+							<regnode name="Aspect" status="undefined">
+								<value></value>
+								<regnode name="Position" isopaque="yes">
+									<value>42,28</value>
+								</regnode>
+							</regnode>
+						</regnode>
+					</atom>
+					<atom id="id-0066-00000024" kind="Atom" role="Atom" guid="{90fa3182-3715-445d-9518-3e9553130360}" relid="0x5">
+						<name>Atom</name>
+						<regnode name="PartRegs" status="undefined">
+							<value></value>
+							<regnode name="Aspect" status="undefined">
+								<value></value>
+								<regnode name="Position" isopaque="yes">
+									<value>364,91</value>
+								</regnode>
+							</regnode>
+						</regnode>
+					</atom>
+					<atom id="id-0066-00000025" kind="Atom" role="Atom" guid="{9455e65d-c08b-4905-aed7-cd3fc9b085a7}" relid="0x7">
+						<name>Atom</name>
+						<regnode name="PartRegs" status="undefined">
+							<value></value>
+							<regnode name="Aspect" status="undefined">
+								<value></value>
+								<regnode name="Position" isopaque="yes">
+									<value>49,399</value>
+								</regnode>
+							</regnode>
+						</regnode>
+					</atom>
+					<reference id="id-0067-0000004f" kind="Reference" role="Reference" guid="{78fbe51c-044f-4388-8709-990c474ff012}" relid="0x2">
+						<name>Reference</name>
+						<regnode name="PartRegs" status="undefined">
+							<value></value>
+							<regnode name="Aspect" status="undefined">
+								<value></value>
+								<regnode name="Position" isopaque="yes">
+									<value>42,231</value>
+								</regnode>
+							</regnode>
+						</regnode>
+					</reference>
+					<reference id="id-0067-00000050" kind="Reference" role="Reference" guid="{d515614d-16ef-4dd4-a16c-b562fe10cabb}" relid="0x6">
+						<name>Reference</name>
+						<regnode name="PartRegs" status="undefined">
+							<value></value>
+							<regnode name="Aspect" status="undefined">
+								<value></value>
+								<regnode name="Position" isopaque="yes">
+									<value>49,602</value>
+								</regnode>
+							</regnode>
+						</regnode>
+					</reference>
+					<reference id="id-0067-00000051" kind="Reference" role="Reference" guid="{bc905b06-b3c2-4d94-a422-35652d8f9320}" relid="0xa">
+						<name>Reference</name>
+						<regnode name="PartRegs" status="undefined">
+							<value></value>
+							<regnode name="Aspect" status="undefined">
+								<value></value>
+								<regnode name="Position" isopaque="yes">
+									<value>126,735</value>
+								</regnode>
+							</regnode>
+						</regnode>
+					</reference>
+					<set id="id-0069-0000001e" kind="Set" role="Set" guid="{6f8a738e-c4cb-4e3c-ace1-fe2a505bea2e}" relid="0x4">
+						<name>Set</name>
+						<regnode name="PartRegs" status="undefined">
+							<value></value>
+							<regnode name="Aspect" status="undefined">
+								<value></value>
+								<regnode name="Position" isopaque="yes">
+									<value>42,315</value>
+								</regnode>
+							</regnode>
+						</regnode>
+					</set>
+					<set id="id-0069-0000001f" kind="Set" role="Set" guid="{cecd3f06-6716-46f5-98bf-32923d3f8014}" relid="0xb">
+						<name>Set</name>
+						<regnode name="PartRegs" status="undefined">
+							<value></value>
+							<regnode name="Aspect" status="undefined">
+								<value></value>
+								<regnode name="Position" isopaque="yes">
+									<value>49,686</value>
+								</regnode>
+							</regnode>
+						</regnode>
+					</set>
+					<set id="id-0069-00000020" kind="Set" role="Set" guid="{439bb9ef-8e2f-45c1-a713-f49dd40e432d}" relid="0x9">
+						<name>Set</name>
+						<regnode name="PartRegs" status="undefined">
+							<value></value>
+							<regnode name="Aspect" status="undefined">
+								<value></value>
+								<regnode name="Position" isopaque="yes">
+									<value>126,819</value>
+								</regnode>
+							</regnode>
+						</regnode>
+					</set>
+				</model>
+				<model id="id-0065-00000036" kind="Model" role="Model" guid="{ee27a786-6b8b-4461-b754-aeb47e9553eb}" relid="0x2" childrelidcntr="0xb">
+					<name>Model</name>
+					<regnode name="PartRegs" status="undefined">
+						<value></value>
+						<regnode name="Aspect" status="undefined">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>35,28</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<regnode name="portLabelLength" isopaque="yes">
+						<value>0</value>
+					</regnode>
+					<model id="id-0065-00000037" kind="Model" role="Model" guid="{e3c079a0-4e28-438b-9fbf-c4cb756cf942}" relid="0x3" childrelidcntr="0x0">
+						<name>Model</name>
+						<regnode name="PartRegs" status="undefined">
+							<value></value>
+							<regnode name="Aspect" status="undefined">
+								<value></value>
+								<regnode name="Position" isopaque="yes">
+									<value>14,112</value>
+								</regnode>
+							</regnode>
+						</regnode>
+					</model>
+					<model id="id-0065-00000038" kind="Model" role="Model" guid="{cb0d702d-36c4-4e27-96e8-a08772b9ab02}" relid="0x7" childrelidcntr="0x0">
+						<name>Model</name>
+						<regnode name="PartRegs" status="undefined">
+							<value></value>
+							<regnode name="Aspect" status="undefined">
+								<value></value>
+								<regnode name="Position" isopaque="yes">
+									<value>21,483</value>
+								</regnode>
+							</regnode>
+						</regnode>
+					</model>
+					<atom id="id-0066-00000026" kind="Atom" role="Atom" guid="{8cc62929-bf33-4f2f-8d46-12c787ae5fa4}" relid="0x5">
+						<name>Atom</name>
+						<regnode name="PartRegs" status="undefined">
+							<value></value>
+							<regnode name="Aspect" status="undefined">
+								<value></value>
+								<regnode name="Position" isopaque="yes">
+									<value>364,91</value>
+								</regnode>
+							</regnode>
+						</regnode>
+					</atom>
+					<atom id="id-0066-00000027" kind="Atom" role="Atom" guid="{5554cd0b-215f-4351-b83b-992913f86c7f}" relid="0x1">
+						<name>Atom</name>
+						<regnode name="PartRegs" status="undefined">
+							<value></value>
+							<regnode name="Aspect" status="undefined">
+								<value></value>
+								<regnode name="Position" isopaque="yes">
+									<value>42,28</value>
+								</regnode>
+							</regnode>
+						</regnode>
+					</atom>
+					<atom id="id-0066-00000028" kind="Atom" role="Atom" guid="{e81e2dbd-9fa1-4b62-bdbd-1414f3c54f6f}" relid="0x6">
+						<name>Atom</name>
+						<regnode name="PartRegs" status="undefined">
+							<value></value>
+							<regnode name="Aspect" status="undefined">
+								<value></value>
+								<regnode name="Position" isopaque="yes">
+									<value>49,399</value>
+								</regnode>
+							</regnode>
+						</regnode>
+					</atom>
+					<reference id="id-0067-00000052" kind="Reference" role="Reference" guid="{d5f8dcd7-cb5f-446d-b932-16ea5e8c1caa}" relid="0x2">
+						<name>Reference</name>
+						<regnode name="PartRegs" status="undefined">
+							<value></value>
+							<regnode name="Aspect" status="undefined">
+								<value></value>
+								<regnode name="Position" isopaque="yes">
+									<value>42,231</value>
+								</regnode>
+							</regnode>
+						</regnode>
+					</reference>
+					<reference id="id-0067-00000053" kind="Reference" role="Reference" guid="{b4e4fb5c-c722-4d8c-b96a-18bbf82ec0d7}" relid="0x9">
+						<name>Reference</name>
+						<regnode name="PartRegs" status="undefined">
+							<value></value>
+							<regnode name="Aspect" status="undefined">
+								<value></value>
+								<regnode name="Position" isopaque="yes">
+									<value>49,602</value>
+								</regnode>
+							</regnode>
+						</regnode>
+					</reference>
+					<reference id="id-0067-00000054" kind="Reference" role="Reference" guid="{b3a4922f-a41d-4869-b3d4-764cf9b650a4}" relid="0xa">
+						<name>Reference</name>
+						<regnode name="PartRegs" status="undefined">
+							<value></value>
+							<regnode name="Aspect" status="undefined">
+								<value></value>
+								<regnode name="Position" isopaque="yes">
+									<value>126,735</value>
+								</regnode>
+							</regnode>
+						</regnode>
+					</reference>
+					<set id="id-0069-00000021" kind="Set" role="Set" guid="{8e39e38f-10f9-4c1b-9b31-395bf91d06a4}" relid="0x4">
+						<name>Set</name>
+						<regnode name="PartRegs" status="undefined">
+							<value></value>
+							<regnode name="Aspect" status="undefined">
+								<value></value>
+								<regnode name="Position" isopaque="yes">
+									<value>42,315</value>
+								</regnode>
+							</regnode>
+						</regnode>
+					</set>
+					<set id="id-0069-00000022" kind="Set" role="Set" guid="{0d473bcd-51c9-435e-95f4-0708ae95f333}" relid="0x8">
+						<name>Set</name>
+						<regnode name="PartRegs" status="undefined">
+							<value></value>
+							<regnode name="Aspect" status="undefined">
+								<value></value>
+								<regnode name="Position" isopaque="yes">
+									<value>49,686</value>
+								</regnode>
+							</regnode>
+						</regnode>
+					</set>
+					<set id="id-0069-00000023" kind="Set" role="Set" guid="{7df0e0ee-a0f9-4c7d-928b-6a1b8fa5c54f}" relid="0xb">
+						<name>Set</name>
+						<regnode name="PartRegs" status="undefined">
+							<value></value>
+							<regnode name="Aspect" status="undefined">
+								<value></value>
+								<regnode name="Position" isopaque="yes">
+									<value>126,819</value>
+								</regnode>
+							</regnode>
+						</regnode>
+					</set>
+				</model>
+				<model id="id-0065-00000039" kind="Model" role="Model" guid="{1a0ea8eb-fe0d-4dd9-81cd-c1c9e341244c}" relid="0xa" childrelidcntr="0xb">
+					<name>Model</name>
+					<regnode name="PartRegs" status="undefined">
+						<value></value>
+						<regnode name="Aspect" status="undefined">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>371,28</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<regnode name="icon" isopaque="yes">
+						<value>Sample.png</value>
+					</regnode>
+					<regnode name="portLabelLength" isopaque="yes">
+						<value>0</value>
+					</regnode>
+					<model id="id-0065-0000003a" kind="Model" role="Model" guid="{f2e0d3e7-ff0d-4a0f-ba92-8f21f07317bf}" relid="0x3" childrelidcntr="0x0">
+						<name>Model</name>
+						<regnode name="PartRegs" status="undefined">
+							<value></value>
+							<regnode name="Aspect" status="undefined">
+								<value></value>
+								<regnode name="Position" isopaque="yes">
+									<value>14,112</value>
+								</regnode>
+							</regnode>
+						</regnode>
+					</model>
+					<model id="id-0065-0000003b" kind="Model" role="Model" guid="{94f1dfba-ab0f-4638-9c57-1c4a7830bc45}" relid="0x8" childrelidcntr="0x0">
+						<name>Model</name>
+						<regnode name="PartRegs" status="undefined">
+							<value></value>
+							<regnode name="Aspect" status="undefined">
+								<value></value>
+								<regnode name="Position" isopaque="yes">
+									<value>21,483</value>
+								</regnode>
+							</regnode>
+						</regnode>
+					</model>
+					<atom id="id-0066-00000029" kind="Atom" role="Atom" guid="{6fbfa402-0571-44d4-a2b7-9a968d9c3687}" relid="0x5">
+						<name>Atom</name>
+						<regnode name="PartRegs" status="undefined">
+							<value></value>
+							<regnode name="Aspect" status="undefined">
+								<value></value>
+								<regnode name="Position" isopaque="yes">
+									<value>364,91</value>
+								</regnode>
+							</regnode>
+						</regnode>
+					</atom>
+					<atom id="id-0066-0000002a" kind="Atom" role="Atom" guid="{2aab2eb6-b9c5-46a3-9c27-4d8e84acb40c}" relid="0x1">
+						<name>Atom</name>
+						<regnode name="PartRegs" status="undefined">
+							<value></value>
+							<regnode name="Aspect" status="undefined">
+								<value></value>
+								<regnode name="Position" isopaque="yes">
+									<value>42,28</value>
+								</regnode>
+							</regnode>
+						</regnode>
+					</atom>
+					<atom id="id-0066-0000002b" kind="Atom" role="Atom" guid="{64c95c26-6217-498a-ae87-d67aa613ec2b}" relid="0x7">
+						<name>Atom</name>
+						<regnode name="PartRegs" status="undefined">
+							<value></value>
+							<regnode name="Aspect" status="undefined">
+								<value></value>
+								<regnode name="Position" isopaque="yes">
+									<value>49,399</value>
+								</regnode>
+							</regnode>
+						</regnode>
+					</atom>
+					<reference id="id-0067-00000056" kind="Reference" role="Reference" guid="{af68c3cd-ed11-4e07-895a-13ab5fb54510}" relid="0x2">
+						<name>Reference</name>
+						<regnode name="PartRegs" status="undefined">
+							<value></value>
+							<regnode name="Aspect" status="undefined">
+								<value></value>
+								<regnode name="Position" isopaque="yes">
+									<value>42,231</value>
+								</regnode>
+							</regnode>
+						</regnode>
+					</reference>
+					<reference id="id-0067-00000057" kind="Reference" role="Reference" guid="{040fb047-eb1b-40e2-b234-cb4729c5b97c}" relid="0xa">
+						<name>Reference</name>
+						<regnode name="PartRegs" status="undefined">
+							<value></value>
+							<regnode name="Aspect" status="undefined">
+								<value></value>
+								<regnode name="Position" isopaque="yes">
+									<value>126,735</value>
+								</regnode>
+							</regnode>
+						</regnode>
+					</reference>
+					<reference id="id-0067-00000058" kind="Reference" role="Reference" guid="{84604d3e-de48-4a20-b3c8-263586d07ac7}" relid="0x6">
+						<name>Reference</name>
+						<regnode name="PartRegs" status="undefined">
+							<value></value>
+							<regnode name="Aspect" status="undefined">
+								<value></value>
+								<regnode name="Position" isopaque="yes">
+									<value>49,602</value>
+								</regnode>
+							</regnode>
+						</regnode>
+					</reference>
+					<set id="id-0069-00000024" kind="Set" role="Set" guid="{7fb81210-67dc-4466-8bf3-21750560f89c}" relid="0x4">
+						<name>Set</name>
+						<regnode name="PartRegs" status="undefined">
+							<value></value>
+							<regnode name="Aspect" status="undefined">
+								<value></value>
+								<regnode name="Position" isopaque="yes">
+									<value>42,315</value>
+								</regnode>
+							</regnode>
+						</regnode>
+					</set>
+					<set id="id-0069-00000025" kind="Set" role="Set" guid="{13443b7d-a491-4ea6-b7e6-3921cb168a01}" relid="0x9">
+						<name>Set</name>
+						<regnode name="PartRegs" status="undefined">
+							<value></value>
+							<regnode name="Aspect" status="undefined">
+								<value></value>
+								<regnode name="Position" isopaque="yes">
+									<value>126,819</value>
+								</regnode>
+							</regnode>
+						</regnode>
+					</set>
+					<set id="id-0069-00000026" kind="Set" role="Set" guid="{c3f3394f-6a69-4cb1-a970-d3ea12965e25}" relid="0xb">
+						<name>Set</name>
+						<regnode name="PartRegs" status="undefined">
+							<value></value>
+							<regnode name="Aspect" status="undefined">
+								<value></value>
+								<regnode name="Position" isopaque="yes">
+									<value>49,686</value>
+								</regnode>
+							</regnode>
+						</regnode>
+					</set>
+				</model>
+				<model id="id-0065-0000003c" kind="Model" role="Model" guid="{f1739b09-65b0-406d-b2b0-30c397c170b9}" relid="0x3" childrelidcntr="0xb">
+					<name>Model</name>
+					<regnode name="PartRegs" status="undefined">
+						<value></value>
+						<regnode name="Aspect" status="undefined">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>1435,28</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<regnode name="icon" isopaque="yes">
+						<value>Sample.bmp</value>
+					</regnode>
+					<regnode name="portLabelLength" isopaque="yes">
+						<value>0</value>
+					</regnode>
+					<model id="id-0065-0000003d" kind="Model" role="Model" guid="{e7fdf69c-b2e9-4662-b3f4-8a8665264e35}" relid="0x3" childrelidcntr="0x0">
+						<name>Model</name>
+						<regnode name="PartRegs" status="undefined">
+							<value></value>
+							<regnode name="Aspect" status="undefined">
+								<value></value>
+								<regnode name="Position" isopaque="yes">
+									<value>14,112</value>
+								</regnode>
+							</regnode>
+						</regnode>
+					</model>
+					<model id="id-0065-0000003e" kind="Model" role="Model" guid="{a7dc9524-8740-4c55-a242-9827516372dc}" relid="0x8" childrelidcntr="0x0">
+						<name>Model</name>
+						<regnode name="PartRegs" status="undefined">
+							<value></value>
+							<regnode name="Aspect" status="undefined">
+								<value></value>
+								<regnode name="Position" isopaque="yes">
+									<value>21,483</value>
+								</regnode>
+							</regnode>
+						</regnode>
+					</model>
+					<atom id="id-0066-0000002c" kind="Atom" role="Atom" guid="{f381d8cd-1005-4153-bc25-3f9710a05df6}" relid="0x1">
+						<name>Atom</name>
+						<regnode name="PartRegs" status="undefined">
+							<value></value>
+							<regnode name="Aspect" status="undefined">
+								<value></value>
+								<regnode name="Position" isopaque="yes">
+									<value>42,28</value>
+								</regnode>
+							</regnode>
+						</regnode>
+					</atom>
+					<atom id="id-0066-0000002d" kind="Atom" role="Atom" guid="{9d35fbba-07eb-4b7f-ac36-20968b78eacd}" relid="0x5">
+						<name>Atom</name>
+						<regnode name="PartRegs" status="undefined">
+							<value></value>
+							<regnode name="Aspect" status="undefined">
+								<value></value>
+								<regnode name="Position" isopaque="yes">
+									<value>364,91</value>
+								</regnode>
+							</regnode>
+						</regnode>
+					</atom>
+					<atom id="id-0066-0000002e" kind="Atom" role="Atom" guid="{75815bd7-2dab-4c5c-bacd-019987416e26}" relid="0x7">
+						<name>Atom</name>
+						<regnode name="PartRegs" status="undefined">
+							<value></value>
+							<regnode name="Aspect" status="undefined">
+								<value></value>
+								<regnode name="Position" isopaque="yes">
+									<value>49,399</value>
+								</regnode>
+							</regnode>
+						</regnode>
+					</atom>
+					<reference id="id-0067-00000059" kind="Reference" role="Reference" guid="{728da4d3-e288-4276-bfe5-524e780272b5}" relid="0x2">
+						<name>Reference</name>
+						<regnode name="PartRegs" status="undefined">
+							<value></value>
+							<regnode name="Aspect" status="undefined">
+								<value></value>
+								<regnode name="Position" isopaque="yes">
+									<value>42,231</value>
+								</regnode>
+							</regnode>
+						</regnode>
+					</reference>
+					<reference id="id-0067-0000005a" kind="Reference" role="Reference" guid="{917712df-96f4-4ee2-a9e4-ee25eab7f8c9}" relid="0x6">
+						<name>Reference</name>
+						<regnode name="PartRegs" status="undefined">
+							<value></value>
+							<regnode name="Aspect" status="undefined">
+								<value></value>
+								<regnode name="Position" isopaque="yes">
+									<value>49,602</value>
+								</regnode>
+							</regnode>
+						</regnode>
+					</reference>
+					<reference id="id-0067-0000005b" kind="Reference" role="Reference" guid="{b7f30018-315f-45fa-a899-236b8eef9fd2}" relid="0xa">
+						<name>Reference</name>
+						<regnode name="PartRegs" status="undefined">
+							<value></value>
+							<regnode name="Aspect" status="undefined">
+								<value></value>
+								<regnode name="Position" isopaque="yes">
+									<value>126,735</value>
+								</regnode>
+							</regnode>
+						</regnode>
+					</reference>
+					<set id="id-0069-00000027" kind="Set" role="Set" guid="{8884d648-e584-453d-8c41-8b2bdebbfaad}" relid="0x4">
+						<name>Set</name>
+						<regnode name="PartRegs" status="undefined">
+							<value></value>
+							<regnode name="Aspect" status="undefined">
+								<value></value>
+								<regnode name="Position" isopaque="yes">
+									<value>42,315</value>
+								</regnode>
+							</regnode>
+						</regnode>
+					</set>
+					<set id="id-0069-00000028" kind="Set" role="Set" guid="{baf3821d-489e-4e2e-ab61-73ba35e5ac1b}" relid="0xb">
+						<name>Set</name>
+						<regnode name="PartRegs" status="undefined">
+							<value></value>
+							<regnode name="Aspect" status="undefined">
+								<value></value>
+								<regnode name="Position" isopaque="yes">
+									<value>49,686</value>
+								</regnode>
+							</regnode>
+						</regnode>
+					</set>
+					<set id="id-0069-00000029" kind="Set" role="Set" guid="{2b3230f2-e057-40fd-8475-08592781c561}" relid="0x9">
+						<name>Set</name>
+						<regnode name="PartRegs" status="undefined">
+							<value></value>
+							<regnode name="Aspect" status="undefined">
+								<value></value>
+								<regnode name="Position" isopaque="yes">
+									<value>126,819</value>
+								</regnode>
+							</regnode>
+						</regnode>
+					</set>
+				</model>
+				<reference id="id-0067-00000043" kind="Reference" role="Reference" guid="{b70348e0-78a0-47c1-aa19-a4b137a7b096}" relid="0x9" referred="id-0065-00000033">
+					<name>Reference</name>
+					<regnode name="PartRegs" status="undefined">
+						<value></value>
+						<regnode name="Aspect" status="undefined">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>1120,203</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<regnode name="icon" isopaque="yes">
+						<value>Sample.gif</value>
+					</regnode>
+					<regnode name="portLabelLength" isopaque="yes">
+						<value>0</value>
+					</regnode>
+				</reference>
+				<reference id="id-0067-00000044" kind="Reference" role="Reference" guid="{b51b7f27-a426-464a-9b57-e5175afcc175}" relid="0xe" referred="id-0067-00000048">
+					<name>Reference</name>
+					<regnode name="PartRegs" status="undefined">
+						<value></value>
+						<regnode name="Aspect" status="undefined">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>1449,413</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<regnode name="icon" isopaque="yes">
+						<value>Sample.bmp</value>
+					</regnode>
+					<regnode name="portLabelLength" isopaque="yes">
+						<value>0</value>
+					</regnode>
+				</reference>
+				<reference id="id-0067-00000045" kind="Reference" role="Reference" guid="{f11f088b-4750-43db-851b-d1afe5ef8011}" relid="0xf" referred="id-0067-00000047">
+					<name>Reference</name>
+					<regnode name="PartRegs" status="undefined">
+						<value></value>
+						<regnode name="Aspect" status="undefined">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>763,413</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<regnode name="icon" isopaque="yes">
+						<value>Sample.jpg</value>
+					</regnode>
+					<regnode name="portLabelLength" isopaque="yes">
+						<value>0</value>
+					</regnode>
+				</reference>
+				<reference id="id-0067-00000046" kind="Reference" role="Reference" guid="{a9d1e298-403a-4f19-bff9-357294045473}" relid="0xd" referred="id-0067-00000043">
+					<name>Reference</name>
+					<regnode name="PartRegs" status="undefined">
+						<value></value>
+						<regnode name="Aspect" status="undefined">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>1120,413</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<regnode name="icon" isopaque="yes">
+						<value>Sample.gif</value>
+					</regnode>
+					<regnode name="portLabelLength" isopaque="yes">
+						<value>0</value>
+					</regnode>
+				</reference>
+				<reference id="id-0067-00000047" kind="Reference" role="Reference" guid="{82aac3ee-ba04-4650-8d21-c0c593c3e00c}" relid="0x6" referred="id-0065-00000030">
+					<name>Reference</name>
+					<regnode name="PartRegs" status="undefined">
+						<value></value>
+						<regnode name="Aspect" status="undefined">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>756,203</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<regnode name="icon" isopaque="yes">
+						<value>Sample.jpg</value>
+					</regnode>
+					<regnode name="portLabelLength" isopaque="yes">
+						<value>0</value>
+					</regnode>
+				</reference>
+				<reference id="id-0067-00000048" kind="Reference" role="Reference" guid="{92b07e53-8196-4ccb-895d-fed8b3ed2198}" relid="0x4" referred="id-0065-0000003c">
+					<name>Reference</name>
+					<regnode name="PartRegs" status="undefined">
+						<value></value>
+						<regnode name="Aspect" status="undefined">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>1449,203</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<regnode name="icon" isopaque="yes">
+						<value>Sample.bmp</value>
+					</regnode>
+					<regnode name="portLabelLength" isopaque="yes">
+						<value>0</value>
+					</regnode>
+				</reference>
+				<reference id="id-0067-00000049" kind="Reference" role="Reference" guid="{7671abe4-eef6-425d-b927-eebafa0882af}" relid="0xb" referred="id-0067-0000004a">
+					<name>Reference</name>
+					<regnode name="PartRegs" status="undefined">
+						<value></value>
+						<regnode name="Aspect" status="undefined">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>28,413</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<regnode name="portLabelLength" isopaque="yes">
+						<value>0</value>
+					</regnode>
+				</reference>
+				<reference id="id-0067-0000004a" kind="Reference" role="Reference" guid="{c1a34fdb-cf7c-43b7-9bdf-b867942c5167}" relid="0x1" referred="id-0065-00000036">
+					<name>Reference</name>
+					<regnode name="PartRegs" status="undefined">
+						<value></value>
+						<regnode name="Aspect" status="undefined">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>35,203</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<regnode name="portLabelLength" isopaque="yes">
+						<value>0</value>
+					</regnode>
+				</reference>
+				<reference id="id-0067-0000004b" kind="Reference" role="Reference" guid="{7705e833-776a-482f-bc5e-e916a18c7995}" relid="0x5" referred="id-0065-00000039">
+					<name>Reference</name>
+					<regnode name="PartRegs" status="undefined">
+						<value></value>
+						<regnode name="Aspect" status="undefined">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>371,203</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<regnode name="icon" isopaque="yes">
+						<value>Sample.png</value>
+					</regnode>
+					<regnode name="portLabelLength" isopaque="yes">
+						<value>0</value>
+					</regnode>
+				</reference>
+				<reference id="id-0067-00000055" kind="Reference" role="Reference" guid="{9f4def02-981d-4b6f-ab88-c3e2d5950a8f}" relid="0xc" referred="id-0067-0000004b">
+					<name>Reference</name>
+					<regnode name="PartRegs" status="undefined">
+						<value></value>
+						<regnode name="Aspect" status="undefined">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>371,413</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<regnode name="icon" isopaque="yes">
+						<value>Sample.png</value>
+					</regnode>
+					<regnode name="portLabelLength" isopaque="yes">
+						<value>0</value>
+					</regnode>
+				</reference>
+			</model>
+			<model id="id-0065-0000003f" kind="Model" guid="{47a33beb-6dcf-46c8-932f-a21cb111cb8c}" relid="0x7" childrelidcntr="0x1b">
+				<name>Colors</name>
+				<model id="id-0065-00000040" kind="Model" role="Model" guid="{a53d9734-eacd-4150-8d35-714de06bb50f}" relid="0x8" childrelidcntr="0x0">
+					<name>Model</name>
+					<regnode name="PartRegs" status="undefined">
+						<value></value>
+						<regnode name="Aspect" status="undefined">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>63,119</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<regnode name="borderColor" isopaque="yes">
+						<value>0x000000</value>
+					</regnode>
+					<regnode name="color" isopaque="yes">
+						<value>0xffc0cb</value>
+					</regnode>
+					<regnode name="fillColor" isopaque="yes">
+						<value>0xffff00</value>
+					</regnode>
+					<regnode name="gradientColor" isopaque="yes">
+						<value>0xd2b48c</value>
+					</regnode>
+					<regnode name="gradientDirection" isopaque="yes">
+						<value>60</value>
+					</regnode>
+					<regnode name="gradientFill" isopaque="yes">
+						<value>true</value>
+					</regnode>
+					<regnode name="roundCornerRadius" isopaque="yes">
+						<value>35</value>
+					</regnode>
+					<regnode name="roundCornerRect" isopaque="yes">
+						<value>true</value>
+					</regnode>
+				</model>
+				<model id="id-0065-00000041" kind="Model" role="Model" guid="{6437fd88-a8c7-40f0-bb70-0010a1ce6761}" relid="0xc" childrelidcntr="0x0">
+					<name>Model</name>
+					<regnode name="PartRegs" status="undefined">
+						<value></value>
+						<regnode name="Aspect" status="undefined">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>259,119</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<regnode name="borderColor" isopaque="yes">
+						<value>0x000000</value>
+					</regnode>
+					<regnode name="color" isopaque="yes">
+						<value>0xffc0cb</value>
+					</regnode>
+					<regnode name="fillColor" isopaque="yes">
+						<value>0xffff00</value>
+					</regnode>
+					<regnode name="gradientColor" isopaque="yes">
+						<value>0xd2b48c</value>
+					</regnode>
+					<regnode name="gradientDirection" isopaque="yes">
+						<value>60</value>
+					</regnode>
+					<regnode name="gradientFill" isopaque="yes">
+						<value>true</value>
+					</regnode>
+					<regnode name="icon" isopaque="yes">
+						<value>Sample.png</value>
+					</regnode>
+					<regnode name="roundCornerRadius" isopaque="yes">
+						<value>20</value>
+					</regnode>
+					<regnode name="roundCornerRect" isopaque="yes">
+						<value>true</value>
+					</regnode>
+				</model>
+				<model id="id-0065-00000042" kind="Model" role="Model" guid="{b1e93a6a-6530-425d-a1a8-8371c3f68951}" relid="0xd" childrelidcntr="0x0">
+					<name>Model</name>
+					<regnode name="PartRegs" status="undefined">
+						<value></value>
+						<regnode name="Aspect" status="undefined">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>441,119</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<regnode name="borderColor" isopaque="yes">
+						<value>0x000000</value>
+					</regnode>
+					<regnode name="color" isopaque="yes">
+						<value>0xffc0cb</value>
+					</regnode>
+					<regnode name="fillColor" isopaque="yes">
+						<value>0xffff00</value>
+					</regnode>
+					<regnode name="gradientColor" isopaque="yes">
+						<value>0xd2b48c</value>
+					</regnode>
+					<regnode name="gradientDirection" isopaque="yes">
+						<value>60</value>
+					</regnode>
+					<regnode name="gradientFill" isopaque="yes">
+						<value>true</value>
+					</regnode>
+					<regnode name="icon" isopaque="yes">
+						<value>Sample.jpg</value>
+					</regnode>
+					<regnode name="roundCornerRadius" isopaque="yes">
+						<value>20</value>
+					</regnode>
+					<regnode name="roundCornerRect" isopaque="yes">
+						<value>true</value>
+					</regnode>
+				</model>
+				<model id="id-0065-00000043" kind="Model" role="Model" guid="{d9ccd45f-de03-4ddc-98a8-c00ed9919c23}" relid="0x11" childrelidcntr="0x0">
+					<name>Model</name>
+					<regnode name="PartRegs" status="undefined">
+						<value></value>
+						<regnode name="Aspect" status="undefined">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>616,119</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<regnode name="borderColor" isopaque="yes">
+						<value>0x000000</value>
+					</regnode>
+					<regnode name="color" isopaque="yes">
+						<value>0xffc0cb</value>
+					</regnode>
+					<regnode name="fillColor" isopaque="yes">
+						<value>0xffff00</value>
+					</regnode>
+					<regnode name="gradientColor" isopaque="yes">
+						<value>0xd2b48c</value>
+					</regnode>
+					<regnode name="gradientDirection" isopaque="yes">
+						<value>60</value>
+					</regnode>
+					<regnode name="gradientFill" isopaque="yes">
+						<value>true</value>
+					</regnode>
+					<regnode name="icon" isopaque="yes">
+						<value>Sample.gif</value>
+					</regnode>
+					<regnode name="roundCornerRadius" isopaque="yes">
+						<value>20</value>
+					</regnode>
+					<regnode name="roundCornerRect" isopaque="yes">
+						<value>true</value>
+					</regnode>
+				</model>
+				<model id="id-0065-00000044" kind="Model" role="Model" guid="{84f77be9-6ddc-4fa5-a149-044c64ca4287}" relid="0x15" childrelidcntr="0x0">
+					<name>Model</name>
+					<regnode name="PartRegs" status="undefined">
+						<value></value>
+						<regnode name="Aspect" status="undefined">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>777,119</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<regnode name="borderColor" isopaque="yes">
+						<value>0x000000</value>
+					</regnode>
+					<regnode name="color" isopaque="yes">
+						<value>0xffc0cb</value>
+					</regnode>
+					<regnode name="fillColor" isopaque="yes">
+						<value>0xffff00</value>
+					</regnode>
+					<regnode name="gradientColor" isopaque="yes">
+						<value>0xd2b48c</value>
+					</regnode>
+					<regnode name="gradientDirection" isopaque="yes">
+						<value>60</value>
+					</regnode>
+					<regnode name="gradientFill" isopaque="yes">
+						<value>true</value>
+					</regnode>
+					<regnode name="icon" isopaque="yes">
+						<value>Sample.bmp</value>
+					</regnode>
+					<regnode name="roundCornerRadius" isopaque="yes">
+						<value>20</value>
+					</regnode>
+					<regnode name="roundCornerRect" isopaque="yes">
+						<value>true</value>
+					</regnode>
+				</model>
+				<model id="id-0065-00000047" kind="Model" role="Model" guid="{e0e45fec-d36d-418b-afdd-18f1ea498c03}" relid="0x19" childrelidcntr="0x0">
+					<name>Model</name>
+					<regnode name="PartRegs" status="undefined">
+						<value></value>
+						<regnode name="Aspect" status="undefined">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>63,392</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<regnode name="borderColor" isopaque="yes">
+						<value>0x000000</value>
+					</regnode>
+					<regnode name="color" isopaque="yes">
+						<value>0xffc0cb</value>
+					</regnode>
+					<regnode name="fillColor" isopaque="yes">
+						<value>0xffff00</value>
+					</regnode>
+					<regnode name="gradientColor" isopaque="yes">
+						<value>0xd2b48c</value>
+					</regnode>
+					<regnode name="gradientDirection" isopaque="yes">
+						<value>60</value>
+					</regnode>
+					<regnode name="gradientFill" isopaque="yes">
+						<value>true</value>
+					</regnode>
+					<regnode name="roundCornerRadius" isopaque="yes">
+						<value>0</value>
+					</regnode>
+					<regnode name="roundCornerRect" isopaque="yes">
+						<value>false</value>
+					</regnode>
+				</model>
+				<model id="id-0065-00000049" kind="Model" role="Model" guid="{09958f9e-5533-48ae-bbb8-585b4a049223}" relid="0x1a" childrelidcntr="0x0">
+					<name>Lemon</name>
+					<regnode name="PartRegs" status="undefined">
+						<value></value>
+						<regnode name="Aspect" status="undefined">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>63,497</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<regnode name="borderColor" isopaque="yes">
+						<value>0x000000</value>
+					</regnode>
+					<regnode name="color" isopaque="yes">
+						<value>0xffc0cb</value>
+					</regnode>
+					<regnode name="fillColor" isopaque="yes">
+						<value>0xffff00</value>
+					</regnode>
+					<regnode name="gradientColor" isopaque="yes">
+						<value>0xd2b48c</value>
+					</regnode>
+					<regnode name="gradientDirection" isopaque="yes">
+						<value>60</value>
+					</regnode>
+					<regnode name="gradientFill" isopaque="yes">
+						<value>true</value>
+					</regnode>
+					<regnode name="roundCornerRadius" isopaque="yes">
+						<value>100</value>
+					</regnode>
+					<regnode name="roundCornerRect" isopaque="yes">
+						<value>true</value>
+					</regnode>
+				</model>
+				<model id="id-0065-0000004a" kind="Model" role="Model" guid="{7196fd29-4e18-455d-96f5-44d3cfb86b97}" relid="0x1b" childrelidcntr="0x0">
+					<name>Lime</name>
+					<regnode name="PartRegs" status="undefined">
+						<value></value>
+						<regnode name="Aspect" status="undefined">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>63,602</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<regnode name="borderColor" isopaque="yes">
+						<value>0x000000</value>
+					</regnode>
+					<regnode name="color" isopaque="yes">
+						<value>0x009300</value>
+					</regnode>
+					<regnode name="fillColor" isopaque="yes">
+						<value>0x98fb98</value>
+					</regnode>
+					<regnode name="gradientColor" isopaque="yes">
+						<value>0x009300</value>
+					</regnode>
+					<regnode name="gradientDirection" isopaque="yes">
+						<value>60</value>
+					</regnode>
+					<regnode name="gradientFill" isopaque="yes">
+						<value>true</value>
+					</regnode>
+					<regnode name="roundCornerRadius" isopaque="yes">
+						<value>100</value>
+					</regnode>
+					<regnode name="roundCornerRect" isopaque="yes">
+						<value>true</value>
+					</regnode>
+				</model>
+				<atom id="id-0066-0000002f" kind="Atom" role="Atom" guid="{c882d52c-7198-4b8c-a48c-dacad4c49325}" relid="0x1">
+					<name>Atom</name>
+					<regnode name="PartRegs" status="undefined">
+						<value></value>
+						<regnode name="Aspect" status="undefined">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>105,35</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<regnode name="color" isopaque="yes">
+						<value>0xffc0cb</value>
+					</regnode>
+					<regnode name="fillColor" isopaque="yes">
+						<value>0xffff00</value>
+					</regnode>
+					<regnode name="gradientColor" isopaque="yes">
+						<value>0xd2b48c</value>
+					</regnode>
+					<regnode name="gradientDirection" isopaque="yes">
+						<value>45</value>
+					</regnode>
+					<regnode name="gradientFill" isopaque="yes">
+						<value>true</value>
+					</regnode>
+					<regnode name="roundCornerRadius" isopaque="yes">
+						<value>20</value>
+					</regnode>
+					<regnode name="roundCornerRect" isopaque="yes">
+						<value>true</value>
+					</regnode>
+				</atom>
+				<atom id="id-0066-00000030" kind="Atom" role="Atom" guid="{8246ff42-da0f-4ce5-84e8-98725a1c3bf1}" relid="0x9">
+					<name>Atom</name>
+					<regnode name="PartRegs" status="undefined">
+						<value></value>
+						<regnode name="Aspect" status="undefined">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>301,35</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<regnode name="color" isopaque="yes">
+						<value>0xffc0cb</value>
+					</regnode>
+					<regnode name="fillColor" isopaque="yes">
+						<value>0xffff00</value>
+					</regnode>
+					<regnode name="gradientColor" isopaque="yes">
+						<value>0xd2b48c</value>
+					</regnode>
+					<regnode name="gradientDirection" isopaque="yes">
+						<value>45</value>
+					</regnode>
+					<regnode name="gradientFill" isopaque="yes">
+						<value>true</value>
+					</regnode>
+					<regnode name="icon" isopaque="yes">
+						<value>Sample.png</value>
+					</regnode>
+					<regnode name="roundCornerRadius" isopaque="yes">
+						<value>20</value>
+					</regnode>
+					<regnode name="roundCornerRect" isopaque="yes">
+						<value>true</value>
+					</regnode>
+				</atom>
+				<atom id="id-0066-00000031" kind="Atom" role="Atom" guid="{dc2fb224-233c-48f0-89fc-efeef48c9b1a}" relid="0xe">
+					<name>Atom</name>
+					<regnode name="PartRegs" status="undefined">
+						<value></value>
+						<regnode name="Aspect" status="undefined">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>483,35</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<regnode name="color" isopaque="yes">
+						<value>0xffc0cb</value>
+					</regnode>
+					<regnode name="fillColor" isopaque="yes">
+						<value>0xffff00</value>
+					</regnode>
+					<regnode name="gradientColor" isopaque="yes">
+						<value>0xd2b48c</value>
+					</regnode>
+					<regnode name="gradientDirection" isopaque="yes">
+						<value>45</value>
+					</regnode>
+					<regnode name="gradientFill" isopaque="yes">
+						<value>true</value>
+					</regnode>
+					<regnode name="icon" isopaque="yes">
+						<value>Sample.jpg</value>
+					</regnode>
+					<regnode name="roundCornerRadius" isopaque="yes">
+						<value>20</value>
+					</regnode>
+					<regnode name="roundCornerRect" isopaque="yes">
+						<value>true</value>
+					</regnode>
+				</atom>
+				<atom id="id-0066-00000032" kind="Atom" role="Atom" guid="{c1f1ad53-3e1b-4335-917c-2cce0dc871c1}" relid="0x14">
+					<name>Atom</name>
+					<regnode name="PartRegs" status="undefined">
+						<value></value>
+						<regnode name="Aspect" status="undefined">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>658,35</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<regnode name="color" isopaque="yes">
+						<value>0xffc0cb</value>
+					</regnode>
+					<regnode name="fillColor" isopaque="yes">
+						<value>0xffff00</value>
+					</regnode>
+					<regnode name="gradientColor" isopaque="yes">
+						<value>0xd2b48c</value>
+					</regnode>
+					<regnode name="gradientDirection" isopaque="yes">
+						<value>45</value>
+					</regnode>
+					<regnode name="gradientFill" isopaque="yes">
+						<value>true</value>
+					</regnode>
+					<regnode name="icon" isopaque="yes">
+						<value>Sample.gif</value>
+					</regnode>
+					<regnode name="roundCornerRadius" isopaque="yes">
+						<value>20</value>
+					</regnode>
+					<regnode name="roundCornerRect" isopaque="yes">
+						<value>true</value>
+					</regnode>
+				</atom>
+				<atom id="id-0066-00000033" kind="Atom" role="Atom" guid="{a8ba612b-b087-4c57-8537-e1f93070e183}" relid="0x17">
+					<name>Atom</name>
+					<regnode name="PartRegs" status="undefined">
+						<value></value>
+						<regnode name="Aspect" status="undefined">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>819,35</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<regnode name="color" isopaque="yes">
+						<value>0xffc0cb</value>
+					</regnode>
+					<regnode name="fillColor" isopaque="yes">
+						<value>0xffff00</value>
+					</regnode>
+					<regnode name="gradientColor" isopaque="yes">
+						<value>0xd2b48c</value>
+					</regnode>
+					<regnode name="gradientDirection" isopaque="yes">
+						<value>45</value>
+					</regnode>
+					<regnode name="gradientFill" isopaque="yes">
+						<value>true</value>
+					</regnode>
+					<regnode name="icon" isopaque="yes">
+						<value>Sample.bmp</value>
+					</regnode>
+					<regnode name="roundCornerRadius" isopaque="yes">
+						<value>20</value>
+					</regnode>
+					<regnode name="roundCornerRect" isopaque="yes">
+						<value>true</value>
+					</regnode>
+				</atom>
+				<reference id="id-0067-0000005c" kind="Reference" role="Reference" guid="{4769ef1e-3c60-443b-adad-37411dd5d9ee}" relid="0x3">
+					<name>Reference</name>
+					<regnode name="PartRegs" status="undefined">
+						<value></value>
+						<regnode name="Aspect" status="undefined">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>105,231</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<regnode name="color" isopaque="yes">
+						<value>0xffc0cb</value>
+					</regnode>
+					<regnode name="fillColor" isopaque="yes">
+						<value>0xffff00</value>
+					</regnode>
+					<regnode name="gradientColor" isopaque="yes">
+						<value>0xd2b48c</value>
+					</regnode>
+					<regnode name="gradientDirection" isopaque="yes">
+						<value>45</value>
+					</regnode>
+					<regnode name="gradientFill" isopaque="yes">
+						<value>true</value>
+					</regnode>
+					<regnode name="roundCornerRadius" isopaque="yes">
+						<value>20</value>
+					</regnode>
+					<regnode name="roundCornerRect" isopaque="yes">
+						<value>true</value>
+					</regnode>
+				</reference>
+				<reference id="id-0067-0000005d" kind="Reference" role="Reference" guid="{6433ba47-0570-4477-a612-23d48771dd33}" relid="0xb">
+					<name>Reference</name>
+					<regnode name="PartRegs" status="undefined">
+						<value></value>
+						<regnode name="Aspect" status="undefined">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>301,231</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<regnode name="color" isopaque="yes">
+						<value>0xffc0cb</value>
+					</regnode>
+					<regnode name="fillColor" isopaque="yes">
+						<value>0xffff00</value>
+					</regnode>
+					<regnode name="gradientColor" isopaque="yes">
+						<value>0xd2b48c</value>
+					</regnode>
+					<regnode name="gradientDirection" isopaque="yes">
+						<value>45</value>
+					</regnode>
+					<regnode name="gradientFill" isopaque="yes">
+						<value>true</value>
+					</regnode>
+					<regnode name="icon" isopaque="yes">
+						<value>Sample.png</value>
+					</regnode>
+					<regnode name="roundCornerRadius" isopaque="yes">
+						<value>20</value>
+					</regnode>
+					<regnode name="roundCornerRect" isopaque="yes">
+						<value>true</value>
+					</regnode>
+				</reference>
+				<reference id="id-0067-0000005e" kind="Reference" role="Reference" guid="{9176658c-55f3-4a71-a2d6-6608597befcb}" relid="0xf">
+					<name>Reference</name>
+					<regnode name="PartRegs" status="undefined">
+						<value></value>
+						<regnode name="Aspect" status="undefined">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>483,231</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<regnode name="color" isopaque="yes">
+						<value>0xffc0cb</value>
+					</regnode>
+					<regnode name="fillColor" isopaque="yes">
+						<value>0xffff00</value>
+					</regnode>
+					<regnode name="gradientColor" isopaque="yes">
+						<value>0xd2b48c</value>
+					</regnode>
+					<regnode name="gradientDirection" isopaque="yes">
+						<value>45</value>
+					</regnode>
+					<regnode name="gradientFill" isopaque="yes">
+						<value>true</value>
+					</regnode>
+					<regnode name="icon" isopaque="yes">
+						<value>Sample.jpg</value>
+					</regnode>
+					<regnode name="roundCornerRadius" isopaque="yes">
+						<value>20</value>
+					</regnode>
+					<regnode name="roundCornerRect" isopaque="yes">
+						<value>true</value>
+					</regnode>
+				</reference>
+				<reference id="id-0067-0000005f" kind="Reference" role="Reference" guid="{845f3189-5a92-4e30-9d2e-8b5fad538936}" relid="0x12">
+					<name>Reference</name>
+					<regnode name="PartRegs" status="undefined">
+						<value></value>
+						<regnode name="Aspect" status="undefined">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>658,231</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<regnode name="color" isopaque="yes">
+						<value>0xffc0cb</value>
+					</regnode>
+					<regnode name="fillColor" isopaque="yes">
+						<value>0xffff00</value>
+					</regnode>
+					<regnode name="gradientColor" isopaque="yes">
+						<value>0xd2b48c</value>
+					</regnode>
+					<regnode name="gradientDirection" isopaque="yes">
+						<value>45</value>
+					</regnode>
+					<regnode name="gradientFill" isopaque="yes">
+						<value>true</value>
+					</regnode>
+					<regnode name="icon" isopaque="yes">
+						<value>Sample.gif</value>
+					</regnode>
+					<regnode name="roundCornerRadius" isopaque="yes">
+						<value>20</value>
+					</regnode>
+					<regnode name="roundCornerRect" isopaque="yes">
+						<value>true</value>
+					</regnode>
+				</reference>
+				<reference id="id-0067-00000060" kind="Reference" role="Reference" guid="{f5db8ad2-8787-4fe2-b761-22d0bf732331}" relid="0x18">
+					<name>Reference</name>
+					<regnode name="PartRegs" status="undefined">
+						<value></value>
+						<regnode name="Aspect" status="undefined">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>819,231</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<regnode name="color" isopaque="yes">
+						<value>0xffc0cb</value>
+					</regnode>
+					<regnode name="fillColor" isopaque="yes">
+						<value>0xffff00</value>
+					</regnode>
+					<regnode name="gradientColor" isopaque="yes">
+						<value>0xd2b48c</value>
+					</regnode>
+					<regnode name="gradientDirection" isopaque="yes">
+						<value>45</value>
+					</regnode>
+					<regnode name="gradientFill" isopaque="yes">
+						<value>true</value>
+					</regnode>
+					<regnode name="icon" isopaque="yes">
+						<value>Sample.bmp</value>
+					</regnode>
+					<regnode name="roundCornerRadius" isopaque="yes">
+						<value>20</value>
+					</regnode>
+					<regnode name="roundCornerRect" isopaque="yes">
+						<value>true</value>
+					</regnode>
+				</reference>
+				<set id="id-0069-0000002a" kind="Set" role="Set" guid="{e34a4174-9ea0-474d-82ef-7bd8dd534674}" relid="0x4">
+					<name>Set</name>
+					<regnode name="PartRegs" status="undefined">
+						<value></value>
+						<regnode name="Aspect" status="undefined">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>105,315</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<regnode name="color" isopaque="yes">
+						<value>0xffc0cb</value>
+					</regnode>
+					<regnode name="fillColor" isopaque="yes">
+						<value>0xffff00</value>
+					</regnode>
+					<regnode name="gradientColor" isopaque="yes">
+						<value>0xd2b48c</value>
+					</regnode>
+					<regnode name="gradientDirection" isopaque="yes">
+						<value>45</value>
+					</regnode>
+					<regnode name="gradientFill" isopaque="yes">
+						<value>true</value>
+					</regnode>
+					<regnode name="roundCornerRadius" isopaque="yes">
+						<value>20</value>
+					</regnode>
+					<regnode name="roundCornerRect" isopaque="yes">
+						<value>true</value>
+					</regnode>
+				</set>
+				<set id="id-0069-0000002b" kind="Set" role="Set" guid="{36269ef1-62b5-4119-884e-3249b68dee4b}" relid="0xa">
+					<name>Set</name>
+					<regnode name="PartRegs" status="undefined">
+						<value></value>
+						<regnode name="Aspect" status="undefined">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>301,315</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<regnode name="color" isopaque="yes">
+						<value>0xffc0cb</value>
+					</regnode>
+					<regnode name="fillColor" isopaque="yes">
+						<value>0xffff00</value>
+					</regnode>
+					<regnode name="gradientColor" isopaque="yes">
+						<value>0xd2b48c</value>
+					</regnode>
+					<regnode name="gradientDirection" isopaque="yes">
+						<value>45</value>
+					</regnode>
+					<regnode name="gradientFill" isopaque="yes">
+						<value>true</value>
+					</regnode>
+					<regnode name="icon" isopaque="yes">
+						<value>Sample.png</value>
+					</regnode>
+					<regnode name="roundCornerRadius" isopaque="yes">
+						<value>20</value>
+					</regnode>
+					<regnode name="roundCornerRect" isopaque="yes">
+						<value>true</value>
+					</regnode>
+				</set>
+				<set id="id-0069-0000002c" kind="Set" role="Set" guid="{417a8d07-3c31-439b-83f2-2ec89f88cd97}" relid="0x10">
+					<name>Set</name>
+					<regnode name="PartRegs" status="undefined">
+						<value></value>
+						<regnode name="Aspect" status="undefined">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>483,315</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<regnode name="color" isopaque="yes">
+						<value>0xffc0cb</value>
+					</regnode>
+					<regnode name="fillColor" isopaque="yes">
+						<value>0xffff00</value>
+					</regnode>
+					<regnode name="gradientColor" isopaque="yes">
+						<value>0xd2b48c</value>
+					</regnode>
+					<regnode name="gradientDirection" isopaque="yes">
+						<value>45</value>
+					</regnode>
+					<regnode name="gradientFill" isopaque="yes">
+						<value>true</value>
+					</regnode>
+					<regnode name="icon" isopaque="yes">
+						<value>Sample.jpg</value>
+					</regnode>
+					<regnode name="roundCornerRadius" isopaque="yes">
+						<value>20</value>
+					</regnode>
+					<regnode name="roundCornerRect" isopaque="yes">
+						<value>true</value>
+					</regnode>
+				</set>
+				<set id="id-0069-0000002d" kind="Set" role="Set" guid="{fd0be94f-5059-4f97-9de1-af7a5242ff3c}" relid="0x13">
+					<name>Set</name>
+					<regnode name="PartRegs" status="undefined">
+						<value></value>
+						<regnode name="Aspect" status="undefined">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>658,315</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<regnode name="color" isopaque="yes">
+						<value>0xffc0cb</value>
+					</regnode>
+					<regnode name="fillColor" isopaque="yes">
+						<value>0xffff00</value>
+					</regnode>
+					<regnode name="gradientColor" isopaque="yes">
+						<value>0xd2b48c</value>
+					</regnode>
+					<regnode name="gradientDirection" isopaque="yes">
+						<value>45</value>
+					</regnode>
+					<regnode name="gradientFill" isopaque="yes">
+						<value>true</value>
+					</regnode>
+					<regnode name="icon" isopaque="yes">
+						<value>Sample.gif</value>
+					</regnode>
+					<regnode name="roundCornerRadius" isopaque="yes">
+						<value>20</value>
+					</regnode>
+					<regnode name="roundCornerRect" isopaque="yes">
+						<value>true</value>
+					</regnode>
+				</set>
+				<set id="id-0069-0000002e" kind="Set" role="Set" guid="{8ee028f4-ac7f-4d6f-9dc2-c0e4b20e1d47}" relid="0x16">
+					<name>Set</name>
+					<regnode name="PartRegs" status="undefined">
+						<value></value>
+						<regnode name="Aspect" status="undefined">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>819,315</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<regnode name="color" isopaque="yes">
+						<value>0xffc0cb</value>
+					</regnode>
+					<regnode name="fillColor" isopaque="yes">
+						<value>0xffff00</value>
+					</regnode>
+					<regnode name="gradientColor" isopaque="yes">
+						<value>0xd2b48c</value>
+					</regnode>
+					<regnode name="gradientDirection" isopaque="yes">
+						<value>45</value>
+					</regnode>
+					<regnode name="gradientFill" isopaque="yes">
+						<value>true</value>
+					</regnode>
+					<regnode name="icon" isopaque="yes">
+						<value>Sample.bmp</value>
+					</regnode>
+					<regnode name="roundCornerRadius" isopaque="yes">
+						<value>20</value>
+					</regnode>
+					<regnode name="roundCornerRect" isopaque="yes">
+						<value>true</value>
+					</regnode>
+				</set>
+			</model>
+		</folder>
+	</folder>
+</project>

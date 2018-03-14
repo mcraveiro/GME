@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>GME.DSMLGenerator</id>
+    <version>1.0.17.1</version>
+    <title>GME DSMLGenerator</title>
+    <authors>ISIS, Vanderbilt University</authors>
+    <owners>ksmyth</owners>
+    <licenseUrl>http://repo.isis.vanderbilt.edu/GME/License.txt</licenseUrl>
+    <projectUrl>http://www.isis.vanderbilt.edu/projects/GME</projectUrl>
+    <iconUrl>http://repo.isis.vanderbilt.edu/GME/GME.ico</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Generates C# code for a MetaGME paradigm</description>
+    <releaseNotes></releaseNotes>
+    <copyright>Copyright 2017 ISIS, Vanderbilt University</copyright>
+    <tags>GME</tags>
+    <dependencies>
+      <dependency id="GME.PIAs" version="1.0.1.0" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="CSharpDSMLGenerator\tools\*.*" target="tools" />
+    <file src="CSharpDSMLGenerator\bin\Release\CSharpDSMLGenerator.dll" target="lib\net40"/>
+    <file src="MgaMeta\bin\Release\MgaMeta.dll" target="lib\net40"/>
+    <file src="ISIS.GME.Common\bin\Release\ISIS.GME.Common.dll" target="lib\net40"/>
+    <file src="CSharpDSMLGenerator\readme.txt"/>
+  </files>
+</package>

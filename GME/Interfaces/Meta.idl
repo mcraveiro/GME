@@ -1,0 +1,1037 @@
+import "oaidl.idl";
+import "ocidl.idl";
+
+#include "InterfaceColl.h"
+#include "InterfaceVersion.h"
+
+
+// --------------------------- Meta IDL
+
+// ------- Typedefs
+
+typedef long metaref_type;
+ 
+typedef enum objtype_enum
+{
+	OBJTYPE_NULL = 0,
+	OBJTYPE_MODEL = 1,
+	OBJTYPE_ATOM = 2,
+	OBJTYPE_REFERENCE = 3,
+	OBJTYPE_CONNECTION = 4,
+	OBJTYPE_SET = 5,
+	OBJTYPE_FOLDER = 6,
+	OBJTYPE_ASPECT,
+	OBJTYPE_ROLE,
+	OBJTYPE_ATTRIBUTE,
+	OBJTYPE_PART
+} objtype_enum;
+
+typedef enum attval_enum
+{
+	ATTVAL_NULL = 0,
+	ATTVAL_STRING = 1,
+	ATTVAL_INTEGER = 2,
+	ATTVAL_DOUBLE = 3,
+	ATTVAL_BOOLEAN = 4,
+	ATTVAL_REFERENCE = 5,
+	ATTVAL_ENUM,
+	ATTVAL_DYNAMIC,
+} attval_enum;
+
+typedef enum constraint_depth_enum
+{
+	CONSTRAINT_DEPTH_ZERO,
+	CONSTRAINT_DEPTH_ONE,
+	CONSTRAINT_DEPTH_ANY
+} constraint_depth_enum;
+
+typedef enum constraint_type_enum
+{
+	CONSTRAINT_TYPE_EVENTBASED,
+	CONSTRAINT_TYPE_ONDEMAND,
+	CONSTRAINT_TYPE_FUNCTION
+} constraint_type_enum;
+
+interface IMgaMetaProject;
+interface IMgaMetaBase;
+interface IMgaMetaFolder;
+interface IMgaMetaFCO;
+interface IMgaMetaModel;
+interface IMgaMetaAspect;
+interface IMgaMetaRole;
+interface IMgaMetaPart;
+interface IMgaMetaAtom;
+interface IMgaMetaReference;
+interface IMgaMetaSet;
+interface IMgaMetaConnection;
+interface IMgaMetaConnJoint;
+interface IMgaMetaAttribute;
+interface IMgaMetaPointerSpec;
+interface IMgaMetaPointerItem;
+interface IMgaMetaEnumItem;
+
+interface IMgaMetaFCOs;
+interface IMgaMetaFolders;
+interface IMgaMetaAttributes;
+interface IMgaMetaRoles;
+interface IMgaMetaAspects;
+interface IMgaMetaPointerSpecs;
+interface IMgaMetaModels;
+interface IMgaMetaParts;
+interface IMgaMetaConnJoints;
+interface IMgaMetaPointerItems;
+interface IMgaMetaEnumItems;
+interface IMgaMetaRegNodes;
+interface IMgaConstraints;
+
+[
+	object,
+	uuid(83BA323D-B758-11D3-ABAE-000002387500),
+	dual,
+	helpstring("IMgaMetaRegNode Interface"),
+	pointer_default(unique)
+]
+interface IMgaMetaRegNode : IDispatch
+{
+	// --- this node
+
+	[propget, helpstring("property Name")]
+	HRESULT Name([out, retval] BSTR *p);
+
+	[propget, helpstring("property Value")]
+	HRESULT Value([out, retval] BSTR *p);
+
+	[propput, helpstring("property Value")]
+	HRESULT Value([in] BSTR p);
+
+	// destroy self
+	[helpstring("method Delete")]
+	HRESULT Delete();
+
+	// --- other nodes
+
+	[propget, helpstring("property RegistryNodes")]
+	HRESULT RegistryNodes([out, retval] IMgaMetaRegNodes **p);
+
+	[propget, helpstring("property RegistryNode")]
+	HRESULT RegistryNode([in] BSTR path, [out, retval] IMgaMetaRegNode **p);
+
+	[helpstring("getter for property RegistryNode")]
+	HRESULT GetRegistryNodeDisp([in] BSTR path, [out, retval] IMgaMetaRegNode **p);
+
+	[propget, helpstring("property RegistryValue")]
+	HRESULT RegistryValue([in] BSTR path, [out, retval] BSTR *p);
+
+	[helpstring("getter for property RegistryValue")]
+	HRESULT GetRegistryValueDisp([in] BSTR path, [out, retval] BSTR *p);
+
+	[propput, helpstring("property RegistryValue")]
+	HRESULT RegistryValue([in] BSTR path, [in] BSTR p);
+
+	[helpstring("setter for property RegistryValue")]
+	HRESULT SetRegistryValueDisp([in] BSTR path, [in] BSTR p);
+};
+
+
+[
+	object,
+	uuid(83BA3241-B758-11D3-ABAE-000000000000),
+	dual,
+	helpstring("IMgaConstraint Interface"),
+	pointer_default(unique)
+]
+interface IMgaConstraint : IDispatch
+{
+
+	[propget, helpstring("property Name")]
+	HRESULT Name([out, retval] BSTR *p);
+
+	[propput, helpstring("property Name")]
+	HRESULT Name([in] BSTR p);
+
+	[propget, helpstring("property DisplayedName")]
+	HRESULT DisplayedName([out, retval] BSTR *p);
+
+	[propput, helpstring("property DisplayedName")]
+	HRESULT DisplayedName([in] BSTR p);
+
+	[propget, helpstring("property Expression")]
+	HRESULT Expression([out, retval] BSTR *p);
+
+	[propput, helpstring("property Expression")]
+	HRESULT Expression([in] BSTR p);
+
+	[propget, helpstring("property EventMask")]
+	HRESULT EventMask([out, retval] unsigned long *p);
+	
+	[propput, helpstring("property EventMask")]
+	HRESULT EventMask([in] unsigned long p);
+	
+	[propget, helpstring("property Depth")]
+	HRESULT Depth([out, retval] constraint_depth_enum *p);
+
+	[propput, helpstring("property Depth")]
+	HRESULT Depth([in] constraint_depth_enum p);
+
+	[propget, helpstring("property Priority")]
+	HRESULT Priority([out, retval] long *p);
+
+	[propput, helpstring("property Priority")]
+	HRESULT Priority([in] long p);
+
+	[propget, helpstring("property Type")]
+	HRESULT Type([out, retval] constraint_type_enum *p);
+
+	[propput, helpstring("property Type")]
+	HRESULT Type([in] constraint_type_enum p);
+
+	// destroy self
+	[helpstring("method Remove")]
+	HRESULT Remove();
+
+	[helpstring("SetDefinedForNamespace")]
+	HRESULT SetDefinedForNamespace( [in] BSTR pStr);
+
+	[helpstring("GetDefinedForNamespace")]
+	HRESULT GetDefinedForNamespace( [out, retval] BSTR * pStr);
+};
+
+[
+	object,
+	uuid(83BA3243-B758-11D3-ABAE-000000000000),
+	dual,
+	helpstring("IMgaMetaProject Interface"),
+	pointer_default(unique)
+]
+interface IMgaMetaProject : IDispatch
+{
+	// --- open/close
+
+	[helpstring("method Open")]
+	HRESULT Open([in] BSTR connection);
+
+	[helpstring("method Close")]
+	HRESULT Close();
+
+	// --- create
+
+	[helpstring("method Create")]
+	HRESULT Create([in] BSTR connection);
+
+	[helpstring("method BeginTransaction")]
+	HRESULT BeginTransaction();
+
+	// if fails call AbortTransaction
+	[helpstring("method CommitTransaction")]
+	HRESULT CommitTransaction();
+
+	[helpstring("method AbortTransaction")]
+	HRESULT AbortTransaction();
+
+	// --- general data
+
+	// (0 To 15) As Byte
+	[propget, helpstring("property GUID")]
+	HRESULT GUID([out, retval] VARIANT *p);
+
+	// (0 To 15) As Byte
+	[propput, helpstring("property GUID")]
+	HRESULT GUID([in] VARIANT p);
+
+	[propget, helpstring("property Name")]
+	HRESULT Name([out, retval] BSTR *p);
+
+	[propput, helpstring("property Name")]
+	HRESULT Name([in] BSTR p);
+
+	[propget, helpstring("property DisplayedName")]
+	HRESULT DisplayedName([out, retval] BSTR *p);
+
+	[propput, helpstring("property DisplayedName")]
+	HRESULT DisplayedName([in] BSTR p);
+
+	[propget, helpstring("property Version")]
+	HRESULT Version([out, retval] BSTR *p);
+
+	[propput, helpstring("property Version")]
+	HRESULT Version([in] BSTR p);
+
+	[propget, helpstring("property Author")]
+	HRESULT Author([out, retval] BSTR *p);
+
+	[propput, helpstring("property Author")]
+	HRESULT Author([in] BSTR p);
+
+	[propget, helpstring("property Comment")]
+	HRESULT Comment([out, retval] BSTR *p);
+
+	[propput, helpstring("property Comment")]
+	HRESULT Comment([in] BSTR p);
+
+	[propget, helpstring("property CreatedAt")]
+	HRESULT CreatedAt([out, retval] BSTR *p);
+
+	[propput, helpstring("property CreatedAt")]
+	HRESULT CreatedAt([in] BSTR p);
+
+	[propget, helpstring("property ModifiedAt")]
+	HRESULT ModifiedAt([out, retval] BSTR *p);
+
+	[propput, helpstring("property ModifiedAt")]
+	HRESULT ModifiedAt([in] BSTR p);
+
+	// --- other objects
+
+	[propget, helpstring("property RootFolder")]
+	HRESULT RootFolder([out, retval] IMgaMetaFolder **p);
+
+	[propget, helpstring("property FindObject")]
+	HRESULT FindObject([in] metaref_type mref,
+		[out, retval] IMgaMetaBase **p);
+
+	[helpstring("helper form for property FindObject")]
+	HRESULT DoFindObjectDisp([in] metaref_type mref,
+		[out, retval] IMgaMetaBase **p);
+
+	[helpstring("SetNmspc")]
+	HRESULT SetNmspc( [in] BSTR pStr);
+
+	[helpstring("GetNmspc")]
+	HRESULT GetNmspc( [out, retval] BSTR* pStr);
+};
+
+[
+	object,
+	uuid(DB1E0FB7-C9CB-11D3-9AD2-00AA00B6FE26),
+	dual,
+	helpstring("IMgaMetaBase Interface"),
+	pointer_default(unique)
+]
+interface IMgaMetaBase : IDispatch
+{
+	// --- identity
+
+	[propget, helpstring("property MetaRef")]
+	HRESULT MetaRef([out, retval] metaref_type *p);
+
+	[propput, helpstring("property MetaRef")]
+	HRESULT MetaRef([in] metaref_type p);
+
+	[propget, helpstring("property MetaProject")]
+	HRESULT MetaProject([out, retval] IMgaMetaProject **p);
+
+	[propget, helpstring("property Name")]
+	HRESULT Name([out, retval] BSTR *p);
+
+	[propput, helpstring("property Name")]
+	HRESULT Name([in] BSTR p);
+
+	[propget, helpstring("property DisplayedName")]
+	HRESULT DisplayedName([out, retval] BSTR *p);
+
+	[propput, helpstring("property DisplayedName")]
+	HRESULT DisplayedName([in] BSTR p);
+
+	[propget, helpstring("property ObjType")]
+	HRESULT ObjType([out, retval] objtype_enum *p);
+
+	// destroy self
+	[helpstring("method Delete")]
+	HRESULT Delete();
+
+	// --- registry
+
+	[propget, helpstring("property RegistryNodes")]
+	HRESULT RegistryNodes([out, retval] IMgaMetaRegNodes **p);
+
+	[propget, helpstring("property RegistryNode")]
+	HRESULT RegistryNode([in] BSTR path, [out, retval] IMgaMetaRegNode **p);
+
+	[helpstring("getter for property RegistryNode")]
+	HRESULT GetRegistryNodeDisp([in] BSTR path, [out, retval] IMgaMetaRegNode **p);
+
+	[propget, helpstring("property RegistryValue")]
+	HRESULT RegistryValue([in] BSTR path, [out, retval] BSTR *p);
+
+	[helpstring("getter for property RegistryValue")]
+	HRESULT GetRegistryValueDisp([in] BSTR path, [out, retval] BSTR *p);
+
+	[propput, helpstring("property RegistryValue")]
+	HRESULT RegistryValue([in] BSTR path, [in] BSTR p);
+
+	[helpstring("setter for property RegistryValue")]
+	HRESULT SetRegistryValueDisp([in] BSTR path, [in] BSTR p);
+
+	// --- constraints
+
+	[propget, helpstring("property Constraints")]
+	HRESULT Constraints([out, retval] IMgaConstraints **p);
+
+	[helpstring("method CreateConstraint")]
+	HRESULT CreateConstraint([out, retval] IMgaConstraint **p);
+};
+
+[
+	object,
+	uuid(83BA3245-B758-11D3-ABAE-000000000000),
+	dual,
+	helpstring("IMgaMetaFolder Interface"),
+	pointer_default(unique)
+]
+interface IMgaMetaFolder : IMgaMetaBase
+{
+	// --- definition
+
+	// NULL for the root folder
+	[propget, helpstring("property DefinedIn")]
+	HRESULT DefinedIn([out, retval] IMgaMetaFolder **p);
+
+	[propget, helpstring("property DefinedFolders")]
+	HRESULT DefinedFolders([out, retval] IMgaMetaFolders **p);
+
+	[propget, helpstring("property DefinedFolderByName")]
+	HRESULT DefinedFolderByName([in] BSTR name, [in] VARIANT_BOOL inscope,
+		[out, retval] IMgaMetaFolder **p);
+
+	[helpstring("getter for property DefinedFolderByName")]
+	HRESULT GetDefinedFolderByNameDisp([in] BSTR name, [in] VARIANT_BOOL inscope,
+		[out, retval] IMgaMetaFolder **p);
+
+	[propget, helpstring("property DefinedFCOs")]
+	HRESULT DefinedFCOs([out, retval] IMgaMetaFCOs **p);
+
+	[propget, helpstring("property DefinedFCOByName")]
+	HRESULT DefinedFCOByName([in] BSTR name, [in] VARIANT_BOOL inscope,
+		[out, retval] IMgaMetaFCO **p);
+	
+	[helpstring("getter for property DefinedFCOByName")]
+	HRESULT GetDefinedFCOByNameDisp([in] BSTR name, [in] VARIANT_BOOL inscope,
+		[out, retval] IMgaMetaFCO **p);
+
+	[propget, helpstring("property DefinedAttributes")]
+	HRESULT DefinedAttributes([out, retval] IMgaMetaAttributes **p);
+
+	[propget, helpstring("property DefinedAttributeByName")]
+	HRESULT DefinedAttributeByName([in] BSTR name, [in] VARIANT_BOOL inscope,
+		[out, retval] IMgaMetaAttribute **p);
+
+	[helpstring("getter for property DefinedAttributeByName")]
+	HRESULT GetDefinedAttributeByNameDisp([in] BSTR name, [in] VARIANT_BOOL inscope,
+		[out, retval] IMgaMetaAttribute **p);
+
+	// --- edit definition
+
+	[helpstring("method DefineFolder")]
+	HRESULT DefineFolder([out, retval] IMgaMetaFolder **p);
+
+	[helpstring("method DefineModel")]
+	HRESULT DefineModel([out, retval] IMgaMetaModel **p);
+
+	[helpstring("method DefineAtom")]
+	HRESULT DefineAtom([out, retval] IMgaMetaAtom **p);
+
+	[helpstring("method DefineReference")]
+	HRESULT DefineReference([out, retval] IMgaMetaReference **p);
+
+	[helpstring("method DefineSet")]
+	HRESULT DefineSet([out, retval] IMgaMetaSet **p);
+
+	[helpstring("method DefineConnection")]
+	HRESULT DefineConnection([out, retval] IMgaMetaConnection **p);
+
+	[helpstring("method DefineAttribute")]
+	HRESULT DefineAttribute([out, retval] IMgaMetaAttribute **p);
+
+	// --- containment
+
+	[propget, helpstring("property LegalChildFolders")]
+	HRESULT LegalChildFolders([out, retval] IMgaMetaFolders **p);
+
+	[propget, helpstring("property LegalChildFolderByName")]
+	HRESULT LegalChildFolderByName([in] BSTR name, [out, retval] IMgaMetaFolder **p);
+	
+	[helpstring("getter for property LegalChildFolderByName")]
+	HRESULT GetLegalChildFolderByNameDisp([in] BSTR name, [out, retval] IMgaMetaFolder **p);
+	
+	[propget, helpstring("property LegalRootObjects")]
+	HRESULT LegalRootObjects([out, retval] IMgaMetaFCOs **p);
+
+	[propget, helpstring("property LegalRootObjectByName")]
+	HRESULT LegalRootObjectByName([in] BSTR name, [out, retval] IMgaMetaFCO **p);
+
+	[helpstring("getter for property LegalRootObjectByName")]
+	HRESULT GetLegalRootObjectByNameDisp([in] BSTR name, [out, retval] IMgaMetaFCO **p);
+
+	// all MgaMetaFolder where it occurs in LegalChildFolders
+	[propget, helpstring("property UsedInFolders")]
+	HRESULT UsedInFolders([out, retval] IMgaMetaFolders **p);
+
+	// --- edit containment
+
+	[helpstring("method AddLegalChildFolder")]
+	HRESULT AddLegalChildFolder([in] IMgaMetaFolder *p);
+
+	[helpstring("method RemoveLegalChildFolder")]
+	HRESULT RemoveLegalChildFolder([in] IMgaMetaFolder *p);
+
+	[helpstring("method AddLegalRootObject")]
+	HRESULT AddLegalRootObject([in] IMgaMetaFCO *p);
+
+	[helpstring("method RemoveLegalRootObject")]
+	HRESULT RemoveLegalRootObject([in] IMgaMetaFCO *p);
+};
+
+[
+	object,
+	uuid(83BA3247-B758-11D3-ABAE-000000000000),
+	dual,
+	helpstring("IMgaMetaFCO Interface"),
+	pointer_default(unique)
+]
+interface IMgaMetaFCO : IMgaMetaBase
+{
+	// --- definition
+
+	// an MgaMetaFCO can be defined in either
+	// (1) MgaMetaFolder::DefinedFCOs, or
+	// (2) MgaMetaModel::DefinedFCOs
+
+	[propget, helpstring("property DefinedIn")]
+	HRESULT DefinedIn([out, retval] IMgaMetaBase **p);
+
+	[propget, helpstring("property DefinedAttributes")]
+	HRESULT DefinedAttributes([out, retval] IMgaMetaAttributes **p);
+
+	[propget, helpstring("property DefinedAttributeByName")]
+	HRESULT DefinedAttributeByName([in] BSTR name, [in] VARIANT_BOOL inscope,
+		[out, retval] IMgaMetaAttribute **p);
+
+	[helpstring("getter for property DefinedAttributeByName")]
+	HRESULT GetDefinedAttributeByNameDisp([in] BSTR name, [in] VARIANT_BOOL inscope,
+		[out, retval] IMgaMetaAttribute **p);
+
+	// --- edit definition
+
+	[helpstring("method DefineAttribute")]
+	HRESULT DefineAttribute([out, retval] IMgaMetaAttribute **p);
+
+	// --- containment
+
+	// all MgaMetaRoles where it occurs as MgaMetaRole::Kind
+	[propget, helpstring("property UsedInRoles")]
+	HRESULT UsedInRoles([out, retval] IMgaMetaRoles **p);
+
+	// all MgaMetaFolder where it occurs in LegalRootObjects
+	[propget, helpstring("property UsedInFolders")]
+	HRESULT UsedInFolders([out, retval] IMgaMetaFolders **p);
+
+	[propget, helpstring("property Attributes")]
+	HRESULT Attributes([out, retval] IMgaMetaAttributes **p);
+
+	// NULL if not valid
+	[propget, helpstring("property AttributeByName")]
+	HRESULT AttributeByName([in] BSTR name,
+		[out, retval] IMgaMetaAttribute **p);
+
+	[helpstring("getter for property AttributeByName")]
+	HRESULT GetAttributeByNameDisp([in] BSTR name,
+		[out, retval] IMgaMetaAttribute **p);
+
+	// NULL if not valid
+	[propget, helpstring("property AttributeByRef")]
+	HRESULT AttributeByRef([in] metaref_type mref,
+		[out, retval] IMgaMetaAttribute **p);
+
+	[helpstring("getter for property AttributeByRef")]
+	HRESULT GetAttributeByRefDisp([in] metaref_type mref,
+		[out, retval] IMgaMetaAttribute **p);
+
+	[propget, helpstring("property AliasEnabled")]
+	HRESULT AliasingEnabled([out,retval] VARIANT_BOOL *pVal);
+
+	// --- edit containment
+
+	[helpstring("method AddAttribute")]
+	HRESULT AddAttribute([in] IMgaMetaAttribute *p);
+
+	[helpstring("method RemoveAttribute")]
+	HRESULT RemoveAttribute([in] IMgaMetaAttribute *p);
+
+	[propput, helpstring("property AliasEnabled")]
+	HRESULT AliasingEnabled([in] VARIANT_BOOL newVal);
+};
+
+[
+	object,
+	uuid(83BA3249-B758-11D3-ABAE-000000000000),
+	dual,
+	helpstring("IMgaMetaModel Interface"),
+	pointer_default(unique)
+]
+interface IMgaMetaModel : IMgaMetaFCO
+{
+	// --- definition
+
+	[propget, helpstring("property DefinedFCOs")]
+	HRESULT DefinedFCOs([out, retval] IMgaMetaFCOs **p);
+
+	[propget, helpstring("property DefinedFCOByName")]
+	HRESULT DefinedFCOByName([in] BSTR name, [in] VARIANT_BOOL inscope,
+		[out, retval] IMgaMetaFCO **p);
+	
+	[helpstring("getter for property DefinedFCOByName")]
+	HRESULT GetDefinedFCOByNameDisp([in] BSTR name, [in] VARIANT_BOOL inscope,
+		[out, retval] IMgaMetaFCO **p);
+	
+	// --- edit definition
+
+	[helpstring("method DefineModel")]
+	HRESULT DefineModel([out, retval] IMgaMetaModel **p);
+
+	[helpstring("method DefineAtom")]
+	HRESULT DefineAtom([out, retval] IMgaMetaAtom **p);
+
+	[helpstring("method DefineReference")]
+	HRESULT DefineReference([out, retval] IMgaMetaReference **p);
+
+	[helpstring("method DefineSet")]
+	HRESULT DefineSet([out, retval] IMgaMetaSet **p);
+
+	[helpstring("method DefineConnection")]
+	HRESULT DefineConnection([out, retval] IMgaMetaConnection **p);
+
+	// --- containment
+
+	[propget, helpstring("property Roles")]
+	HRESULT Roles([out, retval] IMgaMetaRoles **p);
+
+	[propget, helpstring("property RoleByName")]
+	HRESULT RoleByName([in] BSTR name, [out, retval] IMgaMetaRole **p);
+
+	[helpstring("getter for property RoleByName")]
+	HRESULT GetRoleByNameDisp([in] BSTR name, [out, retval] IMgaMetaRole **p);
+
+	[propget, helpstring("property Aspects")]
+	HRESULT Aspects([out, retval] IMgaMetaAspects **p);
+
+	[propget, helpstring("property AspectByName")]
+	HRESULT AspectByName([in] BSTR name, [out, retval] IMgaMetaAspect **p);
+
+	[helpstring("getter for property AspectByName")]
+	HRESULT GetAspectByNameDisp([in] BSTR name, [out, retval] IMgaMetaAspect **p);
+
+	// --- edit containment
+
+	[helpstring("method CreateRole")]
+	HRESULT CreateRole([in] IMgaMetaFCO *Kind, [out, retval] IMgaMetaRole **p);
+
+	[helpstring("method CreateAspect")]
+	HRESULT CreateAspect([out, retval] IMgaMetaAspect **p);
+
+	// --- legal roles
+
+	// local paths : "src metaref metaref ... metaref, dst metaref ..."
+	[helpstring("method LegalConnectionRoles")]
+	HRESULT LegalConnectionRoles([in] BSTR paths, 
+		[out, retval] IMgaMetaRoles **p);
+
+	// global path : "metaref metaref ... metaref"
+	[helpstring("method LegalReferenceRoles")]
+	HRESULT LegalReferenceRoles([in] BSTR path,
+		[out, retval] IMgaMetaRoles **p);
+
+	// local path : "metaref metaref ... metaref"
+	[helpstring("method LegalSetRoles")]
+	HRESULT LegalSetRoles([in] BSTR path,
+		[out, retval] IMgaMetaRoles **p);
+
+	[helpstring("method LegalRoles")]
+	HRESULT LegalRoles([in] IMgaMetaFCO *k,
+		[out, retval] IMgaMetaRoles **p);
+};
+
+/*
+	local path:
+	
+		"<role metaref 1> <role metaref 2> ... <role metaref n>"
+
+		Where <role metaref 1> must be a role in the parent model of the set or connection.
+		If <role metaref 1> identifies a model then <role metaref 2> must be a role in that model.
+		If <role metaref 1> is a reference then <role metaref 2> must be a role in the
+		final model at the end of the reference chain. The same for the other role names.
+		
+	global path:
+		
+		"<kind metaref> <role metaref 1> <role metaref 2> ... <role metaref n>"
+
+		The <kind metaref> must be the kind of a root object. The chain streches from
+		this root model to the final child along the "parent-child" hierarchy.
+		If <kind metaref> is a model then <role metaref 1> must be a role in that model.
+		If <kind metaref> is a reference then <role metaref 1> must be a role in the final
+		model at the end of the reference chain. The other role names behave the same.
+*/
+
+[
+	object,
+	uuid(83BA324B-B758-11D3-ABAE-000000000000),
+	dual,
+	helpstring("IMgaMetaAspect Interface"),
+	pointer_default(unique)
+]
+interface IMgaMetaAspect : IMgaMetaBase
+{
+	// --- containment
+
+	[propget, helpstring("property ParentModel")]
+	HRESULT ParentModel([out, retval] IMgaMetaModel **p);
+
+	[propget, helpstring("property Parts")]
+	HRESULT Parts([out, retval] IMgaMetaParts **p);
+
+	// the editable attributes
+	[propget, helpstring("property Attributes")]
+	HRESULT Attributes([out, retval] IMgaMetaAttributes **p);
+
+	// --- edit containment
+
+	[helpstring("method CreatePart")]
+	HRESULT CreatePart([in] IMgaMetaRole *r, [out, retval] IMgaMetaPart **p);
+
+	[helpstring("method AddAttribute")]
+	HRESULT AddAttribute([in] IMgaMetaAttribute *p);
+
+	[helpstring("method RemoveAttribute")]
+	HRESULT RemoveAttribute([in] IMgaMetaAttribute *p);
+};
+
+[
+	object,
+	uuid(83BA324D-B758-11D3-ABAE-000000000000),
+	dual,
+	helpstring("IMgaMetaRole Interface"),
+	pointer_default(unique)
+]
+interface IMgaMetaRole : IMgaMetaBase
+{
+	// --- containment
+
+	[propget, helpstring("property ParentModel")]
+	HRESULT ParentModel([out, retval] IMgaMetaModel **p);
+
+	[propget, helpstring("property Parts")]
+	HRESULT Parts([out, retval] IMgaMetaParts **p);
+
+	// the corresponding FCO
+	[propget, helpstring("property Kind")]
+	HRESULT Kind([out, retval] IMgaMetaFCO **p);
+};
+
+[
+	object,
+	uuid(A70CAB45-DD94-11D3-9308-444553540000),
+	dual,
+	helpstring("IMgaMetaPart Interface"),
+	pointer_default(unique)
+]
+interface IMgaMetaPart : IMgaMetaBase
+{
+	// --- containment
+
+	[propget, helpstring("property Role")]
+	HRESULT Role([out, retval] IMgaMetaRole **p);
+
+	[propget, helpstring("property Aspect")]
+	HRESULT ParentAspect([out, retval] IMgaMetaAspect **p);
+
+	// --- data
+
+	[propget, helpstring("property IsPrimary")]
+	HRESULT IsPrimary([out, retval] VARIANT_BOOL *p);
+
+	[propput, helpstring("property IsPrimary")]
+	HRESULT IsPrimary([in] VARIANT_BOOL p);
+
+	[propget, helpstring("property IsLinked")]
+	HRESULT IsLinked([out, retval] VARIANT_BOOL *p);
+
+	[propput, helpstring("property IsLinked")]
+	HRESULT IsLinked([in] VARIANT_BOOL p);
+
+	[propget, helpstring("property KindAspect")]
+	HRESULT KindAspect([out, retval] BSTR *p);
+
+	[propput, helpstring("property KindAspect")]
+	HRESULT KindAspect([in] BSTR p);
+};
+
+[
+	object,
+	uuid(83BA324F-B758-11D3-ABAE-000000000000),
+	dual,
+	helpstring("IMgaMetaAtom Interface"),
+	pointer_default(unique)
+]
+interface IMgaMetaAtom : IMgaMetaFCO
+{
+};
+
+[
+	object,
+	uuid(83BA3259-B758-11D3-ABAE-000000000000),
+	dual,
+	helpstring("IMgaMetaAttribute Interface"),
+	pointer_default(unique)
+]
+interface IMgaMetaAttribute : IMgaMetaBase
+{
+	// --- definition
+
+	// an MgaMetaAttribute can be defined in either
+	// (1) MgaMetaFolder::DefinedAttributes, or
+	// (2) MgaMetaFCO::DefinedAttributes
+
+	[propget, helpstring("property DefinedIn")]
+	HRESULT DefinedIn([out, retval] IMgaMetaBase **p);
+
+	// --- containment
+	
+	// all FCOs where it occurs in MgaMetaFCO::Attributes
+	[propget, helpstring("property UsedIn")]
+	HRESULT UsedIn([out, retval] IMgaMetaFCOs **p);
+
+	// --- data
+
+	[propget, helpstring("property Viewable")]
+	HRESULT Viewable([out, retval] VARIANT_BOOL *p);
+
+	[propget, helpstring("property DefaultValue")]
+	HRESULT DefaultValue([out, retval] VARIANT *p);
+
+	[propget, helpstring("property ValueType")]
+	HRESULT ValueType([out, retval] attval_enum *attval);
+
+	[propget, helpstring("property EnumItems")]
+	HRESULT EnumItems([out, retval] IMgaMetaEnumItems **p);
+
+	// --- edit data
+
+	[propput, helpstring("property Viewable")]
+	HRESULT Viewable([in] VARIANT_BOOL p);
+
+	[propput, helpstring("property DefaultValue")]
+	HRESULT DefaultValue([in] BSTR p);
+
+	[propput, helpstring("property ValueType")]
+	HRESULT ValueType([in] attval_enum attval);
+
+	[helpstring("method CreateEnumItem")]
+	HRESULT CreateEnumItem([out, retval] IMgaMetaEnumItem **p);
+};
+
+[
+	object,
+	uuid(83254259-B758-21D3-7BAE-000000000000),
+	dual,
+	helpstring("IMgaMetaEnumItem Interface"),
+	pointer_default(unique)
+]
+interface IMgaMetaEnumItem : IDispatch
+{
+	[propget, helpstring("property Parent")]
+	HRESULT Parent([out, retval] IMgaMetaAttribute **p);
+
+	// --- data
+
+	[propget, helpstring("property DisplayedName")]
+	HRESULT DisplayedName([out, retval] BSTR *p);
+
+	[propget, helpstring("property Value")]
+	HRESULT Value([out, retval] BSTR *p);
+
+	// --- edit data
+
+	[propput, helpstring("property DisplayedName")]
+	HRESULT DisplayedName([in] BSTR p);
+
+	[propput, helpstring("property Value")]
+	HRESULT Value([in] BSTR p);
+};
+
+[
+	object,
+	uuid(83BA3251-B758-11D3-ABAE-000000000000),
+	dual,
+	helpstring("IMgaMetaReference Interface"),
+	pointer_default(unique)
+]
+interface IMgaMetaReference : IMgaMetaFCO
+{
+	[propget, helpstring("property RefSpec")]
+	HRESULT RefSpec([out, retval] IMgaMetaPointerSpec **p);
+
+	// global path : "metaref metaref ... metaref"
+	[helpstring("method CheckPath")]
+	HRESULT CheckPath([in] BSTR path, [out, retval] VARIANT_BOOL *p);
+};
+
+[
+	object,
+	uuid(83BA3253-B758-11D3-ABAE-000000000000),
+	dual,
+	helpstring("IMgaMetaSet Interface"),
+	pointer_default(unique)
+]
+interface IMgaMetaSet : IMgaMetaFCO
+{
+	[propget, helpstring("property MemberSpec")]
+	HRESULT MemberSpec([out, retval] IMgaMetaPointerSpec **p);
+
+	// local path : "metaref metaref ... metaref"
+	[helpstring("method CheckPath")]
+	HRESULT CheckPath([in] BSTR path, [out, retval] VARIANT_BOOL *p);
+};
+
+[
+	object,
+	uuid(83BA3255-B758-11D3-ABAE-000000000000),
+	dual,
+	helpstring("IMgaMetaConnection Interface"),
+	pointer_default(unique)
+]
+interface IMgaMetaConnection : IMgaMetaFCO
+{
+	[propget, helpstring("property Joints")]
+	HRESULT Joints([out, retval] IMgaMetaConnJoints **p);
+
+	// local paths : "src metaref metaref ... metaref, dst metaref ..."
+	[helpstring("method CheckPaths")]
+	HRESULT CheckPaths([in] BSTR paths, [out, retval] VARIANT_BOOL *p);
+
+	[propget, helpstring("property IsSimple")]
+	HRESULT IsSimple([out, retval] VARIANT_BOOL *p);
+
+	// --- edit
+
+	[helpstring("method CreateJoint")]
+	HRESULT CreateJoint([out, retval] IMgaMetaConnJoint **p);
+};
+
+[
+	object,
+	uuid(83BA3257-B758-11D3-ABAE-000000000000),
+	dual,
+	helpstring("IMgaMetaConnJoint Interface"),
+	pointer_default(unique)
+]
+interface IMgaMetaConnJoint : IDispatch
+{
+	[propget, helpstring("property Parent")]
+	HRESULT Parent([out, retval] IMgaMetaConnection **p);
+
+	[propget, helpstring("property PointerSpecs")]
+	HRESULT PointerSpecs([out, retval] IMgaMetaPointerSpecs **p);
+
+	[propget, helpstring("property PointerSpecByName")]
+	HRESULT PointerSpecByName([in] BSTR name,
+		[out, retval] IMgaMetaPointerSpec **p);
+
+	[helpstring("getter for property PointerSpecByName")]
+	HRESULT GetPointerSpecByNameDisp([in] BSTR name,
+		[out, retval] IMgaMetaPointerSpec **p);
+
+	// --- edit
+
+	[helpstring("method CreatePointerSpec")]
+	HRESULT CreatePointerSpec([out, retval] IMgaMetaPointerSpec **p);
+};
+
+[
+	object,
+	uuid(83BA325B-B758-11D3-ABAE-000000000000),
+	dual,
+	helpstring("IMgaMetaPointerSpec Interface"),
+	pointer_default(unique)
+]
+interface IMgaMetaPointerSpec : IDispatch
+{
+	// MgaMetaReference, MgaMetaSet or MgaMetaConnJoint
+	[propget, helpstring("property Parent")]
+	HRESULT Parent([out, retval] IDispatch **p);
+
+	[propget, helpstring("property Name")]
+	HRESULT Name([out, retval] BSTR *p);
+
+	[propget, helpstring("property Items")]
+	HRESULT Items([out, retval] IMgaMetaPointerItems **p);
+
+	// --- edit data
+
+	[propput, helpstring("property Name")]
+	HRESULT Name([in] BSTR p);
+
+	[helpstring("property CreateItem")]
+	HRESULT CreateItem([out, retval] IMgaMetaPointerItem **p);
+};
+
+[
+	object,
+	uuid(83518A5B-B758-11D3-ABAE-006928360000),
+	dual,
+	helpstring("IMgaMetaPointerItem Interface"),
+	pointer_default(unique)
+]
+interface IMgaMetaPointerItem : IDispatch
+{
+	[propget, helpstring("property Parent")]
+	HRESULT Parent([out, retval] IMgaMetaPointerSpec **p);
+
+	[propget, helpstring("property Desc")]
+	HRESULT Desc([out, retval] BSTR *p);
+
+	// --- edit
+
+	[propput, helpstring("property Desc")]
+	HRESULT Desc([in] BSTR p);
+};
+
+/*
+	There are two kinds of descriptions. One is called the "local path" for
+	sets and connections. The other is the "global path" for references.
+	This is the stuff you put into the XML file.
+
+	local path:
+
+		"<role name 1> <role name 2>	... <role name n>"
+
+		Where <role name 1> must be a role in the parent model of the set or connection.
+		If <role name 1> identifies a model then <role name 2> must be a role in that model.
+		If <role name 1> is a reference then <role name 2> must be a role in the
+		final model at the end of the reference chain. The same for the other role names.
+		
+	global path:
+		
+		"<kind name> <role name 1> <role name 2> ... <role name n>"
+
+		If <kind name> is a model then <role name 1> must be a role in that model.
+		If <kind name> is a reference then <role name 1> must be a role in the final
+		model at the end of the reference chain. The other role names behave the same.
+*/
+
+// MGACOLL_INTERFACE-s
+// - support Insert, Append, Find, Remove
+// - have classes creatable by CoCreateInstance
+MGACOLL_INTERFACE(c61352b0-c1fd-11d3-9ad2-00aa00b6fe26, MgaMetaAspect)
+MGACOLL_INTERFACE(c851e130-c1fd-11d3-9ad2-00aa00b6fe26, MgaMetaRole)
+MGACOLL_INTERFACE(c66a6c60-c1fd-11d3-9ad2-00aa00b6fe26, MgaMetaFCO)
+MGACOLL_INTERFACE(c6922740-c1fd-11d3-9ad2-00aa00b6fe26, MgaMetaAttribute)
+MGACOLL_INTERFACE(c6b85af0-c1fd-11d3-9ad2-00aa00b6fe26, MgaMetaFolder)
+MGACOLL_INTERFACE(c761f8c0-c1fd-11d3-9ad2-00aa00b6fe26, MgaMetaPointerSpec)
+MGACOLL_INTERFACE(c795ed20-c1fd-11d3-9ad2-00aa00b6fe27, MgaMetaRegNode)
+MGACOLL_INTERFACE(c8ec3720-c1fd-11d3-9ad2-00aa00b6fe26, MgaConstraint)
+MGACOLL_INTERFACE(c8ec3720-c1fd-11d3-9ad2-00aa00b6fe27, MgaMetaPart)
+MGACOLL_INTERFACE(c8ec3723-c1fd-11d3-9ad2-00aa00b6fe27, MgaMetaModel)
+MGACOLL_INTERFACE(c8432623-c1fd-11d3-9ad2-00aa00b6fe27, MgaMetaConnJoint)
+MGACOLL_INTERFACE(c8124623-c51d-11d3-9ad2-00aa00b6fe27, MgaMetaPointerItem)
+MGACOLL_INTERFACE(c8124623-c51d-1ad3-9ad2-11aa0176fe27, MgaMetaEnumItem)
+
+

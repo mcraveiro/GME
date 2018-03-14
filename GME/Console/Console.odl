@@ -1,0 +1,108 @@
+// Console.odl : type library source for ActiveX Control project.
+
+// This file will be processed by the Make Type Library (mktyplib) tool to
+// produce the type library (Console.tlb) that will become a resource in
+// Console.ocx.
+
+#include <olectl.h>
+#include <idispids.h>
+import "oaidl.idl";
+import "ACTIVSCP.idl";
+
+
+
+[ uuid(339FD307-717B-4698-AC13-4ACCCF5D4C91), version(1.0),
+  helpfile("Console.hlp"),
+  helpstring("Console ActiveX Control module"),
+  control ]
+library CONSOLELib
+{
+	importlib(STDOLE_TLB);
+	importlib(STDTYPE_TLB);
+
+	//  Primary dispatch interface for CConsoleCtrl
+
+	[ uuid(71655C2B-D6DD-4345-B273-5BD1422370CB),
+	  helpstring("Dispatch interface for GME Console Control"), hidden ]
+	dispinterface _DConsole
+	{
+		properties:
+			// NOTE - ClassWizard will maintain property information here.
+			//    Use extreme caution when editing this section.
+			//{{AFX_ODL_PROP(CConsoleCtrl)
+			[id(1)] BSTR Contents;
+			[id(0)] BSTR _Contents;
+			//}}AFX_ODL_PROP
+
+		methods:
+			// NOTE - ClassWizard will maintain method information here.
+			//    Use extreme caution when editing this section.
+			//{{AFX_ODL_METHOD(CConsoleCtrl)
+			[id(2)] void Message(BSTR str, short type);
+			[id(3)] void Clear();
+			//}}AFX_ODL_METHOD
+
+			[id(5)] void SetGMEApp(IDispatch *disp);
+			[id(6)] void SetGMEProj(IDispatch *disp);
+			[id(7)] void NavigateTo(BSTR url);
+			[id(8)] void LoadScript(BSTR filename);
+			[id(9)] void RunLoadedScript();
+			[id(10)] void SetContents(BSTR Contents);
+			[id(11)] void RunCode(BSTR Code);
+			[id(DISPID_ABOUTBOX)] void AboutBox();
+	};
+
+	//  Event dispatch interface for CConsoleCtrl
+
+	[ uuid(39F56B4C-E7DB-4A54-868C-CAA7EBE23233),
+	  helpstring("Event interface for GME Console Control") ]
+	dispinterface _DConsoleEvents
+	{
+		properties:
+			//  Event interface has no properties
+
+		methods:
+			// NOTE - ClassWizard will maintain event information here.
+			//    Use extreme caution when editing this section.
+			//{{AFX_ODL_EVENT(CConsoleCtrl)
+			[id(1)] void ClickMGAID(BSTR objid);
+			//}}AFX_ODL_EVENT
+	};
+	[
+		object,
+		uuid(FC0BDA3C-1D12-4E75-BA73-49BCFBB0BFD1),
+		dual,
+		helpstring("IScriptHost Interface"),
+		pointer_default(unique)
+	]
+	interface IScriptHost : IDispatch
+	{
+		[id(1), helpstring("method InitEngine")] HRESULT InitEngine([in] IDispatch* m_console, [in] BSTR engineProgid);
+		[id(2), helpstring("method ProcessString")] HRESULT ProcessString([in] BSTR input);
+		[id(3), helpstring("method SetGMEApp")] HRESULT SetGMEApp([in] IDispatch* gmeapp);
+		[id(4), helpstring("method SetGMEProj")] HRESULT SetGMEProj([in] IDispatch* gmeproj);
+	};
+
+	//  Class information for CConsoleCtrl
+
+	[ uuid(E4EB8324-13F0-46CB-96A3-F539DF7F79D4),
+	  helpstring("GME Console Control"), control ]
+	coclass Console
+	{
+		[default] dispinterface _DConsole;
+		[default, source] dispinterface _DConsoleEvents;
+	};
+
+
+	//{{AFX_APPEND_ODL}}
+	//}}AFX_APPEND_ODL}}
+	[
+		uuid(CD42B6DD-CCC7-4D4A-A82D-124AF08A6737),
+		helpstring("ScriptHost Class")
+	]
+	coclass ScriptHost
+	{
+		[default] interface IScriptHost;
+		interface IActiveScriptSite;
+	};
+};

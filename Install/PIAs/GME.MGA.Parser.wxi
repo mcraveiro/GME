@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+    <Fragment>
+        <DirectoryRef Id="INSTALLDIR_PARADIGMS32" />
+    </Fragment>
+    <Fragment>
+        <ComponentGroup Id="GME.MGA.Parser">
+            <Component Id="GME.MGA.Parser.dll" Directory="INSTALLDIR_PARADIGMS32" Guid="{9DF42C34-5F58-4158-BD50-454864B9DFD6}" Permanent="yes">
+                <File Id="GME.MGA.Parser.dll" KeyPath="yes" Source="$(var.PIADir.1.0.0.0)\GME.MGA.Parser.dll" Assembly=".net" />
+                <Condition>NETFRAMEWORK</Condition>
+            </Component>
+        </ComponentGroup>
+    </Fragment>
+</Wix>

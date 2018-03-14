@@ -1,0 +1,43 @@
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "AutoRouter", "AutoRouter\AutoRouter.vcxproj", "{AE0A391D-282A-4C23-9FA9-D595089599F6}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "JAUT", "Jaut\JAUT.vcxproj", "{3D12EDCF-EAC3-4D44-AB60-DAD47762021F}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "JavaCompRegister", "JavaCompRegister\JavaCompRegister.vcxproj", "{DD781BB5-B6D8-42D4-8C3F-9B99F26089D0}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MgaDecoratorWrap", "MgaDecoratorWrap\MgaDecoratorWrap.vcxproj", "{20CE31C6-E38C-4615-AF09-49A87EB73A66}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "JavaCompRunner", "JavaCompRunner\JavaCompRunner.vcxproj", "{53EC8E98-E3B2-45FB-9A9F-521074A1F65C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AE0A391D-282A-4C23-9FA9-D595089599F6}.Debug|Win32.ActiveCfg = Debug|Win32
+		{AE0A391D-282A-4C23-9FA9-D595089599F6}.Debug|Win32.Build.0 = Debug|Win32
+		{AE0A391D-282A-4C23-9FA9-D595089599F6}.Release|Win32.ActiveCfg = Release|Win32
+		{AE0A391D-282A-4C23-9FA9-D595089599F6}.Release|Win32.Build.0 = Release|Win32
+		{3D12EDCF-EAC3-4D44-AB60-DAD47762021F}.Debug|Win32.ActiveCfg = Debug|Win32
+		{3D12EDCF-EAC3-4D44-AB60-DAD47762021F}.Debug|Win32.Build.0 = Debug|Win32
+		{3D12EDCF-EAC3-4D44-AB60-DAD47762021F}.Release|Win32.ActiveCfg = Release|Win32
+		{3D12EDCF-EAC3-4D44-AB60-DAD47762021F}.Release|Win32.Build.0 = Release|Win32
+		{DD781BB5-B6D8-42D4-8C3F-9B99F26089D0}.Debug|Win32.ActiveCfg = Debug|Win32
+		{DD781BB5-B6D8-42D4-8C3F-9B99F26089D0}.Debug|Win32.Build.0 = Debug|Win32
+		{DD781BB5-B6D8-42D4-8C3F-9B99F26089D0}.Release|Win32.ActiveCfg = Release|Win32
+		{DD781BB5-B6D8-42D4-8C3F-9B99F26089D0}.Release|Win32.Build.0 = Release|Win32
+		{20CE31C6-E38C-4615-AF09-49A87EB73A66}.Debug|Win32.ActiveCfg = Debug|Win32
+		{20CE31C6-E38C-4615-AF09-49A87EB73A66}.Debug|Win32.Build.0 = Debug|Win32
+		{20CE31C6-E38C-4615-AF09-49A87EB73A66}.Release|Win32.ActiveCfg = Release|Win32
+		{20CE31C6-E38C-4615-AF09-49A87EB73A66}.Release|Win32.Build.0 = Release|Win32
+		{53EC8E98-E3B2-45FB-9A9F-521074A1F65C}.Debug|Win32.ActiveCfg = Debug|Win32
+		{53EC8E98-E3B2-45FB-9A9F-521074A1F65C}.Debug|Win32.Build.0 = Debug|Win32
+		{53EC8E98-E3B2-45FB-9A9F-521074A1F65C}.Release|Win32.ActiveCfg = Release|Win32
+		{53EC8E98-E3B2-45FB-9A9F-521074A1F65C}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

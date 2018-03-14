@@ -1,0 +1,26 @@
+HKCR
+{
+	Mga.MgaO.1 = s 'MgaO Class'
+	{
+		CLSID = s '{1DF52E42-BCC0-4439-B3CD-75610AC372A3}'
+	}
+	Mga.MgaO = s 'MgaO Class'
+	{
+		CLSID = s '{1DF52E42-BCC0-4439-B3CD-75610AC372A3}'
+		CurVer = s 'Mga.MgaO.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {1DF52E42-BCC0-4439-B3CD-75610AC372A3} = s 'MgaO Class'
+		{
+			ProgID = s 'Mga.MgaO.1'
+			VersionIndependentProgID = s 'Mga.MgaO'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			'TypeLib' = s '{270B4F86-B17C-11D3-9AD1-00AA00B6FE26}'
+		}
+	}
+}

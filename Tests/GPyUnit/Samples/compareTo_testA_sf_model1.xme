@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE project SYSTEM "mga.dtd">
+
+<project guid="{45AA99E4-95CA-4280-9472-3BDBAD6B22AF}" cdate="Fri May 27 14:58:27 2005" mdate="Fri May 27 14:58:27 2005" version="" metaguid="{9B9ABE95-DEAD-BEEF-FEED-DAD000000001}" metaversion="" metaname="SF">
+	<name>testA1_sf</name>
+	<comment></comment>
+	<author></author>
+	<folder id="id-006a-00000001" relid="0x1" childrelidcntr="0x2" kind="RootFolder">
+		<name>testA1_sf</name>
+		<folder id="id-006a-00000002" relid="0x1" childrelidcntr="0x1" kind="Folder">
+			<name>Folder1</name>
+			<model id="id-0065-00000002" kind="Compound" relid="0x1" childrelidcntr="0x2">
+				<name>CompInFolder1</name>
+				<atom id="id-0066-00000001" kind="InputSignal" role="InputSignals" relid="0x1">
+					<name>InSignal1</name>
+				</atom>
+				<atom id="id-0066-00000002" kind="OutputSignal" role="OutputSignals" relid="0x2">
+					<name>OutSignal1</name>
+				</atom>
+			</model>
+		</folder>
+		<model id="id-0065-00000001" kind="Compound" relid="0x2" childrelidcntr="0x0">
+			<name>Comp1</name>
+		</model>
+	</folder>
+</project>

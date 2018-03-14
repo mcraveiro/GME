@@ -1,0 +1,954 @@
+
+RAW DATA
+--------
+
+-	The CCoreObject and CCoreAttribute are responsible for storing and 
+	retrieving data (from repository, raw file, etc.), and presenting
+	this raw data to other classes.
+
+-	For this raw access we need enumeration classes: CCoreObjects
+	and CCoreAttributes.
+
+?	The CCoreObject and CCoreAttribute can have specific interfaces
+	for this raw data manipulation, but this is not necessary. From
+	the Core these objects are manipulated via pointers and not 
+	via interfaces. Should these objects have these data interfaces?
+	Should these interfaces be dual?
+
+-	The type of the raw data in a CoreAttribute object is
+
+		int			(signed 4 bytes)
+		double		(8 bytes)
+		string		(variable length)
+		IUnknown	(for refto)
+
+	We can store all of these in a VARIANT. Also if we do this, then
+	we don't have to convert the raw data when communicating with the
+	Repository! Also, we can provide generic GetValue (or something 
+	similar) functionality for Visual Basic (and/or other clients).
+
+?	The Core is just an intermediate step between the Repository and
+	other GUIs (Editor, etc.) The possible string types are:
+
+		ANSI (char*)	this would minimize the memory usage,
+						but always have to convert when using
+						COM.
+
+		TCHAR			This is the native string representation
+						of the operation system. We do not care
+						about this, most of our operation is in COM.
+
+		OLECHAR			no converting overhead, but larger memory
+						footprint.
+
+-	If we store the raw data in VARIANTs in CoreAttribute object, then
+	the natural choice is BSTR (that is, OLECHAR). Let's avoid
+	conversion, and be fast. This will require less coding. Later on
+	we can change this if we need to.
+
+-	We want an extensible list of CoreAttributes in a CoreObject. This
+	is needed by some GUI and other tools, where the possible range
+	of attributes is not foreseeable.
+
+-	We don't use the MFC CString, CList and other classes. The ATL
+	internals and other sources recommend to use the STL (standard 
+	template library).
+
+-	Then we have to catch the C++ exceptions, since the STL uses them,
+	and exceptions cannot leave the called COM method!
+
+?	We will have to provide storage for binary data (SQL_LONGVARBINARY).
+	How can we store this in a VARINAT. How can we pass this data
+	to the repository (we have to send through a VARIANT).
+	(see the same question in the REPOSITORY section)
+
+REPOSITORY
+----------
+
+-	Since the list of attributes is extensible, we must save attributes
+	in a separate object, and use a collection to assign the attributes
+	to the (unique) repository object.
+
+.	An attribute in the repository must have a data type. This is more
+	problematic when dealing with strings. A string can have three
+	different storage implementation:
+
+		SQL_CHAR			fixed length (<=255), must be completely filled
+		SQL_VARCHAR			variable length, but bounded from above (<=255)
+		SQL_LONGVARCHAR		variable length, unbounded, memo filed
+
+	The SQL_LONGVARCHAR seems to be universal, but we have to care about
+	the memo file in SQL. We have to pack the database regularly, because
+	every modification to a memo field just appends the new data at the end
+	of the memo file.
+
+-	For extended string attributes for GUI and tools must be stored
+	in SQL_LONGVARCHAR, because we have no control over the size of these
+	string. Alternatively we can present a fixed length string attribute
+	for these extended attributes.
+
+-	A collection is between interfaces. Attributes with different data types
+	must have different interfaces (we have to describe the storage type
+	for that attribute). So we need the same number of collection classes 
+	as attribute types. So for each attribute we need two objects in the
+	repository. One for the attribute itself, and one of the collection
+	objects that connects the parent with this attribute. This will be
+	quite an overhead, especially if we always have the same attributes in
+	some models.
+
+-	To avoid this, we introduce two types of attributes:
+
+		fixed attribute:	stored in the parent object as ReposProperty
+
+		child attribute:	stored in a separate object with a unique 
+							ReposProperty, and a Relationship from the father
+							to this child.
+
+-	But now for each model we need a separate InterfaceDef in the repository
+	that describes the fixed attributes. So each meta object is coupled
+	with an InterfaceDef. Each meta attribute is coupled with a PropertyDef.
+
+?	Who is going to create these InterfaceDefs anf PropertyDefs?
+
+-	(See the CORE OBJECT AND INTERFACES section) When we are doing
+	a meta editing (level 3-2), then the ICoreObject/ICoreFolder
+	can have the functionality to create the new InterfaceDefs,
+	PropertyDefs into a new repository (or this one).
+	Maybe this should go into the CCoreObejct. Anyway, the object
+	that hold the description (at 2nd level) should create the
+	information model.
+
+?	Still not clear which interface/class should do the information model
+	creation.
+
+-	Each CCoreAttribute is coupled with a ReposPropety,
+	each CCoreObject is coupled with a RepositoryObject,
+	each CCoreObjects (children, subtypes) is coupled with a RelationshipColl,
+	each CCoreAttributes (attributes) is coupled with a RelationShipColl.
+
+-	We need fixed attributes, but also relationships to children, etc.
+	A relationship is bound to two interfaces. We want only one children
+	relationship, thus from all our repository object must have some basic
+	InterfaceDef just for these relationships, and another interface
+	for the fixed attributes.
+
+-	We can use the same technique for attributes. One InterfaceDef holds
+	the common properties of an attribute, and also serves as a connection
+	point for the relationship. The other interface holds the actual data,
+	that is a unique property.
+
+?	How much resources does this save? Maybe we need fewer relationships,
+	but in space and time we have to pay the price. Anyway, it seems to be
+	easier to have only one relationship for the attributes, since we can
+	handle this relationship from CCoreAttributes.
+
+-	We have to store the objid for references. We cannot rely on the
+	exact number of the objid to identify special objects (small objid),
+	because in one repository we might want more than one project.
+	Even if there is only one project in a repository, we need the objid
+	for randomly access data, lookup and load into memory.
+
+?	How do we identify fixed attributes? What objid do we use? Is a long
+	long enough? Consider programming issues too (ease of handling in the 
+	Editor, etc).
+
+-	Object ids: In order to use the IRepository::get_Object we need
+	the object identifier. But we want to store the 4 byte localid only.
+	This is not going to work, because we have no way to tell the
+	siteid/GUID. Instead we store a metaid (2 bytes) along the
+	Local ID. We then ask the Meta Root to find the metaobject, that
+	contains the GUID as well.
+
+-	This means that from objid we can get the meta object! This is very good,
+	because without loading we get a lot of information about an object
+	(we do not have to load, we do not have to NO_DEL lock).
+
+?	How to store SQL_LONGVARBINARY data in the repository. We have to
+	use VARIANT. (see the same question in the RAW DATA section)
+
+-	Note that the Repository CANNOT store longer SQL_LONGVARCHAR/BINARY
+	data than 65535 (bytes/character?). Is this true?
+
+-	We do not save repository interface pointers. They can be located
+	while saving, and we save 4 bytes in our classes. (See LOCKING MODES)
+	Also this helps (enables) locking, as does not keep objects in the 
+	repository cache.
+
+-	Every reference attribute must be children (not fixed). If we allow
+	fixed reference attributes then it is difficult to get the soure object
+	collection from different SQL tables (using SQL), as we have to select
+	from multiple tables. If we have a separate table (repository collection)
+	for locating these inner ref attributes, then we store the information
+	twice! Just think it over.
+
+-	This solves the attribute identification problem, and simplifies the code.
+
+.	In the repository relation objects have huge overhead (at least
+	400 bytes or more). We should minimalize the number of relation objects.
+
+-	We have one special relationship type for reference attributes.
+	In the name of the relationship object we store the attrid. Thus
+	we require only one relationship object for a reference attribute.
+
+-	Later, we can introduce special relationship types for children,
+	subtypes, etc. where we do not need the name. This would/will
+	ease native repository handling with other applications.
+
+?	How can we store the metaid and etc. in this relationship class?
+
+-	We do not need metaid, etc in a relationship class. From the attrid
+	and the father we can uniquely find the meta attribute. Thus we can/
+	should store a pointer attribute in a relationship class, where
+	the name should always contain the attrid.
+
+-	Note that the origin of the relationship is the object the pointer
+	points to, while the destination is the father of the pointer.
+	This is because the PROPAGATE_DELETE can onnly be applied to
+	the destination objects, and this is exactly we want.
+
+-	We can have special relationship types, like children. In the repository
+	browser these relationships appear in a different list.
+
+-	Special relationship types must have meta description (global). We
+	cannot put this description to the origin or destinaion, because
+	onthe other side we want only one list (only one RelationshipDef).
+
+CORE OBJECT AND INTERFACES
+--------------------------
+
+-	To implement collections, it is convenient (and the recommended way)
+	to implement the collection interface separately, in new classes
+	(CCoreObjects, CCoreAttributes). This also can hide the 
+	implementation decision: STL or CList.
+
+-	We want to store all raw data in CCoreObject, CCoreAttribute,
+	CCoreObjects and CCoreAttrubutes objects.
+
+-	When we load an object (for a given objid), we do not know
+	how to load it, because it depends on the meta object. For example
+	fixed attributes are stored differently (in both the repository
+	and a raw file). But to get the meta object we need the meta-objid.
+	The meta-objid is not available still the object is not loaded.
+	Thus we need some preload, that loads some fixed attributes, like
+	meta-objid. Once we have the meta-objid, we can load the meta-object,
+	and continue loading the original object. The phases of load are
+
+		a few attributes attributes	(meta-objid)
+		possibly loading the children list
+		possibly loading the subtypes list
+		possibly loading the child attributes
+		<loading the meta-object>
+		loading the other fixed attributes
+		<launching the appropiate spacial interface>
+
+-	When we load an object (CCoreObject), we do not know what special
+	interface we must implement on it. This will be decided when
+	the meta-object is read. So the special interface/object (CCoreModel)
+	cannot aggregate the CCoreObject (it will be created later).
+	The CCoreObject can aggregate the CCoreModel object, and present
+	the ICoreModel interface. 
+
+?	When and how do we create the CCoreModel object?
+
+-	Before the special aggregated object/interface is created the
+	CCoreObject cannot function as a COM object. This is because
+	the interfaces must be static. Thus at the first
+	QueryInterface(ICoreObject) call, the CCoreObject has to decide
+	once and for all, whether it implements ICoreObject.
+
+-	We have to be careful with the COM_INTERFACE_ENTRY_AGGREGATE_BLIND.
+	The IUnknown pointer should not be null. Otherwise we fall in the
+	previous pitfall.
+
+-	We could create the special interfaces (ICoreModel, IMetaModel,
+	IMetaObject, etc.) using
+
+		aggregation
+		containment
+		inheritance
+		nointerface
+
+-	INHERITANCE: CCoreModel cannot inherit from CCoreObject, because
+	CCoreModel must be created after the CCoreObject is created. So
+	we cannot call the appropriate constructor (CCoreModel, CCoreAspect,
+	etc.) depending on the raw data in CCoreObject. So this is not
+	an option.
+
+-	NOINTERFACE: CCoreObject could have no interface at all. This is a
+	possibility, but a generic interface might be useful, collecting
+	generic functionality.
+
+-	The two interfaces ICoreObject and ICoreModel have the same identity.
+	That is, if there is outstanding references to any of them then
+	both must stay alive.
+
+-	AGGREGATION: Shared identity, QueryInterface to access all the
+	interfaces. No multiple dual interfaces.
+
+-	CONTAINMENT: Simpler object structure, we have to write the AddRef
+	and Release code (shared identity) and special method(s) to access
+	other interface(s). Allow multiple dual interfaces.
+
+-	We have to code less with AGGREGATION, we can use the default
+	implementation of AddRef, Release, QueryInterface. So we choose
+	AGGREGATION.
+
+-	CCoreObject must have NO IDispatch interface. Also it can host at most
+	one special interface that implement IDispatch for scripting.
+
+-	ICoreObject still need to be a dual interfaces. This is because
+	of NewEnum and friends (collection). Maybe with a tear-off interface
+	or with something else, we might be able to provide access to this
+	dual interface for scripting purposes. The problem is that scripting
+	languages blindly ask for IDispatch on every interface they get.
+	(maybe not for IDispatch)
+
+.	The normal model interfaces are clear. We have ICoreObject, and
+	other special model interfaces (and classes) are built upon this
+	data (ICoreModel, ICoreAspect, etc.).
+
+?	What about the meta interfaces? We store data for the meta interfaces
+	in CCoreObject too. Can a ICoreModel and IMetaModel (or IModelDef) 
+	interface live together? What about IMetaObject (or IObjectDef)?
+	How should it relate to the others?
+
+-	Why would we implement both IMetaModel and ICoreModel interfaces on
+	the same CCoreObject? In practice we never need the ICoreModel interface
+	here. Just allow one special interface (ICore* or IMeta*).  Yes,
+	I know this can be bottleneck, but we can modify it latter. It will
+	/would be really hard to synchronize different special interfaces to 
+	the same CCoreObject in the same Core.
+
+-	The meta description
+
+layer:		3rd					2nd					1st
+object:		CCoreObject			CCoreObject			CCoreObject
+name:		metaatom			isig				an input signal
+rep if:		IRepMeta			IRepMeta			IRepISig
+
+editing:						IMetaAtom	<----	ICoreAtom
+meta edt:	IMetaModel	<----	ICoreModel
+
+-	When we load a CCoreObject, then we have to decide if we want it
+	as a metaobject, or modelobject. We have to build the coorresponding
+	spec interface object on it. If the object is already loaded into
+	memory, then we have to check that meta/model flag.
+
+-	We do not use small objids to identify objects. So to identify
+	Meta objects we use their meta objects' name: metaatom, etc.
+	Thus in the repository we need three object structure layers.
+
+-	The meta-meta editing. This is not a full layer, but a 3-3 editing:
+
+layer:		3rd					3rd
+object:		CCoreObject			CCoreObject
+name:		metamodel			metaatom
+rep if:		IRepMeta			IRepMeta		
+
+m2 editing:	IMetaModel	<----	ICoreModel
+
+	This editing will be done only once by hand, then maybe later it can be
+	done with the editor. Still, there need to be some trick to
+	change the meta ids.
+
+-	Since from the objid (metaid + localid) we can get the metaobject,
+	the previous creation issue is different now.
+
+CORE OBJECT STRUCTURE
+---------------------
+
+-	Store all data in CCoreObject(s), CCoreAttirbute(s)
+
+-	The aspects in models are completely unrelated. If a children
+	does not have the aspect of its parent, then it is not visible there!
+	Also, we allow complete aspect intermixing. 
+
+-	Each object (Model, Atom, Reference, Connection, Conditional,
+	Attribute, everything that can be put inside a model) has
+	an Aspect list. These aspects are their own. No location is
+	stored here.
+	
+-	Note, that a model's aspect can occur in many aspects of its 
+	father. That is why we store position, visibility, etc. in a
+	separate Part object.
+
+-	Each Aspect has a Part list. A Part contains the location,
+	port-position, visibility and the target aspect (not owned).
+
+-	Each object (Model, Atom, Reference, Connection, Conditional, etc)
+	has a children list. The parts must point to an aspect of one of 
+	the children.
+
+-	Every object that can be put inside a model has this Aspect
+	feature. This simplifies the understanding and handling.
+	Also, if we forget about all Aspect and Part objects, then
+	we have the same model structure, but without aspects and positions.
+	This is very beneficial.
+
+-	We can eliminate the need of Atoms. Since we want to connect to Models,
+	there is no "difference" between them, except in presentation (icon)
+	and modeling concepts.
+
+-	We have only one type of Reference object, that can point to
+	a Model or Reference. A reference also has aspects, and need parts
+	too for ports. In this sense, the Editor does not have to care
+	what it displays, as long is has parts (for ports), possibly icon,
+	name, etc.
+
+?	Does the Reference have children for the ports/atoms? This would make
+	everything completely symmetrical, and also would provide space for
+	storing in/out connections.	But we have to manage (create/delete) these
+	shadow atoms/ports.
+
+?	Should we have two separate Attributes lists? One for fixed attributes,
+	one for children attributes. They serve the same goal, only the storage
+	is different.
+
+-	The attribute has to remember its state in the repository (if it
+	exists in the repository, what its value (for reftos and children
+	lists)). Also it has to remember its current state (if it exists,
+	and what its value). When we save the core objects, then this
+	information is used to delete/create/overwrite the content, and
+	also to modifying the children list.
+	
+-	This means that the object lists are always kept updated, and the ref
+	attributes manage the deletion of the attributes in the repository.
+
+?	Should we have two separate Attributes lists? One for owned attributes,
+	outhers for references (for refto attributes that point here)?
+
+-	We have only one Attribute list in CoreObject. The owned attributes
+	are those whose father is this. Every other attribute must be
+	refto attribute and must point to this object. The father of an object
+	is identified by its AID_FATHER attribute. The children list
+	is a sublist containing all AID_FATHER refto attributes (except one),
+	and all those point to this object, while their fathers are the children.
+
+-	We have to store the objid in the attribute object and not in the
+	meta object because of the child attributes.
+
+-	It will be very easy to find the children list (take all refto attribute
+	that pointing to this object, and take their fathers). The same
+	algorithm can be used to find out-connections, in-connections,
+	subtypes, etc.
+
+-	We have two Attribute list in CoreObject. One for owned attiributes
+	(father is this object), and another for pointers(references). The first
+	is a set, while the other is a multiset. Also, now we don not have to 
+	name the global list. This is easyer to sell to others (more intuitive).
+	We could tore them in one list, but this in unimportant (we will use
+	containers and iterators, so the algorithms won'ty depend on this). Also
+	the owned attributes are loaded with the object, the others are not.
+
+-	The meta objects for children attributes should/could be references to
+	globel meta attributes. This global copy could store the table name, etc.
+
+-	It would be very usefull if from the attrid we could uniquely find
+	the metaid for that attribute. Thus the metaobject for children
+	attributes would specify a range for the attribute ids.
+
+?	We want attributes (esp. pointer) with the same attrid. For example
+	for conditionals. How do we solve this?
+
+?	Can we have separate children objects in the conditionals to represent
+	the controls/parts of the conditional?
+
+-	It would be very bad to identify an attribute that has no unique 
+	attrid. Let's try to avoid these to make the core more simple.
+
+DELAYED LOADING
+---------------
+
+-	We do not want to load the whole object hierarchy into memory. We have
+	to find the appropriate cutting point where it is easy to delay the
+	loading. We have to be careful with the repository. 
+
+-	possible cutting points:
+
+		creating CCoreObject, not loading the data
+		creating CCoreObjects, not loading the list
+		creating CCoreObjects, loading the list, but not creating
+			the objects in the list.
+
+		the same for CCoreAttribute(s)
+
+?	What about locking? The locking can influence things.
+
+-	It is possible that a delayed load cannot be fulfilled because of
+	a lock.
+
+-	If an object is created in memory (using objid), then
+	we know its meta and objid. But at that time it needs not be
+	connected to the repository object. It has to lock it with NO_DEL.
+
+-	We do not load all refto attributes into memory (this prevents loading
+	all children into memory). That is, children, subtypes, etc. are not
+	neccessairy in memory.
+
+-	All owned attributes must be in memory though. And exactly the not
+	owned attributes are the ones in the previous point.
+
+?	What happen when we delete a model? Do we load all children (etc.)
+	into memory and remove their contents? Is it possible to erease only
+	those content's that are in memory? Who is responsible for deleting
+	all (sub)models from the database?
+
+?	If we do not load all children, etc. in memory then how can we report
+	that who are going to be deleted?
+
+?	When and how do we load the pointer attributes (children, etc.) into
+	memory?
+
+-	When there is no outer reference to an object (and its children, etc)
+	and we made no modification to the object, then we can safely unload it
+	from memory.
+
+-	Therefore, AddRef and Release calls the father, basetype, etc. AddRef
+	and Release functions. This will keep them in memory.
+
+-	Fixed attributes are always loaded, they unload with the object.
+	Thus they form an identity.
+
+-	Children attributes are handled separately. There is no guarantee that
+	all of them are loaded into memory, and if there is no reference to
+	one then it is automatically unloaded. The same for pointer attributes.
+
+-	Let's handle the fixed attributes in the same way. There is no guarantee
+	that a fixed attribute is in memory! The same handling is better.
+
+-	There should be a flag indicating that this object should stay in memory
+	even if there is no reference to it. Some speedup is possible in this
+	way.
+
+LOCKING MODES
+-------------
+
+-	When a CCoreObject is in memory, then NO_DEL (NOEXCL)
+	lock (maybe refcount) must be on the object.
+
+?	How do we lock lists. Can (do we have to) lock the whole list?
+	Can (do we want to) lock items in a list. Is the lock on an item
+	the same as on the object?
+
+-	It is possible to NO_DEL lock an object, but still delete a reference
+	to it, thus there must be locks on list items. Well, every list item
+	will be a separate object, thus they can manage their lock. So
+	plain C++ list do not have to care about locks.
+
+-	The repository locks whole objects, not interfaces (why?),
+	but still there might be a point to store all locking fields
+	in a separate InterfaceDef.
+
+-	When a CCoreObject is in memory and is loaded, then no other
+	Core can edit this object. Thus it is NO_EDIT (EXCL) locked.
+
+-	We have to provide functionality to wipe out all locks (after a crash)
+	from the database. (Maybe selective, but later)
+
+.	Let's examine a real-world situation: we edit a model in a window:
+
+	model being edited:	EXCLUSIVE WRITE
+							no one else can read/write it "inside"
+							it won't be deleted
+
+	model inside:			EXCLUSIVE WRITE
+							no one else can read/write it "outside"
+							no one else can delete it, but it
+							can be deleted from here (if no other lock)
+
+	port in this model:		NO_DELETE
+							no one can delete it
+							no one can modify it "outside"
+
+	other deep children:	can be freely edited
+
+-	Let's consider this example with our object structure in mind:
+
+	Model:					NO DELETE
+
+	Model Attributes:		EXCLUSIVE READ/WRITE/DELETE
+
+	Aspect Parts:			EXCLUSIVE READ/WRITE/DELETE
+
+	Inside Model:			POSSIBLE DELETE
+
+	Inside 
+
+-	We need a NONEXSCLUSIVE NO DELETE locking that is implemented
+	by reference counts. Every object whose objid is loaded into memory
+	(Core) must be locked this way.
+
+-	The NO DELETE lock spreads to fathers (all the way to the root),
+	reftos (all the way to the original model), we have to follow all
+	ref attributes (connection's to and from fields).
+
+?	What about lists and NO DELETE locks? The father is locked,
+	but how can we remove the children from the children list.
+	Can we remove the children from the list without deleting the
+	children?
+
+-	Since we are caching the deletions, we keep the object that is
+	to be deleted, thus the children is the only object that can remember
+	to delete itself and remove itself from the children list.
+
+-	Actually, the father Attribute is responsible for removing
+	itself from the children list. This could (somehow) solve the
+	problem, when someone wants to change the father only, but not
+	deleting the object (move).
+
+-	Thus each reference Attribute is coupled with a Relationship Class
+	(IRelationShip), and when deleting/modifying the refto pointer,
+	this class removes/adds this Attribute to the references list of
+	the target object.
+
+?	How can we lock an object with NO_DEL and avoid to be loaded/kept in
+	memory by the repository? (see the REPOSITORY section)
+
+-	When saving the objects to the repository we release the NO_DEL locks
+	when the object in memory is destroyed.
+
+-	the NO_DEL lock must follow the	fathers, and if any of them fail
+	then we cannot lock.
+
+-	Delete spreads along all refto attributes, whose father is not this
+	model (that is all children, subtypes, connections (from,to), etc.)
+
+-	NO_DEL locks follow all refto attributes whose father is this model.
+
+-	We cannot delete an attribute if it is fixed. Deletion of attributes
+	does not spread to the model.
+
+-	We have four type of locking modes. Each object in memory locks
+	the object in the database with one of these modes.
+
+		exist_lock	(no one can delete this object)
+		read_lock	(no one can write this object, no one
+					can modify/add/delete attributes)
+		write_lock	(exclusive, we want to modify/add/delete attributes)
+		delete_lock	(exclusive, we want to delete this object,
+					and modify/add/delete attributes)
+
+-	We have two locking fields: A and B (exist_lock and read_lock)
+
+							write_lock			write_lock
+							A=0, B=-1			exist_lock
+												A>0, B=-1
+
+		delete_lock			no_lock				exist_lock
+		A=-1, B=0			A=0, B=0			A>0, B=0
+
+							read_lock			read_lock
+							A=0, B>0			exist_lock
+												A>0, B>0
+
+-	There are two types of attributes: autolock attributes, and
+	manuallock attributes. When the model is read_locked then
+	no one can modify/add/delete the all autolock attributes, and
+	all of these autolock attributes are loaded in memory. The
+	same for write, but that is exclusive.
+
+-	Manuallock attributes are not loaded into memory automatically,
+	they must be loaded explicitly. These are designed for pointer
+	attributes (the target side). We have two choices, either we cannot
+	garantee that these will be up to date at any given time, or
+	we use a special locking field for them.
+
+?	What happen when we load a model in memory, load all autolock
+	attributes, some of them are pointer attributes. Then we have to
+	load the pointer attributes themself, and their fathers too.
+	Do we have to load these father's other autolock attributes?
+
+-	If we do, then children cannot be autolock attributes, as this
+	would load all the objectstructure into memory.
+
+-	Maybe the objects should only have an exist_lock, and there should
+	be attribute groups with separate read_locks. This would even be
+	better for outer attributes and inner attributes for models.
+
+-	For pointer attributes we need adddel_lock, which prevents everybody
+	from reading/writing the whole list. The separate entries are
+	locked from the owner of the pointer attribute, and adding/deleting
+	are managed from there. The list in memory is NOT (necessarily)
+	complete.
+
+-	We have to indicate somehow that a new pointer could point here in
+	one of the core projects in memory, thus this list cannot be fixed
+	(readed) completely. So locking based on the pointer objects is not
+	enough.
+
+-	There is a point of using write_lock on pointer lists too. It is
+	guaranteed that the list is complete and we can add/delete from it.
+
+-	If a pointer-list is adddel_locked then the pointer attributes
+	can be locked arbitrarily (but must be in memory, of course).
+
+-	If a pointer-list is read_locked or write_locked then all the
+	pointer attributes must be in memory (read or write locked).
+
+-	If a pointer attribute is write locked, then the pointer list
+	must be adddel_locked or write_locked. (if we do not want problems
+	at writing, and want predictable operation)
+
+-	If an object is loaded (exist_lock), then we have to load all
+	target objects, thus we have to load all of the owned pointer
+	attributes (read_lock or write_lock). Therefore plain exist_lock
+	does not exist, we must have at least read_lock on owned pointers.
+
+-	If we want to unload an object, then we have to remove it from all
+	pointer list. But if a pointer list is locked read or write
+	(not adddel), then we cannot remove one element from the list. The
+	list must be complete. Thus we have to have some reference counting.
+	If no element in the list is needed then we can unload the whole
+	list. This will be tricky.
+
+-	We have to do this for groups instead of the whole list.
+
+-	This is getting VERY COMPLICATED, with locks. We could do this, but
+	this is the reinventing of the object-databases with full locking
+	features. Especially lock groups would lead us to a mess. It won't
+	be easily accepted, it would have consequences to meta-modelling,
+	editor writing, etc. Since locking is NOT the main goal in this Core
+	project, we can have some compromises.
+
+-	We DO NOT want to garatee that a whole list (pointers) are in the
+	memory (READ and WRITE locks for lists). This would lead to identity
+	and unloading issues. Especially, refcount management is very hard.
+	So the pointer lists are always partial. There will be a way to read
+	the current list from the database, but it is not guaranteed that it
+	is complete. Also, if an object has no references and not modified
+	then it will unload itself from memory AND remove itself from the
+	appropiate lists.
+
+-	There are two locking modes:
+
+	LOCK_SHARED
+		no attributes can be modified,
+		the pointer lists can be modified (children, references, etc.)
+
+	LOCK_EXCLUSIVE
+		the attributes can be modified
+		the pointer lists can be modified as previously.
+
+REPOSITORY DOC
+--------------
+
+	OBJID:	VARIANT, (0 to 4) as Long
+	GUID:	VARIANT, (0 to 15) as Byte
+
+
+THE NEW WAVE
+------------
+
+-	CoreAttribute objects has no exposed COM interfaces. It will be difficult to
+	maintain the references along with locks and backups.
+
+-	Every CoreObejct has a fixed list of attributes. The child attributes are
+	implemented in a object list. That is the child attributes are not implemented
+	on the CoreObject level. This simplifies handling.
+
+-	Thus each MetaAttribute can provide a list of (fixed) attributes, and
+	a list of (fixed) collections. Each collection contains the objects that
+	have a pointer (with the attrid) to this object.
+
+-	Each CoreObject has one interface in the Repository
+
+********************************************************************************
+
+LOCKING
+-------
+
+-	Four different locking states, they are mutually exclusive:
+
+										attributes		collections
+		LOCKING_NONE		none		no access		read, no add, incomplete list
+		LOCKING_READ		shared		read			read, no add, complete list
+		LOCKING_WRITE		shared		read/write		read and add, incomplete list
+		LOCKING_EXCLUSIVE	exclusive	read/write		read and add, complete list
+
+-	First scenario. We follow pointers and load every object into memory. We lock
+	them to prevent deletion.
+
+
+	ATTRID_FATHER:			LOCKING_SHARED
+	every pointer:			LOCKING_SHARED
+
+	ATTRID_SUBTYPES:		LOCKING_SHARED
+
+-	Second scenario. We do not load ojbects into memory along pointers. But when we
+	want to delete an object then we follow the collections. Anyway, we have to
+	delete them, and the Storage might not provide this functionality. Also, if it
+	does then for undo we have to load those objects anyway.
+
+	normal read and edit, no delete:
+		attributes to be writed:			LOCKING_WRITE 
+		attributes to be readed:			LOCKING_READ or WRITE 
+		subtypes:							LOCKING_READ or EXCLUSIVE
+		other pointers and collections:		LOCKING_NONE
+		children subtypes:					LOCKING_READ or EXCLUSIVE
+
+		changes made to attributes are propagated to the subtypes
+
+	deletion of object:
+		all collections:					LOCKING_EXCLUSIVE
+		subtypes:							LOCKING_EXCLUSIVE
+		collections from pointed objects:	LOCKING_WRITE or EXCLUSIVE
+		children subtypes:					LOCKING_EXCLUSIVE
+
+
+	addition of a reference:
+		subtypes:							LOCKING_READ
+		refrences:							LOCKING_WRITE
+
+	addition of a child
+		subtypes (object):					LOCKING_READ or EXCLUSIVE
+		children:							LOCKING_EXCLUSIVE
+
+	addition of a new subtype:
+		subtypes:							LOCKING_EXCLUSIVE
+
+-	When a collection is loaded into memory (partial), and an object on this 
+	collection is loaded too, then the pointer must be locked by LOCKING_SHARED
+	or LOCKING_EXCLUSIVE.
+
+-	Collections do not inherit to subtypes. Except for the children, and there 
+	we need to make new copies. So basically if someone moves an object into
+	another then that forces a copy in the subtypes.
+
+-	Clone follows the children, and copies everything except the collections.
+	It has built in resolution. If a pointer of a child points inside then it
+	is preserved. Otherwise it points outside. After cloning the father attribute
+	of the object is empty.
+
+POINTERS AND COLLECTIONS
+------------------------
+
+-	That would be very nice if the directed graph on the objects with pointers have
+	no cycle.
+
+TRANSACTIONS AND UNDO
+---------------------
+
+-	We keep the undo information in a list at the attribute level,
+	because the undo should not copy data while making a backup.
+	With the STL splice operation we can do this on lists.
+
+-	We keep all the locks for undo. User cannot release a lock,
+	because the undo could fail (also data changes are possible).
+	The user can empty the undo-list, and then the locks 
+	can be modified.
+
+	begin transaction:
+		  on the special list
+		- gaining locks (modifying the database)
+		- reading data from database
+		- modifications are in memory
+
+	commit transaction:
+		- writing cached data into database
+
+	abort transaction:
+		- discard changes in memory
+		- return the gained locks (modifying database)
+
+	undo transaction:
+		- we have all the locks necessary to modify the data
+		- we change the database
+		- put this undone transactions on a special list for redo
+
+	redo transaction:
+		- we have all the locks necessary to modify the data
+		- change the database
+		- put this redone transaction on the list for undo
+
+	at the begin transaction:
+		- discard all data that are not needed (new/undone and old undo info)
+		- update the locks, here we might release access rights
+
+-	On the value list of the attrubute the first element is always the
+	current value. At undo, we put this at the end of the list.
+	At a new transaction we can remove these undone items from the end
+	of the list.
+
+-	values in an attribute in an active transaction:
+	
+	<modified value, tr 8>
+	<undo item, tr 6>
+	<undo item, tr 5>
+	<collected value, tr 4-0>
+
+-	values in an attribute between transaction (undo, redo)
+
+	<undo item, tr 5>
+	<collected value, tr 4-0>
+	<undone item, tr 8>
+	<undone item, tr 6>
+
+LOCKING
+-------
+
+-	LOCKING_NONE: the attribute is readable, can return incomplete and/or
+	not up-to-date information, consecutive calls can return different values.
+
+-	LOCKING_READ: the attribute is readable, always return complete and 
+	up-to-data information, consecutive calls return the same value,
+	shared access, others can have only LOCKING_NONE or LOCKING_READ locks.
+
+-	LOCKING_WRITE: the attribute is readable as LOCK_NONE, and implicite
+	writeable for collections. The collection is properly maintained,
+	because pointers must have exclusive locks.
+
+-	LOCKING_EXCLUSIVE: the attribute readable and writable, reading is like
+	as LOCKING_READ, exclusive, others can have only LOCKING_NONE locks.
+
+-	There are system-level lockings and client-level lockings. The join of these
+	constitutes the file-level locking what other cores see. We release system-
+	level lockings as soon as possible. The client with client-level lockins can
+	keep the desired locking on the object.
+
+-	With LOCKING_READ we keep the cahced data in memory while the file-level
+	LOCKING_READ holds.
+
+-	We must keep a system-level LOCK_EXCLUSIVE as long as we have undo-item.
+	At the Discard_LastUndo we release this.
+
+CACHING
+-------
+
+	We assume that the locking is fixed. If it changes over time, then everithing
+	is much more complicated. 
+
+-	LOCKING_NONE: the attribute is cahced for one transaction. It is desirable to
+	provide the same value in the same transaction, and also efficient. It is
+	not good to cahce it for longer time, because then it looses the fast peek
+	functionality.
+
+-	LOCKING_READ: we can cache it still the file-level LOCKING_READ holds.
+	We cannot cache it longer, and it is efficient to cahce it till then.
+
+-	LOCKING_WRITE: the same as in LOCKING_NONE, the value is cahced in one
+	transaction, but is released after the transaction. In the next transaction
+	we might want to read it, and then again the same peek functionality.
+
+-	LOCKING_EXCLUSIVE: the attribute must be cahced for length of the undo queue,
+	because we want to write the undo information back. Or the other way around,
+	we hold the exclusive lock while we have undo information to write back.
+
+LIFETIME OF OBJECTS
+-------------------
+
+-	Collection Attribute: It is destroyed if there is no COM reference to it,
+	and it is empty (no living pointers point here). The collection list is not
+	necessarily full, when reading it then we load the list again from the storage.
+	Collections maintain no undo information. It is handled from the pointer side.
+
+-	Regular Attribute: It is destoroyed if there is no COM reference to it,
+	has no undo item (LOCK_EXCLUSIVE), and has no read-value (LOCK_READ).
+	If a lock attribute changes from LOCK_READ to LOCK_NONE then we destroy
+	all read-values from the corresponding attributes (and free those attributes).
+
+-	Lock Attribute: it is destroyed if has no COM references, and the file-level
+	lock is LOCK_NONE.
+
+-	Object: it is destroyed if has no COM references, has no undo information
+	(delete, create), and has no loaded attributes.
+

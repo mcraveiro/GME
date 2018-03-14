@@ -1,0 +1,27 @@
+HKCR
+{
+	Mga.MgaParser.1 = s 'MgaParser Class'
+	{
+		CLSID = s '{94D6FB54-1F7C-11D4-B3D0-005004D38590}'
+	}
+	Mga.MgaParser = s 'MgaParser Class'
+	{
+		CLSID = s '{94D6FB54-1F7C-11D4-B3D0-005004D38590}'
+		CurVer = s 'Mga.MgaParser.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {94D6FB54-1F7C-11D4-B3D0-005004D38590} = s 'MgaParser Class'
+		{
+			ProgID = s 'Mga.MgaParser.1'
+			VersionIndependentProgID = s 'Mga.MgaParser'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			val AppID = s '{461F30AF-3BF0-11D4-B3F0-005004D38590}'
+			'TypeLib' = s '{70C41B15-E3CE-11D3-B37A-005004D38590}'
+		}
+	}
+}

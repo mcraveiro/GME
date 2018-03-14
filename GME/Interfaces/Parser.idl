@@ -1,0 +1,126 @@
+import "oaidl.idl";
+import "ocidl.idl";
+
+#include "InterfaceVersion.h"
+
+import "Mga.idl";
+import "MgaUtil.idl";
+
+// --------------------------- Parser IDL
+
+// ------- Typedefs
+
+typedef enum inserttype_enum {
+	ADDITION = 0,
+	MERGE    = 1
+} inserttype_enum;
+
+[
+	object,
+	uuid(70C41B24-E3CE-11D3-B37A-005004D38590),
+	dual,
+	helpstring("IMgaMetaParser Interface"),
+	pointer_default(unique)
+]
+interface IMgaMetaParser : IDispatch
+{
+	[helpstring("method Parse")]
+	HRESULT Parse([in] BSTR xmlfile, [in] BSTR connection);
+};
+
+[
+	object,
+	uuid(A5D0DAE6-16EE-11D4-B3C2-005004D38590),
+	dual,
+	helpstring("IMgaDumper Interface"),
+	pointer_default(unique)
+]
+interface IMgaDumper : IDispatch
+{
+	[helpstring("method DumpProject")]
+	HRESULT DumpProject([in] IMgaProject *p, [in] BSTR xmlfile);
+
+	[helpstring("method DumpFCOs")]
+	HRESULT DumpFCOs([in] IMgaProject *proj,[in] IMgaFCOs *p, [in] IMgaFolders *f, [in] IMgaRegNodes *r, [in] BSTR xmlfile);
+
+	[helpstring("method DumpClos")]
+	HRESULT DumpClos( [in] IMgaFCOs *fco, [in] IMgaFolders *fld, [in] BSTR xmlfile, [in] int libr_stub);
+
+	[helpstring("method DumpClos with top objects specified")]
+	HRESULT DumpClosR(  [in] IMgaFCOs *fco, [in] IMgaFolders *fld, [in] BSTR xmlfile,
+						[in] IMgaFCOs *topfco, [in] IMgaFolders *topfld, [in] int options, [in] BSTR abspath, [in] BSTR acceptingkinds);
+
+	[propput, helpstring("property FormatVersion")]
+	HRESULT FormatVersion([in] long p);
+};
+
+[
+	object,
+	uuid(3813768B-5A4C-477D-BCD5-1776089948EC),
+	dual,
+	helpstring("IMgaDumper2 Interface"),
+	pointer_default(unique)
+]
+interface IMgaDumper2 : IMgaDumper
+{
+	HRESULT DumpProject2([in] IMgaProject *p, [in] BSTR xmlfile, ULONGLONG hwndParent);
+	HRESULT DumpFCOs2([in] IMgaProject *proj,[in] IMgaFCOs *p, [in] IMgaFolders *f, [in] IMgaRegNodes *r, [in] BSTR xmlfile, ULONGLONG hwndParent);
+}
+
+[
+	object,
+	uuid(94D6FB53-1F7C-11D4-B3D0-005004D38590),
+	dual,
+	helpstring("IMgaParser Interface"),
+	pointer_default(unique)
+]
+interface IMgaParser : IDispatch
+{
+	[helpstring("method GetXMLInfo")]
+	HRESULT GetXMLInfo([in] BSTR xmlfile, [out] BSTR *Paradigm, [out] BSTR *parversion, [out] VARIANT *parguid, [out] BSTR *basename, [out] BSTR *ver);
+
+	[helpstring("method ParseProject")]
+	HRESULT ParseProject([in] IMgaProject *p, [in] BSTR xmlfile);
+
+	[helpstring("method ParseFCO")]
+	HRESULT ParseFCOs([in] IMgaObject *here, [in] BSTR xmlfile);
+
+	[helpstring("method GetClipXMLInfo")]
+	HRESULT GetClipXMLInfo([in] BSTR xmlfile, [in] IMgaObject *Target, [out] VARIANT_BOOL *parguid, [out] BSTR *acckind, [out] BSTR *ver);
+
+	[helpstring("method ParseCLOSURE version 1 - basic")]
+	HRESULT ParseClos1([in] IMgaObject *here, [in] BSTR xmlfile);
+
+	[helpstring("method ParseCLOSURE version 4 - smart")]
+	HRESULT ParseClos4([in] IMgaObject *here, [in] BSTR xmlfile, [in] int options);
+
+};
+
+[
+	object,
+	uuid("E39BEA37-384D-423B-ADDF-2BB13550F577"),
+	dual,
+	helpstring("IMgaParser2 Interface"),
+	pointer_default(unique)
+]
+interface IMgaParser2 : IMgaParser
+{
+	HRESULT ParseProject2([in] IMgaProject *p, [in] BSTR xmlfile, ULONGLONG hwndParent);
+	HRESULT ParseFCOs2([in] IMgaObject *here, [in] BSTR xmlfile, ULONGLONG hwndParent);
+	HRESULT GetXMLParadigm([in] BSTR xmlfile, [out] BSTR *Paradigm);
+};
+
+[
+	object,
+	uuid("5CAB528B-474B-4C52-BE40-74FF29AFBB58"),
+	dual,
+	helpstring("IMgaParser3 Interface"),
+	pointer_default(unique)
+]
+interface IMgaParser3 : IMgaParser2
+{
+	[propget]
+	HRESULT Resolver([out, retval] IMgaResolver** MgaResolver);
+	[propput]
+	HRESULT Resolver([in] IMgaResolver* MgaResolver);
+};

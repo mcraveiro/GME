@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="MyPython" version="1.0" type="Interpreter" paradigm="MetaGME">
+    <iconpath value="Icons\pygme.ico" />
+    <tooltip value="My Python Interpreter" />
+</component>

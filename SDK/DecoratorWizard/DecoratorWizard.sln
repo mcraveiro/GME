@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{AC382FF9-112F-40e5-9B71-0504D1771A8D}") = "DecoratorWizard", "DecoratorWizard.vcproj", "{138D07E7-C3B8-40b6-BA96-5455A461A4A8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{138D07E7-C3B8-40b6-BA96-5455A461A4A8}.Debug|Win32.ActiveCfg = Debug|Win32
+		{138D07E7-C3B8-40b6-BA96-5455A461A4A8}.Debug|Win32.Build.0 = Debug|Win32
+		{138D07E7-C3B8-40b6-BA96-5455A461A4A8}.Release|Win32.ActiveCfg = Release|Win32
+		{138D07E7-C3B8-40b6-BA96-5455A461A4A8}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
